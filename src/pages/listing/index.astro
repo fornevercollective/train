@@ -1,0 +1,380 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+	title="Listing Profile | Erika Market Directory"
+	description="Inspect a single market listing from the Erika dataset."
+	pageClass="page-stock"
+	eyebrow="Listing view"
+	subtitle="Single-record dashboard with core metadata, dates, and classification."
+>
+	<section class="container listing-shell">
+		<header class="header">
+			<div class="disclaimer" role="note" aria-label="Listing disclaimer">
+				<p class="disclaimer__text">
+					This listing profile is a static metadata panel for research and education. It does
+					not imply investability, recommendation, or data completeness beyond the Erika
+					source files.
+				</p>
+			</div>
+		</header>
+
+		<div id="listing-status" class="metaHint">Fetching record…</div>
+
+		<div id="listing-content" hidden>
+			<div class="stockTopBand">
+				<article class="card listing-hero">
+					<div class="tileTop">
+						<div>
+							<div class="ticker">Listing profile</div>
+							<div id="listing-subtitle" class="name">
+								This profile loads from the same static catalog used on the main directory page.
+							</div>
+						</div>
+						<div class="hero-actions">
+							<a class="button-secondary" href="../#explore">← Directory</a>
+						</div>
+					</div>
+
+					<div class="listing-hero-main">
+						<div>
+							<p id="listing-id" class="metaPill"></p>
+							<h1 id="listing-title">Loading listing…</h1>
+						</div>
+						<span id="listing-coverage" class="badge muted">missing</span>
+					</div>
+
+					<div id="listing-tags" class="listing-tags"></div>
+				</article>
+
+				<aside class="card listing-metrics">
+					<div class="tileTop">
+						<div>
+							<div class="ticker">Quick view</div>
+							<div class="name">Core dates and notes, similar to the reference page’s top band.</div>
+						</div>
+					</div>
+					<div class="key-metrics">
+						<div class="metric-card">
+							<span class="muted">Company creation</span>
+							<strong id="listing-company-date">Unavailable</strong>
+						</div>
+						<div class="metric-card">
+							<span class="muted">IPO creation</span>
+							<strong id="listing-ipo-date">Unavailable</strong>
+						</div>
+						<div class="metric-card">
+							<span class="muted">First trade</span>
+							<strong id="listing-first-trade">Unavailable</strong>
+						</div>
+					</div>
+					<p id="listing-notes" class="listing-notes muted"></p>
+				</aside>
+			</div>
+
+			<section class="listing-panels">
+				<article class="card listing-panel">
+					<div class="tileTop">
+						<div>
+							<div class="ticker">Identity</div>
+							<div class="name">Ticker, venue, jurisdiction, and entity fields.</div>
+						</div>
+					</div>
+					<dl class="detail-grid" id="identity-grid"></dl>
+				</article>
+
+				<article class="card listing-panel">
+					<div class="tileTop">
+						<div>
+							<div class="ticker">Classification</div>
+							<div class="name">Security type, sector/category, and source annotations.</div>
+						</div>
+					</div>
+					<dl class="detail-grid" id="classification-grid"></dl>
+				</article>
+
+				<article class="card listing-panel">
+					<div class="tileTop">
+						<div>
+							<div class="ticker">Aliases</div>
+							<div class="name">Alternate names and search variants stored in the dataset.</div>
+						</div>
+					</div>
+					<div id="alias-list" class="alias-list muted">No aliases provided.</div>
+				</article>
+			</section>
+		</div>
+	</section>
+
+	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
+		const statusElement = document.querySelector('#listing-status');
+		const contentElement = document.querySelector('#listing-content');
+		const titleElement = document.querySelector('#listing-title');
+		const subtitleElement = document.querySelector('#listing-subtitle');
+		const idElement = document.querySelector('#listing-id');
+		const coverageElement = document.querySelector('#listing-coverage');
+		const companyDateElement = document.querySelector('#listing-company-date');
+		const ipoDateElement = document.querySelector('#listing-ipo-date');
+		const firstTradeElement = document.querySelector('#listing-first-trade');
+		const notesElement = document.querySelector('#listing-notes');
+		const tagsElement = document.querySelector('#listing-tags');
+		const identityGrid = document.querySelector('#identity-grid');
+		const classificationGrid = document.querySelector('#classification-grid');
+		const aliasList = document.querySelector('#alias-list');
+		const dateFormatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' });
+
+		function escapeHtml(value) {
+			return String(value || '').replace(/[&<>'"]/g, (character) => {
+				return (
+					{
+						'&': '&amp;',
+						'<': '&lt;',
+						'>': '&gt;',
+						"'": '&#39;',
+						'"': '&quot;',
+					}[character] || character
+				);
+			});
+		}
+
+		function formatDate(value) {
+			if (!value) return 'Unavailable';
+			const date = new Date(value);
+			return Number.isNaN(date.getTime()) ? value : dateFormatter.format(date);
+		}
+
+		function coverageClass(coverage) {
+			if (coverage === 'complete') return 'success';
+			if (coverage === 'partial') return 'warning';
+			return 'muted';
+		}
+
+		function renderPairs(target, entries) {
+			target.innerHTML = entries
+				.map(
+					([label, value]) => `
+						<div>
+							<dt>${escapeHtml(label)}</dt>
+							<dd>${escapeHtml(value || 'Unavailable')}</dd>
+						</div>
+					`,
+				)
+				.join('');
+		}
+
+		async function loadCatalog() {
+			const response = await fetch(`${baseUrl}data/catalog.json`);
+			if (!response.ok) {
+				throw new Error(`Failed to load catalog: ${response.status}`);
+			}
+
+			return response.json();
+		}
+
+		(async () => {
+			const recordId = new URLSearchParams(window.location.search).get('id');
+			if (!recordId) {
+				statusElement.textContent = 'Choose a listing from the directory to open its profile.';
+				titleElement.textContent = 'No listing selected';
+				subtitleElement.textContent = 'Use the main directory page to pick a ticker, ETF, or exchange listing.';
+				return;
+			}
+
+			try {
+				const catalog = await loadCatalog();
+				const record = catalog.find((entry) => entry.id === recordId);
+
+				if (!record) {
+					statusElement.textContent = 'That listing was not found in the generated catalog.';
+					titleElement.textContent = 'Listing not found';
+					subtitleElement.textContent = recordId;
+					return;
+				}
+
+				document.title = `${record.nm} | Erika Market Directory`;
+				titleElement.textContent = record.nm;
+				subtitleElement.textContent = `${record.id} · ${record.ty} · ${record.ex}`;
+				idElement.textContent = record.id;
+				coverageElement.textContent = record.dc || 'missing';
+				coverageElement.className = `badge ${coverageClass(record.dc)}`;
+				companyDateElement.textContent = formatDate(record.cd);
+				ipoDateElement.textContent = formatDate(record.ip);
+				firstTradeElement.textContent = formatDate(record.ft);
+				notesElement.textContent = record.nt || 'No additional notes were provided for this listing.';
+
+				tagsElement.innerHTML = [
+					record.ty,
+					record.ex,
+					record.co,
+					record.se || record.ec,
+					record.lx,
+				]
+					.filter(Boolean)
+					.map((value) => `<span class="badge muted">${escapeHtml(value)}</span>`)
+					.join('');
+
+				renderPairs(identityGrid, [
+					['Symbol', record.sy],
+					['Exchange', record.ex],
+					['Country', record.co],
+					['Country code', record.cc],
+					['ISIN', record.is],
+					['Legal entity', record.ln || record.nm],
+				]);
+
+				renderPairs(classificationGrid, [
+					['Security type', record.ty],
+					['Sector', record.se],
+					['ETF category', record.ec],
+					['Listing exchange label', record.lx],
+					['Source universe', record.su],
+					['Date coverage', record.dc],
+				]);
+
+				aliasList.innerHTML =
+					record.al && record.al.length
+						? record.al.map((value) => `<span class="badge muted">${escapeHtml(value)}</span>`).join('')
+						: '<span class="muted">No aliases provided.</span>';
+
+				statusElement.textContent = 'Profile ready.';
+				contentElement.hidden = false;
+			} catch (error) {
+				statusElement.textContent = error.message;
+				titleElement.textContent = 'Failed to load listing';
+				subtitleElement.textContent = 'The static catalog JSON could not be read.';
+			}
+		})();
+	</script>
+</Layout>
+
+<style>
+	.listing-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.header {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.stockTopBand {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.9fr);
+		gap: 16px;
+	}
+
+	.listing-hero,
+	.listing-metrics,
+	.listing-panel {
+		padding: 16px;
+	}
+
+	.listing-hero-main {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 12px;
+		margin-top: 14px;
+		flex-wrap: wrap;
+	}
+
+	.listing-hero h1 {
+		margin: 12px 0 0;
+		font-family: var(--font-serif);
+		font-size: clamp(2.8rem, 5vw, 4.5rem);
+		font-weight: 400;
+		line-height: 0.96;
+		letter-spacing: 0.01em;
+		max-width: 10ch;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.listing-tags,
+	.alias-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 16px;
+	}
+
+	.key-metrics,
+	.listing-panels {
+		display: grid;
+		gap: 16px;
+	}
+
+	.key-metrics {
+		grid-template-columns: 1fr;
+		margin-top: 14px;
+	}
+
+	.metric-card,
+	.detail-grid div {
+		padding: 12px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.metric-card span,
+	.metric-card strong {
+		display: block;
+	}
+
+	.metric-card strong {
+		margin-top: 6px;
+		font-size: 1.15rem;
+	}
+
+	.listing-notes {
+		margin: 14px 0 0;
+		line-height: 1.65;
+	}
+
+	.listing-panels {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.detail-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 14px;
+	}
+
+	.detail-grid dt {
+		color: var(--muted);
+		font-family: var(--font-mono);
+		font-size: 11px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.detail-grid dd {
+		margin: 6px 0 0;
+		font-weight: 600;
+		line-height: 1.45;
+	}
+
+	@media (max-width: 1100px) {
+		.stockTopBand,
+		.listing-panels {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.detail-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

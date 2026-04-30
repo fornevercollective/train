@@ -1,0 +1,337 @@
+{
+  "totalSymbols": 60200,
+  "uniqueCountries": 80,
+  "uniqueExchanges": 74,
+  "withCompanyCreation": 4555,
+  "withIpoCreation": 1806,
+  "securityTypes": [
+    {
+      "name": "Stock",
+      "count": 41197
+    },
+    {
+      "name": "ETF",
+      "count": 19003
+    }
+  ],
+  "topCountries": [
+    {
+      "name": "United States",
+      "count": 20402
+    },
+    {
+      "name": "China",
+      "count": 5994
+    },
+    {
+      "name": "Canada",
+      "count": 4947
+    },
+    {
+      "name": "South Korea",
+      "count": 3369
+    },
+    {
+      "name": "Japan",
+      "count": 3309
+    },
+    {
+      "name": "Ireland",
+      "count": 2578
+    },
+    {
+      "name": "Taiwan",
+      "count": 2333
+    },
+    {
+      "name": "Australia",
+      "count": 1743
+    },
+    {
+      "name": "Brazil",
+      "count": 1562
+    },
+    {
+      "name": "United Kingdom",
+      "count": 1345
+    },
+    {
+      "name": "Luxembourg",
+      "count": 1028
+    },
+    {
+      "name": "Malaysia",
+      "count": 934
+    }
+  ],
+  "topExchanges": [
+    {
+      "name": "OTC",
+      "count": 8193
+    },
+    {
+      "name": "NASDAQ",
+      "count": 5556
+    },
+    {
+      "name": "LSE",
+      "count": 3767
+    },
+    {
+      "name": "TSE",
+      "count": 3191
+    },
+    {
+      "name": "SZSE",
+      "count": 3083
+    },
+    {
+      "name": "NYSE",
+      "count": 2986
+    },
+    {
+      "name": "SSE",
+      "count": 2789
+    },
+    {
+      "name": "NYSEARCA",
+      "count": 2635
+    },
+    {
+      "name": "NYSE ARCA",
+      "count": 2576
+    },
+    {
+      "name": "XETRA",
+      "count": 2228
+    },
+    {
+      "name": "KRX",
+      "count": 1796
+    },
+    {
+      "name": "TSX",
+      "count": 1665
+    }
+  ],
+  "topSectors": [
+    {
+      "name": "(none)",
+      "count": 26253
+    },
+    {
+      "name": "Industrials",
+      "count": 6882
+    },
+    {
+      "name": "Information Technology",
+      "count": 4478
+    },
+    {
+      "name": "Financials",
+      "count": 4280
+    },
+    {
+      "name": "Materials",
+      "count": 4117
+    },
+    {
+      "name": "Consumer Discretionary",
+      "count": 3797
+    },
+    {
+      "name": "Health Care",
+      "count": 3553
+    },
+    {
+      "name": "Consumer Staples",
+      "count": 1792
+    },
+    {
+      "name": "Real Estate",
+      "count": 1627
+    },
+    {
+      "name": "Communication Services",
+      "count": 1614
+    },
+    {
+      "name": "Energy",
+      "count": 1088
+    },
+    {
+      "name": "Utilities",
+      "count": 719
+    }
+  ],
+  "dateCoverage": {
+    "complete": 1680,
+    "partial": 3001,
+    "missing": 55519
+  },
+  "featuredListings": [
+    {
+      "id": "KRX:000240",
+      "sy": "000240",
+      "ex": "KRX",
+      "nm": "Hankook Tire Worldwide",
+      "ty": "Stock",
+      "dc": "complete",
+      "su": "free_ticker_database",
+      "ln": "Hankook Tire & Technology",
+      "se": "Consumer Discretionary",
+      "co": "South Korea",
+      "cc": "KR",
+      "is": "KR7000240002",
+      "al": [
+        "hankook tire worldwide"
+      ],
+      "cd": "1941-01-01T00:00:00Z",
+      "ip": "2012-10-04T00:00:00Z",
+      "ft": "2012-10-04T00:00:00Z",
+      "lx": "Korean Stock Exchange",
+      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
+    },
+    {
+      "id": "SZSE:000078",
+      "sy": "000078",
+      "ex": "SZSE",
+      "nm": "Shenzhen Neptunus Bioengineering Co Ltd",
+      "ty": "Stock",
+      "dc": "complete",
+      "su": "free_ticker_database",
+      "ln": "Q11153061",
+      "se": "Health Care",
+      "co": "China",
+      "cc": "CN",
+      "is": "CNE000000X95",
+      "al": [
+        "shenzhen neptunus bioengineering"
+      ],
+      "cd": "1992-12-13T00:00:00Z",
+      "ip": "1998-01-01T00:00:00Z",
+      "ft": "1998-01-01T00:00:00Z",
+      "lx": "Shenzhen Stock Exchange",
+      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
+    },
+    {
+      "id": "HKEX:01199",
+      "sy": "01199",
+      "ex": "HKEX",
+      "nm": "COSCO SHIP PORT",
+      "ty": "Stock",
+      "dc": "complete",
+      "su": "free_ticker_database",
+      "ln": "COSCO Shipping Ports",
+      "co": "Bermuda",
+      "cc": "BM",
+      "is": "BMG2442N1048",
+      "al": [
+        "cosco ship port",
+        "cosco shipping ports"
+      ],
+      "cd": "1994-01-01T00:00:00Z",
+      "ip": "1994-12-19T00:00:00Z",
+      "ft": "1994-12-19T00:00:00Z",
+      "lx": "Hong Kong Stock Exchange",
+      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
+    },
+    {
+      "id": "HKEX:01208",
+      "sy": "01208",
+      "ex": "HKEX",
+      "nm": "MMG",
+      "ty": "Stock",
+      "dc": "partial",
+      "su": "free_ticker_database",
+      "ln": "Minerals and Metals Group",
+      "co": "Hong Kong",
+      "cc": "HK",
+      "is": "HK1208013172",
+      "cd": "2009-01-01T00:00:00Z"
+    },
+    {
+      "id": "HKEX:01364",
+      "sy": "01364",
+      "ex": "HKEX",
+      "nm": "GUMING",
+      "ty": "Stock",
+      "dc": "partial",
+      "su": "free_ticker_database",
+      "ln": "Good me",
+      "co": "Cayman Islands",
+      "cc": "KY",
+      "is": "KYG4212T1058",
+      "al": [
+        "guming",
+        "guming holdings"
+      ],
+      "cd": "2010-01-01T00:00:00Z"
+    },
+    {
+      "id": "HKEX:01508",
+      "sy": "01508",
+      "ex": "HKEX",
+      "nm": "CHINA RE",
+      "ty": "Stock",
+      "dc": "partial",
+      "su": "free_ticker_database",
+      "ln": "China Reinsurance",
+      "co": "China",
+      "cc": "CN",
+      "is": "CNE100002342",
+      "al": [
+        "china re",
+        "china reinsurance group"
+      ],
+      "ip": "2015-10-26T00:00:00Z",
+      "ft": "2015-10-26T00:00:00Z",
+      "lx": "Hong Kong Stock Exchange",
+      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
+    },
+    {
+      "id": "HKEX:01578",
+      "sy": "01578",
+      "ex": "HKEX",
+      "nm": "BANK OF TIANJIN",
+      "ty": "Stock",
+      "dc": "complete",
+      "su": "free_ticker_database",
+      "ln": "Bank of Tianjin",
+      "co": "China",
+      "cc": "CN",
+      "is": "CNE100002623",
+      "al": [
+        "bank of tianjin"
+      ],
+      "cd": "1996-01-01T00:00:00Z",
+      "ip": "2016-03-30T00:00:00Z",
+      "ft": "2016-03-30T00:00:00Z",
+      "lx": "Hong Kong Stock Exchange",
+      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
+    },
+    {
+      "id": "KRX:017800",
+      "sy": "017800",
+      "ex": "KRX",
+      "nm": "Hyundai Elevator",
+      "ty": "Stock",
+      "dc": "complete",
+      "su": "free_ticker_database",
+      "ln": "Hyundai Elevator",
+      "se": "Industrials",
+      "co": "South Korea",
+      "cc": "KR",
+      "is": "KR7017800004",
+      "al": [
+        "hyundai elevator"
+      ],
+      "cd": "1984-05-23T00:00:00Z",
+      "ip": "1996-07-03T00:00:00Z",
+      "ft": "1996-07-03T00:00:00Z",
+      "lx": "Korean Stock Exchange",
+      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
+    }
+  ],
+  "sourceCsv": "/Volumes/qbitOS/00.dev/cursor/erika/artifacts/ticker_checklist.csv"
+}

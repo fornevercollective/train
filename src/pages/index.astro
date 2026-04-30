@@ -1,0 +1,786 @@
+---
+import Layout from '../layouts/Layout.astro';
+import summary from '../generated/catalog-meta.json';
+
+const topCountries = summary.topCountries.slice(0, 8);
+const topExchanges = summary.topExchanges.slice(0, 8);
+const topSectors = summary.topSectors.filter((item) => item.name !== '(none)').slice(0, 8);
+const featuredListings = summary.featuredListings.slice(0, 6);
+const quickLinks = [
+	{ label: 'Complete date coverage', href: '?coverage=complete#explore' },
+	{ label: 'ETFs in the US', href: '?type=ETF&country=United%20States#explore' },
+	{ label: 'NASDAQ listings', href: '?exchange=NASDAQ#explore' },
+	{ label: 'Healthcare stocks', href: '?type=Stock&sector=Health%20Care#explore' },
+];
+---
+
+<Layout
+	title="Erika Market Directory"
+	description="Search 60k+ global stock and ETF listings from the Erika dataset in a fast GitHub Pages-ready directory."
+	pageClass="page-home"
+	eyebrow="Directory view"
+	subtitle="Static listing intelligence with search, filters, and profile pages."
+>
+	<section class="container home-shell">
+		<header class="header">
+			<div class="disclaimer" role="note" aria-label="Directory disclaimer">
+				<p class="disclaimer__text">
+					This directory is a static metadata browser for research and educational use. It is
+					not an offer to buy or sell securities, and it does not replace financial, legal, or
+					tax advice.
+				</p>
+			</div>
+		</header>
+
+		<div class="home-topBand">
+			<article class="card home-hero">
+				<div class="tileTop">
+					<div>
+						<div class="ticker">Directory search</div>
+						<h1>Explore Erika like a stock dashboard, not a CSV dump.</h1>
+						<p class="hero-lead">
+							A GitHub Pages-ready catalog for {summary.totalSymbols.toLocaleString()} global
+							listings across stocks and ETFs, with searchable metadata, exchange filters, and
+							date-coverage signals.
+						</p>
+					</div>
+				</div>
+				<div class="hero-actions">
+					<a class="button" href="#explore">Browse the directory</a>
+					{
+						featuredListings[0] && (
+							<a
+								class="button-secondary"
+								href={`listing/?id=${encodeURIComponent(featuredListings[0].id)}`}
+							>
+								Open featured profile
+							</a>
+						)
+					}
+				</div>
+				<div class="quick-links">
+					{
+						quickLinks.map((link) => (
+							<a class="badge muted" href={link.href}>
+								{link.label}
+							</a>
+						))
+					}
+				</div>
+			</article>
+
+			<aside class="card home-stats">
+				<div class="tileTop">
+					<div>
+						<div class="ticker">Coverage snapshot</div>
+						<div class="name">High-level shape of the Erika listing universe.</div>
+					</div>
+				</div>
+				<div class="stats-grid">
+					<div class="stat-block">
+						<span class="muted">Listings</span>
+						<strong>{summary.totalSymbols.toLocaleString()}</strong>
+					</div>
+					<div class="stat-block">
+						<span class="muted">Countries</span>
+						<strong>{summary.uniqueCountries.toLocaleString()}</strong>
+					</div>
+					<div class="stat-block">
+						<span class="muted">Exchanges</span>
+						<strong>{summary.uniqueExchanges.toLocaleString()}</strong>
+					</div>
+					<div class="stat-block">
+						<span class="muted">Company dates</span>
+						<strong>{summary.withCompanyCreation.toLocaleString()}</strong>
+					</div>
+					<div class="stat-block">
+						<span class="muted">IPO dates</span>
+						<strong>{summary.withIpoCreation.toLocaleString()}</strong>
+					</div>
+					<div class="stat-block">
+						<span class="muted">Complete coverage</span>
+						<strong>{summary.dateCoverage.complete.toLocaleString()}</strong>
+					</div>
+				</div>
+				<div class="stats-foot">
+					<span class="badge success">
+						{summary.securityTypes[0]?.name}: {summary.securityTypes[0]?.count.toLocaleString()}
+					</span>
+					<span class="badge muted">
+						{summary.securityTypes[1]?.name}: {summary.securityTypes[1]?.count.toLocaleString()}
+					</span>
+				</div>
+			</aside>
+		</div>
+
+		<section class="facet-strip">
+			<div class="card facet-card">
+				<div class="tileTop">
+					<div>
+						<div class="ticker">Top countries</div>
+						<div class="name">Most represented jurisdictions in the dataset.</div>
+					</div>
+				</div>
+				<div class="facet-list">
+					{
+						topCountries.map((item) => (
+							<a class="badge muted" href={`?country=${encodeURIComponent(item.name)}#explore`}>
+								{item.name} · {item.count.toLocaleString()}
+							</a>
+						))
+					}
+				</div>
+			</div>
+
+			<div class="card facet-card">
+				<div class="tileTop">
+					<div>
+						<div class="ticker">Top exchanges</div>
+						<div class="name">Quick pivots into the busiest listing venues.</div>
+					</div>
+				</div>
+				<div class="facet-list">
+					{
+						topExchanges.map((item) => (
+							<a class="badge muted" href={`?exchange=${encodeURIComponent(item.name)}#explore`}>
+								{item.name} · {item.count.toLocaleString()}
+							</a>
+						))
+					}
+				</div>
+			</div>
+
+			<div class="card facet-card">
+				<div class="tileTop">
+					<div>
+						<div class="ticker">Top sectors</div>
+						<div class="name">Fast routes into sector-based slices of the directory.</div>
+					</div>
+				</div>
+				<div class="facet-list">
+					{
+						topSectors.map((item) => (
+							<a class="badge muted" href={`?sector=${encodeURIComponent(item.name)}#explore`}>
+								{item.name} · {item.count.toLocaleString()}
+							</a>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="section-card card featured-section">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Featured profiles</div>
+					<h2>Examples with richer metadata</h2>
+					<p>
+						These picks surface listings with better date coverage and stronger identity
+						fields, similar to a “quick view” band on the reference page.
+					</p>
+				</div>
+			</div>
+
+			<div class="featured-grid">
+				{
+					featuredListings.map((item) => (
+						<a class="featured-card card" href={`listing/?id=${encodeURIComponent(item.id)}`}>
+							<div class="featured-card-head">
+								<div>
+									<h3>{item.nm}</h3>
+									<p>{item.id}</p>
+								</div>
+								<span class={`badge ${item.dc === 'complete' ? 'success' : 'warning'}`}>
+									{item.dc}
+								</span>
+							</div>
+							<div class="featured-card-meta">
+								<span>{item.ty}</span>
+								<span>{item.ex}</span>
+								<span>{item.co}</span>
+							</div>
+							<p class="featured-card-body">
+								{item.se || ('ec' in item ? item.ec : '') || 'No sector/category metadata'} ·
+								company {item.cd ? 'date included' : 'date missing'}
+								{item.ip ? ' · IPO date included' : ''}
+							</p>
+						</a>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="section-card card explorer-section" id="explore">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Directory explorer</div>
+					<h2>Search, slice, and open individual listing profiles</h2>
+					<p>
+						The browser below runs entirely from static JSON, so the site keeps the same
+						GitHub Pages-friendly footprint while feeling more like a data panel.
+					</p>
+				</div>
+			</div>
+
+			<div class="filters-grid">
+				<label class="field field-search">
+					<span>Search</span>
+					<input
+						id="filter-query"
+						type="search"
+						placeholder="Ticker, company, exchange, country, alias..."
+						autocomplete="off"
+					/>
+				</label>
+
+				<label class="field">
+					<span>Security type</span>
+					<select id="filter-type">
+						<option value="">All types</option>
+					</select>
+				</label>
+
+				<label class="field">
+					<span>Date coverage</span>
+					<select id="filter-coverage">
+						<option value="">Any coverage</option>
+						<option value="complete">Complete</option>
+						<option value="partial">Partial</option>
+						<option value="missing">Missing</option>
+					</select>
+				</label>
+
+				<label class="field">
+					<span>Country</span>
+					<input id="filter-country" list="country-options" placeholder="All countries" />
+					<datalist id="country-options"></datalist>
+				</label>
+
+				<label class="field">
+					<span>Exchange</span>
+					<input id="filter-exchange" list="exchange-options" placeholder="All exchanges" />
+					<datalist id="exchange-options"></datalist>
+				</label>
+
+				<label class="field">
+					<span>Sector</span>
+					<input id="filter-sector" list="sector-options" placeholder="All sectors" />
+					<datalist id="sector-options"></datalist>
+				</label>
+			</div>
+
+			<div class="results-toolbar">
+				<div id="results-meta" class="metaHint">Loading catalog…</div>
+				<button id="clear-filters" class="button-secondary" type="button">Reset filters</button>
+			</div>
+
+			<div id="results-grid" class="results-grid"></div>
+
+			<div class="pagination-row">
+				<button id="prev-page" class="button-secondary" type="button">Previous</button>
+				<div id="page-meta" class="metaHint">Page 1</div>
+				<button id="next-page" class="button-secondary" type="button">Next</button>
+			</div>
+		</section>
+	</section>
+
+	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
+		const pageSize = 24;
+		const filterElements = {
+			query: document.querySelector('#filter-query'),
+			type: document.querySelector('#filter-type'),
+			coverage: document.querySelector('#filter-coverage'),
+			country: document.querySelector('#filter-country'),
+			exchange: document.querySelector('#filter-exchange'),
+			sector: document.querySelector('#filter-sector'),
+		};
+		const resultsMeta = document.querySelector('#results-meta');
+		const resultsGrid = document.querySelector('#results-grid');
+		const pageMeta = document.querySelector('#page-meta');
+		const previousButton = document.querySelector('#prev-page');
+		const nextButton = document.querySelector('#next-page');
+		const clearFiltersButton = document.querySelector('#clear-filters');
+		const countryOptions = document.querySelector('#country-options');
+		const exchangeOptions = document.querySelector('#exchange-options');
+		const sectorOptions = document.querySelector('#sector-options');
+		const state = {
+			query: '',
+			type: '',
+			coverage: '',
+			country: '',
+			exchange: '',
+			sector: '',
+			page: 1,
+		};
+		let catalog = [];
+		let filteredCatalog = [];
+
+		const countFormatter = new Intl.NumberFormat();
+		const dateFormatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' });
+
+		function escapeHtml(value) {
+			return String(value || '').replace(/[&<>'"]/g, (character) => {
+				return (
+					{
+						'&': '&amp;',
+						'<': '&lt;',
+						'>': '&gt;',
+						"'": '&#39;',
+						'"': '&quot;',
+					}[character] || character
+				);
+			});
+		}
+
+		function formatDate(value) {
+			if (!value) return 'Unavailable';
+			const date = new Date(value);
+			return Number.isNaN(date.getTime()) ? value : dateFormatter.format(date);
+		}
+
+		function coverageBadge(coverage) {
+			if (coverage === 'complete') return 'success';
+			if (coverage === 'partial') return 'warning';
+			return 'muted';
+		}
+
+		function normalize(value) {
+			return String(value || '').trim().toLowerCase();
+		}
+
+		function applyUrlState() {
+			const params = new URLSearchParams(window.location.search);
+			state.query = params.get('q') || '';
+			state.type = params.get('type') || '';
+			state.coverage = params.get('coverage') || '';
+			state.country = params.get('country') || '';
+			state.exchange = params.get('exchange') || '';
+			state.sector = params.get('sector') || '';
+			state.page = Math.max(Number(params.get('page') || '1'), 1);
+
+			filterElements.query.value = state.query;
+			filterElements.type.value = state.type;
+			filterElements.coverage.value = state.coverage;
+			filterElements.country.value = state.country;
+			filterElements.exchange.value = state.exchange;
+			filterElements.sector.value = state.sector;
+		}
+
+		function syncUrl() {
+			const params = new URLSearchParams();
+			if (state.query) params.set('q', state.query);
+			if (state.type) params.set('type', state.type);
+			if (state.coverage) params.set('coverage', state.coverage);
+			if (state.country) params.set('country', state.country);
+			if (state.exchange) params.set('exchange', state.exchange);
+			if (state.sector) params.set('sector', state.sector);
+			if (state.page > 1) params.set('page', String(state.page));
+			const queryString = params.toString();
+			const nextUrl = `${window.location.pathname}${queryString ? `?${queryString}` : ''}#explore`;
+			window.history.replaceState({}, '', nextUrl);
+		}
+
+		function createOptionMarkup(values) {
+			return values.map((value) => `<option value="${escapeHtml(value)}"></option>`).join('');
+		}
+
+		function populateFilterControls(records) {
+			const securityTypes = [...new Set(records.map((entry) => entry.ty).filter(Boolean))].sort();
+			const countries = [...new Set(records.map((entry) => entry.co).filter(Boolean))].sort();
+			const exchanges = [...new Set(records.map((entry) => entry.ex).filter(Boolean))].sort();
+			const sectors = [...new Set(records.map((entry) => entry.se).filter(Boolean))].sort();
+
+			filterElements.type.innerHTML = `<option value="">All types</option>${securityTypes
+				.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`)
+				.join('')}`;
+			countryOptions.innerHTML = createOptionMarkup(countries);
+			exchangeOptions.innerHTML = createOptionMarkup(exchanges);
+			sectorOptions.innerHTML = createOptionMarkup(sectors);
+		}
+
+		function filterCatalog() {
+			const query = normalize(state.query);
+			const type = normalize(state.type);
+			const coverage = normalize(state.coverage);
+			const country = normalize(state.country);
+			const exchange = normalize(state.exchange);
+			const sector = normalize(state.sector);
+
+			filteredCatalog = catalog.filter((entry) => {
+				if (query && !entry._search.includes(query)) return false;
+				if (type && normalize(entry.ty) !== type) return false;
+				if (coverage && normalize(entry.dc) !== coverage) return false;
+				if (country && normalize(entry.co) !== country) return false;
+				if (exchange && normalize(entry.ex) !== exchange) return false;
+				if (sector && normalize(entry.se) !== sector) return false;
+				return true;
+			});
+
+			const maxPage = Math.max(Math.ceil(filteredCatalog.length / pageSize), 1);
+			state.page = Math.min(state.page, maxPage);
+		}
+
+		function renderResults() {
+			filterCatalog();
+			const total = filteredCatalog.length;
+			const firstItem = total === 0 ? 0 : (state.page - 1) * pageSize + 1;
+			const lastItem = Math.min(state.page * pageSize, total);
+			const pageItems = filteredCatalog.slice(firstItem - 1, lastItem);
+
+			resultsMeta.textContent =
+				total === 0
+					? 'No listings match these filters.'
+					: `Showing ${countFormatter.format(firstItem)}-${countFormatter.format(lastItem)} of ${countFormatter.format(total)} listings`;
+
+			pageMeta.textContent = `Page ${state.page} of ${Math.max(Math.ceil(total / pageSize), 1)}`;
+			previousButton.disabled = state.page <= 1;
+			nextButton.disabled = state.page >= Math.max(Math.ceil(total / pageSize), 1);
+
+			if (pageItems.length === 0) {
+				resultsGrid.innerHTML = `
+					<div class="result-empty card">
+						<h3>No matches</h3>
+						<p>Try a broader search, clear one of the filters, or jump back to a top country or exchange above.</p>
+					</div>
+				`;
+				return;
+			}
+
+			resultsGrid.innerHTML = pageItems
+				.map((entry) => {
+					const tags = [
+						entry.ty,
+						entry.ex,
+						entry.co,
+						entry.se || entry.ec,
+						entry.dc,
+					].filter(Boolean);
+					return `
+						<article class="result-card card">
+							<div class="result-card-head">
+								<div>
+									<h3>${escapeHtml(entry.nm)}</h3>
+									<p>${escapeHtml(entry.id)}</p>
+								</div>
+								<span class="badge ${coverageBadge(entry.dc)}">${escapeHtml(entry.dc || 'missing')}</span>
+							</div>
+							<div class="result-card-tags">
+								${tags
+									.map((tag) => `<span class="badge muted">${escapeHtml(tag)}</span>`)
+									.join('')}
+							</div>
+							<p class="result-card-body">
+								${escapeHtml(entry.ln || 'Primary legal name unavailable')}
+							</p>
+							<div class="result-card-footer">
+								<span class="muted">Company: ${escapeHtml(formatDate(entry.cd))}</span>
+								<span class="muted">IPO: ${escapeHtml(formatDate(entry.ip))}</span>
+							</div>
+							<a class="button result-link" href="${baseUrl}listing/?id=${encodeURIComponent(entry.id)}">
+								Open profile
+							</a>
+						</article>
+					`;
+				})
+				.join('');
+		}
+
+		function handleFilterChange() {
+			state.query = filterElements.query.value.trim();
+			state.type = filterElements.type.value.trim();
+			state.coverage = filterElements.coverage.value.trim();
+			state.country = filterElements.country.value.trim();
+			state.exchange = filterElements.exchange.value.trim();
+			state.sector = filterElements.sector.value.trim();
+			state.page = 1;
+			syncUrl();
+			renderResults();
+		}
+
+		async function loadCatalog() {
+			const response = await fetch(`${baseUrl}data/catalog.json`);
+			if (!response.ok) {
+				throw new Error(`Failed to load catalog: ${response.status}`);
+			}
+
+			const records = await response.json();
+			return records.map((entry) => ({
+				...entry,
+				_search: [
+					entry.id,
+					entry.sy,
+					entry.ex,
+					entry.nm,
+					entry.ln,
+					entry.ty,
+					entry.se,
+					entry.ec,
+					entry.co,
+					...(entry.al || []),
+				]
+					.filter(Boolean)
+					.join(' ')
+					.toLowerCase(),
+			}));
+		}
+
+		previousButton.addEventListener('click', () => {
+			state.page = Math.max(1, state.page - 1);
+			syncUrl();
+			renderResults();
+		});
+
+		nextButton.addEventListener('click', () => {
+			state.page += 1;
+			syncUrl();
+			renderResults();
+		});
+
+		clearFiltersButton.addEventListener('click', () => {
+			Object.assign(state, {
+				query: '',
+				type: '',
+				coverage: '',
+				country: '',
+				exchange: '',
+				sector: '',
+				page: 1,
+			});
+			applyUrlState();
+			syncUrl();
+			renderResults();
+		});
+
+		for (const element of Object.values(filterElements)) {
+			element.addEventListener('input', handleFilterChange);
+			element.addEventListener('change', handleFilterChange);
+		}
+
+		(async () => {
+			try {
+				catalog = await loadCatalog();
+				populateFilterControls(catalog);
+				applyUrlState();
+				renderResults();
+			} catch (error) {
+				resultsMeta.textContent = 'Catalog failed to load.';
+				resultsGrid.innerHTML = `
+					<div class="result-empty card">
+						<h3>Unable to load the directory</h3>
+						<p>${escapeHtml(error.message)}</p>
+					</div>
+				`;
+			}
+		})();
+	</script>
+</Layout>
+
+<style>
+	.home-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	.header {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.home-topBand {
+		display: grid;
+		grid-template-columns: minmax(0, 1.28fr) minmax(300px, 0.92fr);
+		gap: 16px;
+	}
+
+	.home-hero h1 {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: clamp(3rem, 6vw, 4.75rem);
+		font-weight: 400;
+		line-height: 0.96;
+		letter-spacing: 0.01em;
+		max-width: 10ch;
+	}
+
+	.hero-lead {
+		margin: 14px 0 0;
+		max-width: 58rem;
+		font-size: 1.04rem;
+		line-height: 1.65;
+		color: var(--muted);
+	}
+
+	.hero-actions,
+	.quick-links,
+	.stats-foot,
+	.facet-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.hero-actions,
+	.quick-links {
+		margin-top: 16px;
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 14px;
+	}
+
+	.stat-block,
+	.featured-card,
+	.result-card,
+	.result-empty {
+		padding: 12px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.stat-block span,
+	.stat-block strong {
+		display: block;
+	}
+
+	.stat-block strong {
+		margin-top: 6px;
+		font-size: 1.7rem;
+		font-weight: 700;
+	}
+
+	.stats-foot {
+		margin-top: 12px;
+	}
+
+	.facet-strip {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
+	}
+
+	.facet-card,
+	.section-card {
+		padding: 16px;
+	}
+
+	.featured-grid,
+	.results-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 14px;
+	}
+
+	.featured-card,
+	.result-card {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.featured-card-head,
+	.result-card-head,
+	.result-card-footer {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.featured-card h3,
+	.result-card h3 {
+		margin: 0;
+		font-size: 1.02rem;
+		font-weight: 700;
+	}
+
+	.featured-card p,
+	.result-card p {
+		margin: 4px 0 0;
+		color: var(--muted);
+	}
+
+	.featured-card-meta,
+	.result-card-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		color: var(--muted);
+		font-size: 0.92rem;
+	}
+
+	.featured-card-body,
+	.result-card-body {
+		line-height: 1.58;
+	}
+
+	.explorer-section {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.filters-grid {
+		display: grid;
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	.field-search {
+		grid-column: span 2;
+	}
+
+	.result-link {
+		margin-top: auto;
+	}
+
+	.result-empty {
+		grid-column: 1 / -1;
+		text-align: center;
+	}
+
+	@media (max-width: 1100px) {
+		.home-topBand,
+		.facet-strip,
+		.featured-grid,
+		.results-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.filters-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.field-search {
+			grid-column: span 3;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.home-topBand,
+		.facet-strip,
+		.featured-grid,
+		.results-grid,
+		.stats-grid,
+		.filters-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.field-search {
+			grid-column: span 1;
+		}
+
+		.result-card-footer,
+		.results-toolbar,
+		.pagination-row {
+			flex-direction: column;
+			align-items: stretch;
+		}
+	}
+</style>
