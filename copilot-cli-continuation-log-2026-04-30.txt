@@ -1,0 +1,126 @@
+Copilot CLI continuation log
+Saved: 2026-04-30
+Project: /Volumes/qbitOS/00.dev/cursor/train/train
+
+Summary
+- Built a GitHub Pages-friendly Astro site around Erika dataset metadata.
+- Added a styled directory homepage, listing profile page, and raw-data page.
+- Added build-time data generation from Erika CSV with CI fallback to committed JSON assets.
+- Local preview/build/check are passing.
+
+Key source data
+- Primary local dataset inspected: /Volumes/qbitOS/00.dev/cursor/erika
+- Main source file: /Volumes/qbitOS/00.dev/cursor/erika/artifacts/ticker_checklist.csv
+- Coverage file inspected: /Volumes/qbitOS/00.dev/cursor/erika/artifacts/yahoo_max_history_coverage.csv
+- Important market presets confirmed in Erika:
+  - major-metals
+  - major-global-indexes-futures
+  - major-crypto
+  - ai-llm-boom
+
+Important data findings
+- Erika is updated but not complete for full stock-history coverage.
+- yahoo_max_history_coverage.csv showed:
+  - 32,320 symbols checked
+  - 20,102 symbols with actual max-history rows
+  - latest covered date reached 2026-04-30
+- Metals are the strongest local time-series set:
+  - GC=F, SI=F, PL=F, PA=F, HG=F, ALI=F present in data_lake/metals
+- Broader stock coverage is uneven locally:
+  - AAPL parquet existed but only short recent coverage in the inspected lake
+  - TSLA parquet missing locally
+  - ^GSPC parquet not present locally at the checked path
+
+What was built
+1. Astro app scaffolded in this folder.
+2. Shared shell/layout restyled toward roi.kevencraftrituals.com stock page feel:
+   - fixed glass header
+   - dark aurora/galaxy-like background
+   - mono utility labels
+   - serif display headings
+   - dashboard-like card layout
+3. Homepage features:
+   - directory hero
+   - coverage stats
+   - top countries/exchanges/sectors
+   - priority markets section
+   - featured profiles
+   - searchable/filterable directory explorer
+4. Listing page:
+   - record dashboard view by query param ?id=
+   - visible fallback landing state when no id is provided
+5. Raw data page:
+   - /raw/
+   - links to machine-readable JSON endpoints for AI import
+
+Prominence changes made
+- Added a dedicated "Priority markets" section near the top of the homepage.
+- Metals and key market groups are surfaced ahead of generic listing browsing.
+- Current priority blocks:
+  - Major metals
+  - Global benchmarks and futures
+  - Major crypto
+  - AI / LLM market names
+
+Text/content changes made
+- Homepage hero title changed to:
+  "Explore Erika world Market data."
+
+Raw AI-friendly endpoints
+- Human-friendly raw page:
+  - /raw/
+- JSON endpoints:
+  - /data/catalog.json
+  - /data/catalog-meta.json
+
+Important files changed
+- .github/workflows/deploy.yml
+- scripts/build_catalog_data.py
+- src/layouts/Layout.astro
+- src/pages/index.astro
+- src/pages/listing/index.astro
+- src/pages/raw.astro
+- README.md
+- astro.config.mjs
+- package.json
+
+Build/deploy notes
+- Custom Astro GitHub Pages workflow was fixed and later observed succeeding.
+- CI fallback was added so build_catalog_data.py does not require the local Erika CSV in GitHub Actions.
+- If Erika CSV is unavailable in CI, build now uses committed generated assets:
+  - public/data/catalog.json
+  - public/data/catalog-meta.json
+
+Critical repo setting still relevant
+- GitHub Pages legacy Jekyll build was still enabled in repository settings.
+- That legacy Pages/Jekyll workflow fails because it tries to parse .astro files as Jekyll pages.
+- Manual fix required in GitHub repo settings:
+  1. Open repo Settings -> Pages
+  2. Change Source from "Deploy from a branch" / legacy mode
+  3. Set Source to "GitHub Actions"
+  4. Save
+- Repo observed state during investigation:
+  - html_url: https://fornevercollective.github.io/train/
+  - build_type: legacy
+  - source: main /
+- API read worked, but PATCH to change build_type returned 404 with the available token, so the setting change likely still needs to be done manually in the GitHub UI.
+
+Listing page blank issue
+- Cause: /listing/ without ?id= kept the real content hidden, so the route looked blank.
+- Fix: added visible empty state with sample listing links and navigation back to directory/raw data.
+
+Current local status
+- Local preview was launched earlier at:
+  - http://127.0.0.1:4321/
+- Recent builds/checks were passing after the latest edits.
+
+Recommended next resume point
+1. Confirm GitHub Pages repo setting is switched to GitHub Actions.
+2. Push latest local changes if not already pushed.
+3. Re-run deployment and verify only the Astro Pages workflow remains.
+4. Optionally add dedicated pages or panels for:
+   - metals overview
+   - benchmark futures overview
+   - crypto overview
+   - AI/LLM basket overview
+
