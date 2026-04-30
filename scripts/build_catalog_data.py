@@ -140,11 +140,20 @@ def summarize(records: list[dict[str, object]]) -> dict[str, object]:
 
 
 def main() -> None:
-    if not SOURCE_CSV.exists():
-        raise SystemExit(f"Erika source CSV not found: {SOURCE_CSV}")
-
     PUBLIC_DATA_DIR.mkdir(parents=True, exist_ok=True)
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
+
+    if not SOURCE_CSV.exists():
+        if CATALOG_JSON.exists() and SUMMARY_JSON.exists():
+            print(
+                "Erika source CSV not found; using committed generated catalog assets "
+                f"at {CATALOG_JSON} and {SUMMARY_JSON}"
+            )
+            return
+        raise SystemExit(
+            "Erika source CSV not found and no generated catalog assets are available: "
+            f"{SOURCE_CSV}"
+        )
 
     with SOURCE_CSV.open(newline="", encoding="utf-8") as handle:
         reader = csv.DictReader(handle)
