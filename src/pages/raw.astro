@@ -1,0 +1,159 @@
+---
+import Layout from '../layouts/Layout.astro';
+import summary from '../generated/catalog-meta.json';
+
+const baseUrl = import.meta.env.BASE_URL;
+const resources = [
+	{
+		title: 'Full catalog JSON',
+		url: `${baseUrl}data/catalog.json`,
+		note: 'All normalized listing records. Best for bulk AI import.',
+	},
+	{
+		title: 'Catalog summary JSON',
+		url: `${baseUrl}data/catalog-meta.json`,
+		note: 'High-level counts, featured listings, and coverage metadata.',
+	},
+];
+---
+
+<Layout
+	title="Raw Data | Erika Market Directory"
+	description="Machine-readable entry points for the Erika directory data."
+	pageClass="page-home"
+	eyebrow="Raw data"
+	subtitle="Direct JSON links and import hints for AI tooling."
+>
+	<section class="container raw-shell">
+		<article class="card raw-hero">
+			<div class="tileTop">
+				<div>
+					<div class="ticker">AI import entry points</div>
+					<h1>Raw Erika data links</h1>
+					<p class="hero-lead">
+						Use these machine-readable URLs if she wants to ingest the directory directly into
+						her AI instead of scraping the styled pages.
+					</p>
+				</div>
+			</div>
+			<div class="raw-links">
+				{
+					resources.map((resource) => (
+						<a class="raw-link card" href={resource.url}>
+							<strong>{resource.title}</strong>
+							<span>{resource.url}</span>
+							<small>{resource.note}</small>
+						</a>
+					))
+				}
+			</div>
+		</article>
+
+		<section class="card raw-summary">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">What is in it</div>
+					<h2>Current published summary</h2>
+				</div>
+			</div>
+			<div class="summary-grid">
+				<div class="stat-block">
+					<span class="muted">Listings</span>
+					<strong>{summary.totalSymbols.toLocaleString()}</strong>
+				</div>
+				<div class="stat-block">
+					<span class="muted">Countries</span>
+					<strong>{summary.uniqueCountries.toLocaleString()}</strong>
+				</div>
+				<div class="stat-block">
+					<span class="muted">Exchanges</span>
+					<strong>{summary.uniqueExchanges.toLocaleString()}</strong>
+				</div>
+				<div class="stat-block">
+					<span class="muted">Complete date coverage</span>
+					<strong>{summary.dateCoverage.complete.toLocaleString()}</strong>
+				</div>
+			</div>
+			<pre class="raw-example"><code>{`fetch('${baseUrl}data/catalog.json')
+  .then((response) => response.json())
+  .then((records) => {
+    console.log(records.length);
+    console.log(records[0]);
+  });`}</code></pre>
+		</section>
+	</section>
+</Layout>
+
+<style>
+	.raw-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.raw-hero h1 {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: clamp(2.8rem, 5vw, 4.4rem);
+		font-weight: 400;
+		line-height: 0.96;
+	}
+
+	.hero-lead {
+		margin: 14px 0 0;
+		max-width: 54rem;
+		line-height: 1.65;
+		color: var(--muted);
+	}
+
+	.raw-links,
+	.summary-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px;
+		margin-top: 14px;
+	}
+
+	.raw-link,
+	.stat-block {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		padding: 14px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.raw-link span,
+	.raw-link small {
+		color: var(--muted);
+		word-break: break-all;
+	}
+
+	.stat-block span,
+	.stat-block strong {
+		display: block;
+	}
+
+	.stat-block strong {
+		font-size: 1.7rem;
+	}
+
+	.raw-example {
+		margin: 16px 0 0;
+		padding: 16px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		overflow: auto;
+		color: rgba(230, 244, 255, 0.92);
+	}
+
+	@media (max-width: 720px) {
+		.raw-links,
+		.summary-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

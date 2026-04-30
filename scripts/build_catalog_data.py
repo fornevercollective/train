@@ -13,6 +13,7 @@ SOURCE_CSV = Path(os.environ.get("ERIKA_DATA_PATH", DEFAULT_SOURCE)).resolve()
 PUBLIC_DATA_DIR = ROOT / "public" / "data"
 GENERATED_DIR = ROOT / "src" / "generated"
 CATALOG_JSON = PUBLIC_DATA_DIR / "catalog.json"
+PUBLIC_SUMMARY_JSON = PUBLIC_DATA_DIR / "catalog-meta.json"
 SUMMARY_JSON = GENERATED_DIR / "catalog-meta.json"
 
 PREFERRED_FEATURED_IDS = [
@@ -169,9 +170,14 @@ def main() -> None:
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    PUBLIC_SUMMARY_JSON.write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     print(f"Wrote {len(records):,} catalog records to {CATALOG_JSON}")
     print(f"Wrote summary metadata to {SUMMARY_JSON}")
+    print(f"Wrote public summary metadata to {PUBLIC_SUMMARY_JSON}")
 
 
 if __name__ == "__main__":

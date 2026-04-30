@@ -12,6 +12,54 @@ const quickLinks = [
 	{ label: 'NASDAQ listings', href: '?exchange=NASDAQ#explore' },
 	{ label: 'Healthcare stocks', href: '?type=Stock&sector=Health%20Care#explore' },
 ];
+const priorityGroups = [
+	{
+		title: 'Major metals',
+		kicker: 'Highest-priority market block',
+		description:
+			'These are the strongest, most complete histories visible in the local Erika lake and should sit above the generic listing browse flow.',
+		items: [
+			{ name: 'Gold', symbol: 'GC=F', coverage: '2000-08 -> 2026-04', rows: '6,440 rows', status: 'strong' },
+			{ name: 'Silver', symbol: 'SI=F', coverage: '2000-08 -> 2026-04', rows: '6,442 rows', status: 'strong' },
+			{ name: 'Platinum', symbol: 'PL=F', coverage: '1997-10 -> 2026-04', rows: '6,468 rows', status: 'strong' },
+			{ name: 'Palladium', symbol: 'PA=F', coverage: '1998-09 -> 2026-04', rows: '6,479 rows', status: 'strong' },
+			{ name: 'Copper', symbol: 'HG=F', coverage: '2000-08 -> 2026-04', rows: '6,445 rows', status: 'strong' },
+			{ name: 'Aluminum', symbol: 'ALI=F', coverage: '2014-05 -> 2026-04', rows: '2,978 rows', status: 'medium' },
+		],
+	},
+	{
+		title: 'Global benchmarks and futures',
+		kicker: 'Macro proxy set',
+		description:
+			'The preset exists for major indexes and futures, but the local lake is strongest right now on futures and ETF proxies rather than every benchmark index parquet.',
+		items: [
+			{ name: 'E-mini S&P 500', symbol: 'ES=F', coverage: '2025-04 -> 2026-04', rows: '253 rows', status: 'medium' },
+			{ name: 'Nasdaq 100 ETF', symbol: 'QQQ', coverage: '2021-04 -> 2026-04', rows: '1,255 rows', status: 'good' },
+			{ name: 'S&P 500 index', symbol: '^GSPC', coverage: 'Not present as local parquet', rows: 'Use preset / refresh ingest', status: 'missing' },
+		],
+	},
+	{
+		title: 'Major crypto',
+		kicker: 'Liquid digital majors',
+		description:
+			'Crypto is present and current, with Bitcoin available locally and the README preset covering the broader major-crypto basket.',
+		items: [
+			{ name: 'Bitcoin', symbol: 'BTC-USD', coverage: '2021-04 -> 2026-04', rows: '1,827 rows', status: 'good' },
+			{ name: 'Ethereum / majors', symbol: 'major-crypto', coverage: 'Preset referenced in Erika README', rows: '10-symbol basket', status: 'good' },
+		],
+	},
+	{
+		title: 'AI / LLM market names',
+		kicker: 'Names referenced in the presets',
+		description:
+			'These are the headline equity names from the ai-llm-boom preset. Coverage is uneven locally, so they are useful as a prominence layer but not all are equally complete.',
+		items: [
+			{ name: 'Microsoft', symbol: 'MSFT', coverage: '2021-04 -> 2026-04', rows: '1,255 rows', status: 'good' },
+			{ name: 'NVIDIA', symbol: 'NVDA', coverage: '2021-04 -> 2026-04', rows: '1,255 rows', status: 'good' },
+			{ name: 'Apple', symbol: 'AAPL', coverage: '2026-03 -> 2026-04', rows: '22 rows', status: 'limited' },
+		],
+	},
+];
 ---
 
 <Layout
@@ -37,7 +85,7 @@ const quickLinks = [
 				<div class="tileTop">
 					<div>
 						<div class="ticker">Directory search</div>
-						<h1>Explore Erika like a stock dashboard, not a CSV dump.</h1>
+						<h1>Explore Erika world Market data.</h1>
 						<p class="hero-lead">
 							A GitHub Pages-ready catalog for {summary.totalSymbols.toLocaleString()} global
 							listings across stocks and ETFs, with searchable metadata, exchange filters, and
@@ -57,6 +105,7 @@ const quickLinks = [
 							</a>
 						)
 					}
+					<a class="button-secondary" href="raw/">Open raw data page</a>
 				</div>
 				<div class="quick-links">
 					{
@@ -166,6 +215,65 @@ const quickLinks = [
 						))
 					}
 				</div>
+			</div>
+		</section>
+
+		<section class="section-card card priority-section">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Priority markets</div>
+					<h2>Put metals and the key market presets up front</h2>
+					<p>
+						The Erika lake is updated through 2026-04-30, but the time-series coverage is not
+						uniform across all symbols. Metals are the strongest local histories, so they now
+						get a dedicated top-level block instead of being buried below the listing directory.
+					</p>
+				</div>
+			</div>
+
+			<div class="priority-grid">
+				{
+					priorityGroups.map((group) => (
+						<article class="priority-card card">
+							<div class="tileTop">
+								<div>
+									<div class="ticker">{group.kicker}</div>
+									<h3>{group.title}</h3>
+									<p class="priority-copy">{group.description}</p>
+								</div>
+							</div>
+							<div class="priority-items">
+								{
+									group.items.map((item) => (
+										<div class="priority-item">
+											<div class="priority-item-head">
+												<div>
+													<strong>{item.name}</strong>
+													<p>{item.symbol}</p>
+												</div>
+												<span
+													class={`badge ${
+														item.status === 'strong' || item.status === 'good'
+															? 'success'
+															: item.status === 'missing' || item.status === 'limited'
+																? 'warning'
+																: 'muted'
+													}`}
+												>
+													{item.status}
+												</span>
+											</div>
+											<div class="priority-item-meta">
+												<span>{item.coverage}</span>
+												<span>{item.rows}</span>
+											</div>
+										</div>
+									))
+								}
+							</div>
+						</article>
+					))
+				}
 			</div>
 		</section>
 
@@ -670,17 +778,62 @@ const quickLinks = [
 	}
 
 	.featured-grid,
-	.results-grid {
+	.results-grid,
+	.priority-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 14px;
 	}
 
 	.featured-card,
-	.result-card {
+	.result-card,
+	.priority-card {
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
+	}
+
+	.priority-card h3 {
+		margin: 0;
+		font-size: 1.1rem;
+	}
+
+	.priority-copy {
+		margin: 6px 0 0;
+		color: var(--muted);
+		line-height: 1.55;
+	}
+
+	.priority-items {
+		display: grid;
+		gap: 10px;
+	}
+
+	.priority-item {
+		padding: 12px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.priority-item-head,
+	.priority-item-meta {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.priority-item-head p,
+	.priority-item-meta span {
+		margin: 4px 0 0;
+		color: var(--muted);
+		font-size: 0.92rem;
+	}
+
+	.priority-item-meta {
+		margin-top: 8px;
 	}
 
 	.featured-card-head,
@@ -748,6 +901,7 @@ const quickLinks = [
 	@media (max-width: 1100px) {
 		.home-topBand,
 		.facet-strip,
+		.priority-grid,
 		.featured-grid,
 		.results-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -765,6 +919,7 @@ const quickLinks = [
 	@media (max-width: 720px) {
 		.home-topBand,
 		.facet-strip,
+		.priority-grid,
 		.featured-grid,
 		.results-grid,
 		.stats-grid,
