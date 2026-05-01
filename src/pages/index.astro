@@ -8,6 +8,7 @@ const topSectors = summary.topSectors.filter((item) => item.name !== '(none)').s
 const featuredListings = summary.featuredListings.slice(0, 6);
 const quickLinks = [
 	{ label: 'Latency topology', href: '#topology' },
+	{ label: 'Live pipeline', href: '#live-pipeline' },
 	{ label: 'Complete date coverage', href: '?coverage=complete#explore' },
 	{ label: 'ETFs in the US', href: '?type=ETF&country=United%20States#explore' },
 	{ label: 'NASDAQ listings', href: '?exchange=NASDAQ#explore' },
@@ -93,7 +94,7 @@ const topologyRoutes = [
 		note: 'London is the clean aggregation point for European cash, futures, and energy venues.',
 	},
 	{
-		venue: 'Deutsche Borse / Eurex',
+		venue: 'Deutsche Boerse / Eurex',
 		benchmarks: 'DAX, Euro Stoxx, Bund, Bobl, Schatz',
 		pop: 'FR2 / FR5',
 		relay: 'Frankfurt edge -> Frankfurt relay -> LD4 and NY fanout',
@@ -121,6 +122,144 @@ const topologyRoutes = [
 		latency: 'sub-0.15 ms local; 0.3-1.0 ms metro; 30-40 ms HK<->SG',
 		speed: '10/25 GbE edge, 25/100 GbE relay uplinks',
 		note: 'Pair Hong Kong and Singapore to absorb regional outages and keep APAC fanout tight.',
+	},
+];
+const livePipelineStages = [
+	{
+		stage: 'Venue ingress',
+		primary: 'Primary exchange handoff / multicast plant / direct cross-connect',
+		redundant: 'Secondary venue handoff or alternate A/B line card / network path',
+		data: 'Raw packets, sequence numbers, heartbeats, venue control messages',
+		junction: 'Exchange demarc -> cage switch -> capture NIC',
+		bottleneck: 'Cross-connect oversubscription, bursty open/close traffic, sequence gaps at the handoff edge',
+		stack: 'Cross-connects, L1/L2 switching, UDP multicast or direct TCP/ITCH-style feeds, optical diversity',
+	},
+	{
+		stage: 'Lossless capture',
+		primary: 'Hot capture host pinned to the primary feed leg',
+		redundant: 'Parallel hot-capture host or standby NIC path with the same session view',
+		data: 'Nanosecond timestamps, packet payloads, gap alerts, drop counters',
+		junction: 'NIC -> kernel bypass / capture process -> write-ahead queue',
+		bottleneck: 'RX ring overflow, interrupt storms, NUMA mismatch, disk flush latency during bursts',
+		stack: 'PTP, hardware timestamping, RSS/IRQ pinning, DPDK/AF_XDP-class capture, NVMe journals',
+	},
+	{
+		stage: 'Decode and normalize',
+		primary: 'Venue parser and schema-normalization pipeline',
+		redundant: 'Secondary parser workers fed from mirrored capture or replay queue',
+		data: 'Trades, MBO/MBP books, instrument defs, status events, normalized records',
+		junction: 'Capture queue -> parser workers -> normalized event bus',
+		bottleneck: 'Single-thread parser saturation, schema edge cases, slow gap-fill replay after reconnect',
+		stack: 'Feed handlers, schema codecs, DBN-style binary encoding, lock-free queues, replayable logs',
+	},
+	{
+		stage: 'Gap fill and reconciliation',
+		primary: 'Real-time sequencer and gap-fill service',
+		redundant: 'Replay path from mirrored capture store or alternate venue session',
+		data: 'Recovery requests, retransmits, sequence windows, continuity markers',
+		junction: 'Normalizer -> sequencer -> recovery service',
+		bottleneck: 'Recovery storms during venue instability and replay contention against live flow',
+		stack: 'Sequence tracking, retransmit requests, bounded in-memory buffers, deterministic replay',
+	},
+	{
+		stage: 'Regional relay mesh',
+		primary: 'Chicago, New Jersey, London, Frankfurt, Tokyo, Singapore active fanout',
+		redundant: 'Cross-region mirror relay or same-region hot standby',
+		data: 'Normalized live stream, partial depth, full depth, trades, metadata side channels',
+		junction: 'Metro relay spine -> regional backbone -> local fanout node',
+		bottleneck: 'East-west congestion, route asymmetry, fanout amplification when many clients subscribe at once',
+		stack: '25/100 GbE leaf-spine, ECMP, low-jitter metro circuits, internal pub-sub / stream fabric',
+	},
+	{
+		stage: 'Hot cache and serving plane',
+		primary: 'In-memory live cache and session gateway',
+		redundant: 'Replica cache and second gateway pool in the same or adjacent region',
+		data: 'Latest books, subscription state, session tokens, entitlement-aware stream state',
+		junction: 'Relay -> cache -> auth/session gateway -> outbound stream',
+		bottleneck: 'Cache stampede on reconnect, gateway fanout pressure, entitlement checks in the hot path',
+		stack: 'In-memory caches, session services, load balancers, service discovery, TLS termination off hot path where possible',
+	},
+	{
+		stage: 'Historical persistence',
+		primary: 'Append-only live archive and object-store landing zone',
+		redundant: 'Mirrored object storage / second-region archive',
+		data: 'Raw PCAP-class capture, normalized DBN records, catalog metadata, audit trail',
+		junction: 'Capture + normalized stream -> archive writer -> object store / cold tier',
+		bottleneck: 'Write amplification, checksum/recompression overhead, slow cold-tier recalls during replay',
+		stack: 'NVMe staging, object storage, immutable partitions, compression, checksum verification',
+	},
+	{
+		stage: 'Client delivery',
+		primary: 'Live streaming endpoint close to the consuming strategy',
+		redundant: 'Secondary endpoint / region plus replay bootstrap path',
+		data: 'Subscription responses, normalized frames, heartbeat, backpressure / reconnect control',
+		junction: 'Gateway -> internet/private link -> strategy node',
+		bottleneck: 'Last-mile jitter, client-side backpressure, TLS/session churn, slow consumer queues',
+		stack: 'TCP/WebSocket/streaming APIs, client libraries, backpressure handling, reconnect and resume logic',
+	},
+];
+const architectureJunctions = [
+	{
+		name: 'Venue demarcation',
+		risk: 'Primary/redundant feed lines can both be healthy while the cage switch or optics are degraded.',
+		signal: 'Microbursts, rising packet drops, asymmetric A/B leg sequence drift.',
+		response: 'Separate optics, separate ToR paths, and independent capture counters per leg.',
+	},
+	{
+		name: 'Capture to parser handoff',
+		risk: 'Lossless packet ingest can still fail downstream if parse queues or journals back up.',
+		signal: 'Growing queue depth, parser lag, higher gap-fill request rate.',
+		response: 'Bound queues, reserve CPU per parser shard, and keep replay isolated from live parsing.',
+	},
+	{
+		name: 'Relay fanout spine',
+		risk: 'One hot region can become the unintended aggregation point for too many venues.',
+		signal: 'Cross-region jitter, uneven egress, cache miss bursts after reconnect events.',
+		response: 'Regionalize fanout, pre-warm secondary relays, and cap per-node subscriber concentration.',
+	},
+	{
+		name: 'Gateway and entitlement plane',
+		risk: 'Auth, session, and entitlement checks can become a latency cliff if they sit inline with market data fanout.',
+		signal: 'Connect latency spikes, reconnect storms, CPU hotspots at gateway nodes.',
+		response: 'Cache entitlements, keep auth off the packet hot path, and maintain hot standby gateways.',
+	},
+	{
+		name: 'Archive and replay',
+		risk: 'Historical recovery can starve live disk and network bandwidth during incidents.',
+		signal: 'NVMe utilization pinned, longer replay start times, live-write jitter.',
+		response: 'Split live journals from replay tiers and keep second-region archives independently readable.',
+	},
+];
+const techStackLayers = [
+	{
+		layer: 'Time and clocking',
+		tools: 'PTP, hardware NIC timestamps, disciplined grandmaster, monotonic local clocks',
+		why: 'Required to compare venue ingress, relay transit, and client receive times without lying to yourself.',
+	},
+	{
+		layer: 'Network fabric',
+		tools: 'Diverse cross-connects, low-latency switches, ECMP, 25/100 GbE spine, metro wavelength diversity',
+		why: 'This is where primary/redundant paths stop being theoretical and become physically separate.',
+	},
+	{
+		layer: 'Capture and feed handling',
+		tools: 'Kernel-bypass capture, pinned cores, lock-free queues, feed handlers, sequencers, gap detectors',
+		why: 'The first place burst traffic and venue pathologies show up.',
+	},
+	{
+		layer: 'Normalization and stream fabric',
+		tools: 'Binary schema codecs, replayable logs, in-memory buses, shard-aware parser workers',
+		why: 'Normalizing many venue dialects without creating a single chokepoint is the core systems problem.',
+	},
+	{
+		layer: 'Storage and replay',
+		tools: 'NVMe journals, immutable partitions, object storage, compression, checksum validation',
+		why: 'Live and historical paths should share truth, not share contention.',
+	},
+	{
+		layer: 'Serving and client edge',
+		tools: 'Session gateways, load balancers, auth cache, streaming APIs, client resume/backpressure logic',
+		why: 'Most visible outages come from connect/reconnect pressure rather than raw market data loss.',
 	},
 ];
 const relayPoints = [
@@ -462,6 +601,84 @@ const fastPathChecklist = [
 			</div>
 		</section>
 
+		<section class="section-card card pipeline-section" id="live-pipeline">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Live data architecture</div>
+					<h2>Primary path, redundant path, and the stack between them</h2>
+					<p>
+						This matrix fills in the system-level data points behind the venue map: ingress,
+						capture, normalization, recovery, relay, serving, persistence, and client delivery.
+						It is structured the same way low-latency market-data plants are actually debugged:
+						by junction, by backup path, and by likely choke point.
+					</p>
+				</div>
+			</div>
+
+			<div class="pipeline-table-wrap">
+				<table class="pipeline-table">
+					<thead>
+						<tr>
+							<th>Stage</th>
+							<th>Primary path</th>
+							<th>Redundant path</th>
+							<th>Data carried</th>
+							<th>Junction</th>
+							<th>Likely bottleneck</th>
+							<th>Tech stack</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							livePipelineStages.map((item) => (
+								<tr>
+									<td><strong>{item.stage}</strong></td>
+									<td>{item.primary}</td>
+									<td>{item.redundant}</td>
+									<td>{item.data}</td>
+									<td>{item.junction}</td>
+									<td>{item.bottleneck}</td>
+									<td>{item.stack}</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="section-card card bottleneck-section">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Junction bottlenecks</div>
+					<h2>Primary and redundant paths still fail at the joins</h2>
+					<p>
+						Most latency cliffs do not happen inside a single server. They happen where two
+						healthy subsystems meet: feed demarcation, parser queues, relay fanout, auth
+						gateways, and archive replay.
+					</p>
+				</div>
+			</div>
+
+			<div class="junction-grid">
+				{
+					architectureJunctions.map((item) => (
+						<article class="detail-card card">
+							<div class="tileTop">
+								<div>
+									<div class="ticker">Critical junction</div>
+									<h3>{item.name}</h3>
+								</div>
+							</div>
+							<p class="detail-copy">{item.risk}</p>
+							<p class="detail-meta"><strong>Watch:</strong> {item.signal}</p>
+							<p class="detail-meta"><strong>Mitigate:</strong> {item.response}</p>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
 		<section class="section-card card relay-section">
 			<div class="section-heading">
 				<div>
@@ -554,6 +771,23 @@ const fastPathChecklist = [
 						))
 					}
 				</div>
+			</div>
+
+			<div class="stack-grid">
+				{
+					techStackLayers.map((item) => (
+						<article class="detail-card card">
+							<div class="tileTop">
+								<div>
+									<div class="ticker">Tech stack layer</div>
+									<h3>{item.layer}</h3>
+								</div>
+							</div>
+							<p class="detail-copy">{item.tools}</p>
+							<p class="detail-meta">{item.why}</p>
+						</article>
+					))
+				}
 			</div>
 		</section>
 
@@ -1061,7 +1295,9 @@ const fastPathChecklist = [
 	.results-grid,
 	.priority-grid,
 	.relay-grid,
-	.requirements-grid {
+	.requirements-grid,
+	.junction-grid,
+	.stack-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 14px;
@@ -1170,8 +1406,24 @@ const fastPathChecklist = [
 		border-collapse: collapse;
 	}
 
+	.pipeline-table-wrap {
+		margin-top: 14px;
+		overflow-x: auto;
+		border-radius: 18px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	.pipeline-table {
+		width: 100%;
+		min-width: 1300px;
+		border-collapse: collapse;
+	}
+
 	.topology-table th,
-	.topology-table td {
+	.topology-table td,
+	.pipeline-table th,
+	.pipeline-table td {
 		padding: 14px 12px;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 		text-align: left;
@@ -1191,12 +1443,24 @@ const fastPathChecklist = [
 		color: var(--soft);
 	}
 
+	.pipeline-table th {
+		position: sticky;
+		top: 0;
+		background: rgba(7, 8, 18, 0.98);
+		font-family: var(--font-mono);
+		font-size: 0.74rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--soft);
+	}
+
 	.topology-table td p {
 		margin: 6px 0 0;
 		color: var(--muted);
 	}
 
-	.topology-table tbody tr:last-child td {
+	.topology-table tbody tr:last-child td,
+	.pipeline-table tbody tr:last-child td {
 		border-bottom: 0;
 	}
 
@@ -1297,6 +1561,8 @@ const fastPathChecklist = [
 		.priority-grid,
 		.relay-grid,
 		.requirements-grid,
+		.junction-grid,
+		.stack-grid,
 		.featured-grid,
 		.results-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1317,6 +1583,8 @@ const fastPathChecklist = [
 		.priority-grid,
 		.relay-grid,
 		.requirements-grid,
+		.junction-grid,
+		.stack-grid,
 		.featured-grid,
 		.results-grid,
 		.stats-grid,
