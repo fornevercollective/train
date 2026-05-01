@@ -7,6 +7,7 @@ const topExchanges = summary.topExchanges.slice(0, 8);
 const topSectors = summary.topSectors.filter((item) => item.name !== '(none)').slice(0, 8);
 const featuredListings = summary.featuredListings.slice(0, 6);
 const quickLinks = [
+	{ label: 'Latency topology', href: '#topology' },
 	{ label: 'Complete date coverage', href: '?coverage=complete#explore' },
 	{ label: 'ETFs in the US', href: '?type=ETF&country=United%20States#explore' },
 	{ label: 'NASDAQ listings', href: '?exchange=NASDAQ#explore' },
@@ -59,6 +60,141 @@ const priorityGroups = [
 			{ name: 'Apple', symbol: 'AAPL', coverage: '2026-03 -> 2026-04', rows: '22 rows', status: 'limited' },
 		],
 	},
+];
+const topologyRoutes = [
+	{
+		venue: 'CME / Aurora futures',
+		benchmarks: 'ES, NQ, RTY, YM, GC, SI, HG',
+		pop: 'Aurora I / CH2',
+		relay: 'Aurora edge -> Chicago metro relay -> NY4/NY5 fanout',
+		hops: '1 in-cage; 3-5 metro; 6-9 to NY metro',
+		latency: 'sub-0.1 ms local; 0.3-0.9 ms Chicago metro; 8-10 ms one-way to NJ',
+		speed: '10/25 GbE capture, 25/100 GbE relay',
+		note: 'Best home for index futures, rates, and metals when futures lead price discovery.',
+	},
+	{
+		venue: 'NASDAQ / NYSE / NYSE Arca / OPRA',
+		benchmarks: 'QQQ, SPY, cash equities, ETFs, options fanout',
+		pop: 'Carteret / Mahwah / Secaucus / NY4',
+		relay: 'Venue edge -> New Jersey relay spine -> Chicago and London distribution',
+		hops: '1-2 local; 3-6 metro; 6-10 to Chicago',
+		latency: 'sub-0.15 ms local; 0.2-1.1 ms NJ metro; 8-10 ms one-way to Chicago',
+		speed: '10/25 GbE edge, 25/100 GbE relay',
+		note: 'Use this path for ETF NAV, cash open/close logic, and US equity index arbitration.',
+	},
+	{
+		venue: 'LSE / ICE Europe / Euronext',
+		benchmarks: 'FTSE, ICE energy, STOXX-linked flows',
+		pop: 'LD4 / Basildon / Slough',
+		relay: 'London metro edge -> LD4 relay -> Frankfurt and NY distribution',
+		hops: '1-2 local; 3-6 metro; 5-7 to Frankfurt',
+		latency: 'sub-0.15 ms local; 0.3-1.2 ms London metro; 3-5 ms one-way to Frankfurt',
+		speed: '10/25 GbE capture, 25/100 GbE backbone',
+		note: 'London is the clean aggregation point for European cash, futures, and energy venues.',
+	},
+	{
+		venue: 'Deutsche Borse / Eurex',
+		benchmarks: 'DAX, Euro Stoxx, Bund, Bobl, Schatz',
+		pop: 'FR2 / FR5',
+		relay: 'Frankfurt edge -> Frankfurt relay -> LD4 and NY fanout',
+		hops: '1-2 local; 3-5 metro; 5-7 to London',
+		latency: 'sub-0.12 ms local; 0.2-0.8 ms metro; 3-5 ms one-way to London',
+		speed: '10/25 GbE edge, 25/100 GbE relay',
+		note: 'Keep Eurex-leading macro logic in Frankfurt if rates or DAX futures are your trigger feed.',
+	},
+	{
+		venue: 'JPX / OSE',
+		benchmarks: 'Nikkei 225, TOPIX, JGB-linked flows',
+		pop: 'TY3 / Tokyo metro',
+		relay: 'Tokyo edge -> Tokyo relay -> Singapore and Hong Kong regional fanout',
+		hops: '1-2 local; 3-5 metro; 7-10 regional backbone',
+		latency: 'sub-0.12 ms local; 0.2-0.9 ms metro; 35-70 ms to SG/HK depending path',
+		speed: '10/25 GbE edge, 25 GbE regional relay',
+		note: 'APAC strategies should stay regional; sending the first decision loop to the US is too slow.',
+	},
+	{
+		venue: 'HKEX / SGX',
+		benchmarks: 'Hang Seng, CNH, SGX index and derivatives flows',
+		pop: 'HK1 / HK3 / SG1',
+		relay: 'Local metro edge -> Hong Kong or Singapore relay -> Tokyo and London distribution',
+		hops: '1-2 local; 4-8 regional; 8-12 inter-region',
+		latency: 'sub-0.15 ms local; 0.3-1.0 ms metro; 30-40 ms HK<->SG',
+		speed: '10/25 GbE edge, 25/100 GbE relay uplinks',
+		note: 'Pair Hong Kong and Singapore to absorb regional outages and keep APAC fanout tight.',
+	},
+];
+const relayPoints = [
+	{
+		name: 'Aurora / Chicago relay',
+		role: 'Primary futures and macro relay',
+		coverage: 'CME index, rates, metals, ags; first fanout for US macro books.',
+		requirement: 'Use 25/100 GbE leaf-spine, hardware timestamping, and NVMe write paths for lossless capture.',
+	},
+	{
+		name: 'New Jersey / NY4-NY5 relay',
+		role: 'US equities, ETFs, and options aggregation',
+		coverage: 'Consolidates Carteret, Mahwah, Secaucus, and ETF/index-routing demand.',
+		requirement: 'Keep a metro relay even if your strategy lives in Chicago so cash equity latency stays bounded.',
+	},
+	{
+		name: 'London / LD4 relay',
+		role: 'European core relay',
+		coverage: 'LSE, ICE Europe, Euronext, plus handoff into Frankfurt and transatlantic routes.',
+		requirement: 'Design for low-jitter metro paths first, then long-haul replication into FR2 and NY.',
+	},
+	{
+		name: 'Frankfurt relay',
+		role: 'Eurex and Xetra recovery / primary node',
+		coverage: 'DAX, Euro Stoxx, fixed-income futures, and German cash venues.',
+		requirement: 'Use this as the hot standby for London-driven Europe and the primary for Eurex-led books.',
+	},
+	{
+		name: 'Tokyo + Singapore pair',
+		role: 'APAC relay mesh',
+		coverage: 'JPX/OSE, HKEX, SGX, and regional redistribution before any US or EU copy.',
+		requirement: 'Maintain two regional relays so the strategy loop stays inside APAC during outages or path jitter.',
+	},
+];
+const systemProfiles = [
+	{
+		name: 'Capture / exchange edge',
+		cpu: '16-32 high-clock cores',
+		memory: '64-128 GB ECC',
+		nic: 'Dual 25 GbE or single 100 GbE with hardware timestamps',
+		storage: '2-4 TB NVMe scratch plus mirrored archival path',
+		fit: 'Raw packet capture, gap detection, feed recording, and immediate handoff to relay.',
+	},
+	{
+		name: 'Relay / normalization node',
+		cpu: '24-48 cores',
+		memory: '128-256 GB ECC',
+		nic: 'Dual 25/100 GbE',
+		storage: '4-8 TB NVMe RAID1 or RAID10',
+		fit: 'Protocol normalization, gap-fill, compression, replay, and fanout to multiple consumers.',
+	},
+	{
+		name: 'Strategy / hot-path node',
+		cpu: '8-24 high-frequency cores',
+		memory: '64-128 GB ECC',
+		nic: '10/25 GbE with RSS and IRQ pinning',
+		storage: '2-4 TB NVMe local cache',
+		fit: 'Feature calc, signal generation, cache-resident books, and order-routing adjacency.',
+	},
+	{
+		name: 'Research / replay node',
+		cpu: '32-64 cores',
+		memory: '128-512 GB ECC',
+		nic: '10/25 GbE',
+		storage: '8-32 TB NVMe or U.2 array',
+		fit: 'Historical ingest, backtests, full-session replay, and derived dataset generation.',
+	},
+];
+const fastPathChecklist = [
+	'Linux 6.x LTS with tuned IRQ affinity, CPU isolation, and unnecessary C-states disabled.',
+	'PTP or a tightly disciplined clock so exchange timestamps, relay stamps, and strategy clocks line up.',
+	'NICs with hardware timestamping, deep RX rings, and driver settings reviewed for burst handling.',
+	'NVMe-first storage for capture and replay; avoid SATA or network filesystems on the ingestion hot path.',
+	'25 GbE east-west links as the minimum serious relay target; 100 GbE where multi-venue fanout is shared.',
 ];
 ---
 
@@ -274,6 +410,150 @@ const priorityGroups = [
 						</article>
 					))
 				}
+			</div>
+		</section>
+
+		<section class="section-card card topology-section" id="topology">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Hop and speed analysis</div>
+					<h2>Indicative topology for major exchanges, index flows, and relay points</h2>
+					<p>
+						This layer mirrors the kind of plant view shown in Databento-style architecture
+						diagrams: where the major venues sit, where relays should live, and what hop and
+						latency budgets matter if Train is expected to consume market data at speed. These
+						are engineering budgets for planning, not vendor SLAs.
+					</p>
+				</div>
+			</div>
+
+			<div class="topology-table-wrap">
+				<table class="topology-table">
+					<thead>
+						<tr>
+							<th>Venue</th>
+							<th>Benchmarks / flows</th>
+							<th>Primary PoP</th>
+							<th>Relay path</th>
+							<th>Hop budget</th>
+							<th>Latency budget</th>
+							<th>Link speed</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							topologyRoutes.map((route) => (
+								<tr>
+									<td>
+										<strong>{route.venue}</strong>
+										<p>{route.note}</p>
+									</td>
+									<td>{route.benchmarks}</td>
+									<td>{route.pop}</td>
+									<td>{route.relay}</td>
+									<td>{route.hops}</td>
+									<td>{route.latency}</td>
+									<td>{route.speed}</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="section-card card relay-section">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Relay points</div>
+					<h2>Where Train should expect to aggregate and redistribute feeds</h2>
+					<p>
+						Relays are the control points between lossless venue capture and downstream
+						consumers. They are where you absorb venue diversity, keep hot caches close, and
+						decide which regions get real-time fanout versus delayed replication.
+					</p>
+				</div>
+			</div>
+
+			<div class="relay-grid">
+				{
+					relayPoints.map((relay) => (
+						<article class="detail-card card">
+							<div class="tileTop">
+								<div>
+									<div class="ticker">{relay.role}</div>
+									<h3>{relay.name}</h3>
+								</div>
+							</div>
+							<p class="detail-copy">{relay.coverage}</p>
+							<p class="detail-meta">{relay.requirement}</p>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="section-card card requirements-section">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Server and system requirements</div>
+					<h2>Baseline hardware for accessing the feed at speed</h2>
+					<p>
+						Train can stay static on the presentation side, but the data-access side still
+						needs exchange-edge capture, metro relays, and hot-path nodes sized for bursty
+						market traffic. These profiles are a practical minimum for a serious deployment.
+					</p>
+				</div>
+			</div>
+
+			<div class="requirements-grid">
+				{
+					systemProfiles.map((profile) => (
+						<article class="detail-card card">
+							<div class="tileTop">
+								<div>
+									<div class="ticker">System profile</div>
+									<h3>{profile.name}</h3>
+								</div>
+							</div>
+							<dl class="requirements-list">
+								<div>
+									<dt>CPU</dt>
+									<dd>{profile.cpu}</dd>
+								</div>
+								<div>
+									<dt>Memory</dt>
+									<dd>{profile.memory}</dd>
+								</div>
+								<div>
+									<dt>NIC</dt>
+									<dd>{profile.nic}</dd>
+								</div>
+								<div>
+									<dt>Storage</dt>
+									<dd>{profile.storage}</dd>
+								</div>
+							</dl>
+							<p class="detail-meta">{profile.fit}</p>
+						</article>
+					))
+				}
+			</div>
+
+			<div class="checklist-card">
+				<div class="tileTop">
+					<div>
+						<div class="ticker">Fast-path checklist</div>
+						<h3>Operating assumptions behind the latency budgets</h3>
+					</div>
+				</div>
+				<div class="checklist-items">
+					{
+						fastPathChecklist.map((item) => (
+							<div class="checklist-item">{item}</div>
+						))
+					}
+				</div>
 			</div>
 		</section>
 
@@ -779,7 +1059,9 @@ const priorityGroups = [
 
 	.featured-grid,
 	.results-grid,
-	.priority-grid {
+	.priority-grid,
+	.relay-grid,
+	.requirements-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 14px;
@@ -787,7 +1069,8 @@ const priorityGroups = [
 
 	.featured-card,
 	.result-card,
-	.priority-card {
+	.priority-card,
+	.detail-card {
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
@@ -873,6 +1156,116 @@ const priorityGroups = [
 		line-height: 1.58;
 	}
 
+	.topology-table-wrap {
+		margin-top: 14px;
+		overflow-x: auto;
+		border-radius: 18px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	.topology-table {
+		width: 100%;
+		min-width: 1024px;
+		border-collapse: collapse;
+	}
+
+	.topology-table th,
+	.topology-table td {
+		padding: 14px 12px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		text-align: left;
+		vertical-align: top;
+		font-size: 0.94rem;
+		line-height: 1.55;
+	}
+
+	.topology-table th {
+		position: sticky;
+		top: 0;
+		background: rgba(7, 8, 18, 0.98);
+		font-family: var(--font-mono);
+		font-size: 0.74rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--soft);
+	}
+
+	.topology-table td p {
+		margin: 6px 0 0;
+		color: var(--muted);
+	}
+
+	.topology-table tbody tr:last-child td {
+		border-bottom: 0;
+	}
+
+	.detail-copy,
+	.detail-meta {
+		margin: 0;
+		line-height: 1.58;
+	}
+
+	.detail-copy {
+		color: var(--text);
+	}
+
+	.detail-meta {
+		color: var(--muted);
+	}
+
+	.requirements-list {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px 14px;
+		margin: 0;
+	}
+
+	.requirements-list div {
+		padding: 10px 12px;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.requirements-list dt {
+		font-family: var(--font-mono);
+		font-size: 0.76rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--soft);
+	}
+
+	.requirements-list dd {
+		margin: 8px 0 0;
+		color: var(--text);
+		line-height: 1.5;
+	}
+
+	.checklist-card {
+		margin-top: 14px;
+		padding: 14px;
+		border-radius: 18px;
+		background: rgba(0, 0, 0, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.checklist-items {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+		margin-top: 12px;
+	}
+
+	.checklist-item {
+		padding: 12px;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		color: var(--muted);
+		line-height: 1.58;
+	}
+
 	.explorer-section {
 		display: flex;
 		flex-direction: column;
@@ -902,6 +1295,8 @@ const priorityGroups = [
 		.home-topBand,
 		.facet-strip,
 		.priority-grid,
+		.relay-grid,
+		.requirements-grid,
 		.featured-grid,
 		.results-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -920,10 +1315,14 @@ const priorityGroups = [
 		.home-topBand,
 		.facet-strip,
 		.priority-grid,
+		.relay-grid,
+		.requirements-grid,
 		.featured-grid,
 		.results-grid,
 		.stats-grid,
-		.filters-grid {
+		.filters-grid,
+		.requirements-list,
+		.checklist-items {
 			grid-template-columns: 1fr;
 		}
 

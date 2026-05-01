@@ -1,23 +1,23 @@
 {
-  "totalSymbols": 60200,
+  "totalSymbols": 56322,
   "uniqueCountries": 80,
-  "uniqueExchanges": 74,
+  "uniqueExchanges": 71,
   "withCompanyCreation": 4555,
-  "withIpoCreation": 1806,
+  "withIpoCreation": 21236,
   "securityTypes": [
     {
       "name": "Stock",
-      "count": 41197
+      "count": 40971
     },
     {
       "name": "ETF",
-      "count": 19003
+      "count": 15351
     }
   ],
   "topCountries": [
     {
       "name": "United States",
-      "count": 20402
+      "count": 16586
     },
     {
       "name": "China",
@@ -53,7 +53,7 @@
     },
     {
       "name": "United Kingdom",
-      "count": 1345
+      "count": 1346
     },
     {
       "name": "Luxembourg",
@@ -71,7 +71,7 @@
     },
     {
       "name": "NASDAQ",
-      "count": 5556
+      "count": 5563
     },
     {
       "name": "LSE",
@@ -95,11 +95,7 @@
     },
     {
       "name": "NYSEARCA",
-      "count": 2635
-    },
-    {
-      "name": "NYSE ARCA",
-      "count": 2576
+      "count": 2691
     },
     {
       "name": "XETRA",
@@ -112,12 +108,16 @@
     {
       "name": "TSX",
       "count": 1665
+    },
+    {
+      "name": "KOSDAQ",
+      "count": 1583
     }
   ],
   "topSectors": [
     {
       "name": "(none)",
-      "count": 26253
+      "count": 22375
     },
     {
       "name": "Industrials",
@@ -165,9 +165,9 @@
     }
   ],
   "dateCoverage": {
-    "complete": 1680,
-    "partial": 3001,
-    "missing": 55519
+    "complete": 3028,
+    "partial": 19735,
+    "missing": 33559
   },
   "featuredListings": [
     {
@@ -184,7 +184,10 @@
       "cc": "KR",
       "is": "KR7000240002",
       "al": [
-        "hankook tire worldwide"
+        "hankook tire worldwide",
+        "000240",
+        "hankook tire technology",
+        "krx 000240"
       ],
       "cd": "1941-01-01T00:00:00Z",
       "ip": "2012-10-04T00:00:00Z",
@@ -206,7 +209,11 @@
       "cc": "CN",
       "is": "CNE000000X95",
       "al": [
-        "shenzhen neptunus bioengineering"
+        "shenzhen neptunus bioengineering",
+        "shenzhen neptunus bioengineering co ltd",
+        "000078",
+        "q11153061",
+        "szse 000078"
       ],
       "cd": "1992-12-13T00:00:00Z",
       "ip": "1998-01-01T00:00:00Z",
@@ -228,7 +235,9 @@
       "is": "BMG2442N1048",
       "al": [
         "cosco ship port",
-        "cosco shipping ports"
+        "cosco shipping ports",
+        "01199",
+        "hkex 01199"
       ],
       "cd": "1994-01-01T00:00:00Z",
       "ip": "1994-12-19T00:00:00Z",
@@ -248,6 +257,12 @@
       "co": "Hong Kong",
       "cc": "HK",
       "is": "HK1208013172",
+      "al": [
+        "mmg",
+        "01208",
+        "minerals and metals group",
+        "hkex 01208"
+      ],
       "cd": "2009-01-01T00:00:00Z"
     },
     {
@@ -264,7 +279,10 @@
       "is": "KYG4212T1058",
       "al": [
         "guming",
-        "guming holdings"
+        "guming holdings",
+        "01364",
+        "good me",
+        "hkex 01364"
       ],
       "cd": "2010-01-01T00:00:00Z"
     },
@@ -282,7 +300,10 @@
       "is": "CNE100002342",
       "al": [
         "china re",
-        "china reinsurance group"
+        "china reinsurance group",
+        "01508",
+        "china reinsurance",
+        "hkex 01508"
       ],
       "ip": "2015-10-26T00:00:00Z",
       "ft": "2015-10-26T00:00:00Z",
@@ -302,7 +323,9 @@
       "cc": "CN",
       "is": "CNE100002623",
       "al": [
-        "bank of tianjin"
+        "bank of tianjin",
+        "01578",
+        "hkex 01578"
       ],
       "cd": "1996-01-01T00:00:00Z",
       "ip": "2016-03-30T00:00:00Z",
@@ -324,7 +347,9 @@
       "cc": "KR",
       "is": "KR7017800004",
       "al": [
-        "hyundai elevator"
+        "hyundai elevator",
+        "017800",
+        "krx 017800"
       ],
       "cd": "1984-05-23T00:00:00Z",
       "ip": "1996-07-03T00:00:00Z",
