@@ -17,8 +17,8 @@ the generated JSON catalog.
 ## Low-latency access model
 
 The homepage now includes an indicative **hop and speed analysis** layer for major exchange and
-index routes, relay points, and hardware profiles. It is meant as planning guidance for getting
-market data into Train at speed, not as a measured SLA.
+index routes, relay points, live pipeline stages, junction bottlenecks, and hardware profiles. It
+is meant as planning guidance for getting market data into Train at speed, not as a measured SLA.
 
 ### Major venue / index routes
 
@@ -38,6 +38,49 @@ market data into Train at speed, not as a measured SLA.
 - **London / LD4** for European fanout and transatlantic handoff.
 - **Frankfurt** for Eurex/Xetra primaries or hot standby.
 - **Tokyo + Singapore** as the regional APAC relay mesh.
+
+### Live pipeline coverage
+
+The architecture section now explicitly covers the full live-data chain:
+
+1. **Venue ingress** with primary and secondary handoffs.
+2. **Lossless capture** with timestamping and parallel hot hosts.
+3. **Decode / normalize** for trades, books, status, and instrument metadata.
+4. **Gap fill / reconciliation** for retransmit and replay continuity.
+5. **Regional relay mesh** for Chicago, New Jersey, London, Frankfurt, Tokyo, and Singapore.
+6. **Hot cache / serving plane** for session-aware stream delivery.
+7. **Historical persistence** for raw and normalized archives.
+8. **Client delivery** for live subscriptions, reconnect, and replay bootstrap.
+
+For each stage, the page now lists:
+
+- **Primary path**
+- **Redundant path**
+- **Data carried**
+- **Critical junction**
+- **Likely bottleneck**
+- **Tech stack**
+
+### Junction bottlenecks
+
+The page now calls out the main join points where low-latency systems usually fail first:
+
+- Venue demarcation
+- Capture-to-parser handoff
+- Relay fanout spine
+- Gateway and entitlement plane
+- Archive and replay contention
+
+### Tech stack layers
+
+The architecture section also breaks the plant down by stack layer:
+
+- Time and clocking
+- Network fabric
+- Capture and feed handling
+- Normalization and stream fabric
+- Storage and replay
+- Serving and client edge
 
 ### Server / system requirements
 
