@@ -5,6 +5,8 @@ interface Props {
 	pageClass?: string;
 	eyebrow?: string;
 	subtitle?: string;
+	/** When true, show directory search in the banner (synced with #filter-query on the home page). */
+	showHeaderDirectorySearch?: boolean;
 }
 
 const {
@@ -13,6 +15,7 @@ const {
 	pageClass = 'page-home',
 	eyebrow = 'Static market directory',
 	subtitle = 'Searchable listing intelligence built from the Erika dataset.',
+	showHeaderDirectorySearch = false,
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
@@ -29,7 +32,10 @@ const baseUrl = import.meta.env.BASE_URL;
 		<meta name="description" content={description} />
 		<title>{title}</title>
 	</head>
-	<body class={pageClass} data-base-url={baseUrl}>
+	<body
+		class={`${pageClass}${showHeaderDirectorySearch ? ' has-header-directory-search' : ''}`}
+		data-base-url={baseUrl}
+	>
 		<div class="bgGlow" aria-hidden="true"></div>
 		<div class="page-shell">
 			<header class="headerBanner" role="banner">
@@ -46,12 +52,30 @@ const baseUrl = import.meta.env.BASE_URL;
 				<nav class="site-nav" aria-label="Site navigation">
 					<a href={baseUrl}>Home</a>
 					<span>·</span>
+					<a href={`${baseUrl}featured/`}>Featured</a>
+					<span>·</span>
 					<a href={`${baseUrl}#explore`}>Directory</a>
 					<span>·</span>
 					<a href={`${baseUrl}listing/`}>Listing view</a>
 					<span>·</span>
 					<a href={`${baseUrl}raw/`}>Raw data</a>
 				</nav>
+				{
+					showHeaderDirectorySearch ? (
+						<div class="headerBannerSearch">
+							<label class="headerBannerSearch-label" for="header-filter-query">
+								Directory search
+							</label>
+							<input
+								id="header-filter-query"
+								class="headerBannerSearch-input"
+								type="search"
+								placeholder="Ticker, company, exchange, country, alias…"
+								autocomplete="off"
+							/>
+						</div>
+					) : null
+				}
 				<div class="headerBannerBottomRow">
 					<div class="paywallPill">Educational dataset view only</div>
 					<p class="headerBannerAttribution">
@@ -63,6 +87,25 @@ const baseUrl = import.meta.env.BASE_URL;
 				<slot />
 			</main>
 		</div>
+		<script is:inline>
+			(() => {
+				const threshold = 36;
+				let ticking = false;
+				function sync() {
+					document.body.classList.toggle('header-collapsed', window.scrollY > threshold);
+					ticking = false;
+				}
+				function onScroll() {
+					if (!ticking) {
+						ticking = true;
+						requestAnimationFrame(sync);
+					}
+				}
+				window.addEventListener('scroll', onScroll, { passive: true });
+				window.addEventListener('resize', onScroll, { passive: true });
+				sync();
+			})();
+		</script>
 	</body>
 </html>
 
@@ -162,6 +205,66 @@ const baseUrl = import.meta.env.BASE_URL;
 		max-width: 1380px;
 		margin: 0 auto;
 		padding: 7.8rem 18px 52px;
+		transition: padding-top 0.22s ease;
+	}
+
+	body.has-header-directory-search .wrap {
+		padding-top: 9.85rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.wrap {
+			transition: none;
+		}
+	}
+
+	body.header-collapsed .headerBanner {
+		padding: 6px 16px 8px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+	}
+
+	body.header-collapsed .headerBanner .eyebrow {
+		margin: 0 0 2px;
+	}
+
+	body.header-collapsed .headerBanner .brand {
+		display: contents;
+	}
+
+	body.header-collapsed .headerBanner .logoLink {
+		display: none;
+	}
+
+	body.header-collapsed .headerBanner .brandText {
+		display: block;
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	body.header-collapsed .headerBanner .sub {
+		display: none;
+	}
+
+	body.header-collapsed .headerBanner .site-title {
+		margin: 0 0 2px;
+		font-size: clamp(1rem, 2.4vw, 1.25rem);
+	}
+
+	body.header-collapsed .headerBanner .site-nav {
+		margin-top: 2px;
+	}
+
+	body.header-collapsed .headerBanner .headerBannerBottomRow {
+		margin-top: 4px;
+		align-items: center;
+	}
+
+	body.header-collapsed .headerBanner .headerBannerAttribution {
+		display: none;
+	}
+
+	body.header-collapsed .wrap {
+		padding-top: 5.85rem;
 	}
 
 	.container {
@@ -185,6 +288,13 @@ const baseUrl = import.meta.env.BASE_URL;
 		backdrop-filter: blur(16px) saturate(1.12);
 		-webkit-backdrop-filter: blur(16px) saturate(1.12);
 		box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+		transition: padding 0.22s ease, box-shadow 0.22s ease;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.headerBanner {
+			transition: none;
+		}
 	}
 
 	.eyebrow,
@@ -270,6 +380,75 @@ const baseUrl = import.meta.env.BASE_URL;
 	.site-nav a:hover {
 		color: var(--accent-warm);
 		border-bottom-color: rgba(255, 210, 120, 0.55);
+	}
+
+	.headerBannerSearch {
+		margin-top: 8px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		width: 100%;
+		max-width: min(100%, 42rem);
+	}
+
+	.headerBannerSearch-label {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--soft);
+	}
+
+	.headerBannerSearch-input {
+		width: 100%;
+		min-height: 40px;
+		padding: 10px 12px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		outline: none;
+		background: var(--field-bg);
+		color: var(--text);
+		font-size: 13px;
+		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+	}
+
+	.headerBannerSearch-input::placeholder {
+		color: var(--muted);
+	}
+
+	.headerBannerSearch-input:focus {
+		border-color: rgba(180, 130, 255, 0.45);
+		box-shadow:
+			inset 0 0 0 1px rgba(0, 0, 0, 0.18),
+			0 0 0 3px rgba(180, 130, 255, 0.12);
+	}
+
+	body.header-collapsed .headerBannerSearch {
+		margin-top: 4px;
+		max-width: min(100%, 36rem);
+	}
+
+	body.header-collapsed .headerBannerSearch-input {
+		min-height: 36px;
+		padding: 8px 10px;
+		font-size: 12.5px;
+	}
+
+	body.has-header-directory-search.header-collapsed .wrap {
+		padding-top: 7.35rem;
+	}
+
+	@media (max-width: 900px) {
+		body.has-header-directory-search.header-collapsed .wrap {
+			padding-top: 7.85rem;
+		}
+	}
+
+	@media (max-width: 720px) {
+		body.has-header-directory-search.header-collapsed .wrap {
+			padding-top: 8.65rem;
+		}
 	}
 
 	.headerBannerBottomRow {
@@ -481,6 +660,14 @@ const baseUrl = import.meta.env.BASE_URL;
 			padding-top: 9.8rem;
 		}
 
+		body.has-header-directory-search .wrap {
+			padding-top: 11.85rem;
+		}
+
+		body.header-collapsed .wrap {
+			padding-top: 6.35rem;
+		}
+
 		.brandText {
 			align-items: flex-start;
 			text-align: left;
@@ -491,6 +678,14 @@ const baseUrl = import.meta.env.BASE_URL;
 		.wrap {
 			padding-top: 11.5rem;
 			padding-inline: 14px;
+		}
+
+		body.has-header-directory-search .wrap {
+			padding-top: 13.75rem;
+		}
+
+		body.header-collapsed .wrap {
+			padding-top: 7.1rem;
 		}
 
 		.brand-mark {

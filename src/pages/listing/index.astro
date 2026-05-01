@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import summary from '../../generated/catalog-meta.json';
+import { YAHOO_TO_TRADINGVIEW } from '../../lib/yahoo-tv-map';
 
 const featuredListings = summary.featuredListings.slice(0, 6);
 ---
@@ -25,6 +26,64 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 
 		<div id="listing-status" class="metaHint">Fetching record…</div>
 
+		<div id="listing-live-root" class="listing-live-root" hidden>
+			<div class="stockTopBand">
+				<article class="card listing-hero">
+					<div class="tileTop">
+						<div>
+							<div class="ticker">Live market snapshot</div>
+							<div id="listing-live-subtitle" class="name">
+								Hourly-capable TradingView embed plus Yahoo Finance for the same Yahoo-style
+								symbol.
+							</div>
+						</div>
+						<div class="hero-actions">
+							<a id="listing-live-yahoo" class="button-secondary" href="#" target="_blank" rel="noreferrer"
+								>Open Yahoo Finance</a
+							>
+							<a class="button-secondary" href="../#explore">← Directory</a>
+						</div>
+					</div>
+					<div class="listing-hero-main">
+						<div>
+							<p id="listing-live-id" class="metaPill"></p>
+							<h1 id="listing-live-title">Loading…</h1>
+						</div>
+						<span class="badge muted">External quote</span>
+					</div>
+					<p class="listing-live-disclaimer muted">
+						Quotes load from TradingView’s embed; they are indicative, can differ from the Erika
+						static lake, and are not investment advice.
+					</p>
+				</article>
+				<aside class="card listing-metrics">
+					<div class="tileTop">
+						<div>
+							<div class="ticker">Session context</div>
+							<div class="name">Use featured markets for regional close logic.</div>
+						</div>
+					</div>
+					<div class="hero-actions" style="margin-top: 12px;">
+						<a class="button-secondary" href="../featured/">Featured session</a>
+					</div>
+				</aside>
+			</div>
+			<section class="card listing-live-frame-card">
+				<div class="tileTop">
+					<div>
+						<div class="ticker">Current interval</div>
+						<div class="name">Embedded overview (60m); open Yahoo for full depth.</div>
+					</div>
+				</div>
+				<iframe
+					id="listing-live-iframe"
+					class="listing-live-iframe"
+					title="Live quote"
+					referrerpolicy="no-referrer-when-downgrade"
+				></iframe>
+			</section>
+		</div>
+
 		<section id="listing-empty" class="card listing-empty">
 			<div class="tileTop">
 				<div>
@@ -36,6 +95,7 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					</p>
 				</div>
 				<div class="hero-actions">
+					<a class="button-secondary" href="../featured/">Open featured market page</a>
 					<a class="button-secondary" href="../#explore">Browse directory</a>
 					<a class="button-secondary" href="../raw/">Open raw data</a>
 				</div>
@@ -63,6 +123,9 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 							</div>
 						</div>
 						<div class="hero-actions">
+							<a id="listing-featured-link" class="button-secondary" href="../featured/">
+								Featured session
+							</a>
 							<a class="button-secondary" href="../#explore">← Directory</a>
 						</div>
 					</div>
@@ -137,8 +200,13 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		</div>
 	</section>
 
-	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
+	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL, YAHOO_TO_TRADINGVIEW }}>
 		const statusElement = document.querySelector('#listing-status');
+		const liveRoot = document.querySelector('#listing-live-root');
+		const liveTitle = document.querySelector('#listing-live-title');
+		const liveId = document.querySelector('#listing-live-id');
+		const liveIframe = document.querySelector('#listing-live-iframe');
+		const liveYahoo = document.querySelector('#listing-live-yahoo');
 		const emptyElement = document.querySelector('#listing-empty');
 		const emptyTitleElement = document.querySelector('#listing-empty-title');
 		const emptyCopyElement = document.querySelector('#listing-empty-copy');
@@ -155,6 +223,7 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		const identityGrid = document.querySelector('#identity-grid');
 		const classificationGrid = document.querySelector('#classification-grid');
 		const aliasList = document.querySelector('#alias-list');
+		const featuredLink = document.querySelector('#listing-featured-link');
 		const dateFormatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' });
 
 		function escapeHtml(value) {
@@ -196,6 +265,41 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				.join('');
 		}
 
+		function tradingViewMiniUrl(tvSymbol) {
+			const params = new URLSearchParams({
+				locale: 'en',
+				symbol: tvSymbol,
+				colorTheme: 'dark',
+				isTransparent: 'true',
+				autosize: 'true',
+				interval: '60',
+			});
+			return `https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?${params.toString()}`;
+		}
+
+		function showLiveSnapshot(ticker, label) {
+			const tvSymbol = YAHOO_TO_TRADINGVIEW[ticker];
+			const displayName = label || ticker;
+			document.title = `${displayName} | Live snapshot`;
+			statusElement.textContent = 'Live snapshot ready.';
+			emptyElement.hidden = true;
+			contentElement.hidden = true;
+			liveRoot.hidden = false;
+			liveTitle.textContent = displayName;
+			liveId.textContent = ticker;
+			const yahooUrl = `https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}`;
+			liveYahoo.href = yahooUrl;
+			if (tvSymbol) {
+				liveIframe.src = tradingViewMiniUrl(tvSymbol);
+				liveIframe.hidden = false;
+			} else {
+				liveIframe.removeAttribute('src');
+				liveIframe.hidden = true;
+				statusElement.textContent =
+					'No TradingView mapping for this ticker; use Yahoo Finance for live context.';
+			}
+		}
+
 		async function loadCatalog() {
 			const response = await fetch(`${baseUrl}data/catalog.json`);
 			if (!response.ok) {
@@ -206,11 +310,21 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		}
 
 		(async () => {
-			const recordId = new URLSearchParams(window.location.search).get('id');
+			const params = new URLSearchParams(window.location.search);
+			const liveTicker = params.get('t')?.trim();
+			const liveLabel = params.get('label')?.trim();
+			const recordId = params.get('id')?.trim();
+
+			if (liveTicker && !recordId) {
+				showLiveSnapshot(liveTicker, liveLabel);
+				return;
+			}
+
 			if (!recordId) {
 				statusElement.textContent = 'Choose a listing from the directory to open its profile.';
 				emptyTitleElement.textContent = 'No listing selected';
-				emptyCopyElement.textContent = 'Use the main directory page to pick a ticker, ETF, or exchange listing, or open one of the sample links below.';
+				emptyCopyElement.textContent =
+					'Use the main directory page to pick a ticker, ETF, or exchange listing, open a priority-market live snapshot with ?t=…, or open one of the sample links below.';
 				return;
 			}
 
@@ -229,6 +343,7 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				emptyElement.hidden = true;
 				titleElement.textContent = record.nm;
 				subtitleElement.textContent = `${record.id} · ${record.ty} · ${record.ex}`;
+				featuredLink.href = `${baseUrl}featured/?exchange=${encodeURIComponent(record.ex || '')}`;
 				idElement.textContent = record.id;
 				coverageElement.textContent = record.dc || 'missing';
 				coverageElement.className = `badge ${coverageClass(record.dc)}`;
@@ -287,6 +402,32 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
+	}
+
+	.listing-live-root {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.listing-live-disclaimer {
+		margin: 12px 0 0;
+		line-height: 1.55;
+		font-size: 0.92rem;
+	}
+
+	.listing-live-frame-card {
+		padding: 16px;
+	}
+
+	.listing-live-iframe {
+		display: block;
+		width: 100%;
+		min-height: 420px;
+		margin-top: 14px;
+		border: 0;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.2);
 	}
 
 	.header {

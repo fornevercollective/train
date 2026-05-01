@@ -20,6 +20,19 @@ The homepage now includes an indicative **hop and speed analysis** layer for maj
 index routes, relay points, live pipeline stages, junction bottlenecks, and hardware profiles. It
 is meant as planning guidance for getting market data into Train at speed, not as a measured SLA.
 
+## Featured market page
+
+The site now includes `/featured/`, a timezone-aware market-focus page that:
+
+- picks a regional session from the visitor timezone or `?exchange=...`
+- shows a curated 10-major stock basket for that region from the local catalog
+- links out to TradingView and Yahoo heatmaps for live stock-performance context
+- loads CoinGecko live crypto movers and the CoinGecko heatmap widget client-side
+
+Because the repo still ships static listing metadata rather than full end-of-day quote history, the
+stock basket is curated by region and exchange focus, while the live ranking context comes from the
+external heatmap sources.
+
 ### Major venue / index routes
 
 | Venue | Benchmarks / flows | Primary PoP | Relay pattern | Indicative budget |

@@ -1,11 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import summary from '../generated/catalog-meta.json';
+import { YAHOO_TO_TRADINGVIEW, tradingViewMiniUrl } from '../lib/yahoo-tv-map';
 
 const topCountries = summary.topCountries.slice(0, 8);
 const topExchanges = summary.topExchanges.slice(0, 8);
 const topSectors = summary.topSectors.filter((item) => item.name !== '(none)').slice(0, 8);
 const featuredListings = summary.featuredListings.slice(0, 6);
+const primaryFeaturedListing = featuredListings[0];
+/** From repo root …/cursor/train — root `server.py` forwards to ../bloomberg/live chat/browser-page/. */
+const bloombergRelayStartCommand =
+	'cd "/Volumes/qbitOS/00.dev/cursor/train" && python3 server.py';
+
+const homeSectionLinks = [
+	{ href: '#explore', label: 'Directory explorer' },
+	{ href: '#home-facets', label: 'Top facets' },
+	{ href: '#home-priority-markets', label: 'Priority markets' },
+	{ href: '#home-architecture', label: 'Architecture' },
+	{ href: '#home-featured', label: 'Sample listings' },
+	{ href: '#home-bloomberg-live', label: 'Bloomberg live relay' },
+];
 const quickLinks = [
 	{ label: 'Latency topology', href: '#topology' },
 	{ label: 'Live pipeline', href: '#live-pipeline' },
@@ -363,6 +377,7 @@ const fastPathChecklist = [
 	pageClass="page-home"
 	eyebrow="Directory view"
 	subtitle="Static listing intelligence with search, filters, and profile pages."
+	showHeaderDirectorySearch={true}
 >
 	<section class="container home-shell">
 		<header class="header">
@@ -388,20 +403,33 @@ const fastPathChecklist = [
 						</p>
 					</div>
 				</div>
-				<div class="hero-actions">
+				<div class="hero-actions hero-actions-row">
 					<a class="button" href="#explore">Browse the directory</a>
-					{
-						featuredListings[0] && (
-							<a
-								class="button-secondary"
-								href={`listing/?id=${encodeURIComponent(featuredListings[0].id)}`}
-							>
-								Open featured profile
-							</a>
-						)
-					}
+					<a
+						class="button-secondary"
+						href={
+							primaryFeaturedListing
+								? `listing/?id=${encodeURIComponent(primaryFeaturedListing.id)}`
+								: 'featured/'
+						}
+					>
+						Open featured profile
+					</a>
 					<a class="button-secondary" href="raw/">Open raw data page</a>
 				</div>
+				<nav class="hero-section-nav" aria-label="Sections on this page">
+					<ul class="hero-section-nav-list">
+						{
+							homeSectionLinks.map((item) => (
+								<li>
+									<a class="hero-section-nav-link" href={item.href}>
+										{item.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
 				<div class="quick-links">
 					{
 						quickLinks.map((link) => (
@@ -413,51 +441,217 @@ const fastPathChecklist = [
 				</div>
 			</article>
 
-			<aside class="card home-stats">
-				<div class="tileTop">
-					<div>
+			<details class="card home-stats" id="home-stats-panel" open>
+				<summary class="home-stats-summary">
+					<div class="home-stats-summary-text">
 						<div class="ticker">Coverage snapshot</div>
 						<div class="name">High-level shape of the Erika listing universe.</div>
 					</div>
+					<span class="home-stats-chevron" aria-hidden="true" />
+				</summary>
+				<div class="home-stats-body">
+					<div class="stats-grid">
+						<div class="stat-block">
+							<span class="muted">Listings</span>
+							<strong>{summary.totalSymbols.toLocaleString()}</strong>
+						</div>
+						<div class="stat-block">
+							<span class="muted">Countries</span>
+							<strong>{summary.uniqueCountries.toLocaleString()}</strong>
+						</div>
+						<div class="stat-block">
+							<span class="muted">Exchanges</span>
+							<strong>{summary.uniqueExchanges.toLocaleString()}</strong>
+						</div>
+						<div class="stat-block">
+							<span class="muted">Company dates</span>
+							<strong>{summary.withCompanyCreation.toLocaleString()}</strong>
+						</div>
+						<div class="stat-block">
+							<span class="muted">IPO dates</span>
+							<strong>{summary.withIpoCreation.toLocaleString()}</strong>
+						</div>
+						<div class="stat-block">
+							<span class="muted">Complete coverage</span>
+							<strong>{summary.dateCoverage.complete.toLocaleString()}</strong>
+						</div>
+					</div>
+					<div class="stats-foot">
+						<span class="badge success">
+							{summary.securityTypes[0]?.name}: {summary.securityTypes[0]?.count.toLocaleString()}
+						</span>
+						<span class="badge muted">
+							{summary.securityTypes[1]?.name}: {summary.securityTypes[1]?.count.toLocaleString()}
+						</span>
+					</div>
 				</div>
-				<div class="stats-grid">
-					<div class="stat-block">
-						<span class="muted">Listings</span>
-						<strong>{summary.totalSymbols.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">Countries</span>
-						<strong>{summary.uniqueCountries.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">Exchanges</span>
-						<strong>{summary.uniqueExchanges.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">Company dates</span>
-						<strong>{summary.withCompanyCreation.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">IPO dates</span>
-						<strong>{summary.withIpoCreation.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">Complete coverage</span>
-						<strong>{summary.dateCoverage.complete.toLocaleString()}</strong>
-					</div>
-				</div>
-				<div class="stats-foot">
-					<span class="badge success">
-						{summary.securityTypes[0]?.name}: {summary.securityTypes[0]?.count.toLocaleString()}
-					</span>
-					<span class="badge muted">
-						{summary.securityTypes[1]?.name}: {summary.securityTypes[1]?.count.toLocaleString()}
-					</span>
-				</div>
-			</aside>
+			</details>
 		</div>
 
-		<section class="facet-strip">
+		<article class="card home-bloomberg-live" id="home-bloomberg-live" aria-labelledby="bloomberg-live-heading">
+			<div class="tileTop">
+				<div>
+					<div class="ticker">Bloomberg live relay</div>
+					<h2 id="bloomberg-live-heading" class="home-bloomberg-title">
+						Live captions and Granite Tiny side chat
+					</h2>
+					<p class="home-bloomberg-lead muted">
+						Companion to the qbitOS Bloomberg tool in{' '}
+						<code class="home-bloomberg-path">bloomberg/live chat/browser-page/</code>: reference
+						stream, then caption-driven chat when the local Python relay is running.
+					</p>
+				</div>
+				<div class="hero-actions home-bloomberg-actions">
+					<a
+						class="button-secondary"
+						href="http://127.0.0.1:8765/"
+						target="_blank"
+						rel="noopener noreferrer"
+						id="bloomberg-relay-open"
+					>
+						Open relay (127.0.0.1)
+					</a>
+					<a
+						class="button-secondary"
+						href="http://localhost:8765/"
+						target="_blank"
+						rel="noopener noreferrer"
+						id="bloomberg-relay-open-localhost"
+					>
+						Open relay (localhost)
+					</a>
+					<button type="button" class="button-secondary" id="bloomberg-relay-copy-cmd">
+						Copy start command
+					</button>
+				</div>
+				<p class="home-bloomberg-relay-note muted" id="bloomberg-relay-note">
+					This site does not start the relay. In a terminal, run the copied command (or{' '}
+					<code class="home-bloomberg-path">python3 server.py</code> from that folder), wait for
+					“Serving http://…”, then use the buttons. If a new tab does not appear, try Safari or
+					Chrome; the buttons fall back to navigating this tab when pop-ups are blocked.
+				</p>
+				<p class="home-bloomberg-relay-status metaHint" id="bloomberg-relay-copy-status" hidden></p>
+			</div>
+			<div class="home-bloomberg-grid">
+				<section class="home-bloomberg-panel home-bloomberg-video" aria-label="Reference video">
+					<div class="home-bloomberg-panel-head">
+						<span class="muted home-bloomberg-panel-kicker">Reference stream</span>
+						<strong class="home-bloomberg-ref-time" id="bloomberg-ref-time">—</strong>
+					</div>
+					<div class="home-bloomberg-frame">
+						<iframe
+							title="Bloomberg live reference (default project stream)"
+							src="https://www.youtube.com/embed/f39oHo6vFLg?rel=0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+							loading="lazy"
+							referrerpolicy="strict-origin-when-cross-origin"
+						></iframe>
+					</div>
+				</section>
+				<section class="home-bloomberg-panel home-bloomberg-chat" aria-label="Side chat relay">
+					<div class="home-bloomberg-panel-head">
+						<div>
+							<span class="muted home-bloomberg-panel-kicker">Granite Tiny side chat</span>
+							<p class="home-bloomberg-chat-sub muted">
+								Captions and model reactions stream from the relay; this directory site stays
+								static on GitHub Pages.
+							</p>
+						</div>
+					</div>
+					<div class="home-bloomberg-chat-body">
+						<ol class="home-bloomberg-steps muted">
+							<li>
+								From this repo root (<code class="home-bloomberg-path">…/cursor/train</code>), run{' '}
+								<code class="home-bloomberg-path">python3 server.py</code> — it forwards to{' '}
+								<code class="home-bloomberg-path">../bloomberg/live chat/browser-page</code> (default
+								port <strong>8765</strong>). Or <code class="home-bloomberg-path">cd</code> there and
+								run <code class="home-bloomberg-path">python3 server.py</code> directly.
+							</li>
+							<li>
+								Use <strong>Open relay</strong> once the server prints “Serving…” — for the full
+								dashboard (captions, metrics, chat).
+							</li>
+							<li>
+								HTTPS production hosts cannot embed{' '}
+								<code class="home-bloomberg-path">http://127.0.0.1</code>; use localhost over HTTP
+								during dev if you need both in one tab.
+							</li>
+						</ol>
+						<div class="home-bloomberg-chat-foot">
+							<span class="badge muted" id="bloomberg-relay-hint">Relay link targets 127.0.0.1:8765</span>
+						</div>
+					</div>
+				</section>
+			</div>
+		</article>
+
+		<script is:inline define:vars={{ bloombergRelayStartCommand }}>
+			(() => {
+				const ref = document.getElementById('bloomberg-ref-time');
+				if (ref) {
+					const tick = () => {
+						ref.textContent = new Date().toLocaleTimeString([], {
+							hour: '2-digit',
+							minute: '2-digit',
+							second: '2-digit',
+						});
+					};
+					tick();
+					setInterval(tick, 1000);
+				}
+
+				function openRelayUrl(url) {
+					const win = window.open(url, '_blank', 'noopener,noreferrer');
+					if (!win || win.closed) {
+						window.location.href = url;
+						return;
+					}
+					try {
+						win.opener = null;
+					} catch {
+						/* ignore */
+					}
+				}
+
+				for (const id of ['bloomberg-relay-open', 'bloomberg-relay-open-localhost']) {
+					const el = document.getElementById(id);
+					if (!el) continue;
+					el.addEventListener('click', (event) => {
+						event.preventDefault();
+						openRelayUrl(el.getAttribute('href') || '');
+					});
+				}
+
+				const copyBtn = document.getElementById('bloomberg-relay-copy-cmd');
+				const copyStatus = document.getElementById('bloomberg-relay-copy-status');
+				if (copyBtn) {
+					const defaultLabel = copyBtn.textContent?.trim() || 'Copy start command';
+					copyBtn.addEventListener('click', async () => {
+						try {
+							await navigator.clipboard.writeText(bloombergRelayStartCommand);
+							copyBtn.textContent = 'Copied to clipboard';
+							if (copyStatus) {
+								copyStatus.textContent =
+									'Paste into Terminal, press Enter, wait for “Serving…”, then open a relay link.';
+								copyStatus.hidden = false;
+							}
+							setTimeout(() => {
+								copyBtn.textContent = defaultLabel;
+								if (copyStatus) {
+									copyStatus.textContent = '';
+									copyStatus.hidden = true;
+								}
+							}, 4500);
+						} catch {
+							copyBtn.textContent = 'Copy blocked — type the command manually';
+						}
+					});
+				}
+			})();
+		</script>
+
+		<section class="facet-strip" id="home-facets">
 			<div class="card facet-card">
 				<div class="tileTop">
 					<div>
@@ -513,7 +707,7 @@ const fastPathChecklist = [
 			</div>
 		</section>
 
-		<section class="section-card card priority-section">
+		<section class="section-card card priority-section" id="home-priority-markets">
 			<div class="section-heading">
 				<div>
 					<div class="kicker">Priority markets</div>
@@ -539,31 +733,49 @@ const fastPathChecklist = [
 							</div>
 							<div class="priority-items">
 								{
-									group.items.map((item) => (
-										<div class="priority-item">
-											<div class="priority-item-head">
-												<div>
-													<strong>{item.name}</strong>
-													<p>{item.symbol}</p>
-												</div>
-												<span
-													class={`badge ${
-														item.status === 'strong' || item.status === 'good'
-															? 'success'
-															: item.status === 'missing' || item.status === 'limited'
-																? 'warning'
-																: 'muted'
-													}`}
-												>
-													{item.status}
-												</span>
+									group.items.map((item) => {
+										const tvSymbol = YAHOO_TO_TRADINGVIEW[item.symbol];
+										const liveHref = `listing/?t=${encodeURIComponent(item.symbol)}&label=${encodeURIComponent(item.name)}`;
+										return (
+											<div class="priority-item">
+												<a class="priority-item-main" href={liveHref}>
+													<div class="priority-item-head">
+														<div>
+															<strong>{item.name}</strong>
+															<p>{item.symbol}</p>
+														</div>
+														<span
+															class={`badge ${
+																item.status === 'strong' || item.status === 'good'
+																	? 'success'
+																	: item.status === 'missing' || item.status === 'limited'
+																		? 'warning'
+																		: 'muted'
+															}`}
+														>
+															{item.status}
+														</span>
+													</div>
+													<div class="priority-item-meta">
+														<span>{item.coverage}</span>
+														<span>{item.rows}</span>
+													</div>
+												</a>
+												{tvSymbol ? (
+													<div class="priority-item-live">
+														<p class="priority-live-caption muted">Live snapshot · hourly interval</p>
+														<iframe
+															class="priority-live-iframe"
+															title={`${item.name} live quote`}
+															loading="lazy"
+															referrerpolicy="no-referrer-when-downgrade"
+															src={tradingViewMiniUrl(tvSymbol)}
+														/>
+													</div>
+												) : null}
 											</div>
-											<div class="priority-item-meta">
-												<span>{item.coverage}</span>
-												<span>{item.rows}</span>
-											</div>
-										</div>
-									))
+										);
+									})
 								}
 							</div>
 						</article>
@@ -572,7 +784,7 @@ const fastPathChecklist = [
 			</div>
 		</section>
 
-		<details class="section-card card architecture-shell" open>
+		<details class="section-card card architecture-shell" id="home-architecture" open>
 			<summary class="collapse-summary architecture-summary">
 				<div>
 					<div class="kicker">Architecture control panel</div>
@@ -836,14 +1048,15 @@ const fastPathChecklist = [
 			</div>
 		</details>
 
-		<section class="section-card card featured-section">
+		<section class="section-card card featured-section" id="home-featured">
 			<div class="section-heading">
 				<div>
-					<div class="kicker">Featured profiles</div>
-					<h2>Examples with richer metadata</h2>
+					<div class="kicker">Sample listings</div>
+					<h2>Reference profiles with richer metadata</h2>
 					<p>
-						These picks surface listings with better date coverage and stronger identity
-						fields, similar to a “quick view” band on the reference page.
+						These remain static reference profiles with better date coverage and stronger
+						identity fields. The timezone-aware majors page now lives separately under
+						Featured.
 					</p>
 				</div>
 			</div>
@@ -961,6 +1174,7 @@ const fastPathChecklist = [
 			exchange: document.querySelector('#filter-exchange'),
 			sector: document.querySelector('#filter-sector'),
 		};
+		const headerFilterQuery = document.querySelector('#header-filter-query');
 		const resultsMeta = document.querySelector('#results-meta');
 		const resultsGrid = document.querySelector('#results-grid');
 		const pageMeta = document.querySelector('#page-meta');
@@ -1026,6 +1240,7 @@ const fastPathChecklist = [
 			state.page = Math.max(Number(params.get('page') || '1'), 1);
 
 			filterElements.query.value = state.query;
+			if (headerFilterQuery) headerFilterQuery.value = state.query;
 			filterElements.type.value = state.type;
 			filterElements.coverage.value = state.coverage;
 			filterElements.country.value = state.country;
@@ -1218,9 +1433,34 @@ const fastPathChecklist = [
 			renderResults();
 		});
 
-		for (const element of Object.values(filterElements)) {
+		for (const [key, element] of Object.entries(filterElements)) {
+			if (key === 'query') continue;
 			element.addEventListener('input', handleFilterChange);
 			element.addEventListener('change', handleFilterChange);
+		}
+
+		function syncHeaderQueryFromMain() {
+			if (headerFilterQuery) headerFilterQuery.value = filterElements.query.value;
+		}
+
+		filterElements.query.addEventListener('input', () => {
+			syncHeaderQueryFromMain();
+			handleFilterChange();
+		});
+		filterElements.query.addEventListener('change', () => {
+			syncHeaderQueryFromMain();
+			handleFilterChange();
+		});
+
+		if (headerFilterQuery) {
+			headerFilterQuery.addEventListener('input', () => {
+				filterElements.query.value = headerFilterQuery.value;
+				handleFilterChange();
+			});
+			headerFilterQuery.addEventListener('change', () => {
+				filterElements.query.value = headerFilterQuery.value;
+				handleFilterChange();
+			});
 		}
 
 		(async () => {
@@ -1261,6 +1501,152 @@ const fastPathChecklist = [
 		gap: 16px;
 	}
 
+	.home-bloomberg-live {
+		padding: 16px;
+	}
+
+	.home-bloomberg-live .tileTop {
+		align-items: flex-start;
+	}
+
+	.home-bloomberg-title {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+		font-weight: 400;
+		line-height: 1.08;
+		letter-spacing: 0.01em;
+		max-width: 22ch;
+	}
+
+	.home-bloomberg-lead {
+		margin: 12px 0 0;
+		max-width: 52rem;
+		font-size: 1rem;
+		line-height: 1.62;
+	}
+
+	.home-bloomberg-actions {
+		flex-wrap: wrap;
+	}
+
+	.home-bloomberg-relay-note {
+		margin: 10px 0 0;
+		max-width: 52rem;
+		font-size: 0.94rem;
+		line-height: 1.58;
+	}
+
+	.home-bloomberg-relay-status {
+		margin: 6px 0 0;
+		max-width: 52rem;
+	}
+
+	.home-bloomberg-path {
+		font-family: var(--font-mono);
+		font-size: 0.84em;
+		padding: 0.12em 0.35em;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+
+	.home-bloomberg-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.65fr) minmax(280px, 1fr);
+		gap: 16px;
+		margin-top: 16px;
+		align-items: stretch;
+	}
+
+	.home-bloomberg-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding: 14px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		min-height: 0;
+	}
+
+	.home-bloomberg-panel-head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+
+	.home-bloomberg-panel-kicker {
+		display: block;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.home-bloomberg-ref-time {
+		font-family: var(--font-mono);
+		font-size: 0.95rem;
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	.home-bloomberg-frame {
+		position: relative;
+		width: 100%;
+		padding-top: 56.25%;
+		overflow: hidden;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.35);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.home-bloomberg-frame iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+
+	.home-bloomberg-chat-sub {
+		margin: 8px 0 0;
+		font-size: 0.94rem;
+		line-height: 1.55;
+		max-width: 36rem;
+	}
+
+	.home-bloomberg-chat-body {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		min-height: 200px;
+	}
+
+	.home-bloomberg-steps {
+		margin: 0;
+		padding-left: 1.25rem;
+		line-height: 1.65;
+		font-size: 0.94rem;
+	}
+
+	.home-bloomberg-steps li {
+		margin-bottom: 10px;
+	}
+
+	.home-bloomberg-steps li:last-child {
+		margin-bottom: 0;
+	}
+
+	.home-bloomberg-chat-foot {
+		margin-top: auto;
+	}
+
 	.home-hero h1 {
 		margin: 0;
 		font-family: var(--font-serif);
@@ -1291,6 +1677,119 @@ const fastPathChecklist = [
 	.hero-actions,
 	.quick-links {
 		margin-top: 16px;
+	}
+
+	.home-hero .hero-actions-row {
+		flex-wrap: nowrap;
+		align-items: stretch;
+		gap: 10px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding-bottom: 2px;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
+	}
+
+	.home-hero .hero-actions-row .button,
+	.home-hero .hero-actions-row .button-secondary {
+		flex: 0 0 auto;
+		white-space: nowrap;
+		padding-inline: 12px;
+	}
+
+	.hero-section-nav {
+		margin-top: 12px;
+	}
+
+	.hero-section-nav-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 10px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.hero-section-nav-link {
+		display: inline-flex;
+		align-items: center;
+		padding: 6px 10px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+		color: var(--muted);
+		font-size: 0.82rem;
+		line-height: 1.2;
+		text-decoration: none;
+		transition:
+			color 0.12s ease,
+			border-color 0.12s ease,
+			background 0.12s ease;
+	}
+
+	.hero-section-nav-link:hover {
+		color: var(--accent);
+		border-color: rgba(72, 224, 188, 0.35);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	details.card.home-stats {
+		padding: 0;
+		align-self: start;
+	}
+
+	.home-stats-summary {
+		list-style: none;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 14px 16px;
+		cursor: pointer;
+	}
+
+	.home-stats-summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.home-stats-summary::marker {
+		content: '';
+	}
+
+	.home-stats-chevron {
+		flex: 0 0 auto;
+		width: 28px;
+		height: 28px;
+		margin-top: 2px;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.2);
+		position: relative;
+	}
+
+	.home-stats-chevron::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 45%;
+		width: 8px;
+		height: 8px;
+		border-right: 2px solid var(--muted);
+		border-bottom: 2px solid var(--muted);
+		transform: translate(-50%, -30%) rotate(45deg);
+		transition: transform 0.18s ease;
+	}
+
+	details.home-stats[open] .home-stats-chevron::after {
+		transform: translate(-50%, -10%) rotate(225deg);
+	}
+
+	.home-stats-body {
+		padding: 0 16px 16px;
+	}
+
+	.home-stats-body .stats-grid {
+		margin-top: 0;
 	}
 
 	.stats-grid {
@@ -1529,10 +2028,49 @@ const fastPathChecklist = [
 	}
 
 	.priority-item {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 		padding: 12px;
 		border-radius: 16px;
 		background: rgba(0, 0, 0, 0.22);
 		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.priority-item-main {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+		border-radius: 12px;
+		outline-offset: 2px;
+	}
+
+	.priority-item-main:hover .priority-item-head strong {
+		color: var(--accent);
+	}
+
+	.priority-item-live {
+		border-radius: 12px;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.35);
+	}
+
+	.priority-live-caption {
+		margin: 0;
+		padding: 6px 10px 0;
+		font-size: 0.72rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		font-family: var(--font-mono);
+	}
+
+	.priority-live-iframe {
+		display: block;
+		width: 100%;
+		height: 132px;
+		border: 0;
+		background: transparent;
 	}
 
 	.priority-item-head,
@@ -1756,6 +2294,10 @@ const fastPathChecklist = [
 	}
 
 	@media (max-width: 1100px) {
+		.home-bloomberg-grid {
+			grid-template-columns: 1fr;
+		}
+
 		.home-topBand,
 		.facet-strip,
 		.priority-grid,

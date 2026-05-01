@@ -1,0 +1,541 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const featuredConfig = {
+	exchangeToRegion: {
+		NASDAQ: 'americas',
+		NYSE: 'americas',
+		NYSEARCA: 'americas',
+		OTC: 'americas',
+		LSE: 'europe',
+		XETRA: 'europe',
+		AMS: 'europe',
+		EPA: 'europe',
+		SSE: 'apac',
+		SZSE: 'apac',
+		KRX: 'apac',
+		NSE_IN: 'apac',
+		TSE: 'apac',
+		HKEX: 'apac',
+		SGX: 'apac',
+	},
+	regions: {
+		americas: {
+			label: 'Americas close focus',
+			exchangeLabel: 'NASDAQ / NYSE / NYSE Arca',
+			marketTz: 'America/New_York',
+			closeHour: 16,
+			description:
+				'Curated majors for the US session. The heatmap gives the live top-performer context; the basket below keeps ten liquid names in view.',
+			majors: ['AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'META', 'TSLA', 'SPY', 'QQQ', 'DIA'],
+		},
+		europe: {
+			label: 'Europe close focus',
+			exchangeLabel: 'LSE / XETRA / AMS',
+			marketTz: 'Europe/London',
+			closeHour: 16,
+			description:
+				'Curated majors for the European session using the strongest blue-chip names visible in the local catalog.',
+			majors: [
+				'LSE:HSBA',
+				'AMS:ASML',
+				'XETRA:SAP',
+				'XETRA:ADS',
+				'XETRA:BMW',
+				'XETRA:SIE',
+				'XETRA:BAS',
+				'XETRA:MBG',
+				'XETRA:R6C0',
+				'LSE:0TDD',
+			],
+		},
+		apac: {
+			label: 'APAC close focus',
+			exchangeLabel: 'KRX / SSE / SZSE / NSE',
+			marketTz: 'Asia/Hong_Kong',
+			closeHour: 16,
+			description:
+				'Curated majors for the Asia-Pacific session, centered on Korea, China, and India names that exist in the static catalog.',
+			majors: [
+				'KRX:005930',
+				'KRX:000660',
+				'KRX:035420',
+				'KRX:051910',
+				'SSE:600519',
+				'SSE:601398',
+				'SSE:601318',
+				'SZSE:300750',
+				'NSE_IN:RELIANCE',
+				'NSE_IN:INFY',
+			],
+		},
+	},
+	cryptoIds: [
+		'bitcoin',
+		'ethereum',
+		'solana',
+		'binancecoin',
+		'ripple',
+		'cardano',
+		'dogecoin',
+		'tron',
+		'chainlink',
+		'avalanche-2',
+	],
+};
+---
+
+<Layout
+	title="Featured Market Focus | Erika Market Directory"
+	description="Timezone-aware featured majors page with regional heatmap context and curated exchange baskets."
+	pageClass="page-featured"
+	eyebrow="Featured market page"
+	subtitle="Regional majors chosen from timezone and exchange focus."
+>
+	<section class="container featured-shell">
+		<header class="header">
+			<div class="disclaimer" role="note" aria-label="Featured page disclaimer">
+				<p class="disclaimer__text">
+					This page mixes local catalog metadata with third-party market widgets. Heatmaps
+					provide live performance context; the stock basket is a curated majors watchlist for
+					the chosen region, not an execution signal.
+				</p>
+			</div>
+		</header>
+
+		<section class="card featured-hero">
+			<div class="tileTop">
+				<div>
+					<div class="ticker">Featured market focus</div>
+					<h1 id="featured-title">Loading regional majors…</h1>
+					<p id="featured-copy" class="hero-lead">
+						Choosing a regional session from your timezone or exchange override.
+					</p>
+				</div>
+				<div class="hero-actions">
+					<a class="button-secondary" href="../#explore">Browse directory</a>
+					<a class="button-secondary" href="../listing/">Open listing view</a>
+				</div>
+			</div>
+
+			<div class="featured-meta">
+				<div class="meta-block">
+					<span class="muted">Region</span>
+					<strong id="featured-region">Resolving…</strong>
+				</div>
+				<div class="meta-block">
+					<span class="muted">Exchange focus</span>
+					<strong id="featured-exchange">Resolving…</strong>
+				</div>
+				<div class="meta-block">
+					<span class="muted">Session state</span>
+					<strong id="featured-session-state">Resolving…</strong>
+				</div>
+			</div>
+
+			<div id="featured-status" class="metaHint">Loading featured session data…</div>
+		</section>
+
+		<section class="featured-panels">
+			<article class="card panel-card">
+				<div class="section-heading">
+					<div>
+						<div class="kicker">Stock heatmap context</div>
+						<h2>Use these market-close heatmaps for the live leader board</h2>
+					</div>
+				</div>
+				<div class="heatmap-links">
+					<a id="tradingview-link" class="heatmap-link card" href="https://www.tradingview.com/heatmap/" target="_blank" rel="noreferrer">
+						<strong>TradingView heatmap</strong>
+						<span>Open the regional market heatmap view.</span>
+					</a>
+					<a id="yahoo-link" class="heatmap-link card" href="https://finance.yahoo.com/markets/stocks/trending/heatmap/" target="_blank" rel="noreferrer">
+						<strong>Yahoo heatmap</strong>
+						<span>Cross-check the same region in Yahoo’s market heatmap.</span>
+					</a>
+				</div>
+				<p class="panel-note">
+					The stock cards below are the curated 10-major basket for the chosen session. Use the
+					external heatmap for live gainers/losers ordering.
+				</p>
+			</article>
+
+			<article class="card panel-card">
+				<div class="section-heading">
+					<div>
+						<div class="kicker">Crypto heatmap</div>
+						<h2>Live crypto context from CoinGecko</h2>
+					</div>
+				</div>
+				<script is:inline async src="https://widgets.coingecko.com/gecko-coin-heatmap-widget.js"></script>
+				<gecko-coin-heatmap-widget locale="en" outlined="true" top="100"></gecko-coin-heatmap-widget>
+			</article>
+		</section>
+
+		<section class="card majors-section">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Regional majors</div>
+					<h2>10 names to keep pinned after the local close</h2>
+				</div>
+			</div>
+			<div id="featured-grid" class="majors-grid"></div>
+		</section>
+
+		<section class="card crypto-section">
+			<div class="section-heading">
+				<div>
+					<div class="kicker">Crypto majors</div>
+					<h2>10 live crypto movers from CoinGecko</h2>
+				</div>
+			</div>
+			<div id="crypto-status" class="metaHint">Loading crypto leaders…</div>
+			<div id="crypto-grid" class="majors-grid"></div>
+		</section>
+	</section>
+
+	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL, featuredConfig }}>
+		const titleElement = document.querySelector('#featured-title');
+		const copyElement = document.querySelector('#featured-copy');
+		const regionElement = document.querySelector('#featured-region');
+		const exchangeElement = document.querySelector('#featured-exchange');
+		const sessionStateElement = document.querySelector('#featured-session-state');
+		const statusElement = document.querySelector('#featured-status');
+		const featuredGrid = document.querySelector('#featured-grid');
+		const cryptoGrid = document.querySelector('#crypto-grid');
+		const cryptoStatus = document.querySelector('#crypto-status');
+		const tradingViewLink = document.querySelector('#tradingview-link');
+		const yahooLink = document.querySelector('#yahoo-link');
+		const numberFormatter = new Intl.NumberFormat();
+
+		function escapeHtml(value) {
+			return String(value || '').replace(/[&<>'"]/g, (character) => {
+				return (
+					{
+						'&': '&amp;',
+						'<': '&lt;',
+						'>': '&gt;',
+						"'": '&#39;',
+						'"': '&quot;',
+					}[character] || character
+				);
+			});
+		}
+
+		function getQueryValue(name) {
+			return new URLSearchParams(window.location.search).get(name)?.trim() || '';
+		}
+
+		function inferRegionFromTimezone(timeZone) {
+			if (!timeZone) return 'americas';
+			if (timeZone.startsWith('Europe/') || timeZone === 'UTC') return 'europe';
+			if (timeZone.startsWith('Asia/') || timeZone.startsWith('Australia/')) return 'apac';
+			return 'americas';
+		}
+
+		function resolveRegion() {
+			const exchange = getQueryValue('exchange').toUpperCase();
+			if (exchange && featuredConfig.exchangeToRegion[exchange]) {
+				return {
+					regionKey: featuredConfig.exchangeToRegion[exchange],
+					exchange,
+					from: 'exchange',
+				};
+			}
+
+			const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+			return {
+				regionKey: inferRegionFromTimezone(timeZone),
+				exchange: '',
+				from: timeZone || 'timezone',
+			};
+		}
+
+		function sessionLabel(region) {
+			const now = new Date();
+			const parts = new Intl.DateTimeFormat('en-US', {
+				timeZone: region.marketTz,
+				hour: '2-digit',
+				minute: '2-digit',
+				hour12: false,
+			}).formatToParts(now);
+			const hour = Number(parts.find((part) => part.type === 'hour')?.value || '0');
+			if (hour >= region.closeHour) return 'Post-close focus';
+			if (hour >= 9 && hour < region.closeHour) return 'Live session focus';
+			return 'Pre-open / overnight focus';
+		}
+
+		async function loadCatalog() {
+			const response = await fetch(`${baseUrl}data/catalog.json`);
+			if (!response.ok) {
+				throw new Error(`Failed to load catalog: ${response.status}`);
+			}
+			return response.json();
+		}
+
+		function pickMajors(catalog, regionConfig) {
+			const byId = new Map(catalog.map((record) => [record.id, record]));
+			return regionConfig.majors
+				.map((identifier) => byId.get(identifier))
+				.filter(Boolean)
+				.slice(0, 10);
+		}
+
+		function renderMajors(records) {
+			if (!records.length) {
+				featuredGrid.innerHTML = `
+					<div class="result-empty card">
+						<h3>No regional majors were found</h3>
+						<p>The chosen exchange basket did not match the generated catalog.</p>
+					</div>
+				`;
+				return;
+			}
+
+			featuredGrid.innerHTML = records
+				.map(
+					(record) => `
+						<article class="major-card card">
+							<div class="major-card-head">
+								<div>
+									<h3>${escapeHtml(record.nm)}</h3>
+									<p>${escapeHtml(record.id)}</p>
+								</div>
+								<span class="badge ${record.dc === 'complete' ? 'success' : record.dc === 'partial' ? 'warning' : 'muted'}">${escapeHtml(record.dc || 'missing')}</span>
+							</div>
+							<div class="major-card-meta">
+								<span class="badge muted">${escapeHtml(record.ex || 'Exchange')}</span>
+								<span class="badge muted">${escapeHtml(record.co || 'Country')}</span>
+								${record.se ? `<span class="badge muted">${escapeHtml(record.se)}</span>` : ''}
+							</div>
+							<p class="major-card-body">${escapeHtml(record.ln || record.nm)}</p>
+							<a class="button result-link" href="${baseUrl}listing/?id=${encodeURIComponent(record.id)}">Open listing profile</a>
+						</article>
+					`,
+				)
+				.join('');
+		}
+
+		async function loadCryptoLeaders() {
+			try {
+				const endpoint = new URL('https://api.coingecko.com/api/v3/coins/markets');
+				endpoint.searchParams.set('vs_currency', 'usd');
+				endpoint.searchParams.set('ids', featuredConfig.cryptoIds.join(','));
+				endpoint.searchParams.set('price_change_percentage', '24h');
+				const response = await fetch(endpoint);
+				if (!response.ok) throw new Error(`CoinGecko returned ${response.status}`);
+				const data = await response.json();
+				const leaders = data
+					.slice()
+					.sort(
+						(a, b) =>
+							(b.price_change_percentage_24h_in_currency || b.price_change_percentage_24h || 0) -
+							(a.price_change_percentage_24h_in_currency || a.price_change_percentage_24h || 0),
+					)
+					.slice(0, 10);
+
+				cryptoStatus.textContent = `Showing ${leaders.length} crypto majors ranked by 24h move.`;
+				cryptoGrid.innerHTML = leaders
+					.map((coin) => {
+						const change =
+							coin.price_change_percentage_24h_in_currency ?? coin.price_change_percentage_24h ?? 0;
+						return `
+							<article class="major-card card">
+								<div class="major-card-head">
+									<div>
+										<h3>${escapeHtml(coin.name)}</h3>
+										<p>${escapeHtml(String(coin.symbol || '').toUpperCase())}</p>
+									</div>
+									<span class="badge ${change >= 0 ? 'success' : 'warning'}">${change.toFixed(2)}%</span>
+								</div>
+								<div class="major-card-meta">
+									<span class="badge muted">#${escapeHtml(coin.market_cap_rank || '—')}</span>
+									<span class="badge muted">$${numberFormatter.format(Math.round(coin.current_price || 0))}</span>
+								</div>
+								<p class="major-card-body">24h volume: $${numberFormatter.format(Math.round(coin.total_volume || 0))}</p>
+								<a class="button result-link" href="https://www.coingecko.com/en/coins/${encodeURIComponent(coin.id)}" target="_blank" rel="noreferrer">Open CoinGecko</a>
+							</article>
+						`;
+					})
+					.join('');
+			} catch (error) {
+				cryptoStatus.textContent = error.message;
+				cryptoGrid.innerHTML = `
+					<div class="result-empty card">
+						<h3>Unable to load crypto leaders</h3>
+						<p>${escapeHtml(error.message)}</p>
+					</div>
+				`;
+			}
+		}
+
+		(async () => {
+			const { regionKey, exchange, from } = resolveRegion();
+			const regionConfig = featuredConfig.regions[regionKey] || featuredConfig.regions.americas;
+
+			titleElement.textContent = regionConfig.label;
+			copyElement.textContent = regionConfig.description;
+			regionElement.textContent = regionConfig.label;
+			exchangeElement.textContent = exchange || regionConfig.exchangeLabel;
+			sessionStateElement.textContent = sessionLabel(regionConfig);
+
+			tradingViewLink.href = 'https://www.tradingview.com/heatmap/';
+			yahooLink.href = 'https://finance.yahoo.com/markets/stocks/trending/heatmap/';
+
+			try {
+				const catalog = await loadCatalog();
+				const records = pickMajors(catalog, regionConfig);
+				renderMajors(records);
+				statusElement.textContent =
+					exchange
+						? `Featured session set from ${escapeHtml(exchange)} exchange focus.`
+						: `Featured session set from ${escapeHtml(from)}.`;
+			} catch (error) {
+				statusElement.textContent = error.message;
+				featuredGrid.innerHTML = `
+					<div class="result-empty card">
+						<h3>Unable to load featured majors</h3>
+						<p>${escapeHtml(error.message)}</p>
+					</div>
+				`;
+			}
+
+			loadCryptoLeaders();
+		})();
+	</script>
+</Layout>
+
+<style>
+	.featured-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.featured-hero,
+	.panel-card,
+	.majors-section,
+	.crypto-section {
+		padding: 16px;
+	}
+
+	.featured-hero h1 {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: clamp(2.8rem, 5vw, 4.4rem);
+		font-weight: 400;
+		line-height: 0.96;
+	}
+
+	.hero-lead {
+		margin: 14px 0 0;
+		max-width: 58rem;
+		line-height: 1.65;
+		color: var(--muted);
+	}
+
+	.featured-meta,
+	.featured-panels,
+	.heatmap-links,
+	.majors-grid {
+		display: grid;
+		gap: 14px;
+	}
+
+	.featured-meta {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		margin-top: 16px;
+	}
+
+	.meta-block,
+	.heatmap-link,
+	.major-card {
+		padding: 14px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.meta-block span,
+	.meta-block strong {
+		display: block;
+	}
+
+	.meta-block strong {
+		margin-top: 6px;
+		font-size: 1.05rem;
+	}
+
+	.featured-panels {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.heatmap-links,
+	.majors-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.heatmap-link strong {
+		display: block;
+	}
+
+	.heatmap-link span,
+	.panel-note {
+		color: var(--muted);
+		line-height: 1.58;
+	}
+
+	.panel-note {
+		margin: 14px 0 0;
+	}
+
+	.major-card,
+	.heatmap-link {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.major-card-head {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.major-card-head h3 {
+		margin: 0;
+		font-size: 1.04rem;
+	}
+
+	.major-card-head p,
+	.major-card-body {
+		margin: 4px 0 0;
+		color: var(--muted);
+	}
+
+	.major-card-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.result-link {
+		margin-top: auto;
+	}
+
+	@media (max-width: 960px) {
+		.featured-panels,
+		.majors-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.featured-meta,
+		.heatmap-links {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
