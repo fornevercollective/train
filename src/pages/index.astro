@@ -201,33 +201,38 @@ const livePipelineStages = [
 const architectureJunctions = [
 	{
 		name: 'Venue demarcation',
-		risk: 'Primary/redundant feed lines can both be healthy while the cage switch or optics are degraded.',
-		signal: 'Microbursts, rising packet drops, asymmetric A/B leg sequence drift.',
-		response: 'Separate optics, separate ToR paths, and independent capture counters per leg.',
+		primary: 'Venue A handoff -> cage switch -> primary capture NIC',
+		backup: 'Venue B handoff -> alternate ToR -> redundant capture NIC',
+		choke: 'Optics, ToR oversubscription, or microburst loss at the handoff edge',
+		watch: 'Drops, burst counters, asymmetric sequence drift',
 	},
 	{
 		name: 'Capture to parser handoff',
-		risk: 'Lossless packet ingest can still fail downstream if parse queues or journals back up.',
-		signal: 'Growing queue depth, parser lag, higher gap-fill request rate.',
-		response: 'Bound queues, reserve CPU per parser shard, and keep replay isolated from live parsing.',
+		primary: 'Hot capture host -> write-ahead queue -> parser shard',
+		backup: 'Mirrored journal -> standby parser worker',
+		choke: 'Queue depth and parser lag during open/close bursts',
+		watch: 'Backlog, gap-fill requests, replay catch-up time',
 	},
 	{
 		name: 'Relay fanout spine',
-		risk: 'One hot region can become the unintended aggregation point for too many venues.',
-		signal: 'Cross-region jitter, uneven egress, cache miss bursts after reconnect events.',
-		response: 'Regionalize fanout, pre-warm secondary relays, and cap per-node subscriber concentration.',
+		primary: 'Metro relay -> regional spine -> local fanout cache',
+		backup: 'Secondary relay region -> mirrored fanout node',
+		choke: 'Cross-region congestion and too many subscribers on one spine node',
+		watch: 'Jitter, egress imbalance, reconnect fanout spikes',
 	},
 	{
 		name: 'Gateway and entitlement plane',
-		risk: 'Auth, session, and entitlement checks can become a latency cliff if they sit inline with market data fanout.',
-		signal: 'Connect latency spikes, reconnect storms, CPU hotspots at gateway nodes.',
-		response: 'Cache entitlements, keep auth off the packet hot path, and maintain hot standby gateways.',
+		primary: 'Hot cache -> session gateway -> client stream',
+		backup: 'Replica cache -> standby gateway pool',
+		choke: 'Inline auth/entitlement work and reconnect pressure',
+		watch: 'Connect latency, CPU hotspots, slow session creation',
 	},
 	{
 		name: 'Archive and replay',
-		risk: 'Historical recovery can starve live disk and network bandwidth during incidents.',
-		signal: 'NVMe utilization pinned, longer replay start times, live-write jitter.',
-		response: 'Split live journals from replay tiers and keep second-region archives independently readable.',
+		primary: 'Live journal -> archive writer -> object store',
+		backup: 'Second-region archive -> isolated replay path',
+		choke: 'Replay I/O contention against live writes',
+		watch: 'NVMe saturation, replay start delay, live-write jitter',
 	},
 ];
 const techStackLayers = [
@@ -266,32 +271,47 @@ const relayPoints = [
 	{
 		name: 'Aurora / Chicago relay',
 		role: 'Primary futures and macro relay',
-		coverage: 'CME index, rates, metals, ags; first fanout for US macro books.',
-		requirement: 'Use 25/100 GbE leaf-spine, hardware timestamping, and NVMe write paths for lossless capture.',
+		ingress: 'Aurora capture',
+		spine: 'Chicago metro core',
+		egress: 'US macro + metals fanout',
+		backup: 'NJ mirror + replay path',
+		choke: 'Open/close burst fanout and gap-fill overlap',
 	},
 	{
 		name: 'New Jersey / NY4-NY5 relay',
 		role: 'US equities, ETFs, and options aggregation',
-		coverage: 'Consolidates Carteret, Mahwah, Secaucus, and ETF/index-routing demand.',
-		requirement: 'Keep a metro relay even if your strategy lives in Chicago so cash equity latency stays bounded.',
+		ingress: 'Mahwah / Carteret / Secaucus',
+		spine: 'NJ metro relay',
+		egress: 'Cash equity + ETF + options fanout',
+		backup: 'Chicago cache + second gateway pool',
+		choke: 'Cash open/close microbursts and reconnect storms',
 	},
 	{
 		name: 'London / LD4 relay',
 		role: 'European core relay',
-		coverage: 'LSE, ICE Europe, Euronext, plus handoff into Frankfurt and transatlantic routes.',
-		requirement: 'Design for low-jitter metro paths first, then long-haul replication into FR2 and NY.',
+		ingress: 'LSE / ICE / Euronext edge',
+		spine: 'LD4 metro core',
+		egress: 'EU fanout + transatlantic handoff',
+		backup: 'Frankfurt hot standby',
+		choke: 'Metro jitter before long-haul replication',
 	},
 	{
 		name: 'Frankfurt relay',
 		role: 'Eurex and Xetra recovery / primary node',
-		coverage: 'DAX, Euro Stoxx, fixed-income futures, and German cash venues.',
-		requirement: 'Use this as the hot standby for London-driven Europe and the primary for Eurex-led books.',
+		ingress: 'Eurex / Xetra edge',
+		spine: 'Frankfurt relay core',
+		egress: 'Rates + DAX + EU standby fanout',
+		backup: 'London mirror relay',
+		choke: 'Recovery traffic colliding with live macro flow',
 	},
 	{
 		name: 'Tokyo + Singapore pair',
 		role: 'APAC relay mesh',
-		coverage: 'JPX/OSE, HKEX, SGX, and regional redistribution before any US or EU copy.',
-		requirement: 'Maintain two regional relays so the strategy loop stays inside APAC during outages or path jitter.',
+		ingress: 'TY3 / HK / SG venue edge',
+		spine: 'Regional APAC mesh',
+		egress: 'JPX + HKEX + SGX regional fanout',
+		backup: 'Tokyo<->Singapore mutual failover',
+		choke: 'Regional path asymmetry and outage reroute bursts',
 	},
 ];
 const systemProfiles = [
@@ -552,244 +572,269 @@ const fastPathChecklist = [
 			</div>
 		</section>
 
-		<section class="section-card card topology-section" id="topology">
-			<div class="section-heading">
+		<details class="section-card card architecture-shell" open>
+			<summary class="collapse-summary architecture-summary">
 				<div>
-					<div class="kicker">Hop and speed analysis</div>
-					<h2>Indicative topology for major exchanges, index flows, and relay points</h2>
+					<div class="kicker">Architecture control panel</div>
+					<h2>Hop, relay, bottleneck, and system-view controls</h2>
 					<p>
-						This layer mirrors the kind of plant view shown in Databento-style architecture
-						diagrams: where the major venues sit, where relays should live, and what hop and
-						latency budgets matter if Train is expected to consume market data at speed. These
-						are engineering budgets for planning, not vendor SLAs.
+						Open the sections below for the Databento-style plant view: venue hops, live
+						pipeline stages, relay junctions, bottlenecks, and the hardware stack behind them.
 					</p>
 				</div>
-			</div>
+			</summary>
 
-			<div class="topology-table-wrap">
-				<table class="topology-table">
-					<thead>
-						<tr>
-							<th>Venue</th>
-							<th>Benchmarks / flows</th>
-							<th>Primary PoP</th>
-							<th>Relay path</th>
-							<th>Hop budget</th>
-							<th>Latency budget</th>
-							<th>Link speed</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							topologyRoutes.map((route) => (
-								<tr>
-									<td>
-										<strong>{route.venue}</strong>
-										<p>{route.note}</p>
-									</td>
-									<td>{route.benchmarks}</td>
-									<td>{route.pop}</td>
-									<td>{route.relay}</td>
-									<td>{route.hops}</td>
-									<td>{route.latency}</td>
-									<td>{route.speed}</td>
-								</tr>
-							))
-						}
-					</tbody>
-				</table>
-			</div>
-		</section>
-
-		<section class="section-card card pipeline-section" id="live-pipeline">
-			<div class="section-heading">
-				<div>
-					<div class="kicker">Live data architecture</div>
-					<h2>Primary path, redundant path, and the stack between them</h2>
-					<p>
-						This matrix fills in the system-level data points behind the venue map: ingress,
-						capture, normalization, recovery, relay, serving, persistence, and client delivery.
-						It is structured the same way low-latency market-data plants are actually debugged:
-						by junction, by backup path, and by likely choke point.
-					</p>
-				</div>
-			</div>
-
-			<div class="pipeline-table-wrap">
-				<table class="pipeline-table">
-					<thead>
-						<tr>
-							<th>Stage</th>
-							<th>Primary path</th>
-							<th>Redundant path</th>
-							<th>Data carried</th>
-							<th>Junction</th>
-							<th>Likely bottleneck</th>
-							<th>Tech stack</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							livePipelineStages.map((item) => (
-								<tr>
-									<td><strong>{item.stage}</strong></td>
-									<td>{item.primary}</td>
-									<td>{item.redundant}</td>
-									<td>{item.data}</td>
-									<td>{item.junction}</td>
-									<td>{item.bottleneck}</td>
-									<td>{item.stack}</td>
-								</tr>
-							))
-						}
-					</tbody>
-				</table>
-			</div>
-		</section>
-
-		<section class="section-card card bottleneck-section">
-			<div class="section-heading">
-				<div>
-					<div class="kicker">Junction bottlenecks</div>
-					<h2>Primary and redundant paths still fail at the joins</h2>
-					<p>
-						Most latency cliffs do not happen inside a single server. They happen where two
-						healthy subsystems meet: feed demarcation, parser queues, relay fanout, auth
-						gateways, and archive replay.
-					</p>
-				</div>
-			</div>
-
-			<div class="junction-grid">
-				{
-					architectureJunctions.map((item) => (
-						<article class="detail-card card">
-							<div class="tileTop">
-								<div>
-									<div class="ticker">Critical junction</div>
-									<h3>{item.name}</h3>
-								</div>
-							</div>
-							<p class="detail-copy">{item.risk}</p>
-							<p class="detail-meta"><strong>Watch:</strong> {item.signal}</p>
-							<p class="detail-meta"><strong>Mitigate:</strong> {item.response}</p>
-						</article>
-					))
-				}
-			</div>
-		</section>
-
-		<section class="section-card card relay-section">
-			<div class="section-heading">
-				<div>
-					<div class="kicker">Relay points</div>
-					<h2>Where Train should expect to aggregate and redistribute feeds</h2>
-					<p>
-						Relays are the control points between lossless venue capture and downstream
-						consumers. They are where you absorb venue diversity, keep hot caches close, and
-						decide which regions get real-time fanout versus delayed replication.
-					</p>
-				</div>
-			</div>
-
-			<div class="relay-grid">
-				{
-					relayPoints.map((relay) => (
-						<article class="detail-card card">
-							<div class="tileTop">
-								<div>
-									<div class="ticker">{relay.role}</div>
-									<h3>{relay.name}</h3>
-								</div>
-							</div>
-							<p class="detail-copy">{relay.coverage}</p>
-							<p class="detail-meta">{relay.requirement}</p>
-						</article>
-					))
-				}
-			</div>
-		</section>
-
-		<section class="section-card card requirements-section">
-			<div class="section-heading">
-				<div>
-					<div class="kicker">Server and system requirements</div>
-					<h2>Baseline hardware for accessing the feed at speed</h2>
-					<p>
-						Train can stay static on the presentation side, but the data-access side still
-						needs exchange-edge capture, metro relays, and hot-path nodes sized for bursty
-						market traffic. These profiles are a practical minimum for a serious deployment.
-					</p>
-				</div>
-			</div>
-
-			<div class="requirements-grid">
-				{
-					systemProfiles.map((profile) => (
-						<article class="detail-card card">
-							<div class="tileTop">
-								<div>
-									<div class="ticker">System profile</div>
-									<h3>{profile.name}</h3>
-								</div>
-							</div>
-							<dl class="requirements-list">
-								<div>
-									<dt>CPU</dt>
-									<dd>{profile.cpu}</dd>
-								</div>
-								<div>
-									<dt>Memory</dt>
-									<dd>{profile.memory}</dd>
-								</div>
-								<div>
-									<dt>NIC</dt>
-									<dd>{profile.nic}</dd>
-								</div>
-								<div>
-									<dt>Storage</dt>
-									<dd>{profile.storage}</dd>
-								</div>
-							</dl>
-							<p class="detail-meta">{profile.fit}</p>
-						</article>
-					))
-				}
-			</div>
-
-			<div class="checklist-card">
-				<div class="tileTop">
-					<div>
-						<div class="ticker">Fast-path checklist</div>
-						<h3>Operating assumptions behind the latency budgets</h3>
+			<div class="collapse-body architecture-body">
+				<details class="architecture-panel" id="topology" open>
+					<summary class="collapse-summary">
+						<div>
+							<div class="kicker">Hop and speed analysis</div>
+							<h3>Indicative topology for major exchanges, index flows, and relay points</h3>
+						</div>
+					</summary>
+					<div class="collapse-body">
+						<div class="topology-table-wrap">
+							<table class="topology-table">
+								<thead>
+									<tr>
+										<th>Venue</th>
+										<th>Benchmarks / flows</th>
+										<th>Primary PoP</th>
+										<th>Relay path</th>
+										<th>Hop budget</th>
+										<th>Latency budget</th>
+										<th>Link speed</th>
+									</tr>
+								</thead>
+								<tbody>
+									{
+										topologyRoutes.map((route) => (
+											<tr>
+												<td>
+													<strong>{route.venue}</strong>
+													<p>{route.note}</p>
+												</td>
+												<td>{route.benchmarks}</td>
+												<td>{route.pop}</td>
+												<td>{route.relay}</td>
+												<td>{route.hops}</td>
+												<td>{route.latency}</td>
+												<td>{route.speed}</td>
+											</tr>
+										))
+									}
+								</tbody>
+							</table>
+						</div>
 					</div>
-				</div>
-				<div class="checklist-items">
-					{
-						fastPathChecklist.map((item) => (
-							<div class="checklist-item">{item}</div>
-						))
-					}
-				</div>
-			</div>
+				</details>
 
-			<div class="stack-grid">
-				{
-					techStackLayers.map((item) => (
-						<article class="detail-card card">
+				<details class="architecture-panel" id="live-pipeline">
+					<summary class="collapse-summary">
+						<div>
+							<div class="kicker">Live data architecture</div>
+							<h3>Primary path, redundant path, and the stack between them</h3>
+						</div>
+					</summary>
+					<div class="collapse-body">
+						<div class="pipeline-table-wrap">
+							<table class="pipeline-table">
+								<thead>
+									<tr>
+										<th>Stage</th>
+										<th>Primary path</th>
+										<th>Redundant path</th>
+										<th>Data carried</th>
+										<th>Junction</th>
+										<th>Likely bottleneck</th>
+										<th>Tech stack</th>
+									</tr>
+								</thead>
+								<tbody>
+									{
+										livePipelineStages.map((item) => (
+											<tr>
+												<td><strong>{item.stage}</strong></td>
+												<td>{item.primary}</td>
+												<td>{item.redundant}</td>
+												<td>{item.data}</td>
+												<td>{item.junction}</td>
+												<td>{item.bottleneck}</td>
+												<td>{item.stack}</td>
+											</tr>
+										))
+									}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</details>
+
+				<details class="architecture-panel">
+					<summary class="collapse-summary">
+						<div>
+							<div class="kicker">Junction bottlenecks</div>
+							<h3>Primary and redundant paths still fail at the joins</h3>
+						</div>
+					</summary>
+					<div class="collapse-body">
+						<div class="junction-grid">
+							{
+								architectureJunctions.map((item) => (
+									<article class="signal-card card">
+										<div class="signal-card-head">
+											<div>
+												<div class="ticker">Critical junction</div>
+												<h3>{item.name}</h3>
+											</div>
+										</div>
+										<div class="signal-lane">
+											<span class="path-node">Primary</span>
+											<span class="path-arrow">→</span>
+											<span class="path-copy">{item.primary}</span>
+										</div>
+										<div class="signal-lane">
+											<span class="path-node muted-node">Backup</span>
+											<span class="path-arrow">→</span>
+											<span class="path-copy">{item.backup}</span>
+										</div>
+										<div class="signal-metrics">
+											<div>
+												<dt>Choke</dt>
+												<dd>{item.choke}</dd>
+											</div>
+											<div>
+												<dt>Watch</dt>
+												<dd>{item.watch}</dd>
+											</div>
+										</div>
+									</article>
+								))
+							}
+						</div>
+					</div>
+				</details>
+
+				<details class="architecture-panel">
+					<summary class="collapse-summary">
+						<div>
+							<div class="kicker">Relay points</div>
+							<h3>Feed aggregation and redistribution laid out like signal paths</h3>
+						</div>
+					</summary>
+					<div class="collapse-body">
+						<div class="relay-grid">
+							{
+								relayPoints.map((relay) => (
+									<article class="signal-card card">
+										<div class="signal-card-head">
+											<div>
+												<div class="ticker">{relay.role}</div>
+												<h3>{relay.name}</h3>
+											</div>
+										</div>
+										<div class="signal-route">
+											<span class="path-node">{relay.ingress}</span>
+											<span class="path-arrow">→</span>
+											<span class="path-node">{relay.spine}</span>
+											<span class="path-arrow">→</span>
+											<span class="path-node">{relay.egress}</span>
+										</div>
+										<div class="signal-metrics">
+											<div>
+												<dt>Backup</dt>
+												<dd>{relay.backup}</dd>
+											</div>
+											<div>
+												<dt>Choke</dt>
+												<dd>{relay.choke}</dd>
+											</div>
+										</div>
+									</article>
+								))
+							}
+						</div>
+					</div>
+				</details>
+
+				<details class="architecture-panel">
+					<summary class="collapse-summary">
+						<div>
+							<div class="kicker">Server and system requirements</div>
+							<h3>Baseline hardware for accessing the feed at speed</h3>
+						</div>
+					</summary>
+					<div class="collapse-body">
+						<div class="requirements-grid">
+							{
+								systemProfiles.map((profile) => (
+									<article class="detail-card card">
+										<div class="tileTop">
+											<div>
+												<div class="ticker">System profile</div>
+												<h3>{profile.name}</h3>
+											</div>
+										</div>
+										<dl class="requirements-list">
+											<div>
+												<dt>CPU</dt>
+												<dd>{profile.cpu}</dd>
+											</div>
+											<div>
+												<dt>Memory</dt>
+												<dd>{profile.memory}</dd>
+											</div>
+											<div>
+												<dt>NIC</dt>
+												<dd>{profile.nic}</dd>
+											</div>
+											<div>
+												<dt>Storage</dt>
+												<dd>{profile.storage}</dd>
+											</div>
+										</dl>
+										<p class="detail-meta">{profile.fit}</p>
+									</article>
+								))
+							}
+						</div>
+
+						<div class="checklist-card">
 							<div class="tileTop">
 								<div>
-									<div class="ticker">Tech stack layer</div>
-									<h3>{item.layer}</h3>
+									<div class="ticker">Fast-path checklist</div>
+									<h3>Operating assumptions behind the latency budgets</h3>
 								</div>
 							</div>
-							<p class="detail-copy">{item.tools}</p>
-							<p class="detail-meta">{item.why}</p>
-						</article>
-					))
-				}
+							<div class="checklist-items">
+								{
+									fastPathChecklist.map((item) => (
+										<div class="checklist-item">{item}</div>
+									))
+								}
+							</div>
+						</div>
+
+						<div class="stack-grid">
+							{
+								techStackLayers.map((item) => (
+									<article class="detail-card card">
+										<div class="tileTop">
+											<div>
+												<div class="ticker">Tech stack layer</div>
+												<h3>{item.layer}</h3>
+											</div>
+										</div>
+										<p class="detail-copy">{item.tools}</p>
+										<p class="detail-meta">{item.why}</p>
+									</article>
+								))
+							}
+						</div>
+					</div>
+				</details>
 			</div>
-		</section>
+		</details>
 
 		<section class="section-card card featured-section">
 			<div class="section-heading">
@@ -1291,6 +1336,77 @@ const fastPathChecklist = [
 		padding: 16px;
 	}
 
+	.architecture-shell {
+		padding: 0;
+		overflow: hidden;
+	}
+
+	.architecture-shell h2,
+	.architecture-shell h3 {
+		margin: 0;
+	}
+
+	.architecture-summary {
+		padding: 18px 20px;
+	}
+
+	.architecture-body {
+		padding: 0 16px 16px;
+	}
+
+	.architecture-panel {
+		border-radius: 18px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	.architecture-panel + .architecture-panel {
+		margin-top: 12px;
+	}
+
+	.collapse-summary {
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		cursor: pointer;
+		padding: 16px;
+	}
+
+	.collapse-summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.collapse-summary::after {
+		content: '+';
+		flex: 0 0 auto;
+		display: grid;
+		place-items: center;
+		width: 28px;
+		height: 28px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-size: 1rem;
+		line-height: 1;
+	}
+
+	details[open] > .collapse-summary::after {
+		content: '−';
+	}
+
+	.collapse-summary p {
+		margin: 6px 0 0;
+		color: var(--muted);
+		line-height: 1.58;
+	}
+
+	.collapse-body {
+		padding: 0 16px 16px;
+	}
+
 	.featured-grid,
 	.results-grid,
 	.priority-grid,
@@ -1310,6 +1426,90 @@ const fastPathChecklist = [
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
+	}
+
+	.signal-card {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding: 14px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.signal-card-head h3 {
+		font-size: 1.04rem;
+	}
+
+	.signal-route,
+	.signal-lane {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.path-node,
+	.path-copy {
+		display: inline-flex;
+		align-items: center;
+		min-height: 36px;
+		padding: 8px 10px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(255, 255, 255, 0.04);
+		line-height: 1.45;
+	}
+
+	.path-node {
+		font-family: var(--font-mono);
+		font-size: 0.76rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text);
+	}
+
+	.muted-node {
+		color: var(--soft);
+	}
+
+	.path-copy {
+		color: var(--muted);
+		font-size: 0.92rem;
+	}
+
+	.path-arrow {
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-size: 1rem;
+	}
+
+	.signal-metrics {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+	}
+
+	.signal-metrics div {
+		padding: 10px 12px;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.18);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.signal-metrics dt {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--soft);
+	}
+
+	.signal-metrics dd {
+		margin: 8px 0 0;
+		color: var(--text);
+		line-height: 1.5;
 	}
 
 	.priority-card h3 {
@@ -1590,7 +1790,8 @@ const fastPathChecklist = [
 		.stats-grid,
 		.filters-grid,
 		.requirements-list,
-		.checklist-items {
+		.checklist-items,
+		.signal-metrics {
 			grid-template-columns: 1fr;
 		}
 
