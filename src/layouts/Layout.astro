@@ -19,6 +19,7 @@ const {
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
+const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -59,6 +60,20 @@ const baseUrl = import.meta.env.BASE_URL;
 					<a href={`${baseUrl}listing/`}>Listing view</a>
 					<span>·</span>
 					<a href={`${baseUrl}raw/`}>Raw data</a>
+					{
+						gameConsoleUrl ? (
+							<>
+								<span>·</span>
+								<a href={`${gameConsoleUrl}/`} target="_blank" rel="noopener noreferrer">
+									Game console
+								</a>
+								<span>·</span>
+								<a href={`${gameConsoleUrl}/live`} target="_blank" rel="noopener noreferrer">
+									Live desk
+								</a>
+							</>
+						) : null
+					}
 				</nav>
 				{
 					showHeaderDirectorySearch ? (

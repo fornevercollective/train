@@ -14,6 +14,29 @@ profile view for individual listings.
 The site does not require a runtime backend. Search and filtering happen in the browser against
 the generated JSON catalog.
 
+## Companion Game console (predictions + live desk)
+
+The sibling **Game** Next.js app (`…/cursor/game`) hosts the interactive predictions strip (flat
+$100 → payout framing, reference-only demo), the merged **`/live`** route with μgrad sports-field
+and Bloomberg side-chat iframes, and env-driven embed URLs (`NEXT_PUBLIC_UGRAD_SPORTS_URL`,
+`NEXT_PUBLIC_UGRAD_TOOLS_DECK_URL`, `NEXT_PUBLIC_BLOOMBERG_CHAT_URL`).
+
+Train’s homepage links out when you set at **build** time:
+
+- **`PUBLIC_GAME_CONSOLE_URL`** — Game origin with no trailing slash (for example `http://localhost:3000` or your deployed base).
+
+Example:
+
+```bash
+PUBLIC_GAME_CONSOLE_URL=http://localhost:3000 npm run build
+```
+
+If unset, the new homepage sections still show demo cards and wiring notes; the site header omits
+the “Game console” / “Live desk” shortcuts until the variable is provided.
+
+For **GitHub Actions** deploys, define a repository variable `PUBLIC_GAME_CONSOLE_URL` (Settings →
+Secrets and variables → Actions → Variables) so Pages builds pick up the same origin.
+
 ## Low-latency access model
 
 The homepage now includes an indicative **hop and speed analysis** layer for major exchange and

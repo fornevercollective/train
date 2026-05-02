@@ -42,6 +42,9 @@ jobs:
         run: npm ci --cache .npm-cache
 
       - name: Build site
+        env:
+          # Optional: set in repo Settings → Secrets and variables → Actions → Variables
+          PUBLIC_GAME_CONSOLE_URL: ${{ vars.PUBLIC_GAME_CONSOLE_URL }}
         run: npm run build
 
       - name: Upload Pages artifact
