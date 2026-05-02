@@ -84,24 +84,20 @@ const navActive = {
 						</div>
 					) : null
 				}
-				<div class="headerEyebrowRow">
-					<div class="eyebrow">{eyebrow}</div>
-					<p class="sub">{subtitle}</p>
-				</div>
-				<div class="brand">
-					<a class="logoLink" href={baseUrl} aria-label="Erika Market Directory">
-						<span class="brand-mark">E</span>
+				<div class="headerEyebrowRow headerEyebrowRow--rail">
+					<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
+						<span class="brand-mark brand-mark--header">E</span>
 					</a>
-					{
-						!showHeaderDirectorySearch ? (
-							<div class="brandText">
-								<h1 class="site-title">{title}</h1>
-							</div>
-						) : null
-					}
-				</div>
-				<div class="headerBannerBottomRow">
-					<p class="headerBannerAttribution">
+					<div class="headerEyebrowRow-copy">
+						<div class="eyebrow">{eyebrow}</div>
+						{
+							!showHeaderDirectorySearch ? (
+								<h1 class="site-title site-title--headerEyebrow">{title}</h1>
+							) : null
+						}
+						<p class="sub">{subtitle}</p>
+					</div>
+					<p class="headerBannerAttribution headerBannerAttribution--rail">
 						Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
 					</p>
 				</div>
@@ -197,6 +193,32 @@ const navActive = {
 					const q = headerInput.value.trim();
 					const qs = q ? `?q=${encodeURIComponent(q)}` : '';
 					window.location.href = `${base}directory/${qs}`;
+				});
+			})();
+
+			(() => {
+				const KEY = 'train-sidebar-collapsed';
+				const body = document.body;
+				const toggle = document.getElementById('train-sidebar-toggle');
+				if (!toggle) return;
+				const apply = (collapsed) => {
+					body.classList.toggle('train-sidebar-collapsed', collapsed);
+					toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+					toggle.setAttribute('title', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
+				};
+				try {
+					apply(localStorage.getItem(KEY) === '1');
+				} catch {
+					apply(false);
+				}
+				toggle.addEventListener('click', () => {
+					const next = !body.classList.contains('train-sidebar-collapsed');
+					apply(next);
+					try {
+						localStorage.setItem(KEY, next ? '1' : '0');
+					} catch {
+						/* ignore */
+					}
 				});
 			})();
 		</script>
@@ -327,6 +349,10 @@ const navActive = {
 		min-width: 0;
 	}
 
+	body.train-sidebar-collapsed .page-bodyGrid--withSidebar {
+		gap: 10px;
+	}
+
 	@media (max-width: 1100px) {
 		.page-bodyGrid--withSidebar {
 			flex-direction: column;
@@ -360,22 +386,7 @@ const navActive = {
 		margin: 0 0 2px;
 	}
 
-	body.header-collapsed .headerBanner .brand {
-		display: contents;
-	}
-
-	body.header-collapsed .headerBanner .logoLink {
-		display: none;
-	}
-
-	body.header-collapsed .headerBanner .brandText {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		text-align: left;
-	}
-
-	body.header-collapsed .headerBanner .sub {
+	body.header-collapsed .headerBanner .headerEyebrowRow-copy .sub {
 		display: none;
 	}
 
@@ -388,13 +399,7 @@ const navActive = {
 		margin-top: 2px;
 	}
 
-	body.header-collapsed .headerBanner .headerBannerBottomRow {
-		margin-top: 4px;
-		align-items: center;
-		justify-content: flex-end;
-	}
-
-	body.header-collapsed .headerBanner .headerBannerAttribution {
+	body.header-collapsed .headerBanner .headerBannerAttribution--rail {
 		display: none;
 	}
 
@@ -449,60 +454,84 @@ const navActive = {
 		color: var(--accent);
 	}
 
-	.headerEyebrowRow {
+	.headerEyebrowRow--rail {
 		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		gap: 12px 18px;
+		align-items: center;
+		gap: 12px 14px;
 		width: 100%;
+		box-sizing: border-box;
 		flex-wrap: wrap;
+		padding: 10px 14px 12px;
+		background: var(--header-rail-surface);
+		color: #0a0b0d;
+		border: 1px solid var(--header-rail-border);
+		border-radius: 24px;
+		box-shadow: var(--header-rail-shadow);
+		font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 	}
 
-	.headerEyebrowRow .eyebrow {
-		margin: 0;
-	}
-
-	.headerEyebrowRow .sub {
-		margin: 0;
-		flex: 1 1 auto;
-		text-align: right;
-		max-width: min(100%, 52ch);
-		min-width: 12ch;
-	}
-
-	.brand {
-		display: flex;
-		align-items: flex-start;
-		gap: 12px 16px;
-		flex-wrap: wrap;
-	}
-
-	.logoLink {
+	.logoLink--headerMini {
 		flex: 0 0 auto;
+		text-decoration: none;
+		color: inherit;
+		line-height: 0;
 	}
 
 	.brand-mark {
 		display: grid;
 		place-items: center;
-		width: 84px;
-		height: 84px;
-		border-radius: 18px;
 		background:
 			radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0)),
 			linear-gradient(135deg, rgba(170, 90, 255, 0.94), rgba(60, 200, 255, 0.82));
 		color: rgba(255, 255, 255, 0.92);
 		font-family: var(--font-serif);
-		font-size: 2.1rem;
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 	}
 
-	.brandText {
-		flex: 1;
+	.brand-mark--header {
+		width: 36px;
+		height: 36px;
+		border-radius: 11px;
+		font-size: 1.08rem;
+		font-weight: 600;
+	}
+
+	.headerEyebrowRow-copy {
+		flex: 1 1 200px;
 		min-width: 0;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
+	}
+
+	.headerEyebrowRow--rail .eyebrow {
+		margin: 0;
+		color: #0f766e;
+		letter-spacing: 0.14em;
+		font-size: 0.72rem;
+	}
+
+	.headerEyebrowRow--rail .sub {
+		margin: 4px 0 0;
 		text-align: left;
+		color: var(--header-rail-muted);
+		font-size: 0.82rem;
+		line-height: 1.45;
+		max-width: 42rem;
+	}
+
+	.site-title--headerEyebrow {
+		margin: 4px 0 0;
+		color: #0a0b0d;
+		font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+	}
+
+	.headerBannerAttribution--rail {
+		margin: 0;
+		flex: 1 1 200px;
+		max-width: min(100%, 20rem);
+		font-size: 10px;
+		line-height: 1.4;
+		color: var(--header-rail-muted);
+		text-align: right;
+		align-self: center;
 	}
 
 	.site-title {
@@ -754,16 +783,6 @@ const navActive = {
 		}
 	}
 
-	.headerBannerBottomRow {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: flex-end;
-		justify-content: flex-end;
-		gap: 6px 16px;
-		margin-top: 8px;
-		width: 100%;
-	}
-
 	.headerBannerAttribution {
 		margin: 0;
 		max-width: min(100%, 46ch);
@@ -972,9 +991,9 @@ const navActive = {
 			padding-top: 6.35rem;
 		}
 
-		.brandText {
-			align-items: flex-start;
+		.headerBannerAttribution--rail {
 			text-align: left;
+			max-width: 100%;
 		}
 	}
 
@@ -992,14 +1011,16 @@ const navActive = {
 			padding-top: 7.1rem;
 		}
 
-		.brand-mark {
-			width: 64px;
-			height: 64px;
-			font-size: 1.6rem;
+		.brand-mark--header {
+			width: 32px;
+			height: 32px;
+			font-size: 1rem;
 		}
 
-		.headerBannerAttribution {
+		.headerBannerAttribution--rail {
 			text-align: left;
+			flex-basis: 100%;
+			max-width: 100%;
 		}
 	}
 </style>

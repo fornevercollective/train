@@ -86,6 +86,42 @@ const priorityGroups = [
 		],
 	},
 ];
+
+/** Illustrative desk-style rows (not tradable quotes) — mirrors Game predictions card density. */
+const priorityStatusDepthPct: Record<string, number> = {
+	strong: 71,
+	good: 60,
+	medium: 52,
+	limited: 44,
+	missing: 33,
+};
+
+function priorityIcon(symbol: string, groupTitle: string): string {
+	const s = symbol.toUpperCase();
+	if (s.includes('BTC') || s.includes('MAJOR-CRYPTO')) return '₿';
+	if (groupTitle.toLowerCase().includes('crypto')) return '◆';
+	if (groupTitle.toLowerCase().includes('ai')) return '◎';
+	if (groupTitle.toLowerCase().includes('benchmark')) return '📊';
+	if (s.startsWith('GC')) return '🥇';
+	if (s.startsWith('SI')) return '🥈';
+	return '📈';
+}
+
+function priorityCardModel(item: { status: string; rows: string; coverage: string }) {
+	const depth = priorityStatusDepthPct[item.status] ?? 50;
+	const alt = 100 - depth;
+	const rowsNum = Number.parseInt(item.rows.replace(/[^\d]/g, ''), 10) || 0;
+	const payoutDepth = Math.round(100 + (depth / 100) * 188 + Math.min(rowsNum / 4000, 1) * 42);
+	const payoutAlt = Math.max(102, Math.round(100 + (alt / 100) * 162));
+	return {
+		depthPct: depth,
+		altPct: alt,
+		payoutDepth,
+		payoutAlt,
+		volLine: `${item.rows} · ${item.coverage}`,
+	};
+}
+
 const topologyRoutes = [
 	{
 		venue: 'CME / Aurora futures',
@@ -766,44 +802,75 @@ const fastPathChecklist = [
 									group.items.map((item) => {
 										const tvSymbol = YAHOO_TO_TRADINGVIEW[item.symbol];
 										const liveHref = `listing/?t=${encodeURIComponent(item.symbol)}&label=${encodeURIComponent(item.name)}`;
+										const model = priorityCardModel(item);
+										const icon = priorityIcon(item.symbol, group.title);
+										const statusClass =
+											item.status === 'strong' || item.status === 'good'
+												? 'success'
+												: item.status === 'missing' || item.status === 'limited'
+													? 'warning'
+													: 'muted';
 										return (
-											<div class="priority-item">
+											<article class="priority-item">
 												<a class="priority-item-main" href={liveHref}>
-													<div class="priority-item-head">
-														<div>
-															<strong>{item.name}</strong>
-															<p>{item.symbol}</p>
-														</div>
-														<span
-															class={`badge ${
-																item.status === 'strong' || item.status === 'good'
-																	? 'success'
-																	: item.status === 'missing' || item.status === 'limited'
-																		? 'warning'
-																		: 'muted'
-															}`}
-														>
-															{item.status}
+													<div class="priority-item-cardtop">
+														<span class="priority-item-icon" aria-hidden="true">
+															{icon}
 														</span>
+														<div class="priority-item-titles">
+															<h3 class="priority-item-title">{item.name}</h3>
+															<p class="priority-item-sub">
+																{item.symbol} · <span class={`badge ${statusClass}`}>{item.status}</span> · Erika
+																snapshot
+															</p>
+														</div>
+														{tvSymbol ? (
+															<span class="priority-live-pill">Live</span>
+														) : (
+															<span class="priority-snapshot-pill">Snapshot</span>
+														)}
 													</div>
-													<div class="priority-item-meta">
-														<span>{item.coverage}</span>
-														<span>{item.rows}</span>
+													<div class="priority-item-outcomes">
+														<div class="priority-item-outcome">
+															<div class="priority-item-outcome-left">
+																<span class="priority-item-code">DEPTH</span>
+																<span class="priority-item-pct">{model.depthPct}%</span>
+															</div>
+															<div class="priority-item-payout">
+																$100 → <strong>${model.payoutDepth.toLocaleString()}</strong>
+															</div>
+														</div>
+														<div class="priority-item-outcome">
+															<div class="priority-item-outcome-left">
+																<span class="priority-item-code">SURFACE</span>
+																<span class="priority-item-pct">{model.altPct}%</span>
+															</div>
+															<div class="priority-item-payout">
+																$100 → <strong>${model.payoutAlt.toLocaleString()}</strong>
+															</div>
+														</div>
 													</div>
+													<p class="priority-item-vol">{model.volLine}</p>
+													<p class="priority-item-desk-hint muted">
+														Illustrative desk legs — not a tradable quote. TV mini loads when mapped.
+													</p>
 												</a>
 												{tvSymbol ? (
-													<div class="priority-item-live">
+													<div class="priority-item-tv">
 														<p class="priority-live-caption muted">Live snapshot · hourly interval</p>
-														<iframe
-															class="priority-live-iframe"
-															title={`${item.name} live quote`}
-															loading="lazy"
-															referrerpolicy="no-referrer-when-downgrade"
-															src={tradingViewMiniUrl(tvSymbol)}
-														/>
+														<div class="priority-tv-frame">
+															<iframe
+																class="priority-live-iframe"
+																title={`${item.name} (${item.symbol}) TradingView mini`}
+																loading="lazy"
+																referrerpolicy="no-referrer-when-downgrade"
+																allow="clipboard-write; fullscreen"
+																src={tradingViewMiniUrl(tvSymbol)}
+															/>
+														</div>
 													</div>
 												) : null}
-											</div>
+											</article>
 										);
 									})
 								}
@@ -1663,73 +1730,194 @@ const fastPathChecklist = [
 
 	.priority-items {
 		display: grid;
-		gap: 10px;
+		gap: 16px;
 	}
 
 	.priority-item {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
-		padding: 12px;
-		border-radius: 16px;
+		gap: 12px;
+		padding: 16px 16px 14px;
+		border-radius: 18px;
 		background: rgba(0, 0, 0, 0.22);
 		border: 1px solid rgba(255, 255, 255, 0.1);
+		min-height: 100%;
 	}
 
 	.priority-item-main {
-		display: block;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
 		color: inherit;
 		text-decoration: none;
 		border-radius: 12px;
 		outline-offset: 2px;
 	}
 
-	.priority-item-main:hover .priority-item-head strong {
+	.priority-item-main:hover .priority-item-title {
 		color: var(--accent);
 	}
 
-	.priority-item-live {
+	.priority-item-cardtop {
+		display: flex;
+		align-items: flex-start;
+		gap: 12px;
+	}
+
+	.priority-item-icon {
+		font-size: 1.35rem;
+		line-height: 1;
+		flex-shrink: 0;
+	}
+
+	.priority-item-titles {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.priority-item-title {
+		margin: 0;
+		font-size: 1.02rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		color: var(--text);
+		line-height: 1.2;
+	}
+
+	.priority-item-sub {
+		margin: 6px 0 0;
+		font-size: 0.82rem;
+		line-height: 1.45;
+		color: var(--muted);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.priority-item-sub .badge {
+		font-size: 0.68rem;
+		padding: 2px 8px;
+	}
+
+	.priority-live-pill {
+		margin-left: auto;
+		flex: none;
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #fff;
+		background: #ef4444;
+		padding: 4px 8px;
+		border-radius: 999px;
+	}
+
+	.priority-snapshot-pill {
+		margin-left: auto;
+		flex: none;
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.88);
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		padding: 4px 8px;
+		border-radius: 999px;
+	}
+
+	.priority-item-outcomes {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.priority-item-outcome {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		flex-wrap: wrap;
+		padding: 10px 12px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		font-size: 0.88rem;
+	}
+
+	.priority-item-outcome-left {
+		display: flex;
+		align-items: baseline;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.priority-item-code {
+		font-weight: 700;
+		color: var(--text);
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		letter-spacing: 0.06em;
+	}
+
+	.priority-item-pct {
+		color: var(--muted);
+		font-size: 0.9rem;
+	}
+
+	.priority-item-payout {
+		font-size: 0.88rem;
+		color: var(--muted);
+	}
+
+	.priority-item-payout strong {
+		color: var(--text);
+		font-weight: 700;
+	}
+
+	.priority-item-vol {
+		margin: 0;
+		font-size: 0.78rem;
+		color: var(--soft);
+		line-height: 1.45;
+	}
+
+	.priority-item-desk-hint {
+		margin: 0;
+		font-size: 0.72rem;
+		line-height: 1.45;
+	}
+
+	.priority-item-tv {
 		border-radius: 12px;
 		overflow: hidden;
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		border: 1px solid rgba(255, 255, 255, 0.1);
 		background: rgba(0, 0, 0, 0.35);
 	}
 
 	.priority-live-caption {
 		margin: 0;
-		padding: 6px 10px 0;
+		padding: 8px 10px 0;
 		font-size: 0.72rem;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		font-family: var(--font-mono);
 	}
 
+	.priority-tv-frame {
+		position: relative;
+		width: 100%;
+		min-height: 156px;
+		background: rgba(0, 0, 0, 0.25);
+	}
+
 	.priority-live-iframe {
 		display: block;
 		width: 100%;
-		height: 132px;
+		height: 164px;
 		border: 0;
 		background: transparent;
-	}
-
-	.priority-item-head,
-	.priority-item-meta {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: 10px;
-		flex-wrap: wrap;
-	}
-
-	.priority-item-head p,
-	.priority-item-meta span {
-		margin: 4px 0 0;
-		color: var(--muted);
-		font-size: 0.92rem;
-	}
-
-	.priority-item-meta {
-		margin-top: 8px;
 	}
 
 	.featured-card-head,

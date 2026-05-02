@@ -141,7 +141,7 @@ const liveAnalysisHref = isPage
 </section>
 
 <style>
-	/* Game console predictions strip — Inter + light cards (scoped) */
+	/* Predictions strip — same glass card shell as `.card` / home-live-analysis (scoped) */
 	.ep-predictions-scope {
 		--ep-pred-font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 		--ep-pred-mono: 'IBM Plex Mono', ui-monospace, monospace;
@@ -149,11 +149,13 @@ const liveAnalysisHref = isPage
 	}
 
 	.ep-predictions-surface {
-		background: #ffffff;
-		color: #0a0b0d;
-		border-radius: 24px;
-		border: 1px solid #e7e9ef;
-		box-shadow: 0 24px 60px rgba(8, 12, 24, 0.12);
+		background: var(--card-bg);
+		color: var(--text);
+		border-radius: 18px;
+		border: 1px solid var(--card-border);
+		box-shadow: var(--shadow);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
 		padding: 22px 22px 20px;
 	}
 
@@ -180,7 +182,7 @@ const liveAnalysisHref = isPage
 		font-size: 0.72rem;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #6b7289;
+		color: var(--accent);
 		margin: 0;
 	}
 
@@ -189,25 +191,26 @@ const liveAnalysisHref = isPage
 		font-size: clamp(1.45rem, 3vw, 2.05rem);
 		letter-spacing: -0.03em;
 		line-height: 1.12;
-		color: #0a0b0d;
+		color: var(--text);
 		font-weight: 700;
 	}
 
 	.ep-pred-muted {
 		margin: 10px 0 0;
-		color: #5c6378;
+		color: var(--muted);
 		font-size: 0.94rem;
 		line-height: 1.6;
 		max-width: 58rem;
 	}
 
 	.ep-pred-inline-link {
-		color: #0052ff;
+		color: var(--accent);
 		font-weight: 600;
 		text-decoration: none;
 	}
 
 	.ep-pred-inline-link:hover {
+		color: var(--accent-warm);
 		text-decoration: underline;
 	}
 
@@ -216,8 +219,9 @@ const liveAnalysisHref = isPage
 		font-size: 0.84em;
 		padding: 0.1em 0.32em;
 		border-radius: 6px;
-		background: #eef0f7;
-		border: 1px solid #e0e4f0;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		color: var(--text);
 	}
 
 	.ep-pred-hero-actions {
@@ -235,27 +239,32 @@ const liveAnalysisHref = isPage
 		border-radius: 999px;
 		font-size: 0.88rem;
 		font-weight: 600;
-		border: 1px solid #d7dbe8;
-		background: #f6f7fb;
-		color: #0a0b0d;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.88);
 		text-decoration: none;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
 	}
 
 	.ep-pred-btn:hover {
-		border-color: #0052ff;
-		color: #0052ff;
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.08);
 	}
 
 	.ep-pred-btn-primary {
-		background: #0a0b0d;
-		color: #fff;
-		border-color: #0a0b0d;
+		background: rgba(255, 255, 255, 0.92);
+		color: #0a0b0d;
+		border-color: rgba(255, 255, 255, 0.35);
 	}
 
 	.ep-pred-btn-primary:hover {
 		filter: brightness(1.06);
-		color: #fff;
-		border-color: #0a0b0d;
+		color: #0a0b0d;
+		border-color: rgba(255, 255, 255, 0.45);
 	}
 
 	.ep-pred-trending-grid {
@@ -266,10 +275,10 @@ const liveAnalysisHref = isPage
 	}
 
 	.ep-pred-trend-card {
-		border: 1px solid #e7e9ef;
+		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: 18px;
 		padding: 18px 18px 16px;
-		background: #fafbff;
+		background: rgba(0, 0, 0, 0.22);
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
@@ -292,13 +301,13 @@ const liveAnalysisHref = isPage
 		font-size: 1.02rem;
 		font-weight: 700;
 		letter-spacing: -0.02em;
-		color: #0a0b0d;
+		color: var(--text);
 	}
 
 	.ep-pred-trend-sub {
 		margin: 4px 0 0;
 		font-size: 0.82rem;
-		color: #6b7289;
+		color: var(--muted);
 	}
 
 	.ep-pred-live-pill {
@@ -327,59 +336,60 @@ const liveAnalysisHref = isPage
 		gap: 10px;
 		padding: 10px 12px;
 		border-radius: 12px;
-		background: #fff;
-		border: 1px solid #eceef5;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
 		font-size: 0.88rem;
 	}
 
 	.ep-pred-trend-code {
 		font-weight: 700;
 		margin-right: 10px;
-		color: #0a0b0d;
+		color: var(--text);
 	}
 
 	.ep-pred-trend-pct {
-		color: #6b7289;
+		color: var(--muted);
 		font-size: 0.9rem;
 	}
 
 	.ep-pred-trend-payout {
 		font-size: 0.88rem;
-		color: #374151;
+		color: var(--muted);
 	}
 
 	.ep-pred-trend-payout strong {
-		color: #0a0b0d;
+		color: var(--text);
 	}
 
 	.ep-pred-trend-vol {
 		margin: 0;
 		font-size: 0.78rem;
-		color: #8b92a7;
+		color: var(--soft);
 	}
 
 	.ep-pred-trend-link {
 		margin-top: auto;
 		font-size: 0.88rem;
 		font-weight: 600;
-		color: #0052ff;
+		color: var(--accent);
 		text-decoration: none;
 	}
 
 	.ep-pred-trend-link:hover {
+		color: var(--accent-warm);
 		text-decoration: underline;
 	}
 
 	.ep-pred-trend-link-muted {
 		margin-top: auto;
 		font-size: 0.8rem;
-		color: #8b92a7;
+		color: var(--muted);
 	}
 
 	.ep-pred-disclaimer {
 		margin: 18px 0 0;
 		font-size: 0.8rem;
-		color: #8b92a7;
+		color: var(--muted);
 		line-height: 1.5;
 		max-width: 70rem;
 	}
