@@ -67,27 +67,36 @@ const navActive = {
 			<header class="headerBanner" role="banner">
 				{
 					showHeaderDirectorySearch ? (
-						<div class="headerBannerSearch headerBannerSearch--top">
-							<div class="headerBannerSearch-labelRow">
-								<label class="headerBannerSearch-label" for="header-filter-query">
-									Directory search
-								</label>
-								<h1 class="site-title">{title}</h1>
+						<div class="headerBannerSearchRow">
+							<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
+								<span class="brand-mark brand-mark--header">E</span>
+							</a>
+							<div class="headerBannerSearch headerBannerSearch--top">
+								<div class="headerBannerSearch-labelRow">
+									<label class="headerBannerSearch-label" for="header-filter-query">
+										Directory search
+									</label>
+									<h1 class="site-title">{title}</h1>
+								</div>
+								<input
+									id="header-filter-query"
+									class="headerBannerSearch-input"
+									type="search"
+									placeholder="Ticker, company, exchange, country, alias…"
+									autocomplete="off"
+								/>
 							</div>
-							<input
-								id="header-filter-query"
-								class="headerBannerSearch-input"
-								type="search"
-								placeholder="Ticker, company, exchange, country, alias…"
-								autocomplete="off"
-							/>
 						</div>
 					) : null
 				}
 				<div class="headerEyebrowRow headerEyebrowRow--rail">
-					<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
-						<span class="brand-mark brand-mark--header">E</span>
-					</a>
+					{
+						!showHeaderDirectorySearch ? (
+							<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
+								<span class="brand-mark brand-mark--header">E</span>
+							</a>
+						) : null
+					}
 					<div class="headerEyebrowRow-copy">
 						<div class="eyebrow">{eyebrow}</div>
 						{
@@ -101,7 +110,10 @@ const navActive = {
 						Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
 					</p>
 				</div>
-				<nav class="site-nav site-nav--console site-nav--tabs" aria-label="Site navigation">
+				<nav
+					class="site-nav site-nav--console site-nav--tabs site-nav--tabsGhost"
+					aria-label="Site navigation"
+				>
 					<div class="site-nav-pillsWrap">
 						<a class:list={['site-nav-pill', { 'is-active': navActive.home }]} href={baseUrl}>Home</a>
 						<a
@@ -326,13 +338,14 @@ const navActive = {
 		width: 100%;
 		max-width: 100%;
 		margin: 0 auto;
-		padding: 7.8rem 18px 52px;
+		padding: 9.25rem 18px 52px;
 		box-sizing: border-box;
 		transition: padding-top 0.22s ease;
 	}
 
 	body.has-header-directory-search .page-bodyGrid {
-		padding-top: 9.85rem;
+		/* Tall fixed header: search + eyebrow rail + tab rail — keep main content below fold */
+		padding-top: 13rem;
 	}
 
 	.page-bodyGrid--withSidebar {
@@ -404,7 +417,7 @@ const navActive = {
 	}
 
 	body.header-collapsed .page-bodyGrid {
-		padding-top: 5.85rem;
+		padding-top: 6.75rem;
 	}
 
 	.container {
@@ -462,11 +475,13 @@ const navActive = {
 		box-sizing: border-box;
 		flex-wrap: wrap;
 		padding: 10px 14px 12px;
-		background: var(--header-rail-surface);
-		color: #0a0b0d;
-		border: 1px solid var(--header-rail-border);
-		border-radius: 24px;
-		box-shadow: var(--header-rail-shadow);
+		background: rgba(0, 0, 0, 0.34);
+		color: var(--text);
+		border: 1px solid var(--card-border);
+		border-radius: 18px;
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
 		font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 	}
 
@@ -503,7 +518,7 @@ const navActive = {
 
 	.headerEyebrowRow--rail .eyebrow {
 		margin: 0;
-		color: #0f766e;
+		color: var(--accent);
 		letter-spacing: 0.14em;
 		font-size: 0.72rem;
 	}
@@ -511,7 +526,7 @@ const navActive = {
 	.headerEyebrowRow--rail .sub {
 		margin: 4px 0 0;
 		text-align: left;
-		color: var(--header-rail-muted);
+		color: var(--muted);
 		font-size: 0.82rem;
 		line-height: 1.45;
 		max-width: 42rem;
@@ -519,7 +534,7 @@ const navActive = {
 
 	.site-title--headerEyebrow {
 		margin: 4px 0 0;
-		color: #0a0b0d;
+		color: var(--text);
 		font-size: clamp(1.1rem, 2.4vw, 1.45rem);
 	}
 
@@ -529,7 +544,7 @@ const navActive = {
 		max-width: min(100%, 20rem);
 		font-size: 10px;
 		line-height: 1.4;
-		color: var(--header-rail-muted);
+		color: var(--soft);
 		text-align: right;
 		align-self: center;
 	}
@@ -641,11 +656,13 @@ const navActive = {
 		padding: 10px 14px 12px;
 		width: 100%;
 		box-sizing: border-box;
-		background: var(--header-rail-surface);
-		color: #0a0b0d;
-		border: 1px solid var(--header-rail-border);
-		border-radius: 24px;
-		box-shadow: var(--header-rail-shadow);
+		background: rgba(0, 0, 0, 0.34);
+		color: var(--text);
+		border: 1px solid var(--card-border);
+		border-radius: 18px;
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
 	}
 
 	.site-nav--tabs.site-nav--console {
@@ -653,43 +670,88 @@ const navActive = {
 	}
 
 	.site-nav--tabs .site-nav-pill {
-		border: 1px solid var(--header-rail-pill-border);
-		background: var(--header-rail-pill-bg);
-		color: var(--header-rail-muted);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.78);
 	}
 
 	.site-nav--tabs .site-nav-pill:hover {
-		border-color: #0052ff;
-		color: #0052ff;
-		background: #ffffff;
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.08);
 	}
 
 	.site-nav--tabs .site-nav-pill.is-active {
-		color: #ffffff;
-		background: #0a0b0d;
-		border-color: #0a0b0d;
+		color: var(--text);
+		background: rgba(72, 224, 188, 0.16);
+		border-color: rgba(72, 224, 188, 0.42);
 	}
 
 	.site-nav--tabs .site-nav-pill--ext {
-		color: #3d4a63;
+		color: rgba(200, 220, 255, 0.88);
 		border-style: dashed;
 	}
 
 	.site-nav--tabs .site-nav-pill--ext:hover {
 		border-style: solid;
-		color: #0052ff;
+		color: var(--accent);
 	}
 
 	.site-nav--tabs .site-nav-divider {
-		background: #e0e4f0;
+		background: rgba(255, 255, 255, 0.14);
 	}
 
 	.paywallPill--headerNav {
 		margin-left: auto;
 		flex: 0 0 auto;
-		border-color: var(--header-rail-pill-border);
-		background: var(--header-rail-pill-bg);
-		color: #0a0b0d;
+		border-color: rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 244, 255, 0.88);
+	}
+
+	.site-nav--tabsGhost .site-nav-pill {
+		background: transparent;
+		border-style: dashed;
+		border-color: rgba(255, 255, 255, 0.22);
+		color: rgba(230, 236, 255, 0.62);
+	}
+
+	.site-nav--tabsGhost .site-nav-pill:hover {
+		background: rgba(72, 224, 188, 0.07);
+		border-style: solid;
+		border-color: rgba(72, 224, 188, 0.32);
+		color: var(--accent);
+	}
+
+	.site-nav--tabsGhost .site-nav-pill.is-active {
+		background: rgba(72, 224, 188, 0.12);
+		border-style: solid;
+		border-color: rgba(72, 224, 188, 0.5);
+		color: var(--text);
+	}
+
+	.site-nav--tabsGhost .site-nav-pill--ext {
+		color: rgba(200, 220, 255, 0.62);
+	}
+
+	.site-nav--tabsGhost .paywallPill--headerNav {
+		background: transparent;
+		border-style: dashed;
+		border-color: rgba(255, 255, 255, 0.22);
+		color: var(--muted);
+	}
+
+	.headerBannerSearchRow {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		width: 100%;
+		flex-wrap: nowrap;
+	}
+
+	.headerBannerSearchRow .headerBannerSearch--top {
+		flex: 1;
+		min-width: 0;
 	}
 
 	.headerBannerSearch {
@@ -768,18 +830,18 @@ const navActive = {
 	}
 
 	body.has-header-directory-search.header-collapsed .page-bodyGrid {
-		padding-top: 7.35rem;
+		padding-top: 9.25rem;
 	}
 
 	@media (max-width: 900px) {
 		body.has-header-directory-search.header-collapsed .page-bodyGrid {
-			padding-top: 7.85rem;
+			padding-top: 9.85rem;
 		}
 	}
 
 	@media (max-width: 720px) {
 		body.has-header-directory-search.header-collapsed .page-bodyGrid {
-			padding-top: 8.65rem;
+			padding-top: 10.75rem;
 		}
 	}
 
@@ -980,15 +1042,15 @@ const navActive = {
 
 	@media (max-width: 900px) {
 		.page-bodyGrid {
-			padding-top: 9.8rem;
+			padding-top: 11.25rem;
 		}
 
 		body.has-header-directory-search .page-bodyGrid {
-			padding-top: 11.85rem;
+			padding-top: 14.5rem;
 		}
 
 		body.header-collapsed .page-bodyGrid {
-			padding-top: 6.35rem;
+			padding-top: 7rem;
 		}
 
 		.headerBannerAttribution--rail {
@@ -999,16 +1061,16 @@ const navActive = {
 
 	@media (max-width: 720px) {
 		.page-bodyGrid {
-			padding-top: 11.5rem;
+			padding-top: 12.75rem;
 			padding-inline: 14px;
 		}
 
 		body.has-header-directory-search .page-bodyGrid {
-			padding-top: 13.75rem;
+			padding-top: 16rem;
 		}
 
 		body.header-collapsed .page-bodyGrid {
-			padding-top: 7.1rem;
+			padding-top: 8rem;
 		}
 
 		.brand-mark--header {
