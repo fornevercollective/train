@@ -32,12 +32,14 @@ const navActive = {
 		!path.includes('/featured') &&
 		!path.includes('/predictions') &&
 		!path.includes('/listing') &&
-		!path.includes('/raw'),
+		!path.includes('/raw') &&
+		!path.includes('/live-captions'),
 	featured: path.includes('/featured'),
 	predictions: path.includes('/predictions'),
 	directory: path.includes('/directory'),
 	listing: path.includes('/listing'),
 	raw: path.includes('/raw'),
+	liveCaptions: path.includes('/live-captions'),
 };
 ---
 
@@ -142,6 +144,12 @@ const navActive = {
 							Listing
 						</a>
 						<a class:list={['site-nav-pill', { 'is-active': navActive.raw }]} href={`${baseUrl}raw/`}>Raw</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.liveCaptions }]}
+							href={`${baseUrl}live-captions/`}
+						>
+							Captions
+						</a>
 						{
 							gameConsoleUrl ? (
 								<>

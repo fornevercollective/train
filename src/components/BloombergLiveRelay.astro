@@ -1,0 +1,328 @@
+---
+interface Props {
+	/** Stable id for in-page anchors (e.g. `#home-bloomberg-live` on home, same id on captions desk). */
+	articleId?: string;
+	headingId?: string;
+	bloombergRelayStartCommand?: string;
+}
+
+const {
+	articleId = 'home-bloomberg-live',
+	headingId = 'bloomberg-live-heading',
+	bloombergRelayStartCommand = 'cd "/Volumes/qbitOS/00.dev/cursor/train" && python3 server.py',
+} = Astro.props;
+---
+
+<article class="card home-bloomberg-live" id={articleId} aria-labelledby={headingId}>
+	<div class="tileTop">
+		<div>
+			<div class="ticker">Bloomberg live relay</div>
+			<h2 id={headingId} class="home-bloomberg-title">
+				Live captions and Granite Tiny side chat
+			</h2>
+			<p class="home-bloomberg-lead muted">
+				Companion to the qbitOS Bloomberg tool in{' '}
+				<code class="home-bloomberg-path">bloomberg/live chat/browser-page/</code>: reference stream, then
+				caption-driven chat when the local Python relay is running.
+			</p>
+		</div>
+		<div class="hero-actions home-bloomberg-actions">
+			<a
+				class="button-secondary"
+				href="http://127.0.0.1:8765/"
+				target="_blank"
+				rel="noopener noreferrer"
+				id="bloomberg-relay-open"
+			>
+				Open relay (127.0.0.1)
+			</a>
+			<a
+				class="button-secondary"
+				href="http://localhost:8765/"
+				target="_blank"
+				rel="noopener noreferrer"
+				id="bloomberg-relay-open-localhost"
+			>
+				Open relay (localhost)
+			</a>
+			<button type="button" class="button-secondary" id="bloomberg-relay-copy-cmd">Copy start command</button>
+		</div>
+		<p class="home-bloomberg-relay-note muted" id="bloomberg-relay-note">
+			This site does not start the relay. In a terminal, run the copied command (or{' '}
+			<code class="home-bloomberg-path">python3 server.py</code> from that folder), wait for “Serving http://…”, then
+			use the buttons. If a new tab does not appear, try Safari or Chrome; the buttons fall back to navigating this tab
+			when pop-ups are blocked.
+		</p>
+		<p class="home-bloomberg-relay-status metaHint" id="bloomberg-relay-copy-status" hidden></p>
+	</div>
+	<div class="home-bloomberg-grid">
+		<section class="home-bloomberg-panel home-bloomberg-video" aria-label="Reference video">
+			<div class="home-bloomberg-panel-head">
+				<span class="muted home-bloomberg-panel-kicker">Reference stream</span>
+				<strong class="home-bloomberg-ref-time" id="bloomberg-ref-time">—</strong>
+			</div>
+			<div class="home-bloomberg-frame">
+				<iframe
+					title="Bloomberg live reference (default project stream)"
+					src="https://www.youtube.com/embed/f39oHo6vFLg?rel=0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+					loading="lazy"
+					referrerpolicy="strict-origin-when-cross-origin"
+				></iframe>
+			</div>
+		</section>
+		<section class="home-bloomberg-panel home-bloomberg-chat" aria-label="Side chat relay">
+			<div class="home-bloomberg-panel-head">
+				<div>
+					<span class="muted home-bloomberg-panel-kicker">Granite Tiny side chat</span>
+					<p class="home-bloomberg-chat-sub muted">
+						Captions and model reactions stream from the relay; this directory site stays static on GitHub Pages.
+					</p>
+				</div>
+			</div>
+			<div class="home-bloomberg-chat-body">
+				<ol class="home-bloomberg-steps muted">
+					<li>
+						From this repo root (<code class="home-bloomberg-path">…/cursor/train</code>), run{' '}
+						<code class="home-bloomberg-path">python3 server.py</code> — it forwards to{' '}
+						<code class="home-bloomberg-path">../bloomberg/live chat/browser-page</code> (default port{' '}
+						<strong>8765</strong>). Or <code class="home-bloomberg-path">cd</code> there and run{' '}
+						<code class="home-bloomberg-path">python3 server.py</code> directly.
+					</li>
+					<li>
+						Use <strong>Open relay</strong> once the server prints “Serving…” — for the full dashboard (captions,
+						metrics, chat).
+					</li>
+					<li>
+						HTTPS production hosts cannot embed{' '}
+						<code class="home-bloomberg-path">http://127.0.0.1</code>; use localhost over HTTP during dev if you need
+						both in one tab.
+					</li>
+				</ol>
+				<div class="home-bloomberg-chat-foot">
+					<span class="badge muted" id="bloomberg-relay-hint">Relay link targets 127.0.0.1:8765</span>
+				</div>
+			</div>
+		</section>
+	</div>
+</article>
+
+<script is:inline define:vars={{ bloombergRelayStartCommand }}>
+	(() => {
+		const ref = document.getElementById('bloomberg-ref-time');
+		if (ref) {
+			const tick = () => {
+				ref.textContent = new Date().toLocaleTimeString([], {
+					hour: '2-digit',
+					minute: '2-digit',
+					second: '2-digit',
+				});
+			};
+			tick();
+			setInterval(tick, 1000);
+		}
+
+		function openRelayUrl(url) {
+			const win = window.open(url, '_blank', 'noopener,noreferrer');
+			if (!win || win.closed) {
+				window.location.href = url;
+				return;
+			}
+			try {
+				win.opener = null;
+			} catch {
+				/* ignore */
+			}
+		}
+
+		for (const id of ['bloomberg-relay-open', 'bloomberg-relay-open-localhost']) {
+			const el = document.getElementById(id);
+			if (!el) continue;
+			el.addEventListener('click', (event) => {
+				event.preventDefault();
+				openRelayUrl(el.getAttribute('href') || '');
+			});
+		}
+
+		const copyBtn = document.getElementById('bloomberg-relay-copy-cmd');
+		const copyStatus = document.getElementById('bloomberg-relay-copy-status');
+		if (copyBtn) {
+			const defaultLabel = copyBtn.textContent?.trim() || 'Copy start command';
+			copyBtn.addEventListener('click', async () => {
+				try {
+					await navigator.clipboard.writeText(bloombergRelayStartCommand);
+					copyBtn.textContent = 'Copied to clipboard';
+					if (copyStatus) {
+						copyStatus.textContent =
+							'Paste into Terminal, press Enter, wait for “Serving…”, then open a relay link.';
+						copyStatus.hidden = false;
+					}
+					setTimeout(() => {
+						copyBtn.textContent = defaultLabel;
+						if (copyStatus) {
+							copyStatus.textContent = '';
+							copyStatus.hidden = true;
+						}
+					}, 4500);
+				} catch {
+					copyBtn.textContent = 'Copy blocked — type the command manually';
+				}
+			});
+		}
+	})();
+</script>
+
+<style>
+	.home-bloomberg-live {
+		padding: 16px;
+	}
+
+	.home-bloomberg-live .tileTop {
+		align-items: flex-start;
+	}
+
+	.home-bloomberg-title {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+		font-weight: 400;
+		line-height: 1.08;
+		letter-spacing: 0.01em;
+		max-width: 22ch;
+	}
+
+	.home-bloomberg-lead {
+		margin: 12px 0 0;
+		max-width: 52rem;
+		font-size: 1rem;
+		line-height: 1.62;
+	}
+
+	.home-bloomberg-actions {
+		flex-wrap: wrap;
+	}
+
+	.home-bloomberg-relay-note {
+		margin: 10px 0 0;
+		max-width: 52rem;
+		font-size: 0.94rem;
+		line-height: 1.58;
+	}
+
+	.home-bloomberg-relay-status {
+		margin: 6px 0 0;
+		max-width: 52rem;
+	}
+
+	.home-bloomberg-path {
+		font-family: var(--font-mono);
+		font-size: 0.84em;
+		padding: 0.12em 0.35em;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+
+	.home-bloomberg-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.65fr) minmax(280px, 1fr);
+		gap: 16px;
+		margin-top: 16px;
+		align-items: stretch;
+	}
+
+	.home-bloomberg-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding: 14px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		min-height: 0;
+	}
+
+	.home-bloomberg-panel-head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+
+	.home-bloomberg-panel-kicker {
+		display: block;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.home-bloomberg-ref-time {
+		font-family: var(--font-mono);
+		font-size: 0.95rem;
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	.home-bloomberg-frame {
+		position: relative;
+		width: 100%;
+		padding-top: 56.25%;
+		overflow: hidden;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.35);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.home-bloomberg-frame iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+
+	.home-bloomberg-chat-sub {
+		margin: 8px 0 0;
+		font-size: 0.94rem;
+		line-height: 1.55;
+		max-width: 36rem;
+	}
+
+	.home-bloomberg-chat-body {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		min-height: 200px;
+	}
+
+	.home-bloomberg-steps {
+		margin: 0;
+		padding-left: 1.25rem;
+		line-height: 1.65;
+		font-size: 0.94rem;
+	}
+
+	.home-bloomberg-steps li {
+		margin-bottom: 10px;
+	}
+
+	.home-bloomberg-steps li:last-child {
+		margin-bottom: 0;
+	}
+
+	.home-bloomberg-chat-foot {
+		margin-top: auto;
+	}
+
+	@media (max-width: 1100px) {
+		.home-bloomberg-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

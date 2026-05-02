@@ -7,6 +7,7 @@ interface NavActive {
 	directory: boolean;
 	listing: boolean;
 	raw: boolean;
+	liveCaptions: boolean;
 }
 
 interface Props {
@@ -40,6 +41,7 @@ if (gameLive) {
 }
 
 items.push(
+	{ href: `${b}live-captions/`, label: 'Live captions', match: 'liveCaptions' },
 	{ href: `${b}listing/`, label: 'Execution ops', match: 'listing' },
 	{ href: `${b}raw/`, label: 'Raw research', match: 'raw' },
 );
