@@ -21,6 +21,13 @@ $100 → payout framing, reference-only demo), the merged **`/live`** route with
 and Bloomberg side-chat iframes, and env-driven embed URLs (`NEXT_PUBLIC_UGRAD_SPORTS_URL`,
 `NEXT_PUBLIC_UGRAD_TOOLS_DECK_URL`, `NEXT_PUBLIC_BLOOMBERG_CHAT_URL`).
 
+Train ships dedicated routes for each top tab: **`/directory/`** (full catalog explorer with filters
+and pagination), **`/predictions/`** (Game-style card grid), plus Featured, Listing, and Raw. The
+site header uses pill navigation with the **Directory search** field first, then the eyebrow and
+title, then the educational row, then the tab row (Home, Featured, Predictions, Directory, Listing,
+Raw) plus optional Game / Live when `PUBLIC_GAME_CONSOLE_URL` is set. From any non-directory page,
+pressing **Enter** in the header search jumps to `/directory/?q=…`.
+
 Train’s homepage links out when you set at **build** time:
 
 - **`PUBLIC_GAME_CONSOLE_URL`** — Game origin with no trailing slash (for example `http://localhost:3000` or your deployed base).

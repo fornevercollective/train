@@ -15,11 +15,25 @@ const {
 	pageClass = 'page-home',
 	eyebrow = 'Static market directory',
 	subtitle = 'Searchable listing intelligence built from the Erika dataset.',
-	showHeaderDirectorySearch = false,
+	showHeaderDirectorySearch = true,
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
 const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
+const path = Astro.url.pathname;
+const navActive = {
+	home:
+		!path.includes('/directory') &&
+		!path.includes('/featured') &&
+		!path.includes('/predictions') &&
+		!path.includes('/listing') &&
+		!path.includes('/raw'),
+	featured: path.includes('/featured'),
+	predictions: path.includes('/predictions'),
+	directory: path.includes('/directory'),
+	listing: path.includes('/listing'),
+	raw: path.includes('/raw'),
+};
 ---
 
 <!doctype html>
@@ -32,6 +46,12 @@ const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body
 		class={`${pageClass}${showHeaderDirectorySearch ? ' has-header-directory-search' : ''}`}
@@ -40,44 +60,9 @@ const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/
 		<div class="bgGlow" aria-hidden="true"></div>
 		<div class="page-shell">
 			<header class="headerBanner" role="banner">
-				<div class="eyebrow">{eyebrow}</div>
-				<div class="brand">
-					<a class="logoLink" href={baseUrl} aria-label="Erika Market Directory">
-						<span class="brand-mark">E</span>
-					</a>
-					<div class="brandText">
-						<h1 class="site-title">Erika Market Directory</h1>
-						<p class="sub">{subtitle}</p>
-					</div>
-				</div>
-				<nav class="site-nav" aria-label="Site navigation">
-					<a href={baseUrl}>Home</a>
-					<span>·</span>
-					<a href={`${baseUrl}featured/`}>Featured</a>
-					<span>·</span>
-					<a href={`${baseUrl}#explore`}>Directory</a>
-					<span>·</span>
-					<a href={`${baseUrl}listing/`}>Listing view</a>
-					<span>·</span>
-					<a href={`${baseUrl}raw/`}>Raw data</a>
-					{
-						gameConsoleUrl ? (
-							<>
-								<span>·</span>
-								<a href={`${gameConsoleUrl}/`} target="_blank" rel="noopener noreferrer">
-									Game console
-								</a>
-								<span>·</span>
-								<a href={`${gameConsoleUrl}/live`} target="_blank" rel="noopener noreferrer">
-									Live desk
-								</a>
-							</>
-						) : null
-					}
-				</nav>
 				{
 					showHeaderDirectorySearch ? (
-						<div class="headerBannerSearch">
+						<div class="headerBannerSearch headerBannerSearch--top">
 							<label class="headerBannerSearch-label" for="header-filter-query">
 								Directory search
 							</label>
@@ -91,12 +76,70 @@ const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/
 						</div>
 					) : null
 				}
+				<div class="eyebrow">{eyebrow}</div>
+				<div class="brand">
+					<a class="logoLink" href={baseUrl} aria-label="Erika Market Directory">
+						<span class="brand-mark">E</span>
+					</a>
+					<div class="brandText">
+						<h1 class="site-title">Erika Market Directory</h1>
+						<p class="sub">{subtitle}</p>
+					</div>
+				</div>
 				<div class="headerBannerBottomRow">
 					<div class="paywallPill">Educational dataset view only</div>
 					<p class="headerBannerAttribution">
 						Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
 					</p>
 				</div>
+				<nav class="site-nav site-nav--console site-nav--tabs" aria-label="Site navigation">
+					<a class:list={['site-nav-pill', { 'is-active': navActive.home }]} href={baseUrl}>Home</a>
+					<a
+						class:list={['site-nav-pill', { 'is-active': navActive.featured }]}
+						href={`${baseUrl}featured/`}
+					>
+						Featured
+					</a>
+					<a
+						class:list={['site-nav-pill', { 'is-active': navActive.predictions }]}
+						href={`${baseUrl}predictions/`}
+					>
+						Predictions
+					</a>
+					<a
+						class:list={['site-nav-pill', { 'is-active': navActive.directory }]}
+						href={`${baseUrl}directory/`}
+					>
+						Directory
+					</a>
+					<a class:list={['site-nav-pill', { 'is-active': navActive.listing }]} href={`${baseUrl}listing/`}>
+						Listing
+					</a>
+					<a class:list={['site-nav-pill', { 'is-active': navActive.raw }]} href={`${baseUrl}raw/`}>Raw</a>
+					{
+						gameConsoleUrl ? (
+							<>
+								<span class="site-nav-divider" aria-hidden="true" />
+								<a
+									class="site-nav-pill site-nav-pill--ext"
+									href={`${gameConsoleUrl}/`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Game
+								</a>
+								<a
+									class="site-nav-pill site-nav-pill--ext"
+									href={`${gameConsoleUrl}/live`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Live
+								</a>
+							</>
+						) : null
+					}
+				</nav>
 			</header>
 			<main class="wrap">
 				<slot />
@@ -119,6 +162,21 @@ const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/
 				window.addEventListener('scroll', onScroll, { passive: true });
 				window.addEventListener('resize', onScroll, { passive: true });
 				sync();
+			})();
+
+			(() => {
+				const body = document.body;
+				const headerInput = document.getElementById('header-filter-query');
+				if (!headerInput || !body.classList.contains('has-header-directory-search')) return;
+				if (body.classList.contains('page-directory')) return;
+				const base = body.getAttribute('data-base-url') || '/';
+				headerInput.addEventListener('keydown', (event) => {
+					if (event.key !== 'Enter') return;
+					event.preventDefault();
+					const q = headerInput.value.trim();
+					const qs = q ? `?q=${encodeURIComponent(q)}` : '';
+					window.location.href = `${base}directory/${qs}`;
+				});
 			})();
 		</script>
 	</body>
@@ -293,7 +351,8 @@ const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/
 		z-index: 200;
 		display: flex;
 		flex-direction: column;
-		gap: 0;
+		align-items: stretch;
+		gap: 8px;
 		padding: 8px 18px 10px;
 		font-size: 13px;
 		line-height: 1.55;
@@ -397,13 +456,83 @@ const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/
 		border-bottom-color: rgba(255, 210, 120, 0.55);
 	}
 
+	/* Game-console–style top rail: pills, Inter, no dot separators */
+	.site-nav--console {
+		align-items: center;
+		gap: 8px;
+		font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+	}
+
+	.site-nav--console a {
+		border-bottom: none;
+		text-decoration: none;
+	}
+
+	.site-nav-pill {
+		display: inline-flex;
+		align-items: center;
+		padding: 8px 12px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.78);
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 1.2;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.site-nav-pill:hover {
+		color: var(--accent);
+		border-color: rgba(72, 224, 188, 0.35);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	.site-nav-pill.is-active {
+		color: #0a0b0d;
+		background: rgba(255, 255, 255, 0.92);
+		border-color: rgba(255, 255, 255, 0.35);
+		font-weight: 600;
+	}
+
+	.site-nav-pill--ext {
+		border-style: dashed;
+		color: rgba(200, 220, 255, 0.88);
+	}
+
+	.site-nav-pill--ext:hover {
+		border-style: solid;
+	}
+
+	.site-nav-divider {
+		width: 1px;
+		height: 22px;
+		background: rgba(255, 255, 255, 0.14);
+		margin: 0 2px;
+	}
+
+	.site-nav--tabs {
+		margin-top: 2px;
+		padding-top: 10px;
+		border-top: 1px solid rgba(255, 255, 255, 0.12);
+		width: 100%;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent);
+	}
+
 	.headerBannerSearch {
-		margin-top: 8px;
+		margin-top: 0;
 		display: flex;
 		flex-direction: column;
 		gap: 4px;
 		width: 100%;
 		max-width: min(100%, 42rem);
+	}
+
+	.headerBannerSearch--top {
+		max-width: 100%;
 	}
 
 	.headerBannerSearch-label {

@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PredictionsGamePanel from '../../components/PredictionsGamePanel.astro';
+
+const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
+const gameHomeUrl = gameConsoleUrl ? `${gameConsoleUrl}/` : '';
+const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
+const gamePredictionsHashUrl = gameConsoleUrl ? `${gameConsoleUrl}/#predictions` : '';
+---
+
+<Layout
+	title="Predictions · Game console bridge"
+	description="Train-side predictions strip aligned with the Game console: demo cards, $100 framing, and links to the live desk."
+	pageClass="page-predictions"
+	eyebrow="Predictions"
+	subtitle="Static Train page mirroring the Game console card rhythm; execution and embeds live in the Next app."
+>
+	<section class="container predictions-page-shell">
+		<PredictionsGamePanel variant="page" gameHomeUrl={gameHomeUrl} gameLiveUrl={gameLiveUrl} gamePredictionsHashUrl={gamePredictionsHashUrl} />
+	</section>
+</Layout>
+
+<style>
+	.predictions-page-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		padding-top: 4px;
+	}
+</style>

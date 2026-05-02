@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PredictionsGamePanel from '../components/PredictionsGamePanel.astro';
 import summary from '../generated/catalog-meta.json';
 import { YAHOO_TO_TRADINGVIEW, tradingViewMiniUrl } from '../lib/yahoo-tv-map';
 
@@ -17,53 +18,11 @@ const gameHomeUrl = gameConsoleUrl ? `${gameConsoleUrl}/` : '';
 const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
 const gamePredictionsHashUrl = gameConsoleUrl ? `${gameConsoleUrl}/#predictions` : '';
 
-function payoutForHundredDemo(probPct: number): number {
-	const p = probPct / 100;
-	if (p <= 0) return 0;
-	return Math.round(100 / p);
-}
-
-/** Homepage-only demo cards; align with the Game console strip (not live quotes). */
-const trainPredictionDemoMarkets = [
-	{
-		id: 'tp-1',
-		title: 'Game 6: Cleveland at Toronto',
-		subtitle: 'Pro basketball · demo ladder',
-		icon: '🏀',
-		live: true,
-		vol24h: '$6,350,233',
-		outcomes: [
-			{ code: 'CLE', probPct: 34, payout: payoutForHundredDemo(34) },
-			{ code: 'TOR', probPct: 66, payout: payoutForHundredDemo(66) },
-		],
-	},
-	{
-		id: 'tp-2',
-		title: 'Texas vs Detroit',
-		subtitle: 'MLB · demo ladder',
-		icon: '⚾',
-		outcomes: [
-			{ code: 'TEX', probPct: 90, payout: payoutForHundredDemo(90) },
-			{ code: 'DET', probPct: 10, payout: payoutForHundredDemo(10) },
-		],
-	},
-	{
-		id: 'tp-3',
-		title: 'Baller League US · MD9 headline',
-		subtitle: 'Minor league · exhibition context',
-		icon: '🟡',
-		vol24h: '$842,110',
-		outcomes: [
-			{ code: 'SPD', probPct: 41, payout: payoutForHundredDemo(41) },
-			{ code: 'SNO', probPct: 38, payout: payoutForHundredDemo(38) },
-		],
-	},
-];
-
 const homeSectionLinks = [
-	{ href: '#home-predictions', label: 'Predictions (Game)' },
+	{ href: 'predictions/', label: 'Predictions page' },
+	{ href: '#home-predictions', label: 'Predictions (on page)' },
 	{ href: '#home-live-analysis', label: 'Live analysis desk' },
-	{ href: '#explore', label: 'Directory explorer' },
+	{ href: 'directory/', label: 'Directory explorer' },
 	{ href: '#home-facets', label: 'Top facets' },
 	{ href: '#home-priority-markets', label: 'Priority markets' },
 	{ href: '#home-architecture', label: 'Architecture' },
@@ -73,10 +32,10 @@ const homeSectionLinks = [
 const quickLinks = [
 	{ label: 'Latency topology', href: '#topology' },
 	{ label: 'Live pipeline', href: '#live-pipeline' },
-	{ label: 'Complete date coverage', href: '?coverage=complete#explore' },
-	{ label: 'ETFs in the US', href: '?type=ETF&country=United%20States#explore' },
-	{ label: 'NASDAQ listings', href: '?exchange=NASDAQ#explore' },
-	{ label: 'Healthcare stocks', href: '?type=Stock&sector=Health%20Care#explore' },
+	{ label: 'Complete date coverage', href: 'directory/?coverage=complete' },
+	{ label: 'ETFs in the US', href: 'directory/?type=ETF&country=United%20States' },
+	{ label: 'NASDAQ listings', href: 'directory/?exchange=NASDAQ' },
+	{ label: 'Healthcare stocks', href: 'directory/?type=Stock&sector=Health%20Care' },
 ];
 const priorityGroups = [
 	{
@@ -426,8 +385,7 @@ const fastPathChecklist = [
 	description="Search 60k+ global stock and ETF listings from the Erika dataset in a fast GitHub Pages-ready directory."
 	pageClass="page-home"
 	eyebrow="Directory view"
-	subtitle="Static listing intelligence with search, filters, and profile pages."
-	showHeaderDirectorySearch={true}
+	subtitle="Static listing intelligence; search and filters live on the Directory tab."
 >
 	<section class="container home-shell">
 		<header class="header">
@@ -454,7 +412,7 @@ const fastPathChecklist = [
 					</div>
 				</div>
 				<div class="hero-actions hero-actions-row">
-					<a class="button" href="#explore">Browse the directory</a>
+					<a class="button" href="directory/">Browse the directory</a>
 					<a
 						class="button-secondary"
 						href={
@@ -549,107 +507,13 @@ const fastPathChecklist = [
 			</details>
 		</div>
 
-		<section class="train-game-bridge" id="home-predictions" aria-labelledby="train-predictions-heading">
-			<div class="train-predictions-surface">
-				<div class="train-predictions-head">
-					<div>
-						<div class="train-predictions-eyebrow">Predictions · Game console</div>
-						<h2 id="train-predictions-heading" class="train-predictions-title">
-							Trending-style cards with a flat $100 buy-in frame
-						</h2>
-						<p class="train-predictions-lead">
-							This directory stays static on GitHub Pages. The companion{' '}
-							<strong>Game</strong> Next app carries the interactive predictions strip, the merged{' '}
-							<code class="train-code">/live</code> desk (μgrad sports field + Bloomberg side chat), and
-							env-driven embeds. Product reference:{' '}
-							<a
-								class="train-predictions-a"
-								href="https://www.coinbase.com/predictions"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Coinbase Predictions
-							</a>
-							. Minor league context:{' '}
-							<a
-								class="train-predictions-a"
-								href="https://ballerleague.us/en"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Baller League US
-							</a>
-							.
-						</p>
-					</div>
-					<div class="train-predictions-actions">
-						{
-							gamePredictionsHashUrl ? (
-								<a class="train-predictions-btn train-predictions-btn-primary" href={gamePredictionsHashUrl} target="_blank" rel="noopener noreferrer">
-									Open Game predictions
-								</a>
-							) : null
-						}
-						{
-							gameHomeUrl ? (
-								<a class="train-predictions-btn" href={gameHomeUrl} target="_blank" rel="noopener noreferrer">
-									Game home
-								</a>
-							) : null
-						}
-						<a class="train-predictions-btn" href="#home-live-analysis">
-							Live desk wiring
-						</a>
-					</div>
-				</div>
-				<p class="train-predictions-disclaimer">
-					Illustrative numbers only — not a quote, offer, or investability signal. Set{' '}
-					<code class="train-code">PUBLIC_GAME_CONSOLE_URL</code> at build time so header links and the buttons
-					above resolve to your deployed Game origin.
-				</p>
-				<div class="train-predictions-grid">
-					{
-						trainPredictionDemoMarkets.map((m) => (
-							<article class="train-pred-card">
-								<div class="train-pred-card-top">
-									<span class="train-pred-icon" aria-hidden="true">
-										{m.icon}
-									</span>
-									<div>
-										<h3 class="train-pred-card-title">{m.title}</h3>
-										<p class="train-pred-card-sub">{m.subtitle}</p>
-									</div>
-									{m.live ? <span class="train-pred-live">Live</span> : null}
-								</div>
-								<div class="train-pred-outcomes">
-									{m.outcomes.map((o) => (
-										<div class="train-pred-outcome">
-											<div>
-												<span class="train-pred-code">{o.code}</span>
-												<span class="train-pred-pct">{o.probPct}%</span>
-											</div>
-											<div class="train-pred-payout">
-												$100 → <strong>${o.payout.toLocaleString()}</strong>
-											</div>
-										</div>
-									))}
-								</div>
-								{m.vol24h ? <p class="train-pred-vol">{m.vol24h} vol. (24h) · demo</p> : null}
-								{
-									gameLiveUrl ? (
-										<a class="train-pred-footer-link" href={gameLiveUrl} target="_blank" rel="noopener noreferrer">
-											Open merged live desk →
-										</a>
-									) : (
-										<span class="train-pred-footer-muted">Configure PUBLIC_GAME_CONSOLE_URL to link out</span>
-									)
-								}
-							</article>
-						))
-					}
-				</div>
-			</div>
-		</section>
+		<PredictionsGamePanel
+			id="home-predictions"
+			variant="home"
+			gameHomeUrl={gameHomeUrl}
+			gameLiveUrl={gameLiveUrl}
+			gamePredictionsHashUrl={gamePredictionsHashUrl}
+		/>
 
 		<article class="card home-live-analysis" id="home-live-analysis" aria-labelledby="live-analysis-heading">
 			<div class="tileTop">
@@ -903,7 +767,7 @@ const fastPathChecklist = [
 				<div class="facet-list">
 					{
 						topCountries.map((item) => (
-							<a class="badge muted" href={`?country=${encodeURIComponent(item.name)}#explore`}>
+							<a class="badge muted" href={`directory/?country=${encodeURIComponent(item.name)}`}>
 								{item.name} · {item.count.toLocaleString()}
 							</a>
 						))
@@ -921,7 +785,7 @@ const fastPathChecklist = [
 				<div class="facet-list">
 					{
 						topExchanges.map((item) => (
-							<a class="badge muted" href={`?exchange=${encodeURIComponent(item.name)}#explore`}>
+							<a class="badge muted" href={`directory/?exchange=${encodeURIComponent(item.name)}`}>
 								{item.name} · {item.count.toLocaleString()}
 							</a>
 						))
@@ -939,7 +803,7 @@ const fastPathChecklist = [
 				<div class="facet-list">
 					{
 						topSectors.map((item) => (
-							<a class="badge muted" href={`?sector=${encodeURIComponent(item.name)}#explore`}>
+							<a class="badge muted" href={`directory/?sector=${encodeURIComponent(item.name)}`}>
 								{item.name} · {item.count.toLocaleString()}
 							</a>
 						))
@@ -1330,397 +1194,7 @@ const fastPathChecklist = [
 				}
 			</div>
 		</section>
-
-		<section class="section-card card explorer-section" id="explore">
-			<div class="section-heading">
-				<div>
-					<div class="kicker">Directory explorer</div>
-					<h2>Search, slice, and open individual listing profiles</h2>
-					<p>
-						The browser below runs entirely from static JSON, so the site keeps the same
-						GitHub Pages-friendly footprint while feeling more like a data panel.
-					</p>
-				</div>
-			</div>
-
-			<div class="filters-grid">
-				<label class="field field-search">
-					<span>Search</span>
-					<input
-						id="filter-query"
-						type="search"
-						placeholder="Ticker, company, exchange, country, alias..."
-						autocomplete="off"
-					/>
-				</label>
-
-				<label class="field">
-					<span>Security type</span>
-					<select id="filter-type">
-						<option value="">All types</option>
-					</select>
-				</label>
-
-				<label class="field">
-					<span>Date coverage</span>
-					<select id="filter-coverage">
-						<option value="">Any coverage</option>
-						<option value="complete">Complete</option>
-						<option value="partial">Partial</option>
-						<option value="missing">Missing</option>
-					</select>
-				</label>
-
-				<label class="field">
-					<span>Country</span>
-					<input id="filter-country" list="country-options" placeholder="All countries" />
-					<datalist id="country-options"></datalist>
-				</label>
-
-				<label class="field">
-					<span>Exchange</span>
-					<input id="filter-exchange" list="exchange-options" placeholder="All exchanges" />
-					<datalist id="exchange-options"></datalist>
-				</label>
-
-				<label class="field">
-					<span>Sector</span>
-					<input id="filter-sector" list="sector-options" placeholder="All sectors" />
-					<datalist id="sector-options"></datalist>
-				</label>
-			</div>
-
-			<div class="results-toolbar">
-				<div id="results-meta" class="metaHint">Loading catalog…</div>
-				<button id="clear-filters" class="button-secondary" type="button">Reset filters</button>
-			</div>
-
-			<div id="results-grid" class="results-grid"></div>
-
-			<div class="pagination-row">
-				<button id="prev-page" class="button-secondary" type="button">Previous</button>
-				<div id="page-meta" class="metaHint">Page 1</div>
-				<button id="next-page" class="button-secondary" type="button">Next</button>
-			</div>
-		</section>
 	</section>
-
-	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
-		const pageSize = 24;
-		const filterElements = {
-			query: document.querySelector('#filter-query'),
-			type: document.querySelector('#filter-type'),
-			coverage: document.querySelector('#filter-coverage'),
-			country: document.querySelector('#filter-country'),
-			exchange: document.querySelector('#filter-exchange'),
-			sector: document.querySelector('#filter-sector'),
-		};
-		const headerFilterQuery = document.querySelector('#header-filter-query');
-		const resultsMeta = document.querySelector('#results-meta');
-		const resultsGrid = document.querySelector('#results-grid');
-		const pageMeta = document.querySelector('#page-meta');
-		const previousButton = document.querySelector('#prev-page');
-		const nextButton = document.querySelector('#next-page');
-		const clearFiltersButton = document.querySelector('#clear-filters');
-		const countryOptions = document.querySelector('#country-options');
-		const exchangeOptions = document.querySelector('#exchange-options');
-		const sectorOptions = document.querySelector('#sector-options');
-		const state = {
-			query: '',
-			type: '',
-			coverage: '',
-			country: '',
-			exchange: '',
-			sector: '',
-			page: 1,
-		};
-		let catalog = [];
-		let filteredCatalog = [];
-
-		const countFormatter = new Intl.NumberFormat();
-		const dateFormatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' });
-
-		function escapeHtml(value) {
-			return String(value || '').replace(/[&<>'"]/g, (character) => {
-				return (
-					{
-						'&': '&amp;',
-						'<': '&lt;',
-						'>': '&gt;',
-						"'": '&#39;',
-						'"': '&quot;',
-					}[character] || character
-				);
-			});
-		}
-
-		function formatDate(value) {
-			if (!value) return 'Unavailable';
-			const date = new Date(value);
-			return Number.isNaN(date.getTime()) ? value : dateFormatter.format(date);
-		}
-
-		function coverageBadge(coverage) {
-			if (coverage === 'complete') return 'success';
-			if (coverage === 'partial') return 'warning';
-			return 'muted';
-		}
-
-		function normalize(value) {
-			return String(value || '').trim().toLowerCase();
-		}
-
-		function applyUrlState() {
-			const params = new URLSearchParams(window.location.search);
-			state.query = params.get('q') || '';
-			state.type = params.get('type') || '';
-			state.coverage = params.get('coverage') || '';
-			state.country = params.get('country') || '';
-			state.exchange = params.get('exchange') || '';
-			state.sector = params.get('sector') || '';
-			state.page = Math.max(Number(params.get('page') || '1'), 1);
-
-			filterElements.query.value = state.query;
-			if (headerFilterQuery) headerFilterQuery.value = state.query;
-			filterElements.type.value = state.type;
-			filterElements.coverage.value = state.coverage;
-			filterElements.country.value = state.country;
-			filterElements.exchange.value = state.exchange;
-			filterElements.sector.value = state.sector;
-		}
-
-		function syncUrl() {
-			const params = new URLSearchParams();
-			if (state.query) params.set('q', state.query);
-			if (state.type) params.set('type', state.type);
-			if (state.coverage) params.set('coverage', state.coverage);
-			if (state.country) params.set('country', state.country);
-			if (state.exchange) params.set('exchange', state.exchange);
-			if (state.sector) params.set('sector', state.sector);
-			if (state.page > 1) params.set('page', String(state.page));
-			const queryString = params.toString();
-			const nextUrl = `${window.location.pathname}${queryString ? `?${queryString}` : ''}#explore`;
-			window.history.replaceState({}, '', nextUrl);
-		}
-
-		function createOptionMarkup(values) {
-			return values.map((value) => `<option value="${escapeHtml(value)}"></option>`).join('');
-		}
-
-		function populateFilterControls(records) {
-			const securityTypes = [...new Set(records.map((entry) => entry.ty).filter(Boolean))].sort();
-			const countries = [...new Set(records.map((entry) => entry.co).filter(Boolean))].sort();
-			const exchanges = [...new Set(records.map((entry) => entry.ex).filter(Boolean))].sort();
-			const sectors = [...new Set(records.map((entry) => entry.se).filter(Boolean))].sort();
-
-			filterElements.type.innerHTML = `<option value="">All types</option>${securityTypes
-				.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`)
-				.join('')}`;
-			countryOptions.innerHTML = createOptionMarkup(countries);
-			exchangeOptions.innerHTML = createOptionMarkup(exchanges);
-			sectorOptions.innerHTML = createOptionMarkup(sectors);
-		}
-
-		function filterCatalog() {
-			const query = normalize(state.query);
-			const type = normalize(state.type);
-			const coverage = normalize(state.coverage);
-			const country = normalize(state.country);
-			const exchange = normalize(state.exchange);
-			const sector = normalize(state.sector);
-
-			filteredCatalog = catalog.filter((entry) => {
-				if (query && !entry._search.includes(query)) return false;
-				if (type && normalize(entry.ty) !== type) return false;
-				if (coverage && normalize(entry.dc) !== coverage) return false;
-				if (country && normalize(entry.co) !== country) return false;
-				if (exchange && normalize(entry.ex) !== exchange) return false;
-				if (sector && normalize(entry.se) !== sector) return false;
-				return true;
-			});
-
-			const maxPage = Math.max(Math.ceil(filteredCatalog.length / pageSize), 1);
-			state.page = Math.min(state.page, maxPage);
-		}
-
-		function renderResults() {
-			filterCatalog();
-			const total = filteredCatalog.length;
-			const firstItem = total === 0 ? 0 : (state.page - 1) * pageSize + 1;
-			const lastItem = Math.min(state.page * pageSize, total);
-			const pageItems = filteredCatalog.slice(firstItem - 1, lastItem);
-
-			resultsMeta.textContent =
-				total === 0
-					? 'No listings match these filters.'
-					: `Showing ${countFormatter.format(firstItem)}-${countFormatter.format(lastItem)} of ${countFormatter.format(total)} listings`;
-
-			pageMeta.textContent = `Page ${state.page} of ${Math.max(Math.ceil(total / pageSize), 1)}`;
-			previousButton.disabled = state.page <= 1;
-			nextButton.disabled = state.page >= Math.max(Math.ceil(total / pageSize), 1);
-
-			if (pageItems.length === 0) {
-				resultsGrid.innerHTML = `
-					<div class="result-empty card">
-						<h3>No matches</h3>
-						<p>Try a broader search, clear one of the filters, or jump back to a top country or exchange above.</p>
-					</div>
-				`;
-				return;
-			}
-
-			resultsGrid.innerHTML = pageItems
-				.map((entry) => {
-					const tags = [
-						entry.ty,
-						entry.ex,
-						entry.co,
-						entry.se || entry.ec,
-						entry.dc,
-					].filter(Boolean);
-					return `
-						<article class="result-card card">
-							<div class="result-card-head">
-								<div>
-									<h3>${escapeHtml(entry.nm)}</h3>
-									<p>${escapeHtml(entry.id)}</p>
-								</div>
-								<span class="badge ${coverageBadge(entry.dc)}">${escapeHtml(entry.dc || 'missing')}</span>
-							</div>
-							<div class="result-card-tags">
-								${tags
-									.map((tag) => `<span class="badge muted">${escapeHtml(tag)}</span>`)
-									.join('')}
-							</div>
-							<p class="result-card-body">
-								${escapeHtml(entry.ln || 'Primary legal name unavailable')}
-							</p>
-							<div class="result-card-footer">
-								<span class="muted">Company: ${escapeHtml(formatDate(entry.cd))}</span>
-								<span class="muted">IPO: ${escapeHtml(formatDate(entry.ip))}</span>
-							</div>
-							<a class="button result-link" href="${baseUrl}listing/?id=${encodeURIComponent(entry.id)}">
-								Open profile
-							</a>
-						</article>
-					`;
-				})
-				.join('');
-		}
-
-		function handleFilterChange() {
-			state.query = filterElements.query.value.trim();
-			state.type = filterElements.type.value.trim();
-			state.coverage = filterElements.coverage.value.trim();
-			state.country = filterElements.country.value.trim();
-			state.exchange = filterElements.exchange.value.trim();
-			state.sector = filterElements.sector.value.trim();
-			state.page = 1;
-			syncUrl();
-			renderResults();
-		}
-
-		async function loadCatalog() {
-			const response = await fetch(`${baseUrl}data/catalog.json`);
-			if (!response.ok) {
-				throw new Error(`Failed to load catalog: ${response.status}`);
-			}
-
-			const records = await response.json();
-			return records.map((entry) => ({
-				...entry,
-				_search: [
-					entry.id,
-					entry.sy,
-					entry.ex,
-					entry.nm,
-					entry.ln,
-					entry.ty,
-					entry.se,
-					entry.ec,
-					entry.co,
-					...(entry.al || []),
-				]
-					.filter(Boolean)
-					.join(' ')
-					.toLowerCase(),
-			}));
-		}
-
-		previousButton.addEventListener('click', () => {
-			state.page = Math.max(1, state.page - 1);
-			syncUrl();
-			renderResults();
-		});
-
-		nextButton.addEventListener('click', () => {
-			state.page += 1;
-			syncUrl();
-			renderResults();
-		});
-
-		clearFiltersButton.addEventListener('click', () => {
-			Object.assign(state, {
-				query: '',
-				type: '',
-				coverage: '',
-				country: '',
-				exchange: '',
-				sector: '',
-				page: 1,
-			});
-			applyUrlState();
-			syncUrl();
-			renderResults();
-		});
-
-		for (const [key, element] of Object.entries(filterElements)) {
-			if (key === 'query') continue;
-			element.addEventListener('input', handleFilterChange);
-			element.addEventListener('change', handleFilterChange);
-		}
-
-		function syncHeaderQueryFromMain() {
-			if (headerFilterQuery) headerFilterQuery.value = filterElements.query.value;
-		}
-
-		filterElements.query.addEventListener('input', () => {
-			syncHeaderQueryFromMain();
-			handleFilterChange();
-		});
-		filterElements.query.addEventListener('change', () => {
-			syncHeaderQueryFromMain();
-			handleFilterChange();
-		});
-
-		if (headerFilterQuery) {
-			headerFilterQuery.addEventListener('input', () => {
-				filterElements.query.value = headerFilterQuery.value;
-				handleFilterChange();
-			});
-			headerFilterQuery.addEventListener('change', () => {
-				filterElements.query.value = headerFilterQuery.value;
-				handleFilterChange();
-			});
-		}
-
-		(async () => {
-			try {
-				catalog = await loadCatalog();
-				populateFilterControls(catalog);
-				applyUrlState();
-				renderResults();
-			} catch (error) {
-				resultsMeta.textContent = 'Catalog failed to load.';
-				resultsGrid.innerHTML = `
-					<div class="result-empty card">
-						<h3>Unable to load the directory</h3>
-						<p>${escapeHtml(error.message)}</p>
-					</div>
-				`;
-			}
-		})();
-	</script>
 </Layout>
 
 <style>
@@ -1740,235 +1214,6 @@ const fastPathChecklist = [
 		display: grid;
 		grid-template-columns: minmax(0, 1.28fr) minmax(300px, 0.92fr);
 		gap: 16px;
-	}
-
-	.train-game-bridge {
-		margin: 0;
-	}
-
-	.train-predictions-surface {
-		padding: 24px 22px 22px;
-		border-radius: 20px;
-		background: #ffffff;
-		color: #0a0b0d;
-		border: 1px solid #e7e9ef;
-		box-shadow: 0 20px 50px rgba(4, 10, 28, 0.14);
-	}
-
-	.train-predictions-head {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: 18px;
-		flex-wrap: wrap;
-	}
-
-	.train-predictions-eyebrow {
-		font-family: var(--font-mono);
-		font-size: 0.72rem;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-		color: #6b7289;
-	}
-
-	.train-predictions-title {
-		margin: 8px 0 0;
-		font-family: var(--font-ui);
-		font-size: clamp(1.35rem, 2.6vw, 1.85rem);
-		font-weight: 700;
-		letter-spacing: -0.03em;
-		line-height: 1.12;
-		color: #0a0b0d;
-	}
-
-	.train-predictions-lead {
-		margin: 10px 0 0;
-		max-width: 58rem;
-		font-size: 0.96rem;
-		line-height: 1.6;
-		color: #4b5568;
-	}
-
-	.train-predictions-a {
-		color: #0052ff;
-		font-weight: 600;
-		text-decoration: none;
-		border-bottom: 1px solid rgba(0, 82, 255, 0.25);
-	}
-
-	.train-predictions-a:hover {
-		border-bottom-color: rgba(0, 82, 255, 0.55);
-	}
-
-	.train-predictions-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 10px;
-		align-items: center;
-	}
-
-	.train-predictions-btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 10px 16px;
-		border-radius: 999px;
-		font-size: 0.88rem;
-		font-weight: 600;
-		border: 1px solid #d7dbe8;
-		background: #f6f7fb;
-		color: #0a0b0d;
-		text-decoration: none;
-	}
-
-	.train-predictions-btn:hover {
-		border-color: #0052ff;
-		color: #0052ff;
-	}
-
-	.train-predictions-btn-primary {
-		background: #0a0b0d;
-		color: #fff;
-		border-color: #0a0b0d;
-	}
-
-	.train-predictions-btn-primary:hover {
-		filter: brightness(1.06);
-		color: #fff;
-		border-color: #0a0b0d;
-	}
-
-	.train-code {
-		font-family: var(--font-mono);
-		font-size: 0.84em;
-		padding: 0.1em 0.32em;
-		border-radius: 6px;
-		background: #eef0f7;
-		border: 1px solid #e0e4f0;
-	}
-
-	.train-predictions-disclaimer {
-		margin: 14px 0 0;
-		font-size: 0.8rem;
-		line-height: 1.5;
-		color: #8b92a7;
-		max-width: 62rem;
-	}
-
-	.train-predictions-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 14px;
-		margin-top: 18px;
-	}
-
-	.train-pred-card {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		padding: 16px 14px 14px;
-		border-radius: 16px;
-		border: 1px solid #eceef5;
-		background: #fafbff;
-		min-height: 100%;
-	}
-
-	.train-pred-card-top {
-		display: flex;
-		align-items: flex-start;
-		gap: 10px;
-	}
-
-	.train-pred-icon {
-		font-size: 1.25rem;
-		line-height: 1;
-	}
-
-	.train-pred-card-title {
-		margin: 0;
-		font-size: 1rem;
-		font-weight: 700;
-		letter-spacing: -0.02em;
-		color: #0a0b0d;
-	}
-
-	.train-pred-card-sub {
-		margin: 4px 0 0;
-		font-size: 0.8rem;
-		color: #6b7289;
-	}
-
-	.train-pred-live {
-		margin-left: auto;
-		flex: none;
-		font-size: 0.62rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: #fff;
-		background: #ef4444;
-		padding: 4px 8px;
-		border-radius: 999px;
-	}
-
-	.train-pred-outcomes {
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-	}
-
-	.train-pred-outcome {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 8px;
-		padding: 8px 10px;
-		border-radius: 12px;
-		background: #fff;
-		border: 1px solid #eceef5;
-		font-size: 0.88rem;
-	}
-
-	.train-pred-code {
-		font-weight: 700;
-		margin-right: 8px;
-		color: #0a0b0d;
-	}
-
-	.train-pred-pct {
-		color: #6b7289;
-	}
-
-	.train-pred-payout {
-		color: #374151;
-	}
-
-	.train-pred-payout strong {
-		color: #0a0b0d;
-	}
-
-	.train-pred-vol {
-		margin: 0;
-		font-size: 0.75rem;
-		color: #8b92a7;
-	}
-
-	.train-pred-footer-link {
-		margin-top: auto;
-		font-size: 0.86rem;
-		font-weight: 600;
-		color: #0052ff;
-		text-decoration: none;
-	}
-
-	.train-pred-footer-link:hover {
-		text-decoration: underline;
-	}
-
-	.train-pred-footer-muted {
-		margin-top: auto;
-		font-size: 0.8rem;
-		color: #8b92a7;
 	}
 
 	.home-live-analysis {
@@ -2447,7 +1692,6 @@ const fastPathChecklist = [
 	}
 
 	.featured-grid,
-	.results-grid,
 	.priority-grid,
 	.relay-grid,
 	.requirements-grid,
@@ -2808,36 +2052,7 @@ const fastPathChecklist = [
 		line-height: 1.58;
 	}
 
-	.explorer-section {
-		display: flex;
-		flex-direction: column;
-		gap: 14px;
-	}
-
-	.filters-grid {
-		display: grid;
-		grid-template-columns: repeat(6, minmax(0, 1fr));
-		gap: 12px;
-	}
-
-	.field-search {
-		grid-column: span 2;
-	}
-
-	.result-link {
-		margin-top: auto;
-	}
-
-	.result-empty {
-		grid-column: 1 / -1;
-		text-align: center;
-	}
-
 	@media (max-width: 1100px) {
-		.train-predictions-grid {
-			grid-template-columns: 1fr;
-		}
-
 		.home-live-analysis-grid {
 			grid-template-columns: 1fr;
 		}
@@ -2853,17 +2068,8 @@ const fastPathChecklist = [
 		.requirements-grid,
 		.junction-grid,
 		.stack-grid,
-		.featured-grid,
-		.results-grid {
+		.featured-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
-		.filters-grid {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
-
-		.field-search {
-			grid-column: span 3;
 		}
 	}
 
@@ -2876,24 +2082,11 @@ const fastPathChecklist = [
 		.junction-grid,
 		.stack-grid,
 		.featured-grid,
-		.results-grid,
 		.stats-grid,
-		.filters-grid,
 		.requirements-list,
 		.checklist-items,
 		.signal-metrics {
 			grid-template-columns: 1fr;
-		}
-
-		.field-search {
-			grid-column: span 1;
-		}
-
-		.result-card-footer,
-		.results-toolbar,
-		.pagination-row {
-			flex-direction: column;
-			align-items: stretch;
 		}
 	}
 </style>

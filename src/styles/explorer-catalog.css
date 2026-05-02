@@ -1,0 +1,63 @@
+/* Directory / catalog browser (shared by home facets + /directory/ page) */
+.explorer-section {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.filters-grid {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.field-search {
+	grid-column: span 2;
+}
+
+.results-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.result-link {
+	margin-top: auto;
+}
+
+.result-empty {
+	grid-column: 1 / -1;
+	text-align: center;
+}
+
+@media (max-width: 1100px) {
+	.results-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.filters-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.field-search {
+		grid-column: span 3;
+	}
+}
+
+@media (max-width: 720px) {
+	.results-grid,
+	.filters-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.field-search {
+		grid-column: span 1;
+	}
+
+	.result-card-footer,
+	.results-toolbar,
+	.pagination-row {
+		flex-direction: column;
+		align-items: stretch;
+	}
+}
