@@ -67,49 +67,53 @@ const navActive = {
 			<header class="headerBanner" role="banner">
 				{
 					showHeaderDirectorySearch ? (
-						<div class="headerBannerSearchRow">
-							<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
-								<span class="brand-mark brand-mark--header">E</span>
-							</a>
-							<div class="headerBannerSearch headerBannerSearch--top">
-								<div class="headerBannerSearch-labelRow">
-									<label class="headerBannerSearch-label" for="header-filter-query">
-										Directory search
-									</label>
-									<h1 class="site-title">{title}</h1>
+						<div class="headerBannerTopBand">
+							<div class="headerBannerSearchRow">
+								<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
+									<span class="brand-mark brand-mark--header">E</span>
+								</a>
+								<div class="headerBannerSearch headerBannerSearch--top">
+									<div class="headerBannerSearch-labelRow">
+										<label class="headerBannerSearch-label" for="header-filter-query">
+											Directory search
+										</label>
+										<h1 class="site-title">{title}</h1>
+									</div>
+									<input
+										id="header-filter-query"
+										class="headerBannerSearch-input"
+										type="search"
+										placeholder="Ticker, company, exchange, country, alias…"
+										autocomplete="off"
+									/>
 								</div>
-								<input
-									id="header-filter-query"
-									class="headerBannerSearch-input"
-									type="search"
-									placeholder="Ticker, company, exchange, country, alias…"
-									autocomplete="off"
-								/>
+							</div>
+							<div class="headerEyebrowRow headerEyebrowRow--rail headerEyebrowRow--railBesideSearch">
+								<div class="headerEyebrowRow-copy">
+									<div class="eyebrow">{eyebrow}</div>
+									<p class="sub">{subtitle}</p>
+								</div>
+								<p class="headerBannerAttribution headerBannerAttribution--rail">
+									Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
+								</p>
 							</div>
 						</div>
-					) : null
-				}
-				<div class="headerEyebrowRow headerEyebrowRow--rail">
-					{
-						!showHeaderDirectorySearch ? (
+					) : (
+						<div class="headerEyebrowRow headerEyebrowRow--rail">
 							<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
 								<span class="brand-mark brand-mark--header">E</span>
 							</a>
-						) : null
-					}
-					<div class="headerEyebrowRow-copy">
-						<div class="eyebrow">{eyebrow}</div>
-						{
-							!showHeaderDirectorySearch ? (
+							<div class="headerEyebrowRow-copy">
+								<div class="eyebrow">{eyebrow}</div>
 								<h1 class="site-title site-title--headerEyebrow">{title}</h1>
-							) : null
-						}
-						<p class="sub">{subtitle}</p>
-					</div>
-					<p class="headerBannerAttribution headerBannerAttribution--rail">
-						Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
-					</p>
-				</div>
+								<p class="sub">{subtitle}</p>
+							</div>
+							<p class="headerBannerAttribution headerBannerAttribution--rail">
+								Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
+							</p>
+						</div>
+					)
+				}
 				<nav
 					class="site-nav site-nav--console site-nav--tabs site-nav--tabsGhost"
 					aria-label="Site navigation"
@@ -741,6 +745,45 @@ const navActive = {
 		color: var(--muted);
 	}
 
+	.headerBannerTopBand {
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		gap: 14px;
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	.headerBannerTopBand .headerBannerSearchRow {
+		flex: 1 1 min(100%, 440px);
+		min-width: 0;
+		width: auto;
+	}
+
+	.headerEyebrowRow--rail.headerEyebrowRow--railBesideSearch {
+		flex: 1 1 220px;
+		max-width: min(100%, 28rem);
+		width: auto;
+		flex-direction: column;
+		align-items: stretch;
+		align-self: center;
+		flex-wrap: nowrap;
+		gap: 8px;
+	}
+
+	.headerEyebrowRow--railBesideSearch .headerEyebrowRow-copy {
+		flex: unset;
+		min-width: 0;
+	}
+
+	.headerEyebrowRow--railBesideSearch .headerBannerAttribution--rail {
+		flex: unset;
+		max-width: none;
+		text-align: left;
+		margin-top: 2px;
+		align-self: stretch;
+	}
+
 	.headerBannerSearchRow {
 		display: flex;
 		align-items: center;
@@ -1051,6 +1094,15 @@ const navActive = {
 
 		body.header-collapsed .page-bodyGrid {
 			padding-top: 7rem;
+		}
+
+		.headerBannerTopBand {
+			flex-direction: column;
+		}
+
+		.headerBannerTopBand .headerEyebrowRow--railBesideSearch {
+			max-width: 100%;
+			width: 100%;
 		}
 
 		.headerBannerAttribution--rail {
