@@ -16,13 +16,14 @@ export type ChangelogEntry = {
 	body: string;
 };
 
+/** Order matches scroll position on the page (relay sits directly under the hero). */
 export const tocItems: TocItem[] = [
+	{ id: 'home-bloomberg-live', label: 'Bloomberg relay panel' },
 	{ id: 'live-captions-how', label: 'How the desk works' },
 	{ id: 'live-captions-explorables', label: 'Interpretability & data' },
 	{ id: 'live-captions-paper', label: 'Working paper from captions' },
 	{ id: 'live-captions-changelog', label: 'Evidence log' },
 	{ id: 'live-captions-apis', label: 'External references' },
-	{ id: 'home-bloomberg-live', label: 'Bloomberg relay panel' },
 ];
 
 export const researchCards: ResearchCard[] = [
