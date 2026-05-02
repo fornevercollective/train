@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import HomeLiveAnalysis from '../../components/HomeLiveAnalysis.astro';
 import PredictionsGamePanel from '../../components/PredictionsGamePanel.astro';
 
 const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
@@ -16,6 +17,7 @@ const gamePredictionsHashUrl = gameConsoleUrl ? `${gameConsoleUrl}/#predictions`
 	subtitle="Static Train page mirroring the Game console card rhythm; execution and embeds live in the Next app."
 >
 	<section class="container predictions-page-shell">
+		<HomeLiveAnalysis gameLiveUrl={gameLiveUrl} anchorMode="home" />
 		<PredictionsGamePanel variant="page" gameHomeUrl={gameHomeUrl} gameLiveUrl={gameLiveUrl} gamePredictionsHashUrl={gamePredictionsHashUrl} />
 	</section>
 </Layout>

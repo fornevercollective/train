@@ -1,0 +1,198 @@
+---
+interface Props {
+	gameLiveUrl?: string;
+	/** "here" = #section on current page; "home" = /base/#section on site index */
+	anchorMode?: 'here' | 'home';
+}
+
+const { gameLiveUrl = '', anchorMode = 'here' } = Astro.props;
+const baseNorm = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+
+const hashLink = (fragment: string) => {
+	const id = fragment.replace(/^#/, '');
+	if (anchorMode === 'home') {
+		return `${baseNorm}#${id}`;
+	}
+	return `#${id}`;
+};
+---
+
+<article class="card home-live-analysis" id="home-live-analysis" aria-labelledby="live-analysis-heading">
+	<div class="tileTop">
+		<div>
+			<div class="ticker">Live analysis desk</div>
+			<h2 id="live-analysis-heading" class="home-live-analysis-title">
+				Game <code class="home-bloomberg-path">/live</code> merges μgrad + Bloomberg with Train context here
+			</h2>
+			<p class="home-bloomberg-lead muted">
+				Use this page for <a href={hashLink('live-pipeline')}>live pipeline architecture</a> and the{' '}
+				<a href={hashLink('home-bloomberg-live')}>Bloomberg relay panel</a> below. Use the Game app for side-by-side
+				iframes: serve <code class="home-bloomberg-path">sports-field-ugrad.html</code> from uvspeed{' '}
+				<code class="home-bloomberg-path">web/</code>, set{' '}
+				<code class="home-bloomberg-path">NEXT_PUBLIC_UGRAD_SPORTS_URL</code> (or{' '}
+				<code class="home-bloomberg-path">NEXT_PUBLIC_UGRAD_TOOLS_DECK_URL</code>), run{' '}
+				<code class="home-bloomberg-path">browser-page/server.py</code> (default port{' '}
+				<strong>8765</strong>), set <code class="home-bloomberg-path">NEXT_PUBLIC_BLOOMBERG_CHAT_URL</code>.
+				HTTPS hosts cannot embed <code class="home-bloomberg-path">http://127.0.0.1</code>; use a tunnel or
+				same-origin proxy when needed.
+			</p>
+		</div>
+		<div class="hero-actions home-bloomberg-actions">
+			{
+				gameLiveUrl ? (
+					<a class="button" href={gameLiveUrl} target="_blank" rel="noopener noreferrer">
+						Open Game /live
+					</a>
+				) : null
+			}
+			<a class="button-secondary" href={hashLink('home-bloomberg-live')}>
+				Bloomberg relay on this site
+			</a>
+			<a class="button-secondary" href={hashLink('live-pipeline')}>
+				Live pipeline table
+			</a>
+			<a class="button-secondary" href={hashLink('topology')}>
+				Hop topology
+			</a>
+		</div>
+	</div>
+	<div class="home-live-analysis-grid">
+		<section class="home-live-analysis-panel" aria-label="Operator merge">
+			<h3 class="home-live-analysis-h3">What merges where</h3>
+			<ul class="home-live-analysis-list muted">
+				<li>
+					<strong class="home-live-analysis-strong">Train (this site)</strong> — static Erika catalog,
+					listing profiles, hop/pipeline copy, Bloomberg relay instructions.
+				</li>
+				<li>
+					<strong class="home-live-analysis-strong">Game /live</strong> — μgrad embed + Bloomberg chat
+					embed + champion / buy-in UI (non-executing demo).
+				</li>
+				<li>
+					<strong class="home-live-analysis-strong">Next step</strong> — feed real contract rows from{' '}
+					<code class="home-bloomberg-path">data/catalog.json</code> into the Game trending grid when you
+					are ready to wire cross-repo data.
+				</li>
+			</ul>
+		</section>
+		<section class="home-live-analysis-panel" aria-label="Environment variables">
+			<h3 class="home-live-analysis-h3">Game env (Next)</h3>
+			<dl class="home-live-analysis-dl muted">
+				<div>
+					<dt><code class="home-bloomberg-path">NEXT_PUBLIC_UGRAD_SPORTS_URL</code></dt>
+					<dd>Full URL to served μgrad sports field (preferred).</dd>
+				</div>
+				<div>
+					<dt><code class="home-bloomberg-path">NEXT_PUBLIC_UGRAD_TOOLS_DECK_URL</code></dt>
+					<dd>Fallback tools deck HTML origin.</dd>
+				</div>
+				<div>
+					<dt><code class="home-bloomberg-path">NEXT_PUBLIC_BLOOMBERG_CHAT_URL</code></dt>
+					<dd>e.g. <code class="home-bloomberg-path">http://127.0.0.1:8765</code></dd>
+				</div>
+			</dl>
+		</section>
+	</div>
+</article>
+
+<style>
+	.home-live-analysis {
+		padding: 16px;
+	}
+
+	.home-live-analysis-title {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+		font-weight: 400;
+		line-height: 1.1;
+		letter-spacing: 0.01em;
+		max-width: 28ch;
+		color: var(--text);
+	}
+
+	.home-live-analysis-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+		gap: 14px;
+		margin-top: 14px;
+	}
+
+	.home-live-analysis-panel {
+		padding: 14px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.home-live-analysis-h3 {
+		margin: 0 0 10px;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--text);
+	}
+
+	.home-live-analysis-list {
+		margin: 0;
+		padding-left: 1.1rem;
+		line-height: 1.6;
+		font-size: 0.94rem;
+	}
+
+	.home-live-analysis-list li {
+		margin-bottom: 10px;
+	}
+
+	.home-live-analysis-strong {
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.home-live-analysis-dl {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		font-size: 0.9rem;
+		line-height: 1.55;
+	}
+
+	.home-live-analysis-dl dt {
+		margin-bottom: 4px;
+		color: var(--text);
+	}
+
+	.home-live-analysis-dl dd {
+		margin: 0;
+	}
+
+	.home-bloomberg-lead {
+		margin: 12px 0 0;
+		max-width: 52rem;
+		font-size: 1rem;
+		line-height: 1.62;
+	}
+
+	.home-bloomberg-actions {
+		flex-wrap: wrap;
+	}
+
+	.home-bloomberg-path {
+		font-family: var(--font-mono);
+		font-size: 0.84em;
+		padding: 0.12em 0.35em;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+
+	@media (max-width: 1100px) {
+		.home-live-analysis-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

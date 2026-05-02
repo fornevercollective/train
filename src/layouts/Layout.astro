@@ -1,4 +1,6 @@
 ---
+import TrainConsoleSidebar from '../components/TrainConsoleSidebar.astro';
+
 interface Props {
 	title?: string;
 	description?: string;
@@ -7,6 +9,8 @@ interface Props {
 	subtitle?: string;
 	/** When true, show directory search in the banner (synced with #filter-query on the home page). */
 	showHeaderDirectorySearch?: boolean;
+	/** FinanceAI-style left rail (mirrors Game `AppSidebar`). */
+	showConsoleSidebar?: boolean;
 }
 
 const {
@@ -16,6 +20,7 @@ const {
 	eyebrow = 'Static market directory',
 	subtitle = 'Searchable listing intelligence built from the Erika dataset.',
 	showHeaderDirectorySearch = true,
+	showConsoleSidebar = true,
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
@@ -63,9 +68,12 @@ const navActive = {
 				{
 					showHeaderDirectorySearch ? (
 						<div class="headerBannerSearch headerBannerSearch--top">
-							<label class="headerBannerSearch-label" for="header-filter-query">
-								Directory search
-							</label>
+							<div class="headerBannerSearch-labelRow">
+								<label class="headerBannerSearch-label" for="header-filter-query">
+									Directory search
+								</label>
+								<h1 class="site-title">{title}</h1>
+							</div>
 							<input
 								id="header-filter-query"
 								class="headerBannerSearch-input"
@@ -76,74 +84,87 @@ const navActive = {
 						</div>
 					) : null
 				}
-				<div class="eyebrow">{eyebrow}</div>
+				<div class="headerEyebrowRow">
+					<div class="eyebrow">{eyebrow}</div>
+					<p class="sub">{subtitle}</p>
+				</div>
 				<div class="brand">
 					<a class="logoLink" href={baseUrl} aria-label="Erika Market Directory">
 						<span class="brand-mark">E</span>
 					</a>
-					<div class="brandText">
-						<h1 class="site-title">Erika Market Directory</h1>
-						<p class="sub">{subtitle}</p>
-					</div>
+					{
+						!showHeaderDirectorySearch ? (
+							<div class="brandText">
+								<h1 class="site-title">{title}</h1>
+							</div>
+						) : null
+					}
 				</div>
 				<div class="headerBannerBottomRow">
-					<div class="paywallPill">Educational dataset view only</div>
 					<p class="headerBannerAttribution">
 						Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
 					</p>
 				</div>
 				<nav class="site-nav site-nav--console site-nav--tabs" aria-label="Site navigation">
-					<a class:list={['site-nav-pill', { 'is-active': navActive.home }]} href={baseUrl}>Home</a>
-					<a
-						class:list={['site-nav-pill', { 'is-active': navActive.featured }]}
-						href={`${baseUrl}featured/`}
-					>
-						Featured
-					</a>
-					<a
-						class:list={['site-nav-pill', { 'is-active': navActive.predictions }]}
-						href={`${baseUrl}predictions/`}
-					>
-						Predictions
-					</a>
-					<a
-						class:list={['site-nav-pill', { 'is-active': navActive.directory }]}
-						href={`${baseUrl}directory/`}
-					>
-						Directory
-					</a>
-					<a class:list={['site-nav-pill', { 'is-active': navActive.listing }]} href={`${baseUrl}listing/`}>
-						Listing
-					</a>
-					<a class:list={['site-nav-pill', { 'is-active': navActive.raw }]} href={`${baseUrl}raw/`}>Raw</a>
-					{
-						gameConsoleUrl ? (
-							<>
-								<span class="site-nav-divider" aria-hidden="true" />
-								<a
-									class="site-nav-pill site-nav-pill--ext"
-									href={`${gameConsoleUrl}/`}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									Game
-								</a>
-								<a
-									class="site-nav-pill site-nav-pill--ext"
-									href={`${gameConsoleUrl}/live`}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									Live
-								</a>
-							</>
-						) : null
-					}
+					<div class="site-nav-pillsWrap">
+						<a class:list={['site-nav-pill', { 'is-active': navActive.home }]} href={baseUrl}>Home</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.featured }]}
+							href={`${baseUrl}featured/`}
+						>
+							Featured
+						</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.predictions }]}
+							href={`${baseUrl}predictions/`}
+						>
+							Predictions
+						</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.directory }]}
+							href={`${baseUrl}directory/`}
+						>
+							Directory
+						</a>
+						<a class:list={['site-nav-pill', { 'is-active': navActive.listing }]} href={`${baseUrl}listing/`}>
+							Listing
+						</a>
+						<a class:list={['site-nav-pill', { 'is-active': navActive.raw }]} href={`${baseUrl}raw/`}>Raw</a>
+						{
+							gameConsoleUrl ? (
+								<>
+									<span class="site-nav-divider" aria-hidden="true" />
+									<a
+										class="site-nav-pill site-nav-pill--ext"
+										href={`${gameConsoleUrl}/`}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										Game
+									</a>
+									<a
+										class="site-nav-pill site-nav-pill--ext"
+										href={`${gameConsoleUrl}/live`}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										Live
+									</a>
+								</>
+							) : null
+						}
+					</div>
+					<div class="paywallPill paywallPill--headerNav">Educational dataset view only</div>
 				</nav>
 			</header>
-			<main class="wrap">
-				<slot />
-			</main>
+			<div class:list={['page-bodyGrid', showConsoleSidebar && 'page-bodyGrid--withSidebar']}>
+				{showConsoleSidebar ? (
+					<TrainConsoleSidebar baseUrl={baseUrl} gameConsoleUrl={gameConsoleUrl} navActive={navActive} />
+				) : null}
+				<main class="wrap">
+					<slot />
+				</main>
+			</div>
 		</div>
 		<script is:inline>
 			(() => {
@@ -206,6 +227,13 @@ const navActive = {
 			0 22px 60px rgba(0, 0, 0, 0.35),
 			0 0 0 1px rgba(255, 215, 130, 0.06),
 			0 0 38px rgba(255, 190, 90, 0.06);
+		/* Light “console” surfaces — aligned with PredictionsGamePanel + home card chrome */
+		--header-rail-surface: #ffffff;
+		--header-rail-border: #e7e9ef;
+		--header-rail-shadow: 0 24px 60px rgba(8, 12, 24, 0.12);
+		--header-rail-muted: #5c6378;
+		--header-rail-pill-bg: #f6f7fb;
+		--header-rail-pill-border: #d7dbe8;
 	}
 
 	* {
@@ -272,21 +300,53 @@ const navActive = {
 		z-index: 1;
 	}
 
-	.wrap {
-		position: relative;
-		z-index: 1;
-		max-width: 1380px;
+	.page-bodyGrid {
+		width: 100%;
+		max-width: 100%;
 		margin: 0 auto;
 		padding: 7.8rem 18px 52px;
+		box-sizing: border-box;
 		transition: padding-top 0.22s ease;
 	}
 
-	body.has-header-directory-search .wrap {
+	body.has-header-directory-search .page-bodyGrid {
 		padding-top: 9.85rem;
 	}
 
+	.page-bodyGrid--withSidebar {
+		display: flex;
+		align-items: stretch;
+		gap: 18px;
+		max-width: min(1680px, 100%);
+	}
+
+	.page-bodyGrid--withSidebar .wrap {
+		margin: 0;
+		max-width: none;
+		flex: 1;
+		min-width: 0;
+	}
+
+	@media (max-width: 1100px) {
+		.page-bodyGrid--withSidebar {
+			flex-direction: column;
+		}
+	}
+
+	.page-bodyGrid:not(.page-bodyGrid--withSidebar) .wrap {
+		max-width: 1380px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wrap {
+		position: relative;
+		z-index: 1;
+		padding: 0;
+	}
+
 	@media (prefers-reduced-motion: reduce) {
-		.wrap {
+		.page-bodyGrid {
 			transition: none;
 		}
 	}
@@ -309,7 +369,8 @@ const navActive = {
 	}
 
 	body.header-collapsed .headerBanner .brandText {
-		display: block;
+		display: flex;
+		flex-direction: column;
 		align-items: flex-start;
 		text-align: left;
 	}
@@ -330,13 +391,14 @@ const navActive = {
 	body.header-collapsed .headerBanner .headerBannerBottomRow {
 		margin-top: 4px;
 		align-items: center;
+		justify-content: flex-end;
 	}
 
 	body.header-collapsed .headerBanner .headerBannerAttribution {
 		display: none;
 	}
 
-	body.header-collapsed .wrap {
+	body.header-collapsed .page-bodyGrid {
 		padding-top: 5.85rem;
 	}
 
@@ -387,6 +449,27 @@ const navActive = {
 		color: var(--accent);
 	}
 
+	.headerEyebrowRow {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 12px 18px;
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	.headerEyebrowRow .eyebrow {
+		margin: 0;
+	}
+
+	.headerEyebrowRow .sub {
+		margin: 0;
+		flex: 1 1 auto;
+		text-align: right;
+		max-width: min(100%, 52ch);
+		min-width: 12ch;
+	}
+
 	.brand {
 		display: flex;
 		align-items: flex-start;
@@ -418,8 +501,8 @@ const navActive = {
 		min-width: 0;
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
-		text-align: right;
+		align-items: flex-start;
+		text-align: left;
 	}
 
 	.site-title {
@@ -441,9 +524,19 @@ const navActive = {
 		margin-top: 6px;
 		display: flex;
 		flex-wrap: wrap;
+		align-items: center;
 		gap: 6px 10px;
 		font-size: 12px;
 		color: var(--muted);
+	}
+
+	.site-nav-pillsWrap {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px;
+		flex: 1 1 auto;
+		min-width: 0;
 	}
 
 	.site-nav a {
@@ -516,10 +609,58 @@ const navActive = {
 
 	.site-nav--tabs {
 		margin-top: 2px;
-		padding-top: 10px;
-		border-top: 1px solid rgba(255, 255, 255, 0.12);
+		padding: 10px 14px 12px;
 		width: 100%;
-		background: linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent);
+		box-sizing: border-box;
+		background: var(--header-rail-surface);
+		color: #0a0b0d;
+		border: 1px solid var(--header-rail-border);
+		border-radius: 24px;
+		box-shadow: var(--header-rail-shadow);
+	}
+
+	.site-nav--tabs.site-nav--console {
+		gap: 10px 12px;
+	}
+
+	.site-nav--tabs .site-nav-pill {
+		border: 1px solid var(--header-rail-pill-border);
+		background: var(--header-rail-pill-bg);
+		color: var(--header-rail-muted);
+	}
+
+	.site-nav--tabs .site-nav-pill:hover {
+		border-color: #0052ff;
+		color: #0052ff;
+		background: #ffffff;
+	}
+
+	.site-nav--tabs .site-nav-pill.is-active {
+		color: #ffffff;
+		background: #0a0b0d;
+		border-color: #0a0b0d;
+	}
+
+	.site-nav--tabs .site-nav-pill--ext {
+		color: #3d4a63;
+		border-style: dashed;
+	}
+
+	.site-nav--tabs .site-nav-pill--ext:hover {
+		border-style: solid;
+		color: #0052ff;
+	}
+
+	.site-nav--tabs .site-nav-divider {
+		background: #e0e4f0;
+	}
+
+	.paywallPill--headerNav {
+		margin-left: auto;
+		flex: 0 0 auto;
+		border-color: var(--header-rail-pill-border);
+		background: var(--header-rail-pill-bg);
+		color: #0a0b0d;
 	}
 
 	.headerBannerSearch {
@@ -533,6 +674,24 @@ const navActive = {
 
 	.headerBannerSearch--top {
 		max-width: 100%;
+	}
+
+	.headerBannerSearch-labelRow {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 12px 16px;
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	.headerBannerSearch-labelRow .site-title {
+		margin: 0;
+		text-align: right;
+		flex: 0 1 auto;
+		min-width: 0;
+		font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+		line-height: 1.2;
 	}
 
 	.headerBannerSearch-label {
@@ -579,18 +738,18 @@ const navActive = {
 		font-size: 12.5px;
 	}
 
-	body.has-header-directory-search.header-collapsed .wrap {
+	body.has-header-directory-search.header-collapsed .page-bodyGrid {
 		padding-top: 7.35rem;
 	}
 
 	@media (max-width: 900px) {
-		body.has-header-directory-search.header-collapsed .wrap {
+		body.has-header-directory-search.header-collapsed .page-bodyGrid {
 			padding-top: 7.85rem;
 		}
 	}
 
 	@media (max-width: 720px) {
-		body.has-header-directory-search.header-collapsed .wrap {
+		body.has-header-directory-search.header-collapsed .page-bodyGrid {
 			padding-top: 8.65rem;
 		}
 	}
@@ -599,9 +758,10 @@ const navActive = {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: flex-end;
-		justify-content: space-between;
+		justify-content: flex-end;
 		gap: 6px 16px;
 		margin-top: 8px;
+		width: 100%;
 	}
 
 	.headerBannerAttribution {
@@ -800,15 +960,15 @@ const navActive = {
 	}
 
 	@media (max-width: 900px) {
-		.wrap {
+		.page-bodyGrid {
 			padding-top: 9.8rem;
 		}
 
-		body.has-header-directory-search .wrap {
+		body.has-header-directory-search .page-bodyGrid {
 			padding-top: 11.85rem;
 		}
 
-		body.header-collapsed .wrap {
+		body.header-collapsed .page-bodyGrid {
 			padding-top: 6.35rem;
 		}
 
@@ -819,16 +979,16 @@ const navActive = {
 	}
 
 	@media (max-width: 720px) {
-		.wrap {
+		.page-bodyGrid {
 			padding-top: 11.5rem;
 			padding-inline: 14px;
 		}
 
-		body.has-header-directory-search .wrap {
+		body.has-header-directory-search .page-bodyGrid {
 			padding-top: 13.75rem;
 		}
 
-		body.header-collapsed .wrap {
+		body.header-collapsed .page-bodyGrid {
 			padding-top: 7.1rem;
 		}
 

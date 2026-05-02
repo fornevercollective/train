@@ -13,6 +13,12 @@ interface Props {
 
 const { id, variant = 'home', gameHomeUrl, gameLiveUrl, gamePredictionsHashUrl } = Astro.props;
 const isPage = variant === 'page';
+const trainBase = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+const liveAnalysisHref = isPage
+	? `${trainBase}predictions/#home-live-analysis`
+	: `${trainBase}#home-live-analysis`;
 ---
 
 <section class:list={['ep-predictions-scope', isPage && 'ep-predictions-scope--page']} id={id}>
@@ -66,11 +72,11 @@ const isPage = variant === 'page';
 				}
 				{
 					!isPage ? (
-						<a class="ep-pred-btn" href={`${import.meta.env.BASE_URL}#home-live-analysis`}>
+						<a class="ep-pred-btn" href={liveAnalysisHref}>
 							Live wiring on Train
 						</a>
 					) : (
-						<a class="ep-pred-btn" href={`${import.meta.env.BASE_URL}#home-live-analysis`}>
+						<a class="ep-pred-btn" href={liveAnalysisHref}>
 							Train live analysis
 						</a>
 					)
