@@ -1,5 +1,6 @@
 ---
 import TrainConsoleSidebar from '../components/TrainConsoleSidebar.astro';
+import HeaderEyebrowRail from '../components/HeaderEyebrowRail.astro';
 
 interface Props {
 	title?: string;
@@ -11,6 +12,11 @@ interface Props {
 	showHeaderDirectorySearch?: boolean;
 	/** FinanceAI-style left rail (mirrors Game `AppSidebar`). */
 	showConsoleSidebar?: boolean;
+	/**
+	 * When false (with directory search), the eyebrow rail is omitted from the fixed header so pages
+	 * can render it in main content (e.g. home above the hero).
+	 */
+	eyebrowInHeader?: boolean;
 }
 
 const {
@@ -21,7 +27,11 @@ const {
 	subtitle = 'Searchable listing intelligence built from the Erika dataset.',
 	showHeaderDirectorySearch = true,
 	showConsoleSidebar = true,
+	eyebrowInHeader = true,
 } = Astro.props;
+
+const showEyebrowInHeader = !showHeaderDirectorySearch || eyebrowInHeader;
+const eyebrowInMainChrome = showHeaderDirectorySearch && !eyebrowInHeader;
 
 const baseUrl = import.meta.env.BASE_URL;
 const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
@@ -61,11 +71,28 @@ const navActive = {
 		/>
 	</head>
 	<body
-		class={`${pageClass}${showHeaderDirectorySearch ? ' has-header-directory-search' : ''}`}
+		class:list={[
+			pageClass,
+			showHeaderDirectorySearch && 'has-header-directory-search',
+			showConsoleSidebar && 'has-train-console-sidebar',
+			eyebrowInMainChrome && 'header-eyebrow-in-main',
+		]}
 		data-base-url={baseUrl}
 	>
 		<div class="bgGlow" aria-hidden="true"></div>
-		<div class="page-shell">
+		<div class:list={['page-shell', showConsoleSidebar && 'page-shell--withTrainSidebar']}>
+			{showConsoleSidebar ? <TrainConsoleSidebar baseUrl={baseUrl} gameConsoleUrl={gameConsoleUrl} navActive={navActive} /> : null}
+			<div class:list={['page-chrome-main', showConsoleSidebar && 'page-chrome-main--withSidebar']}>
+			{
+				showConsoleSidebar ? (
+					<button
+						type="button"
+						class="train-drawer-backdrop"
+						data-train-drawer-backdrop
+						aria-label="Close navigation drawer"
+					/>
+				) : null
+			}
 			<header class="headerBanner" role="banner">
 				{
 					showHeaderDirectorySearch ? (
@@ -89,33 +116,39 @@ const navActive = {
 										autocomplete="off"
 									/>
 								</div>
+								<button
+									type="button"
+									class="header-site-nav-toggle"
+									id="header-site-nav-toggle"
+									aria-expanded="true"
+									aria-controls="header-site-nav-panel"
+									title="Hide site navigation"
+								>
+									<svg
+										class="header-site-nav-toggle-icon"
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										aria-hidden="true"
+									>
+										<polyline points="6 9 12 15 18 9" />
+									</svg>
+									<span class="header-site-nav-toggle-text">Menu</span>
+								</button>
 							</div>
-							<div class="headerEyebrowRow headerEyebrowRow--rail headerEyebrowRow--railBesideSearch">
-								<div class="headerEyebrowRow-copy">
-									<div class="eyebrow">{eyebrow}</div>
-									<p class="sub">{subtitle}</p>
-								</div>
-								<p class="headerBannerAttribution headerBannerAttribution--rail">
-									Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
-								</p>
-							</div>
+							{showEyebrowInHeader ? (
+								<HeaderEyebrowRail variant="beside-search" eyebrow={eyebrow} subtitle={subtitle} />
+							) : null}
 						</div>
-					) : (
-						<div class="headerEyebrowRow headerEyebrowRow--rail">
-							<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
-								<span class="brand-mark brand-mark--header">E</span>
-							</a>
-							<div class="headerEyebrowRow-copy">
-								<div class="eyebrow">{eyebrow}</div>
-								<h1 class="site-title site-title--headerEyebrow">{title}</h1>
-								<p class="sub">{subtitle}</p>
-							</div>
-							<p class="headerBannerAttribution headerBannerAttribution--rail">
-								Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
-							</p>
-						</div>
-					)
-				}
+					) : showEyebrowInHeader ? (
+						<HeaderEyebrowRail variant="standalone" eyebrow={eyebrow} subtitle={subtitle} title={title} baseUrl={baseUrl} />
+					) : null}
+				<div id="header-site-nav-panel" class="header-site-nav-panel">
 				<nav
 					class="site-nav site-nav--console site-nav--tabs site-nav--tabsGhost"
 					aria-label="Site navigation"
@@ -176,14 +209,13 @@ const navActive = {
 					</div>
 					<div class="paywallPill paywallPill--headerNav">Educational dataset view only</div>
 				</nav>
+				</div>
 			</header>
-			<div class:list={['page-bodyGrid', showConsoleSidebar && 'page-bodyGrid--withSidebar']}>
-				{showConsoleSidebar ? (
-					<TrainConsoleSidebar baseUrl={baseUrl} gameConsoleUrl={gameConsoleUrl} navActive={navActive} />
-				) : null}
+			<div class="page-bodyGrid">
 				<main class="wrap">
 					<slot />
 				</main>
+			</div>
 			</div>
 		</div>
 		<script is:inline>
@@ -226,6 +258,7 @@ const navActive = {
 				const toggle = document.getElementById('train-sidebar-toggle');
 				if (!toggle) return;
 				const mobileMq = window.matchMedia('(max-width: 900px)');
+				const backdrop = document.querySelector('[data-train-drawer-backdrop]');
 				const apply = (collapsed) => {
 					body.classList.toggle('train-sidebar-collapsed', collapsed);
 					toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
@@ -245,6 +278,54 @@ const navActive = {
 				apply(initialCollapsed());
 				toggle.addEventListener('click', () => {
 					const next = !body.classList.contains('train-sidebar-collapsed');
+					apply(next);
+					try {
+						localStorage.setItem(KEY, next ? '1' : '0');
+					} catch {
+						/* ignore */
+					}
+				});
+				backdrop?.addEventListener('click', () => {
+					if (!mobileMq.matches) return;
+					apply(true);
+					try {
+						localStorage.setItem(KEY, '1');
+					} catch {
+						/* ignore */
+					}
+				});
+				document.addEventListener('keydown', (event) => {
+					if (event.key !== 'Escape') return;
+					if (!mobileMq.matches) return;
+					if (body.classList.contains('train-sidebar-collapsed')) return;
+					apply(true);
+					try {
+						localStorage.setItem(KEY, '1');
+					} catch {
+						/* ignore */
+					}
+				});
+			})();
+
+			(() => {
+				const KEY = 'train-header-site-nav-collapsed';
+				const toggle = document.getElementById('header-site-nav-toggle');
+				const panel = document.getElementById('header-site-nav-panel');
+				if (!toggle || !panel) return;
+				const apply = (collapsed) => {
+					document.body.classList.toggle('header-site-nav-collapsed', collapsed);
+					toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+					toggle.setAttribute('title', collapsed ? 'Show site navigation' : 'Hide site navigation');
+					if (collapsed) panel.setAttribute('aria-hidden', 'true');
+					else panel.removeAttribute('aria-hidden');
+				};
+				try {
+					apply(localStorage.getItem(KEY) === '1');
+				} catch {
+					apply(false);
+				}
+				toggle.addEventListener('click', () => {
+					const next = !document.body.classList.contains('header-site-nav-collapsed');
 					apply(next);
 					try {
 						localStorage.setItem(KEY, next ? '1' : '0');
@@ -354,6 +435,78 @@ const navActive = {
 		z-index: 1;
 	}
 
+	.page-shell--withTrainSidebar {
+		min-height: 100vh;
+	}
+
+	.page-chrome-main {
+		position: relative;
+		z-index: 1;
+		min-width: 0;
+	}
+
+	body.has-train-console-sidebar {
+		--train-sidebar-peek: 280px;
+	}
+
+	body.has-train-console-sidebar.train-sidebar-collapsed {
+		--train-sidebar-peek: 44px;
+	}
+
+	@media (max-width: 900px) {
+		body.has-train-console-sidebar:not(.train-sidebar-collapsed) {
+			--train-sidebar-peek: min(300px, 88vw);
+		}
+	}
+
+	.page-chrome-main--withSidebar {
+		margin-left: var(--train-sidebar-peek);
+		transition: margin-left 0.24s ease;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.page-chrome-main--withSidebar {
+			transition: none;
+		}
+	}
+
+	.train-drawer-backdrop {
+		display: none;
+	}
+
+	@media (max-width: 900px) {
+		body.has-train-console-sidebar:not(.train-sidebar-collapsed) .train-drawer-backdrop {
+			display: block;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: var(--train-sidebar-peek);
+			z-index: 195;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background: rgba(3, 5, 12, 0.5);
+			backdrop-filter: blur(4px);
+			-webkit-backdrop-filter: blur(4px);
+			cursor: pointer;
+			animation: trainBackdropIn 0.22s ease;
+		}
+
+		body.has-train-console-sidebar:not(.train-sidebar-collapsed) .train-console-sidebar {
+			box-shadow: 12px 0 48px rgba(0, 0, 0, 0.45);
+		}
+	}
+
+	@keyframes trainBackdropIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
 	.page-bodyGrid {
 		width: 100%;
 		max-width: 100%;
@@ -363,44 +516,33 @@ const navActive = {
 		transition: padding-top 0.22s ease;
 	}
 
+	/* Directory-search header height tiers (eyebrow in header vs main; nav panel expanded vs collapsed). */
 	body.has-header-directory-search .page-bodyGrid {
-		/* Tall fixed header: search + eyebrow rail + tab rail — keep main content below fold */
 		padding-top: 13rem;
 	}
 
-	.page-bodyGrid--withSidebar {
-		display: flex;
-		align-items: stretch;
-		gap: 18px;
+	body.has-header-directory-search.header-eyebrow-in-main .page-bodyGrid {
+		padding-top: 8.85rem;
+	}
+
+	body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main) .page-bodyGrid {
+		padding-top: 9.85rem;
+	}
+
+	body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed .page-bodyGrid {
+		padding-top: 6.35rem;
+	}
+
+	body.has-train-console-sidebar .page-bodyGrid {
 		max-width: min(1680px, 100%);
 	}
 
-	.page-bodyGrid--withSidebar .wrap {
+	body.has-train-console-sidebar .page-bodyGrid .wrap {
 		margin: 0;
 		max-width: none;
-		flex: 1;
-		min-width: 0;
-	}
-
-	body.train-sidebar-collapsed .page-bodyGrid--withSidebar {
-		gap: 10px;
 	}
 
 	@media (max-width: 1100px) {
-		.page-bodyGrid--withSidebar {
-			flex-direction: column;
-		}
-
-		.page-bodyGrid--withSidebar > .wrap {
-			order: 1;
-			width: 100%;
-		}
-
-		.page-bodyGrid--withSidebar > aside.train-console-sidebar {
-			order: 2;
-			width: 100%;
-		}
-
 		.headerBannerTopBand {
 			flex-direction: column;
 			align-items: stretch;
@@ -414,12 +556,24 @@ const navActive = {
 	}
 
 	@media (max-width: 1100px) and (min-width: 901px) {
-		body.has-header-directory-search .page-bodyGrid {
+		body.has-header-directory-search:not(.header-eyebrow-in-main):not(.header-site-nav-collapsed) .page-bodyGrid {
 			padding-top: 11.5rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main:not(.header-site-nav-collapsed) .page-bodyGrid {
+			padding-top: 7.65rem;
+		}
+
+		body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main) .page-bodyGrid {
+			padding-top: 8.35rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed .page-bodyGrid {
+			padding-top: 5.65rem;
 		}
 	}
 
-	.page-bodyGrid:not(.page-bodyGrid--withSidebar) .wrap {
+	body:not(.has-train-console-sidebar) .page-bodyGrid .wrap {
 		max-width: 1380px;
 		margin-left: auto;
 		margin-right: auto;
@@ -492,8 +646,19 @@ const navActive = {
 		transition: padding 0.22s ease, box-shadow 0.22s ease;
 	}
 
+	body.has-train-console-sidebar .headerBanner {
+		left: var(--train-sidebar-peek);
+		right: 0;
+		width: auto;
+		transition:
+			padding 0.22s ease,
+			box-shadow 0.22s ease,
+			left 0.24s ease;
+	}
+
 	@media (prefers-reduced-motion: reduce) {
-		.headerBanner {
+		.headerBanner,
+		body.has-train-console-sidebar .headerBanner {
 			transition: none;
 		}
 	}
@@ -788,6 +953,82 @@ const navActive = {
 		color: var(--muted);
 	}
 
+	.header-site-nav-panel {
+		overflow: hidden;
+		transition:
+			max-height 0.28s ease,
+			opacity 0.22s ease,
+			margin 0.22s ease;
+		max-height: 320px;
+		opacity: 1;
+	}
+
+	body.header-site-nav-collapsed .header-site-nav-panel {
+		max-height: 0;
+		opacity: 0;
+		margin: 0;
+		pointer-events: none;
+	}
+
+	body.header-site-nav-collapsed .headerBanner {
+		gap: 4px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.header-site-nav-panel {
+			transition: none;
+		}
+	}
+
+	.header-site-nav-toggle {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 8px 10px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.82);
+		cursor: pointer;
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 1;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.header-site-nav-toggle:hover {
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	.header-site-nav-toggle-icon {
+		display: block;
+		transition: transform 0.22s ease;
+	}
+
+	body:not(.header-site-nav-collapsed) .header-site-nav-toggle-icon {
+		transform: rotate(180deg);
+	}
+
+	.header-site-nav-toggle-text {
+		font-family: var(--font-mono);
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	@media (max-width: 520px) {
+		.header-site-nav-toggle-text {
+			display: none;
+		}
+	}
+
 	.headerBannerTopBand {
 		display: flex;
 		flex-direction: row;
@@ -919,15 +1160,43 @@ const navActive = {
 		padding-top: 9.25rem;
 	}
 
+	body.has-header-directory-search.header-eyebrow-in-main.header-collapsed .page-bodyGrid {
+		padding-top: 6.35rem;
+	}
+
+	body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed.header-collapsed .page-bodyGrid {
+		padding-top: 5.35rem;
+	}
+
+	body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main).header-collapsed .page-bodyGrid {
+		padding-top: 7.35rem;
+	}
+
 	@media (max-width: 900px) {
 		body.has-header-directory-search.header-collapsed .page-bodyGrid {
 			padding-top: 9.85rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-collapsed .page-bodyGrid {
+			padding-top: 6.65rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed.header-collapsed .page-bodyGrid {
+			padding-top: 5.65rem;
 		}
 	}
 
 	@media (max-width: 720px) {
 		body.has-header-directory-search.header-collapsed .page-bodyGrid {
 			padding-top: 10.75rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-collapsed .page-bodyGrid {
+			padding-top: 7.15rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed.header-collapsed .page-bodyGrid {
+			padding-top: 6.15rem;
 		}
 	}
 
@@ -1131,8 +1400,20 @@ const navActive = {
 			padding-top: 11.25rem;
 		}
 
-		body.has-header-directory-search .page-bodyGrid {
+		body.has-header-directory-search:not(.header-eyebrow-in-main):not(.header-site-nav-collapsed) .page-bodyGrid {
 			padding-top: 14.5rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main:not(.header-site-nav-collapsed) .page-bodyGrid {
+			padding-top: 10.25rem;
+		}
+
+		body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main) .page-bodyGrid {
+			padding-top: 11.25rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed .page-bodyGrid {
+			padding-top: 7.85rem;
 		}
 
 		body.header-collapsed .page-bodyGrid {
@@ -1156,8 +1437,20 @@ const navActive = {
 			padding-inline: 14px;
 		}
 
-		body.has-header-directory-search .page-bodyGrid {
+		body.has-header-directory-search:not(.header-eyebrow-in-main):not(.header-site-nav-collapsed) .page-bodyGrid {
 			padding-top: 16rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main:not(.header-site-nav-collapsed) .page-bodyGrid {
+			padding-top: 11.75rem;
+		}
+
+		body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main) .page-bodyGrid {
+			padding-top: 12.75rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed .page-bodyGrid {
+			padding-top: 9.25rem;
 		}
 
 		body.header-collapsed .page-bodyGrid {

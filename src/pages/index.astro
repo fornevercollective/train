@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeaderEyebrowRail from '../components/HeaderEyebrowRail.astro';
 import HomeLiveAnalysis from '../components/HomeLiveAnalysis.astro';
+import HomeStatsECharts from '../components/HomeStatsECharts.astro';
 import PredictionsGamePanel from '../components/PredictionsGamePanel.astro';
 import BloombergLiveRelay from '../components/BloombergLiveRelay.astro';
 import summary from '../generated/catalog-meta.json';
@@ -413,14 +415,18 @@ const fastPathChecklist = [
 	'NVMe-first storage for capture and replay; avoid SATA or network filesystems on the ingestion hot path.',
 	'25 GbE east-west links as the minimum serious relay target; 100 GbE where multi-venue fanout is shared.',
 ];
+const layoutEyebrow = 'Directory view';
+const layoutSubtitle =
+	'Static listing intelligence; search and filters live on the Directory tab.';
 ---
 
 <Layout
 	title="Erika Market Directory"
 	description="Search 60k+ global stock and ETF listings from the Erika dataset in a fast GitHub Pages-ready directory."
 	pageClass="page-home"
-	eyebrow="Directory view"
-	subtitle="Static listing intelligence; search and filters live on the Directory tab."
+	eyebrow={layoutEyebrow}
+	subtitle={layoutSubtitle}
+	eyebrowInHeader={false}
 >
 	<section class="container home-shell">
 		<header class="header">
@@ -432,6 +438,10 @@ const fastPathChecklist = [
 				</p>
 			</div>
 		</header>
+
+		<div class="home-eyebrow-slot card">
+			<HeaderEyebrowRail variant="beside-search" eyebrow={layoutEyebrow} subtitle={layoutSubtitle} />
+		</div>
 
 		<div class="home-topBand">
 			<article class="card home-hero">
@@ -530,6 +540,18 @@ const fastPathChecklist = [
 							<strong>{summary.dateCoverage.complete.toLocaleString()}</strong>
 						</div>
 					</div>
+					<HomeStatsECharts
+						totalSymbols={summary.totalSymbols}
+						uniqueCountries={summary.uniqueCountries}
+						uniqueExchanges={summary.uniqueExchanges}
+						withCompanyCreation={summary.withCompanyCreation}
+						withIpoCreation={summary.withIpoCreation}
+						completeCoverage={summary.dateCoverage.complete}
+						stockCount={summary.securityTypes[0]?.count ?? 0}
+						etfCount={summary.securityTypes[1]?.count ?? 0}
+						stockName={summary.securityTypes[0]?.name ?? 'Stock'}
+						etfName={summary.securityTypes[1]?.name ?? 'ETF'}
+					/>
 					<div class="stats-foot">
 						<span class="badge success">
 							{summary.securityTypes[0]?.name}: {summary.securityTypes[0]?.count.toLocaleString()}
@@ -1031,6 +1053,17 @@ const fastPathChecklist = [
 		display: flex;
 		flex-direction: column;
 		gap: 18px;
+	}
+
+	.home-eyebrow-slot.card {
+		padding: 14px 16px;
+	}
+
+	.home-eyebrow-slot .headerEyebrowRow--railBesideSearch {
+		max-width: none;
+		flex: 1 1 auto;
+		width: 100%;
+		align-self: stretch;
 	}
 
 	.header {

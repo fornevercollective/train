@@ -211,7 +211,7 @@ const published = new Intl.DateTimeFormat('en-US', {
 			return 132;
 		}
 
-		function setActive(id) {
+		function setActive(id: string) {
 			for (const link of links) {
 				const href = link.getAttribute('href') || '';
 				const target = decodeURIComponent(href.slice(1));

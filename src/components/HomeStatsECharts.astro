@@ -1,0 +1,122 @@
+---
+import type { HomeStatsEChartsPayload } from '../lib/home-stats-echarts';
+
+export interface Props {
+	totalSymbols: number;
+	uniqueCountries: number;
+	uniqueExchanges: number;
+	withCompanyCreation: number;
+	withIpoCreation: number;
+	completeCoverage: number;
+	stockCount: number;
+	etfCount: number;
+	stockName: string;
+	etfName: string;
+}
+
+const {
+	totalSymbols,
+	uniqueCountries,
+	uniqueExchanges,
+	withCompanyCreation,
+	withIpoCreation,
+	completeCoverage,
+	stockCount,
+	etfCount,
+	stockName,
+	etfName,
+} = Astro.props;
+
+const payload: HomeStatsEChartsPayload = {
+	barLabels: [
+		'Listings',
+		'Countries',
+		'Exchanges',
+		'Company dates',
+		'IPO dates',
+		'Complete coverage',
+	],
+	barValues: [
+		totalSymbols,
+		uniqueCountries,
+		uniqueExchanges,
+		withCompanyCreation,
+		withIpoCreation,
+		completeCoverage,
+	],
+	pie: [
+		{ name: stockName, value: stockCount },
+		{ name: etfName, value: etfCount },
+	],
+};
+---
+
+<div
+	class="home-echarts-mount"
+	id="home-stats-echarts"
+	role="region"
+	aria-label="Coverage charts: horizontal bars and security type split"
+	data-payload={encodeURIComponent(JSON.stringify(payload))}
+>
+	<div class="home-echarts-grid">
+		<div class="home-echarts-panel home-echarts-panel--bar" data-home-echarts-bar></div>
+		<div class="home-echarts-panel home-echarts-panel--pie" data-home-echarts-pie></div>
+	</div>
+</div>
+
+<script>
+	(async () => {
+		const root = document.getElementById('home-stats-echarts');
+		const enc = root?.dataset.payload;
+		if (!root || !enc) return;
+		try {
+			const payload = JSON.parse(decodeURIComponent(enc));
+			const { mountHomeStatsECharts } = await import('../lib/home-stats-echarts');
+			mountHomeStatsECharts(root, payload);
+		} catch {
+			/* ignore malformed payload or failed chart load */
+		}
+	})();
+</script>
+
+<style>
+	.home-echarts-mount {
+		margin-top: 14px;
+		padding-top: 14px;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.home-echarts-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.35fr) minmax(200px, 0.85fr);
+		gap: 14px;
+		align-items: stretch;
+	}
+
+	.home-echarts-panel {
+		min-height: 240px;
+		height: 240px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+	}
+
+	@media (max-width: 720px) {
+		.home-echarts-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.home-echarts-panel--pie {
+			max-width: 360px;
+			margin: 0 auto;
+			width: 100%;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.home-echarts-panel {
+			transition: none;
+		}
+	}
+</style>

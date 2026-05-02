@@ -1,0 +1,239 @@
+---
+/** Predictions desk: custom hexbin (ECharts gallery pattern) + sports-style filters + leaderboard. */
+---
+
+<section
+	class="sports-hexbin card"
+	id="sports-leaderboard-hexbin"
+	aria-labelledby="sports-hexbin-title"
+>
+	<div class="sports-hexbin-head">
+		<div>
+			<p class="ticker">Desk density</p>
+			<h2 id="sports-hexbin-title" class="sports-hexbin-title">Pace · defense hexbin</h2>
+			<p class="sports-hexbin-lede muted">
+				Synthetic league slice: filter by form window and conference, then read cell density like the Apache ECharts
+				<a
+					class="sports-hexbin-link"
+					href="https://echarts.apache.org/examples/en/editor.html?c=custom-hexbin"
+					target="_blank"
+					rel="noopener noreferrer">custom hexbin</a>
+				example — adapted here for a sports-style leaderboard workflow (not live odds).
+			</p>
+		</div>
+	</div>
+
+	<div class="sports-hexbin-toolbar">
+		<div class="sports-hexbin-tabs" role="tablist" aria-label="Form window">
+			<button type="button" class="sports-hexbin-tab is-active" data-sports-window="week">This week</button>
+			<button type="button" class="sports-hexbin-tab" data-sports-window="month">This month</button>
+			<button type="button" class="sports-hexbin-tab" data-sports-window="season">Season</button>
+		</div>
+		<div class="sports-hexbin-pills" role="group" aria-label="Conference filter">
+			<button type="button" class="sports-hexbin-pill is-active" data-sports-conf="all">All</button>
+			<button type="button" class="sports-hexbin-pill" data-sports-conf="East">East</button>
+			<button type="button" class="sports-hexbin-pill" data-sports-conf="West">West</button>
+			<button type="button" class="sports-hexbin-pill" data-sports-conf="Central">Central</button>
+		</div>
+	</div>
+
+	<div class="sports-hexbin-split">
+		<div class="sports-hexbin-chartWrap">
+			<div class="sports-hexbin-chart" data-sports-hexbin-chart></div>
+		</div>
+		<aside class="sports-hexbin-board" aria-label="Filtered leaderboard">
+			<div class="sports-hexbin-board-head">Leaderboard</div>
+			<p class="sports-hexbin-board-sub muted">Top eight by desk index after filters.</p>
+			<ol class="sports-hexbin-rank" data-sports-hexbin-rank></ol>
+		</aside>
+	</div>
+</section>
+
+<script>
+	(async () => {
+		const root = document.getElementById('sports-leaderboard-hexbin');
+		if (!root) return;
+		try {
+			const { mountSportsLeaderboardHexbin } = await import('../lib/sports-hexbin-echarts');
+			mountSportsLeaderboardHexbin(root);
+		} catch {
+			/* chart optional if chunk fails */
+		}
+	})();
+</script>
+
+<style>
+	.sports-hexbin {
+		padding: 18px 18px 16px;
+	}
+
+	.sports-hexbin-head {
+		margin-bottom: 14px;
+	}
+
+	.sports-hexbin-title {
+		margin: 4px 0 0;
+		font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+	}
+
+	.sports-hexbin-lede {
+		margin: 10px 0 0;
+		max-width: 52rem;
+		font-size: 0.9rem;
+		line-height: 1.58;
+	}
+
+	.sports-hexbin-link {
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.sports-hexbin-link:hover {
+		text-decoration: underline;
+		color: var(--accent-warm);
+	}
+
+	.sports-hexbin-toolbar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px 16px;
+		margin-bottom: 14px;
+	}
+
+	.sports-hexbin-tabs,
+	.sports-hexbin-pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.sports-hexbin-tab,
+	.sports-hexbin-pill {
+		cursor: pointer;
+		font: inherit;
+		font-size: 0.82rem;
+		font-weight: 600;
+		padding: 8px 14px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.78);
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.sports-hexbin-tab:hover,
+	.sports-hexbin-pill:hover {
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+	}
+
+	.sports-hexbin-tab.is-active,
+	.sports-hexbin-pill.is-active {
+		color: var(--text);
+		background: rgba(72, 224, 188, 0.14);
+		border-color: rgba(72, 224, 188, 0.42);
+	}
+
+	.sports-hexbin-split {
+		display: grid;
+		grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.65fr);
+		gap: 16px;
+		align-items: stretch;
+	}
+
+	.sports-hexbin-chartWrap {
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		overflow: hidden;
+		min-height: 320px;
+	}
+
+	.sports-hexbin-chart {
+		width: 100%;
+		height: 360px;
+	}
+
+	.sports-hexbin-board {
+		padding: 14px 14px 12px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	.sports-hexbin-board-head {
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.sports-hexbin-board-sub {
+		margin: 6px 0 12px;
+		font-size: 0.78rem;
+		line-height: 1.45;
+	}
+
+	:global(.sports-hexbin-rank) {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	:global(.sports-hexbin-rank li) {
+		display: grid;
+		grid-template-columns: 2rem 1fr auto;
+		gap: 8px 10px;
+		align-items: baseline;
+		padding: 10px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+		font-size: 0.86rem;
+		line-height: 1.35;
+	}
+
+	:global(.sports-hexbin-rank li:last-child) {
+		border-bottom: 0;
+	}
+
+	:global(.sports-hexbin-rank-idx) {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		color: var(--soft);
+	}
+
+	:global(.sports-hexbin-rank-name) {
+		color: var(--text);
+		font-weight: 600;
+		min-width: 0;
+	}
+
+	:global(.sports-hexbin-rank-score) {
+		font-family: var(--font-mono);
+		font-size: 0.76rem;
+		color: var(--muted);
+		text-align: right;
+	}
+
+	@media (max-width: 900px) {
+		.sports-hexbin-split {
+			grid-template-columns: 1fr;
+		}
+
+		.sports-hexbin-chart {
+			height: 300px;
+		}
+	}
+</style>

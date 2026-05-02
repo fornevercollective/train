@@ -178,23 +178,29 @@ function isActive(item: NavItem): boolean {
 
 <style>
 	.train-console-sidebar {
-		position: sticky;
-		top: 10rem;
-		width: 280px;
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: var(--train-sidebar-peek, 280px);
+		z-index: 210;
 		flex-shrink: 0;
 		display: flex;
 		flex-direction: row;
 		align-items: stretch;
-		align-self: flex-start;
-		max-height: calc(100vh - 10.5rem);
+		align-self: stretch;
+		max-height: none;
 		overflow: hidden;
-		border-radius: 20px;
+		border-radius: 0 18px 18px 0;
 		border: 1px solid rgba(170, 186, 220, 0.14);
-		background: rgba(10, 14, 24, 0.88);
+		border-left: none;
+		background: rgba(10, 14, 24, 0.92);
 		backdrop-filter: blur(20px) saturate(1.1);
 		-webkit-backdrop-filter: blur(20px) saturate(1.1);
 		box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
-		transition: width 0.22s ease;
+		transition:
+			width 0.24s ease,
+			box-shadow 0.22s ease;
 	}
 
 	.train-sidebar-rail {
@@ -244,6 +250,7 @@ function isActive(item: NavItem): boolean {
 		flex-direction: column;
 		align-items: center;
 		padding-top: 6px;
+		border-radius: 0 14px 14px 0;
 	}
 
 	:global(body.train-sidebar-collapsed) .train-sidebar-toggle {
@@ -252,21 +259,6 @@ function isActive(item: NavItem): boolean {
 		border-right: none;
 		border-bottom: 1px solid rgba(170, 186, 220, 0.12);
 		min-height: 40px;
-	}
-
-	:global(body:not(.has-header-directory-search)) .train-console-sidebar {
-		top: 8.25rem;
-		max-height: calc(100vh - 8.75rem);
-	}
-
-	:global(body.header-collapsed) .train-console-sidebar {
-		top: 6.5rem;
-		max-height: calc(100vh - 7rem);
-	}
-
-	:global(body.has-header-directory-search.header-collapsed) .train-console-sidebar {
-		top: 7.75rem;
-		max-height: calc(100vh - 8.25rem);
 	}
 
 	.train-sidebar-top,
@@ -503,27 +495,6 @@ function isActive(item: NavItem): boolean {
 		color: #cfe4ff;
 	}
 
-	@media (max-width: 1100px) {
-		.train-console-sidebar {
-			position: static;
-			width: 100%;
-			max-height: none;
-			margin-bottom: 4px;
-		}
-
-		.train-sidebar-top {
-			display: none;
-		}
-
-		.train-sidebar-scroll {
-			max-height: 420px;
-		}
-
-		:global(body.train-sidebar-collapsed) .train-console-sidebar {
-			width: 44px;
-			align-self: flex-start;
-		}
-	}
 
 	@media (prefers-reduced-motion: reduce) {
 		.train-sidebar-link,
