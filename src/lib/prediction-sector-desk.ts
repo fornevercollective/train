@@ -71,7 +71,7 @@ export const mispricingKalshiCoinbasePlaybook =
 export const monthlyEstimatesIntro = {
 	title: 'Rest-of-month sector estimates (illustrative statistics)',
 	lede:
-		'Below is a static teaching grid: flagship-contract mids vs. a crude “outside reference” fair (poll/book/model blend stub), gap in percentage points, an 80% illustrative uncertainty band on that gap, and a liquidity score. Numbers are normalized for comparison — they are not scraped from Kalshi or Coinbase and must not be traded on.',
+		'Each sector row expands to an illustrative top 5 contract basket for the rest of the month. Summary bars show flagship mids vs. a crude reference fair, gap (pp), 80% CI on the gap, liquidity, and RoM yield index — all normalized for teaching; not scraped from Kalshi or Coinbase.',
 	periodNote: 'Window label: calendar remainder of current month · Regenerate monthly in your own data pipeline when you wire APIs.',
 };
 
@@ -160,4 +160,74 @@ export const monthlySectorEstimateRows: MonthlySectorEstimateRow[] = [
 		romYieldScore: 48,
 	},
 ];
+
+export type MonthlyTopContract = {
+	rank: number;
+	contract: string;
+	venueMidPct: number;
+	refFairPct: number;
+	gapPp: number;
+	/** Illustrative depth label — not exchange volume. */
+	volTier: 'Heavy' | 'Active' | 'Thin';
+};
+
+/** Five synthetic “highest attention” contracts per sector (rank 1 = strongest RoM desk signal in this toy set). */
+export const monthlySectorTopFives: Record<string, MonthlyTopContract[]> = {
+	Sports: [
+		{ rank: 1, contract: 'Pro basketball champion (flagship)', venueMidPct: 62, refFairPct: 58, gapPp: 4, volTier: 'Heavy' },
+		{ rank: 2, contract: 'Conference finals game 7 — moneyline favorite', venueMidPct: 58, refFairPct: 55, gapPp: 3, volTier: 'Heavy' },
+		{ rank: 3, contract: 'Stanley Cup series — series price', venueMidPct: 54, refFairPct: 52, gapPp: 2, volTier: 'Active' },
+		{ rank: 4, contract: 'Golf major — top-10 finish (market leader)', venueMidPct: 41, refFairPct: 44, gapPp: -3, volTier: 'Active' },
+		{ rank: 5, contract: 'Soccer UCL — advancement leg', venueMidPct: 49, refFairPct: 50, gapPp: -1, volTier: 'Thin' },
+	],
+	Crypto: [
+		{ rank: 1, contract: 'BTC / $100k milestone (windowed)', venueMidPct: 51, refFairPct: 47, gapPp: 4, volTier: 'Heavy' },
+		{ rank: 2, contract: 'ETH / merge milestone follow-on', venueMidPct: 44, refFairPct: 42, gapPp: 2, volTier: 'Active' },
+		{ rank: 3, contract: 'Major alt — ETF catalyst basket', venueMidPct: 38, refFairPct: 40, gapPp: -2, volTier: 'Active' },
+		{ rank: 4, contract: 'Stablecoin depeg watch (illustrative)', venueMidPct: 12, refFairPct: 9, gapPp: 3, volTier: 'Thin' },
+		{ rank: 5, contract: 'Reg headline — venue policy risk (stub)', venueMidPct: 33, refFairPct: 35, gapPp: -2, volTier: 'Thin' },
+	],
+	'Economics / macro': [
+		{ rank: 1, contract: 'Fed funds path — next meeting cut/cut skip', venueMidPct: 46, refFairPct: 48, gapPp: -2, volTier: 'Active' },
+		{ rank: 2, contract: 'CPI print vs. consensus band', venueMidPct: 52, refFairPct: 51, gapPp: 1, volTier: 'Active' },
+		{ rank: 3, contract: 'Payrolls surprise threshold', venueMidPct: 39, refFairPct: 41, gapPp: -2, volTier: 'Thin' },
+		{ rank: 4, contract: 'Gas retail — regional average (RoM)', venueMidPct: 28, refFairPct: 30, gapPp: -2, volTier: 'Thin' },
+		{ rank: 5, contract: 'Core PCE — revision risk window', venueMidPct: 44, refFairPct: 43, gapPp: 1, volTier: 'Thin' },
+	],
+	'Politics / elections': [
+		{ rank: 1, contract: 'Primary field — next dropout (illustrative)', venueMidPct: 36, refFairPct: 39, gapPp: -3, volTier: 'Active' },
+		{ rank: 2, contract: 'Debate performance — instant reaction contract', venueMidPct: 48, refFairPct: 46, gapPp: 2, volTier: 'Active' },
+		{ rank: 3, contract: 'Cabinet / agency headline — resolution window', venueMidPct: 22, refFairPct: 24, gapPp: -2, volTier: 'Thin' },
+		{ rank: 4, contract: 'Swing-state poll aggregator vs. mid', venueMidPct: 55, refFairPct: 54, gapPp: 1, volTier: 'Thin' },
+		{ rank: 5, contract: 'Ballot measure — signature threshold', venueMidPct: 31, refFairPct: 33, gapPp: -2, volTier: 'Thin' },
+	],
+	Entertainment: [
+		{ rank: 1, contract: 'Award season — best picture front-runner', venueMidPct: 57, refFairPct: 55, gapPp: 2, volTier: 'Active' },
+		{ rank: 2, contract: 'Streaming premiere — opening weekend (stub)', venueMidPct: 42, refFairPct: 43, gapPp: -1, volTier: 'Thin' },
+		{ rank: 3, contract: 'Box office — domestic floor vs. tracking', venueMidPct: 49, refFairPct: 48, gapPp: 1, volTier: 'Thin' },
+		{ rank: 4, contract: 'Music chart — #1 single window', venueMidPct: 35, refFairPct: 37, gapPp: -2, volTier: 'Thin' },
+		{ rank: 5, contract: 'Reality finale — elimination order (illustrative)', venueMidPct: 61, refFairPct: 59, gapPp: 2, volTier: 'Thin' },
+	],
+	Companies: [
+		{ rank: 1, contract: 'Mag7 — next earnings beat / miss (toy)', venueMidPct: 47, refFairPct: 49, gapPp: -2, volTier: 'Active' },
+		{ rank: 2, contract: 'IPO pop — first week range', venueMidPct: 33, refFairPct: 31, gapPp: 2, volTier: 'Thin' },
+		{ rank: 3, contract: 'M&A close — regulatory approval', venueMidPct: 54, refFairPct: 55, gapPp: -1, volTier: 'Thin' },
+		{ rank: 4, contract: 'Product launch — pre-order threshold', venueMidPct: 41, refFairPct: 42, gapPp: -1, volTier: 'Thin' },
+		{ rank: 5, contract: 'Dividend / buyback announcement (RoM)', venueMidPct: 29, refFairPct: 30, gapPp: -1, volTier: 'Thin' },
+	],
+	'Science & tech': [
+		{ rank: 1, contract: 'Launch window — mission success (stub)', venueMidPct: 44, refFairPct: 46, gapPp: -2, volTier: 'Thin' },
+		{ rank: 2, contract: 'AI benchmark — headline leaderboard bet', venueMidPct: 51, refFairPct: 49, gapPp: 2, volTier: 'Active' },
+		{ rank: 3, contract: 'Clinical readout — primary endpoint', venueMidPct: 37, refFairPct: 39, gapPp: -2, volTier: 'Thin' },
+		{ rank: 4, contract: 'Weather — named storm landfall (seasonal)', venueMidPct: 26, refFairPct: 27, gapPp: -1, volTier: 'Thin' },
+		{ rank: 5, contract: 'Space debris / policy headline (illustrative)', venueMidPct: 18, refFairPct: 17, gapPp: 1, volTier: 'Thin' },
+	],
+};
+
+export function sectorSlug(sector: string): string {
+	return sector
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-|-$/g, '');
+}
 

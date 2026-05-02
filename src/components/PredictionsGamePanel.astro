@@ -8,7 +8,9 @@ import {
 	platformFootnote,
 	monthlyEstimatesIntro,
 	monthlySectorEstimateRows,
+	monthlySectorTopFives,
 	mispricingKalshiCoinbasePlaybook,
+	sectorSlug,
 } from '../lib/prediction-sector-desk';
 
 interface Props {
@@ -36,6 +38,7 @@ const romRowsDisplay = [...monthlySectorEstimateRows]
 	.map((r) => ({
 		...r,
 		pctOfLeader: Math.round((r.romYieldScore / maxRomYield) * 1000) / 10,
+		top5: monthlySectorTopFives[r.sector] ?? [],
 	}));
 const topRomRow = romRowsDisplay[0];
 const secondRomRow = romRowsDisplay[1];
@@ -202,61 +205,93 @@ const topVsSecondPct =
 						</div>
 
 						<div class="ep-pred-stat-table-wrap">
-							<table class="ep-pred-stat-table">
-								<caption class="ep-pred-sr-caption">
-									Illustrative rest-of-month sector statistics — venue mid vs. reference fair, gaps, and yield
-									rank
-								</caption>
-								<thead>
-									<tr>
-										<th scope="col">Sector</th>
-										<th scope="col">Venue mid (%)</th>
-										<th scope="col">Ref fair (%)</th>
-										<th scope="col">Gap (pp)</th>
-										<th scope="col">80% CI (±pp)</th>
-										<th scope="col">Liquidity</th>
-										<th scope="col">RoM yield</th>
-										<th scope="col">% of leader</th>
-									</tr>
-								</thead>
-								<tbody>
-									{romRowsDisplay.map((row) => (
-										<tr class:list={[{ 'ep-pred-stat-row--top': row.romYieldScore === topRomRow?.romYieldScore }]}>
-											<th scope="row">{row.sector}</th>
-											<td>{row.venueMidPct.toFixed(1)}</td>
-											<td>{row.refFairPct.toFixed(1)}</td>
-											<td
-												class:list={[
-													'ep-pred-stat-gap',
-													{ 'ep-pred-stat-gap--pos': row.gapPctPoints > 0 },
-													{ 'ep-pred-stat-gap--neg': row.gapPctPoints < 0 },
-												]}
+							<p class="ep-pred-sr-caption" id="ep-pred-rom-accordion-desc">
+								Illustrative rest-of-month sector statistics. Each sector expands to show the top five synthetic
+								contracts in that vertical.
+							</p>
+							<div class="ep-pred-sector-acc-list" aria-describedby="ep-pred-rom-accordion-desc">
+								{
+									romRowsDisplay.map((row) => {
+										const slug = sectorSlug(row.sector);
+										const isTop = row.romYieldScore === topRomRow?.romYieldScore;
+										return (
+											<details
+												class:list={['ep-pred-sector-details', { 'ep-pred-sector-details--top': isTop }]}
+												id={`ep-pred-rom-${slug}`}
 											>
-												{row.gapPctPoints > 0 ? '+' : ''}
-												{row.gapPctPoints.toFixed(1)}
-											</td>
-											<td>±{row.ci80HalfWidthPp.toFixed(1)}</td>
-											<td>
-												<span class="ep-pred-stat-liq">
-													<span class="ep-pred-stat-liq-track">
-														<span class="ep-pred-stat-liq-bar" style={`width: ${row.liquidityScore}%`} />
+												<summary class="ep-pred-sector-summary">
+													<span class="ep-pred-sum-title">{row.sector}</span>
+													<span class="ep-pred-sum-metrics ep-pred-muted">
+														Mid {row.venueMidPct.toFixed(1)}% · Ref {row.refFairPct.toFixed(1)}% · Gap{' '}
+														<span
+															class:list={[
+																'ep-pred-stat-gap',
+																{ 'ep-pred-stat-gap--pos': row.gapPctPoints > 0 },
+																{ 'ep-pred-stat-gap--neg': row.gapPctPoints < 0 },
+															]}
+														>
+															{row.gapPctPoints > 0 ? '+' : ''}
+															{row.gapPctPoints.toFixed(1)} pp
+														</span>
+														· CI ±{row.ci80HalfWidthPp.toFixed(1)}
 													</span>
-													<span class="ep-pred-stat-liq-val">{row.liquidityScore}</span>
-												</span>
-											</td>
-											<td>
-												<span class="ep-pred-stat-yield">
-													<span class="ep-pred-stat-yield-track">
-														<span class="ep-pred-stat-yield-bar" style={`width: ${row.romYieldScore}%`} />
+													<span class="ep-pred-sum-bars" aria-hidden="true">
+														<span class="ep-pred-stat-liq">
+															<span class="ep-pred-stat-liq-track">
+																<span class="ep-pred-stat-liq-bar" style={`width: ${row.liquidityScore}%`} />
+															</span>
+															<span class="ep-pred-stat-liq-val">{row.liquidityScore}</span>
+														</span>
+														<span class="ep-pred-stat-yield">
+															<span class="ep-pred-stat-yield-track">
+																<span class="ep-pred-stat-yield-bar" style={`width: ${row.romYieldScore}%`} />
+															</span>
+															<span class="ep-pred-stat-yield-val">{row.romYieldScore}</span>
+														</span>
 													</span>
-													<span class="ep-pred-stat-yield-val">{row.romYieldScore}</span>
-												</span>
-											</td>
-											<td>{row.pctOfLeader.toFixed(1)}%</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
+													<span class="ep-pred-sum-leader ep-pred-muted">{row.pctOfLeader.toFixed(1)}% of leader</span>
+													<span class="ep-pred-sum-expand">Top 5</span>
+												</summary>
+												<div class="ep-pred-sector-expand">
+													<table class="ep-pred-subtable">
+														<thead>
+															<tr>
+																<th scope="col">#</th>
+																<th scope="col">Contract (illustrative)</th>
+																<th scope="col">Mid %</th>
+																<th scope="col">Ref %</th>
+																<th scope="col">Gap (pp)</th>
+																<th scope="col">Vol tier</th>
+															</tr>
+														</thead>
+														<tbody>
+															{row.top5.map((c) => (
+																<tr>
+																	<td>{c.rank}</td>
+																	<th scope="row">{c.contract}</th>
+																	<td>{c.venueMidPct.toFixed(1)}</td>
+																	<td>{c.refFairPct.toFixed(1)}</td>
+																	<td
+																		class:list={[
+																			'ep-pred-stat-gap',
+																			{ 'ep-pred-stat-gap--pos': c.gapPp > 0 },
+																			{ 'ep-pred-stat-gap--neg': c.gapPp < 0 },
+																		]}
+																	>
+																		{c.gapPp > 0 ? '+' : ''}
+																		{c.gapPp.toFixed(1)}
+																	</td>
+																	<td>{c.volTier}</td>
+																</tr>
+															))}
+														</tbody>
+													</table>
+												</div>
+											</details>
+										);
+									})
+								}
+							</div>
 						</div>
 					</div>
 
@@ -316,7 +351,7 @@ const topVsSecondPct =
 		</div>
 
 		<p class="ep-pred-disclaimer">
-			Illustrative numbers, sector commentary, and the <strong>rest-of-month statistics table</strong> are for
+			Illustrative numbers, sector commentary, and the <strong>rest-of-month expandable sector rows</strong> are for
 			<strong>education only</strong> — not trading advice, not live Kalshi/Coinbase data, not a quote, and not an
 			investability signal. Contracts can expire worthless; venues have eligibility and geographic rules. Set{' '}
 			<code class="ep-pred-code">PUBLIC_GAME_CONSOLE_URL</code> at build time for header + outbound Game links.
@@ -688,55 +723,131 @@ const topVsSecondPct =
 	}
 
 	.ep-pred-stat-table-wrap {
-		overflow-x: auto;
 		border-radius: 14px;
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		background: rgba(0, 0, 0, 0.2);
+		padding: 12px 14px 14px;
 	}
 
 	.ep-pred-sr-caption {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
-	}
-
-	.ep-pred-stat-table {
-		width: 100%;
-		min-width: 720px;
-		border-collapse: collapse;
+		margin: 0 0 12px;
 		font-size: 0.82rem;
-	}
-
-	.ep-pred-stat-table th,
-	.ep-pred-stat-table td {
-		padding: 10px 12px;
-		text-align: left;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-		vertical-align: middle;
-	}
-
-	.ep-pred-stat-table thead th {
-		font-family: var(--ep-pred-mono);
-		font-size: 0.68rem;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
+		line-height: 1.5;
 		color: var(--muted);
-		background: rgba(0, 0, 0, 0.25);
+		max-width: 68rem;
 	}
 
-	.ep-pred-stat-table tbody th {
+	.ep-pred-sector-acc-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.ep-pred-sector-details {
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.ep-pred-sector-details:last-of-type {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.ep-pred-sector-details--top > .ep-pred-sector-summary {
+		background: rgba(72, 224, 188, 0.05);
+	}
+
+	.ep-pred-sector-summary {
+		display: grid;
+		grid-template-columns: minmax(6.5rem, 0.95fr) minmax(0, 2.2fr) minmax(0, auto) minmax(5rem, auto) minmax(4.5rem, auto);
+		gap: 8px 12px;
+		align-items: center;
+		padding: 12px 10px;
+		cursor: pointer;
+		list-style: none;
+		font-size: 0.84rem;
+	}
+
+	.ep-pred-sector-summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.ep-pred-sum-title {
 		font-weight: 700;
 		color: var(--text);
 	}
 
-	.ep-pred-stat-row--top {
-		background: rgba(72, 224, 188, 0.06);
+	.ep-pred-sum-metrics {
+		font-size: 0.8rem;
+		line-height: 1.45;
+	}
+
+	.ep-pred-sum-bars {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 12px;
+		align-items: center;
+	}
+
+	.ep-pred-sum-bars .ep-pred-stat-liq,
+	.ep-pred-sum-bars .ep-pred-stat-yield {
+		min-width: 0;
+	}
+
+	.ep-pred-sum-leader {
+		font-size: 0.76rem;
+		white-space: nowrap;
+	}
+
+	.ep-pred-sum-expand {
+		font-family: var(--ep-pred-mono);
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--accent);
+		justify-self: end;
+	}
+
+	.ep-pred-sum-expand::before {
+		content: '▸ ';
+	}
+
+	.ep-pred-sector-details[open] .ep-pred-sum-expand::before {
+		content: '▾ ';
+	}
+
+	.ep-pred-sector-expand {
+		padding: 0 10px 14px 10px;
+		overflow-x: auto;
+	}
+
+	.ep-pred-subtable {
+		width: 100%;
+		min-width: 560px;
+		border-collapse: collapse;
+		font-size: 0.8rem;
+	}
+
+	.ep-pred-subtable th,
+	.ep-pred-subtable td {
+		padding: 8px 10px;
+		text-align: left;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+		vertical-align: top;
+	}
+
+	.ep-pred-subtable thead th {
+		font-family: var(--ep-pred-mono);
+		font-size: 0.65rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--muted);
+		background: rgba(0, 0, 0, 0.28);
+	}
+
+	.ep-pred-subtable tbody th {
+		font-weight: 600;
+		color: rgba(230, 236, 255, 0.95);
+		max-width: 22rem;
 	}
 
 	.ep-pred-stat-gap {
@@ -921,6 +1032,14 @@ const topVsSecondPct =
 	@media (max-width: 900px) {
 		.ep-pred-sector-split {
 			grid-template-columns: 1fr;
+		}
+
+		.ep-pred-sector-summary {
+			grid-template-columns: 1fr;
+		}
+
+		.ep-pred-sum-expand {
+			justify-self: start;
 		}
 
 		.ep-pred-trending-grid {
