@@ -217,16 +217,24 @@ const navActive = {
 				const body = document.body;
 				const toggle = document.getElementById('train-sidebar-toggle');
 				if (!toggle) return;
+				const mobileMq = window.matchMedia('(max-width: 900px)');
 				const apply = (collapsed) => {
 					body.classList.toggle('train-sidebar-collapsed', collapsed);
 					toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
 					toggle.setAttribute('title', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
 				};
-				try {
-					apply(localStorage.getItem(KEY) === '1');
-				} catch {
-					apply(false);
-				}
+				const initialCollapsed = () => {
+					try {
+						if (mobileMq.matches) {
+							if (localStorage.getItem(KEY) === '0') return false;
+							return true;
+						}
+						return localStorage.getItem(KEY) === '1';
+					} catch {
+						return false;
+					}
+				};
+				apply(initialCollapsed());
 				toggle.addEventListener('click', () => {
 					const next = !body.classList.contains('train-sidebar-collapsed');
 					apply(next);
@@ -373,6 +381,33 @@ const navActive = {
 	@media (max-width: 1100px) {
 		.page-bodyGrid--withSidebar {
 			flex-direction: column;
+		}
+
+		.page-bodyGrid--withSidebar > .wrap {
+			order: 1;
+			width: 100%;
+		}
+
+		.page-bodyGrid--withSidebar > aside.train-console-sidebar {
+			order: 2;
+			width: 100%;
+		}
+
+		.headerBannerTopBand {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.headerBannerTopBand .headerBannerSearchRow,
+		.headerBannerTopBand .headerEyebrowRow--railBesideSearch {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 1100px) and (min-width: 901px) {
+		body.has-header-directory-search .page-bodyGrid {
+			padding-top: 11.5rem;
 		}
 	}
 
@@ -1096,13 +1131,9 @@ const navActive = {
 			padding-top: 7rem;
 		}
 
-		.headerBannerTopBand {
-			flex-direction: column;
-		}
-
-		.headerBannerTopBand .headerEyebrowRow--railBesideSearch {
-			max-width: 100%;
-			width: 100%;
+		.headerBanner {
+			padding-inline: 12px;
+			gap: 6px;
 		}
 
 		.headerBannerAttribution--rail {
@@ -1135,6 +1166,10 @@ const navActive = {
 			text-align: left;
 			flex-basis: 100%;
 			max-width: 100%;
+		}
+
+		.headerEyebrowRow--rail.headerEyebrowRow--railBesideSearch .headerBannerAttribution--rail {
+			display: none;
 		}
 	}
 </style>
