@@ -21,6 +21,11 @@ const gamePredictionsHashUrl = gameConsoleUrl ? `${gameConsoleUrl}/#predictions`
 		<HomeLiveAnalysis gameLiveUrl={gameLiveUrl} anchorMode="home" />
 		<SportsLeaderboardHexbin />
 		<PredictionsGamePanel variant="page" gameHomeUrl={gameHomeUrl} gameLiveUrl={gameLiveUrl} gamePredictionsHashUrl={gamePredictionsHashUrl} />
+		<script>
+			import { mountEpPredictionsWindViz } from '../../lib/topology-predictions-viz';
+
+			mountEpPredictionsWindViz();
+		</script>
 	</section>
 </Layout>
 

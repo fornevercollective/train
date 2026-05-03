@@ -1,14 +1,25 @@
 import * as echarts from 'echarts/core';
-import { BarChart, PieChart } from 'echarts/charts';
+import { BarChart, PieChart, RadarChart } from 'echarts/charts';
 import {
 	GridComponent,
 	LegendComponent,
+	RadarComponent,
 	TitleComponent,
 	TooltipComponent,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
-echarts.use([BarChart, PieChart, GridComponent, LegendComponent, TitleComponent, TooltipComponent, CanvasRenderer]);
+echarts.use([
+	BarChart,
+	PieChart,
+	RadarChart,
+	GridComponent,
+	LegendComponent,
+	RadarComponent,
+	TitleComponent,
+	TooltipComponent,
+	CanvasRenderer,
+]);
 
 export type HomeStatsEChartsPayload = {
 	barLabels: string[];
@@ -24,12 +35,86 @@ function reducedMotion(): boolean {
 	return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+function radarNormalizedValues(values: number[]): number[] {
+	const m = Math.max(...values, 1);
+	return values.map((v) => Math.min(100, Math.round((v / m) * 100)));
+}
+
 export function mountHomeStatsECharts(mount: HTMLElement, payload: HomeStatsEChartsPayload): () => void {
 	const barEl = mount.querySelector<HTMLElement>('[data-home-echarts-bar]');
 	const pieEl = mount.querySelector<HTMLElement>('[data-home-echarts-pie]');
-	if (!barEl || !pieEl) return () => {};
+	const radarEl = mount.querySelector<HTMLElement>('[data-home-echarts-radar]');
+	if (!barEl || !pieEl || !radarEl) return () => {};
 
 	const anim = reducedMotion() ? 0 : 900;
+	const radarVals = radarNormalizedValues(payload.barValues);
+
+	const radar = echarts.init(radarEl, undefined, { renderer: 'canvas' });
+	radar.setOption({
+		textStyle: { fontFamily: 'Inter, system-ui, sans-serif' },
+		tooltip: {
+			trigger: 'item',
+			backgroundColor: 'rgba(12, 14, 24, 0.94)',
+			borderColor: 'rgba(255, 255, 255, 0.12)',
+			textStyle: { color: 'rgba(255, 255, 255, 0.92)', fontSize: 11 },
+			formatter: (p: { name?: string; value?: number[] }) => {
+				const vals = p.value;
+				if (!vals?.length) return '';
+				const rows = payload.barLabels.map((label, i) => `${label}: ${vals[i]}% (shape)`);
+				return `<strong>${p.name ?? 'Coverage'}</strong><br/>${rows.join('<br/>')}`;
+			},
+		},
+		radar: {
+			indicator: payload.barLabels.map((name) => ({ name, max: 100 })),
+			center: ['50%', '54%'],
+			radius: '62%',
+			splitNumber: 4,
+			axisName: {
+				color: axisMuted,
+				fontSize: 10,
+				lineHeight: 14,
+				formatter: (name: string) => (name.length > 14 ? `${name.slice(0, 12)}…` : name),
+			},
+			splitLine: { lineStyle: { color: splitLine } },
+			splitArea: {
+				show: true,
+				areaStyle: {
+					color: ['rgba(72, 224, 188, 0.06)', 'rgba(120, 180, 255, 0.04)', 'rgba(72, 224, 188, 0.05)', 'rgba(0,0,0,0.06)'],
+				},
+			},
+			axisLine: { lineStyle: { color: splitLine } },
+		},
+		series: [
+			{
+				type: 'radar',
+				name: 'Coverage mix',
+				symbol: 'circle',
+				symbolSize: 5,
+				lineStyle: { width: 2, color: 'rgba(120, 200, 255, 0.95)' },
+				areaStyle: {
+					color: {
+						type: 'linear',
+						x: 0,
+						y: 0,
+						x2: 0,
+						y2: 1,
+						colorStops: [
+							{ offset: 0, color: 'rgba(120, 200, 255, 0.35)' },
+							{ offset: 1, color: 'rgba(72, 224, 188, 0.12)' },
+						],
+					},
+				},
+				itemStyle: {
+					color: 'rgba(120, 200, 255, 0.95)',
+					borderColor: 'rgba(8, 10, 18, 0.9)',
+					borderWidth: 1,
+				},
+				data: [{ value: radarVals, name: 'Coverage mix' }],
+				animationDuration: anim,
+				animationEasing: 'cubicOut',
+			},
+		],
+	});
 
 	const bar = echarts.init(barEl, undefined, { renderer: 'canvas' });
 	bar.setOption({
@@ -135,12 +220,14 @@ export function mountHomeStatsECharts(mount: HTMLElement, payload: HomeStatsECha
 	});
 
 	const ro = new ResizeObserver(() => {
+		radar.resize();
 		bar.resize();
 		pie.resize();
 	});
 	ro.observe(mount);
 
 	const onWin = () => {
+		radar.resize();
 		bar.resize();
 		pie.resize();
 	};
@@ -149,6 +236,7 @@ export function mountHomeStatsECharts(mount: HTMLElement, payload: HomeStatsECha
 	return () => {
 		window.removeEventListener('resize', onWin);
 		ro.disconnect();
+		radar.dispose();
 		bar.dispose();
 		pie.dispose();
 	};

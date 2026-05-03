@@ -11,6 +11,11 @@ const {
 	headingId = 'bloomberg-live-heading',
 	bloombergRelayStartCommand = 'cd "/Volumes/qbitOS/00.dev/cursor/train" && python3 server.py',
 } = Astro.props;
+
+const bloombergRelayCdSnippet = bloombergRelayStartCommand.includes('&&')
+	? bloombergRelayStartCommand.split('&&')[0]!.trim()
+	: bloombergRelayStartCommand;
+const svgGradId = `home-bbc-g-${articleId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
 ---
 
 <article class="card home-bloomberg-live" id={articleId} aria-labelledby={headingId}>
@@ -45,8 +50,16 @@ const {
 			>
 				Open relay (localhost)
 			</a>
-			<button type="button" class="button-secondary" id="bloomberg-relay-copy-cmd">Copy start command</button>
+			<button type="button" class="button-secondary" id="bloomberg-relay-copy-cmd" data-bloomberg-copy>
+				Copy start command
+			</button>
 		</div>
+		<div
+			id="home-bloomberg-calendar-viz"
+			class="home-bloomberg-calendar-viz"
+			role="img"
+			aria-label="Illustrative relay engagement calendar (decorative, not live metrics)"
+		></div>
 		<p class="home-bloomberg-relay-note muted" id="bloomberg-relay-note">
 			This site does not start the relay. In a terminal, run the copied command (or{' '}
 			<code class="home-bloomberg-path">python3 server.py</code> from that folder), wait for “Serving http://…”, then
@@ -81,6 +94,68 @@ const {
 					</p>
 				</div>
 			</div>
+
+			<div class="home-bbc-feature-surface" aria-label="Quick relay setup">
+				<div class="home-bbc-callout" data-border="true">
+					<p class="home-bbc-callout-eyebrow">Quick setup</p>
+					<p class="home-bbc-callout-title">Drop-in relay next to this static Train shell</p>
+					<p class="home-bbc-callout-body muted">
+						Change one working directory, run one command, open one port. Works with the bundled Python forwarder,
+						the Bloomberg browser page, Granite Tiny over Ollama (or your host), and any tab that can reach{' '}
+						<code class="home-bloomberg-path">127.0.0.1:8765</code>.
+					</p>
+				</div>
+
+				<div class="home-bbc-tile-grid" role="list">
+					<div class="home-bbc-tile" role="listitem"><span class="home-bbc-tile-label">Train</span></div>
+					<div class="home-bbc-tile" role="listitem"><span class="home-bbc-tile-label">Python</span></div>
+					<div class="home-bbc-tile" role="listitem"><span class="home-bbc-tile-label">Granite</span></div>
+					<div class="home-bbc-tile" role="listitem"><span class="home-bbc-tile-label">Browser</span></div>
+					<div class="home-bbc-tile" role="listitem"><span class="home-bbc-tile-label">:8765</span></div>
+					<div class="home-bbc-tile home-bbc-tile--more" role="listitem">
+						<span class="home-bbc-tile-label">And more</span>
+					</div>
+				</div>
+
+				<div class="home-bbc-snippet-row" role="group" aria-label="Relay command fragments">
+					<button type="button" class="home-bbc-snippet" tabindex="0" data-bbc-snippet="cd">
+						<span class="home-bbc-snippet-k">cd</span>
+					</button>
+					<button type="button" class="home-bbc-snippet" tabindex="0" data-bbc-snippet="py">
+						<span class="home-bbc-snippet-k">python3</span>
+					</button>
+					<button type="button" class="home-bbc-snippet" tabindex="0" data-bbc-snippet="srv">
+						<span class="home-bbc-snippet-k">server.py</span>
+					</button>
+					<button type="button" class="home-bbc-snippet home-bbc-snippet--copy" data-bloomberg-copy tabindex="0">
+						Copy code
+					</button>
+				</div>
+
+				<div class="home-bbc-diagram" aria-hidden="true">
+					<svg viewBox="0 0 328 200" class="home-bbc-diagram-svg" xmlns="http://www.w3.org/2000/svg">
+						<defs>
+							<linearGradient id={svgGradId} x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" style="stop-color: rgba(72,224,188,0.35)" />
+								<stop offset="100%" style="stop-color: rgba(170,90,255,0.28)" />
+							</linearGradient>
+						</defs>
+						<rect x="8" y="72" width="88" height="56" rx="12" fill="rgba(0,0,0,0.35)" stroke="rgba(255,255,255,0.14)" />
+						<text x="52" y="104" text-anchor="middle" fill="rgba(230,236,255,0.88)" font-size="13" font-family="system-ui, sans-serif">Train</text>
+						<path d="M 104 100 L 132 100" stroke={`url(#${svgGradId})`} stroke-width="3" stroke-linecap="round" />
+						<polygon points="132,100 124,96 124,104" fill="rgba(120,200,255,0.9)" />
+						<rect x="136" y="56" width="104" height="88" rx="14" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.16)" />
+						<text x="188" y="88" text-anchor="middle" fill="rgba(230,236,255,0.9)" font-size="12" font-family="ui-monospace, monospace">relay</text>
+						<text x="188" y="112" text-anchor="middle" fill="rgba(180,200,230,0.75)" font-size="11" font-family="ui-monospace, monospace">:8765</text>
+						<text x="188" y="134" text-anchor="middle" fill="rgba(180,200,230,0.6)" font-size="10" font-family="system-ui, sans-serif">captions + chat</text>
+						<path d="M 246 100 L 274 100" stroke={`url(#${svgGradId})`} stroke-width="3" stroke-linecap="round" />
+						<polygon points="274,100 266,96 266,104" fill="rgba(120,200,255,0.9)" />
+						<rect x="278" y="72" width="42" height="56" rx="10" fill="rgba(0,0,0,0.35)" stroke="rgba(255,255,255,0.14)" />
+						<text x="299" y="104" text-anchor="middle" fill="rgba(230,236,255,0.82)" font-size="11" font-family="system-ui, sans-serif">Tab</text>
+					</svg>
+				</div>
+			</div>
+
 			<div class="home-bloomberg-chat-body">
 				<ol class="home-bloomberg-steps muted">
 					<li>
@@ -108,7 +183,7 @@ const {
 	</div>
 </article>
 
-<script is:inline define:vars={{ bloombergRelayStartCommand }}>
+<script is:inline define:vars={{ bloombergRelayStartCommand, bloombergRelayCdSnippet }}>
 	(() => {
 		const ref = document.getElementById('bloomberg-ref-time');
 		if (ref) {
@@ -145,28 +220,61 @@ const {
 			});
 		}
 
-		const copyBtn = document.getElementById('bloomberg-relay-copy-cmd');
 		const copyStatus = document.getElementById('bloomberg-relay-copy-status');
-		if (copyBtn) {
-			const defaultLabel = copyBtn.textContent?.trim() || 'Copy start command';
-			copyBtn.addEventListener('click', async () => {
-				try {
-					await navigator.clipboard.writeText(bloombergRelayStartCommand);
-					copyBtn.textContent = 'Copied to clipboard';
-					if (copyStatus) {
-						copyStatus.textContent =
-							'Paste into Terminal, press Enter, wait for “Serving…”, then open a relay link.';
-						copyStatus.hidden = false;
+		const snippetMap = {
+			cd: bloombergRelayCdSnippet,
+			py: 'python3 server.py',
+			srv: 'python3 server.py',
+		};
+
+		const copyButtons = Array.from(document.querySelectorAll('[data-bloomberg-copy]'));
+		const onCopyFullCommand = async () => {
+			try {
+				await navigator.clipboard.writeText(bloombergRelayStartCommand);
+				for (const b of copyButtons) {
+					if (b.id === 'bloomberg-relay-copy-cmd') b.textContent = 'Copied to clipboard';
+					else if (b.classList.contains('home-bbc-snippet--copy')) b.textContent = 'Copied';
+				}
+				if (copyStatus) {
+					copyStatus.textContent =
+						'Paste into Terminal, press Enter, wait for “Serving…”, then open a relay link.';
+					copyStatus.hidden = false;
+				}
+				window.setTimeout(() => {
+					for (const b of copyButtons) {
+						if (b.id === 'bloomberg-relay-copy-cmd') b.textContent = 'Copy start command';
+						else if (b.classList.contains('home-bbc-snippet--copy')) b.textContent = 'Copy code';
 					}
-					setTimeout(() => {
-						copyBtn.textContent = defaultLabel;
-						if (copyStatus) {
-							copyStatus.textContent = '';
-							copyStatus.hidden = true;
-						}
-					}, 4500);
+					if (copyStatus) {
+						copyStatus.textContent = '';
+						copyStatus.hidden = true;
+					}
+				}, 4500);
+			} catch {
+				for (const b of copyButtons) {
+					b.textContent = 'Copy blocked — type the command manually';
+				}
+			}
+		};
+		for (const b of copyButtons) b.addEventListener('click', onCopyFullCommand);
+
+		for (const el of document.querySelectorAll('[data-bbc-snippet]')) {
+			const key = el.getAttribute('data-bbc-snippet');
+			const text = key && snippetMap[key];
+			if (!text || !(el instanceof HTMLElement)) continue;
+			const label = el.querySelector('.home-bbc-snippet-k');
+			el.addEventListener('click', async () => {
+				try {
+					await navigator.clipboard.writeText(text);
+					if (label instanceof HTMLElement) {
+						const prev = label.textContent;
+						label.textContent = 'Copied';
+						window.setTimeout(() => {
+							label.textContent = prev;
+						}, 1600);
+					}
 				} catch {
-					copyBtn.textContent = 'Copy blocked — type the command manually';
+					/* ignore */
 				}
 			});
 		}
@@ -201,6 +309,18 @@ const {
 
 	.home-bloomberg-actions {
 		flex-wrap: wrap;
+	}
+
+	.home-bloomberg-calendar-viz {
+		width: 100%;
+		max-width: 100%;
+		height: 148px;
+		margin-top: 12px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		overflow: hidden;
+		box-sizing: border-box;
 	}
 
 	.home-bloomberg-relay-note {
@@ -318,6 +438,180 @@ const {
 
 	.home-bloomberg-chat-foot {
 		margin-top: auto;
+	}
+
+	/* Framer-style “features” strip inside chat panel */
+	.home-bbc-feature-surface {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin-bottom: 4px;
+	}
+
+	.home-bbc-callout {
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(0, 0, 0, 0.28);
+		padding: 14px 16px;
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+	}
+
+	.home-bbc-callout-eyebrow {
+		margin: 0 0 6px;
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.home-bbc-callout-title {
+		margin: 0 0 8px;
+		font-size: 1.05rem;
+		font-weight: 600;
+		line-height: 1.25;
+		color: var(--text);
+	}
+
+	.home-bbc-callout-body {
+		margin: 0;
+		font-size: 0.88rem;
+		line-height: 1.55;
+	}
+
+	.home-bbc-tile-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		overflow: hidden;
+		background: rgba(0, 0, 0, 0.2);
+	}
+
+	.home-bbc-tile {
+		min-height: 52px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 8px 6px;
+		border-right: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		box-sizing: border-box;
+	}
+
+	.home-bbc-tile:nth-child(3n) {
+		border-right: none;
+	}
+
+	.home-bbc-tile:nth-child(n + 4) {
+		border-bottom: none;
+	}
+
+	.home-bbc-tile--more .home-bbc-tile-label {
+		font-size: 0.68rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--soft);
+	}
+
+	.home-bbc-tile-label {
+		font-family: var(--font-mono);
+		font-size: 0.76rem;
+		font-weight: 600;
+		color: rgba(230, 236, 255, 0.82);
+		text-align: center;
+		line-height: 1.25;
+	}
+
+	.home-bbc-snippet-row {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr);
+		gap: 0;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		overflow: hidden;
+		background: rgba(0, 0, 0, 0.22);
+	}
+
+	.home-bbc-snippet {
+		margin: 0;
+		min-height: 52px;
+		padding: 8px 6px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font: inherit;
+		cursor: pointer;
+		color: rgba(230, 236, 255, 0.88);
+		background: rgba(255, 255, 255, 0.02);
+		border: none;
+		border-right: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+		transition:
+			background 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.home-bbc-snippet:last-child {
+		border-right: none;
+	}
+
+	.home-bbc-snippet:hover {
+		background: rgba(72, 224, 188, 0.08);
+		color: var(--accent);
+	}
+
+	.home-bbc-snippet:focus-visible {
+		outline: 2px solid rgba(72, 224, 188, 0.55);
+		outline-offset: -2px;
+		z-index: 1;
+	}
+
+	.home-bbc-snippet-k {
+		font-family: var(--font-mono);
+		font-size: 0.74rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+	}
+
+	.home-bbc-snippet--copy {
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: rgba(230, 236, 255, 0.9);
+	}
+
+	.home-bbc-diagram {
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.25);
+		overflow: hidden;
+		line-height: 0;
+	}
+
+	.home-bbc-diagram-svg {
+		display: block;
+		width: 100%;
+		height: auto;
+		max-height: 220px;
+	}
+
+	@media (max-width: 520px) {
+		.home-bbc-snippet-row {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.home-bbc-snippet:nth-child(2n) {
+			border-right: none;
+		}
+
+		.home-bbc-snippet--copy {
+			grid-column: 1 / -1;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+		}
 	}
 
 	@media (max-width: 1100px) {

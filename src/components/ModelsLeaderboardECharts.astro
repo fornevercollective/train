@@ -1,0 +1,61 @@
+---
+/** Chart panels only; parent page supplies `#models-leaderboard-root` + `data-payload` + mount script. */
+---
+
+<div class="models-lb-charts" role="presentation">
+	<div class="models-lb-panel models-lb-panel--scatter">
+		<p class="models-lb-panel-kicker">Intelligence vs cost (blend)</p>
+		<div class="models-lb-chart" data-models-chart="intel-blend"></div>
+	</div>
+	<div class="models-lb-panel models-lb-panel--speed">
+		<p class="models-lb-panel-kicker">Speed strip</p>
+		<div class="models-lb-chart" data-models-chart="speed"></div>
+	</div>
+</div>
+
+<style>
+	.models-lb-charts {
+		display: grid;
+		grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+		gap: 16px;
+		align-items: stretch;
+		margin-top: 18px;
+	}
+
+	.models-lb-panel {
+		padding: 14px 14px 12px;
+		border-radius: 16px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		min-height: 0;
+	}
+
+	.models-lb-panel-kicker {
+		margin: 0 0 8px;
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--soft);
+	}
+
+	.models-lb-chart {
+		width: 100%;
+		height: 280px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+	}
+
+	.models-lb-panel--speed .models-lb-chart {
+		height: 300px;
+	}
+
+	@media (max-width: 900px) {
+		.models-lb-charts {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

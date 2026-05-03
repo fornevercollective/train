@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeaderEyebrowRail from '../components/HeaderEyebrowRail.astro';
+import HomePageViz from '../components/HomePageViz.astro';
 import HomeLiveAnalysis from '../components/HomeLiveAnalysis.astro';
 import HomeStatsECharts from '../components/HomeStatsECharts.astro';
 import PredictionsGamePanel from '../components/PredictionsGamePanel.astro';
@@ -122,6 +122,76 @@ function priorityCardModel(item: { status: string; rows: string; coverage: strin
 	};
 }
 
+function priorityHash(s: string): number {
+	let h = 0;
+	for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+	return Math.abs(h);
+}
+
+type PriorityQuoteBand = { min: number; max: number; decimals: number; ccy: string; venue: string };
+
+function priorityQuoteBand(symbol: string): PriorityQuoteBand {
+	const u = symbol.toUpperCase();
+	if (u.includes('MAJOR-CRYPTO')) return { min: 3200, max: 4200, decimals: 2, ccy: 'USD', venue: 'IDX' };
+	if (u.includes('BTC')) return { min: 92_000, max: 108_000, decimals: 2, ccy: 'USD', venue: 'COIN' };
+	if (u.startsWith('GC')) return { min: 2380, max: 2660, decimals: 1, ccy: 'USD', venue: 'COMEX' };
+	if (u.startsWith('SI')) return { min: 28.5, max: 35.2, decimals: 3, ccy: 'USD', venue: 'COMEX' };
+	if (u.startsWith('PL')) return { min: 980, max: 1180, decimals: 1, ccy: 'USD', venue: 'NYMEX' };
+	if (u.startsWith('PA')) return { min: 940, max: 1150, decimals: 1, ccy: 'USD', venue: 'NYMEX' };
+	if (u.startsWith('HG')) return { min: 4.05, max: 5.35, decimals: 3, ccy: 'USD', venue: 'COMEX' };
+	if (u.startsWith('ALI')) return { min: 2280, max: 2680, decimals: 2, ccy: 'USD', venue: 'LME' };
+	if (u.startsWith('ES')) return { min: 5100, max: 5950, decimals: 2, ccy: 'USD', venue: 'CME' };
+	if (u === 'QQQ') return { min: 420, max: 560, decimals: 2, ccy: 'USD', venue: 'NASDAQ' };
+	if (u.startsWith('^')) return { min: 4800, max: 6200, decimals: 2, ccy: 'USD', venue: 'SPOT' };
+	if (!u.includes('=') && u.length <= 6) return { min: 140, max: 520, decimals: 2, ccy: 'USD', venue: 'NASDAQ' };
+	return { min: 22, max: 220, decimals: 2, ccy: 'USD', venue: 'FUT' };
+}
+
+function roundPrice(n: number, decimals: number): number {
+	const p = 10 ** decimals;
+	return Math.round(n * p) / p;
+}
+
+/** TradingView-style header numbers — deterministic from symbol + desk depth; not live market data. */
+function priorityTvQuote(item: { symbol: string; coverage: string }, model: { depthPct: number }) {
+	const band = priorityQuoteBand(item.symbol);
+	const t = (priorityHash(item.symbol) % 100_001) / 100_000;
+	const last = roundPrice(band.min + t * (band.max - band.min), band.decimals);
+	const j = (priorityHash(`${item.symbol}|d`) % 100_001) / 100_000;
+	const deltaPct = ((j * 2 - 1) * 0.55 * model.depthPct) / 100;
+	const prev = last / (1 + deltaPct / 100);
+	const chgPts = roundPrice(last - prev, Math.min(3, band.decimals + 1));
+	const chgPct = roundPrice(deltaPct, 2);
+	const up = deltaPct >= 0;
+	const m = item.coverage.match(/->\s*(\d{4})-(\d{2})/);
+	let dateLabel = 'Apr 30, 2026';
+	let timeLabel = '13:59';
+	if (m) {
+		const y = Number(m[1]);
+		const mo = Number(m[2]) - 1;
+		const d = new Date(y, mo, 28);
+		dateLabel = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+		timeLabel = `${11 + (priorityHash(`${item.symbol}|t`) % 6)}:59`;
+	}
+	const lastStr = last.toLocaleString('en-US', {
+		minimumFractionDigits: band.decimals,
+		maximumFractionDigits: band.decimals,
+	});
+	const chgPtsAbs = Math.abs(chgPts).toLocaleString('en-US', { maximumFractionDigits: 3 });
+	const chgPctAbs = Math.abs(chgPct).toFixed(2);
+	return {
+		lastStr,
+		ccy: band.ccy,
+		venue: band.venue,
+		sym: item.symbol,
+		chgPtsStr: up ? `+${chgPtsAbs}` : `-${chgPtsAbs}`,
+		chgPctStr: up ? `+${chgPctAbs}%` : `-${chgPctAbs}%`,
+		up,
+		dateLabel,
+		timeLabel,
+	};
+}
+
 const topologyRoutes = [
 	{
 		venue: 'CME / Aurora futures',
@@ -184,6 +254,7 @@ const topologyRoutes = [
 		note: 'Pair Hong Kong and Singapore to absorb regional outages and keep APAC fanout tight.',
 	},
 ];
+const topologyVizPayload = topologyRoutes.map((r) => ({ venue: r.venue, pop: r.pop }));
 const livePipelineStages = [
 	{
 		stage: 'Venue ingress',
@@ -426,7 +497,6 @@ const layoutSubtitle =
 	pageClass="page-home"
 	eyebrow={layoutEyebrow}
 	subtitle={layoutSubtitle}
-	eyebrowInHeader={false}
 >
 	<section class="container home-shell">
 		<header class="header">
@@ -438,10 +508,6 @@ const layoutSubtitle =
 				</p>
 			</div>
 		</header>
-
-		<div class="home-eyebrow-slot card">
-			<HeaderEyebrowRail variant="beside-search" eyebrow={layoutEyebrow} subtitle={layoutSubtitle} />
-		</div>
 
 		<div class="home-topBand">
 			<article class="card home-hero">
@@ -514,32 +580,6 @@ const layoutSubtitle =
 					<span class="home-stats-chevron" aria-hidden="true" />
 				</summary>
 				<div class="home-stats-body">
-					<div class="stats-grid">
-						<div class="stat-block">
-							<span class="muted">Listings</span>
-							<strong>{summary.totalSymbols.toLocaleString()}</strong>
-						</div>
-						<div class="stat-block">
-							<span class="muted">Countries</span>
-							<strong>{summary.uniqueCountries.toLocaleString()}</strong>
-						</div>
-						<div class="stat-block">
-							<span class="muted">Exchanges</span>
-							<strong>{summary.uniqueExchanges.toLocaleString()}</strong>
-						</div>
-						<div class="stat-block">
-							<span class="muted">Company dates</span>
-							<strong>{summary.withCompanyCreation.toLocaleString()}</strong>
-						</div>
-						<div class="stat-block">
-							<span class="muted">IPO dates</span>
-							<strong>{summary.withIpoCreation.toLocaleString()}</strong>
-						</div>
-						<div class="stat-block">
-							<span class="muted">Complete coverage</span>
-							<strong>{summary.dateCoverage.complete.toLocaleString()}</strong>
-						</div>
-					</div>
 					<HomeStatsECharts
 						totalSymbols={summary.totalSymbols}
 						uniqueCountries={summary.uniqueCountries}
@@ -552,14 +592,6 @@ const layoutSubtitle =
 						stockName={summary.securityTypes[0]?.name ?? 'Stock'}
 						etfName={summary.securityTypes[1]?.name ?? 'ETF'}
 					/>
-					<div class="stats-foot">
-						<span class="badge success">
-							{summary.securityTypes[0]?.name}: {summary.securityTypes[0]?.count.toLocaleString()}
-						</span>
-						<span class="badge muted">
-							{summary.securityTypes[1]?.name}: {summary.securityTypes[1]?.count.toLocaleString()}
-						</span>
-					</div>
 				</div>
 			</details>
 		</div>
@@ -584,6 +616,13 @@ const layoutSubtitle =
 						<div class="name">Most represented jurisdictions in the dataset.</div>
 					</div>
 				</div>
+				<div
+					id="home-facet-countries-viz"
+					class="home-facet-viz"
+					data-payload={encodeURIComponent(JSON.stringify(topCountries))}
+					role="img"
+					aria-label="Top countries graph (catalog counts)"
+				></div>
 				<div class="facet-list">
 					{
 						topCountries.map((item) => (
@@ -602,6 +641,13 @@ const layoutSubtitle =
 						<div class="name">Quick pivots into the busiest listing venues.</div>
 					</div>
 				</div>
+				<div
+					id="home-facet-exchanges-viz"
+					class="home-facet-viz"
+					data-payload={encodeURIComponent(JSON.stringify(topExchanges))}
+					role="img"
+					aria-label="Top exchanges affinity matrix (catalog counts)"
+				></div>
 				<div class="facet-list">
 					{
 						topExchanges.map((item) => (
@@ -620,6 +666,13 @@ const layoutSubtitle =
 						<div class="name">Fast routes into sector-based slices of the directory.</div>
 					</div>
 				</div>
+				<div
+					id="home-facet-sectors-viz"
+					class="home-facet-viz"
+					data-payload={encodeURIComponent(JSON.stringify(topSectors))}
+					role="img"
+					aria-label="Top sectors parallel coordinates (catalog counts)"
+				></div>
 				<div class="facet-list">
 					{
 						topSectors.map((item) => (
@@ -633,7 +686,7 @@ const layoutSubtitle =
 		</section>
 
 		<section class="section-card card priority-section" id="home-priority-markets">
-			<div class="section-heading">
+			<div class="section-heading priority-section-heading">
 				<div>
 					<div class="kicker">Priority markets</div>
 					<h2>Put metals and the key market presets up front</h2>
@@ -643,6 +696,12 @@ const layoutSubtitle =
 						get a dedicated top-level block instead of being buried below the listing directory.
 					</p>
 				</div>
+				<div
+					id="home-viz-priority-polar"
+					class="home-priority-polar-viz"
+					role="img"
+					aria-label="Illustrative weekly desk intensity (polar punch card)"
+				></div>
 			</div>
 
 			<div class="priority-grid">
@@ -662,6 +721,7 @@ const layoutSubtitle =
 										const tvSymbol = YAHOO_TO_TRADINGVIEW[item.symbol];
 										const liveHref = `listing/?t=${encodeURIComponent(item.symbol)}&label=${encodeURIComponent(item.name)}`;
 										const model = priorityCardModel(item);
+										const tvQuote = priorityTvQuote(item, model);
 										const icon = priorityIcon(item.symbol, group.title);
 										const statusClass =
 											item.status === 'strong' || item.status === 'good'
@@ -671,6 +731,33 @@ const layoutSubtitle =
 													: 'muted';
 										return (
 											<article class="priority-item">
+												<div
+													class="priority-tv-quote"
+													role="group"
+													aria-label={`Illustrative last price for ${item.name} (not live)`}
+												>
+													<div class="priority-tv-quoteTop">
+														<div class="priority-tv-priceCluster">
+															<span class="priority-tv-last">{tvQuote.lastStr}</span>
+															<span class="priority-tv-ccy">{tvQuote.ccy}</span>
+															<span class="priority-tv-slash" aria-hidden="true">/</span>
+															<span class="priority-tv-sym">{tvQuote.sym}</span>
+															<span class="priority-tv-venueBadge">{tvQuote.venue}</span>
+														</div>
+														<div
+															class:list={[
+																'priority-tv-delta',
+																tvQuote.up ? 'priority-tv-delta--up' : 'priority-tv-delta--down',
+															]}
+														>
+															<span class="priority-tv-deltaPts">{tvQuote.chgPtsStr}</span>
+															<span class="priority-tv-deltaPct">{tvQuote.chgPctStr}</span>
+														</div>
+													</div>
+													<p class="priority-tv-session muted">
+														At close at {tvQuote.dateLabel}, {tvQuote.timeLabel} GMT-7 · Erika snapshot
+													</p>
+												</div>
 												<a class="priority-item-main" href={liveHref}>
 													<div class="priority-item-cardtop">
 														<span class="priority-item-icon" aria-hidden="true">
@@ -717,6 +804,22 @@ const layoutSubtitle =
 												{tvSymbol ? (
 													<div class="priority-item-tv">
 														<p class="priority-live-caption muted">Live snapshot · hourly interval</p>
+														<div
+															class="priority-snapshot-charts"
+															data-home-priority-snapshot
+															data-payload={encodeURIComponent(
+																JSON.stringify({
+																	symbol: item.symbol,
+																	name: item.name,
+																	depthPct: model.depthPct,
+																	altPct: model.altPct,
+																	status: item.status,
+																}),
+															)}
+														>
+															<div class="priority-chart-river" data-home-priority-river></div>
+															<div class="priority-chart-radar" data-home-priority-radar></div>
+														</div>
 														<div class="priority-tv-frame">
 															<iframe
 																class="priority-live-iframe"
@@ -761,6 +864,36 @@ const layoutSubtitle =
 						</div>
 					</summary>
 					<div class="collapse-body">
+						<div
+							id="topology-viz-root"
+							class="topology-viz-root"
+							data-payload={encodeURIComponent(JSON.stringify(topologyVizPayload))}
+							aria-label="Illustrative hop topology: relay gauge, venue graph, animated paths"
+						>
+							<div class="topology-viz-row">
+								<div id="topology-viz-gauge" class="topology-viz-gauge" aria-hidden="true"></div>
+								<div id="topology-viz-geo" class="topology-viz-geo" aria-hidden="true"></div>
+							</div>
+							<div id="topology-viz-flights" class="topology-viz-flights" aria-hidden="true"></div>
+							<p class="topology-viz-note muted">
+								Static ECharts metaphors —{' '}
+								<a
+									href="https://echarts.apache.org/examples/en/editor.html?c=gauge-ring"
+									target="_blank"
+									rel="noopener noreferrer">gauge ring</a>
+								,{' '}
+								<a
+									href="https://echarts.apache.org/examples/en/editor.html?c=geo-graph"
+									target="_blank"
+									rel="noopener noreferrer">geo-style graph</a>
+								, and a 2D take on{' '}
+								<a
+									href="https://echarts.apache.org/examples/en/editor.html?c=lines3d-flights-gl&gl=1"
+									target="_blank"
+									rel="noopener noreferrer">flight paths</a>
+								(not WebGL 3D here).
+							</p>
+						</div>
 						<div class="topology-table-wrap">
 							<table class="topology-table">
 								<thead>
@@ -1045,6 +1178,8 @@ const layoutSubtitle =
 				}
 			</div>
 		</section>
+
+		<HomePageViz />
 	</section>
 </Layout>
 
@@ -1053,17 +1188,6 @@ const layoutSubtitle =
 		display: flex;
 		flex-direction: column;
 		gap: 18px;
-	}
-
-	.home-eyebrow-slot.card {
-		padding: 14px 16px;
-	}
-
-	.home-eyebrow-slot .headerEyebrowRow--railBesideSearch {
-		max-width: none;
-		flex: 1 1 auto;
-		width: 100%;
-		align-self: stretch;
 	}
 
 	.header {
@@ -1219,18 +1343,6 @@ const layoutSubtitle =
 		padding: 0 16px 16px;
 	}
 
-	.home-stats-body .stats-grid {
-		margin-top: 0;
-	}
-
-	.stats-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 12px;
-		margin-top: 14px;
-	}
-
-	.stat-block,
 	.featured-card,
 	.result-card,
 	.result-empty {
@@ -1240,25 +1352,82 @@ const layoutSubtitle =
 		border: 1px solid rgba(255, 255, 255, 0.1);
 	}
 
-	.stat-block span,
-	.stat-block strong {
-		display: block;
-	}
-
-	.stat-block strong {
-		margin-top: 6px;
-		font-size: 1.7rem;
-		font-weight: 700;
-	}
-
-	.stats-foot {
-		margin-top: 12px;
-	}
-
 	.facet-strip {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 16px;
+	}
+
+	.home-facet-viz {
+		margin-top: 12px;
+		height: 200px;
+		width: 100%;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.priority-section-heading {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(160px, 260px);
+		gap: 16px;
+		align-items: stretch;
+	}
+
+	.home-priority-polar-viz {
+		min-height: 200px;
+		height: 220px;
+		width: 100%;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.priority-snapshot-charts {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 8px;
+		padding: 8px 10px 4px;
+	}
+
+	.priority-chart-river,
+	.priority-chart-radar {
+		min-height: 108px;
+		height: 108px;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.28);
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	@media (max-width: 900px) {
+		.priority-section-heading {
+			grid-template-columns: 1fr;
+		}
+
+		.home-priority-polar-viz {
+			max-width: 420px;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.home-facet-viz {
+			height: 180px;
+		}
+
+		.priority-snapshot-charts {
+			grid-template-columns: 1fr;
+		}
+
+		.priority-chart-river,
+		.priority-chart-radar {
+			height: 120px;
+		}
 	}
 
 	.facet-card,
@@ -1466,6 +1635,100 @@ const layoutSubtitle =
 		background: rgba(0, 0, 0, 0.22);
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		min-height: 100%;
+	}
+
+	/* TradingView-style quote cluster (illustrative; not streaming quotes) */
+	.priority-tv-quote {
+		padding: 10px 12px 12px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.35);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.priority-tv-quoteTop {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 10px 14px;
+	}
+
+	.priority-tv-priceCluster {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 4px 6px;
+		min-width: 0;
+		font-family: var(--font-mono);
+		line-height: 1.15;
+		color: var(--text);
+	}
+
+	.priority-tv-last {
+		font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+		font-weight: 600;
+		letter-spacing: -0.03em;
+	}
+
+	.priority-tv-ccy {
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: rgba(230, 236, 255, 0.72);
+		text-transform: uppercase;
+	}
+
+	.priority-tv-slash {
+		color: rgba(255, 255, 255, 0.28);
+		font-size: 0.85rem;
+	}
+
+	.priority-tv-sym {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: rgba(230, 236, 255, 0.88);
+	}
+
+	.priority-tv-venueBadge {
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(180, 200, 230, 0.85);
+		padding: 2px 6px;
+		border-radius: 6px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	.priority-tv-delta {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 8px;
+		flex-shrink: 0;
+		font-family: var(--font-mono);
+		font-size: 0.88rem;
+		font-weight: 600;
+	}
+
+	.priority-tv-delta--up {
+		color: #34d399;
+	}
+
+	.priority-tv-delta--down {
+		color: #fb7185;
+	}
+
+	.priority-tv-deltaPct {
+		font-size: 0.82rem;
+		opacity: 0.95;
+	}
+
+	.priority-tv-session {
+		margin: 8px 0 0;
+		font-size: 0.72rem;
+		line-height: 1.45;
+		font-family: var(--font-mono);
+		letter-spacing: 0.04em;
 	}
 
 	.priority-item-main {
@@ -1681,6 +1944,70 @@ const layoutSubtitle =
 		line-height: 1.58;
 	}
 
+	.topology-viz-root {
+		margin-top: 4px;
+		padding-bottom: 8px;
+	}
+
+	.topology-viz-row {
+		display: grid;
+		grid-template-columns: minmax(120px, 160px) minmax(0, 1fr);
+		gap: 12px;
+		align-items: stretch;
+	}
+
+	.topology-viz-gauge {
+		min-height: 200px;
+		height: 200px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		overflow: hidden;
+	}
+
+	.topology-viz-geo {
+		min-height: 200px;
+		height: 200px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		overflow: hidden;
+	}
+
+	.topology-viz-flights {
+		margin-top: 10px;
+		min-height: 160px;
+		height: 180px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		overflow: hidden;
+	}
+
+	.topology-viz-note {
+		margin: 10px 0 0;
+		font-size: 0.78rem;
+		line-height: 1.45;
+	}
+
+	.topology-viz-note a {
+		color: var(--accent);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	@media (max-width: 720px) {
+		.topology-viz-row {
+			grid-template-columns: 1fr;
+		}
+
+		.topology-viz-gauge {
+			max-width: 220px;
+			margin: 0 auto;
+			width: 100%;
+		}
+	}
+
 	.topology-table-wrap {
 		margin-top: 14px;
 		overflow-x: auto;
@@ -1841,7 +2168,6 @@ const layoutSubtitle =
 		.junction-grid,
 		.stack-grid,
 		.featured-grid,
-		.stats-grid,
 		.requirements-list,
 		.checklist-items,
 		.signal-metrics {

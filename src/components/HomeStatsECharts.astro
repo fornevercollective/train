@@ -55,9 +55,64 @@ const payload: HomeStatsEChartsPayload = {
 	class="home-echarts-mount"
 	id="home-stats-echarts"
 	role="region"
-	aria-label="Coverage charts: horizontal bars and security type split"
+	aria-label="Coverage snapshot: metrics, radar profile, bar scale, and security split"
 	data-payload={encodeURIComponent(JSON.stringify(payload))}
 >
+	<div class="home-stats-heroRow">
+		<div class="home-stats-metrics">
+			<div class="stats-grid">
+				<div class="stat-block">
+					<span class="muted">Listings</span>
+					<strong>{totalSymbols.toLocaleString()}</strong>
+				</div>
+				<div class="stat-block">
+					<span class="muted">Countries</span>
+					<strong>{uniqueCountries.toLocaleString()}</strong>
+				</div>
+				<div class="stat-block">
+					<span class="muted">Exchanges</span>
+					<strong>{uniqueExchanges.toLocaleString()}</strong>
+				</div>
+				<div class="stat-block">
+					<span class="muted">Company dates</span>
+					<strong>{withCompanyCreation.toLocaleString()}</strong>
+				</div>
+				<div class="stat-block">
+					<span class="muted">IPO dates</span>
+					<strong>{withIpoCreation.toLocaleString()}</strong>
+				</div>
+				<div class="stat-block">
+					<span class="muted">Complete coverage</span>
+					<strong>{completeCoverage.toLocaleString()}</strong>
+				</div>
+			</div>
+			<div class="stats-foot">
+				<span class="badge success">
+					{stockName}: {stockCount.toLocaleString()}
+				</span>
+				<span class="badge muted">
+					{etfName}: {etfCount.toLocaleString()}
+				</span>
+			</div>
+		</div>
+		<div class="home-stats-radarCol">
+			<p class="home-stats-radar-kicker">Coverage profile</p>
+			<p class="home-stats-radar-note muted">
+				Same six dimensions as the grid, normalized to a radar (see{' '}
+				<a href="https://echarts.apache.org/examples/en/editor.html?c=radar" target="_blank" rel="noopener noreferrer"
+					>ECharts radar</a
+				>).
+			</p>
+			<div
+				class="home-echarts-panel home-echarts-panel--radar"
+				data-home-echarts-radar
+				role="img"
+				aria-label="Radar chart of catalog coverage dimensions, scaled relative to the largest metric"
+			>
+			</div>
+		</div>
+	</div>
+
 	<div class="home-echarts-grid">
 		<div class="home-echarts-panel home-echarts-panel--bar" data-home-echarts-bar></div>
 		<div class="home-echarts-panel home-echarts-panel--pie" data-home-echarts-pie></div>
@@ -81,9 +136,81 @@ const payload: HomeStatsEChartsPayload = {
 
 <style>
 	.home-echarts-mount {
-		margin-top: 14px;
-		padding-top: 14px;
-		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		margin-top: 0;
+		padding-top: 0;
+		border-top: none;
+	}
+
+	.home-stats-heroRow {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+		gap: 20px;
+		align-items: stretch;
+	}
+
+	.home-stats-metrics {
+		min-width: 0;
+	}
+
+	.home-stats-radarCol {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+	}
+
+	.home-stats-radar-kicker {
+		margin: 0 0 4px;
+		font-family: var(--font-mono, ui-monospace, monospace);
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--soft, rgba(255, 255, 255, 0.55));
+	}
+
+	.home-stats-radar-note {
+		margin: 0 0 8px;
+		font-size: 0.72rem;
+		line-height: 1.45;
+		max-width: 32ch;
+	}
+
+	.home-stats-radar-note a {
+		color: var(--accent, #48e0bc);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 0;
+	}
+
+	.stat-block {
+		padding: 12px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.stat-block span,
+	.stat-block strong {
+		display: block;
+	}
+
+	.stat-block strong {
+		margin-top: 6px;
+		font-size: 1.7rem;
+		font-weight: 700;
+	}
+
+	.stats-foot {
+		margin-top: 12px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
 	}
 
 	.home-echarts-grid {
@@ -91,6 +218,9 @@ const payload: HomeStatsEChartsPayload = {
 		grid-template-columns: minmax(0, 1.35fr) minmax(200px, 0.85fr);
 		gap: 14px;
 		align-items: stretch;
+		margin-top: 16px;
+		padding-top: 16px;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
 	}
 
 	.home-echarts-panel {
@@ -102,7 +232,38 @@ const payload: HomeStatsEChartsPayload = {
 		overflow: hidden;
 	}
 
+	.home-echarts-panel--radar {
+		flex: 1;
+		min-height: 248px;
+		height: auto;
+		aspect-ratio: 1;
+		max-height: min(280px, 42vw);
+		width: 100%;
+		margin-top: 0;
+	}
+
+	@media (max-width: 900px) {
+		.home-stats-heroRow {
+			grid-template-columns: 1fr;
+		}
+
+		.home-stats-radarCol {
+			order: -1;
+		}
+
+		.home-echarts-panel--radar {
+			max-height: 300px;
+			max-width: 300px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
 	@media (max-width: 720px) {
+		.stats-grid {
+			grid-template-columns: 1fr;
+		}
+
 		.home-echarts-grid {
 			grid-template-columns: 1fr;
 		}

@@ -13,8 +13,8 @@ interface Props {
 	/** FinanceAI-style left rail (mirrors Game `AppSidebar`). */
 	showConsoleSidebar?: boolean;
 	/**
-	 * When false (with directory search), the eyebrow rail is omitted from the fixed header so pages
-	 * can render it in main content (e.g. home above the hero).
+	 * When false (default, with directory search), the eyebrow rail sits below the fixed header and
+	 * above `<main>` (same band as the home page eyebrow slot). Set true to pin it inside the header top band.
 	 */
 	eyebrowInHeader?: boolean;
 }
@@ -27,7 +27,7 @@ const {
 	subtitle = 'Searchable listing intelligence built from the Erika dataset.',
 	showHeaderDirectorySearch = true,
 	showConsoleSidebar = true,
-	eyebrowInHeader = true,
+	eyebrowInHeader = false,
 } = Astro.props;
 
 const showEyebrowInHeader = !showHeaderDirectorySearch || eyebrowInHeader;
@@ -41,11 +41,13 @@ const navActive = {
 		!path.includes('/directory') &&
 		!path.includes('/featured') &&
 		!path.includes('/predictions') &&
+		!path.includes('/models') &&
 		!path.includes('/listing') &&
 		!path.includes('/raw') &&
 		!path.includes('/live-captions'),
 	featured: path.includes('/featured'),
 	predictions: path.includes('/predictions'),
+	models: path.includes('/models'),
 	directory: path.includes('/directory'),
 	listing: path.includes('/listing'),
 	raw: path.includes('/raw'),
@@ -97,25 +99,44 @@ const navActive = {
 				{
 					showHeaderDirectorySearch ? (
 						<div class="headerBannerTopBand">
-							<div class="headerBannerSearchRow">
+							<div class="headerBannerSearchRow headerBannerSearchRow--primary">
+								{
+									showConsoleSidebar ? (
+										<button
+											type="button"
+											class="train-sidebar-toggle train-sidebar-toggle--header"
+											id="train-sidebar-toggle"
+											aria-expanded="true"
+											aria-controls="train-sidebar-rail"
+											title="Collapse sidebar"
+										>
+											<svg
+												class="train-sidebar-toggle-icon"
+												width="18"
+												height="18"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												aria-hidden="true"
+											>
+												<polyline points="15 6 9 12 15 18" />
+											</svg>
+										</button>
+									) : null
+								}
 								<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
 									<span class="brand-mark brand-mark--header">E</span>
 								</a>
-								<div class="headerBannerSearch headerBannerSearch--top">
-									<div class="headerBannerSearch-labelRow">
-										<label class="headerBannerSearch-label" for="header-filter-query">
-											Directory search
-										</label>
-										<h1 class="site-title">{title}</h1>
-									</div>
-									<input
-										id="header-filter-query"
-										class="headerBannerSearch-input"
-										type="search"
-										placeholder="Ticker, company, exchange, country, alias…"
-										autocomplete="off"
-									/>
-								</div>
+								<input
+									id="header-filter-query"
+									class="headerBannerSearch-input headerBannerSearch-input--toolbar"
+									type="search"
+									placeholder="Ticker, company, exchange, country, alias…"
+									autocomplete="off"
+								/>
 								<button
 									type="button"
 									class="header-site-nav-toggle"
@@ -141,12 +162,49 @@ const navActive = {
 									<span class="header-site-nav-toggle-text">Menu</span>
 								</button>
 							</div>
+							<div class="headerBannerSearchMetaRow" aria-label="Directory page context">
+								<label class="headerBannerSearch-label" for="header-filter-query">
+									Directory search
+								</label>
+								<h1 class="site-title">{title}</h1>
+							</div>
 							{showEyebrowInHeader ? (
 								<HeaderEyebrowRail variant="beside-search" eyebrow={eyebrow} subtitle={subtitle} />
 							) : null}
 						</div>
 					) : showEyebrowInHeader ? (
-						<HeaderEyebrowRail variant="standalone" eyebrow={eyebrow} subtitle={subtitle} title={title} baseUrl={baseUrl} />
+						<div class="headerBannerTopBand headerBannerTopBand--standalone">
+							{
+								showConsoleSidebar ? (
+									<button
+										type="button"
+										class="train-sidebar-toggle train-sidebar-toggle--header"
+										id="train-sidebar-toggle"
+										aria-expanded="true"
+										aria-controls="train-sidebar-rail"
+										title="Collapse sidebar"
+									>
+										<svg
+											class="train-sidebar-toggle-icon"
+											width="18"
+											height="18"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											aria-hidden="true"
+										>
+											<polyline points="15 6 9 12 15 18" />
+										</svg>
+									</button>
+								) : null
+							}
+							<div class="headerBannerTopBand-standaloneFill">
+								<HeaderEyebrowRail variant="standalone" eyebrow={eyebrow} subtitle={subtitle} title={title} baseUrl={baseUrl} />
+							</div>
+						</div>
 					) : null}
 				<div id="header-site-nav-panel" class="header-site-nav-panel">
 				<nav
@@ -166,6 +224,9 @@ const navActive = {
 							href={`${baseUrl}predictions/`}
 						>
 							Predictions
+						</a>
+						<a class:list={['site-nav-pill', { 'is-active': navActive.models }]} href={`${baseUrl}models/`}>
+							Models
 						</a>
 						<a
 							class:list={['site-nav-pill', { 'is-active': navActive.directory }]}
@@ -212,6 +273,13 @@ const navActive = {
 				</div>
 			</header>
 			<div class="page-bodyGrid">
+				{
+					eyebrowInMainChrome ? (
+						<div class="page-eyebrow-slot card">
+							<HeaderEyebrowRail variant="beside-search" eyebrow={eyebrow} subtitle={subtitle} />
+						</div>
+					) : null
+				}
 				<main class="wrap">
 					<slot />
 				</main>
@@ -450,7 +518,8 @@ const navActive = {
 	}
 
 	body.has-train-console-sidebar.train-sidebar-collapsed {
-		--train-sidebar-peek: 44px;
+		/* Rail tucks away fully; collapse control lives in the header search row. */
+		--train-sidebar-peek: 0px;
 	}
 
 	@media (max-width: 900px) {
@@ -516,6 +585,31 @@ const navActive = {
 		transition: padding-top 0.22s ease;
 	}
 
+	body.header-eyebrow-in-main .page-bodyGrid {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	.page-eyebrow-slot.card {
+		padding: 14px 16px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	body:not(.has-train-console-sidebar) .page-eyebrow-slot {
+		max-width: 1380px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.page-eyebrow-slot .headerEyebrowRow--railBesideSearch {
+		max-width: none;
+		flex: 1 1 auto;
+		width: 100%;
+		align-self: stretch;
+	}
+
 	/* Directory-search header height tiers (eyebrow in header vs main; nav panel expanded vs collapsed). */
 	body.has-header-directory-search .page-bodyGrid {
 		padding-top: 13rem;
@@ -548,7 +642,8 @@ const navActive = {
 			align-items: stretch;
 		}
 
-		.headerBannerTopBand .headerBannerSearchRow,
+		.headerBannerTopBand .headerBannerSearchRow--primary,
+		.headerBannerTopBand .headerBannerSearchMetaRow,
 		.headerBannerTopBand .headerEyebrowRow--railBesideSearch {
 			max-width: 100%;
 			width: 100%;
@@ -1038,10 +1133,24 @@ const navActive = {
 		flex-wrap: wrap;
 	}
 
-	.headerBannerTopBand .headerBannerSearchRow {
-		flex: 1 1 min(100%, 440px);
+	.headerBannerTopBand .headerBannerSearchRow--primary,
+	.headerBannerTopBand .headerBannerSearchMetaRow {
+		flex: 1 1 100%;
 		min-width: 0;
-		width: auto;
+		width: 100%;
+	}
+
+	.headerBannerTopBand--standalone {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 10px;
+		width: 100%;
+	}
+
+	.headerBannerTopBand-standaloneFill {
+		flex: 1;
+		min-width: 0;
 	}
 
 	.headerEyebrowRow--rail.headerEyebrowRow--railBesideSearch {
@@ -1068,48 +1177,73 @@ const navActive = {
 		align-self: stretch;
 	}
 
-	.headerBannerSearchRow {
+	.headerBannerSearchRow--primary {
 		display: flex;
+		flex-direction: row;
 		align-items: center;
-		gap: 12px;
+		gap: 10px;
 		width: 100%;
 		flex-wrap: nowrap;
 	}
 
-	.headerBannerSearchRow .headerBannerSearch--top {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.headerBannerSearch {
-		margin-top: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-		width: 100%;
-		max-width: min(100%, 42rem);
-	}
-
-	.headerBannerSearch--top {
-		max-width: 100%;
-	}
-
-	.headerBannerSearch-labelRow {
+	.headerBannerSearchMetaRow {
 		display: flex;
 		align-items: baseline;
 		justify-content: space-between;
 		gap: 12px 16px;
 		width: 100%;
 		flex-wrap: wrap;
+		margin-top: 8px;
 	}
 
-	.headerBannerSearch-labelRow .site-title {
+	.headerBannerSearchMetaRow .site-title {
 		margin: 0;
 		text-align: right;
 		flex: 0 1 auto;
 		min-width: 0;
 		font-size: clamp(1.05rem, 2.2vw, 1.55rem);
 		line-height: 1.2;
+	}
+
+	.headerBannerSearch-input--toolbar {
+		flex: 1 1 auto;
+		min-width: 0;
+		width: auto;
+		max-width: none;
+	}
+
+	.train-sidebar-toggle.train-sidebar-toggle--header {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 38px;
+		height: 38px;
+		padding: 0;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.82);
+		cursor: pointer;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.train-sidebar-toggle--header:hover {
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	.train-sidebar-toggle--header .train-sidebar-toggle-icon {
+		display: block;
+		transition: transform 0.22s ease;
+	}
+
+	body.train-sidebar-collapsed .train-sidebar-toggle--header .train-sidebar-toggle-icon {
+		transform: rotate(180deg);
 	}
 
 	.headerBannerSearch-label {
@@ -1145,12 +1279,11 @@ const navActive = {
 			0 0 0 3px rgba(180, 130, 255, 0.12);
 	}
 
-	body.header-collapsed .headerBannerSearch {
-		margin-top: 4px;
-		max-width: min(100%, 36rem);
+	body.header-collapsed .headerBannerSearchMetaRow .site-title {
+		display: none;
 	}
 
-	body.header-collapsed .headerBannerSearch-input {
+	body.header-collapsed .headerBannerSearch-input--toolbar {
 		min-height: 36px;
 		padding: 8px 10px;
 		font-size: 12.5px;
