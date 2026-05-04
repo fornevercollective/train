@@ -8,6 +8,8 @@ interface Props {
 	pageClass?: string;
 	eyebrow?: string;
 	subtitle?: string;
+	/** Optional attribution line in the eyebrow rail (defaults to Erika directory blurb). */
+	eyebrowAttribution?: string;
 	/** When true, show directory search in the banner (synced with #filter-query on the home page). */
 	showHeaderDirectorySearch?: boolean;
 	/** FinanceAI-style left rail (mirrors Game `AppSidebar`). */
@@ -25,6 +27,7 @@ const {
 	pageClass = 'page-home',
 	eyebrow = 'Static market directory',
 	subtitle = 'Searchable listing intelligence built from the Erika dataset.',
+	eyebrowAttribution,
 	showHeaderDirectorySearch = true,
 	showConsoleSidebar = true,
 	eyebrowInHeader = false,
@@ -44,7 +47,8 @@ const navActive = {
 		!path.includes('/models') &&
 		!path.includes('/listing') &&
 		!path.includes('/raw') &&
-		!path.includes('/live-captions'),
+		!path.includes('/live-captions') &&
+		!path.includes('/ledger'),
 	featured: path.includes('/featured'),
 	predictions: path.includes('/predictions'),
 	models: path.includes('/models'),
@@ -52,6 +56,7 @@ const navActive = {
 	listing: path.includes('/listing'),
 	raw: path.includes('/raw'),
 	liveCaptions: path.includes('/live-captions'),
+	ledger: path.includes('/ledger'),
 };
 ---
 
@@ -169,7 +174,7 @@ const navActive = {
 								<h1 class="site-title">{title}</h1>
 							</div>
 							{showEyebrowInHeader ? (
-								<HeaderEyebrowRail variant="beside-search" eyebrow={eyebrow} subtitle={subtitle} />
+								<HeaderEyebrowRail variant="beside-search" eyebrow={eyebrow} subtitle={subtitle} attribution={eyebrowAttribution} />
 							) : null}
 						</div>
 					) : showEyebrowInHeader ? (
@@ -202,7 +207,14 @@ const navActive = {
 								) : null
 							}
 							<div class="headerBannerTopBand-standaloneFill">
-								<HeaderEyebrowRail variant="standalone" eyebrow={eyebrow} subtitle={subtitle} title={title} baseUrl={baseUrl} />
+								<HeaderEyebrowRail
+									variant="standalone"
+									eyebrow={eyebrow}
+									subtitle={subtitle}
+									title={title}
+									baseUrl={baseUrl}
+									attribution={eyebrowAttribution}
+								/>
 							</div>
 						</div>
 					) : null}
@@ -244,6 +256,12 @@ const navActive = {
 						>
 							Captions
 						</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.ledger }]}
+							href={`${baseUrl}ledger/`}
+						>
+							Ledger
+						</a>
 						{
 							gameConsoleUrl ? (
 								<>
@@ -276,7 +294,7 @@ const navActive = {
 				{
 					eyebrowInMainChrome ? (
 						<div class="page-eyebrow-slot card">
-							<HeaderEyebrowRail variant="beside-search" eyebrow={eyebrow} subtitle={subtitle} />
+							<HeaderEyebrowRail variant="beside-search" eyebrow={eyebrow} subtitle={subtitle} attribution={eyebrowAttribution} />
 						</div>
 					) : null
 				}

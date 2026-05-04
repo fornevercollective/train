@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ModelsLeaderboardECharts from '../../components/ModelsLeaderboardECharts.astro';
+import ModelsTesterCompare from '../../components/ModelsTesterCompare.astro';
 import { benchmarkBlocks, llmDeskRows } from '../../lib/models-leaderboard-data';
 
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
@@ -13,6 +14,7 @@ const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
 	pageClass="page-models"
 	eyebrow="Models desk"
 	subtitle="Independent-style rankings and benchmark rows rendered statically on Train — not live vendor APIs or official benchmark scores."
+	eyebrowAttribution="Train models desk — static UI. For real side-by-side prompt evaluation in GitHub, enable GitHub Models on the repository (Compare tab, public preview)."
 >
 	<section class="container models-shell">
 		<header class="models-hero card">
@@ -23,9 +25,12 @@ const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
 				<a href="https://artificialanalysis.ai" target="_blank" rel="noopener noreferrer">Artificial Analysis</a>
 				{' '}(intelligence / speed / price storytelling) and the wide benchmark table pattern on{' '}
 				<a href="https://onyx.app/llm-leaderboard" target="_blank" rel="noopener noreferrer">Onyx’s LLM leaderboard</a>.
-				Numbers below are <strong>illustrative placeholders</strong> for UI development; replace with your own dataset or API when wiring a real desk.
+				Numbers below are <strong>illustrative placeholders</strong> for UI development; replace with your own dataset or API when wiring a real desk.{' '}
+				<a href="#model-tester">GitHub-style model tester mock →</a>
 			</p>
 		</header>
+
+		<ModelsTesterCompare />
 
 		<div
 			id="models-leaderboard-root"

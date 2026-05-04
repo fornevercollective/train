@@ -19,6 +19,7 @@ export type ChangelogEntry = {
 /** Order matches scroll position on the page (relay sits directly under the hero). */
 export const tocItems: TocItem[] = [
 	{ id: 'home-bloomberg-live', label: 'Bloomberg relay panel' },
+	{ id: 'live-captions-relay-tools', label: 'Relay tools & API' },
 	{ id: 'live-captions-how', label: 'How the desk works' },
 	{ id: 'live-captions-explorables', label: 'Interpretability & data' },
 	{ id: 'live-captions-paper', label: 'Working paper from captions' },
@@ -66,6 +67,12 @@ export const researchCards: ResearchCard[] = [
 ];
 
 export const changelogEntries: ChangelogEntry[] = [
+	{
+		date: 'May 4, 2026',
+		title: 'Relay inventory on desk page',
+		body:
+			'Live captions route now documents the full Bloomberg `live chat` surface: terminal harness, `run-local-agent.sh`, relay CLI flags, HTTP endpoints, and dashboard controls so GitHub Pages matches the local toolset.',
+	},
 	{
 		date: 'May 1, 2026',
 		title: 'Desk shell: captions + catalog cross-check',

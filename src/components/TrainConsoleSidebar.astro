@@ -9,6 +9,7 @@ interface NavActive {
 	listing: boolean;
 	raw: boolean;
 	liveCaptions: boolean;
+	ledger: boolean;
 }
 
 interface Props {
@@ -44,6 +45,7 @@ if (gameLive) {
 
 items.push(
 	{ href: `${b}live-captions/`, label: 'Live captions', match: 'liveCaptions' },
+	{ href: `${b}ledger/`, label: 'Session ledger', match: 'ledger' },
 	{ href: `${b}listing/`, label: 'Execution ops', match: 'listing' },
 	{ href: `${b}raw/`, label: 'Raw research', match: 'raw' },
 );

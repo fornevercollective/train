@@ -37,8 +37,128 @@ const published = new Intl.DateTimeFormat('en-US', {
 			</header>
 
 			<div class="live-captions-relaySlot">
-				<BloombergLiveRelay bloombergRelayStartCommand={bloombergRelayStartCommand} />
+				<BloombergLiveRelay
+					bloombergRelayStartCommand={bloombergRelayStartCommand}
+					relayToolsLinkHref="#live-captions-relay-tools"
+				/>
 			</div>
+
+			<section
+				class="live-captions-section live-captions-relay-tools"
+				id="live-captions-relay-tools"
+				aria-labelledby="live-captions-relay-tools-h"
+			>
+				<h2 id="live-captions-relay-tools-h">Relay tools &amp; API</h2>
+				<p>
+					Checklist for the Bloomberg <code class="live-captions-code">live chat</code> tree: terminal harness, HTTP
+					relay, and the dashboard you open at <code class="live-captions-code">http://127.0.0.1:8765/</code> after
+					starting the server. Published alongside this desk at{' '}
+					<a href="https://fornevercollective.github.io/train/live-captions/" target="_blank" rel="noopener noreferrer"
+						>fornevercollective.github.io/train/live-captions/</a
+					>.
+				</p>
+
+				<h3 class="live-captions-h3">Prerequisites</h3>
+				<ul class="live-captions-tool-list muted">
+					<li><strong>Python 3</strong> — relay and harness.</li>
+					<li>
+						<strong>yt-dlp</strong> — discovers the live English caption playlist for the configured YouTube URL.
+					</li>
+					<li>
+						<strong>Ollama</strong> (or compatible <code class="live-captions-code">POST …/api/generate</code> host) with
+						a chat model; default in repo is <code class="live-captions-code">granite-4-h-tiny-local</code> (see{' '}
+						<code class="live-captions-code">Modelfile.granite-4-h-tiny-local</code> beside the harness).
+					</li>
+				</ul>
+
+				<h3 class="live-captions-h3">Ways to start the browser relay</h3>
+				<ul class="live-captions-tool-list">
+					<li>
+						<strong>Train repo root</strong> — <code class="live-captions-code">python3 server.py</code> (shim runs{' '}
+						<code class="live-captions-code">../bloomberg/live chat/browser-page/server.py</code>, default{' '}
+						<code class="live-captions-code">127.0.0.1:8765</code>).
+					</li>
+					<li>
+						<strong>Browser package</strong> — <code class="live-captions-code">cd …/browser-page</code> then{' '}
+						<code class="live-captions-code">python3 server.py</code> or <code class="live-captions-code">./run-local-agent.sh</code>{' '}
+						(respects <code class="live-captions-code">OLLAMA_HOST</code>,{' '}
+						<code class="live-captions-code">BLOOMBERG_CHAT_MODEL</code> / <code class="live-captions-code">OLLAMA_MODEL</code>).
+					</li>
+				</ul>
+
+				<h3 class="live-captions-h3">Terminal-only caption harness</h3>
+				<p class="muted">
+					<code class="live-captions-code">live_caption_sidechat.py</code> (same <code class="live-captions-code">live chat</code>{' '}
+					folder, not the browser server) polls captions and prints <code class="live-captions-code">CAPTION</code> /{' '}
+					<code class="live-captions-code">SIDECHAT</code> lines to stdout for a bounded number of generations — useful
+					for smoke tests without HTTP.
+				</p>
+				<p class="muted">
+					Flags: <code class="live-captions-code">--video-url</code>, <code class="live-captions-code">--language</code>,{' '}
+					<code class="live-captions-code">--model</code>, <code class="live-captions-code">--poll-interval</code>,{' '}
+					<code class="live-captions-code">--history-cues</code>, <code class="live-captions-code">--min-new-cues</code>,{' '}
+					<code class="live-captions-code">--max-generations</code>.
+				</p>
+
+				<h3 class="live-captions-h3"><code class="live-captions-code">server.py</code> CLI (browser relay)</h3>
+				<ul class="live-captions-tool-list muted">
+					<li><code class="live-captions-code">--host</code> / <code class="live-captions-code">--port</code> — bind address (default <code class="live-captions-code">127.0.0.1:8765</code>).</li>
+					<li><code class="live-captions-code">--video-url</code> — YouTube live URL for captions + embed.</li>
+					<li><code class="live-captions-code">--model</code> — Ollama model name.</li>
+					<li>
+						<code class="live-captions-code">--ollama-host</code> — base URL or full <code class="live-captions-code">…/api/generate</code>; else{' '}
+						<code class="live-captions-code">OLLAMA_URL</code> / <code class="live-captions-code">OLLAMA_HOST</code>.
+					</li>
+					<li><code class="live-captions-code">--poll-interval</code>, <code class="live-captions-code">--min-new-cues</code>, <code class="live-captions-code">--history-cues</code> — caption polling cadence and buffer.</li>
+					<li>
+						<code class="live-captions-code">--chat-temperature</code>, <code class="live-captions-code">--output-temperature</code>,{' '}
+						<code class="live-captions-code">--system-prompt-suffix</code> — sampling and optional side-chat style hint
+						(break / wrap / forecast cards use output temperature).
+					</li>
+				</ul>
+
+				<h3 class="live-captions-h3">HTTP surface</h3>
+				<ul class="live-captions-tool-list muted">
+					<li><strong>GET</strong> <code class="live-captions-code">/</code>, <code class="live-captions-code">/index.html</code> — dashboard.</li>
+					<li><strong>GET</strong> <code class="live-captions-code">/app.js</code>, <code class="live-captions-code">/styles.css</code> — client assets.</li>
+					<li><strong>GET</strong> <code class="live-captions-code">/api/state</code> — JSON for captions, chat, metrics, embed URL, agent snapshot.</li>
+					<li><strong>GET</strong> <code class="live-captions-code">/api/health</code> — lightweight <code class="live-captions-code">ok</code> ping.</li>
+					<li>
+						<strong>POST</strong> <code class="live-captions-code">/api/output</code> — JSON object with string field{' '}
+						<code class="live-captions-code">mode</code> set to <code class="live-captions-code">break</code>,{' '}
+						<code class="live-captions-code">wrap</code>, or <code class="live-captions-code">forecast</code> (same as the
+						dashboard output buttons).
+					</li>
+					<li>
+						<strong>POST</strong> <code class="live-captions-code">/api/agent-settings</code> — live update model, Ollama host,
+						chat/output temperatures, and side-chat system suffix (same fields as <strong>Your local agent</strong> in the UI).
+					</li>
+				</ul>
+
+				<h3 class="live-captions-h3">Dashboard tools (in-browser)</h3>
+				<ul class="live-captions-tool-list muted">
+					<li>Toolbar: <strong>Refresh</strong>, <strong>Copy yt-dlp</strong> reference command, connection status, collapsible top region.</li>
+					<li>Error panel with reproducible <strong>Copy</strong> for the failing command.</li>
+					<li>
+						<strong>Your local agent</strong> — model, Ollama base URL, side-chat and output-card temperatures, extra side-chat
+						system instructions, <strong>Apply to server</strong>.
+					</li>
+					<li><strong>Live counters</strong> and <strong>Statistical analysis</strong> — model status, caption/chat rates, token and cost estimates, react / question / watch mix.</li>
+					<li><strong>Live captions</strong> transcript with optional speaker inference and per-cue model reactions.</li>
+					<li>
+						Main stage: reference clock, reaction strip above the player, YouTube embed, compact caption mirror when the
+						top chrome is hidden.
+					</li>
+					<li>
+						<strong>Granite Tiny side chat</strong> — reading-direction toggle, per-kind counts (watch / react / question),
+						streaming chat lines.
+					</li>
+					<li>
+						<strong>Break / wrap / forecast output</strong> — <em>Commercial break</em>, <em>Wrap up</em>, <em>Estimate / forecast</em> buttons;
+						commercial-break card can also emit automatically after prolonged caption silence.
+					</li>
+				</ul>
+			</section>
 
 			<div class="live-captions-layout">
 				<nav
@@ -270,6 +390,50 @@ const published = new Intl.DateTimeFormat('en-US', {
 
 	.live-captions-relaySlot {
 		margin: 0 0 28px;
+	}
+
+	.live-captions-relay-tools {
+		margin-bottom: 2.5rem;
+		padding: 20px 22px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.16);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.live-captions-h3 {
+		margin: 22px 0 10px;
+		font-size: 1.08rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+	}
+
+	.live-captions-h3:first-of-type {
+		margin-top: 14px;
+	}
+
+	.live-captions-tool-list {
+		margin: 8px 0 0;
+		padding-left: 1.25rem;
+		line-height: 1.65;
+		max-width: 48rem;
+	}
+
+	.live-captions-tool-list li {
+		margin-bottom: 8px;
+	}
+
+	.live-captions-tool-list li:last-child {
+		margin-bottom: 0;
+	}
+
+	.live-captions-code {
+		font-family: var(--font-mono);
+		font-size: 0.84em;
+		padding: 0.1em 0.32em;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		word-break: break-word;
 	}
 
 	.live-captions-relaySlot :global(.home-bloomberg-live) {
