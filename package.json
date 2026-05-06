@@ -9,9 +9,11 @@
     "prepare:data": "python3 scripts/build_catalog_data.py",
     "dev": "npm run prepare:data && astro dev",
     "build": "npm run prepare:data && astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "check": "astro check",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "astro": "^6.2.0",
@@ -20,6 +22,10 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "@types/node": "^24.9.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.87.0"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
