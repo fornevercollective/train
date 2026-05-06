@@ -1,18 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HomePageViz from '../components/HomePageViz.astro';
+import HomeLiveAnalysis from '../components/HomeLiveAnalysis.astro';
+import HomeStatsECharts from '../components/HomeStatsECharts.astro';
+import PredictionsGamePanel from '../components/PredictionsGamePanel.astro';
+import BloombergLiveRelay from '../components/BloombergLiveRelay.astro';
 import summary from '../generated/catalog-meta.json';
+import { YAHOO_TO_TRADINGVIEW, tradingViewMiniUrl } from '../lib/yahoo-tv-map';
 
 const topCountries = summary.topCountries.slice(0, 8);
 const topExchanges = summary.topExchanges.slice(0, 8);
 const topSectors = summary.topSectors.filter((item) => item.name !== '(none)').slice(0, 8);
 const featuredListings = summary.featuredListings.slice(0, 6);
+const primaryFeaturedListing = featuredListings[0];
+const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
+const gameHomeUrl = gameConsoleUrl ? `${gameConsoleUrl}/` : '';
+const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
+const gamePredictionsHashUrl = gameConsoleUrl ? `${gameConsoleUrl}/#predictions` : '';
+
+const homeSectionLinks = [
+	{ href: 'predictions/', label: 'Predictions page' },
+	{ href: '#home-predictions', label: 'Predictions (on page)' },
+	{ href: '#home-live-analysis', label: 'Live analysis desk' },
+	{ href: 'directory/', label: 'Directory explorer' },
+	{ href: '#home-facets', label: 'Top facets' },
+	{ href: '#home-priority-markets', label: 'Priority markets' },
+	{ href: '#home-architecture', label: 'Architecture' },
+	{ href: '#home-featured', label: 'Sample listings' },
+	{ href: '#home-bloomberg-live', label: 'Bloomberg live relay' },
+	{ href: 'live-captions/', label: 'Live captions desk' },
+];
 const quickLinks = [
 	{ label: 'Latency topology', href: '#topology' },
 	{ label: 'Live pipeline', href: '#live-pipeline' },
-	{ label: 'Complete date coverage', href: '?coverage=complete#explore' },
-	{ label: 'ETFs in the US', href: '?type=ETF&country=United%20States#explore' },
-	{ label: 'NASDAQ listings', href: '?exchange=NASDAQ#explore' },
-	{ label: 'Healthcare stocks', href: '?type=Stock&sector=Health%20Care#explore' },
+	{ label: 'Complete date coverage', href: 'directory/?coverage=complete' },
+	{ label: 'ETFs in the US', href: 'directory/?type=ETF&country=United%20States' },
+	{ label: 'NASDAQ listings', href: 'directory/?exchange=NASDAQ' },
+	{ label: 'Healthcare stocks', href: 'directory/?type=Stock&sector=Health%20Care' },
 ];
 const priorityGroups = [
 	{
@@ -62,6 +86,112 @@ const priorityGroups = [
 		],
 	},
 ];
+
+/** Illustrative desk-style rows (not tradable quotes) — mirrors Game predictions card density. */
+const priorityStatusDepthPct: Record<string, number> = {
+	strong: 71,
+	good: 60,
+	medium: 52,
+	limited: 44,
+	missing: 33,
+};
+
+function priorityIcon(symbol: string, groupTitle: string): string {
+	const s = symbol.toUpperCase();
+	if (s.includes('BTC') || s.includes('MAJOR-CRYPTO')) return '₿';
+	if (groupTitle.toLowerCase().includes('crypto')) return '◆';
+	if (groupTitle.toLowerCase().includes('ai')) return '◎';
+	if (groupTitle.toLowerCase().includes('benchmark')) return '📊';
+	if (s.startsWith('GC')) return '🥇';
+	if (s.startsWith('SI')) return '🥈';
+	return '📈';
+}
+
+function priorityCardModel(item: { status: string; rows: string; coverage: string }) {
+	const depth = priorityStatusDepthPct[item.status] ?? 50;
+	const alt = 100 - depth;
+	const rowsNum = Number.parseInt(item.rows.replace(/[^\d]/g, ''), 10) || 0;
+	const payoutDepth = Math.round(100 + (depth / 100) * 188 + Math.min(rowsNum / 4000, 1) * 42);
+	const payoutAlt = Math.max(102, Math.round(100 + (alt / 100) * 162));
+	return {
+		depthPct: depth,
+		altPct: alt,
+		payoutDepth,
+		payoutAlt,
+		volLine: `${item.rows} · ${item.coverage}`,
+	};
+}
+
+function priorityHash(s: string): number {
+	let h = 0;
+	for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+	return Math.abs(h);
+}
+
+type PriorityQuoteBand = { min: number; max: number; decimals: number; ccy: string; venue: string };
+
+function priorityQuoteBand(symbol: string): PriorityQuoteBand {
+	const u = symbol.toUpperCase();
+	if (u.includes('MAJOR-CRYPTO')) return { min: 3200, max: 4200, decimals: 2, ccy: 'USD', venue: 'IDX' };
+	if (u.includes('BTC')) return { min: 92_000, max: 108_000, decimals: 2, ccy: 'USD', venue: 'COIN' };
+	if (u.startsWith('GC')) return { min: 2380, max: 2660, decimals: 1, ccy: 'USD', venue: 'COMEX' };
+	if (u.startsWith('SI')) return { min: 28.5, max: 35.2, decimals: 3, ccy: 'USD', venue: 'COMEX' };
+	if (u.startsWith('PL')) return { min: 980, max: 1180, decimals: 1, ccy: 'USD', venue: 'NYMEX' };
+	if (u.startsWith('PA')) return { min: 940, max: 1150, decimals: 1, ccy: 'USD', venue: 'NYMEX' };
+	if (u.startsWith('HG')) return { min: 4.05, max: 5.35, decimals: 3, ccy: 'USD', venue: 'COMEX' };
+	if (u.startsWith('ALI')) return { min: 2280, max: 2680, decimals: 2, ccy: 'USD', venue: 'LME' };
+	if (u.startsWith('ES')) return { min: 5100, max: 5950, decimals: 2, ccy: 'USD', venue: 'CME' };
+	if (u === 'QQQ') return { min: 420, max: 560, decimals: 2, ccy: 'USD', venue: 'NASDAQ' };
+	if (u.startsWith('^')) return { min: 4800, max: 6200, decimals: 2, ccy: 'USD', venue: 'SPOT' };
+	if (!u.includes('=') && u.length <= 6) return { min: 140, max: 520, decimals: 2, ccy: 'USD', venue: 'NASDAQ' };
+	return { min: 22, max: 220, decimals: 2, ccy: 'USD', venue: 'FUT' };
+}
+
+function roundPrice(n: number, decimals: number): number {
+	const p = 10 ** decimals;
+	return Math.round(n * p) / p;
+}
+
+/** TradingView-style header numbers — deterministic from symbol + desk depth; not live market data. */
+function priorityTvQuote(item: { symbol: string; coverage: string }, model: { depthPct: number }) {
+	const band = priorityQuoteBand(item.symbol);
+	const t = (priorityHash(item.symbol) % 100_001) / 100_000;
+	const last = roundPrice(band.min + t * (band.max - band.min), band.decimals);
+	const j = (priorityHash(`${item.symbol}|d`) % 100_001) / 100_000;
+	const deltaPct = ((j * 2 - 1) * 0.55 * model.depthPct) / 100;
+	const prev = last / (1 + deltaPct / 100);
+	const chgPts = roundPrice(last - prev, Math.min(3, band.decimals + 1));
+	const chgPct = roundPrice(deltaPct, 2);
+	const up = deltaPct >= 0;
+	const m = item.coverage.match(/->\s*(\d{4})-(\d{2})/);
+	let dateLabel = 'Apr 30, 2026';
+	let timeLabel = '13:59';
+	if (m) {
+		const y = Number(m[1]);
+		const mo = Number(m[2]) - 1;
+		const d = new Date(y, mo, 28);
+		dateLabel = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+		timeLabel = `${11 + (priorityHash(`${item.symbol}|t`) % 6)}:59`;
+	}
+	const lastStr = last.toLocaleString('en-US', {
+		minimumFractionDigits: band.decimals,
+		maximumFractionDigits: band.decimals,
+	});
+	const chgPtsAbs = Math.abs(chgPts).toLocaleString('en-US', { maximumFractionDigits: 3 });
+	const chgPctAbs = Math.abs(chgPct).toFixed(2);
+	return {
+		lastStr,
+		ccy: band.ccy,
+		venue: band.venue,
+		sym: item.symbol,
+		chgPtsStr: up ? `+${chgPtsAbs}` : `-${chgPtsAbs}`,
+		chgPctStr: up ? `+${chgPctAbs}%` : `-${chgPctAbs}%`,
+		up,
+		dateLabel,
+		timeLabel,
+	};
+}
+
 const topologyRoutes = [
 	{
 		venue: 'CME / Aurora futures',
@@ -124,6 +254,7 @@ const topologyRoutes = [
 		note: 'Pair Hong Kong and Singapore to absorb regional outages and keep APAC fanout tight.',
 	},
 ];
+const topologyVizPayload = topologyRoutes.map((r) => ({ venue: r.venue, pop: r.pop }));
 const livePipelineStages = [
 	{
 		stage: 'Venue ingress',
@@ -355,14 +486,17 @@ const fastPathChecklist = [
 	'NVMe-first storage for capture and replay; avoid SATA or network filesystems on the ingestion hot path.',
 	'25 GbE east-west links as the minimum serious relay target; 100 GbE where multi-venue fanout is shared.',
 ];
+const layoutEyebrow = 'Directory view';
+const layoutSubtitle =
+	'Static listing intelligence; search and filters live on the Directory tab.';
 ---
 
 <Layout
 	title="Erika Market Directory"
 	description="Search 60k+ global stock and ETF listings from the Erika dataset in a fast GitHub Pages-ready directory."
 	pageClass="page-home"
-	eyebrow="Directory view"
-	subtitle="Static listing intelligence with search, filters, and profile pages."
+	eyebrow={layoutEyebrow}
+	subtitle={layoutSubtitle}
 >
 	<section class="container home-shell">
 		<header class="header">
@@ -388,20 +522,44 @@ const fastPathChecklist = [
 						</p>
 					</div>
 				</div>
-				<div class="hero-actions">
-					<a class="button" href="#explore">Browse the directory</a>
+				<div class="hero-actions hero-actions-row">
+					<a class="button" href="directory/">Browse the directory</a>
+					<a
+						class="button-secondary"
+						href={
+							primaryFeaturedListing
+								? `listing/?id=${encodeURIComponent(primaryFeaturedListing.id)}`
+								: 'featured/'
+						}
+					>
+						Open featured profile
+					</a>
+					<a class="button-secondary" href="raw/">Open raw data page</a>
 					{
-						featuredListings[0] && (
-							<a
-								class="button-secondary"
-								href={`listing/?id=${encodeURIComponent(featuredListings[0].id)}`}
-							>
-								Open featured profile
+						gameLiveUrl ? (
+							<a class="button-secondary" href={gameLiveUrl} target="_blank" rel="noopener noreferrer">
+								Open Game live desk
+							</a>
+						) : (
+							<a class="button-secondary" href="#home-live-analysis">
+								Live analysis desk
 							</a>
 						)
 					}
-					<a class="button-secondary" href="raw/">Open raw data page</a>
 				</div>
+				<nav class="hero-section-nav" aria-label="Sections on this page">
+					<ul class="hero-section-nav-list">
+						{
+							homeSectionLinks.map((item) => (
+								<li>
+									<a class="hero-section-nav-link" href={item.href}>
+										{item.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
 				<div class="quick-links">
 					{
 						quickLinks.map((link) => (
@@ -413,51 +571,44 @@ const fastPathChecklist = [
 				</div>
 			</article>
 
-			<aside class="card home-stats">
-				<div class="tileTop">
-					<div>
+			<details class="card home-stats" id="home-stats-panel" open>
+				<summary class="home-stats-summary">
+					<div class="home-stats-summary-text">
 						<div class="ticker">Coverage snapshot</div>
 						<div class="name">High-level shape of the Erika listing universe.</div>
 					</div>
+					<span class="home-stats-chevron" aria-hidden="true" />
+				</summary>
+				<div class="home-stats-body">
+					<HomeStatsECharts
+						totalSymbols={summary.totalSymbols}
+						uniqueCountries={summary.uniqueCountries}
+						uniqueExchanges={summary.uniqueExchanges}
+						withCompanyCreation={summary.withCompanyCreation}
+						withIpoCreation={summary.withIpoCreation}
+						completeCoverage={summary.dateCoverage.complete}
+						stockCount={summary.securityTypes[0]?.count ?? 0}
+						etfCount={summary.securityTypes[1]?.count ?? 0}
+						stockName={summary.securityTypes[0]?.name ?? 'Stock'}
+						etfName={summary.securityTypes[1]?.name ?? 'ETF'}
+					/>
 				</div>
-				<div class="stats-grid">
-					<div class="stat-block">
-						<span class="muted">Listings</span>
-						<strong>{summary.totalSymbols.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">Countries</span>
-						<strong>{summary.uniqueCountries.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">Exchanges</span>
-						<strong>{summary.uniqueExchanges.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">Company dates</span>
-						<strong>{summary.withCompanyCreation.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">IPO dates</span>
-						<strong>{summary.withIpoCreation.toLocaleString()}</strong>
-					</div>
-					<div class="stat-block">
-						<span class="muted">Complete coverage</span>
-						<strong>{summary.dateCoverage.complete.toLocaleString()}</strong>
-					</div>
-				</div>
-				<div class="stats-foot">
-					<span class="badge success">
-						{summary.securityTypes[0]?.name}: {summary.securityTypes[0]?.count.toLocaleString()}
-					</span>
-					<span class="badge muted">
-						{summary.securityTypes[1]?.name}: {summary.securityTypes[1]?.count.toLocaleString()}
-					</span>
-				</div>
-			</aside>
+			</details>
 		</div>
 
-		<section class="facet-strip">
+		<PredictionsGamePanel
+			id="home-predictions"
+			variant="home"
+			gameHomeUrl={gameHomeUrl}
+			gameLiveUrl={gameLiveUrl}
+			gamePredictionsHashUrl={gamePredictionsHashUrl}
+		/>
+
+		<HomeLiveAnalysis gameLiveUrl={gameLiveUrl} anchorMode="here" />
+
+		<BloombergLiveRelay />
+
+		<section class="facet-strip" id="home-facets">
 			<div class="card facet-card">
 				<div class="tileTop">
 					<div>
@@ -465,10 +616,17 @@ const fastPathChecklist = [
 						<div class="name">Most represented jurisdictions in the dataset.</div>
 					</div>
 				</div>
+				<div
+					id="home-facet-countries-viz"
+					class="home-facet-viz"
+					data-payload={encodeURIComponent(JSON.stringify(topCountries))}
+					role="img"
+					aria-label="Top countries graph (catalog counts)"
+				></div>
 				<div class="facet-list">
 					{
 						topCountries.map((item) => (
-							<a class="badge muted" href={`?country=${encodeURIComponent(item.name)}#explore`}>
+							<a class="badge muted" href={`directory/?country=${encodeURIComponent(item.name)}`}>
 								{item.name} · {item.count.toLocaleString()}
 							</a>
 						))
@@ -483,10 +641,17 @@ const fastPathChecklist = [
 						<div class="name">Quick pivots into the busiest listing venues.</div>
 					</div>
 				</div>
+				<div
+					id="home-facet-exchanges-viz"
+					class="home-facet-viz"
+					data-payload={encodeURIComponent(JSON.stringify(topExchanges))}
+					role="img"
+					aria-label="Top exchanges affinity matrix (catalog counts)"
+				></div>
 				<div class="facet-list">
 					{
 						topExchanges.map((item) => (
-							<a class="badge muted" href={`?exchange=${encodeURIComponent(item.name)}#explore`}>
+							<a class="badge muted" href={`directory/?exchange=${encodeURIComponent(item.name)}`}>
 								{item.name} · {item.count.toLocaleString()}
 							</a>
 						))
@@ -501,10 +666,17 @@ const fastPathChecklist = [
 						<div class="name">Fast routes into sector-based slices of the directory.</div>
 					</div>
 				</div>
+				<div
+					id="home-facet-sectors-viz"
+					class="home-facet-viz"
+					data-payload={encodeURIComponent(JSON.stringify(topSectors))}
+					role="img"
+					aria-label="Top sectors parallel coordinates (catalog counts)"
+				></div>
 				<div class="facet-list">
 					{
 						topSectors.map((item) => (
-							<a class="badge muted" href={`?sector=${encodeURIComponent(item.name)}#explore`}>
+							<a class="badge muted" href={`directory/?sector=${encodeURIComponent(item.name)}`}>
 								{item.name} · {item.count.toLocaleString()}
 							</a>
 						))
@@ -513,8 +685,8 @@ const fastPathChecklist = [
 			</div>
 		</section>
 
-		<section class="section-card card priority-section">
-			<div class="section-heading">
+		<section class="section-card card priority-section" id="home-priority-markets">
+			<div class="section-heading priority-section-heading">
 				<div>
 					<div class="kicker">Priority markets</div>
 					<h2>Put metals and the key market presets up front</h2>
@@ -524,6 +696,12 @@ const fastPathChecklist = [
 						get a dedicated top-level block instead of being buried below the listing directory.
 					</p>
 				</div>
+				<div
+					id="home-viz-priority-polar"
+					class="home-priority-polar-viz"
+					role="img"
+					aria-label="Illustrative weekly desk intensity (polar punch card)"
+				></div>
 			</div>
 
 			<div class="priority-grid">
@@ -539,31 +717,124 @@ const fastPathChecklist = [
 							</div>
 							<div class="priority-items">
 								{
-									group.items.map((item) => (
-										<div class="priority-item">
-											<div class="priority-item-head">
-												<div>
-													<strong>{item.name}</strong>
-													<p>{item.symbol}</p>
-												</div>
-												<span
-													class={`badge ${
-														item.status === 'strong' || item.status === 'good'
-															? 'success'
-															: item.status === 'missing' || item.status === 'limited'
-																? 'warning'
-																: 'muted'
-													}`}
+									group.items.map((item) => {
+										const tvSymbol = YAHOO_TO_TRADINGVIEW[item.symbol];
+										const liveHref = `listing/?t=${encodeURIComponent(item.symbol)}&label=${encodeURIComponent(item.name)}`;
+										const model = priorityCardModel(item);
+										const tvQuote = priorityTvQuote(item, model);
+										const icon = priorityIcon(item.symbol, group.title);
+										const statusClass =
+											item.status === 'strong' || item.status === 'good'
+												? 'success'
+												: item.status === 'missing' || item.status === 'limited'
+													? 'warning'
+													: 'muted';
+										return (
+											<article class="priority-item">
+												<div
+													class="priority-tv-quote"
+													role="group"
+													aria-label={`Illustrative last price for ${item.name} (not live)`}
 												>
-													{item.status}
-												</span>
-											</div>
-											<div class="priority-item-meta">
-												<span>{item.coverage}</span>
-												<span>{item.rows}</span>
-											</div>
-										</div>
-									))
+													<div class="priority-tv-quoteTop">
+														<div class="priority-tv-priceCluster">
+															<span class="priority-tv-last">{tvQuote.lastStr}</span>
+															<span class="priority-tv-ccy">{tvQuote.ccy}</span>
+															<span class="priority-tv-slash" aria-hidden="true">/</span>
+															<span class="priority-tv-sym">{tvQuote.sym}</span>
+															<span class="priority-tv-venueBadge">{tvQuote.venue}</span>
+														</div>
+														<div
+															class:list={[
+																'priority-tv-delta',
+																tvQuote.up ? 'priority-tv-delta--up' : 'priority-tv-delta--down',
+															]}
+														>
+															<span class="priority-tv-deltaPts">{tvQuote.chgPtsStr}</span>
+															<span class="priority-tv-deltaPct">{tvQuote.chgPctStr}</span>
+														</div>
+													</div>
+													<p class="priority-tv-session muted">
+														At close at {tvQuote.dateLabel}, {tvQuote.timeLabel} GMT-7 · Erika snapshot
+													</p>
+												</div>
+												<a class="priority-item-main" href={liveHref}>
+													<div class="priority-item-cardtop">
+														<span class="priority-item-icon" aria-hidden="true">
+															{icon}
+														</span>
+														<div class="priority-item-titles">
+															<h3 class="priority-item-title">{item.name}</h3>
+															<p class="priority-item-sub">
+																{item.symbol} · <span class={`badge ${statusClass}`}>{item.status}</span> · Erika
+																snapshot
+															</p>
+														</div>
+														{tvSymbol ? (
+															<span class="priority-live-pill">Live</span>
+														) : (
+															<span class="priority-snapshot-pill">Snapshot</span>
+														)}
+													</div>
+													<div class="priority-item-outcomes">
+														<div class="priority-item-outcome">
+															<div class="priority-item-outcome-left">
+																<span class="priority-item-code">DEPTH</span>
+																<span class="priority-item-pct">{model.depthPct}%</span>
+															</div>
+															<div class="priority-item-payout">
+																$100 → <strong>${model.payoutDepth.toLocaleString()}</strong>
+															</div>
+														</div>
+														<div class="priority-item-outcome">
+															<div class="priority-item-outcome-left">
+																<span class="priority-item-code">SURFACE</span>
+																<span class="priority-item-pct">{model.altPct}%</span>
+															</div>
+															<div class="priority-item-payout">
+																$100 → <strong>${model.payoutAlt.toLocaleString()}</strong>
+															</div>
+														</div>
+													</div>
+													<p class="priority-item-vol">{model.volLine}</p>
+													<p class="priority-item-desk-hint muted">
+														Illustrative desk legs — not a tradable quote. TV mini loads when mapped.
+													</p>
+												</a>
+												{tvSymbol ? (
+													<div class="priority-item-tv">
+														<p class="priority-live-caption muted">Live snapshot · hourly interval</p>
+														<div
+															class="priority-snapshot-charts"
+															data-home-priority-snapshot
+															data-payload={encodeURIComponent(
+																JSON.stringify({
+																	symbol: item.symbol,
+																	name: item.name,
+																	depthPct: model.depthPct,
+																	altPct: model.altPct,
+																	status: item.status,
+																}),
+															)}
+														>
+															<div class="priority-chart-river" data-home-priority-river></div>
+															<div class="priority-chart-radar" data-home-priority-radar></div>
+														</div>
+														<div class="priority-tv-frame">
+															<iframe
+																class="priority-live-iframe"
+																title={`${item.name} (${item.symbol}) TradingView mini`}
+																loading="lazy"
+																referrerpolicy="no-referrer-when-downgrade"
+																allow="clipboard-write; fullscreen"
+																src={tradingViewMiniUrl(tvSymbol)}
+															/>
+														</div>
+													</div>
+												) : null}
+											</article>
+										);
+									})
 								}
 							</div>
 						</article>
@@ -572,7 +843,7 @@ const fastPathChecklist = [
 			</div>
 		</section>
 
-		<details class="section-card card architecture-shell" open>
+		<details class="section-card card architecture-shell" id="home-architecture" open>
 			<summary class="collapse-summary architecture-summary">
 				<div>
 					<div class="kicker">Architecture control panel</div>
@@ -593,6 +864,36 @@ const fastPathChecklist = [
 						</div>
 					</summary>
 					<div class="collapse-body">
+						<div
+							id="topology-viz-root"
+							class="topology-viz-root"
+							data-payload={encodeURIComponent(JSON.stringify(topologyVizPayload))}
+							aria-label="Illustrative hop topology: relay gauge, venue graph, animated paths"
+						>
+							<div class="topology-viz-row">
+								<div id="topology-viz-gauge" class="topology-viz-gauge" aria-hidden="true"></div>
+								<div id="topology-viz-geo" class="topology-viz-geo" aria-hidden="true"></div>
+							</div>
+							<div id="topology-viz-flights" class="topology-viz-flights" aria-hidden="true"></div>
+							<p class="topology-viz-note muted">
+								Static ECharts metaphors —{' '}
+								<a
+									href="https://echarts.apache.org/examples/en/editor.html?c=gauge-ring"
+									target="_blank"
+									rel="noopener noreferrer">gauge ring</a>
+								,{' '}
+								<a
+									href="https://echarts.apache.org/examples/en/editor.html?c=geo-graph"
+									target="_blank"
+									rel="noopener noreferrer">geo-style graph</a>
+								, and a 2D take on{' '}
+								<a
+									href="https://echarts.apache.org/examples/en/editor.html?c=lines3d-flights-gl&gl=1"
+									target="_blank"
+									rel="noopener noreferrer">flight paths</a>
+								(not WebGL 3D here).
+							</p>
+						</div>
 						<div class="topology-table-wrap">
 							<table class="topology-table">
 								<thead>
@@ -836,14 +1137,15 @@ const fastPathChecklist = [
 			</div>
 		</details>
 
-		<section class="section-card card featured-section">
+		<section class="section-card card featured-section" id="home-featured">
 			<div class="section-heading">
 				<div>
-					<div class="kicker">Featured profiles</div>
-					<h2>Examples with richer metadata</h2>
+					<div class="kicker">Sample listings</div>
+					<h2>Reference profiles with richer metadata</h2>
 					<p>
-						These picks surface listings with better date coverage and stronger identity
-						fields, similar to a “quick view” band on the reference page.
+						These remain static reference profiles with better date coverage and stronger
+						identity fields. The timezone-aware majors page now lives separately under
+						Featured.
 					</p>
 				</div>
 			</div>
@@ -877,369 +1179,8 @@ const fastPathChecklist = [
 			</div>
 		</section>
 
-		<section class="section-card card explorer-section" id="explore">
-			<div class="section-heading">
-				<div>
-					<div class="kicker">Directory explorer</div>
-					<h2>Search, slice, and open individual listing profiles</h2>
-					<p>
-						The browser below runs entirely from static JSON, so the site keeps the same
-						GitHub Pages-friendly footprint while feeling more like a data panel.
-					</p>
-				</div>
-			</div>
-
-			<div class="filters-grid">
-				<label class="field field-search">
-					<span>Search</span>
-					<input
-						id="filter-query"
-						type="search"
-						placeholder="Ticker, company, exchange, country, alias..."
-						autocomplete="off"
-					/>
-				</label>
-
-				<label class="field">
-					<span>Security type</span>
-					<select id="filter-type">
-						<option value="">All types</option>
-					</select>
-				</label>
-
-				<label class="field">
-					<span>Date coverage</span>
-					<select id="filter-coverage">
-						<option value="">Any coverage</option>
-						<option value="complete">Complete</option>
-						<option value="partial">Partial</option>
-						<option value="missing">Missing</option>
-					</select>
-				</label>
-
-				<label class="field">
-					<span>Country</span>
-					<input id="filter-country" list="country-options" placeholder="All countries" />
-					<datalist id="country-options"></datalist>
-				</label>
-
-				<label class="field">
-					<span>Exchange</span>
-					<input id="filter-exchange" list="exchange-options" placeholder="All exchanges" />
-					<datalist id="exchange-options"></datalist>
-				</label>
-
-				<label class="field">
-					<span>Sector</span>
-					<input id="filter-sector" list="sector-options" placeholder="All sectors" />
-					<datalist id="sector-options"></datalist>
-				</label>
-			</div>
-
-			<div class="results-toolbar">
-				<div id="results-meta" class="metaHint">Loading catalog…</div>
-				<button id="clear-filters" class="button-secondary" type="button">Reset filters</button>
-			</div>
-
-			<div id="results-grid" class="results-grid"></div>
-
-			<div class="pagination-row">
-				<button id="prev-page" class="button-secondary" type="button">Previous</button>
-				<div id="page-meta" class="metaHint">Page 1</div>
-				<button id="next-page" class="button-secondary" type="button">Next</button>
-			</div>
-		</section>
+		<HomePageViz />
 	</section>
-
-	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
-		const pageSize = 24;
-		const filterElements = {
-			query: document.querySelector('#filter-query'),
-			type: document.querySelector('#filter-type'),
-			coverage: document.querySelector('#filter-coverage'),
-			country: document.querySelector('#filter-country'),
-			exchange: document.querySelector('#filter-exchange'),
-			sector: document.querySelector('#filter-sector'),
-		};
-		const resultsMeta = document.querySelector('#results-meta');
-		const resultsGrid = document.querySelector('#results-grid');
-		const pageMeta = document.querySelector('#page-meta');
-		const previousButton = document.querySelector('#prev-page');
-		const nextButton = document.querySelector('#next-page');
-		const clearFiltersButton = document.querySelector('#clear-filters');
-		const countryOptions = document.querySelector('#country-options');
-		const exchangeOptions = document.querySelector('#exchange-options');
-		const sectorOptions = document.querySelector('#sector-options');
-		const state = {
-			query: '',
-			type: '',
-			coverage: '',
-			country: '',
-			exchange: '',
-			sector: '',
-			page: 1,
-		};
-		let catalog = [];
-		let filteredCatalog = [];
-
-		const countFormatter = new Intl.NumberFormat();
-		const dateFormatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' });
-
-		function escapeHtml(value) {
-			return String(value || '').replace(/[&<>'"]/g, (character) => {
-				return (
-					{
-						'&': '&amp;',
-						'<': '&lt;',
-						'>': '&gt;',
-						"'": '&#39;',
-						'"': '&quot;',
-					}[character] || character
-				);
-			});
-		}
-
-		function formatDate(value) {
-			if (!value) return 'Unavailable';
-			const date = new Date(value);
-			return Number.isNaN(date.getTime()) ? value : dateFormatter.format(date);
-		}
-
-		function coverageBadge(coverage) {
-			if (coverage === 'complete') return 'success';
-			if (coverage === 'partial') return 'warning';
-			return 'muted';
-		}
-
-		function normalize(value) {
-			return String(value || '').trim().toLowerCase();
-		}
-
-		function applyUrlState() {
-			const params = new URLSearchParams(window.location.search);
-			state.query = params.get('q') || '';
-			state.type = params.get('type') || '';
-			state.coverage = params.get('coverage') || '';
-			state.country = params.get('country') || '';
-			state.exchange = params.get('exchange') || '';
-			state.sector = params.get('sector') || '';
-			state.page = Math.max(Number(params.get('page') || '1'), 1);
-
-			filterElements.query.value = state.query;
-			filterElements.type.value = state.type;
-			filterElements.coverage.value = state.coverage;
-			filterElements.country.value = state.country;
-			filterElements.exchange.value = state.exchange;
-			filterElements.sector.value = state.sector;
-		}
-
-		function syncUrl() {
-			const params = new URLSearchParams();
-			if (state.query) params.set('q', state.query);
-			if (state.type) params.set('type', state.type);
-			if (state.coverage) params.set('coverage', state.coverage);
-			if (state.country) params.set('country', state.country);
-			if (state.exchange) params.set('exchange', state.exchange);
-			if (state.sector) params.set('sector', state.sector);
-			if (state.page > 1) params.set('page', String(state.page));
-			const queryString = params.toString();
-			const nextUrl = `${window.location.pathname}${queryString ? `?${queryString}` : ''}#explore`;
-			window.history.replaceState({}, '', nextUrl);
-		}
-
-		function createOptionMarkup(values) {
-			return values.map((value) => `<option value="${escapeHtml(value)}"></option>`).join('');
-		}
-
-		function populateFilterControls(records) {
-			const securityTypes = [...new Set(records.map((entry) => entry.ty).filter(Boolean))].sort();
-			const countries = [...new Set(records.map((entry) => entry.co).filter(Boolean))].sort();
-			const exchanges = [...new Set(records.map((entry) => entry.ex).filter(Boolean))].sort();
-			const sectors = [...new Set(records.map((entry) => entry.se).filter(Boolean))].sort();
-
-			filterElements.type.innerHTML = `<option value="">All types</option>${securityTypes
-				.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`)
-				.join('')}`;
-			countryOptions.innerHTML = createOptionMarkup(countries);
-			exchangeOptions.innerHTML = createOptionMarkup(exchanges);
-			sectorOptions.innerHTML = createOptionMarkup(sectors);
-		}
-
-		function filterCatalog() {
-			const query = normalize(state.query);
-			const type = normalize(state.type);
-			const coverage = normalize(state.coverage);
-			const country = normalize(state.country);
-			const exchange = normalize(state.exchange);
-			const sector = normalize(state.sector);
-
-			filteredCatalog = catalog.filter((entry) => {
-				if (query && !entry._search.includes(query)) return false;
-				if (type && normalize(entry.ty) !== type) return false;
-				if (coverage && normalize(entry.dc) !== coverage) return false;
-				if (country && normalize(entry.co) !== country) return false;
-				if (exchange && normalize(entry.ex) !== exchange) return false;
-				if (sector && normalize(entry.se) !== sector) return false;
-				return true;
-			});
-
-			const maxPage = Math.max(Math.ceil(filteredCatalog.length / pageSize), 1);
-			state.page = Math.min(state.page, maxPage);
-		}
-
-		function renderResults() {
-			filterCatalog();
-			const total = filteredCatalog.length;
-			const firstItem = total === 0 ? 0 : (state.page - 1) * pageSize + 1;
-			const lastItem = Math.min(state.page * pageSize, total);
-			const pageItems = filteredCatalog.slice(firstItem - 1, lastItem);
-
-			resultsMeta.textContent =
-				total === 0
-					? 'No listings match these filters.'
-					: `Showing ${countFormatter.format(firstItem)}-${countFormatter.format(lastItem)} of ${countFormatter.format(total)} listings`;
-
-			pageMeta.textContent = `Page ${state.page} of ${Math.max(Math.ceil(total / pageSize), 1)}`;
-			previousButton.disabled = state.page <= 1;
-			nextButton.disabled = state.page >= Math.max(Math.ceil(total / pageSize), 1);
-
-			if (pageItems.length === 0) {
-				resultsGrid.innerHTML = `
-					<div class="result-empty card">
-						<h3>No matches</h3>
-						<p>Try a broader search, clear one of the filters, or jump back to a top country or exchange above.</p>
-					</div>
-				`;
-				return;
-			}
-
-			resultsGrid.innerHTML = pageItems
-				.map((entry) => {
-					const tags = [
-						entry.ty,
-						entry.ex,
-						entry.co,
-						entry.se || entry.ec,
-						entry.dc,
-					].filter(Boolean);
-					return `
-						<article class="result-card card">
-							<div class="result-card-head">
-								<div>
-									<h3>${escapeHtml(entry.nm)}</h3>
-									<p>${escapeHtml(entry.id)}</p>
-								</div>
-								<span class="badge ${coverageBadge(entry.dc)}">${escapeHtml(entry.dc || 'missing')}</span>
-							</div>
-							<div class="result-card-tags">
-								${tags
-									.map((tag) => `<span class="badge muted">${escapeHtml(tag)}</span>`)
-									.join('')}
-							</div>
-							<p class="result-card-body">
-								${escapeHtml(entry.ln || 'Primary legal name unavailable')}
-							</p>
-							<div class="result-card-footer">
-								<span class="muted">Company: ${escapeHtml(formatDate(entry.cd))}</span>
-								<span class="muted">IPO: ${escapeHtml(formatDate(entry.ip))}</span>
-							</div>
-							<a class="button result-link" href="${baseUrl}listing/?id=${encodeURIComponent(entry.id)}">
-								Open profile
-							</a>
-						</article>
-					`;
-				})
-				.join('');
-		}
-
-		function handleFilterChange() {
-			state.query = filterElements.query.value.trim();
-			state.type = filterElements.type.value.trim();
-			state.coverage = filterElements.coverage.value.trim();
-			state.country = filterElements.country.value.trim();
-			state.exchange = filterElements.exchange.value.trim();
-			state.sector = filterElements.sector.value.trim();
-			state.page = 1;
-			syncUrl();
-			renderResults();
-		}
-
-		async function loadCatalog() {
-			const response = await fetch(`${baseUrl}data/catalog.json`);
-			if (!response.ok) {
-				throw new Error(`Failed to load catalog: ${response.status}`);
-			}
-
-			const records = await response.json();
-			return records.map((entry) => ({
-				...entry,
-				_search: [
-					entry.id,
-					entry.sy,
-					entry.ex,
-					entry.nm,
-					entry.ln,
-					entry.ty,
-					entry.se,
-					entry.ec,
-					entry.co,
-					...(entry.al || []),
-				]
-					.filter(Boolean)
-					.join(' ')
-					.toLowerCase(),
-			}));
-		}
-
-		previousButton.addEventListener('click', () => {
-			state.page = Math.max(1, state.page - 1);
-			syncUrl();
-			renderResults();
-		});
-
-		nextButton.addEventListener('click', () => {
-			state.page += 1;
-			syncUrl();
-			renderResults();
-		});
-
-		clearFiltersButton.addEventListener('click', () => {
-			Object.assign(state, {
-				query: '',
-				type: '',
-				coverage: '',
-				country: '',
-				exchange: '',
-				sector: '',
-				page: 1,
-			});
-			applyUrlState();
-			syncUrl();
-			renderResults();
-		});
-
-		for (const element of Object.values(filterElements)) {
-			element.addEventListener('input', handleFilterChange);
-			element.addEventListener('change', handleFilterChange);
-		}
-
-		(async () => {
-			try {
-				catalog = await loadCatalog();
-				populateFilterControls(catalog);
-				applyUrlState();
-				renderResults();
-			} catch (error) {
-				resultsMeta.textContent = 'Catalog failed to load.';
-				resultsGrid.innerHTML = `
-					<div class="result-empty card">
-						<h3>Unable to load the directory</h3>
-						<p>${escapeHtml(error.message)}</p>
-					</div>
-				`;
-			}
-		})();
-	</script>
 </Layout>
 
 <style>
@@ -1293,14 +1234,115 @@ const fastPathChecklist = [
 		margin-top: 16px;
 	}
 
-	.stats-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 12px;
-		margin-top: 14px;
+	.home-hero .hero-actions-row {
+		flex-wrap: nowrap;
+		align-items: stretch;
+		gap: 10px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding-bottom: 2px;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
 	}
 
-	.stat-block,
+	.home-hero .hero-actions-row .button,
+	.home-hero .hero-actions-row .button-secondary {
+		flex: 0 0 auto;
+		white-space: nowrap;
+		padding-inline: 12px;
+	}
+
+	.hero-section-nav {
+		margin-top: 12px;
+	}
+
+	.hero-section-nav-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 10px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.hero-section-nav-link {
+		display: inline-flex;
+		align-items: center;
+		padding: 6px 10px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+		color: var(--muted);
+		font-size: 0.82rem;
+		line-height: 1.2;
+		text-decoration: none;
+		transition:
+			color 0.12s ease,
+			border-color 0.12s ease,
+			background 0.12s ease;
+	}
+
+	.hero-section-nav-link:hover {
+		color: var(--accent);
+		border-color: rgba(72, 224, 188, 0.35);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	details.card.home-stats {
+		padding: 0;
+		align-self: start;
+	}
+
+	.home-stats-summary {
+		list-style: none;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 14px 16px;
+		cursor: pointer;
+	}
+
+	.home-stats-summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.home-stats-summary::marker {
+		content: '';
+	}
+
+	.home-stats-chevron {
+		flex: 0 0 auto;
+		width: 28px;
+		height: 28px;
+		margin-top: 2px;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.2);
+		position: relative;
+	}
+
+	.home-stats-chevron::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 45%;
+		width: 8px;
+		height: 8px;
+		border-right: 2px solid var(--muted);
+		border-bottom: 2px solid var(--muted);
+		transform: translate(-50%, -30%) rotate(45deg);
+		transition: transform 0.18s ease;
+	}
+
+	details.home-stats[open] .home-stats-chevron::after {
+		transform: translate(-50%, -10%) rotate(225deg);
+	}
+
+	.home-stats-body {
+		padding: 0 16px 16px;
+	}
+
 	.featured-card,
 	.result-card,
 	.result-empty {
@@ -1310,25 +1352,82 @@ const fastPathChecklist = [
 		border: 1px solid rgba(255, 255, 255, 0.1);
 	}
 
-	.stat-block span,
-	.stat-block strong {
-		display: block;
-	}
-
-	.stat-block strong {
-		margin-top: 6px;
-		font-size: 1.7rem;
-		font-weight: 700;
-	}
-
-	.stats-foot {
-		margin-top: 12px;
-	}
-
 	.facet-strip {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 16px;
+	}
+
+	.home-facet-viz {
+		margin-top: 12px;
+		height: 200px;
+		width: 100%;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.priority-section-heading {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(160px, 260px);
+		gap: 16px;
+		align-items: stretch;
+	}
+
+	.home-priority-polar-viz {
+		min-height: 200px;
+		height: 220px;
+		width: 100%;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.priority-snapshot-charts {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 8px;
+		padding: 8px 10px 4px;
+	}
+
+	.priority-chart-river,
+	.priority-chart-radar {
+		min-height: 108px;
+		height: 108px;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.28);
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	@media (max-width: 900px) {
+		.priority-section-heading {
+			grid-template-columns: 1fr;
+		}
+
+		.home-priority-polar-viz {
+			max-width: 420px;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.home-facet-viz {
+			height: 180px;
+		}
+
+		.priority-snapshot-charts {
+			grid-template-columns: 1fr;
+		}
+
+		.priority-chart-river,
+		.priority-chart-radar {
+			height: 120px;
+		}
 	}
 
 	.facet-card,
@@ -1408,7 +1507,6 @@ const fastPathChecklist = [
 	}
 
 	.featured-grid,
-	.results-grid,
 	.priority-grid,
 	.relay-grid,
 	.requirements-grid,
@@ -1525,34 +1623,288 @@ const fastPathChecklist = [
 
 	.priority-items {
 		display: grid;
-		gap: 10px;
+		gap: 16px;
 	}
 
 	.priority-item {
-		padding: 12px;
-		border-radius: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding: 16px 16px 14px;
+		border-radius: 18px;
 		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		min-height: 100%;
+	}
+
+	/* TradingView-style quote cluster (illustrative; not streaming quotes) */
+	.priority-tv-quote {
+		padding: 10px 12px 12px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.35);
 		border: 1px solid rgba(255, 255, 255, 0.1);
 	}
 
-	.priority-item-head,
-	.priority-item-meta {
+	.priority-tv-quoteTop {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 10px 14px;
+	}
+
+	.priority-tv-priceCluster {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 4px 6px;
+		min-width: 0;
+		font-family: var(--font-mono);
+		line-height: 1.15;
+		color: var(--text);
+	}
+
+	.priority-tv-last {
+		font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+		font-weight: 600;
+		letter-spacing: -0.03em;
+	}
+
+	.priority-tv-ccy {
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: rgba(230, 236, 255, 0.72);
+		text-transform: uppercase;
+	}
+
+	.priority-tv-slash {
+		color: rgba(255, 255, 255, 0.28);
+		font-size: 0.85rem;
+	}
+
+	.priority-tv-sym {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: rgba(230, 236, 255, 0.88);
+	}
+
+	.priority-tv-venueBadge {
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(180, 200, 230, 0.85);
+		padding: 2px 6px;
+		border-radius: 6px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	.priority-tv-delta {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 8px;
+		flex-shrink: 0;
+		font-family: var(--font-mono);
+		font-size: 0.88rem;
+		font-weight: 600;
+	}
+
+	.priority-tv-delta--up {
+		color: #34d399;
+	}
+
+	.priority-tv-delta--down {
+		color: #fb7185;
+	}
+
+	.priority-tv-deltaPct {
+		font-size: 0.82rem;
+		opacity: 0.95;
+	}
+
+	.priority-tv-session {
+		margin: 8px 0 0;
+		font-size: 0.72rem;
+		line-height: 1.45;
+		font-family: var(--font-mono);
+		letter-spacing: 0.04em;
+	}
+
+	.priority-item-main {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		color: inherit;
+		text-decoration: none;
+		border-radius: 12px;
+		outline-offset: 2px;
+	}
+
+	.priority-item-main:hover .priority-item-title {
+		color: var(--accent);
+	}
+
+	.priority-item-cardtop {
 		display: flex;
 		align-items: flex-start;
+		gap: 12px;
+	}
+
+	.priority-item-icon {
+		font-size: 1.35rem;
+		line-height: 1;
+		flex-shrink: 0;
+	}
+
+	.priority-item-titles {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.priority-item-title {
+		margin: 0;
+		font-size: 1.02rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		color: var(--text);
+		line-height: 1.2;
+	}
+
+	.priority-item-sub {
+		margin: 6px 0 0;
+		font-size: 0.82rem;
+		line-height: 1.45;
+		color: var(--muted);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.priority-item-sub .badge {
+		font-size: 0.68rem;
+		padding: 2px 8px;
+	}
+
+	.priority-live-pill {
+		margin-left: auto;
+		flex: none;
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #fff;
+		background: #ef4444;
+		padding: 4px 8px;
+		border-radius: 999px;
+	}
+
+	.priority-snapshot-pill {
+		margin-left: auto;
+		flex: none;
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.88);
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		padding: 4px 8px;
+		border-radius: 999px;
+	}
+
+	.priority-item-outcomes {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.priority-item-outcome {
+		display: flex;
+		align-items: center;
 		justify-content: space-between;
+		gap: 10px;
+		flex-wrap: wrap;
+		padding: 10px 12px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		font-size: 0.88rem;
+	}
+
+	.priority-item-outcome-left {
+		display: flex;
+		align-items: baseline;
 		gap: 10px;
 		flex-wrap: wrap;
 	}
 
-	.priority-item-head p,
-	.priority-item-meta span {
-		margin: 4px 0 0;
-		color: var(--muted);
-		font-size: 0.92rem;
+	.priority-item-code {
+		font-weight: 700;
+		color: var(--text);
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		letter-spacing: 0.06em;
 	}
 
-	.priority-item-meta {
-		margin-top: 8px;
+	.priority-item-pct {
+		color: var(--muted);
+		font-size: 0.9rem;
+	}
+
+	.priority-item-payout {
+		font-size: 0.88rem;
+		color: var(--muted);
+	}
+
+	.priority-item-payout strong {
+		color: var(--text);
+		font-weight: 700;
+	}
+
+	.priority-item-vol {
+		margin: 0;
+		font-size: 0.78rem;
+		color: var(--soft);
+		line-height: 1.45;
+	}
+
+	.priority-item-desk-hint {
+		margin: 0;
+		font-size: 0.72rem;
+		line-height: 1.45;
+	}
+
+	.priority-item-tv {
+		border-radius: 12px;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.35);
+	}
+
+	.priority-live-caption {
+		margin: 0;
+		padding: 8px 10px 0;
+		font-size: 0.72rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		font-family: var(--font-mono);
+	}
+
+	.priority-tv-frame {
+		position: relative;
+		width: 100%;
+		min-height: 156px;
+		background: rgba(0, 0, 0, 0.25);
+	}
+
+	.priority-live-iframe {
+		display: block;
+		width: 100%;
+		height: 164px;
+		border: 0;
+		background: transparent;
 	}
 
 	.featured-card-head,
@@ -1590,6 +1942,70 @@ const fastPathChecklist = [
 	.featured-card-body,
 	.result-card-body {
 		line-height: 1.58;
+	}
+
+	.topology-viz-root {
+		margin-top: 4px;
+		padding-bottom: 8px;
+	}
+
+	.topology-viz-row {
+		display: grid;
+		grid-template-columns: minmax(120px, 160px) minmax(0, 1fr);
+		gap: 12px;
+		align-items: stretch;
+	}
+
+	.topology-viz-gauge {
+		min-height: 200px;
+		height: 200px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		overflow: hidden;
+	}
+
+	.topology-viz-geo {
+		min-height: 200px;
+		height: 200px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		overflow: hidden;
+	}
+
+	.topology-viz-flights {
+		margin-top: 10px;
+		min-height: 160px;
+		height: 180px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		overflow: hidden;
+	}
+
+	.topology-viz-note {
+		margin: 10px 0 0;
+		font-size: 0.78rem;
+		line-height: 1.45;
+	}
+
+	.topology-viz-note a {
+		color: var(--accent);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	@media (max-width: 720px) {
+		.topology-viz-row {
+			grid-template-columns: 1fr;
+		}
+
+		.topology-viz-gauge {
+			max-width: 220px;
+			margin: 0 auto;
+			width: 100%;
+		}
 	}
 
 	.topology-table-wrap {
@@ -1730,31 +2146,6 @@ const fastPathChecklist = [
 		line-height: 1.58;
 	}
 
-	.explorer-section {
-		display: flex;
-		flex-direction: column;
-		gap: 14px;
-	}
-
-	.filters-grid {
-		display: grid;
-		grid-template-columns: repeat(6, minmax(0, 1fr));
-		gap: 12px;
-	}
-
-	.field-search {
-		grid-column: span 2;
-	}
-
-	.result-link {
-		margin-top: auto;
-	}
-
-	.result-empty {
-		grid-column: 1 / -1;
-		text-align: center;
-	}
-
 	@media (max-width: 1100px) {
 		.home-topBand,
 		.facet-strip,
@@ -1763,17 +2154,8 @@ const fastPathChecklist = [
 		.requirements-grid,
 		.junction-grid,
 		.stack-grid,
-		.featured-grid,
-		.results-grid {
+		.featured-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
-		.filters-grid {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
-
-		.field-search {
-			grid-column: span 3;
 		}
 	}
 
@@ -1786,24 +2168,10 @@ const fastPathChecklist = [
 		.junction-grid,
 		.stack-grid,
 		.featured-grid,
-		.results-grid,
-		.stats-grid,
-		.filters-grid,
 		.requirements-list,
 		.checklist-items,
 		.signal-metrics {
 			grid-template-columns: 1fr;
-		}
-
-		.field-search {
-			grid-column: span 1;
-		}
-
-		.result-card-footer,
-		.results-toolbar,
-		.pagination-row {
-			flex-direction: column;
-			align-items: stretch;
 		}
 	}
 </style>

@@ -1,0 +1,12 @@
+---
+/** Client boot for `src/lib/home-viz-echarts.ts` (facets, priority desk, Bloomberg calendar). */
+---
+
+<script>
+	import { mountHomePageViz } from '../lib/home-viz-echarts';
+	import { mountEpPredictionsWindViz, mountTopologyPredictionsViz } from '../lib/topology-predictions-viz';
+
+	mountHomePageViz();
+	mountTopologyPredictionsViz();
+	mountEpPredictionsWindViz();
+</script>

@@ -1,0 +1,112 @@
+Copilot CLI continuation log
+Saved: 2026-05-01
+Project: /Volumes/qbitOS/00.dev/cursor/train/train
+
+Summary
+- Expanded the homepage architecture coverage to better match the Databento-style live-data diagram structure.
+- Refactored the architecture area into a large collapsible control panel with collapsible subsections.
+- Added a dedicated Featured market page that switches regional major baskets from timezone or exchange focus.
+- Kept the project static-site friendly while using external market widgets and links for live context.
+
+What changed in this session
+1. Architecture coverage
+   - Added fuller live-data pipeline coverage:
+     - hop and speed analysis
+     - live data architecture
+     - junction bottlenecks
+     - relay points
+     - server and system requirements
+   - Filled in:
+     - primary vs redundant paths
+     - junction choke points
+     - tech stack layers between stages
+     - relay topology and bottleneck notes
+
+2. Architecture UI refactor
+   - Reworked the architecture content into:
+     - one larger collapsible architecture section
+     - nested collapsible panels for each architecture subsection
+   - Changed relay points and junction bottlenecks from text-heavy cards into more diagram-like signal-path cards.
+
+3. Featured market page
+   - Added a new route:
+     - /featured/
+   - The page now:
+     - chooses Americas, Europe, or APAC from visitor timezone
+     - accepts ?exchange=... to force region selection from listing exchange
+     - shows a curated 10-major stock basket for that regional close focus
+     - links to TradingView and Yahoo heatmaps for stock-performance context
+     - embeds the CoinGecko crypto heatmap widget
+     - ranks 10 crypto majors live from CoinGecko API data
+
+Important data and implementation findings
+- The local Erika catalog is listing metadata only; it does not contain close/change/return data needed to compute true "top performers since regional close" for stocks.
+- Yahoo quote/chart endpoints tested during this session returned rate-limited responses.
+- CoinGecko markets API responded successfully and allowed live crypto ranking.
+- Because of that:
+  - stocks use curated regional major baskets plus external heatmaps for live performance context
+  - crypto uses live CoinGecko data in-page
+
+Regional basket model used
+- Americas:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - GOOGL
+  - META
+  - TSLA
+  - SPY
+  - QQQ
+  - DIA
+- Europe:
+  - LSE:HSBA
+  - AMS:ASML
+  - XETRA:SAP
+  - XETRA:ADS
+  - XETRA:BMW
+  - XETRA:SIE
+  - XETRA:BAS
+  - XETRA:MBG
+  - XETRA:R6C0
+  - LSE:0TDD
+- APAC:
+  - KRX:005930
+  - KRX:000660
+  - KRX:035420
+  - KRX:051910
+  - SSE:600519
+  - SSE:601398
+  - SSE:601318
+  - SZSE:300750
+  - NSE_IN:RELIANCE
+  - NSE_IN:INFY
+
+Files changed in this session
+- src/pages/index.astro
+- src/pages/listing/index.astro
+- src/pages/featured/index.astro
+- src/layouts/Layout.astro
+- README.md
+
+Current behavior
+- Homepage CTA now opens the Featured market page instead of a single featured listing profile.
+- Listing page includes a Featured session button that routes to:
+  - /featured/?exchange=<listing-exchange>
+- Layout navigation now includes:
+  - Featured
+- Architecture sections on the homepage are collapsible and grouped under one larger collapsible shell.
+
+Current local status
+- Astro check passed after the latest edits.
+- Astro build passed after the latest edits.
+- Generated routes now include:
+  - /featured/
+  - /listing/
+  - /raw/
+  - /
+
+Recommended next resume point
+1. If true stock top-performer ranking is required in-page, add a stable stock quote/change API source.
+2. Optionally map more exchanges into region-specific curated baskets.
+3. Optionally replace external heatmap links with embedded regional widgets if a usable source is approved.

@@ -1,0 +1,759 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BloombergLiveRelay from '../../components/BloombergLiveRelay.astro';
+import {
+	tocItems,
+	researchCards,
+	changelogEntries,
+	captionSeeds,
+} from '../../lib/live-captions-desk';
+
+const bloombergRelayStartCommand = 'cd "/Volumes/qbitOS/00.dev/cursor/train" && python3 server.py';
+const published = new Intl.DateTimeFormat('en-US', {
+	month: 'long',
+	day: 'numeric',
+	year: 'numeric',
+}).format(new Date());
+---
+
+<Layout
+	title="Live captions desk | Erika Train"
+	description="Caption-aware working paper, evidence log, and Bloomberg relay — educational desk surface for the Erika catalog."
+	pageClass="page-live-captions"
+	eyebrow="Research desk"
+	subtitle="Rebuild a fact-style brief from captions and conversation, then cross-check themes against the static market catalog."
+>
+	<section class="container live-captions-shell">
+		<article class="live-captions-doc">
+			<header class="live-captions-hero">
+				<p class="live-captions-kicker">Train · Live relay</p>
+				<h1 class="live-captions-title">A technical guide to the live captions desk</h1>
+				<p class="live-captions-meta muted">{published}</p>
+				<p class="live-captions-lead muted">
+					This page is for <strong>education and research layout</strong> only — not investment advice. It borrows
+					structural patterns from long-form product guides and research portals (clear sections, dated evidence, and
+					explorable cards) while keeping execution and compliance outside this static site.
+				</p>
+			</header>
+
+			<div class="live-captions-relaySlot">
+				<BloombergLiveRelay
+					bloombergRelayStartCommand={bloombergRelayStartCommand}
+					relayToolsLinkHref="#live-captions-relay-tools"
+				/>
+			</div>
+
+			<section
+				class="live-captions-section live-captions-relay-tools"
+				id="live-captions-relay-tools"
+				aria-labelledby="live-captions-relay-tools-h"
+			>
+				<h2 id="live-captions-relay-tools-h">Relay tools &amp; API</h2>
+				<p>
+					Checklist for the Bloomberg <code class="live-captions-code">live chat</code> tree: terminal harness, HTTP
+					relay, and the dashboard you open at <code class="live-captions-code">http://127.0.0.1:8765/</code> after
+					starting the server. Published alongside this desk at{' '}
+					<a href="https://fornevercollective.github.io/train/live-captions/" target="_blank" rel="noopener noreferrer"
+						>fornevercollective.github.io/train/live-captions/</a
+					>.
+				</p>
+
+				<h3 class="live-captions-h3">Prerequisites</h3>
+				<ul class="live-captions-tool-list muted">
+					<li><strong>Python 3</strong> — relay and harness.</li>
+					<li>
+						<strong>yt-dlp</strong> — discovers the live English caption playlist for the configured YouTube URL.
+					</li>
+					<li>
+						<strong>Ollama</strong> (or compatible <code class="live-captions-code">POST …/api/generate</code> host) with
+						a chat model; default in repo is <code class="live-captions-code">granite-4-h-tiny-local</code> (see{' '}
+						<code class="live-captions-code">Modelfile.granite-4-h-tiny-local</code> beside the harness).
+					</li>
+				</ul>
+
+				<h3 class="live-captions-h3">Ways to start the browser relay</h3>
+				<ul class="live-captions-tool-list">
+					<li>
+						<strong>Train repo root</strong> — <code class="live-captions-code">python3 server.py</code> (shim runs{' '}
+						<code class="live-captions-code">../bloomberg/live chat/browser-page/server.py</code>, default{' '}
+						<code class="live-captions-code">127.0.0.1:8765</code>).
+					</li>
+					<li>
+						<strong>Browser package</strong> — <code class="live-captions-code">cd …/browser-page</code> then{' '}
+						<code class="live-captions-code">python3 server.py</code> or <code class="live-captions-code">./run-local-agent.sh</code>{' '}
+						(respects <code class="live-captions-code">OLLAMA_HOST</code>,{' '}
+						<code class="live-captions-code">BLOOMBERG_CHAT_MODEL</code> / <code class="live-captions-code">OLLAMA_MODEL</code>).
+					</li>
+				</ul>
+
+				<h3 class="live-captions-h3">Terminal-only caption harness</h3>
+				<p class="muted">
+					<code class="live-captions-code">live_caption_sidechat.py</code> (same <code class="live-captions-code">live chat</code>{' '}
+					folder, not the browser server) polls captions and prints <code class="live-captions-code">CAPTION</code> /{' '}
+					<code class="live-captions-code">SIDECHAT</code> lines to stdout for a bounded number of generations — useful
+					for smoke tests without HTTP.
+				</p>
+				<p class="muted">
+					Flags: <code class="live-captions-code">--video-url</code>, <code class="live-captions-code">--language</code>,{' '}
+					<code class="live-captions-code">--model</code>, <code class="live-captions-code">--poll-interval</code>,{' '}
+					<code class="live-captions-code">--history-cues</code>, <code class="live-captions-code">--min-new-cues</code>,{' '}
+					<code class="live-captions-code">--max-generations</code>.
+				</p>
+
+				<h3 class="live-captions-h3"><code class="live-captions-code">server.py</code> CLI (browser relay)</h3>
+				<ul class="live-captions-tool-list muted">
+					<li><code class="live-captions-code">--host</code> / <code class="live-captions-code">--port</code> — bind address (default <code class="live-captions-code">127.0.0.1:8765</code>).</li>
+					<li><code class="live-captions-code">--video-url</code> — YouTube live URL for captions + embed.</li>
+					<li><code class="live-captions-code">--model</code> — Ollama model name.</li>
+					<li>
+						<code class="live-captions-code">--ollama-host</code> — base URL or full <code class="live-captions-code">…/api/generate</code>; else{' '}
+						<code class="live-captions-code">OLLAMA_URL</code> / <code class="live-captions-code">OLLAMA_HOST</code>.
+					</li>
+					<li><code class="live-captions-code">--poll-interval</code>, <code class="live-captions-code">--min-new-cues</code>, <code class="live-captions-code">--history-cues</code> — caption polling cadence and buffer.</li>
+					<li>
+						<code class="live-captions-code">--chat-temperature</code>, <code class="live-captions-code">--output-temperature</code>,{' '}
+						<code class="live-captions-code">--system-prompt-suffix</code> — sampling and optional side-chat style hint
+						(break / wrap / forecast cards use output temperature).
+					</li>
+				</ul>
+
+				<h3 class="live-captions-h3">HTTP surface</h3>
+				<ul class="live-captions-tool-list muted">
+					<li><strong>GET</strong> <code class="live-captions-code">/</code>, <code class="live-captions-code">/index.html</code> — dashboard.</li>
+					<li><strong>GET</strong> <code class="live-captions-code">/app.js</code>, <code class="live-captions-code">/styles.css</code> — client assets.</li>
+					<li><strong>GET</strong> <code class="live-captions-code">/api/state</code> — JSON for captions, chat, metrics, embed URL, agent snapshot.</li>
+					<li><strong>GET</strong> <code class="live-captions-code">/api/health</code> — lightweight <code class="live-captions-code">ok</code> ping.</li>
+					<li>
+						<strong>POST</strong> <code class="live-captions-code">/api/output</code> — JSON object with string field{' '}
+						<code class="live-captions-code">mode</code> set to <code class="live-captions-code">break</code>,{' '}
+						<code class="live-captions-code">wrap</code>, or <code class="live-captions-code">forecast</code> (same as the
+						dashboard output buttons).
+					</li>
+					<li>
+						<strong>POST</strong> <code class="live-captions-code">/api/agent-settings</code> — live update model, Ollama host,
+						chat/output temperatures, and side-chat system suffix (same fields as <strong>Your local agent</strong> in the UI).
+					</li>
+				</ul>
+
+				<h3 class="live-captions-h3">Dashboard tools (in-browser)</h3>
+				<ul class="live-captions-tool-list muted">
+					<li>Toolbar: <strong>Refresh</strong>, <strong>Copy yt-dlp</strong> reference command, connection status, collapsible top region.</li>
+					<li>Error panel with reproducible <strong>Copy</strong> for the failing command.</li>
+					<li>
+						<strong>Your local agent</strong> — model, Ollama base URL, side-chat and output-card temperatures, extra side-chat
+						system instructions, <strong>Apply to server</strong>.
+					</li>
+					<li><strong>Live counters</strong> and <strong>Statistical analysis</strong> — model status, caption/chat rates, token and cost estimates, react / question / watch mix.</li>
+					<li><strong>Live captions</strong> transcript with optional speaker inference and per-cue model reactions.</li>
+					<li>
+						Main stage: reference clock, reaction strip above the player, YouTube embed, compact caption mirror when the
+						top chrome is hidden.
+					</li>
+					<li>
+						<strong>Granite Tiny side chat</strong> — reading-direction toggle, per-kind counts (watch / react / question),
+						streaming chat lines.
+					</li>
+					<li>
+						<strong>Break / wrap / forecast output</strong> — <em>Commercial break</em>, <em>Wrap up</em>, <em>Estimate / forecast</em> buttons;
+						commercial-break card can also emit automatically after prolonged caption silence.
+					</li>
+				</ul>
+			</section>
+
+			<div class="live-captions-layout">
+				<nav
+					class="live-captions-toc"
+					id="live-captions-toc"
+					aria-labelledby="live-captions-toc-heading"
+				>
+					<p id="live-captions-toc-heading" class="live-captions-toc-title">On this page</p>
+					<ul class="live-captions-toc-list">
+						{
+							tocItems.map((item) => (
+								<li>
+									<a class="live-captions-toc-link" href={`#${item.id}`}>
+										{item.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+
+				<div class="live-captions-main">
+					<section class="live-captions-section" id="live-captions-how" aria-labelledby="live-captions-how-h">
+						<h2 id="live-captions-how-h">How the desk works</h2>
+						<p>
+							Most chat tools run linearly: you type, the model answers. This desk is designed more like a{' '}
+							<strong>review workflow</strong>: captions arrive as a noisy primary source, the side chat proposes
+							structure, and you reorganize claims before anything is treated as “settled.”
+						</p>
+						<p>
+							When a parameter is missing — which venue, which contract month, which session window — the UI should
+							ask before promoting text to the evidence log. That mirrors how agent-style guides treat intent: narrow
+							the trigger, then lock the action.
+						</p>
+					</section>
+
+					<section
+						class="live-captions-section"
+						id="live-captions-explorables"
+						aria-labelledby="live-captions-explorables-h"
+					>
+						<h2 id="live-captions-explorables-h">Interpretability &amp; data</h2>
+						<p class="muted">
+							Explorable explainers and HCI research are useful references when you label caption clusters or explain
+							why a theme fired. External links open in a new tab.
+						</p>
+						<div class="live-captions-cardGrid">
+							{
+								researchCards.map((card) => (
+									<a
+										class="live-captions-card"
+										href={card.href}
+										target={card.external ? '_blank' : undefined}
+										rel={card.external ? 'noopener noreferrer' : undefined}
+									>
+										<h3 class="live-captions-cardTitle">{card.title}</h3>
+										<p class="live-captions-cardBlurb muted">{card.blurb}</p>
+										<ul class="live-captions-cardTags" aria-label="Topics">
+											{card.tags.map((t) => (
+												<li>{t}</li>
+											))}
+										</ul>
+									</a>
+								))
+							}
+						</div>
+					</section>
+
+					<section class="live-captions-section" id="live-captions-paper" aria-labelledby="live-captions-paper-h">
+						<h2 id="live-captions-paper-h">Working paper from captions</h2>
+						<p>
+							Below is a <strong>stub digest</strong>: the browser groups seed caption lines by theme. When the relay
+							writes JSON (captions + chat turns), replace the script source with that payload and re-render the same
+							sections — abstract, claims, and catalog cross-check.
+						</p>
+						<div class="live-captions-paper">
+							<h3 class="live-captions-paper-h3">Abstract</h3>
+							<p id="caption-digest-abstract" class="muted">
+								Loading caption-derived summary…
+							</p>
+							<h3 class="live-captions-paper-h3">Claims under review</h3>
+							<div id="caption-digest-body" class="live-captions-digestMount" />
+							<h3 class="live-captions-paper-h3">Catalog cross-check</h3>
+							<p class="muted">
+								Map each theme to symbols present in the Erika directory (metals: <code>GC=F</code>,{' '}
+								<code>SI=F</code>; benchmarks: <code>ES=F</code>, <code>QQQ</code>; majors:{' '}
+								<code>BTC-USD</code>). Coverage rows on the Directory tab remain the ground truth for what is actually
+								in <code>catalog.json</code>.
+							</p>
+						</div>
+					</section>
+
+					<section
+						class="live-captions-section"
+						id="live-captions-changelog"
+						aria-labelledby="live-captions-changelog-h"
+					>
+						<h2 id="live-captions-changelog-h">Evidence log</h2>
+						<p class="muted">Dated deltas for the desk itself — same rhythm as an API changelog.</p>
+						<ol class="live-captions-changelog">
+							{
+								changelogEntries.map((entry) => (
+									<li class="live-captions-changelog-item">
+										<time class="live-captions-changelog-date" datetime={entry.date}>
+											{entry.date}
+										</time>
+										<div class="live-captions-changelog-body">
+											<h3 class="live-captions-changelog-title">{entry.title}</h3>
+											<p>{entry.body}</p>
+										</div>
+									</li>
+								))
+							}
+						</ol>
+					</section>
+
+					<section class="live-captions-section" id="live-captions-apis" aria-labelledby="live-captions-apis-h">
+						<h2 id="live-captions-apis-h">External references</h2>
+						<p class="muted">
+							Design inspiration only — no affiliation. Public’s Agents guide and API changelog; Google PAIR’s home,
+							research index, and Explorables.
+						</p>
+						<ul class="live-captions-linkList muted">
+							<li><a href="https://public.com/ai-agents/how-it-works" target="_blank" rel="noopener noreferrer">public.com/ai-agents/how-it-works</a></li>
+							<li><a href="https://public.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">public.com/api/docs/changelog</a></li>
+							<li><a href="https://pair.withgoogle.com/" target="_blank" rel="noopener noreferrer">pair.withgoogle.com</a></li>
+							<li><a href="https://pair.withgoogle.com/research/" target="_blank" rel="noopener noreferrer">pair.withgoogle.com/research/</a></li>
+							<li><a href="https://pair.withgoogle.com/explorables/" target="_blank" rel="noopener noreferrer">pair.withgoogle.com/explorables/</a></li>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</article>
+	</section>
+</Layout>
+
+<script define:vars={{ captionSeeds }}>
+	(() => {
+		const abstractEl = document.getElementById('caption-digest-abstract');
+		const bodyEl = document.getElementById('caption-digest-body');
+		if (!abstractEl || !bodyEl) return;
+		const themes = [...new Set(captionSeeds.map((c) => c.theme))];
+		abstractEl.textContent = `This session’s working themes: ${themes.join(', ')}. Claims are reconstructed from ${captionSeeds.length} seed caption lines pending live relay JSON.`;
+		const items = captionSeeds
+			.map(
+				(s) =>
+					`<li><span class="live-captions-claim-theme">${s.theme}</span><span class="live-captions-claim-text">${s.text}</span></li>`,
+			)
+			.join('');
+		bodyEl.innerHTML = `<ol class="live-captions-claim-list">${items}</ol>`;
+	})();
+</script>
+
+<script>
+	function initLiveCaptionsTocSpy() {
+		const toc = document.getElementById('live-captions-toc');
+		if (!toc) return;
+
+		const links = Array.from(toc.querySelectorAll('a.live-captions-toc-link[href^="#"]'));
+		const ids = links
+			.map((a) => decodeURIComponent((a.getAttribute('href') || '').slice(1)))
+			.filter((id) => id.length > 0);
+
+		function scrollMarginLine() {
+			const body = document.body;
+			const collapsed = body.classList.contains('header-collapsed');
+			const hasSearch = body.classList.contains('has-header-directory-search');
+			if (collapsed) return 104;
+			if (hasSearch) return 168;
+			return 132;
+		}
+
+		function setActive(id: string) {
+			for (const link of links) {
+				const href = link.getAttribute('href') || '';
+				const target = decodeURIComponent(href.slice(1));
+				const on = target === id;
+				link.classList.toggle('is-active', on);
+				if (on) link.setAttribute('aria-current', 'location');
+				else link.removeAttribute('aria-current');
+			}
+		}
+
+		function syncFromScroll() {
+			const line = scrollMarginLine();
+			const doc = document.documentElement;
+			const nearBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 56;
+			if (nearBottom && ids.length > 0) {
+				setActive(ids[ids.length - 1]);
+				return;
+			}
+			let active = ids[0] || '';
+			for (const id of ids) {
+				const el = document.getElementById(id);
+				if (!el) continue;
+				const top = el.getBoundingClientRect().top;
+				if (top <= line) active = id;
+			}
+			if (active) setActive(active);
+		}
+
+		syncFromScroll();
+		window.addEventListener('scroll', syncFromScroll, { passive: true });
+		window.addEventListener('resize', syncFromScroll, { passive: true });
+
+		const mo = new MutationObserver(syncFromScroll);
+		mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+	}
+
+	initLiveCaptionsTocSpy();
+</script>
+
+<style>
+	.live-captions-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+		padding-bottom: 48px;
+	}
+
+	.live-captions-doc {
+		max-width: 920px;
+		margin: 0 auto;
+	}
+
+	:global(html:has(body.page-live-captions)) {
+		scroll-behavior: smooth;
+	}
+
+	.live-captions-relaySlot {
+		margin: 0 0 28px;
+	}
+
+	.live-captions-relay-tools {
+		margin-bottom: 2.5rem;
+		padding: 20px 22px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.16);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.live-captions-h3 {
+		margin: 22px 0 10px;
+		font-size: 1.08rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+	}
+
+	.live-captions-h3:first-of-type {
+		margin-top: 14px;
+	}
+
+	.live-captions-tool-list {
+		margin: 8px 0 0;
+		padding-left: 1.25rem;
+		line-height: 1.65;
+		max-width: 48rem;
+	}
+
+	.live-captions-tool-list li {
+		margin-bottom: 8px;
+	}
+
+	.live-captions-tool-list li:last-child {
+		margin-bottom: 0;
+	}
+
+	.live-captions-code {
+		font-family: var(--font-mono);
+		font-size: 0.84em;
+		padding: 0.1em 0.32em;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		word-break: break-word;
+	}
+
+	.live-captions-relaySlot :global(.home-bloomberg-live) {
+		scroll-margin-top: 10.5rem;
+	}
+
+	:global(body.has-header-directory-search) .live-captions-relaySlot :global(.home-bloomberg-live) {
+		scroll-margin-top: 11.25rem;
+	}
+
+	:global(body.has-header-directory-search.header-collapsed) .live-captions-relaySlot :global(.home-bloomberg-live) {
+		scroll-margin-top: 7rem;
+	}
+
+	.live-captions-hero {
+		padding-bottom: 8px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		margin-bottom: 24px;
+	}
+
+	.live-captions-kicker {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		margin: 0 0 10px;
+		color: var(--accent);
+	}
+
+	.live-captions-title {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: clamp(2rem, 4vw, 2.75rem);
+		font-weight: 400;
+		line-height: 1.1;
+		letter-spacing: 0.01em;
+		max-width: 22ch;
+	}
+
+	.live-captions-meta {
+		margin: 10px 0 0;
+		font-size: 0.92rem;
+	}
+
+	.live-captions-lead {
+		margin: 18px 0 0;
+		max-width: 48rem;
+		font-size: 1.02rem;
+		line-height: 1.65;
+	}
+
+	.live-captions-layout {
+		display: grid;
+		grid-template-columns: minmax(200px, 240px) minmax(0, 1fr);
+		gap: 32px;
+		align-items: start;
+	}
+
+	.live-captions-toc {
+		position: sticky;
+		top: 7.5rem;
+		align-self: start;
+		max-height: calc(100vh - 8.75rem);
+		overflow-x: hidden;
+		overflow-y: auto;
+		scrollbar-gutter: stable;
+		padding: 14px 16px;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	:global(body.has-header-directory-search) .live-captions-toc {
+		top: 11.25rem;
+		max-height: calc(100vh - 12.5rem);
+	}
+
+	:global(body.has-header-directory-search.header-collapsed) .live-captions-toc {
+		top: 6.75rem;
+		max-height: calc(100vh - 8rem);
+	}
+
+	.live-captions-toc-title {
+		margin: 0 0 10px;
+		font-size: 0.78rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+
+	.live-captions-toc-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		font-size: 0.9rem;
+	}
+
+	.live-captions-toc-link {
+		display: block;
+		padding: 4px 0 4px 10px;
+		margin-left: -10px;
+		border-left: 2px solid transparent;
+		border-radius: 4px;
+		color: rgba(200, 218, 255, 0.92);
+		text-decoration: none;
+		transition:
+			color 0.12s ease,
+			border-color 0.12s ease,
+			background 0.12s ease;
+	}
+
+	.live-captions-toc-link:hover {
+		color: #e8f0ff;
+		background: rgba(120, 170, 255, 0.06);
+	}
+
+	.live-captions-toc-link.is-active {
+		color: #f2f6ff;
+		font-weight: 600;
+		border-left-color: rgba(120, 170, 255, 0.95);
+		background: rgba(120, 170, 255, 0.1);
+	}
+
+	.live-captions-main {
+		min-width: 0;
+	}
+
+	.live-captions-section {
+		scroll-margin-top: 10.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	:global(body.has-header-directory-search) .live-captions-section {
+		scroll-margin-top: 11.25rem;
+	}
+
+	:global(body.has-header-directory-search.header-collapsed) .live-captions-section {
+		scroll-margin-top: 7rem;
+	}
+
+	.live-captions-section h2 {
+		margin: 0 0 14px;
+		font-family: var(--font-serif);
+		font-size: 1.45rem;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+	}
+
+	.live-captions-section p {
+		margin: 0 0 12px;
+		line-height: 1.65;
+		max-width: 46rem;
+	}
+
+	.live-captions-cardGrid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 14px;
+		margin-top: 16px;
+	}
+
+	.live-captions-card {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		padding: 16px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.15s ease, background 0.15s ease;
+	}
+
+	.live-captions-card:hover {
+		border-color: rgba(120, 170, 255, 0.35);
+		background: rgba(12, 20, 40, 0.45);
+	}
+
+	.live-captions-cardTitle {
+		margin: 0;
+		font-size: 1.05rem;
+		font-weight: 600;
+		line-height: 1.25;
+	}
+
+	.live-captions-cardBlurb {
+		margin: 0;
+		font-size: 0.88rem;
+		line-height: 1.55;
+		flex: 1;
+	}
+
+	.live-captions-cardTags {
+		margin: 4px 0 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.live-captions-cardTags li {
+		font-size: 0.68rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		padding: 4px 8px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.06);
+		color: rgba(186, 206, 240, 0.9);
+	}
+
+	.live-captions-paper {
+		margin-top: 14px;
+		padding: 18px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.18);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.live-captions-paper-h3 {
+		margin: 18px 0 8px;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	.live-captions-paper-h3:first-child {
+		margin-top: 0;
+	}
+
+	.live-captions-digestMount {
+		min-height: 2rem;
+	}
+
+	.live-captions-claim-list {
+		margin: 0;
+		padding-left: 1.2rem;
+		line-height: 1.6;
+	}
+
+	.live-captions-claim-list li {
+		margin-bottom: 10px;
+	}
+
+	.live-captions-claim-theme {
+		display: inline-block;
+		min-width: 5.5rem;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin-right: 8px;
+	}
+
+	.live-captions-changelog {
+		margin: 16px 0 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.live-captions-changelog-item {
+		display: grid;
+		grid-template-columns: 120px minmax(0, 1fr);
+		gap: 16px;
+		padding: 16px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
+	.live-captions-changelog-item:last-child {
+		border-bottom: 0;
+	}
+
+	.live-captions-changelog-date {
+		font-family: var(--font-mono);
+		font-size: 0.82rem;
+		color: var(--muted);
+	}
+
+	.live-captions-changelog-title {
+		margin: 0 0 6px;
+		font-size: 1.02rem;
+		font-weight: 600;
+	}
+
+	.live-captions-changelog-body p {
+		margin: 0;
+		font-size: 0.94rem;
+		color: var(--muted);
+	}
+
+	.live-captions-linkList {
+		margin: 12px 0 0;
+		padding-left: 1.2rem;
+		line-height: 1.8;
+	}
+
+	.live-captions-linkList a {
+		color: rgba(140, 190, 255, 0.95);
+	}
+
+	@media (max-width: 900px) {
+		.live-captions-layout {
+			grid-template-columns: 1fr;
+		}
+
+		.live-captions-toc {
+			position: static;
+		}
+
+		.live-captions-changelog-item {
+			grid-template-columns: 1fr;
+			gap: 6px;
+		}
+	}
+</style>

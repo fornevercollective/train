@@ -1,0 +1,447 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout
+  title="Session Ledger · AI output log"
+  description="Searchable, collapsible log of Zed/Cursor/Copilot AI session outputs, todos, and model decisions."
+  pageClass="page-ledger"
+  eyebrow="Session ledger"
+  subtitle="Searchable AI session log — collapses long outputs, tracks todos, parses by tag or date."
+  eyebrowAttribution="All sessions from Zed · Cursor · Copilot CLI — stored in /data/ledger/sessions.json"
+  showHeaderDirectorySearch={false}
+>
+  <section class="container ledger-shell">
+
+    <!-- ── HEADER CONTROLS ─────────────────────────────────────── -->
+    <div class="ledger-controls card">
+      <div class="ledger-search-row">
+        <input
+          id="ledger-search"
+          class="ledger-search mono"
+          type="search"
+          placeholder="Search sessions, todos, tags…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <div class="ledger-filter-pills" id="ledger-tag-pills">
+          <!-- populated by JS -->
+        </div>
+      </div>
+      <div class="ledger-meta-row">
+        <span class="ledger-count muted" id="ledger-count">Loading…</span>
+        <div class="ledger-view-toggles">
+          <button class="ledger-toggle-btn active" id="btn-sessions" data-view="sessions">Sessions</button>
+          <button class="ledger-toggle-btn" id="btn-todos" data-view="todos">All Todos</button>
+        </div>
+        <button class="ledger-collapse-all muted" id="btn-collapse-all">Collapse all</button>
+        <button class="ledger-collapse-all muted" id="btn-expand-all">Expand all</button>
+      </div>
+    </div>
+
+    <!-- ── TODO BOARD (hidden by default) ────────────────────────── -->
+    <div id="ledger-todo-board" class="ledger-todo-board" style="display:none">
+      <div class="ledger-todo-cols">
+        <div class="ledger-todo-col" id="col-open">
+          <h3 class="ledger-col-title priority-high">Open <span class="ledger-col-count" id="count-open">0</span></h3>
+          <div class="ledger-col-items" id="items-open"></div>
+        </div>
+        <div class="ledger-todo-col" id="col-done">
+          <h3 class="ledger-col-title priority-done">Done <span class="ledger-col-count" id="count-done">0</span></h3>
+          <div class="ledger-col-items" id="items-done"></div>
+        </div>
+        <div class="ledger-todo-col" id="col-blocked">
+          <h3 class="ledger-col-title priority-mid">Blocked <span class="ledger-col-count" id="count-blocked">0</span></h3>
+          <div class="ledger-col-items" id="items-blocked"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SESSION LIST ───────────────────────────────────────────── -->
+    <div id="ledger-sessions-list" class="ledger-sessions-list"></div>
+
+    <p class="ledger-empty muted" id="ledger-empty" style="display:none">No sessions match your search.</p>
+
+  </section>
+</Layout>
+
+<style>
+/* ── Layout ── */
+.ledger-shell { padding-top: 1.5rem; padding-bottom: 4rem; max-width: 900px; }
+
+/* ── Controls ── */
+.ledger-controls { padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+.ledger-search-row { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin-bottom: .75rem; }
+.ledger-search {
+  flex: 1; min-width: 200px;
+  background: #161b22; border: 1px solid #30363d; border-radius: 6px;
+  color: #e6edf3; padding: .45rem .75rem; font-size: .875rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+.ledger-search:focus { outline: none; border-color: #58a6ff; }
+.ledger-filter-pills { display: flex; flex-wrap: wrap; gap: .4rem; }
+.ledger-pill {
+  background: #21262d; border: 1px solid #30363d; border-radius: 12px;
+  color: #8b949e; font-size: .75rem; padding: .2rem .6rem; cursor: pointer;
+  transition: all .15s;
+}
+.ledger-pill:hover, .ledger-pill.active { background: #1f6feb22; border-color: #58a6ff; color: #58a6ff; }
+.ledger-meta-row { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+.ledger-count { font-size: .8rem; flex: 1; }
+.ledger-view-toggles { display: flex; gap: .25rem; }
+.ledger-toggle-btn {
+  background: #21262d; border: 1px solid #30363d; border-radius: 6px;
+  color: #8b949e; font-size: .8rem; padding: .3rem .75rem; cursor: pointer;
+}
+.ledger-toggle-btn.active { background: #1f6feb33; border-color: #58a6ff; color: #58a6ff; }
+.ledger-collapse-all {
+  background: none; border: none; font-size: .75rem; cursor: pointer; padding: .3rem .5rem;
+}
+.ledger-collapse-all:hover { color: #58a6ff; }
+
+/* ── Session cards ── */
+.ledger-sessions-list { display: flex; flex-direction: column; gap: .85rem; }
+.ledger-entry { background: #161b22; border: 1px solid #30363d; border-radius: 8px; overflow: hidden; }
+.ledger-entry-head {
+  display: flex; align-items: center; gap: .75rem; padding: .85rem 1rem;
+  cursor: pointer; user-select: none;
+}
+.ledger-entry-head:hover { background: #1c2128; }
+.ledger-chevron { color: #8b949e; font-size: .75rem; transition: transform .2s; flex-shrink: 0; }
+.ledger-entry.open .ledger-chevron { transform: rotate(90deg); }
+.ledger-entry-meta { flex: 1; min-width: 0; }
+.ledger-entry-title { font-size: .95rem; font-weight: 600; color: #e6edf3; margin-bottom: .2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ledger-entry-summary { font-size: .8rem; color: #8b949e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ledger-entry-right { display: flex; flex-direction: column; align-items: flex-end; gap: .3rem; flex-shrink: 0; }
+.ledger-entry-date { font-size: .72rem; color: #6e7681; font-family: monospace; }
+.ledger-source-badge {
+  font-size: .68rem; padding: .1rem .45rem; border-radius: 4px; font-family: monospace; text-transform: uppercase;
+  background: #21262d; border: 1px solid #30363d; color: #8b949e;
+}
+.ledger-source-badge.zed { border-color: #3fb950; color: #3fb950; }
+.ledger-source-badge.cursor { border-color: #58a6ff; color: #58a6ff; }
+.ledger-source-badge.copilot { border-color: #d2a8ff; color: #d2a8ff; }
+.ledger-source-badge.manual { border-color: #e3b341; color: #e3b341; }
+.ledger-entry-tags { display: flex; gap: .3rem; flex-wrap: wrap; padding: 0 1rem .6rem; }
+.ledger-tag-chip {
+  font-size: .68rem; padding: .1rem .4rem; border-radius: 10px;
+  background: #21262d; border: 1px solid #30363d; color: #6e7681; cursor: pointer;
+}
+.ledger-tag-chip:hover { border-color: #58a6ff; color: #58a6ff; }
+
+/* ── Session body ── */
+.ledger-entry-body { border-top: 1px solid #21262d; display: none; }
+.ledger-entry.open .ledger-entry-body { display: block; }
+
+/* ── Todos inside session ── */
+.ledger-todos-section { padding: .75rem 1rem; border-bottom: 1px solid #21262d; }
+.ledger-todos-title { font-size: .78rem; color: #8b949e; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .5rem; }
+.ledger-todo-item {
+  display: flex; align-items: flex-start; gap: .6rem;
+  padding: .35rem 0; border-bottom: 1px solid #0d1117; font-size: .82rem;
+}
+.ledger-todo-item:last-child { border-bottom: none; }
+.ledger-todo-check {
+  width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid #30363d;
+  flex-shrink: 0; margin-top: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.ledger-todo-item.done .ledger-todo-check { background: #238636; border-color: #238636; }
+.ledger-todo-item.done .ledger-todo-check::after { content: '✓'; color: #fff; font-size: .6rem; }
+.ledger-todo-item.blocked .ledger-todo-check { background: #9e6a03; border-color: #9e6a03; }
+.ledger-todo-item.done .ledger-todo-text { text-decoration: line-through; color: #6e7681; }
+.ledger-todo-text { flex: 1; color: #c9d1d9; line-height: 1.4; }
+.ledger-todo-pri { font-size: .65rem; padding: .1rem .35rem; border-radius: 3px; flex-shrink: 0; }
+.ledger-todo-pri.high { background: #3d1a1a; color: #f85149; }
+.ledger-todo-pri.mid { background: #2d2200; color: #e3b341; }
+.ledger-todo-pri.low { background: #1a2d1a; color: #3fb950; }
+
+/* ── Messages ── */
+.ledger-messages-section { padding: .75rem 1rem; }
+.ledger-message { margin-bottom: .6rem; }
+.ledger-msg-head {
+  display: flex; align-items: center; gap: .5rem; margin-bottom: .25rem; cursor: pointer;
+}
+.ledger-msg-role {
+  font-size: .68rem; padding: .1rem .4rem; border-radius: 3px; font-family: monospace; text-transform: uppercase;
+}
+.ledger-msg-role.user { background: #1f6feb22; color: #58a6ff; border: 1px solid #1f6feb44; }
+.ledger-msg-role.assistant { background: #23863622; color: #3fb950; border: 1px solid #23863644; }
+.ledger-msg-role.system { background: #6e768122; color: #8b949e; border: 1px solid #6e768144; }
+.ledger-msg-role.tool { background: #b08d5722; color: #e3b341; border: 1px solid #b08d5744; }
+.ledger-msg-ts { font-size: .68rem; color: #6e7681; font-family: monospace; }
+.ledger-msg-toggle { font-size: .68rem; color: #6e7681; margin-left: auto; }
+.ledger-msg-content {
+  background: #0d1117; border-radius: 6px; padding: .65rem .85rem;
+  font-size: .82rem; color: #c9d1d9; line-height: 1.6; white-space: pre-wrap;
+  border: 1px solid #21262d;
+}
+.ledger-msg-content.collapsed { max-height: 3.2em; overflow: hidden; position: relative; }
+.ledger-msg-content.collapsed::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1.5em;
+  background: linear-gradient(transparent, #0d1117);
+}
+
+/* ── Attachments ── */
+.ledger-attachment { margin-top: .5rem; border: 1px solid #21262d; border-radius: 6px; overflow: hidden; }
+.ledger-attachment-label {
+  font-size: .68rem; padding: .25rem .65rem; background: #161b22; color: #8b949e;
+  border-bottom: 1px solid #21262d; font-family: monospace; display: flex; align-items: center; gap: .4rem;
+}
+.ledger-attachment-label .att-kind {
+  font-size: .6rem; padding: .05rem .3rem; border-radius: 3px; text-transform: uppercase;
+}
+.att-kind-code  { background: #1f6feb22; color: #58a6ff; border: 1px solid #1f6feb44; }
+.att-kind-shell { background: #23863622; color: #3fb950; border: 1px solid #23863644; }
+.att-kind-json  { background: #b08d5722; color: #e3b341; border: 1px solid #b08d5744; }
+.att-kind-table { background: #6e376922; color: #d2a8ff; border: 1px solid #6e376944; }
+.att-kind-todo  { background: #3d1a1a22; color: #f85149; border: 1px solid #3d1a1a44; }
+.ledger-attachment-content {
+  background: #0d1117; padding: .5rem .75rem;
+  font-size: .78rem; color: #c9d1d9; white-space: pre-wrap; font-family: 'JetBrains Mono', monospace;
+  line-height: 1.55; overflow-x: auto; max-height: 320px; overflow-y: auto;
+}
+
+/* ── Todo board ── */
+.ledger-todo-board { margin-bottom: 1.5rem; }
+.ledger-todo-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+@media (max-width: 640px) { .ledger-todo-cols { grid-template-columns: 1fr; } }
+.ledger-todo-col { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: .85rem; }
+.ledger-col-title { font-size: .82rem; font-weight: 600; margin-bottom: .6rem; display: flex; align-items: center; gap: .4rem; }
+.ledger-col-count { background: #21262d; border-radius: 10px; padding: .1rem .4rem; font-size: .7rem; font-weight: 400; }
+.priority-high .ledger-col-count { background: #3d1a1a; color: #f85149; }
+.priority-done .ledger-col-count { background: #1a2d1a; color: #3fb950; }
+.priority-mid .ledger-col-count { background: #2d2200; color: #e3b341; }
+.ledger-empty { padding: 2rem; text-align: center; }
+</style>
+
+<script is:inline>
+(async () => {
+  // ── Load data ──────────────────────────────────────────────────
+  const base = document.body.getAttribute('data-base-url') || '/';
+  const dataUrl = `${base}data/ledger/sessions.json`.replace(/\/\//g, '/');
+  let entries = [];
+  let allTodos = [];
+
+  try {
+    const r = await fetch(dataUrl);
+    const d = await r.json();
+    entries = d.entries || [];
+  } catch (e) {
+    const countEl = document.getElementById('ledger-count');
+    if (countEl) countEl.textContent = 'Failed to load sessions.json — is the dev server running?';
+    const list = document.getElementById('ledger-sessions-list');
+    if (list) list.innerHTML = `<div style="padding:2rem;background:#161b22;border:1px solid #f85149;border-radius:8px;color:#f85149">
+      <strong>Could not fetch /data/ledger/sessions.json</strong><br>
+      <span style="color:#8b949e;font-size:.85rem">Error: ${e.message || e}<br>Make sure the dev server is running at <code>npm run dev</code> and reload.</span>
+      <br><br><button onclick="location.reload()" style="background:#238636;border:none;color:#fff;padding:.4rem 1rem;border-radius:6px;cursor:pointer">Retry</button>
+    </div>`;
+    return;
+  }
+
+  // Flatten all todos with session reference
+  entries.forEach(e => {
+    (e.todos || []).forEach(t => {
+      allTodos.push({ ...t, sessionId: e.id, sessionTitle: e.title });
+    });
+  });
+
+  // ── State ──────────────────────────────────────────────────────
+  let searchQ = '';
+  let activeTag = '';
+  let view = 'sessions'; // 'sessions' | 'todos'
+
+  // ── Collect all tags ───────────────────────────────────────────
+  const allTags = [...new Set(entries.flatMap(e => e.tags))].sort();
+
+  // ── Tag pills ─────────────────────────────────────────────────
+  const pillsEl = document.getElementById('ledger-tag-pills');
+  allTags.forEach(tag => {
+    const btn = document.createElement('button');
+    btn.className = 'ledger-pill';
+    btn.textContent = tag;
+    btn.dataset.tag = tag;
+    btn.addEventListener('click', () => {
+      activeTag = activeTag === tag ? '' : tag;
+      document.querySelectorAll('.ledger-pill').forEach(p => p.classList.remove('active'));
+      if (activeTag) btn.classList.add('active');
+      render();
+    });
+    pillsEl.appendChild(btn);
+  });
+
+  // ── Search ────────────────────────────────────────────────────
+  document.getElementById('ledger-search').addEventListener('input', e => {
+    searchQ = e.target.value.toLowerCase();
+    render();
+  });
+
+  // ── View toggles ─────────────────────────────────────────────
+  document.getElementById('btn-sessions').addEventListener('click', () => setView('sessions'));
+  document.getElementById('btn-todos').addEventListener('click', () => setView('todos'));
+
+  function setView(v) {
+    view = v;
+    document.getElementById('ledger-sessions-list').style.display = v === 'sessions' ? 'flex' : 'none';
+    document.getElementById('ledger-todo-board').style.display = v === 'todos' ? 'block' : 'none';
+    document.getElementById('btn-sessions').classList.toggle('active', v === 'sessions');
+    document.getElementById('btn-todos').classList.toggle('active', v === 'todos');
+    render();
+  }
+
+  // ── Collapse / expand all ─────────────────────────────────────
+  document.getElementById('btn-collapse-all').addEventListener('click', () => {
+    document.querySelectorAll('.ledger-entry.open').forEach(el => el.classList.remove('open'));
+    document.querySelectorAll('.ledger-msg-content').forEach(el => el.classList.add('collapsed'));
+  });
+  document.getElementById('btn-expand-all').addEventListener('click', () => {
+    document.querySelectorAll('.ledger-entry:not(.open)').forEach(el => el.classList.add('open'));
+    document.querySelectorAll('.ledger-msg-content.collapsed').forEach(el => el.classList.remove('collapsed'));
+  });
+
+  // ── Helpers ───────────────────────────────────────────────────
+  function matchesSearch(entry) {
+    if (!searchQ) return true;
+    const blob = [
+      entry.title, entry.summary, ...entry.tags,
+      ...(entry.todos || []).map(t => t.text),
+      ...(entry.messages || []).map(m => m.content),
+    ].join(' ').toLowerCase();
+    return blob.includes(searchQ);
+  }
+
+  function matchesTag(entry) {
+    if (!activeTag) return true;
+    return entry.tags.includes(activeTag);
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function renderAttachments(attachments) {
+    if (!attachments || !attachments.length) return '';
+    return attachments.map(att => {
+      const kindCls = `att-kind-${esc(att.kind)}`;
+      return `<div class="ledger-attachment">
+        <div class="ledger-attachment-label">
+          <span class="att-kind ${kindCls}">${esc(att.kind)}</span>
+          <span>${esc(att.label)}</span>
+          ${att.lang ? `<span style="color:#6e7681;font-size:.62rem">${esc(att.lang)}</span>` : ''}
+        </div>
+        <div class="ledger-attachment-content">${esc(att.content)}</div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderTodo(t, compact = false) {
+    const pri = t.priority === 'high' ? 'high' : t.priority === 'mid' ? 'mid' : 'low';
+    return `<div class="ledger-todo-item ${esc(t.status)}">
+      <div class="ledger-todo-check" title="${esc(t.status)}"></div>
+      <span class="ledger-todo-text">${esc(t.text)}${compact ? `<br><span style="font-size:.68rem;color:#6e7681">${esc(t.sessionTitle || '')}</span>` : ''}</span>
+      <span class="ledger-todo-pri ${pri}">${esc(t.priority)}</span>
+    </div>`;
+  }
+
+  function renderEntry(entry) {
+    const todos = entry.todos || [];
+    const msgs = entry.messages || [];
+    const todosHtml = todos.length ? `
+      <div class="ledger-todos-section">
+        <div class="ledger-todos-title">Todos (${todos.length})</div>
+        ${todos.map(t => renderTodo(t)).join('')}
+      </div>` : '';
+
+    const msgsHtml = msgs.length ? `
+      <div class="ledger-messages-section">
+        ${msgs.map(m => `
+          <div class="ledger-message">
+            <div class="ledger-msg-head" onclick="this.parentElement.querySelector('.ledger-msg-content').classList.toggle('collapsed')">
+              <span class="ledger-msg-role ${esc(m.role)}">${esc(m.role)}</span>
+              <span class="ledger-msg-ts">${esc(m.ts.substring(0,10))}</span>
+              <span class="ledger-msg-toggle">toggle</span>
+            </div>
+            <div class="ledger-msg-content ${m.collapsed !== false ? 'collapsed' : ''}">${esc(m.content)}${renderAttachments(m.attachments)}</div>
+          </div>`).join('')}
+      </div>` : '';
+
+    return `<div class="ledger-entry" id="${esc(entry.id)}">
+      <div class="ledger-entry-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="ledger-chevron">&#9654;</span>
+        <div class="ledger-entry-meta">
+          <div class="ledger-entry-title">${esc(entry.title)}</div>
+          <div class="ledger-entry-summary">${esc(entry.summary)}</div>
+        </div>
+        <div class="ledger-entry-right">
+          <span class="ledger-entry-date">${esc(entry.date)}</span>
+          <span class="ledger-source-badge ${esc(entry.source)}">${esc(entry.source)}</span>
+        </div>
+      </div>
+      <div class="ledger-entry-tags">
+        ${entry.tags.map(tag => `<span class="ledger-tag-chip" onclick="event.stopPropagation();window.ledgerFilterTag('${esc(tag)}')">${esc(tag)}</span>`).join('')}
+      </div>
+      <div class="ledger-entry-body">
+        ${todosHtml}
+        ${msgsHtml}
+      </div>
+    </div>`;
+  }
+
+  // ── Global tag filter helper ───────────────────────────────────
+  window.ledgerFilterTag = (tag) => {
+    activeTag = activeTag === tag ? '' : tag;
+    document.querySelectorAll('.ledger-pill').forEach(p => {
+      p.classList.toggle('active', p.dataset.tag === activeTag);
+    });
+    render();
+  };
+
+  // ── Render ────────────────────────────────────────────────────
+  function render() {
+    if (view === 'todos') {
+      renderTodos();
+      return;
+    }
+    const list = document.getElementById('ledger-sessions-list');
+    const empty = document.getElementById('ledger-empty');
+    const countEl = document.getElementById('ledger-count');
+
+    const filtered = entries.filter(e => matchesSearch(e) && matchesTag(e));
+    list.innerHTML = filtered.map(renderEntry).join('');
+    empty.style.display = filtered.length ? 'none' : 'block';
+
+    const open = allTodos.filter(t => t.status === 'open').length;
+    const done = allTodos.filter(t => t.status === 'done').length;
+    countEl.textContent = `${filtered.length} / ${entries.length} sessions · ${open} open todos · ${done} done`;
+  }
+
+  function renderTodos() {
+    const q = searchQ;
+    const tag = activeTag;
+    const countEl = document.getElementById('ledger-count');
+
+    const filtered = allTodos.filter(t => {
+      if (tag && !t.tags.includes(tag)) return false;
+      if (q && !t.text.toLowerCase().includes(q) && !(t.sessionTitle||'').toLowerCase().includes(q)) return false;
+      return true;
+    });
+
+    const open = filtered.filter(t => t.status === 'open');
+    const done = filtered.filter(t => t.status === 'done');
+    const blocked = filtered.filter(t => t.status === 'blocked');
+
+    document.getElementById('items-open').innerHTML = open.map(t => renderTodo(t, true)).join('') || '<p class="muted" style="font-size:.8rem;padding:.5rem 0">None</p>';
+    document.getElementById('items-done').innerHTML = done.map(t => renderTodo(t, true)).join('') || '<p class="muted" style="font-size:.8rem;padding:.5rem 0">None</p>';
+    document.getElementById('items-blocked').innerHTML = blocked.map(t => renderTodo(t, true)).join('') || '<p class="muted" style="font-size:.8rem;padding:.5rem 0">None</p>';
+
+    document.getElementById('count-open').textContent = open.length;
+    document.getElementById('count-done').textContent = done.length;
+    document.getElementById('count-blocked').textContent = blocked.length;
+
+    countEl.textContent = `${filtered.length} / ${allTodos.length} todos · ${open.length} open · ${done.length} done`;
+  }
+
+  render();
+})();
+</script>

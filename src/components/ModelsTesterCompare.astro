@@ -1,0 +1,319 @@
+---
+import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib/models-tester-mock';
+---
+
+<section class="models-tester card" id="model-tester" aria-labelledby="models-tester-title">
+	<div class="models-tester-head">
+		<h2 id="models-tester-title" class="models-tester-title">Model tester (Compare layout)</h2>
+		<p class="models-tester-lede muted">
+			This block is a <strong>static visual echo</strong> of the GitHub Models Compare experience described in the{' '}
+			<a href={modelTesterLinks.changelog} target="_blank" rel="noopener noreferrer">May&nbsp;2025 changelog</a>
+			(side-by-side runs, scores, token/latency readouts, JSON output). On GitHub you enable{' '}
+			<a href={modelTesterLinks.marketplaceTypeModels} target="_blank" rel="noopener noreferrer">Models</a>
+			{' '}for your repository, version prompts (for example <code>.prompt.yml</code>), then evaluate against hosted models — not something this static Train site can call without your own API keys and a backend.
+		</p>
+	</div>
+
+	<p class="models-tester-context mono" aria-label="Task context">
+		{modelTesterContext}
+	</p>
+
+	<div class="models-tester-grid" role="group" aria-label="Side-by-side model outputs">
+		{
+			modelTesterColumns.map((col, idx) => (
+				<div class="models-tester-col">
+					<div class="models-tester-colHead">
+						<label class="visually-hidden" for={`models-tester-select-${idx}`}>
+							Model for column {idx + 1}
+						</label>
+						<select class="models-tester-select mono" id={`models-tester-select-${idx}`} disabled>
+							{col.options.map((o) => (
+								<option value={o.value} selected={o.value === col.selectedValue}>
+									{o.label}
+								</option>
+							))}
+						</select>
+						<div class="models-tester-row2">
+							<span class="models-tester-version muted">{col.versionLabel}</span>
+							<span
+								class:list={[
+									'models-tester-score',
+									col.scoreVariant === 'high' && 'models-tester-score--high',
+									col.scoreVariant === 'mid' && 'models-tester-score--mid',
+									col.scoreVariant === 'low' && 'models-tester-score--low',
+								]}
+							>
+								{col.scorePct}%
+							</span>
+						</div>
+					</div>
+					<p class="models-tester-meta mono muted">
+						Input: {col.inputTok.toLocaleString()} · Output: {col.outputTok.toLocaleString()} · {col.latencyMs} ms
+					</p>
+					<dl class="models-tester-metrics">
+						{col.metrics.map((m) => (
+							<div class="models-tester-metric">
+								<dt>{m.label}</dt>
+								<dd class="mono">{m.value}</dd>
+							</div>
+						))}
+					</dl>
+					<div class="models-tester-jsonWrap">
+						<span class="models-tester-jsonLabel mono">Output</span>
+						<pre class="models-tester-json mono" tabindex="0">
+							<code>
+								{
+									col.jsonParts.map((part) =>
+										part.diff ? <mark class="models-tester-diff">{part.text}</mark> : part.text
+									)
+								}
+							</code>
+						</pre>
+					</div>
+				</div>
+			))
+		}
+	</div>
+
+	<p class="models-tester-foot muted">
+		Catalog:{' '}
+		<a href={modelTesterLinks.marketplaceModels} target="_blank" rel="noopener noreferrer">github.com/marketplace/models</a>
+		{' · '}
+		<a href={modelTesterLinks.marketplaceTypeModels} target="_blank" rel="noopener noreferrer">Marketplace → type=models</a>
+	</p>
+</section>
+
+<style>
+	.models-tester {
+		padding: 18px 18px 16px;
+		border-radius: 18px;
+		background: linear-gradient(165deg, rgba(13, 17, 23, 0.92) 0%, rgba(8, 10, 16, 0.98) 45%);
+		border: 1px solid rgba(48, 54, 61, 0.85);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+	}
+
+	.models-tester-head {
+		margin-bottom: 14px;
+	}
+
+	.models-tester-title {
+		margin: 0 0 8px;
+		font-size: 1.08rem;
+		font-weight: 650;
+		letter-spacing: -0.02em;
+	}
+
+	.models-tester-lede {
+		margin: 0;
+		font-size: 0.88rem;
+		line-height: 1.55;
+		max-width: 70rem;
+	}
+
+	.models-tester-lede a {
+		color: var(--accent, #58a6ff);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.models-tester-lede code {
+		font-size: 0.82em;
+		padding: 0.1em 0.35em;
+		border-radius: 6px;
+		background: rgba(110, 118, 129, 0.18);
+	}
+
+	.models-tester-context {
+		margin: 0 0 16px;
+		padding: 8px 12px;
+		border-radius: 8px;
+		background: rgba(1, 4, 9, 0.55);
+		border: 1px solid rgba(48, 54, 61, 0.75);
+		color: rgba(139, 148, 158, 0.95);
+		font-size: 0.8rem;
+		line-height: 1.45;
+		word-break: break-word;
+	}
+
+	.models-tester-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 12px;
+		align-items: stretch;
+	}
+
+	.models-tester-col {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		min-width: 0;
+		padding: 12px;
+		border-radius: 12px;
+		background: rgba(1, 4, 9, 0.45);
+		border: 1px solid rgba(48, 54, 61, 0.65);
+	}
+
+	.models-tester-select {
+		width: 100%;
+		appearance: none;
+		padding: 8px 32px 8px 10px;
+		border-radius: 8px;
+		border: 1px solid rgba(48, 54, 61, 0.95);
+		background: rgba(13, 17, 23, 0.95)
+			url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+			right 10px center no-repeat;
+		color: rgba(230, 237, 243, 0.95);
+		font-size: 0.78rem;
+		cursor: not-allowed;
+	}
+
+	.models-tester-row2 {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		margin-top: 8px;
+	}
+
+	.models-tester-version {
+		font-size: 0.72rem;
+	}
+
+	.models-tester-score {
+		font-family: var(--font-mono, ui-monospace, monospace);
+		font-size: 0.78rem;
+		font-weight: 700;
+		padding: 4px 10px;
+		border-radius: 999px;
+		border: 1px solid transparent;
+	}
+
+	.models-tester-score--high {
+		color: rgba(63, 185, 80, 1);
+		background: rgba(63, 185, 80, 0.12);
+		border-color: rgba(63, 185, 80, 0.35);
+	}
+
+	.models-tester-score--mid {
+		color: rgba(210, 153, 34, 1);
+		background: rgba(210, 153, 34, 0.12);
+		border-color: rgba(210, 153, 34, 0.35);
+	}
+
+	.models-tester-score--low {
+		color: rgba(248, 81, 73, 0.95);
+		background: rgba(248, 81, 73, 0.1);
+		border-color: rgba(248, 81, 73, 0.32);
+	}
+
+	.models-tester-meta {
+		margin: 0;
+		padding: 6px 8px;
+		font-size: 0.68rem;
+		border-radius: 8px;
+		background: rgba(110, 118, 129, 0.12);
+		border: 1px solid rgba(48, 54, 61, 0.5);
+	}
+
+	.models-tester-metrics {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.models-tester-metric {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 8px;
+		font-size: 0.75rem;
+		color: rgba(201, 209, 217, 0.88);
+	}
+
+	.models-tester-metric dt {
+		margin: 0;
+		font-weight: 500;
+		color: rgba(139, 148, 158, 0.95);
+	}
+
+	.models-tester-metric dd {
+		margin: 0;
+		font-weight: 600;
+		color: rgba(230, 237, 243, 0.92);
+	}
+
+	.models-tester-jsonWrap {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+		margin-top: 2px;
+	}
+
+	.models-tester-jsonLabel {
+		font-size: 0.65rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(139, 148, 158, 0.85);
+		margin-bottom: 4px;
+	}
+
+	.models-tester-json {
+		margin: 0;
+		flex: 1;
+		padding: 10px;
+		border-radius: 8px;
+		background: rgba(13, 17, 23, 0.9);
+		border: 1px solid rgba(48, 54, 61, 0.75);
+		font-size: 0.68rem;
+		line-height: 1.45;
+		color: rgba(201, 209, 217, 0.95);
+		overflow: auto;
+		max-height: 220px;
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+
+	.models-tester-json :global(mark.models-tester-diff) {
+		background: rgba(248, 81, 73, 0.28);
+		color: rgba(255, 210, 200, 0.98);
+		border-radius: 3px;
+		padding: 0 1px;
+	}
+
+	.models-tester-foot {
+		margin: 14px 0 0;
+		font-size: 0.8rem;
+	}
+
+	.models-tester-foot a {
+		color: var(--accent, #58a6ff);
+	}
+
+	.mono {
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	@media (max-width: 960px) {
+		.models-tester-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.models-tester-json {
+			max-height: 180px;
+		}
+	}
+</style>

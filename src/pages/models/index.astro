@@ -1,0 +1,324 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ModelsLeaderboardECharts from '../../components/ModelsLeaderboardECharts.astro';
+import ModelsTesterCompare from '../../components/ModelsTesterCompare.astro';
+import { benchmarkBlocks, llmDeskRows } from '../../lib/models-leaderboard-data';
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
+---
+
+<Layout
+	title="Models · LLM leaderboard (illustrative)"
+	description="Static Train page with Artificial Analysis– and Onyx-style leaderboard layout: charts and tables for education only."
+	pageClass="page-models"
+	eyebrow="Models desk"
+	subtitle="Independent-style rankings and benchmark rows rendered statically on Train — not live vendor APIs or official benchmark scores."
+	eyebrowAttribution="Train models desk — static UI. For real side-by-side prompt evaluation in GitHub, enable GitHub Models on the repository (Compare tab, public preview)."
+>
+	<section class="container models-shell">
+		<header class="models-hero card">
+			<p class="models-hero-eyebrow">LLM leaderboard</p>
+			<h1 class="models-hero-title">Compare models like leaderboard sites — on static GitHub Pages</h1>
+			<p class="models-hero-lede muted">
+				Layout and chart idioms echo{' '}
+				<a href="https://artificialanalysis.ai" target="_blank" rel="noopener noreferrer">Artificial Analysis</a>
+				{' '}(intelligence / speed / price storytelling) and the wide benchmark table pattern on{' '}
+				<a href="https://onyx.app/llm-leaderboard" target="_blank" rel="noopener noreferrer">Onyx’s LLM leaderboard</a>.
+				Numbers below are <strong>illustrative placeholders</strong> for UI development; replace with your own dataset or API when wiring a real desk.{' '}
+				<a href="#model-tester">GitHub-style model tester mock →</a>
+			</p>
+		</header>
+
+		<ModelsTesterCompare />
+
+		<div
+			id="models-leaderboard-root"
+			class="models-leaderboard-mount"
+			data-payload={modelsPayload}
+			role="region"
+			aria-label="Leaderboard charts and benchmark rows"
+		>
+			<ModelsLeaderboardECharts />
+
+			<section class="models-benchmarks" id="benchmarks" aria-label="Benchmark style rows">
+				<h2 class="models-benchmarks-title">Benchmark rows</h2>
+				<p class="models-benchmarks-lede muted">
+					Each block uses a split layout (copy + horizontal bar chart) similar to expandable benchmark sections on modern leaderboard sites.
+				</p>
+				<div class="models-benchmarks-stack">
+					{
+						benchmarkBlocks.map((block) => (
+							<div class="models-bench-row">
+								<div class="models-bench-copy">
+									<h3>{block.title}</h3>
+									<p class="muted">{block.lede}</p>
+								</div>
+								<div
+									class="models-bench-chart"
+									data-models-mini={encodeURIComponent(JSON.stringify(block.minis))}
+									role="img"
+									aria-label={`Bar chart for ${block.title}`}
+								/>
+							</div>
+						))
+					}
+				</div>
+			</section>
+		</div>
+
+		<section class="models-table-section card" aria-labelledby="models-desk-table-title">
+			<div class="models-table-head">
+				<h2 id="models-desk-table-title">Desk comparison table</h2>
+				<p class="muted models-table-sub">
+					Sortable-style columns (Onyx-style). Values are hand-authored for the Train demo, not scraped from vendors.
+				</p>
+			</div>
+			<div class="models-table-wrap">
+				<table class="models-table">
+					<thead>
+						<tr>
+							<th scope="col">Model</th>
+							<th scope="col">Params</th>
+							<th scope="col">Context</th>
+							<th scope="col">Input $/1M</th>
+							<th scope="col">Output $/1M</th>
+							<th scope="col">MMLU-Pro</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							llmDeskRows.map((r) => (
+								<tr>
+									<th scope="row">
+										{r.model}
+										<span class="models-provider">{r.provider}</span>
+									</th>
+									<td>{r.params}</td>
+									<td>{r.context}</td>
+									<td>${r.inputPerM.toFixed(2)}</td>
+									<td>${r.outputPerM.toFixed(2)}</td>
+									<td>{r.mmluPro.toFixed(1)}</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<p class="models-foot muted">
+			External references:{' '}
+			<a href="https://artificialanalysis.ai" target="_blank" rel="noopener noreferrer">artificialanalysis.ai</a>
+			{' · '}
+			<a href="https://onyx.app/llm-leaderboard" target="_blank" rel="noopener noreferrer">onyx.app/llm-leaderboard</a>
+			{' · '}
+			<a href={baseUrl}>← Directory home</a>
+		</p>
+	</section>
+</Layout>
+
+<style>
+	.models-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		padding-top: 4px;
+		max-width: min(1100px, 100%);
+		margin: 0 auto;
+	}
+
+	.models-hero {
+		padding: 18px 20px;
+	}
+
+	.models-hero-eyebrow {
+		margin: 0 0 8px;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.models-hero-title {
+		margin: 0 0 10px;
+		font-family: var(--font-serif);
+		font-size: clamp(1.55rem, 3vw, 2.1rem);
+		font-weight: 500;
+		line-height: 1.15;
+		max-width: 28ch;
+	}
+
+	.models-hero-lede {
+		margin: 0;
+		max-width: 58rem;
+		line-height: 1.6;
+		font-size: 0.98rem;
+	}
+
+	.models-hero-lede a {
+		color: var(--accent);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.models-table-section {
+		padding: 16px 18px 18px;
+	}
+
+	.models-table-head h2 {
+		margin: 0 0 6px;
+		font-size: 1.15rem;
+	}
+
+	.models-table-sub {
+		margin: 0 0 14px;
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.models-table-wrap {
+		overflow-x: auto;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.models-table {
+		width: 100%;
+		min-width: 640px;
+		border-collapse: collapse;
+		font-size: 0.88rem;
+	}
+
+	.models-table th,
+	.models-table td {
+		padding: 10px 12px;
+		text-align: left;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		vertical-align: top;
+	}
+
+	.models-table thead th {
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--soft);
+		background: rgba(7, 8, 18, 0.92);
+	}
+
+	.models-table tbody th {
+		font-weight: 600;
+		color: var(--text);
+	}
+
+	.models-provider {
+		display: block;
+		margin-top: 4px;
+		font-size: 0.78rem;
+		font-weight: 500;
+		color: var(--muted);
+	}
+
+	.models-benchmarks-title {
+		margin: 0 0 6px;
+		font-size: 1.1rem;
+	}
+
+	.models-benchmarks-lede {
+		margin: 0 0 14px;
+		font-size: 0.9rem;
+		max-width: 52rem;
+		line-height: 1.55;
+	}
+
+	.models-benchmarks-stack {
+		display: flex;
+		flex-direction: column;
+		border-radius: 16px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+		overflow: hidden;
+	}
+
+	.models-bench-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		gap: 16px 20px;
+		padding: 20px 18px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.models-bench-row:last-child {
+		border-bottom: none;
+	}
+
+	.models-bench-copy {
+		flex: 1 1 240px;
+		min-width: 0;
+	}
+
+	.models-bench-copy h3 {
+		margin: 0 0 8px;
+		font-size: 1.02rem;
+		font-weight: 650;
+	}
+
+	.models-bench-copy p {
+		margin: 0;
+		line-height: 1.55;
+		font-size: 0.9rem;
+	}
+
+	.models-bench-chart {
+		flex: 1 1 260px;
+		min-height: 140px;
+		height: 160px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.25);
+		overflow: hidden;
+	}
+
+	.models-foot {
+		font-size: 0.84rem;
+		line-height: 1.5;
+		margin: 0 0 28px;
+	}
+
+	.models-foot a {
+		color: var(--accent);
+	}
+
+	.models-leaderboard-mount {
+		display: flex;
+		flex-direction: column;
+		gap: 22px;
+	}
+
+	@media (max-width: 720px) {
+		.models-bench-row {
+			flex-direction: column;
+		}
+
+		.models-bench-chart {
+			width: 100%;
+		}
+	}
+</style>
+
+<script>
+	(async () => {
+		const root = document.getElementById('models-leaderboard-root');
+		if (!root) return;
+		try {
+			const { mountModelsLeaderboard } = await import('../../lib/models-leaderboard-echarts');
+			mountModelsLeaderboard(root);
+		} catch {
+			/* ignore */
+		}
+	})();
+</script>

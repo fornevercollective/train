@@ -14,11 +14,54 @@ profile view for individual listings.
 The site does not require a runtime backend. Search and filtering happen in the browser against
 the generated JSON catalog.
 
+## Companion Game console (predictions + live desk)
+
+The sibling **Game** Next.js app (`…/cursor/game`) hosts the interactive predictions strip (flat
+$100 → payout framing, reference-only demo), the merged **`/live`** route with μgrad sports-field
+and Bloomberg side-chat iframes, and env-driven embed URLs (`NEXT_PUBLIC_UGRAD_SPORTS_URL`,
+`NEXT_PUBLIC_UGRAD_TOOLS_DECK_URL`, `NEXT_PUBLIC_BLOOMBERG_CHAT_URL`).
+
+Train ships dedicated routes for each top tab: **`/directory/`** (full catalog explorer with filters
+and pagination), **`/predictions/`** (Game-style card grid), plus Featured, Listing, and Raw. The
+site header uses pill navigation with the **Directory search** field first, then the eyebrow and
+title, then the educational row, then the tab row (Home, Featured, Predictions, Directory, Listing,
+Raw) plus optional Game / Live when `PUBLIC_GAME_CONSOLE_URL` is set. From any non-directory page,
+pressing **Enter** in the header search jumps to `/directory/?q=…`.
+
+Train’s homepage links out when you set at **build** time:
+
+- **`PUBLIC_GAME_CONSOLE_URL`** — Game origin with no trailing slash (for example `http://localhost:3000` or your deployed base).
+
+Example:
+
+```bash
+PUBLIC_GAME_CONSOLE_URL=http://localhost:3000 npm run build
+```
+
+If unset, the new homepage sections still show demo cards and wiring notes; the site header omits
+the “Game console” / “Live desk” shortcuts until the variable is provided.
+
+For **GitHub Actions** deploys, define a repository variable `PUBLIC_GAME_CONSOLE_URL` (Settings →
+Secrets and variables → Actions → Variables) so Pages builds pick up the same origin.
+
 ## Low-latency access model
 
 The homepage now includes an indicative **hop and speed analysis** layer for major exchange and
 index routes, relay points, live pipeline stages, junction bottlenecks, and hardware profiles. It
 is meant as planning guidance for getting market data into Train at speed, not as a measured SLA.
+
+## Featured market page
+
+The site now includes `/featured/`, a timezone-aware market-focus page that:
+
+- picks a regional session from the visitor timezone or `?exchange=...`
+- shows a curated 10-major stock basket for that region from the local catalog
+- links out to TradingView and Yahoo heatmaps for live stock-performance context
+- loads CoinGecko live crypto movers and the CoinGecko heatmap widget client-side
+
+Because the repo still ships static listing metadata rather than full end-of-day quote history, the
+stock basket is curated by region and exchange focus, while the live ranking context comes from the
+external heatmap sources.
 
 ### Major venue / index routes
 

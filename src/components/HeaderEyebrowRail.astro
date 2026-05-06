@@ -1,0 +1,42 @@
+---
+/** Shared header eyebrow rail (matches Layout global chrome classes). */
+interface Props {
+	variant: 'beside-search' | 'standalone';
+	eyebrow: string;
+	subtitle: string;
+	/** Title in the rail (standalone variant only). */
+	title?: string;
+	baseUrl?: string;
+	/** Right-rail attribution line (defaults to Erika directory copy). */
+	attribution?: string;
+}
+
+const defaultAttribution =
+	'Built from Erika dataset metadata for browsing, filtering, and static profile lookup.';
+
+const { variant, eyebrow, subtitle, title, baseUrl = '/', attribution = defaultAttribution } = Astro.props;
+---
+
+{
+	variant === 'beside-search' ? (
+		<div class="headerEyebrowRow headerEyebrowRow--rail headerEyebrowRow--railBesideSearch">
+			<div class="headerEyebrowRow-copy">
+				<div class="eyebrow">{eyebrow}</div>
+				<p class="sub">{subtitle}</p>
+			</div>
+			<p class="headerBannerAttribution headerBannerAttribution--rail">{attribution}</p>
+		</div>
+	) : (
+		<div class="headerEyebrowRow headerEyebrowRow--rail">
+			<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
+				<span class="brand-mark brand-mark--header">E</span>
+			</a>
+			<div class="headerEyebrowRow-copy">
+				<div class="eyebrow">{eyebrow}</div>
+				{title ? <h1 class="site-title site-title--headerEyebrow">{title}</h1> : null}
+				<p class="sub">{subtitle}</p>
+			</div>
+			<p class="headerBannerAttribution headerBannerAttribution--rail">{attribution}</p>
+		</div>
+	)
+}

@@ -1,0 +1,516 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-05-03",
+  "entries": [
+    {
+      "id": "s-001",
+      "title": "Offline model stack \u2014 initial inventory",
+      "summary": "Full audit of qbitOS model library, nanochat-demo pipeline, karpathy repos, and Ollama/LM Studio installs.",
+      "date": "2026-05-02",
+      "source": "zed",
+      "tags": [
+        "models",
+        "ollama",
+        "nanochat",
+        "pipeline"
+      ],
+      "todos": [
+        {
+          "id": "t-001",
+          "text": "Pull llama3.2:1b via ollama",
+          "status": "done",
+          "priority": "high",
+          "tags": [
+            "ollama",
+            "setup"
+          ]
+        },
+        {
+          "id": "t-002",
+          "text": "Pull nomic-embed-text via ollama",
+          "status": "done",
+          "priority": "high",
+          "tags": [
+            "ollama",
+            "setup"
+          ]
+        },
+        {
+          "id": "t-003",
+          "text": "Pull qwen3:8b via ollama",
+          "status": "done",
+          "priority": "high",
+          "tags": [
+            "ollama",
+            "reasoning"
+          ]
+        },
+        {
+          "id": "t-004",
+          "text": "Pull deepseek-r1:7b via ollama",
+          "status": "done",
+          "priority": "high",
+          "tags": [
+            "ollama",
+            "reasoning"
+          ]
+        },
+        {
+          "id": "t-005",
+          "text": "Download qwen3.5-9b via LM Studio (not Ollama registry)",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "lmstudio",
+            "models"
+          ]
+        },
+        {
+          "id": "t-006",
+          "text": "Download nemotron-3-nano-4b via LM Studio",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "lmstudio",
+            "models"
+          ]
+        },
+        {
+          "id": "t-007",
+          "text": "Download ministral-3-3b via LM Studio",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "lmstudio",
+            "models"
+          ]
+        },
+        {
+          "id": "t-008",
+          "text": "Download olmocr-2-7b via LM Studio (OCR/vision)",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "lmstudio",
+            "vision"
+          ]
+        },
+        {
+          "id": "t-009",
+          "text": "Download phi-4-reasoning-plus via LM Studio (MLX-4bit preferred)",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "lmstudio",
+            "reasoning"
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "id": "m-001-u",
+          "role": "user",
+          "ts": "2026-05-02T00:00:00Z",
+          "content": "offline models are here [@library] working on tuning [@karpathy]"
+        },
+        {
+          "id": "m-001-a",
+          "role": "assistant",
+          "ts": "2026-05-02T00:01:00Z",
+          "collapsed": true,
+          "content": "Full stack map: nanochat-demo (4L/256d MPS), 19 Ollama models, karpathy repos (nanoGPT, llama2.c, minbpe, micrograd, nanochat-master). Two-stage pipeline: base pretrain \u2192 chat SFT. Training data: live caption reactions + ugrad_distill_* jsonl."
+        }
+      ]
+    },
+    {
+      "id": "s-002",
+      "title": "Zed AI / Zeta2 architecture deep-dive",
+      "summary": "How Zed's Zeta2 is built: Qwen2.5-Coder-7B base, knowledge distillation from Claude Sonnet 4.6 teacher, real edit traces.",
+      "date": "2026-05-02",
+      "source": "zed",
+      "tags": [
+        "zeta",
+        "models",
+        "distillation",
+        "architecture"
+      ],
+      "todos": [
+        {
+          "id": "t-010",
+          "text": "Update nanochat PREFERRED_MODEL_TAGS to include qwen3:8b and gpt-oss-20b",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "nanochat",
+            "distillation"
+          ]
+        },
+        {
+          "id": "t-011",
+          "text": "Follow Zeta2 distillation recipe with local teacher (devstral/qwen3:8b)",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "zeta",
+            "distillation",
+            "training"
+          ]
+        },
+        {
+          "id": "t-012",
+          "text": "Pull Zeta2 weights from HuggingFace as reference",
+          "status": "open",
+          "priority": "low",
+          "tags": [
+            "zeta",
+            "models"
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "id": "m-002-u",
+          "role": "user",
+          "ts": "2026-05-02T00:10:00Z",
+          "content": "what model is zed built trained off of"
+        },
+        {
+          "id": "m-002-a",
+          "role": "assistant",
+          "ts": "2026-05-02T00:11:00Z",
+          "collapsed": true,
+          "content": "Two separate systems: (1) Zeta2 edit prediction = Qwen2.5-Coder-7B base, distilled from Claude Sonnet 4.6 teacher, 100K examples, open weights. (2) Agent Panel = API passthrough to Claude/GPT/Gemini. You have Qwen2.5-Coder-7B-MLX locally \u2014 exact same base as Zeta2."
+        }
+      ]
+    },
+    {
+      "id": "s-003",
+      "title": "New LM Studio additions: Qwen2.5-Coder-7B + Qwen3-VL-8B",
+      "summary": "Two MLX-4bit models added via LM Studio. Qwen2.5-Coder = Zeta2 base. Qwen3-VL = multimodal vision+language.",
+      "date": "2026-05-02",
+      "source": "zed",
+      "tags": [
+        "lmstudio",
+        "models",
+        "vision",
+        "zeta"
+      ],
+      "todos": [
+        {
+          "id": "t-013",
+          "text": "Test Qwen2.5-Coder-7B-MLX inference via MLX framework",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "lmstudio",
+            "code"
+          ]
+        },
+        {
+          "id": "t-014",
+          "text": "Test Qwen3-VL-8B on sports-field screenshot input",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "lmstudio",
+            "vision",
+            "pipeline"
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "id": "m-003-u",
+          "role": "user",
+          "ts": "2026-05-02T00:20:00Z",
+          "content": "added two new via LM Studio [@library]"
+        },
+        {
+          "id": "m-003-a",
+          "role": "assistant",
+          "ts": "2026-05-02T00:21:00Z",
+          "collapsed": true,
+          "content": "Qwen2.5-Coder-7B-Instruct-MLX-4bit (4GB, Qwen2 arch, 28L/3584d, 152K vocab) \u2014 identical base to Zed Zeta2. Qwen3-VL-8B-Instruct-MLX-4bit (5.4GB, qwen3_vl arch) \u2014 vision+language, MLX native."
+        }
+      ]
+    },
+    {
+      "id": "s-004",
+      "title": "Model VC gap analysis + growth roadmap to Zed AI",
+      "summary": "Version control gap: nanochat-demo has no git. Iron Line manifest exists in 00-mu. Full stack map from nanochat micro \u2192 Zeta-equivalent \u2192 Agent Panel.",
+      "date": "2026-05-02",
+      "source": "zed",
+      "tags": [
+        "vc",
+        "models",
+        "nanochat",
+        "pipeline",
+        "manifest"
+      ],
+      "todos": [
+        {
+          "id": "t-015",
+          "text": "git init /Volumes/qbitOS/03.models/nanochat-demo && add .gitignore for large .pt files",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "vc",
+            "nanochat"
+          ]
+        },
+        {
+          "id": "t-016",
+          "text": "Set up DVC for checkpoint + training data versioning",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "vc",
+            "training"
+          ]
+        },
+        {
+          "id": "t-017",
+          "text": "Populate Iron Line manifest (00-mu/02-model/09-manifests) with current model inventory",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "manifest",
+            "vc"
+          ]
+        },
+        {
+          "id": "t-018",
+          "text": "Wire /models page in train/ to live Ollama API instead of static mock data",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "pipeline",
+            "models"
+          ]
+        },
+        {
+          "id": "t-019",
+          "text": "Add /offline page to train/ \u2014 live model selector + prompt capture \u2192 training pair",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "pipeline",
+            "models",
+            "training"
+          ]
+        },
+        {
+          "id": "t-020",
+          "text": "Grow nanochat: depth 8-12L, 512 seq len, 32K vocab",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "nanochat",
+            "architecture"
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "id": "m-004-u",
+          "role": "user",
+          "ts": "2026-05-02T00:30:00Z",
+          "content": "where is version control for models and what models am i missing that could build on my concept to grow to Zed Ai/ Zeta / Agent Panel and beyond"
+        },
+        {
+          "id": "m-004-a",
+          "role": "assistant",
+          "ts": "2026-05-02T00:31:00Z",
+          "collapsed": true,
+          "content": "VC gap: nanochat-demo, training_data, 00-mu have no git. You already designed Iron Line manifest. Real model VC = git+LFS or DVC. Missing models: llama3.2:1b (fast), nomic-embed-text (RAG), qwen3:8b (reasoning), deepseek-r1:7b (CoT). Growth path: nanochat 4L \u2192 12L \u2192 Qwen2.5-Coder base \u2192 Zeta2 equivalent."
+        }
+      ]
+    },
+    {
+      "id": "s-005",
+      "title": "gpt-oss-20b added + full stack inventory",
+      "summary": "OpenAI gpt-oss-20b (GptOssForCausalLM, 24L, 201K vocab, 131K ctx, MLX MXFP4+Q8, 11GB, MIT). LM Studio hub fully mapped.",
+      "date": "2026-05-02",
+      "source": "zed",
+      "tags": [
+        "lmstudio",
+        "models",
+        "distillation"
+      ],
+      "todos": [
+        {
+          "id": "t-021",
+          "text": "Test gpt-oss-20b inference speed vs devstral on MPS",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "models"
+          ]
+        },
+        {
+          "id": "t-022",
+          "text": "Add gpt-oss-20b as distillation teacher candidate in local_distill.sh",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "distillation",
+            "nanochat"
+          ]
+        }
+      ],
+      "messages": []
+    },
+    {
+      "id": "s-006",
+      "title": "Manifest-only models: pull plan + Ollama name fix",
+      "summary": "qwen3.5-9b / nemotron-3-nano-4b / ministral-3-3b / olmocr-2-7b / phi-4-reasoning-plus are LM Studio hub models. Use LM Studio download, NOT ollama pull.",
+      "date": "2026-05-02",
+      "source": "zed",
+      "tags": [
+        "ollama",
+        "lmstudio",
+        "fix",
+        "setup"
+      ],
+      "todos": [
+        {
+          "id": "t-023",
+          "text": "FIX: qwen3.5-9b, nemotron-3-nano-4b NOT in Ollama registry \u2014 download via LM Studio UI only",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "fix",
+            "lmstudio"
+          ]
+        },
+        {
+          "id": "t-024",
+          "text": "LM Studio \u2192 qwen3.5-9b \u2192 Download (GGUF, ~5.5GB)",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "lmstudio",
+            "models"
+          ]
+        },
+        {
+          "id": "t-025",
+          "text": "LM Studio \u2192 nemotron-3-nano-4b \u2192 Download (GGUF, ~3GB)",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "lmstudio",
+            "models"
+          ]
+        },
+        {
+          "id": "t-026",
+          "text": "LM Studio \u2192 ministral-3-3b \u2192 Download (GGUF, ~2GB)",
+          "status": "open",
+          "priority": "high",
+          "tags": [
+            "lmstudio",
+            "models"
+          ]
+        },
+        {
+          "id": "t-027",
+          "text": "LM Studio \u2192 olmocr-2-7b \u2192 Download (GGUF, ~4.7GB)",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "lmstudio",
+            "vision"
+          ]
+        },
+        {
+          "id": "t-028",
+          "text": "LM Studio \u2192 phi-4-reasoning-plus \u2192 Download (MLX-4bit ~4GB preferred over GGUF 8GB)",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "lmstudio",
+            "reasoning"
+          ]
+        },
+        {
+          "id": "t-029",
+          "text": "Build this session ledger as /ledger page in train/ \u2014 collapsible, searchable, todo-tracked",
+          "status": "done",
+          "priority": "high",
+          "tags": [
+            "pipeline",
+            "code"
+          ]
+        }
+      ],
+      "messages": []
+    },
+    {
+      "id": "s-007",
+      "title": "Ladybird browser ledger build-out \u2014 session log",
+      "summary": "Ledger page upgraded: LedgerAttachment rendering, system/tool message roles, manual source badge, Ledger nav pill added to Layout.astro, ledger-types.ts added to src/lib/ledger/.",
+      "date": "2026-05-03",
+      "source": "zed",
+      "tags": [
+        "code",
+        "pipeline",
+        "architecture"
+      ],
+      "todos": [
+        {
+          "id": "t-030",
+          "text": "Add more sessions to sessions.json as AI work accumulates",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "pipeline",
+            "code"
+          ]
+        },
+        {
+          "id": "t-031",
+          "text": "Wire ledger append script \u2014 auto-append new session entries from Zed AI output",
+          "status": "open",
+          "priority": "mid",
+          "tags": [
+            "pipeline",
+            "code"
+          ]
+        },
+        {
+          "id": "t-032",
+          "text": "Add attachment support to at least one session message for testing",
+          "status": "open",
+          "priority": "low",
+          "tags": [
+            "code"
+          ]
+        }
+      ],
+      "messages": [
+        {
+          "id": "m-007-u",
+          "role": "user",
+          "ts": "2026-05-03T00:00:00Z",
+          "content": "build out [@ladybird] [@ladybird-master]"
+        },
+        {
+          "id": "m-007-a",
+          "role": "assistant",
+          "ts": "2026-05-03T00:05:00Z",
+          "collapsed": true,
+          "content": "Built out the ledger page: (1) added LedgerAttachment rendering to messages \u2014 supports code/shell/json/table/todo kinds with syntax-highlighted blocks. (2) Added system and tool role styles. (3) Added manual source badge. (4) Added Ledger nav pill to Layout.astro site nav. (5) Copied ledger-types.ts into src/lib/ledger/. (6) Added this session s-007 to sessions.json.",
+          "attachments": [
+            {
+              "kind": "code",
+              "label": "ledger-types.ts \u2014 LedgerAttachment type",
+              "lang": "typescript",
+              "content": "export type LedgerAttachment = {\n  kind: 'code' | 'table' | 'shell' | 'json' | 'todo';\n  label: string;\n  content: string;\n  lang?: string;\n};"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

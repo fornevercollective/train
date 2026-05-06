@@ -1,0 +1,1180 @@
+---
+import { trainPredictionDemoMarkets } from '../lib/prediction-demo-markets';
+import {
+	sectorDeskSynopsis,
+	sportsWhyBlocks,
+	sectorContenders,
+	deskTips,
+	platformFootnote,
+	monthlyEstimatesIntro,
+	monthlySectorEstimateRows,
+	monthlySectorTopFives,
+	mispricingKalshiCoinbasePlaybook,
+	sectorSlug,
+} from '../lib/prediction-sector-desk';
+
+interface Props {
+	/** Anchor id when embedded on the home page */
+	id?: string;
+	/** `home` = compact intro; `page` = full hero band */
+	variant?: 'home' | 'page';
+	gameHomeUrl: string;
+	gameLiveUrl: string;
+	gamePredictionsHashUrl: string;
+}
+
+const { id, variant = 'home', gameHomeUrl, gameLiveUrl, gamePredictionsHashUrl } = Astro.props;
+const isPage = variant === 'page';
+const trainBase = import.meta.env.BASE_URL.endsWith('/')
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+const liveAnalysisHref = isPage
+	? `${trainBase}predictions/#home-live-analysis`
+	: `${trainBase}#home-live-analysis`;
+
+const maxRomYield = Math.max(...monthlySectorEstimateRows.map((r) => r.romYieldScore), 1);
+const romRowsDisplay = [...monthlySectorEstimateRows]
+	.sort((a, b) => b.romYieldScore - a.romYieldScore)
+	.map((r) => ({
+		...r,
+		pctOfLeader: Math.round((r.romYieldScore / maxRomYield) * 1000) / 10,
+		top5: monthlySectorTopFives[r.sector] ?? [],
+	}));
+const topRomRow = romRowsDisplay[0];
+const secondRomRow = romRowsDisplay[1];
+const topVsSecondPct =
+	secondRomRow && secondRomRow.romYieldScore > 0
+		? Math.round(((topRomRow.romYieldScore - secondRomRow.romYieldScore) / secondRomRow.romYieldScore) * 1000) / 10
+		: null;
+---
+
+<section class:list={['ep-predictions-scope', isPage && 'ep-predictions-scope--page']} id={id}>
+	<div class:list={['ep-predictions-surface', isPage && 'ep-predictions-surface--roomy']}>
+		<div class="ep-pred-hero">
+			<div class="ep-pred-hero-copy">
+				<p class="ep-pred-eyebrow">Trending prediction markets</p>
+				<h2 class="ep-pred-page-title">
+					{isPage
+						? 'Predictions desk — same card rhythm as the Game console'
+						: 'Clean cards, $100 → payout, Game-console density'}
+				</h2>
+				<p class="ep-pred-muted">
+					Train stays static on GitHub Pages; the companion <strong>Game</strong> Next app hosts the
+					interactive strip and merged <code class="ep-pred-code">/live</code> (μgrad + Bloomberg).
+					Product reference:
+					<a
+						class="ep-pred-inline-link"
+						href="https://www.coinbase.com/predictions"
+						target="_blank"
+						rel="noopener noreferrer">Coinbase Predictions</a>.
+					Minors context:
+					<a
+						class="ep-pred-inline-link"
+						href="https://ballerleague.us/en"
+						target="_blank"
+						rel="noopener noreferrer">Baller League US</a>.
+				</p>
+			</div>
+			<div class="ep-pred-hero-actions">
+				{
+					gamePredictionsHashUrl ? (
+						<a class="ep-pred-btn ep-pred-btn-primary" href={gamePredictionsHashUrl} target="_blank" rel="noopener noreferrer">
+							Open Game predictions
+						</a>
+					) : null
+				}
+				{
+					gameHomeUrl ? (
+						<a class="ep-pred-btn" href={gameHomeUrl} target="_blank" rel="noopener noreferrer">
+							Game home
+						</a>
+					) : null
+				}
+				{
+					gameLiveUrl ? (
+						<a class="ep-pred-btn" href={gameLiveUrl} target="_blank" rel="noopener noreferrer">
+							Live desk
+						</a>
+					) : null
+				}
+				{
+					!isPage ? (
+						<a class="ep-pred-btn" href={liveAnalysisHref}>
+							Live wiring on Train
+						</a>
+					) : (
+						<a class="ep-pred-btn" href={liveAnalysisHref}>
+							Train live analysis
+						</a>
+					)
+				}
+				{
+					isPage ? (
+						<a class="ep-pred-btn" href={import.meta.env.BASE_URL}>
+							← Directory home
+						</a>
+					) : null
+				}
+			</div>
+		</div>
+
+		{
+			!isPage ? (
+				<div
+					class="ep-pred-mix-strip"
+					role="img"
+					aria-label="Illustrative stacked YES probabilities for the three demo prediction cards below"
+				>
+					<p class="ep-pred-mix-strip-label">Illustrative YES mix (demo cards)</p>
+					<div class="ep-pred-mix-strip-grid">
+						{trainPredictionDemoMarkets.map((m) => (
+							<div class="ep-pred-mix-cell">
+								<span class="ep-pred-mix-cell-title">{m.title}</span>
+								<div class="ep-pred-mix-stack">
+									{m.outcomes.map((o, idx) => (
+										<span
+											class:list={['ep-pred-mix-seg', idx === 0 ? 'ep-pred-mix-seg--a' : 'ep-pred-mix-seg--b']}
+											style={`flex: ${o.probPct} 1 0`}
+											title={`${o.code} ${o.probPct}%`}
+										/>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			) : null
+		}
+
+		{
+			isPage ? (
+				<div class="ep-pred-sector-expand" aria-labelledby="ep-pred-sector-title">
+					<div class="ep-pred-sector-lead">
+						<p class="ep-pred-sector-kicker">{sectorDeskSynopsis.kicker}</p>
+						<h3 id="ep-pred-sector-title" class="ep-pred-sector-title">
+							{sectorDeskSynopsis.title}
+						</h3>
+						<p class="ep-pred-sector-lede">{sectorDeskSynopsis.lede}</p>
+						<p class="ep-pred-sector-note ep-pred-muted">{sectorDeskSynopsis.note}</p>
+						<a
+							class="ep-pred-btn ep-pred-btn--compact"
+							href="https://www.coinbase.com/predictions"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Open Coinbase Predictions →
+						</a>
+					</div>
+
+					<div class="ep-pred-sector-split">
+						<div class="ep-pred-sector-panel ep-pred-sector-panel--sports">
+							<h4 class="ep-pred-sector-h4">Why sports often leads for near-term “wins”</h4>
+							<p class="ep-pred-muted ep-pred-sector-panel-intro">
+								Not a promise of profit — just the structural reasons desks route flow here during playoffs and
+								championship windows.
+							</p>
+							<ul class="ep-pred-sector-points">
+								{sportsWhyBlocks.map((b) => (
+									<li>
+										<strong>{b.title}</strong>
+										<span>{b.body}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+
+						<div class="ep-pred-sector-panel">
+							<h4 class="ep-pred-sector-h4">Other verticals worth watching</h4>
+							<div class="ep-pred-sector-contenders">
+								{sectorContenders.map((c) => (
+									<div class="ep-pred-sector-mini">
+										<span class="ep-pred-sector-mini-tag">{c.tag}</span>
+										<p class="ep-pred-sector-mini-title">{c.title}</p>
+										<p class="ep-pred-sector-mini-body">{c.body}</p>
+									</div>
+								))}
+							</div>
+						</div>
+					</div>
+
+					<div class="ep-pred-month-stats" aria-labelledby="ep-pred-month-stats-title">
+						<div class="ep-pred-month-stats-head">
+							<h4 id="ep-pred-month-stats-title" class="ep-pred-sector-h4">
+								{monthlyEstimatesIntro.title}
+							</h4>
+							<p class="ep-pred-muted ep-pred-month-stats-lede">{monthlyEstimatesIntro.lede}</p>
+							<p class="ep-pred-month-stats-period ep-pred-muted">{monthlyEstimatesIntro.periodNote}</p>
+							{
+								topRomRow && secondRomRow && topVsSecondPct !== null ? (
+									<p class="ep-pred-month-stats-compare" role="status">
+										<strong class="ep-pred-month-stats-compare-strong">
+											Highest illustrative RoM yield index:
+										</strong>{' '}
+										{topRomRow.sector} ({topRomRow.romYieldScore}) vs. next sector {secondRomRow.sector} (
+										{secondRomRow.romYieldScore}) — about <strong>+{topVsSecondPct}%</strong> higher on this
+										normalized scale (not dollars of profit).
+									</p>
+								) : null
+							}
+							<p class="ep-pred-month-stats-playbook">{mispricingKalshiCoinbasePlaybook}</p>
+							<div class="ep-pred-month-stats-links">
+								<a
+									class="ep-pred-btn ep-pred-btn--compact"
+									href="https://www.coinbase.com/predictions"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Coinbase Predictions
+								</a>
+								<a class="ep-pred-btn ep-pred-btn--compact" href="https://kalshi.com/" target="_blank" rel="noopener noreferrer">
+									Kalshi
+								</a>
+							</div>
+						</div>
+
+						<div class="ep-pred-stat-table-wrap">
+							<p class="ep-pred-sr-caption" id="ep-pred-rom-accordion-desc">
+								Illustrative rest-of-month sector statistics. Each sector expands to show the top five synthetic
+								contracts in that vertical.
+							</p>
+							<div class="ep-pred-sector-acc-list" aria-describedby="ep-pred-rom-accordion-desc">
+								{
+									romRowsDisplay.map((row) => {
+										const slug = sectorSlug(row.sector);
+										const isTop = row.romYieldScore === topRomRow?.romYieldScore;
+										return (
+											<details
+												class:list={['ep-pred-sector-details', { 'ep-pred-sector-details--top': isTop }]}
+												id={`ep-pred-rom-${slug}`}
+											>
+												<summary class="ep-pred-sector-summary">
+													<span class="ep-pred-sum-title">{row.sector}</span>
+													<span class="ep-pred-sum-metrics ep-pred-muted">
+														Mid {row.venueMidPct.toFixed(1)}% · Ref {row.refFairPct.toFixed(1)}% · Gap{' '}
+														<span
+															class:list={[
+																'ep-pred-stat-gap',
+																{ 'ep-pred-stat-gap--pos': row.gapPctPoints > 0 },
+																{ 'ep-pred-stat-gap--neg': row.gapPctPoints < 0 },
+															]}
+														>
+															{row.gapPctPoints > 0 ? '+' : ''}
+															{row.gapPctPoints.toFixed(1)} pp
+														</span>
+														· CI ±{row.ci80HalfWidthPp.toFixed(1)}
+													</span>
+													<span class="ep-pred-sum-bars" aria-hidden="true">
+														<span class="ep-pred-stat-liq">
+															<span class="ep-pred-stat-liq-track">
+																<span class="ep-pred-stat-liq-bar" style={`width: ${row.liquidityScore}%`} />
+															</span>
+															<span class="ep-pred-stat-liq-val">{row.liquidityScore}</span>
+														</span>
+														<span class="ep-pred-stat-yield">
+															<span class="ep-pred-stat-yield-track">
+																<span class="ep-pred-stat-yield-bar" style={`width: ${row.romYieldScore}%`} />
+															</span>
+															<span class="ep-pred-stat-yield-val">{row.romYieldScore}</span>
+														</span>
+													</span>
+													<span class="ep-pred-sum-leader ep-pred-muted">{row.pctOfLeader.toFixed(1)}% of leader</span>
+													<span class="ep-pred-sum-expand">Top 5</span>
+												</summary>
+												<div class="ep-pred-sector-expand">
+													<table class="ep-pred-subtable">
+														<thead>
+															<tr>
+																<th scope="col">#</th>
+																<th scope="col">Contract (illustrative)</th>
+																<th scope="col">Mid %</th>
+																<th scope="col">Ref %</th>
+																<th scope="col">Gap (pp)</th>
+																<th scope="col">Vol tier</th>
+															</tr>
+														</thead>
+														<tbody>
+															{row.top5.map((c) => (
+																<tr>
+																	<td>{c.rank}</td>
+																	<th scope="row">{c.contract}</th>
+																	<td>{c.venueMidPct.toFixed(1)}</td>
+																	<td>{c.refFairPct.toFixed(1)}</td>
+																	<td
+																		class:list={[
+																			'ep-pred-stat-gap',
+																			{ 'ep-pred-stat-gap--pos': c.gapPp > 0 },
+																			{ 'ep-pred-stat-gap--neg': c.gapPp < 0 },
+																		]}
+																	>
+																		{c.gapPp > 0 ? '+' : ''}
+																		{c.gapPp.toFixed(1)}
+																	</td>
+																	<td>{c.volTier}</td>
+																</tr>
+															))}
+														</tbody>
+													</table>
+												</div>
+											</details>
+										);
+									})
+								}
+							</div>
+						</div>
+					</div>
+
+					<div class="ep-pred-sector-tips">
+						<h4 class="ep-pred-sector-h4">Desk habits (informational)</h4>
+						<ol class="ep-pred-sector-tip-list">
+							{deskTips.map((t) => (
+								<li>{t}</li>
+							))}
+						</ol>
+						<p class="ep-pred-sector-foot ep-pred-muted">{platformFootnote}</p>
+					</div>
+				</div>
+			) : null
+		}
+
+		<div class="ep-pred-trending-grid">
+			{
+				trainPredictionDemoMarkets.map((m) => (
+					<article class="ep-pred-trend-card">
+						<div class="ep-pred-trend-card-top">
+							<span class="ep-pred-trend-icon" aria-hidden="true">
+								{m.icon}
+							</span>
+							<div>
+								<h3 class="ep-pred-trend-title">{m.title}</h3>
+								<p class="ep-pred-trend-sub">{m.subtitle}</p>
+							</div>
+							{'live' in m && m.live ? <span class="ep-pred-live-pill">Live</span> : null}
+						</div>
+						<div class="ep-pred-trend-outcomes">
+							{m.outcomes.map((o) => (
+								<div class="ep-pred-trend-outcome">
+									<div>
+										<span class="ep-pred-trend-code">{o.code}</span>
+										<span class="ep-pred-trend-pct">{o.probPct}%</span>
+									</div>
+									<div class="ep-pred-trend-payout">
+										$100 → <strong>${o.payout.toLocaleString()}</strong>
+									</div>
+								</div>
+							))}
+						</div>
+						{'vol24h' in m && m.vol24h ? <p class="ep-pred-trend-vol">{m.vol24h} vol. (24h)</p> : null}
+						{
+							gameLiveUrl ? (
+								<a class="ep-pred-trend-link" href={gameLiveUrl} target="_blank" rel="noopener noreferrer">
+									Open merged live desk →
+								</a>
+							) : (
+								<span class="ep-pred-trend-link-muted">Set PUBLIC_GAME_CONSOLE_URL to link out</span>
+							)
+						}
+					</article>
+				))
+			}
+		</div>
+
+		<div
+			id="ep-pred-wind-viz"
+			class="ep-pred-wind-viz"
+			role="img"
+			aria-label="Illustrative desk wind field (decorative, not a forecast)"
+		></div>
+		<p class="ep-pred-wind-caption ep-pred-muted">
+			Custom wind-style field inspired by{' '}
+			<a
+				class="ep-pred-inline-link"
+				href="https://echarts.apache.org/examples/en/editor.html?c=custom-wind"
+				target="_blank"
+				rel="noopener noreferrer">Apache ECharts custom-wind</a>
+			— static ornament only.
+		</p>
+
+		<p class="ep-pred-disclaimer">
+			Illustrative numbers, sector commentary, and the <strong>rest-of-month expandable sector rows</strong> are for
+			<strong>education only</strong> — not trading advice, not live Kalshi/Coinbase data, not a quote, and not an
+			investability signal. Contracts can expire worthless; venues have eligibility and geographic rules. Set{' '}
+			<code class="ep-pred-code">PUBLIC_GAME_CONSOLE_URL</code> at build time for header + outbound Game links.
+		</p>
+	</div>
+</section>
+
+<style>
+	/* Predictions strip — same glass card shell as `.card` / home-live-analysis (scoped) */
+	.ep-predictions-scope {
+		--ep-pred-font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+		--ep-pred-mono: 'IBM Plex Mono', ui-monospace, monospace;
+		font-family: var(--ep-pred-font);
+	}
+
+	.ep-predictions-surface {
+		background: var(--card-bg);
+		color: var(--text);
+		border-radius: 18px;
+		border: 1px solid var(--card-border);
+		box-shadow: var(--shadow);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		padding: 22px 22px 20px;
+	}
+
+	.ep-predictions-surface--roomy {
+		padding: 28px 26px 28px;
+	}
+
+	.ep-pred-hero {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 18px;
+		flex-wrap: wrap;
+		margin-bottom: 4px;
+	}
+
+	.ep-pred-hero-copy {
+		flex: 1;
+		min-width: min(100%, 320px);
+	}
+
+	.ep-pred-eyebrow {
+		font-family: var(--ep-pred-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin: 0;
+	}
+
+	.ep-pred-page-title {
+		margin: 6px 0 0;
+		font-size: clamp(1.45rem, 3vw, 2.05rem);
+		letter-spacing: -0.03em;
+		line-height: 1.12;
+		color: var(--text);
+		font-weight: 700;
+	}
+
+	.ep-pred-muted {
+		margin: 10px 0 0;
+		color: var(--muted);
+		font-size: 0.94rem;
+		line-height: 1.6;
+		max-width: 58rem;
+	}
+
+	.ep-pred-inline-link {
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.ep-pred-inline-link:hover {
+		color: var(--accent-warm);
+		text-decoration: underline;
+	}
+
+	.ep-pred-code {
+		font-family: var(--ep-pred-mono);
+		font-size: 0.84em;
+		padding: 0.1em 0.32em;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		color: var(--text);
+	}
+
+	.ep-pred-hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		align-items: center;
+	}
+
+	.ep-pred-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 16px;
+		border-radius: 999px;
+		font-size: 0.88rem;
+		font-weight: 600;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.88);
+		text-decoration: none;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.ep-pred-btn:hover {
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	.ep-pred-btn-primary {
+		background: rgba(255, 255, 255, 0.92);
+		color: #0a0b0d;
+		border-color: rgba(255, 255, 255, 0.35);
+	}
+
+	.ep-pred-btn-primary:hover {
+		filter: brightness(1.06);
+		color: #0a0b0d;
+		border-color: rgba(255, 255, 255, 0.45);
+	}
+
+	.ep-pred-btn--compact {
+		margin-top: 14px;
+		padding: 8px 14px;
+		font-size: 0.82rem;
+	}
+
+	/* Home-only: AIHubMix-style density strip above trending cards */
+	.ep-pred-mix-strip {
+		margin-top: 18px;
+		padding: 14px 16px 16px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background:
+			linear-gradient(135deg, rgba(72, 224, 188, 0.06), transparent 42%),
+			rgba(0, 0, 0, 0.22);
+	}
+
+	.ep-pred-mix-strip-label {
+		margin: 0 0 12px;
+		font-family: var(--ep-pred-mono);
+		font-size: 0.65rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--soft);
+	}
+
+	.ep-pred-mix-strip-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 12px 14px;
+	}
+
+	.ep-pred-mix-cell {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		min-width: 0;
+	}
+
+	.ep-pred-mix-cell-title {
+		font-size: 0.72rem;
+		line-height: 1.35;
+		color: var(--muted);
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.ep-pred-mix-stack {
+		display: flex;
+		width: 100%;
+		height: 11px;
+		border-radius: 8px;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.ep-pred-mix-seg {
+		min-width: 2px;
+	}
+
+	.ep-pred-mix-seg--a {
+		background: linear-gradient(90deg, rgba(120, 175, 255, 0.9), rgba(72, 224, 188, 0.85));
+	}
+
+	.ep-pred-mix-seg--b {
+		background: linear-gradient(90deg, rgba(255, 200, 130, 0.75), rgba(170, 90, 255, 0.7));
+	}
+
+	.ep-pred-sector-expand {
+		margin-top: 26px;
+		padding-top: 24px;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		display: flex;
+		flex-direction: column;
+		gap: 22px;
+	}
+
+	.ep-pred-sector-lead {
+		max-width: 72rem;
+	}
+
+	.ep-pred-sector-kicker {
+		font-family: var(--ep-pred-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin: 0 0 8px;
+	}
+
+	.ep-pred-sector-title {
+		margin: 0;
+		font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		line-height: 1.2;
+		color: var(--text);
+	}
+
+	.ep-pred-sector-lede {
+		margin: 12px 0 0;
+		font-size: 1rem;
+		line-height: 1.65;
+		color: rgba(220, 228, 245, 0.92);
+	}
+
+	.ep-pred-sector-note {
+		margin: 12px 0 0;
+		max-width: 62rem;
+	}
+
+	.ep-pred-sector-split {
+		display: grid;
+		grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+		gap: 18px;
+		align-items: stretch;
+	}
+
+	.ep-pred-sector-panel {
+		padding: 18px 18px 16px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.09);
+	}
+
+	.ep-pred-sector-panel--sports {
+		border-color: rgba(72, 224, 188, 0.22);
+		background: linear-gradient(165deg, rgba(72, 224, 188, 0.07), rgba(0, 0, 0, 0.18));
+	}
+
+	.ep-pred-sector-h4 {
+		margin: 0;
+		font-size: 0.98rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+		color: var(--text);
+	}
+
+	.ep-pred-sector-panel-intro {
+		margin: 8px 0 14px;
+		font-size: 0.86rem;
+		line-height: 1.55;
+	}
+
+	.ep-pred-sector-points {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.ep-pred-sector-points li {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		font-size: 0.88rem;
+		line-height: 1.55;
+		color: rgba(210, 218, 238, 0.9);
+		padding-bottom: 12px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
+	.ep-pred-sector-points li:last-child {
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
+
+	.ep-pred-sector-points strong {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: var(--text);
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+	}
+
+	.ep-pred-sector-contenders {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin-top: 10px;
+	}
+
+	.ep-pred-sector-mini {
+		padding: 12px 14px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.ep-pred-sector-mini-tag {
+		display: inline-block;
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin-bottom: 6px;
+	}
+
+	.ep-pred-sector-mini-title {
+		margin: 0 0 6px;
+		font-size: 0.92rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+
+	.ep-pred-sector-mini-body {
+		margin: 0;
+		font-size: 0.84rem;
+		line-height: 1.55;
+		color: var(--muted);
+	}
+
+	.ep-pred-sector-tips {
+		padding: 18px 18px 16px;
+		border-radius: 16px;
+		background: rgba(0, 0, 0, 0.16);
+		border: 1px dashed rgba(255, 255, 255, 0.12);
+	}
+
+	.ep-pred-sector-tip-list {
+		margin: 10px 0 0;
+		padding-left: 1.15rem;
+		color: rgba(210, 218, 238, 0.9);
+		font-size: 0.88rem;
+		line-height: 1.62;
+	}
+
+	.ep-pred-sector-tip-list li {
+		margin-bottom: 10px;
+	}
+
+	.ep-pred-sector-tip-list li:last-child {
+		margin-bottom: 0;
+	}
+
+	.ep-pred-sector-foot {
+		margin: 14px 0 0;
+		font-size: 0.82rem;
+		line-height: 1.55;
+		max-width: 62rem;
+	}
+
+	.ep-pred-month-stats {
+		margin-top: 8px;
+		padding-top: 22px;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.ep-pred-month-stats-head {
+		max-width: 72rem;
+	}
+
+	.ep-pred-month-stats-lede {
+		margin: 8px 0 0;
+		max-width: 68rem;
+	}
+
+	.ep-pred-month-stats-period {
+		margin: 8px 0 0;
+		font-size: 0.82rem;
+	}
+
+	.ep-pred-month-stats-compare {
+		margin: 14px 0 0;
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: rgba(220, 228, 245, 0.92);
+		padding: 12px 14px;
+		border-radius: 12px;
+		background: rgba(72, 224, 188, 0.08);
+		border: 1px solid rgba(72, 224, 188, 0.2);
+	}
+
+	.ep-pred-month-stats-compare-strong {
+		color: var(--text);
+	}
+
+	.ep-pred-month-stats-playbook {
+		margin: 12px 0 0;
+		font-size: 0.88rem;
+		line-height: 1.6;
+		color: rgba(210, 218, 238, 0.95);
+		max-width: 62rem;
+	}
+
+	.ep-pred-month-stats-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 12px;
+	}
+
+	.ep-pred-stat-table-wrap {
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.2);
+		padding: 12px 14px 14px;
+	}
+
+	.ep-pred-sr-caption {
+		margin: 0 0 12px;
+		font-size: 0.82rem;
+		line-height: 1.5;
+		color: var(--muted);
+		max-width: 68rem;
+	}
+
+	.ep-pred-sector-acc-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.ep-pred-sector-details {
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.ep-pred-sector-details:last-of-type {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.ep-pred-sector-details--top > .ep-pred-sector-summary {
+		background: rgba(72, 224, 188, 0.05);
+	}
+
+	.ep-pred-sector-summary {
+		display: grid;
+		grid-template-columns: minmax(6.5rem, 0.95fr) minmax(0, 2.2fr) minmax(0, auto) minmax(5rem, auto) minmax(4.5rem, auto);
+		gap: 8px 12px;
+		align-items: center;
+		padding: 12px 10px;
+		cursor: pointer;
+		list-style: none;
+		font-size: 0.84rem;
+	}
+
+	.ep-pred-sector-summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.ep-pred-sum-title {
+		font-weight: 700;
+		color: var(--text);
+	}
+
+	.ep-pred-sum-metrics {
+		font-size: 0.8rem;
+		line-height: 1.45;
+	}
+
+	.ep-pred-sum-bars {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 12px;
+		align-items: center;
+	}
+
+	.ep-pred-sum-bars .ep-pred-stat-liq,
+	.ep-pred-sum-bars .ep-pred-stat-yield {
+		min-width: 0;
+	}
+
+	.ep-pred-sum-leader {
+		font-size: 0.76rem;
+		white-space: nowrap;
+	}
+
+	.ep-pred-sum-expand {
+		font-family: var(--ep-pred-mono);
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--accent);
+		justify-self: end;
+	}
+
+	.ep-pred-sum-expand::before {
+		content: '▸ ';
+	}
+
+	.ep-pred-sector-details[open] .ep-pred-sum-expand::before {
+		content: '▾ ';
+	}
+
+	.ep-pred-sector-expand {
+		padding: 0 10px 14px 10px;
+		overflow-x: auto;
+	}
+
+	.ep-pred-subtable {
+		width: 100%;
+		min-width: 560px;
+		border-collapse: collapse;
+		font-size: 0.8rem;
+	}
+
+	.ep-pred-subtable th,
+	.ep-pred-subtable td {
+		padding: 8px 10px;
+		text-align: left;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+		vertical-align: top;
+	}
+
+	.ep-pred-subtable thead th {
+		font-family: var(--ep-pred-mono);
+		font-size: 0.65rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--muted);
+		background: rgba(0, 0, 0, 0.28);
+	}
+
+	.ep-pred-subtable tbody th {
+		font-weight: 600;
+		color: rgba(230, 236, 255, 0.95);
+		max-width: 22rem;
+	}
+
+	.ep-pred-stat-gap {
+		font-family: var(--ep-pred-mono);
+		font-weight: 600;
+	}
+
+	.ep-pred-stat-gap--pos {
+		color: rgba(110, 231, 183, 0.95);
+	}
+
+	.ep-pred-stat-gap--neg {
+		color: rgba(252, 165, 165, 0.95);
+	}
+
+	.ep-pred-stat-liq,
+	.ep-pred-stat-yield {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		min-width: 7.5rem;
+	}
+
+	.ep-pred-stat-liq-track,
+	.ep-pred-stat-yield-track {
+		position: relative;
+		width: 72px;
+		height: 7px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.08);
+		overflow: hidden;
+		flex-shrink: 0;
+	}
+
+	.ep-pred-stat-yield-track {
+		width: 88px;
+	}
+
+	.ep-pred-stat-liq-bar,
+	.ep-pred-stat-yield-bar {
+		display: block;
+		height: 100%;
+		border-radius: 999px;
+		background: linear-gradient(90deg, rgba(120, 170, 255, 0.95), rgba(72, 224, 188, 0.9));
+	}
+
+	.ep-pred-stat-liq-val,
+	.ep-pred-stat-yield-val {
+		font-family: var(--ep-pred-mono);
+		font-size: 0.78rem;
+		color: var(--muted);
+		min-width: 1.75rem;
+	}
+
+	.ep-pred-trending-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
+		margin-top: 20px;
+	}
+
+	.ep-pred-trend-card {
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 18px;
+		padding: 18px 18px 16px;
+		background: rgba(0, 0, 0, 0.22);
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		min-height: 100%;
+	}
+
+	.ep-pred-trend-card-top {
+		display: flex;
+		align-items: flex-start;
+		gap: 12px;
+	}
+
+	.ep-pred-trend-icon {
+		font-size: 1.35rem;
+		line-height: 1;
+	}
+
+	.ep-pred-trend-title {
+		margin: 0;
+		font-size: 1.02rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		color: var(--text);
+	}
+
+	.ep-pred-trend-sub {
+		margin: 4px 0 0;
+		font-size: 0.82rem;
+		color: var(--muted);
+	}
+
+	.ep-pred-live-pill {
+		margin-left: auto;
+		flex: none;
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #fff;
+		background: #ef4444;
+		padding: 4px 8px;
+		border-radius: 999px;
+	}
+
+	.ep-pred-trend-outcomes {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.ep-pred-trend-outcome {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		padding: 10px 12px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		font-size: 0.88rem;
+	}
+
+	.ep-pred-trend-code {
+		font-weight: 700;
+		margin-right: 10px;
+		color: var(--text);
+	}
+
+	.ep-pred-trend-pct {
+		color: var(--muted);
+		font-size: 0.9rem;
+	}
+
+	.ep-pred-trend-payout {
+		font-size: 0.88rem;
+		color: var(--muted);
+	}
+
+	.ep-pred-trend-payout strong {
+		color: var(--text);
+	}
+
+	.ep-pred-trend-vol {
+		margin: 0;
+		font-size: 0.78rem;
+		color: var(--soft);
+	}
+
+	.ep-pred-trend-link {
+		margin-top: auto;
+		font-size: 0.88rem;
+		font-weight: 600;
+		color: var(--accent);
+		text-decoration: none;
+	}
+
+	.ep-pred-trend-link:hover {
+		color: var(--accent-warm);
+		text-decoration: underline;
+	}
+
+	.ep-pred-trend-link-muted {
+		margin-top: auto;
+		font-size: 0.8rem;
+		color: var(--muted);
+	}
+
+	.ep-pred-wind-viz {
+		margin-top: 16px;
+		width: 100%;
+		height: 168px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.22);
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.ep-pred-wind-caption {
+		margin: 8px 0 0;
+		font-size: 0.76rem;
+		line-height: 1.45;
+		max-width: 70rem;
+	}
+
+	.ep-pred-disclaimer {
+		margin: 18px 0 0;
+		font-size: 0.8rem;
+		color: var(--muted);
+		line-height: 1.5;
+		max-width: 70rem;
+	}
+
+	@media (max-width: 900px) {
+		.ep-pred-mix-strip-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.ep-pred-sector-split {
+			grid-template-columns: 1fr;
+		}
+
+		.ep-pred-sector-summary {
+			grid-template-columns: 1fr;
+		}
+
+		.ep-pred-sum-expand {
+			justify-self: start;
+		}
+
+		.ep-pred-trending-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

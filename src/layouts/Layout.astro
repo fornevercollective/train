@@ -1,10 +1,24 @@
 ---
+import TrainConsoleSidebar from '../components/TrainConsoleSidebar.astro';
+import HeaderEyebrowRail from '../components/HeaderEyebrowRail.astro';
+
 interface Props {
 	title?: string;
 	description?: string;
 	pageClass?: string;
 	eyebrow?: string;
 	subtitle?: string;
+	/** Optional attribution line in the eyebrow rail (defaults to Erika directory blurb). */
+	eyebrowAttribution?: string;
+	/** When true, show directory search in the banner (synced with #filter-query on the home page). */
+	showHeaderDirectorySearch?: boolean;
+	/** FinanceAI-style left rail (mirrors Game `AppSidebar`). */
+	showConsoleSidebar?: boolean;
+	/**
+	 * When false (default, with directory search), the eyebrow rail sits below the fixed header and
+	 * above `<main>` (same band as the home page eyebrow slot). Set true to pin it inside the header top band.
+	 */
+	eyebrowInHeader?: boolean;
 }
 
 const {
@@ -13,9 +27,37 @@ const {
 	pageClass = 'page-home',
 	eyebrow = 'Static market directory',
 	subtitle = 'Searchable listing intelligence built from the Erika dataset.',
+	eyebrowAttribution,
+	showHeaderDirectorySearch = true,
+	showConsoleSidebar = true,
+	eyebrowInHeader = false,
 } = Astro.props;
 
+const showEyebrowInHeader = !showHeaderDirectorySearch || eyebrowInHeader;
+const eyebrowInMainChrome = showHeaderDirectorySearch && !eyebrowInHeader;
+
 const baseUrl = import.meta.env.BASE_URL;
+const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
+const path = Astro.url.pathname;
+const navActive = {
+	home:
+		!path.includes('/directory') &&
+		!path.includes('/featured') &&
+		!path.includes('/predictions') &&
+		!path.includes('/models') &&
+		!path.includes('/listing') &&
+		!path.includes('/raw') &&
+		!path.includes('/live-captions') &&
+		!path.includes('/ledger'),
+	featured: path.includes('/featured'),
+	predictions: path.includes('/predictions'),
+	models: path.includes('/models'),
+	directory: path.includes('/directory'),
+	listing: path.includes('/listing'),
+	raw: path.includes('/raw'),
+	liveCaptions: path.includes('/live-captions'),
+	ledger: path.includes('/ledger'),
+};
 ---
 
 <!doctype html>
@@ -28,41 +70,357 @@ const baseUrl = import.meta.env.BASE_URL;
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
-	<body class={pageClass} data-base-url={baseUrl}>
+	<body
+		class:list={[
+			pageClass,
+			showHeaderDirectorySearch && 'has-header-directory-search',
+			showConsoleSidebar && 'has-train-console-sidebar',
+			eyebrowInMainChrome && 'header-eyebrow-in-main',
+		]}
+		data-base-url={baseUrl}
+	>
 		<div class="bgGlow" aria-hidden="true"></div>
-		<div class="page-shell">
+		<div class:list={['page-shell', showConsoleSidebar && 'page-shell--withTrainSidebar']}>
+			{showConsoleSidebar ? <TrainConsoleSidebar baseUrl={baseUrl} gameConsoleUrl={gameConsoleUrl} navActive={navActive} /> : null}
+			<div class:list={['page-chrome-main', showConsoleSidebar && 'page-chrome-main--withSidebar']}>
+			{
+				showConsoleSidebar ? (
+					<button
+						type="button"
+						class="train-drawer-backdrop"
+						data-train-drawer-backdrop
+						aria-label="Close navigation drawer"
+					/>
+				) : null
+			}
 			<header class="headerBanner" role="banner">
-				<div class="eyebrow">{eyebrow}</div>
-				<div class="brand">
-					<a class="logoLink" href={baseUrl} aria-label="Erika Market Directory">
-						<span class="brand-mark">E</span>
-					</a>
-					<div class="brandText">
-						<h1 class="site-title">Erika Market Directory</h1>
-						<p class="sub">{subtitle}</p>
+				{
+					showHeaderDirectorySearch ? (
+						<div class="headerBannerTopBand">
+							<div class="headerBannerSearchRow headerBannerSearchRow--primary">
+								{
+									showConsoleSidebar ? (
+										<button
+											type="button"
+											class="train-sidebar-toggle train-sidebar-toggle--header"
+											id="train-sidebar-toggle"
+											aria-expanded="true"
+											aria-controls="train-sidebar-rail"
+											title="Collapse sidebar"
+										>
+											<svg
+												class="train-sidebar-toggle-icon"
+												width="18"
+												height="18"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												aria-hidden="true"
+											>
+												<polyline points="15 6 9 12 15 18" />
+											</svg>
+										</button>
+									) : null
+								}
+								<a class="logoLink logoLink--headerMini" href={baseUrl} aria-label="Erika Market Directory home">
+									<span class="brand-mark brand-mark--header">E</span>
+								</a>
+								<input
+									id="header-filter-query"
+									class="headerBannerSearch-input headerBannerSearch-input--toolbar"
+									type="search"
+									placeholder="Ticker, company, exchange, country, alias…"
+									autocomplete="off"
+								/>
+								<button
+									type="button"
+									class="header-site-nav-toggle"
+									id="header-site-nav-toggle"
+									aria-expanded="true"
+									aria-controls="header-site-nav-panel"
+									title="Hide site navigation"
+								>
+									<svg
+										class="header-site-nav-toggle-icon"
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										aria-hidden="true"
+									>
+										<polyline points="6 9 12 15 18 9" />
+									</svg>
+									<span class="header-site-nav-toggle-text">Menu</span>
+								</button>
+							</div>
+							<div class="headerBannerSearchMetaRow" aria-label="Directory page context">
+								<label class="headerBannerSearch-label" for="header-filter-query">
+									Directory search
+								</label>
+								<h1 class="site-title">{title}</h1>
+							</div>
+							{showEyebrowInHeader ? (
+								<HeaderEyebrowRail variant="beside-search" eyebrow={eyebrow} subtitle={subtitle} attribution={eyebrowAttribution} />
+							) : null}
+						</div>
+					) : showEyebrowInHeader ? (
+						<div class="headerBannerTopBand headerBannerTopBand--standalone">
+							{
+								showConsoleSidebar ? (
+									<button
+										type="button"
+										class="train-sidebar-toggle train-sidebar-toggle--header"
+										id="train-sidebar-toggle"
+										aria-expanded="true"
+										aria-controls="train-sidebar-rail"
+										title="Collapse sidebar"
+									>
+										<svg
+											class="train-sidebar-toggle-icon"
+											width="18"
+											height="18"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											aria-hidden="true"
+										>
+											<polyline points="15 6 9 12 15 18" />
+										</svg>
+									</button>
+								) : null
+							}
+							<div class="headerBannerTopBand-standaloneFill">
+								<HeaderEyebrowRail
+									variant="standalone"
+									eyebrow={eyebrow}
+									subtitle={subtitle}
+									title={title}
+									baseUrl={baseUrl}
+									attribution={eyebrowAttribution}
+								/>
+							</div>
+						</div>
+					) : null}
+				<div id="header-site-nav-panel" class="header-site-nav-panel">
+				<nav
+					class="site-nav site-nav--console site-nav--tabs site-nav--tabsGhost"
+					aria-label="Site navigation"
+				>
+					<div class="site-nav-pillsWrap">
+						<a class:list={['site-nav-pill', { 'is-active': navActive.home }]} href={baseUrl}>Home</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.featured }]}
+							href={`${baseUrl}featured/`}
+						>
+							Featured
+						</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.predictions }]}
+							href={`${baseUrl}predictions/`}
+						>
+							Predictions
+						</a>
+						<a class:list={['site-nav-pill', { 'is-active': navActive.models }]} href={`${baseUrl}models/`}>
+							Models
+						</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.directory }]}
+							href={`${baseUrl}directory/`}
+						>
+							Directory
+						</a>
+						<a class:list={['site-nav-pill', { 'is-active': navActive.listing }]} href={`${baseUrl}listing/`}>
+							Listing
+						</a>
+						<a class:list={['site-nav-pill', { 'is-active': navActive.raw }]} href={`${baseUrl}raw/`}>Raw</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.liveCaptions }]}
+							href={`${baseUrl}live-captions/`}
+						>
+							Captions
+						</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.ledger }]}
+							href={`${baseUrl}ledger/`}
+						>
+							Ledger
+						</a>
+						{
+							gameConsoleUrl ? (
+								<>
+									<span class="site-nav-divider" aria-hidden="true" />
+									<a
+										class="site-nav-pill site-nav-pill--ext"
+										href={`${gameConsoleUrl}/`}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										Game
+									</a>
+									<a
+										class="site-nav-pill site-nav-pill--ext"
+										href={`${gameConsoleUrl}/live`}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										Live
+									</a>
+								</>
+							) : null
+						}
 					</div>
-				</div>
-				<nav class="site-nav" aria-label="Site navigation">
-					<a href={baseUrl}>Home</a>
-					<span>·</span>
-					<a href={`${baseUrl}#explore`}>Directory</a>
-					<span>·</span>
-					<a href={`${baseUrl}listing/`}>Listing view</a>
-					<span>·</span>
-					<a href={`${baseUrl}raw/`}>Raw data</a>
+					<div class="paywallPill paywallPill--headerNav">Educational dataset view only</div>
 				</nav>
-				<div class="headerBannerBottomRow">
-					<div class="paywallPill">Educational dataset view only</div>
-					<p class="headerBannerAttribution">
-						Built from Erika dataset metadata for browsing, filtering, and static profile lookup.
-					</p>
 				</div>
 			</header>
-			<main class="wrap">
-				<slot />
-			</main>
+			<div class="page-bodyGrid">
+				{
+					eyebrowInMainChrome ? (
+						<div class="page-eyebrow-slot card">
+							<HeaderEyebrowRail variant="beside-search" eyebrow={eyebrow} subtitle={subtitle} attribution={eyebrowAttribution} />
+						</div>
+					) : null
+				}
+				<main class="wrap">
+					<slot />
+				</main>
+			</div>
+			</div>
 		</div>
+		<script is:inline>
+			(() => {
+				const threshold = 36;
+				let ticking = false;
+				function sync() {
+					document.body.classList.toggle('header-collapsed', window.scrollY > threshold);
+					ticking = false;
+				}
+				function onScroll() {
+					if (!ticking) {
+						ticking = true;
+						requestAnimationFrame(sync);
+					}
+				}
+				window.addEventListener('scroll', onScroll, { passive: true });
+				window.addEventListener('resize', onScroll, { passive: true });
+				sync();
+			})();
+
+			(() => {
+				const body = document.body;
+				const headerInput = document.getElementById('header-filter-query');
+				if (!headerInput || !body.classList.contains('has-header-directory-search')) return;
+				if (body.classList.contains('page-directory')) return;
+				const base = body.getAttribute('data-base-url') || '/';
+				headerInput.addEventListener('keydown', (event) => {
+					if (event.key !== 'Enter') return;
+					event.preventDefault();
+					const q = headerInput.value.trim();
+					const qs = q ? `?q=${encodeURIComponent(q)}` : '';
+					window.location.href = `${base}directory/${qs}`;
+				});
+			})();
+
+			(() => {
+				const KEY = 'train-sidebar-collapsed';
+				const body = document.body;
+				const toggle = document.getElementById('train-sidebar-toggle');
+				if (!toggle) return;
+				const mobileMq = window.matchMedia('(max-width: 900px)');
+				const backdrop = document.querySelector('[data-train-drawer-backdrop]');
+				const apply = (collapsed) => {
+					body.classList.toggle('train-sidebar-collapsed', collapsed);
+					toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+					toggle.setAttribute('title', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
+				};
+				const initialCollapsed = () => {
+					try {
+						if (mobileMq.matches) {
+							if (localStorage.getItem(KEY) === '0') return false;
+							return true;
+						}
+						return localStorage.getItem(KEY) === '1';
+					} catch {
+						return false;
+					}
+				};
+				apply(initialCollapsed());
+				toggle.addEventListener('click', () => {
+					const next = !body.classList.contains('train-sidebar-collapsed');
+					apply(next);
+					try {
+						localStorage.setItem(KEY, next ? '1' : '0');
+					} catch {
+						/* ignore */
+					}
+				});
+				backdrop?.addEventListener('click', () => {
+					if (!mobileMq.matches) return;
+					apply(true);
+					try {
+						localStorage.setItem(KEY, '1');
+					} catch {
+						/* ignore */
+					}
+				});
+				document.addEventListener('keydown', (event) => {
+					if (event.key !== 'Escape') return;
+					if (!mobileMq.matches) return;
+					if (body.classList.contains('train-sidebar-collapsed')) return;
+					apply(true);
+					try {
+						localStorage.setItem(KEY, '1');
+					} catch {
+						/* ignore */
+					}
+				});
+			})();
+
+			(() => {
+				const KEY = 'train-header-site-nav-collapsed';
+				const toggle = document.getElementById('header-site-nav-toggle');
+				const panel = document.getElementById('header-site-nav-panel');
+				if (!toggle || !panel) return;
+				const apply = (collapsed) => {
+					document.body.classList.toggle('header-site-nav-collapsed', collapsed);
+					toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+					toggle.setAttribute('title', collapsed ? 'Show site navigation' : 'Hide site navigation');
+					if (collapsed) panel.setAttribute('aria-hidden', 'true');
+					else panel.removeAttribute('aria-hidden');
+				};
+				try {
+					apply(localStorage.getItem(KEY) === '1');
+				} catch {
+					apply(false);
+				}
+				toggle.addEventListener('click', () => {
+					const next = !document.body.classList.contains('header-site-nav-collapsed');
+					apply(next);
+					try {
+						localStorage.setItem(KEY, next ? '1' : '0');
+					} catch {
+						/* ignore */
+					}
+				});
+			})();
+		</script>
 	</body>
 </html>
 
@@ -90,6 +448,13 @@ const baseUrl = import.meta.env.BASE_URL;
 			0 22px 60px rgba(0, 0, 0, 0.35),
 			0 0 0 1px rgba(255, 215, 130, 0.06),
 			0 0 38px rgba(255, 190, 90, 0.06);
+		/* Light “console” surfaces — aligned with PredictionsGamePanel + home card chrome */
+		--header-rail-surface: #ffffff;
+		--header-rail-border: #e7e9ef;
+		--header-rail-shadow: 0 24px 60px rgba(8, 12, 24, 0.12);
+		--header-rail-muted: #5c6378;
+		--header-rail-pill-bg: #f6f7fb;
+		--header-rail-pill-border: #d7dbe8;
 	}
 
 	* {
@@ -156,12 +521,217 @@ const baseUrl = import.meta.env.BASE_URL;
 		z-index: 1;
 	}
 
+	.page-shell--withTrainSidebar {
+		min-height: 100vh;
+	}
+
+	.page-chrome-main {
+		position: relative;
+		z-index: 1;
+		min-width: 0;
+	}
+
+	body.has-train-console-sidebar {
+		--train-sidebar-peek: 280px;
+	}
+
+	body.has-train-console-sidebar.train-sidebar-collapsed {
+		/* Rail tucks away fully; collapse control lives in the header search row. */
+		--train-sidebar-peek: 0px;
+	}
+
+	@media (max-width: 900px) {
+		body.has-train-console-sidebar:not(.train-sidebar-collapsed) {
+			--train-sidebar-peek: min(300px, 88vw);
+		}
+	}
+
+	.page-chrome-main--withSidebar {
+		margin-left: var(--train-sidebar-peek);
+		transition: margin-left 0.24s ease;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.page-chrome-main--withSidebar {
+			transition: none;
+		}
+	}
+
+	.train-drawer-backdrop {
+		display: none;
+	}
+
+	@media (max-width: 900px) {
+		body.has-train-console-sidebar:not(.train-sidebar-collapsed) .train-drawer-backdrop {
+			display: block;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: var(--train-sidebar-peek);
+			z-index: 195;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background: rgba(3, 5, 12, 0.5);
+			backdrop-filter: blur(4px);
+			-webkit-backdrop-filter: blur(4px);
+			cursor: pointer;
+			animation: trainBackdropIn 0.22s ease;
+		}
+
+		body.has-train-console-sidebar:not(.train-sidebar-collapsed) .train-console-sidebar {
+			box-shadow: 12px 0 48px rgba(0, 0, 0, 0.45);
+		}
+	}
+
+	@keyframes trainBackdropIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.page-bodyGrid {
+		width: 100%;
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 9.25rem 18px 52px;
+		box-sizing: border-box;
+		transition: padding-top 0.22s ease;
+	}
+
+	body.header-eyebrow-in-main .page-bodyGrid {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	.page-eyebrow-slot.card {
+		padding: 14px 16px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	body:not(.has-train-console-sidebar) .page-eyebrow-slot {
+		max-width: 1380px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.page-eyebrow-slot .headerEyebrowRow--railBesideSearch {
+		max-width: none;
+		flex: 1 1 auto;
+		width: 100%;
+		align-self: stretch;
+	}
+
+	/* Directory-search header height tiers (eyebrow in header vs main; nav panel expanded vs collapsed). */
+	body.has-header-directory-search .page-bodyGrid {
+		padding-top: 13rem;
+	}
+
+	body.has-header-directory-search.header-eyebrow-in-main .page-bodyGrid {
+		padding-top: 8.85rem;
+	}
+
+	body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main) .page-bodyGrid {
+		padding-top: 9.85rem;
+	}
+
+	body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed .page-bodyGrid {
+		padding-top: 6.35rem;
+	}
+
+	body.has-train-console-sidebar .page-bodyGrid {
+		max-width: min(1680px, 100%);
+	}
+
+	body.has-train-console-sidebar .page-bodyGrid .wrap {
+		margin: 0;
+		max-width: none;
+	}
+
+	@media (max-width: 1100px) {
+		.headerBannerTopBand {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.headerBannerTopBand .headerBannerSearchRow--primary,
+		.headerBannerTopBand .headerBannerSearchMetaRow,
+		.headerBannerTopBand .headerEyebrowRow--railBesideSearch {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 1100px) and (min-width: 901px) {
+		body.has-header-directory-search:not(.header-eyebrow-in-main):not(.header-site-nav-collapsed) .page-bodyGrid {
+			padding-top: 11.5rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main:not(.header-site-nav-collapsed) .page-bodyGrid {
+			padding-top: 7.65rem;
+		}
+
+		body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main) .page-bodyGrid {
+			padding-top: 8.35rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed .page-bodyGrid {
+			padding-top: 5.65rem;
+		}
+	}
+
+	body:not(.has-train-console-sidebar) .page-bodyGrid .wrap {
+		max-width: 1380px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.wrap {
 		position: relative;
 		z-index: 1;
-		max-width: 1380px;
-		margin: 0 auto;
-		padding: 7.8rem 18px 52px;
+		padding: 0;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.page-bodyGrid {
+			transition: none;
+		}
+	}
+
+	body.header-collapsed .headerBanner {
+		padding: 6px 16px 8px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+	}
+
+	body.header-collapsed .headerBanner .eyebrow {
+		margin: 0 0 2px;
+	}
+
+	body.header-collapsed .headerBanner .headerEyebrowRow-copy .sub {
+		display: none;
+	}
+
+	body.header-collapsed .headerBanner .site-title {
+		margin: 0 0 2px;
+		font-size: clamp(1rem, 2.4vw, 1.25rem);
+	}
+
+	body.header-collapsed .headerBanner .site-nav {
+		margin-top: 2px;
+	}
+
+	body.header-collapsed .headerBanner .headerBannerAttribution--rail {
+		display: none;
+	}
+
+	body.header-collapsed .page-bodyGrid {
+		padding-top: 6.75rem;
 	}
 
 	.container {
@@ -175,7 +745,8 @@ const baseUrl = import.meta.env.BASE_URL;
 		z-index: 200;
 		display: flex;
 		flex-direction: column;
-		gap: 0;
+		align-items: stretch;
+		gap: 8px;
 		padding: 8px 18px 10px;
 		font-size: 13px;
 		line-height: 1.55;
@@ -185,6 +756,24 @@ const baseUrl = import.meta.env.BASE_URL;
 		backdrop-filter: blur(16px) saturate(1.12);
 		-webkit-backdrop-filter: blur(16px) saturate(1.12);
 		box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+		transition: padding 0.22s ease, box-shadow 0.22s ease;
+	}
+
+	body.has-train-console-sidebar .headerBanner {
+		left: var(--train-sidebar-peek);
+		right: 0;
+		width: auto;
+		transition:
+			padding 0.22s ease,
+			box-shadow 0.22s ease,
+			left 0.24s ease;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.headerBanner,
+		body.has-train-console-sidebar .headerBanner {
+			transition: none;
+		}
 	}
 
 	.eyebrow,
@@ -203,39 +792,86 @@ const baseUrl = import.meta.env.BASE_URL;
 		color: var(--accent);
 	}
 
-	.brand {
+	.headerEyebrowRow--rail {
 		display: flex;
-		align-items: flex-start;
-		gap: 12px 16px;
+		align-items: center;
+		gap: 12px 14px;
+		width: 100%;
+		box-sizing: border-box;
 		flex-wrap: wrap;
+		padding: 10px 14px 12px;
+		background: rgba(0, 0, 0, 0.34);
+		color: var(--text);
+		border: 1px solid var(--card-border);
+		border-radius: 18px;
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 	}
 
-	.logoLink {
+	.logoLink--headerMini {
 		flex: 0 0 auto;
+		text-decoration: none;
+		color: inherit;
+		line-height: 0;
 	}
 
 	.brand-mark {
 		display: grid;
 		place-items: center;
-		width: 84px;
-		height: 84px;
-		border-radius: 18px;
 		background:
 			radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0)),
 			linear-gradient(135deg, rgba(170, 90, 255, 0.94), rgba(60, 200, 255, 0.82));
 		color: rgba(255, 255, 255, 0.92);
 		font-family: var(--font-serif);
-		font-size: 2.1rem;
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 	}
 
-	.brandText {
-		flex: 1;
+	.brand-mark--header {
+		width: 36px;
+		height: 36px;
+		border-radius: 11px;
+		font-size: 1.08rem;
+		font-weight: 600;
+	}
+
+	.headerEyebrowRow-copy {
+		flex: 1 1 200px;
 		min-width: 0;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
+	}
+
+	.headerEyebrowRow--rail .eyebrow {
+		margin: 0;
+		color: var(--accent);
+		letter-spacing: 0.14em;
+		font-size: 0.72rem;
+	}
+
+	.headerEyebrowRow--rail .sub {
+		margin: 4px 0 0;
+		text-align: left;
+		color: var(--muted);
+		font-size: 0.82rem;
+		line-height: 1.45;
+		max-width: 42rem;
+	}
+
+	.site-title--headerEyebrow {
+		margin: 4px 0 0;
+		color: var(--text);
+		font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+	}
+
+	.headerBannerAttribution--rail {
+		margin: 0;
+		flex: 1 1 200px;
+		max-width: min(100%, 20rem);
+		font-size: 10px;
+		line-height: 1.4;
+		color: var(--soft);
 		text-align: right;
+		align-self: center;
 	}
 
 	.site-title {
@@ -257,9 +893,19 @@ const baseUrl = import.meta.env.BASE_URL;
 		margin-top: 6px;
 		display: flex;
 		flex-wrap: wrap;
+		align-items: center;
 		gap: 6px 10px;
 		font-size: 12px;
 		color: var(--muted);
+	}
+
+	.site-nav-pillsWrap {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px;
+		flex: 1 1 auto;
+		min-width: 0;
 	}
 
 	.site-nav a {
@@ -272,13 +918,437 @@ const baseUrl = import.meta.env.BASE_URL;
 		border-bottom-color: rgba(255, 210, 120, 0.55);
 	}
 
-	.headerBannerBottomRow {
+	/* Game-console–style top rail: pills, Inter, no dot separators */
+	.site-nav--console {
+		align-items: center;
+		gap: 8px;
+		font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+	}
+
+	.site-nav--console a {
+		border-bottom: none;
+		text-decoration: none;
+	}
+
+	.site-nav-pill {
+		display: inline-flex;
+		align-items: center;
+		padding: 8px 12px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.78);
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 1.2;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.site-nav-pill:hover {
+		color: var(--accent);
+		border-color: rgba(72, 224, 188, 0.35);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	.site-nav-pill.is-active {
+		color: #0a0b0d;
+		background: rgba(255, 255, 255, 0.92);
+		border-color: rgba(255, 255, 255, 0.35);
+		font-weight: 600;
+	}
+
+	.site-nav-pill--ext {
+		border-style: dashed;
+		color: rgba(200, 220, 255, 0.88);
+	}
+
+	.site-nav-pill--ext:hover {
+		border-style: solid;
+	}
+
+	.site-nav-divider {
+		width: 1px;
+		height: 22px;
+		background: rgba(255, 255, 255, 0.14);
+		margin: 0 2px;
+	}
+
+	.site-nav--tabs {
+		margin-top: 2px;
+		padding: 10px 14px 12px;
+		width: 100%;
+		box-sizing: border-box;
+		background: rgba(0, 0, 0, 0.34);
+		color: var(--text);
+		border: 1px solid var(--card-border);
+		border-radius: 18px;
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+	}
+
+	.site-nav--tabs.site-nav--console {
+		gap: 10px 12px;
+	}
+
+	.site-nav--tabs .site-nav-pill {
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.78);
+	}
+
+	.site-nav--tabs .site-nav-pill:hover {
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	.site-nav--tabs .site-nav-pill.is-active {
+		color: var(--text);
+		background: rgba(72, 224, 188, 0.16);
+		border-color: rgba(72, 224, 188, 0.42);
+	}
+
+	.site-nav--tabs .site-nav-pill--ext {
+		color: rgba(200, 220, 255, 0.88);
+		border-style: dashed;
+	}
+
+	.site-nav--tabs .site-nav-pill--ext:hover {
+		border-style: solid;
+		color: var(--accent);
+	}
+
+	.site-nav--tabs .site-nav-divider {
+		background: rgba(255, 255, 255, 0.14);
+	}
+
+	.paywallPill--headerNav {
+		margin-left: auto;
+		flex: 0 0 auto;
+		border-color: rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 244, 255, 0.88);
+	}
+
+	.site-nav--tabsGhost .site-nav-pill {
+		background: transparent;
+		border-style: dashed;
+		border-color: rgba(255, 255, 255, 0.22);
+		color: rgba(230, 236, 255, 0.62);
+	}
+
+	.site-nav--tabsGhost .site-nav-pill:hover {
+		background: rgba(72, 224, 188, 0.07);
+		border-style: solid;
+		border-color: rgba(72, 224, 188, 0.32);
+		color: var(--accent);
+	}
+
+	.site-nav--tabsGhost .site-nav-pill.is-active {
+		background: rgba(72, 224, 188, 0.12);
+		border-style: solid;
+		border-color: rgba(72, 224, 188, 0.5);
+		color: var(--text);
+	}
+
+	.site-nav--tabsGhost .site-nav-pill--ext {
+		color: rgba(200, 220, 255, 0.62);
+	}
+
+	.site-nav--tabsGhost .paywallPill--headerNav {
+		background: transparent;
+		border-style: dashed;
+		border-color: rgba(255, 255, 255, 0.22);
+		color: var(--muted);
+	}
+
+	.header-site-nav-panel {
+		overflow: hidden;
+		transition:
+			max-height 0.28s ease,
+			opacity 0.22s ease,
+			margin 0.22s ease;
+		max-height: 320px;
+		opacity: 1;
+	}
+
+	body.header-site-nav-collapsed .header-site-nav-panel {
+		max-height: 0;
+		opacity: 0;
+		margin: 0;
+		pointer-events: none;
+	}
+
+	body.header-site-nav-collapsed .headerBanner {
+		gap: 4px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.header-site-nav-panel {
+			transition: none;
+		}
+	}
+
+	.header-site-nav-toggle {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 8px 10px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.82);
+		cursor: pointer;
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 1;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.header-site-nav-toggle:hover {
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	.header-site-nav-toggle-icon {
+		display: block;
+		transition: transform 0.22s ease;
+	}
+
+	body:not(.header-site-nav-collapsed) .header-site-nav-toggle-icon {
+		transform: rotate(180deg);
+	}
+
+	.header-site-nav-toggle-text {
+		font-family: var(--font-mono);
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	@media (max-width: 520px) {
+		.header-site-nav-toggle-text {
+			display: none;
+		}
+	}
+
+	.headerBannerTopBand {
 		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		gap: 14px;
+		width: 100%;
 		flex-wrap: wrap;
-		align-items: flex-end;
+	}
+
+	.headerBannerTopBand .headerBannerSearchRow--primary,
+	.headerBannerTopBand .headerBannerSearchMetaRow {
+		flex: 1 1 100%;
+		min-width: 0;
+		width: 100%;
+	}
+
+	.headerBannerTopBand--standalone {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 10px;
+		width: 100%;
+	}
+
+	.headerBannerTopBand-standaloneFill {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.headerEyebrowRow--rail.headerEyebrowRow--railBesideSearch {
+		flex: 1 1 220px;
+		max-width: min(100%, 28rem);
+		width: auto;
+		flex-direction: column;
+		align-items: stretch;
+		align-self: center;
+		flex-wrap: nowrap;
+		gap: 8px;
+	}
+
+	.headerEyebrowRow--railBesideSearch .headerEyebrowRow-copy {
+		flex: unset;
+		min-width: 0;
+	}
+
+	.headerEyebrowRow--railBesideSearch .headerBannerAttribution--rail {
+		flex: unset;
+		max-width: none;
+		text-align: left;
+		margin-top: 2px;
+		align-self: stretch;
+	}
+
+	.headerBannerSearchRow--primary {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 10px;
+		width: 100%;
+		flex-wrap: nowrap;
+	}
+
+	.headerBannerSearchMetaRow {
+		display: flex;
+		align-items: baseline;
 		justify-content: space-between;
-		gap: 6px 16px;
+		gap: 12px 16px;
+		width: 100%;
+		flex-wrap: wrap;
 		margin-top: 8px;
+	}
+
+	.headerBannerSearchMetaRow .site-title {
+		margin: 0;
+		text-align: right;
+		flex: 0 1 auto;
+		min-width: 0;
+		font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+		line-height: 1.2;
+	}
+
+	.headerBannerSearch-input--toolbar {
+		flex: 1 1 auto;
+		min-width: 0;
+		width: auto;
+		max-width: none;
+	}
+
+	.train-sidebar-toggle.train-sidebar-toggle--header {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 38px;
+		height: 38px;
+		padding: 0;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(0, 0, 0, 0.22);
+		color: rgba(230, 236, 255, 0.82);
+		cursor: pointer;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.train-sidebar-toggle--header:hover {
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.08);
+	}
+
+	.train-sidebar-toggle--header .train-sidebar-toggle-icon {
+		display: block;
+		transition: transform 0.22s ease;
+	}
+
+	body.train-sidebar-collapsed .train-sidebar-toggle--header .train-sidebar-toggle-icon {
+		transform: rotate(180deg);
+	}
+
+	.headerBannerSearch-label {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--soft);
+	}
+
+	.headerBannerSearch-input {
+		width: 100%;
+		min-height: 40px;
+		padding: 10px 12px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		outline: none;
+		background: var(--field-bg);
+		color: var(--text);
+		font-size: 13px;
+		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+	}
+
+	.headerBannerSearch-input::placeholder {
+		color: var(--muted);
+	}
+
+	.headerBannerSearch-input:focus {
+		border-color: rgba(180, 130, 255, 0.45);
+		box-shadow:
+			inset 0 0 0 1px rgba(0, 0, 0, 0.18),
+			0 0 0 3px rgba(180, 130, 255, 0.12);
+	}
+
+	body.header-collapsed .headerBannerSearchMetaRow .site-title {
+		display: none;
+	}
+
+	body.header-collapsed .headerBannerSearch-input--toolbar {
+		min-height: 36px;
+		padding: 8px 10px;
+		font-size: 12.5px;
+	}
+
+	body.has-header-directory-search.header-collapsed .page-bodyGrid {
+		padding-top: 9.25rem;
+	}
+
+	body.has-header-directory-search.header-eyebrow-in-main.header-collapsed .page-bodyGrid {
+		padding-top: 6.35rem;
+	}
+
+	body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed.header-collapsed .page-bodyGrid {
+		padding-top: 5.35rem;
+	}
+
+	body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main).header-collapsed .page-bodyGrid {
+		padding-top: 7.35rem;
+	}
+
+	@media (max-width: 900px) {
+		body.has-header-directory-search.header-collapsed .page-bodyGrid {
+			padding-top: 9.85rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-collapsed .page-bodyGrid {
+			padding-top: 6.65rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed.header-collapsed .page-bodyGrid {
+			padding-top: 5.65rem;
+		}
+	}
+
+	@media (max-width: 720px) {
+		body.has-header-directory-search.header-collapsed .page-bodyGrid {
+			padding-top: 10.75rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-collapsed .page-bodyGrid {
+			padding-top: 7.15rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed.header-collapsed .page-bodyGrid {
+			padding-top: 6.15rem;
+		}
 	}
 
 	.headerBannerAttribution {
@@ -477,30 +1547,81 @@ const baseUrl = import.meta.env.BASE_URL;
 	}
 
 	@media (max-width: 900px) {
-		.wrap {
-			padding-top: 9.8rem;
+		.page-bodyGrid {
+			padding-top: 11.25rem;
 		}
 
-		.brandText {
-			align-items: flex-start;
+		body.has-header-directory-search:not(.header-eyebrow-in-main):not(.header-site-nav-collapsed) .page-bodyGrid {
+			padding-top: 14.5rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main:not(.header-site-nav-collapsed) .page-bodyGrid {
+			padding-top: 10.25rem;
+		}
+
+		body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main) .page-bodyGrid {
+			padding-top: 11.25rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed .page-bodyGrid {
+			padding-top: 7.85rem;
+		}
+
+		body.header-collapsed .page-bodyGrid {
+			padding-top: 7rem;
+		}
+
+		.headerBanner {
+			padding-inline: 12px;
+			gap: 6px;
+		}
+
+		.headerBannerAttribution--rail {
 			text-align: left;
+			max-width: 100%;
 		}
 	}
 
 	@media (max-width: 720px) {
-		.wrap {
-			padding-top: 11.5rem;
+		.page-bodyGrid {
+			padding-top: 12.75rem;
 			padding-inline: 14px;
 		}
 
-		.brand-mark {
-			width: 64px;
-			height: 64px;
-			font-size: 1.6rem;
+		body.has-header-directory-search:not(.header-eyebrow-in-main):not(.header-site-nav-collapsed) .page-bodyGrid {
+			padding-top: 16rem;
 		}
 
-		.headerBannerAttribution {
+		body.has-header-directory-search.header-eyebrow-in-main:not(.header-site-nav-collapsed) .page-bodyGrid {
+			padding-top: 11.75rem;
+		}
+
+		body.has-header-directory-search.header-site-nav-collapsed:not(.header-eyebrow-in-main) .page-bodyGrid {
+			padding-top: 12.75rem;
+		}
+
+		body.has-header-directory-search.header-eyebrow-in-main.header-site-nav-collapsed .page-bodyGrid {
+			padding-top: 9.25rem;
+		}
+
+		body.header-collapsed .page-bodyGrid {
+			padding-top: 8rem;
+		}
+
+		.brand-mark--header {
+			width: 32px;
+			height: 32px;
+			font-size: 1rem;
+		}
+
+		.headerBannerAttribution--rail {
 			text-align: left;
+			flex-basis: 100%;
+			max-width: 100%;
+		}
+
+		.headerEyebrowRow--rail.headerEyebrowRow--railBesideSearch .headerBannerAttribution--rail {
+			display: none;
 		}
 	}
 </style>
