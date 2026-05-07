@@ -7,6 +7,9 @@ dist/
 # dependencies
 node_modules/
 
+# local npm cache (never commit — CI uses actions/setup-node npm cache)
+.npm-cache/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
