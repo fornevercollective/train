@@ -1,0 +1,12 @@
+name = "api-qbitos-ai"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+# Route in dashboard: api.qbitos.ai/* → this worker (or use routes below when zone is on Cloudflare)
+# [[routes]]
+# pattern = "api.qbitos.ai/*"
+# zone_name = "qbitos.ai"
+
+[vars]
+TRAIN_ORIGIN = "https://fornevercollective.github.io/train"
+CATALOG_PATH = "/data/catalog.json"
