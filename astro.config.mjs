@@ -3,8 +3,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-import cloudflare from '@astrojs/cloudflare';
-
 /**
  * @param {string} base
  */
@@ -44,5 +42,4 @@ export default defineConfig({
   integrations: [],
   output: 'static',
   trailingSlash: 'always',
-  adapter: cloudflare()
 });
