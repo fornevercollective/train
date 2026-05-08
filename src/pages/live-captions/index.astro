@@ -354,7 +354,7 @@ const published = new Intl.DateTimeFormat('en-US', {
 	</section>
 </Layout>
 
-<script define:vars={{ captionSeeds }}>
+<script is:inline define:vars={{ captionSeeds }}>
 	(() => {
 		const abstractEl = document.getElementById('caption-digest-abstract');
 		const bodyEl = document.getElementById('caption-digest-body');

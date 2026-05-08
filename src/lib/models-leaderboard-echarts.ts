@@ -102,7 +102,7 @@ function mountScatterIntelPrice(el: HTMLElement, rows: LlmDeskRow[]): (() => voi
 
 function mountSpeedBar(el: HTMLElement, rows: LlmDeskRow[]): (() => void) | undefined {
 	const chart = echarts.init(el, undefined, { renderer: 'canvas' });
-	const sorted = [...rows].sort((a, b) => b.speedTps - a.speedTps).slice(0, 8);
+	const sorted = [...rows].sort((a, b) => b.speedTps - a.speedTps);
 	chart.setOption({
 		textStyle: { fontFamily: 'Inter, system-ui, sans-serif' },
 		title: {
@@ -156,7 +156,7 @@ function mountSpeedBar(el: HTMLElement, rows: LlmDeskRow[]): (() => void) | unde
 
 function mountAgentRadar(el: HTMLElement, rows: LlmDeskRow[]): (() => void) | undefined {
 	const chart = echarts.init(el, undefined, { renderer: 'canvas' });
-	const top = [...rows].sort((a, b) => b.agentFit - a.agentFit).slice(0, 5);
+	const top = [...rows].sort((a, b) => b.agentFit - a.agentFit);
 	chart.setOption({
 		textStyle: { fontFamily: 'Inter, system-ui, sans-serif' },
 		tooltip: { backgroundColor: tipBg, borderColor: border, textStyle: { color: 'rgba(255,255,255,0.92)', fontSize: 11 } },
@@ -199,12 +199,12 @@ function mountAgentRadar(el: HTMLElement, rows: LlmDeskRow[]): (() => void) | un
 
 function mountRoutingMatrix(el: HTMLElement, rows: LlmDeskRow[]): (() => void) | undefined {
 	const chart = echarts.init(el, undefined, { renderer: 'canvas' });
-	const providers = [...new Set(rows.map((r) => r.provider.split('/')[0].trim()))].slice(0, 10);
-	const categories = ['chat', 'vision', 'transcribe', 'embeddings', 'rerank'];
+	const providers = [...new Set(rows.map((r) => r.provider.split('/')[0].trim()))];
+	const categories = [...new Set(rows.map((r) => r.category))];
 	const data: [number, number, number][] = [];
 	for (let x = 0; x < providers.length; x++) {
 		for (let y = 0; y < categories.length; y++) {
-			const matches = rows.filter((r) => r.provider.startsWith(providers[x]) && r.category === categories[y]);
+			const matches = rows.filter((r) => r.provider.split('/')[0].trim() === providers[x] && r.category === categories[y]);
 			data.push([x, y, matches.length ? Math.round(matches.reduce((sum, r) => sum + r.routingFit, 0) / matches.length) : 0]);
 		}
 	}

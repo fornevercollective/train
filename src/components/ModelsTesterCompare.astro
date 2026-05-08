@@ -1,6 +1,6 @@
 ---
 import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib/models-tester-mock';
-import { modelUseCaseCards } from '../lib/models-leaderboard-data';
+import { llmDeskRows } from '../lib/models-leaderboard-data';
 
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const industrySources = [
@@ -10,10 +10,82 @@ const industrySources = [
 	{ label: 'LLM Stats', href: 'https://llm-stats.com' },
 	{ label: 'Artificial Analysis', href: 'https://artificialanalysis.ai/leaderboards/models' },
 ] as const;
-const routerCards = modelUseCaseCards.map((card, idx) => ({
-	card,
-	compare: modelTesterColumns[idx],
-}));
+const providerVersions = new Map<string, string[]>();
+for (const row of llmDeskRows) {
+	const provider = row.provider.split('/')[0].trim();
+	const version = `${row.model} · ${row.modelSize} · ${row.lastUpdated}`;
+	providerVersions.set(provider, [...(providerVersions.get(provider) ?? []), version]);
+}
+const categoryDescriptions = {
+	chat: 'General chat, reasoning, writing, coding, and agent orchestration workloads.',
+	vision: 'Multimodal text and image understanding for visual research and review tasks.',
+	image: 'Image generation and editing lane for media outputs and visual assets.',
+	audio: 'Speech, audio, and voice processing lane for live media workflows.',
+	video: 'Video-understanding lane for long-form visual streams and multimodal routing.',
+	transcribe: 'Local/private transcript summarization and caption brief generation.',
+	embeddings: 'Retrieval and memory layer for source search, RAG, and evidence recall.',
+	rerank: 'Search refinement and source ordering for living memo evidence stacks.',
+	moderation: 'Safety and policy pre-checks before downstream model routing.',
+} as const;
+const routerCards = llmDeskRows.map((row, idx) => {
+	const provider = row.provider.split('/')[0].trim();
+	const compare = modelTesterColumns[idx] ?? {
+		versionLabel: 'Industry blend',
+		modelSize: row.modelSize,
+		lastUpdated: row.lastUpdated,
+		scorePct: String(row.agentFit),
+		scoreVariant: row.agentFit >= 85 ? 'high' : row.agentFit >= 72 ? 'mid' : 'low',
+		inputTok: 1000,
+		outputTok: row.speedTps > 0 ? Math.max(64, Math.round(row.speedTps * 1.2)) : 128,
+		latencyMs: row.speedTps > 0 ? Math.max(120, Math.round(60000 / row.speedTps)) : 0,
+		metrics: [
+			{ label: 'Routing fit', value: `${row.routingFit}` },
+			{ label: 'Agent fit', value: `${row.agentFit}` },
+			{ label: 'JSON / tools', value: `${row.jsonMode ? 'json' : 'freeform'} · ${row.functionCalling ? 'tools' : 'no tools'}` },
+		],
+		jsonParts: [
+			{
+				text: JSON.stringify(
+					{
+						model: row.model,
+						provider: row.provider,
+						route: row.category,
+						modalities: row.modalities,
+						price_per_m: { input: row.inputPerM, output: row.outputPerM },
+						source_blend: ['Arena', 'Onyx', 'Vellum', 'LLM Stats', 'Artificial Analysis'],
+					},
+					null,
+					2,
+				),
+			},
+		],
+	};
+	return {
+		card: {
+			rank: idx + 1,
+			model: row.model,
+			provider,
+			providerBadge: provider,
+			description: categoryDescriptions[row.category],
+			speed: Math.max(1, Math.min(5, Math.round((row.speedTps || 60) / 50))),
+			intelligence: Math.max(1, Math.min(5, Math.round(row.intelligenceIdx / 12))),
+			pricePerM: row.inputPerM * 0.35 + row.outputPerM * 0.65,
+			inputs: row.modalities,
+			jsonMode: row.jsonMode,
+			functionCalling: row.functionCalling,
+			versions: providerVersions.get(provider) ?? [`${row.model} · ${row.modelSize} · ${row.lastUpdated}`],
+			modelSize: row.modelSize,
+			lastUpdated: row.lastUpdated,
+			benchmarks: [
+				{ rank: '#AA', name: 'Intelligence index', category: 'Artificial Analysis style', value: `${row.intelligenceIdx}` },
+				{ rank: '#AG', name: 'Agent fit', category: 'Agent workflow', value: `${row.agentFit}` },
+				{ rank: '#RT', name: 'Routing fit', category: 'Model router', value: `${row.routingFit}` },
+			],
+			href: row.model.toLowerCase().includes('liquid') ? '/models/liquid-ai/' : '#models-directory-table',
+		},
+		compare,
+	};
+});
 ---
 
 <section class="models-tester card" id="model-tester" aria-labelledby="models-tester-title">

@@ -93,6 +93,9 @@ const modelCategories = [
 					<span>Price per 1M tokens</span>
 					<span>Batch API price</span>
 					<button type="button" id="models-batch-toggle" aria-pressed="false"><span></span></button>
+					<button type="button" id="models-offline-toggle" class="models-offline-toggle" aria-pressed="false">
+						Free / offline
+					</button>
 				</div>
 			</div>
 			<div class="models-table-toolbar" aria-label="Model table controls">
@@ -135,6 +138,7 @@ const modelCategories = [
 									data-inputperm={r.inputPerM}
 									data-outputperm={r.outputPerM}
 									data-agentfit={r.agentFit}
+									data-offline={r.inputPerM === 0 && r.outputPerM === 0 ? '1' : '0'}
 								>
 									<th scope="row">
 										{r.model}
@@ -255,7 +259,7 @@ const modelCategories = [
 		font-size: 0.78rem;
 	}
 
-	.models-table-toggle button {
+	.models-table-toggle #models-batch-toggle {
 		width: 42px;
 		height: 24px;
 		padding: 2px;
@@ -265,7 +269,7 @@ const modelCategories = [
 		cursor: pointer;
 	}
 
-	.models-table-toggle button span {
+	.models-table-toggle #models-batch-toggle span {
 		display: block;
 		width: 18px;
 		height: 18px;
@@ -274,9 +278,28 @@ const modelCategories = [
 		transition: transform 0.15s ease;
 	}
 
-	.models-table-toggle button[aria-pressed='true'] span {
+	.models-table-toggle #models-batch-toggle[aria-pressed='true'] span {
 		transform: translateX(17px);
 		background: var(--accent);
+	}
+
+	.models-offline-toggle {
+		min-height: 26px;
+		padding: 0 10px;
+		border-radius: 999px;
+		border: 1px solid rgba(72, 224, 188, 0.24);
+		background: rgba(72, 224, 188, 0.08);
+		color: rgba(210, 255, 242, 0.9);
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+
+	.models-offline-toggle[aria-pressed='true'] {
+		background: rgba(72, 224, 188, 0.2);
+		border-color: rgba(72, 224, 188, 0.46);
+		color: var(--text);
 	}
 
 	.models-table-toolbar {
@@ -509,7 +532,9 @@ const modelCategories = [
 			document.querySelectorAll<HTMLElement>('[data-model-category]'),
 		);
 		const batchToggle = document.getElementById('models-batch-toggle');
+		const offlineToggle = document.getElementById('models-offline-toggle');
 		let activeCategory = 'all';
+		let offlineOnly = false;
 		const sortState: SortEntry[] = [];
 
 		function valueFor(row: HTMLElement, key: string): number | string {
@@ -523,8 +548,9 @@ const modelCategories = [
 			const q = search?.value?.trim().toLowerCase() || '';
 			for (const row of rows) {
 				const categoryMatch = activeCategory === 'all' || row.dataset.category === activeCategory;
+				const offlineMatch = !offlineOnly || row.dataset.offline === '1';
 				const haystack = `${row.dataset.model || ''} ${row.dataset.provider || ''} ${row.textContent || ''}`.toLowerCase();
-				row.hidden = !categoryMatch || (q !== '' && !haystack.includes(q));
+				row.hidden = !categoryMatch || !offlineMatch || (q !== '' && !haystack.includes(q));
 			}
 		}
 
@@ -557,6 +583,11 @@ const modelCategories = [
 			});
 		});
 		search?.addEventListener('input', applyFilters);
+		offlineToggle?.addEventListener('click', () => {
+			offlineOnly = !offlineOnly;
+			offlineToggle.setAttribute('aria-pressed', offlineOnly ? 'true' : 'false');
+			applyFilters();
+		});
 		batchToggle?.addEventListener('click', () => {
 			const pressed = batchToggle.getAttribute('aria-pressed') === 'true';
 			batchToggle.setAttribute('aria-pressed', pressed ? 'false' : 'true');
