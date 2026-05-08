@@ -3,6 +3,17 @@ import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib
 import { modelUseCaseCards } from '../lib/models-leaderboard-data';
 
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const industrySources = [
+	{ label: 'Arena', href: 'https://arena.ai/leaderboard/text' },
+	{ label: 'Onyx', href: 'https://onyx.app/llm-leaderboard' },
+	{ label: 'Vellum', href: 'https://www.vellum.ai/llm-leaderboard' },
+	{ label: 'LLM Stats', href: 'https://llm-stats.com' },
+	{ label: 'Artificial Analysis', href: 'https://artificialanalysis.ai/leaderboards/models' },
+] as const;
+const routerCards = modelUseCaseCards.map((card, idx) => ({
+	card,
+	compare: modelTesterColumns[idx],
+}));
 ---
 
 <section class="models-tester card" id="model-tester" aria-labelledby="models-tester-title">
@@ -29,13 +40,18 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 				WhichLLM-style picks rendered inside the compare grid: choose a provider version, check speed,
 				intelligence, inputs, JSON/tool support, then jump into the matching tester or local Liquid AI loop.
 			</p>
+			<div class="models-router-sources" aria-label="Industry leaderboard sources">
+				{industrySources.map((source) => (
+					<a href={source.href} target="_blank" rel="noopener noreferrer">{source.label}</a>
+				))}
+			</div>
 		</div>
 		<a class="models-router-link" href={`${baseUrl}models/liquid-ai/`}>Open Liquid AI tuning</a>
 	</div>
 
 	<div class="models-tester-grid models-tester-grid--router" role="group" aria-label="Model recommendations by use case">
 		{
-			modelUseCaseCards.map((card) => (
+			routerCards.map(({ card, compare }) => (
 				<article class="models-tester-col models-router-card">
 					<div class="models-router-titleRow">
 						<span class="models-router-rank mono">{card.rank}</span>
@@ -94,68 +110,55 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 							</p>
 						))}
 					</div>
+					{
+						compare ? (
+							<>
+								<div class="models-router-compareHead">
+									<div class="models-tester-row2">
+										<span class="models-tester-version muted">{compare.versionLabel}</span>
+										<span class="models-tester-version muted">Size: {compare.modelSize} · Updated: {compare.lastUpdated}</span>
+										<span
+											class:list={[
+												'models-tester-score',
+												compare.scoreVariant === 'high' && 'models-tester-score--high',
+												compare.scoreVariant === 'mid' && 'models-tester-score--mid',
+												compare.scoreVariant === 'low' && 'models-tester-score--low',
+											]}
+										>
+											{compare.scorePct}%
+										</span>
+									</div>
+									<p class="models-tester-meta mono muted">
+										Input: {compare.inputTok.toLocaleString()} · Output: {compare.outputTok.toLocaleString()} · {compare.latencyMs} ms
+									</p>
+								</div>
+								<dl class="models-tester-metrics">
+									{compare.metrics.map((m) => (
+										<div class="models-tester-metric">
+											<dt>{m.label}</dt>
+											<dd class="mono">{m.value}</dd>
+										</div>
+									))}
+								</dl>
+								<div class="models-tester-jsonWrap models-router-jsonWrap">
+									<span class="models-tester-jsonLabel mono">Output</span>
+									<pre class="models-tester-json mono" tabindex="0">
+										<code>
+											{
+												compare.jsonParts.map((part) =>
+													part.diff ? <mark class="models-tester-diff">{part.text}</mark> : part.text
+												)
+											}
+										</code>
+									</pre>
+								</div>
+							</>
+						) : null
+					}
 					<a class="models-router-cta" href={card.href.startsWith('/') ? `${baseUrl}${card.href.slice(1)}` : card.href}>
 						Try it out
 					</a>
 				</article>
-			))
-		}
-	</div>
-
-	<div class="models-tester-grid" role="group" aria-label="Side-by-side model outputs">
-		{
-			modelTesterColumns.map((col, idx) => (
-				<div class="models-tester-col">
-					<div class="models-tester-colHead">
-						<label class="visually-hidden" for={`models-tester-select-${idx}`}>
-							Model for column {idx + 1}
-						</label>
-						<select class="models-tester-select mono" id={`models-tester-select-${idx}`} disabled>
-							{col.options.map((o) => (
-								<option value={o.value} selected={o.value === col.selectedValue}>
-									{o.label}
-								</option>
-							))}
-						</select>
-						<div class="models-tester-row2">
-							<span class="models-tester-version muted">{col.versionLabel}</span>
-							<span class="models-tester-version muted">Size: {col.modelSize} · Updated: {col.lastUpdated}</span>
-							<span
-								class:list={[
-									'models-tester-score',
-									col.scoreVariant === 'high' && 'models-tester-score--high',
-									col.scoreVariant === 'mid' && 'models-tester-score--mid',
-									col.scoreVariant === 'low' && 'models-tester-score--low',
-								]}
-							>
-								{col.scorePct}%
-							</span>
-						</div>
-					</div>
-					<p class="models-tester-meta mono muted">
-						Input: {col.inputTok.toLocaleString()} · Output: {col.outputTok.toLocaleString()} · {col.latencyMs} ms
-					</p>
-					<dl class="models-tester-metrics">
-						{col.metrics.map((m) => (
-							<div class="models-tester-metric">
-								<dt>{m.label}</dt>
-								<dd class="mono">{m.value}</dd>
-							</div>
-						))}
-					</dl>
-					<div class="models-tester-jsonWrap">
-						<span class="models-tester-jsonLabel mono">Output</span>
-						<pre class="models-tester-json mono" tabindex="0">
-							<code>
-								{
-									col.jsonParts.map((part) =>
-										part.diff ? <mark class="models-tester-diff">{part.text}</mark> : part.text
-									)
-								}
-							</code>
-						</pre>
-					</div>
-				</div>
 			))
 		}
 	</div>
@@ -248,6 +251,23 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 		max-width: 62rem;
 		font-size: 0.84rem;
 		line-height: 1.55;
+	}
+
+	.models-router-sources {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		margin-top: 10px;
+	}
+
+	.models-router-sources a {
+		padding: 5px 8px;
+		border-radius: 999px;
+		border: 1px solid rgba(88, 166, 255, 0.2);
+		background: rgba(88, 166, 255, 0.08);
+		color: rgba(190, 220, 255, 0.95);
+		font: 0.68rem/1 var(--font-mono, ui-monospace, monospace);
+		text-decoration: none;
 	}
 
 	.models-router-link,
@@ -464,6 +484,22 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 	.models-router-cta {
 		margin-top: auto;
 		width: 100%;
+	}
+
+	.models-router-compareHead {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		padding-top: 10px;
+		border-top: 1px solid rgba(48, 54, 61, 0.62);
+	}
+
+	.models-router-jsonWrap {
+		min-height: 190px;
+	}
+
+	.models-router-jsonWrap .models-tester-json {
+		max-height: 180px;
 	}
 
 	.models-tester-select {
