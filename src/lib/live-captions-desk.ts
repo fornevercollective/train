@@ -21,6 +21,7 @@ export const tocItems: TocItem[] = [
 	{ id: 'home-bloomberg-live', label: 'Bloomberg relay panel' },
 	{ id: 'live-captions-relay-tools', label: 'Relay tools & API' },
 	{ id: 'live-captions-how', label: 'How the desk works' },
+	{ id: 'live-captions-living-memo', label: 'Living memo loop' },
 	{ id: 'live-captions-explorables', label: 'Interpretability & data' },
 	{ id: 'live-captions-paper', label: 'Working paper from captions' },
 	{ id: 'live-captions-changelog', label: 'Evidence log' },

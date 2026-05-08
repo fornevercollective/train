@@ -44,6 +44,23 @@ the “Game console” / “Live desk” shortcuts until the variable is provide
 For **GitHub Actions** deploys, define a repository variable `PUBLIC_GAME_CONSOLE_URL` (Settings →
 Secrets and variables → Actions → Variables) so Pages builds pick up the same origin.
 
+## Liquid AI live tuning
+
+Train includes `/models/liquid-ai/`, a local-only tuning desk under the Models section for the mirrored LiquidAI LFM2 transcript
+GGUF. It calls an Ollama-compatible `POST /api/generate` endpoint from the browser, then lets you
+score the result and export JSONL tuning pairs.
+
+```bash
+npm run dev:liquid
+```
+
+That command creates the local Ollama model `liquidai-lfm2-transcript:q4km` from
+`Modelfile.liquidai-lfm2-transcript` when needed, starts Ollama if it is not already responding, and
+then starts Astro. Open `http://localhost:4321/models/liquid-ai/`.
+
+If Ollama is already running and the browser blocks the request, restart Ollama with matching local
+origins, for example `OLLAMA_ORIGINS=http://localhost:4321,http://127.0.0.1:4321 ollama serve`.
+
 ## Low-latency access model
 
 The homepage now includes an indicative **hop and speed analysis** layer for major exchange and
@@ -183,3 +200,63 @@ npm run build
 - `../../erika/artifacts/ticker_checklist_summary.md`
 
 The directory currently focuses on listing metadata and coverage signals, not time-series charting.
+
+## Snowflake coverage profiles (sharded + versioned)
+
+Every catalog listing now also has a 5-axis snowflake coverage profile (Value, Future,
+Past, Health, Dividends) modeled on `https://roi.kevencraftrituals.com/health.html`. The
+profiles live under `public/data/health/`:
+
+```
+public/data/health/
+├── manifest.json                # tiny (~42 KB) index: shards + patches + sha-256 etags
+├── shards/v1/index.json         # ticker → shardId map
+├── shards/v1/0000.json          # ~256 listings per shard (~600 KB)
+├── shards/v1/0001.json
+├── ...
+└── patches/v1/<TICKER>.json     # per-listing overlays (small shims/blobs)
+```
+
+The browser loads only the `manifest.json` plus whichever shards or patches it actually
+needs, caching them in `sessionStorage` keyed by their etag. When the research desk
+flips a single check, only that 1–3 KB patch (or shard) is re-downloaded — never the
+20 MB catalog.
+
+### Iteration workflow
+
+```bash
+# 1. Scaffold an editable overlay for one ticker
+python3 scripts/scaffold_health_patch.py AAPL
+
+# 2. Edit public/data/health/patches/v1/AAPL.json
+#    Flip check `state` from "na" to "pass"/"fail" and fill `detail`.
+
+# 3. Promote the patch into the manifest (recomputes its etag)
+npm run prepare:data
+```
+
+### Versioning API (`api.qbitos.ai`)
+
+The Cloudflare Worker under `workers/api-qbitos-ai/` exposes the same data with edge
+caching:
+
+| Endpoint | Purpose |
+| --- | --- |
+| `GET /v1/health` | Worker liveness + Train Pages reachability |
+| `GET /v1/coverage/manifest` | Current manifest (shards + patches + etags) |
+| `GET /v1/coverage/index` | Ticker → shard id map |
+| `GET /v1/coverage/shard?id=NNNN` | One shard JSON (etag-cached, supports `If-None-Match`) |
+| `GET /v1/coverage/listing?ticker=AAPL` | Single profile (patch overlay if present, else shard entry) |
+| `GET /v1/coverage/diff?since=<etag>` | List of shards/patches that changed since the caller's last manifest |
+| `GET /v1/catalog.json` | Cached pass-through of the full catalog |
+
+To point the browser at the API instead of static GitHub Pages, set
+`window.__QBITOS_API_ORIGIN__ = 'https://api.qbitos.ai'` before the page scripts run.
+
+Deploy:
+
+```bash
+cd workers/api-qbitos-ai
+npm install
+npx wrangler deploy
+```

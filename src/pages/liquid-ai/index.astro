@@ -1,0 +1,483 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const defaultModel = import.meta.env.LIQUID_OLLAMA_MODEL || 'liquidai-lfm2-transcript:q4km';
+const defaultEndpoint = import.meta.env.PUBLIC_LIQUID_OLLAMA_URL || 'http://127.0.0.1:11434/api/generate';
+const modelPath =
+	'/Volumes/qbitOS/03.models/01-ollama/hf-mirror/LiquidAI/LFM2-2.6B-Transcript-GGUF/LFM2-2.6B-Transcript-Q4_K_M.gguf';
+const startCommand = 'cd "/Volumes/qbitOS/00.dev/cursor/train/train" && ./scripts/run-liquid-ai-live.sh';
+---
+
+<Layout
+	title="Liquid AI · Live tuning desk"
+	description="Local LiquidAI LFM2 tuning loop for Train: prompt, run, score, and export training pairs."
+	pageClass="page-liquid-ai"
+	eyebrow="Liquid AI desk"
+	subtitle="Run the local LFM2 transcript model through Ollama, score outputs, and capture JSONL tuning pairs."
+	eyebrowAttribution="Local-only tuning surface. Browser calls your Ollama endpoint; no hosted model API is required."
+>
+	<section class="container liquid-shell">
+		<header class="liquid-hero card">
+			<div>
+				<p class="liquid-kicker">LiquidAI / LFM2 integration</p>
+				<h1>Live tuning loop for captions, summaries, and market-desk notes</h1>
+				<p class="muted">
+					This desk points at your local GGUF mirror and an Ollama-compatible endpoint. Run a prompt, review
+					the answer, write the corrected target, then export JSONL for later SFT or evaluation.
+				</p>
+			</div>
+			<div class="liquid-command" aria-label="Startup command">
+				<span>Start command</span>
+				<code>{startCommand}</code>
+			</div>
+		</header>
+
+		<section class="liquid-grid" aria-label="Liquid AI runtime and tuning">
+			<form class="liquid-panel card" id="liquid-runner">
+				<div class="liquid-panel-head">
+					<h2>Runtime</h2>
+					<span class="badge success" id="liquid-status">ready to connect</span>
+				</div>
+				<label class="field">
+					<span>Ollama generate endpoint</span>
+					<input id="liquid-endpoint" value={defaultEndpoint} autocomplete="off" />
+				</label>
+				<label class="field">
+					<span>Model</span>
+					<input id="liquid-model" value={defaultModel} autocomplete="off" />
+				</label>
+				<div class="liquid-two">
+					<label class="field">
+						<span>Temperature</span>
+						<input id="liquid-temperature" type="number" min="0" max="2" step="0.05" value="0.3" />
+					</label>
+					<label class="field">
+						<span>Context tokens</span>
+						<input id="liquid-context" type="number" min="512" step="512" value="8192" />
+					</label>
+				</div>
+				<label class="field">
+					<span>Live prompt</span>
+					<textarea id="liquid-prompt" rows="9">Provide a brief executive summary (2-3 sentences) of the key outcomes and decisions from this transcript. Then list the main topics discussed.
+
+Market Desk Live Captions
+*Date*: May 7, 2026
+*Time*: 1:00 PM
+*Duration*: 8 minutes
+*Participants*: Anchor (Host), Guest (Macro Strategist)
+----------
+**Anchor**: Rates are moving as traders price a slower cutting cycle.
+**Guest**: Energy inventories are the surprise today, but equity breadth is still narrow.
+**Anchor**: We need to separate durable macro themes from single-print noise.</textarea>
+				</label>
+				<div class="liquid-actions">
+					<button class="button" type="submit">Run LiquidAI</button>
+					<button class="button-secondary" type="button" id="liquid-health">Check health</button>
+					<button class="button-secondary" type="button" id="liquid-clear">Clear output</button>
+				</div>
+			</form>
+
+			<section class="liquid-panel card" aria-labelledby="liquid-output-title">
+				<div class="liquid-panel-head">
+					<h2 id="liquid-output-title">Output</h2>
+					<span class="muted mono" id="liquid-latency">not run yet</span>
+				</div>
+				<pre class="liquid-output" id="liquid-output" tabindex="0">Run the model to stream output here.</pre>
+				<label class="field">
+					<span>Corrected target / preferred answer</span>
+					<textarea id="liquid-target" rows="7" placeholder="Paste or edit the ideal output for this prompt."></textarea>
+				</label>
+				<div class="liquid-two">
+					<label class="field">
+						<span>Score</span>
+						<select id="liquid-score">
+							<option value="pass">pass</option>
+							<option value="needs_edit">needs_edit</option>
+							<option value="fail">fail</option>
+						</select>
+					</label>
+					<label class="field">
+						<span>Tag</span>
+						<input id="liquid-tag" value="live-caption-summary" autocomplete="off" />
+					</label>
+				</div>
+				<div class="liquid-actions">
+					<button class="button" type="button" id="liquid-save">Save training pair</button>
+					<button class="button-secondary" type="button" id="liquid-download">Download JSONL</button>
+				</div>
+			</section>
+		</section>
+
+		<section class="liquid-panel card" aria-labelledby="liquid-history-title">
+			<div class="liquid-panel-head">
+				<h2 id="liquid-history-title">Live tuning buffer</h2>
+				<span class="muted mono" id="liquid-buffer-count">0 pairs</span>
+			</div>
+			<div class="liquid-history" id="liquid-history">
+				<p class="muted">Saved pairs stay in this browser until you download or clear site data.</p>
+			</div>
+		</section>
+
+		<section class="liquid-runbook card">
+			<h2>Local wiring</h2>
+			<ul>
+				<li><strong>GGUF:</strong> <code>{modelPath}</code></li>
+				<li><strong>Modelfile:</strong> <code>train/Modelfile.liquidai-lfm2-transcript</code></li>
+				<li><strong>One-command loop:</strong> <code>{startCommand}</code></li>
+				<li>
+					<strong>CORS note:</strong> the startup script launches Ollama with local Astro origins when it needs
+					to start the server. If Ollama is already running, restart it with matching <code>OLLAMA_ORIGINS</code>
+					if the browser blocks the request.
+				</li>
+			</ul>
+		</section>
+	</section>
+</Layout>
+
+<style>
+	.liquid-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		max-width: min(1180px, 100%);
+		margin: 0 auto;
+	}
+
+	.liquid-hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(260px, 0.45fr);
+		gap: 18px;
+		align-items: stretch;
+	}
+
+	.liquid-kicker {
+		margin: 0 0 8px;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.liquid-hero h1,
+	.liquid-panel h2,
+	.liquid-runbook h2 {
+		margin: 0;
+	}
+
+	.liquid-hero h1 {
+		max-width: 18ch;
+		font-family: var(--font-serif);
+		font-size: clamp(1.75rem, 3vw, 2.45rem);
+		font-weight: 500;
+		line-height: 1.08;
+	}
+
+	.liquid-hero p {
+		max-width: 62rem;
+		line-height: 1.6;
+	}
+
+	.liquid-command {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 14px;
+		border-radius: 14px;
+		border: 1px solid rgba(72, 224, 188, 0.24);
+		background: rgba(0, 0, 0, 0.28);
+	}
+
+	.liquid-command span,
+	.mono {
+		font-family: var(--font-mono);
+	}
+
+	.liquid-command span {
+		color: var(--soft);
+		font-size: 0.72rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.liquid-command code,
+	.liquid-runbook code {
+		white-space: pre-wrap;
+		word-break: break-word;
+		color: rgba(230, 244, 255, 0.94);
+	}
+
+	.liquid-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 18px;
+		align-items: start;
+	}
+
+	.liquid-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.liquid-panel-head,
+	.liquid-actions,
+	.liquid-two {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.liquid-panel-head {
+		justify-content: space-between;
+	}
+
+	.liquid-two {
+		align-items: stretch;
+	}
+
+	.liquid-two .field {
+		flex: 1 1 0;
+	}
+
+	.field textarea {
+		min-height: 46px;
+		padding: 12px 14px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		outline: none;
+		background: var(--field-bg);
+		color: var(--text);
+		font: 0.88rem/1.55 var(--font-mono);
+		resize: vertical;
+		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+	}
+
+	.field textarea:focus {
+		border-color: rgba(180, 130, 255, 0.45);
+		box-shadow:
+			inset 0 0 0 1px rgba(0, 0, 0, 0.18),
+			0 0 0 4px rgba(180, 130, 255, 0.12);
+	}
+
+	.liquid-output {
+		min-height: 260px;
+		margin: 0;
+		padding: 14px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.32);
+		color: rgba(230, 237, 243, 0.95);
+		font: 0.84rem/1.6 var(--font-mono);
+		white-space: pre-wrap;
+		overflow: auto;
+	}
+
+	.liquid-history {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 12px;
+	}
+
+	.liquid-history-card {
+		padding: 12px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.2);
+	}
+
+	.liquid-history-card h3 {
+		margin: 0 0 8px;
+		font-size: 0.92rem;
+	}
+
+	.liquid-history-card p {
+		margin: 0;
+		font-size: 0.78rem;
+		line-height: 1.5;
+	}
+
+	.liquid-runbook ul {
+		margin: 12px 0 0;
+		padding-left: 1.1rem;
+		color: var(--muted);
+		line-height: 1.65;
+	}
+
+	@media (max-width: 960px) {
+		.liquid-hero,
+		.liquid-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.liquid-two,
+		.liquid-actions {
+			flex-wrap: wrap;
+		}
+	}
+</style>
+
+<script is:inline>
+	const storageKey = 'train-liquid-ai-tuning-pairs';
+	const $ = (id) => document.getElementById(id);
+	const endpointInput = $('liquid-endpoint');
+	const modelInput = $('liquid-model');
+	const temperatureInput = $('liquid-temperature');
+	const contextInput = $('liquid-context');
+	const promptInput = $('liquid-prompt');
+	const targetInput = $('liquid-target');
+	const scoreInput = $('liquid-score');
+	const tagInput = $('liquid-tag');
+	const output = $('liquid-output');
+	const status = $('liquid-status');
+	const latency = $('liquid-latency');
+	const history = $('liquid-history');
+	const bufferCount = $('liquid-buffer-count');
+
+	function tuningPairs() {
+		try {
+			return JSON.parse(localStorage.getItem(storageKey) || '[]');
+		} catch {
+			return [];
+		}
+	}
+
+	function setStatus(text, variant = 'success') {
+		status.textContent = text;
+		status.className = `badge ${variant}`;
+	}
+
+	function escapeHtml(value) {
+		return String(value).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+	}
+
+	function renderHistory() {
+		const pairs = tuningPairs();
+		bufferCount.textContent = `${pairs.length} pair${pairs.length === 1 ? '' : 's'}`;
+		if (!pairs.length) {
+			history.innerHTML = '<p class="muted">Saved pairs stay in this browser until you download or clear site data.</p>';
+			return;
+		}
+		history.innerHTML = pairs
+			.slice()
+			.reverse()
+			.map(
+				(pair) => `<article class="liquid-history-card">
+					<h3>${escapeHtml(pair.tag)}</h3>
+					<p class="muted">${escapeHtml(new Date(pair.createdAt).toLocaleString())} · ${escapeHtml(pair.score)}</p>
+					<p>${escapeHtml(pair.prompt.slice(0, 180))}</p>
+				</article>`,
+			)
+			.join('');
+	}
+
+	async function readOllamaStream(response) {
+		const reader = response.body?.getReader();
+		if (!reader) return response.text();
+		const decoder = new TextDecoder();
+		let text = '';
+		let buffer = '';
+		while (true) {
+			const { value, done } = await reader.read();
+			if (done) break;
+			buffer += decoder.decode(value, { stream: true });
+			const lines = buffer.split('\n');
+			buffer = lines.pop() || '';
+			for (const line of lines) {
+				if (!line.trim()) continue;
+				const chunk = JSON.parse(line);
+				if (chunk.response) {
+					text += chunk.response;
+					output.textContent = text;
+				}
+			}
+		}
+		return text;
+	}
+
+	$('liquid-runner')?.addEventListener('submit', async (event) => {
+		event.preventDefault();
+		const started = performance.now();
+		output.textContent = '';
+		latency.textContent = 'running...';
+		setStatus('generating');
+		try {
+			const response = await fetch(endpointInput.value.trim(), {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					model: modelInput.value.trim(),
+					prompt: promptInput.value,
+					stream: true,
+					options: {
+						temperature: Number(temperatureInput.value || 0.3),
+						num_ctx: Number(contextInput.value || 8192),
+					},
+				}),
+			});
+			if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+			await readOllamaStream(response);
+			latency.textContent = `${Math.round(performance.now() - started)} ms`;
+			setStatus('complete');
+		} catch (error) {
+			output.textContent = `LiquidAI request failed:\n${error instanceof Error ? error.message : String(error)}\n\nCheck Ollama, model name, and OLLAMA_ORIGINS.`;
+			latency.textContent = 'failed';
+			setStatus('error', 'warning');
+		}
+	});
+
+	$('liquid-health')?.addEventListener('click', async () => {
+		const base = endpointInput.value.replace(/\/api\/generate\/?$/, '');
+		setStatus('checking');
+		try {
+			const response = await fetch(`${base}/api/tags`);
+			if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+			const body = await response.json();
+			const models = Array.isArray(body.models) ? body.models.map((m) => m.name).join(', ') : 'no models listed';
+			output.textContent = `Ollama health OK.\nModels: ${models}`;
+			setStatus('connected');
+		} catch (error) {
+			output.textContent = `Health check failed:\n${error instanceof Error ? error.message : String(error)}`;
+			setStatus('error', 'warning');
+		}
+	});
+
+	$('liquid-clear')?.addEventListener('click', () => {
+		output.textContent = 'Run the model to stream output here.';
+		latency.textContent = 'not run yet';
+	});
+
+	$('liquid-save')?.addEventListener('click', () => {
+		const pairs = tuningPairs();
+		pairs.push({
+			createdAt: new Date().toISOString(),
+			model: modelInput.value.trim(),
+			endpoint: endpointInput.value.trim(),
+			tag: tagInput.value.trim() || 'live-caption-summary',
+			score: scoreInput.value,
+			prompt: promptInput.value,
+			response: output.textContent || '',
+			target: targetInput.value || output.textContent || '',
+			options: {
+				temperature: Number(temperatureInput.value || 0.3),
+				num_ctx: Number(contextInput.value || 8192),
+			},
+		});
+		localStorage.setItem(storageKey, JSON.stringify(pairs));
+		renderHistory();
+		setStatus('pair saved');
+	});
+
+	$('liquid-download')?.addEventListener('click', () => {
+		const jsonl = tuningPairs().map((pair) => JSON.stringify(pair)).join('\n') + '\n';
+		const blob = new Blob([jsonl], { type: 'application/x-ndjson' });
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = `liquid-ai-tuning-${new Date().toISOString().slice(0, 10)}.jsonl`;
+		link.click();
+		URL.revokeObjectURL(url);
+	});
+
+	renderHistory();
+</script>

@@ -197,6 +197,63 @@ const published = new Intl.DateTimeFormat('en-US', {
 
 					<section
 						class="live-captions-section"
+						id="live-captions-living-memo"
+						aria-labelledby="live-captions-living-memo-h"
+					>
+						<h2 id="live-captions-living-memo-h">Living memo loop</h2>
+						<p>
+							The workflow you described is a <strong>session-long research brief</strong>: repeated searches,
+							multiple sources, and one canonical document that changes as new evidence arrives. The captions desk
+							should treat every cue, web hit, archive clip, and connector result as evidence that can update the
+							draft without losing provenance.
+						</p>
+						<div class="live-captions-loopGrid">
+							<article class="live-captions-loopCard">
+								<span>01</span>
+								<h3>Search + capture</h3>
+								<p class="muted">
+									Each μsearch or connector run adds source cards: query, URL, timestamp, excerpt, and confidence.
+									Nothing becomes prose until it is attached to a source record.
+								</p>
+							</article>
+							<article class="live-captions-loopCard">
+								<span>02</span>
+								<h3>Route + section</h3>
+								<p class="muted">
+									Use routing for source type and intent: live caption, market archive, quote, document, or
+									conflicting claim. This mirrors the simple routing pattern in Anthropic’s agent guidance.
+								</p>
+							</article>
+							<article class="live-captions-loopCard">
+								<span>03</span>
+								<h3>Reconcile draft</h3>
+								<p class="muted">
+									Send the previous memo plus new evidence into a constrained revise step: update sections, merge
+									duplicates, preserve citations, and mark conflicts instead of hiding them.
+								</p>
+							</article>
+							<article class="live-captions-loopCard">
+								<span>04</span>
+								<h3>Checkpoint + diff</h3>
+								<p class="muted">
+									Every AI edit creates a versioned checkpoint, so a bad merge can be rolled back and paragraph-level
+									provenance still shows which search or transcript turn changed the text.
+								</p>
+							</article>
+						</div>
+						<div class="live-captions-mueee card">
+							<h3>mueee.qbitos.ai handoff</h3>
+							<p class="muted">
+								The next product step is to let the live captions desk emit a portable research-session bundle for
+								<code class="live-captions-code">mueee.qbitos.ai</code>: current draft, source cards, citations,
+								conflicts, and model feedback. That supports prompt chaining for outline → draft → review, plus
+								evaluator-optimizer loops when a section needs another search pass.
+							</p>
+						</div>
+					</section>
+
+					<section
+						class="live-captions-section"
 						id="live-captions-explorables"
 						aria-labelledby="live-captions-explorables-h"
 					>
@@ -278,10 +335,12 @@ const published = new Intl.DateTimeFormat('en-US', {
 					<section class="live-captions-section" id="live-captions-apis" aria-labelledby="live-captions-apis-h">
 						<h2 id="live-captions-apis-h">External references</h2>
 						<p class="muted">
-							Design inspiration only — no affiliation. Public’s Agents guide and API changelog; Google PAIR’s home,
-							research index, and Explorables.
+							Design inspiration only — no affiliation. Agent workflows, recipe cards, Public’s guide and API
+							changelog, and Google PAIR references for explainable research surfaces.
 						</p>
 						<ul class="live-captions-linkList muted">
+							<li><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">anthropic.com/engineering/building-effective-agents</a></li>
+							<li><a href="https://www.agentrecipes.com" target="_blank" rel="noopener noreferrer">agentrecipes.com</a></li>
 							<li><a href="https://public.com/ai-agents/how-it-works" target="_blank" rel="noopener noreferrer">public.com/ai-agents/how-it-works</a></li>
 							<li><a href="https://public.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">public.com/api/docs/changelog</a></li>
 							<li><a href="https://pair.withgoogle.com/" target="_blank" rel="noopener noreferrer">pair.withgoogle.com</a></li>
@@ -590,6 +649,49 @@ const published = new Intl.DateTimeFormat('en-US', {
 		margin: 0 0 12px;
 		line-height: 1.65;
 		max-width: 46rem;
+	}
+
+	.live-captions-loopGrid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 12px;
+		margin: 18px 0;
+	}
+
+	.live-captions-loopCard {
+		padding: 16px;
+		border-radius: 16px;
+		border: 1px solid rgba(120, 170, 255, 0.16);
+		background:
+			linear-gradient(180deg, rgba(72, 224, 188, 0.08), rgba(0, 0, 0, 0.18)),
+			rgba(0, 0, 0, 0.2);
+	}
+
+	.live-captions-loopCard span {
+		display: inline-flex;
+		margin-bottom: 10px;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: var(--accent);
+	}
+
+	.live-captions-loopCard h3,
+	.live-captions-mueee h3 {
+		margin: 0 0 8px;
+		font-size: 1rem;
+	}
+
+	.live-captions-loopCard p,
+	.live-captions-mueee p {
+		margin: 0;
+		font-size: 0.88rem;
+	}
+
+	.live-captions-mueee.card {
+		margin-top: 16px;
+		padding: 18px;
+		border-color: rgba(72, 224, 188, 0.18);
+		background: rgba(0, 0, 0, 0.22);
 	}
 
 	.live-captions-cardGrid {

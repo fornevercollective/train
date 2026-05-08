@@ -16,6 +16,8 @@ export type ModelTesterColumn = {
 	options: { value: string; label: string }[];
 	selectedValue: string;
 	versionLabel: string;
+	modelSize: string;
+	lastUpdated: string;
 	scorePct: string;
 	scoreVariant: ModelTesterScoreVariant;
 	inputTok: number;
@@ -37,6 +39,8 @@ export const modelTesterColumns: ModelTesterColumn[] = [
 		],
 		selectedValue: 'gpt-4.1',
 		versionLabel: 'Original main',
+		modelSize: 'private',
+		lastUpdated: '2025-05',
 		scorePct: '90.00',
 		scoreVariant: 'high',
 		inputTok: 842,
@@ -58,6 +62,8 @@ export const modelTesterColumns: ModelTesterColumn[] = [
 		],
 		selectedValue: 'llama-scout',
 		versionLabel: 'Version 1',
+		modelSize: 'MoE / Scout',
+		lastUpdated: '2025-04',
 		scorePct: '50.55',
 		scoreVariant: 'low',
 		inputTok: 842,
@@ -83,6 +89,8 @@ export const modelTesterColumns: ModelTesterColumn[] = [
 		],
 		selectedValue: 'cohere-v2',
 		versionLabel: 'Version 2',
+		modelSize: 'private',
+		lastUpdated: '2025-10',
 		scorePct: '77.60',
 		scoreVariant: 'mid',
 		inputTok: 842,

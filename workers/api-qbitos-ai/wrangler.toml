@@ -10,3 +10,4 @@ compatibility_date = "2025-01-01"
 [vars]
 TRAIN_ORIGIN = "https://fornevercollective.github.io/train"
 CATALOG_PATH = "/data/catalog.json"
+HEALTH_PATH = "/data/health"

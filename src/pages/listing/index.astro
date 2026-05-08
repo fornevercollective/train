@@ -166,6 +166,18 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				</aside>
 			</div>
 
+			<section class="card listing-panel listing-snowflake-card" data-snowflake-card hidden>
+				<div class="tileTop">
+					<div>
+						<div class="ticker">Snowflake coverage</div>
+						<div class="name">5-axis health profile (Value · Future · Past · Health · Dividends).</div>
+					</div>
+					<span id="snowflake-asof" class="badge muted">As of: —</span>
+				</div>
+				<p id="snowflake-summary" class="muted" style="margin-top: 12px;">Loading coverage…</p>
+				<div id="snowflake-axes" class="snowflake-axes-grid"></div>
+			</section>
+
 			<section class="listing-panels">
 				<article class="card listing-panel">
 					<div class="tileTop">
@@ -309,6 +321,86 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 			return response.json();
 		}
 
+		const snowflakeCard = document.querySelector('[data-snowflake-card]');
+		const snowflakeSummary = document.querySelector('#snowflake-summary');
+		const snowflakeAxes = document.querySelector('#snowflake-axes');
+		const snowflakeAsOf = document.querySelector('#snowflake-asof');
+
+		function whenCoverageHelpersReady(timeoutMs = 8000) {
+			return new Promise((resolve) => {
+				if (window.__qbitosHealthLoader__) return resolve(window.__qbitosHealthLoader__);
+				const start = Date.now();
+				const handler = () => resolve(window.__qbitosHealthLoader__ ?? null);
+				const tick = () => {
+					if (window.__qbitosHealthLoader__) return resolve(window.__qbitosHealthLoader__);
+					if (Date.now() - start > timeoutMs) return resolve(null);
+					setTimeout(tick, 80);
+				};
+				window.addEventListener('qbitos:health-loader-ready', handler, { once: true });
+				tick();
+			});
+		}
+
+		function checkBadge(state) {
+			if (state === 'pass') return 'success';
+			if (state === 'fail') return 'warning';
+			return 'muted';
+		}
+
+		async function renderSnowflakeCoverage(ticker) {
+			if (!snowflakeCard || !snowflakeSummary || !snowflakeAxes || !snowflakeAsOf) return;
+			const helpers = await whenCoverageHelpersReady();
+			if (!helpers || typeof helpers.getCoverageForTicker !== 'function') return;
+
+			snowflakeCard.hidden = false;
+			snowflakeSummary.textContent = 'Loading coverage…';
+			snowflakeAxes.innerHTML = '';
+			try {
+				const profile = await helpers.getCoverageForTicker(ticker);
+				if (!profile) {
+					snowflakeSummary.textContent = 'No coverage profile is available for this ticker yet.';
+					return;
+				}
+				const summary = helpers.summarizeProfile(profile);
+				snowflakeAsOf.textContent = `As of: ${profile.asOfISO || 'pending'}`;
+				const filled = summary.totalChecks - summary.naChecks;
+				snowflakeSummary.textContent =
+					filled === 0
+						? `Skeleton scaffold for ${summary.totalChecks} checks across ${summary.axes.length} axes — awaiting research overlay patch.`
+						: `${summary.passedChecks} of ${summary.totalChecks} checks passed (${filled} scored, ${summary.naChecks} pending).`;
+				snowflakeAxes.innerHTML = profile.axes
+					.map((axis) => {
+						const passed = axis.checks.filter((check) => check.state === 'pass').length;
+						return `
+							<article class="snowflake-axis">
+								<header>
+									<strong>${escapeHtml(axis.label)}</strong>
+									<span class="badge muted">${escapeHtml(String(passed))}/${escapeHtml(String(axis.checks.length))}</span>
+								</header>
+								<ul>
+									${axis.checks
+										.map(
+											(check) => `
+												<li>
+													<span class="badge ${checkBadge(check.state)}">${escapeHtml(check.state)}</span>
+													<div>
+														<div class="check-label">${escapeHtml(check.label)}</div>
+														<div class="check-detail muted">${escapeHtml(check.detail)}</div>
+													</div>
+												</li>
+											`,
+										)
+										.join('')}
+								</ul>
+							</article>
+						`;
+					})
+					.join('');
+			} catch (err) {
+				snowflakeSummary.textContent = `Coverage failed to load: ${err && err.message ? err.message : err}`;
+			}
+		}
+
 		(async () => {
 			const params = new URLSearchParams(window.location.search);
 			const liveTicker = params.get('t')?.trim();
@@ -388,6 +480,8 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 
 				statusElement.textContent = 'Profile ready.';
 				contentElement.hidden = false;
+
+				void renderSnowflakeCoverage(record.id);
 			} catch (error) {
 				statusElement.textContent = error.message;
 				titleElement.textContent = 'Failed to load listing';
@@ -395,9 +489,79 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 			}
 		})();
 	</script>
+
+	<script>
+		import {
+			getCoverageForTicker,
+			getCoverageSummaryForTicker,
+			loadHealthManifest,
+			prefetchShardForTicker,
+			summarizeProfile,
+		} from '../../lib/health-shard-loader.ts';
+
+		window.__qbitosHealthLoader__ = {
+			getCoverageForTicker,
+			getCoverageSummaryForTicker,
+			loadHealthManifest,
+			prefetchShardForTicker,
+			summarizeProfile,
+		};
+		window.dispatchEvent(new CustomEvent('qbitos:health-loader-ready'));
+	</script>
 </Layout>
 
 <style>
+	.listing-snowflake-card {
+		padding: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.snowflake-axes-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 12px;
+	}
+
+	.snowflake-axis {
+		padding: 12px;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.snowflake-axis header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+	}
+
+	.snowflake-axis ul {
+		list-style: none;
+		padding: 0;
+		margin: 12px 0 0;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.snowflake-axis li {
+		display: flex;
+		gap: 10px;
+		align-items: flex-start;
+	}
+
+	.snowflake-axis .check-label {
+		font-weight: 600;
+	}
+
+	.snowflake-axis .check-detail {
+		font-size: 12px;
+		margin-top: 2px;
+	}
+
 	.listing-shell {
 		display: flex;
 		flex-direction: column;

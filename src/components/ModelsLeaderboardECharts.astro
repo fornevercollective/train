@@ -11,12 +11,20 @@
 		<p class="models-lb-panel-kicker">Speed strip</p>
 		<div class="models-lb-chart" data-models-chart="speed"></div>
 	</div>
+	<div class="models-lb-panel models-lb-panel--radar">
+		<p class="models-lb-panel-kicker">Agent fit radar</p>
+		<div class="models-lb-chart" data-models-chart="radar"></div>
+	</div>
+	<div class="models-lb-panel models-lb-panel--matrix">
+		<p class="models-lb-panel-kicker">Routing matrix</p>
+		<div class="models-lb-chart" data-models-chart="matrix"></div>
+	</div>
 </div>
 
 <style>
 	.models-lb-charts {
 		display: grid;
-		grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 16px;
 		align-items: stretch;
 		margin-top: 18px;
@@ -51,6 +59,11 @@
 
 	.models-lb-panel--speed .models-lb-chart {
 		height: 300px;
+	}
+
+	.models-lb-panel--radar .models-lb-chart,
+	.models-lb-panel--matrix .models-lb-chart {
+		height: 320px;
 	}
 
 	@media (max-width: 900px) {

@@ -1,5 +1,8 @@
 ---
 import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib/models-tester-mock';
+import { modelUseCaseCards } from '../lib/models-leaderboard-data';
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <section class="models-tester card" id="model-tester" aria-labelledby="models-tester-title">
@@ -18,6 +21,87 @@ import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib
 		{modelTesterContext}
 	</p>
 
+	<div class="models-tester-routerHead" aria-labelledby="models-router-title">
+		<div>
+			<p class="models-tester-jsonLabel mono">Use-case router</p>
+			<h3 id="models-router-title">The best LLMs for your use case</h3>
+			<p class="muted">
+				WhichLLM-style picks rendered inside the compare grid: choose a provider version, check speed,
+				intelligence, inputs, JSON/tool support, then jump into the matching tester or local Liquid AI loop.
+			</p>
+		</div>
+		<a class="models-router-link" href={`${baseUrl}models/liquid-ai/`}>Open Liquid AI tuning</a>
+	</div>
+
+	<div class="models-tester-grid models-tester-grid--router" role="group" aria-label="Model recommendations by use case">
+		{
+			modelUseCaseCards.map((card) => (
+				<article class="models-tester-col models-router-card">
+					<div class="models-router-titleRow">
+						<span class="models-router-rank mono">{card.rank}</span>
+						<h4>{card.model}</h4>
+						<span class="models-router-provider mono">{card.providerBadge}</span>
+					</div>
+					<p class="models-router-description muted">{card.description}</p>
+					<p class="models-router-modelMeta mono">
+						Size: {card.modelSize} · Updated: {card.lastUpdated}
+					</p>
+					<label class="models-router-version">
+						<span class="models-tester-jsonLabel mono">Versions</span>
+						<select class="models-tester-select mono" aria-label={`${card.provider} versions`}>
+							{card.versions.map((version) => (
+								<option>{version}</option>
+							))}
+						</select>
+					</label>
+					<div class="models-router-matrix">
+						<div>
+							<span>Speed</span>
+							<strong class="models-router-speed" aria-label={`${card.speed} out of 5 speed`}>
+								{'⚡'.repeat(card.speed)}{'·'.repeat(5 - card.speed)}
+							</strong>
+						</div>
+						<div>
+							<span>Intelligence</span>
+							<strong class="models-router-stars" aria-label={`${card.intelligence} out of 5 intelligence`}>
+								{'★'.repeat(card.intelligence)}{'☆'.repeat(5 - card.intelligence)}
+							</strong>
+						</div>
+						<div>
+							<span>Price <small>(1M)</small></span>
+							<em>${card.pricePerM.toFixed(2)}</em>
+						</div>
+						<div>
+							<span>Inputs</span>
+							<p>{card.inputs.map((input) => <b>{input}</b>)}</p>
+						</div>
+						<div>
+							<span>JSON Mode</span>
+							<i class:list={[card.jsonMode ? 'is-on' : 'is-off']}>{card.jsonMode ? '✓' : '×'}</i>
+						</div>
+						<div>
+							<span>Function Calling</span>
+							<i class:list={[card.functionCalling ? 'is-on' : 'is-off']}>{card.functionCalling ? '✓' : '×'}</i>
+						</div>
+					</div>
+					<div class="models-router-benchmarks">
+						<span class="models-tester-jsonLabel mono">Benchmarks</span>
+						{card.benchmarks.map((bench) => (
+							<p>
+								<strong>{bench.rank}</strong>
+								<span>{bench.name}<small>{bench.category}</small></span>
+								<em>{bench.value}</em>
+							</p>
+						))}
+					</div>
+					<a class="models-router-cta" href={card.href.startsWith('/') ? `${baseUrl}${card.href.slice(1)}` : card.href}>
+						Try it out
+					</a>
+				</article>
+			))
+		}
+	</div>
+
 	<div class="models-tester-grid" role="group" aria-label="Side-by-side model outputs">
 		{
 			modelTesterColumns.map((col, idx) => (
@@ -35,6 +119,7 @@ import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib
 						</select>
 						<div class="models-tester-row2">
 							<span class="models-tester-version muted">{col.versionLabel}</span>
+							<span class="models-tester-version muted">Size: {col.modelSize} · Updated: {col.lastUpdated}</span>
 							<span
 								class:list={[
 									'models-tester-score',
@@ -142,6 +227,50 @@ import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib
 		align-items: stretch;
 	}
 
+	.models-tester-routerHead {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 14px;
+		margin: 16px 0 12px;
+		padding-top: 12px;
+		border-top: 1px solid rgba(48, 54, 61, 0.65);
+	}
+
+	.models-tester-routerHead h3 {
+		margin: 4px 0 6px;
+		font-size: 1rem;
+		font-weight: 650;
+	}
+
+	.models-tester-routerHead p {
+		margin: 0;
+		max-width: 62rem;
+		font-size: 0.84rem;
+		line-height: 1.55;
+	}
+
+	.models-router-link,
+	.models-router-cta {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 36px;
+		padding: 0 14px;
+		border-radius: 999px;
+		border: 1px solid rgba(72, 224, 188, 0.28);
+		background: rgba(72, 224, 188, 0.1);
+		color: rgba(210, 255, 242, 0.95);
+		text-decoration: none;
+		font-size: 0.78rem;
+		font-weight: 650;
+		white-space: nowrap;
+	}
+
+	.models-tester-grid--router {
+		margin-bottom: 14px;
+	}
+
 	.models-tester-col {
 		display: flex;
 		flex-direction: column;
@@ -151,6 +280,190 @@ import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib
 		border-radius: 12px;
 		background: rgba(1, 4, 9, 0.45);
 		border: 1px solid rgba(48, 54, 61, 0.65);
+	}
+
+	.models-router-card {
+		gap: 12px;
+		padding: 12px;
+	}
+
+	.models-router-titleRow {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		min-width: 0;
+	}
+
+	.models-router-rank {
+		display: inline-grid;
+		place-items: center;
+		width: 20px;
+		height: 20px;
+		border-radius: 999px;
+		border: 1px solid rgba(139, 148, 158, 0.65);
+		color: rgba(139, 148, 158, 0.95);
+		font-size: 0.68rem;
+		flex: 0 0 auto;
+	}
+
+	.models-router-titleRow h4 {
+		margin: 0;
+		min-width: 0;
+		flex: 1;
+		font-size: 0.95rem;
+		font-weight: 650;
+		letter-spacing: -0.02em;
+	}
+
+	.models-router-provider {
+		padding: 3px 7px;
+		border-radius: 999px;
+		background: rgba(88, 166, 255, 0.14);
+		color: rgba(140, 185, 255, 0.95);
+		font-size: 0.62rem;
+	}
+
+	.models-router-description {
+		margin: 0;
+		min-height: 3.2rem;
+		font-size: 0.78rem;
+		line-height: 1.45;
+	}
+
+	.models-router-modelMeta {
+		margin: -4px 0 0;
+		padding: 6px 8px;
+		border-radius: 8px;
+		background: rgba(110, 118, 129, 0.1);
+		color: rgba(139, 148, 158, 0.95);
+		font-size: 0.66rem;
+		line-height: 1.35;
+	}
+
+	.models-router-version {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.models-router-version .models-tester-select {
+		cursor: pointer;
+	}
+
+	.models-router-matrix {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border-radius: 10px;
+		border: 1px dashed rgba(110, 118, 129, 0.42);
+		overflow: hidden;
+	}
+
+	.models-router-matrix > div {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		min-height: 42px;
+		padding: 8px;
+		border-bottom: 1px dashed rgba(110, 118, 129, 0.32);
+		color: rgba(201, 209, 217, 0.9);
+		font-size: 0.72rem;
+	}
+
+	.models-router-matrix > div:nth-child(odd) {
+		border-right: 1px dashed rgba(110, 118, 129, 0.32);
+	}
+
+	.models-router-matrix > div:nth-last-child(-n + 2) {
+		border-bottom: 0;
+	}
+
+	.models-router-matrix span {
+		color: rgba(201, 209, 217, 0.88);
+	}
+
+	.models-router-matrix small {
+		color: rgba(139, 148, 158, 0.9);
+	}
+
+	.models-router-speed {
+		color: rgba(255, 214, 80, 0.95);
+		letter-spacing: -0.12em;
+	}
+
+	.models-router-stars {
+		color: rgba(88, 166, 255, 0.96);
+		letter-spacing: -0.08em;
+	}
+
+	.models-router-matrix em,
+	.models-router-matrix b {
+		padding: 4px 7px;
+		border-radius: 999px;
+		background: rgba(110, 118, 129, 0.16);
+		color: rgba(230, 237, 243, 0.92);
+		font: 0.68rem/1 var(--font-mono, ui-monospace, monospace);
+		font-style: normal;
+	}
+
+	.models-router-matrix p {
+		display: flex;
+		gap: 5px;
+		margin: 0;
+	}
+
+	.models-router-matrix i {
+		display: inline-grid;
+		place-items: center;
+		width: 18px;
+		height: 18px;
+		border-radius: 4px;
+		border: 1px solid rgba(139, 148, 158, 0.55);
+		font-style: normal;
+		font: 0.8rem/1 var(--font-mono, ui-monospace, monospace);
+	}
+
+	.models-router-matrix i.is-on {
+		border-color: rgba(63, 185, 80, 0.45);
+		background: rgba(63, 185, 80, 0.15);
+		color: rgba(63, 185, 80, 1);
+	}
+
+	.models-router-matrix i.is-off {
+		color: rgba(139, 148, 158, 0.92);
+	}
+
+	.models-router-benchmarks {
+		display: flex;
+		flex-direction: column;
+		gap: 7px;
+	}
+
+	.models-router-benchmarks p {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		gap: 7px;
+		margin: 0;
+		color: rgba(201, 209, 217, 0.92);
+		font-size: 0.72rem;
+		line-height: 1.25;
+	}
+
+	.models-router-benchmarks p strong,
+	.models-router-benchmarks p em {
+		color: rgba(230, 237, 243, 0.92);
+		font-style: normal;
+		font-weight: 650;
+	}
+
+	.models-router-benchmarks p small {
+		display: block;
+		color: rgba(139, 148, 158, 0.9);
+	}
+
+	.models-router-cta {
+		margin-top: auto;
+		width: 100%;
 	}
 
 	.models-tester-select {
@@ -173,6 +486,7 @@ import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib
 		justify-content: space-between;
 		gap: 8px;
 		margin-top: 8px;
+		flex-wrap: wrap;
 	}
 
 	.models-tester-version {
@@ -310,6 +624,11 @@ import { modelTesterColumns, modelTesterContext, modelTesterLinks } from '../lib
 	@media (max-width: 960px) {
 		.models-tester-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.models-tester-routerHead {
+			align-items: stretch;
+			flex-direction: column;
 		}
 
 		.models-tester-json {

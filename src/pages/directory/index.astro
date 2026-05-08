@@ -1,6 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import '../../styles/explorer-catalog.css';
+import healthManifest from '../../../public/data/health/manifest.json';
+
+const coverageMeta = {
+	shardCount: healthManifest.shardCount,
+	tickerCount: healthManifest.tickerCount,
+	patchCount: healthManifest.patchCount,
+	generatedAt: healthManifest.generatedAt,
+	axes: healthManifest.axes,
+};
 ---
 
 <Layout
@@ -75,6 +84,13 @@ import '../../styles/explorer-catalog.css';
 				<div id="results-meta" class="metaHint">Loading catalog…</div>
 				<button id="clear-filters" class="button-secondary" type="button">Reset filters</button>
 			</div>
+
+			<p class="metaHint coverage-strip" id="coverage-strip">
+				Snowflake coverage: <strong>{coverageMeta.shardCount}</strong> shards ·
+				<strong>{coverageMeta.tickerCount.toLocaleString()}</strong> profiles ·
+				<strong>{coverageMeta.patchCount}</strong> overlay {coverageMeta.patchCount === 1 ? 'patch' : 'patches'}
+				· generated {coverageMeta.generatedAt}
+			</p>
 
 			<div id="results-grid" class="results-grid"></div>
 
@@ -260,7 +276,7 @@ import '../../styles/explorer-catalog.css';
 						entry.dc,
 					].filter(Boolean);
 					return `
-						<article class="result-card card">
+						<article class="result-card card" data-ticker="${escapeHtml(entry.id)}">
 							<div class="result-card-head">
 								<div>
 									<h3>${escapeHtml(entry.nm)}</h3>
@@ -276,6 +292,10 @@ import '../../styles/explorer-catalog.css';
 							<p class="result-card-body">
 								${escapeHtml(entry.ln || 'Primary legal name unavailable')}
 							</p>
+							<dl class="result-card-snowflake" data-snowflake="pending" aria-label="Snowflake coverage">
+								<dt>Snowflake</dt>
+								<dd class="snowflake-axes muted">Loading coverage…</dd>
+							</dl>
 							<div class="result-card-footer">
 								<span class="muted">Company: ${escapeHtml(formatDate(entry.cd))}</span>
 								<span class="muted">IPO: ${escapeHtml(formatDate(entry.ip))}</span>
@@ -287,6 +307,78 @@ import '../../styles/explorer-catalog.css';
 					`;
 				})
 				.join('');
+
+			void hydrateSnowflakeBadges(pageItems.map((entry) => entry.id));
+		}
+
+		const snowflakeCache = new Map();
+		const axisLabels = { value: 'V', future: 'F', past: 'Pa', health: 'H', dividends: 'D' };
+
+		function whenCoverageHelpersReady(timeoutMs = 8000) {
+			return new Promise((resolve) => {
+				if (window.__qbitosHealthLoader__) return resolve(window.__qbitosHealthLoader__);
+				const start = Date.now();
+				const handler = () => resolve(window.__qbitosHealthLoader__ ?? null);
+				const tick = () => {
+					if (window.__qbitosHealthLoader__) return resolve(window.__qbitosHealthLoader__);
+					if (Date.now() - start > timeoutMs) return resolve(null);
+					setTimeout(tick, 80);
+				};
+				window.addEventListener('qbitos:health-loader-ready', handler, { once: true });
+				tick();
+			});
+		}
+
+		async function hydrateSnowflakeBadges(tickers) {
+			const helpers = await whenCoverageHelpersReady();
+			if (!helpers || typeof helpers.getCoverageSummaryForTicker !== 'function') return;
+			const summaries = await Promise.all(
+				tickers.map(async (ticker) => {
+					if (snowflakeCache.has(ticker)) return snowflakeCache.get(ticker);
+					try {
+						const summary = await helpers.getCoverageSummaryForTicker(ticker);
+						snowflakeCache.set(ticker, summary);
+						return summary;
+					} catch {
+						return null;
+					}
+				}),
+			);
+			summaries.forEach((summary, index) => {
+				const ticker = tickers[index];
+				const card = resultsGrid.querySelector(`.result-card[data-ticker="${cssEscape(ticker)}"]`);
+				if (!card) return;
+				const wrap = card.querySelector('[data-snowflake]');
+				const target = card.querySelector('.snowflake-axes');
+				if (!wrap || !target) return;
+				if (!summary) {
+					wrap.dataset.snowflake = 'unavailable';
+					target.textContent = 'Coverage unavailable.';
+					return;
+				}
+				wrap.dataset.snowflake = 'ready';
+				if (summary.totalChecks === 0) {
+					target.textContent = 'No checks defined.';
+					return;
+				}
+				const filled = summary.totalChecks - summary.naChecks;
+				const filledLabel = filled === 0 ? 'awaiting research overlay' : `${filled}/${summary.totalChecks} checks scored`;
+				target.innerHTML = `
+					<span class="snowflake-axes-row">
+						${summary.axes
+							.map(
+								(axis) => `<span class="axis-pip ${axis.passed > 0 ? 'on' : 'na'}" title="${axis.name} ${axis.passed}/${axis.total}">${axisLabels[axis.name] || axis.name[0].toUpperCase()}<small>${axis.passed}/${axis.total}</small></span>`,
+							)
+							.join('')}
+					</span>
+					<span class="snowflake-meta muted">${filledLabel}</span>
+				`;
+			});
+		}
+
+		function cssEscape(value) {
+			if (window.CSS && typeof window.CSS.escape === 'function') return window.CSS.escape(value);
+			return String(value).replace(/[^a-zA-Z0-9_-]/g, (ch) => `\\${ch}`);
 		}
 
 		function handleFilterChange() {
@@ -402,6 +494,25 @@ import '../../styles/explorer-catalog.css';
 			}
 		})();
 	</script>
+
+	<script>
+		import {
+			getCoverageForTicker,
+			getCoverageSummaryForTicker,
+			loadHealthManifest,
+			prefetchShardForTicker,
+			summarizeProfile,
+		} from '../../lib/health-shard-loader.ts';
+
+		window.__qbitosHealthLoader__ = {
+			getCoverageForTicker,
+			getCoverageSummaryForTicker,
+			loadHealthManifest,
+			prefetchShardForTicker,
+			summarizeProfile,
+		};
+		window.dispatchEvent(new CustomEvent('qbitos:health-loader-ready'));
+	</script>
 </Layout>
 
 <style>
@@ -409,5 +520,73 @@ import '../../styles/explorer-catalog.css';
 		display: flex;
 		flex-direction: column;
 		gap: 18px;
+	}
+
+	.coverage-strip {
+		margin: 0;
+		padding: 8px 12px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.18);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.result-card-snowflake {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		margin: 12px 0 0;
+		padding: 10px 12px;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.result-card-snowflake dt {
+		font-size: 11px;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+
+	.result-card-snowflake dd {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.snowflake-axes-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.axis-pip {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 4px;
+		padding: 4px 8px;
+		border-radius: 999px;
+		font-size: 11px;
+		font-weight: 600;
+		font-family: var(--font-mono);
+		letter-spacing: 0.04em;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	.axis-pip.on {
+		background: rgba(120, 255, 180, 0.12);
+		border-color: rgba(120, 255, 180, 0.4);
+	}
+
+	.axis-pip small {
+		font-size: 10px;
+		font-weight: 500;
+		opacity: 0.75;
+	}
+
+	.snowflake-meta {
+		font-size: 11px;
 	}
 </style>

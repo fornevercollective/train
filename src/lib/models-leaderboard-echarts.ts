@@ -3,12 +3,24 @@
  * https://artificialanalysis.ai and https://onyx.app/llm-leaderboard). Static illustrative data only.
  */
 import * as echarts from 'echarts/core';
-import { BarChart, ScatterChart } from 'echarts/charts';
-import { GridComponent, LegendComponent, TooltipComponent, TitleComponent } from 'echarts/components';
+import { BarChart, HeatmapChart, RadarChart, ScatterChart } from 'echarts/charts';
+import { GridComponent, LegendComponent, RadarComponent, TooltipComponent, TitleComponent, VisualMapComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import type { LlmDeskRow, BenchmarkMini } from './models-leaderboard-data';
 
-echarts.use([ScatterChart, BarChart, GridComponent, LegendComponent, TooltipComponent, TitleComponent, CanvasRenderer]);
+echarts.use([
+	ScatterChart,
+	BarChart,
+	RadarChart,
+	HeatmapChart,
+	GridComponent,
+	LegendComponent,
+	TooltipComponent,
+	TitleComponent,
+	RadarComponent,
+	VisualMapComponent,
+	CanvasRenderer,
+]);
 
 const tipBg = 'rgba(12, 14, 24, 0.94)';
 const border = 'rgba(255, 255, 255, 0.12)';
@@ -142,6 +154,108 @@ function mountSpeedBar(el: HTMLElement, rows: LlmDeskRow[]): (() => void) | unde
 	};
 }
 
+function mountAgentRadar(el: HTMLElement, rows: LlmDeskRow[]): (() => void) | undefined {
+	const chart = echarts.init(el, undefined, { renderer: 'canvas' });
+	const top = [...rows].sort((a, b) => b.agentFit - a.agentFit).slice(0, 5);
+	chart.setOption({
+		textStyle: { fontFamily: 'Inter, system-ui, sans-serif' },
+		tooltip: { backgroundColor: tipBg, borderColor: border, textStyle: { color: 'rgba(255,255,255,0.92)', fontSize: 11 } },
+		legend: { bottom: 0, textStyle: { color: muted, fontSize: 10 }, type: 'scroll' },
+		radar: {
+			center: ['50%', '47%'],
+			radius: '66%',
+			indicator: [
+				{ name: 'Agent', max: 100 },
+				{ name: 'Routing', max: 100 },
+				{ name: 'Intel', max: 60 },
+				{ name: 'Speed', max: 250 },
+				{ name: 'Cost-', max: 100 },
+			],
+			axisName: { color: muted, fontSize: 10 },
+			splitLine: { lineStyle: { color: 'rgba(255,255,255,0.08)' } },
+			splitArea: { areaStyle: { color: ['rgba(255,255,255,0.02)', 'rgba(255,255,255,0.05)'] } },
+			axisLine: { lineStyle: { color: 'rgba(255,255,255,0.08)' } },
+		},
+		series: [
+			{
+				type: 'radar',
+				data: top.map((r, i) => ({
+					name: r.model.replace(/\s*\([^)]+\)\s*$/, ''),
+					value: [r.agentFit, r.routingFit, r.intelligenceIdx, Math.min(r.speedTps, 250), Math.max(0, 100 - (r.inputPerM + r.outputPerM) * 4)],
+					areaStyle: { opacity: 0.08 },
+					lineStyle: { width: 2 },
+					itemStyle: { color: ['#48e0bc', '#78b4ff', '#aa5aff', '#ffd278', '#ff7aa2'][i % 5] },
+				})),
+				animationDuration: reducedMotion() ? 0 : 650,
+			},
+		],
+	});
+	const off = bindResize(chart, el);
+	return () => {
+		off();
+		chart.dispose();
+	};
+}
+
+function mountRoutingMatrix(el: HTMLElement, rows: LlmDeskRow[]): (() => void) | undefined {
+	const chart = echarts.init(el, undefined, { renderer: 'canvas' });
+	const providers = [...new Set(rows.map((r) => r.provider.split('/')[0].trim()))].slice(0, 10);
+	const categories = ['chat', 'vision', 'transcribe', 'embeddings', 'rerank'];
+	const data: [number, number, number][] = [];
+	for (let x = 0; x < providers.length; x++) {
+		for (let y = 0; y < categories.length; y++) {
+			const matches = rows.filter((r) => r.provider.startsWith(providers[x]) && r.category === categories[y]);
+			data.push([x, y, matches.length ? Math.round(matches.reduce((sum, r) => sum + r.routingFit, 0) / matches.length) : 0]);
+		}
+	}
+	chart.setOption({
+		grid: { left: 78, right: 20, top: 18, bottom: 52 },
+		tooltip: {
+			position: 'top',
+			backgroundColor: tipBg,
+			borderColor: border,
+			textStyle: { color: 'rgba(255,255,255,0.92)', fontSize: 11 },
+			formatter: (p: { value?: [number, number, number] }) => {
+				const v = p.value;
+				if (!v) return '';
+				return `${providers[v[0]]} / ${categories[v[1]]}<br/>Routing fit: ${v[2] || 'n/a'}`;
+			},
+		},
+		xAxis: {
+			type: 'category',
+			data: providers,
+			axisLabel: { color: muted, fontSize: 9, rotate: 35, width: 72, overflow: 'truncate' },
+			axisTick: { show: false },
+		},
+		yAxis: {
+			type: 'category',
+			data: categories,
+			axisLabel: { color: muted, fontSize: 10 },
+			axisTick: { show: false },
+		},
+		visualMap: {
+			min: 0,
+			max: 100,
+			show: false,
+			inRange: { color: ['rgba(20,25,38,0.8)', '#274b7a', '#48e0bc'] },
+		},
+		series: [
+			{
+				type: 'heatmap',
+				data,
+				label: { show: true, color: 'rgba(255,255,255,0.86)', fontSize: 9 },
+				itemStyle: { borderColor: 'rgba(255,255,255,0.06)', borderWidth: 1 },
+				animationDuration: reducedMotion() ? 0 : 650,
+			},
+		],
+	});
+	const off = bindResize(chart, el);
+	return () => {
+		off();
+		chart.dispose();
+	};
+}
+
 function mountMiniBar(el: HTMLElement, minis: BenchmarkMini[]): (() => void) | undefined {
 	const chart = echarts.init(el, undefined, { renderer: 'canvas' });
 	chart.setOption({
@@ -205,6 +319,16 @@ export function mountModelsLeaderboard(root: HTMLElement): () => void {
 	const sp = root.querySelector<HTMLElement>('[data-models-chart="speed"]');
 	if (sp) {
 		const d = mountSpeedBar(sp, payload.rows);
+		if (d) disposers.push(d);
+	}
+	const radar = root.querySelector<HTMLElement>('[data-models-chart="radar"]');
+	if (radar) {
+		const d = mountAgentRadar(radar, payload.rows);
+		if (d) disposers.push(d);
+	}
+	const matrix = root.querySelector<HTMLElement>('[data-models-chart="matrix"]');
+	if (matrix) {
+		const d = mountRoutingMatrix(matrix, payload.rows);
 		if (d) disposers.push(d);
 	}
 

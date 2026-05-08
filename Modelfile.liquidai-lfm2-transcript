@@ -1,0 +1,13 @@
+FROM /Volumes/qbitOS/03.models/01-ollama/hf-mirror/LiquidAI/LFM2-2.6B-Transcript-GGUF/LFM2-2.6B-Transcript-Q4_K_M.gguf
+
+PARAMETER temperature 0.3
+PARAMETER top_p 0.9
+PARAMETER num_ctx 8192
+PARAMETER stop "<|endoftext|>"
+PARAMETER stop "<|startoftext|>"
+
+SYSTEM """
+You are LiquidAI LFM2 running inside the Train live tuning desk.
+Summarize live captions, extract durable themes, and return concise, structured notes.
+Separate observed facts from scenario language. Do not give investment advice.
+"""

@@ -6,6 +6,18 @@ import { benchmarkBlocks, llmDeskRows } from '../../lib/models-leaderboard-data'
 
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
+const modelCategories = [
+	{ key: 'all', label: 'All' },
+	{ key: 'chat', label: 'Chat' },
+	{ key: 'vision', label: 'Vision' },
+	{ key: 'image', label: 'Image' },
+	{ key: 'audio', label: 'Audio' },
+	{ key: 'video', label: 'Video' },
+	{ key: 'transcribe', label: 'Transcribe' },
+	{ key: 'embeddings', label: 'Embeddings' },
+	{ key: 'rerank', label: 'Rerank' },
+	{ key: 'moderation', label: 'Moderation' },
+];
 ---
 
 <Layout
@@ -21,12 +33,14 @@ const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
 			<p class="models-hero-eyebrow">LLM leaderboard</p>
 			<h1 class="models-hero-title">Compare models like leaderboard sites — on static GitHub Pages</h1>
 			<p class="models-hero-lede muted">
-				Layout and chart idioms echo{' '}
-				<a href="https://artificialanalysis.ai" target="_blank" rel="noopener noreferrer">Artificial Analysis</a>
-				{' '}(intelligence / speed / price storytelling) and the wide benchmark table pattern on{' '}
+				Layout and chart idioms echo Together AI’s{' '}
+				<a href="https://whichllm.together.ai/" target="_blank" rel="noopener noreferrer">Which LLM</a>
+				{' '}cards,{' '}
 				<a href="https://onyx.app/llm-leaderboard" target="_blank" rel="noopener noreferrer">Onyx’s LLM leaderboard</a>.
 				Numbers below are <strong>illustrative placeholders</strong> for UI development; replace with your own dataset or API when wiring a real desk.{' '}
 				<a href="#model-tester">GitHub-style model tester mock →</a>
+				{' · '}
+				<a href={`${baseUrl}models/liquid-ai/`}>Liquid AI live tuning →</a>
 			</p>
 		</header>
 
@@ -69,36 +83,78 @@ const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
 
 		<section class="models-table-section card" aria-labelledby="models-desk-table-title">
 			<div class="models-table-head">
-				<h2 id="models-desk-table-title">Desk comparison table</h2>
-				<p class="muted models-table-sub">
-					Sortable-style columns (Onyx-style). Values are hand-authored for the Train demo, not scraped from vendors.
-				</p>
+				<div>
+					<h2 id="models-desk-table-title">Serverless inference directory</h2>
+					<p class="muted models-table-sub">
+						Multi-sort table with major model brands, model size, last update, modality routing, and per-token price lanes.
+					</p>
+				</div>
+				<div class="models-table-toggle" aria-label="Pricing mode">
+					<span>Price per 1M tokens</span>
+					<span>Batch API price</span>
+					<button type="button" id="models-batch-toggle" aria-pressed="false"><span></span></button>
+				</div>
+			</div>
+			<div class="models-table-toolbar" aria-label="Model table controls">
+				<div class="models-category-tabs" role="tablist" aria-label="Model category">
+					{
+						modelCategories.map((category) => (
+							<button type="button" class:list={['models-category-tab', category.key === 'all' && 'is-active']} data-model-category={category.key}>
+								{category.label}
+							</button>
+						))
+					}
+				</div>
+				<label class="models-table-search">
+					<span>Search providers</span>
+					<input id="models-table-search" type="search" placeholder="OpenAI, Liquid, Qwen, rerank..." autocomplete="off" />
+				</label>
 			</div>
 			<div class="models-table-wrap">
-				<table class="models-table">
+				<table class="models-table" id="models-directory-table">
 					<thead>
 						<tr>
-							<th scope="col">Model</th>
-							<th scope="col">Params</th>
-							<th scope="col">Context</th>
-							<th scope="col">Input $/1M</th>
-							<th scope="col">Output $/1M</th>
-							<th scope="col">MMLU-Pro</th>
+							<th scope="col"><button type="button" data-sort="model">Model ↕</button></th>
+							<th scope="col"><button type="button" data-sort="category">Route ↕</button></th>
+							<th scope="col"><button type="button" data-sort="modelSize">Size ↕</button></th>
+							<th scope="col"><button type="button" data-sort="lastUpdated">Updated ↕</button></th>
+							<th scope="col"><button type="button" data-sort="inputPerM">Input ↕</button></th>
+							<th scope="col"><button type="button" data-sort="outputPerM">Output ↕</button></th>
+							<th scope="col"><button type="button" data-sort="agentFit">Agent fit ↕</button></th>
 						</tr>
 					</thead>
 					<tbody>
 						{
 							llmDeskRows.map((r) => (
-								<tr>
+								<tr
+									data-category={r.category}
+									data-provider={r.provider}
+									data-model={r.model}
+									data-modelsize={r.modelSize}
+									data-lastupdated={r.lastUpdated}
+									data-inputperm={r.inputPerM}
+									data-outputperm={r.outputPerM}
+									data-agentfit={r.agentFit}
+								>
 									<th scope="row">
 										{r.model}
 										<span class="models-provider">{r.provider}</span>
 									</th>
-									<td>{r.params}</td>
-									<td>{r.context}</td>
-									<td>${r.inputPerM.toFixed(2)}</td>
-									<td>${r.outputPerM.toFixed(2)}</td>
-									<td>{r.mmluPro.toFixed(1)}</td>
+									<td>
+										<span class="models-route-pill">{r.category}</span>
+										<span class="models-modalities">{r.modalities.join(' · ')}</span>
+									</td>
+									<td>{r.modelSize}</td>
+									<td>
+										{r.lastUpdated}
+										<span class="models-modalities">ctx {r.context}</span>
+									</td>
+									<td data-price="input" data-raw={r.inputPerM}>${r.inputPerM.toFixed(2)}</td>
+									<td data-price="output" data-raw={r.outputPerM}>${r.outputPerM.toFixed(2)}</td>
+									<td>
+										<strong>{r.agentFit}</strong>
+										<span class="models-modalities">JSON {r.jsonMode ? 'yes' : 'no'} · Tools {r.functionCalling ? 'yes' : 'no'}</span>
+									</td>
 								</tr>
 							))
 						}
@@ -109,7 +165,11 @@ const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
 
 		<p class="models-foot muted">
 			External references:{' '}
-			<a href="https://artificialanalysis.ai" target="_blank" rel="noopener noreferrer">artificialanalysis.ai</a>
+			<a href="https://whichllm.together.ai/" target="_blank" rel="noopener noreferrer">whichllm.together.ai</a>
+			{' · '}
+			<a href="https://www.agentrecipes.com" target="_blank" rel="noopener noreferrer">agentrecipes.com</a>
+			{' · '}
+			<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">building effective agents</a>
 			{' · '}
 			<a href="https://onyx.app/llm-leaderboard" target="_blank" rel="noopener noreferrer">onyx.app/llm-leaderboard</a>
 			{' · '}
@@ -173,10 +233,106 @@ const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
 		font-size: 1.15rem;
 	}
 
+	.models-table-head {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 16px;
+		flex-wrap: wrap;
+	}
+
 	.models-table-sub {
 		margin: 0 0 14px;
 		font-size: 0.9rem;
 		line-height: 1.5;
+	}
+
+	.models-table-toggle {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		color: var(--muted);
+		font-size: 0.78rem;
+	}
+
+	.models-table-toggle button {
+		width: 42px;
+		height: 24px;
+		padding: 2px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(255, 255, 255, 0.14);
+		cursor: pointer;
+	}
+
+	.models-table-toggle button span {
+		display: block;
+		width: 18px;
+		height: 18px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.86);
+		transition: transform 0.15s ease;
+	}
+
+	.models-table-toggle button[aria-pressed='true'] span {
+		transform: translateX(17px);
+		background: var(--accent);
+	}
+
+	.models-table-toolbar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin: 4px 0 12px;
+		flex-wrap: wrap;
+	}
+
+	.models-category-tabs {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.models-category-tab {
+		min-height: 34px;
+		padding: 0 12px;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.06);
+		color: rgba(230, 237, 243, 0.88);
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+
+	.models-category-tab.is-active,
+	.models-category-tab:hover {
+		background: rgba(72, 224, 188, 0.14);
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--text);
+	}
+
+	.models-table-search {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--muted);
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		text-transform: uppercase;
+	}
+
+	.models-table-search input {
+		min-height: 34px;
+		width: min(260px, 60vw);
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.24);
+		color: var(--text);
+		padding: 8px 10px;
+		text-transform: none;
 	}
 
 	.models-table-wrap {
@@ -209,6 +365,16 @@ const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
 		background: rgba(7, 8, 18, 0.92);
 	}
 
+	.models-table thead button {
+		border: 0;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		letter-spacing: inherit;
+		text-transform: inherit;
+		cursor: pointer;
+	}
+
 	.models-table tbody th {
 		font-weight: 600;
 		color: var(--text);
@@ -220,6 +386,26 @@ const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
 		font-size: 0.78rem;
 		font-weight: 500;
 		color: var(--muted);
+	}
+
+	.models-route-pill {
+		display: inline-flex;
+		padding: 4px 8px;
+		border-radius: 999px;
+		background: rgba(72, 224, 188, 0.1);
+		border: 1px solid rgba(72, 224, 188, 0.2);
+		color: rgba(210, 255, 242, 0.92);
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		text-transform: uppercase;
+	}
+
+	.models-modalities {
+		display: block;
+		margin-top: 4px;
+		color: var(--muted);
+		font-size: 0.72rem;
+		line-height: 1.35;
 	}
 
 	.models-benchmarks-title {
@@ -311,6 +497,77 @@ const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
 </style>
 
 <script>
+	type SortEntry = { key: string; dir: 1 | -1 };
+
+	(() => {
+		const table = document.getElementById('models-directory-table');
+		const tbody = table?.querySelector('tbody');
+		if (!table || !tbody) return;
+		const rows = Array.from(tbody.querySelectorAll('tr')) as HTMLTableRowElement[];
+		const search = document.getElementById('models-table-search') as HTMLInputElement | null;
+		const tabs = Array.from(
+			document.querySelectorAll<HTMLElement>('[data-model-category]'),
+		);
+		const batchToggle = document.getElementById('models-batch-toggle');
+		let activeCategory = 'all';
+		const sortState: SortEntry[] = [];
+
+		function valueFor(row: HTMLElement, key: string): number | string {
+			const raw = row.dataset[key.toLowerCase()] ?? row.dataset[key] ?? '';
+			const numeric = Number(raw);
+			if (!Number.isNaN(numeric) && raw !== '') return numeric;
+			return raw.toLowerCase();
+		}
+
+		function applyFilters() {
+			const q = search?.value?.trim().toLowerCase() || '';
+			for (const row of rows) {
+				const categoryMatch = activeCategory === 'all' || row.dataset.category === activeCategory;
+				const haystack = `${row.dataset.model || ''} ${row.dataset.provider || ''} ${row.textContent || ''}`.toLowerCase();
+				row.hidden = !categoryMatch || (q !== '' && !haystack.includes(q));
+			}
+		}
+
+		function sortRows(key: string) {
+			const existing = sortState.find((s) => s.key === key);
+			if (existing) existing.dir = (existing.dir * -1) as 1 | -1;
+			else sortState.unshift({ key, dir: key === 'model' || key === 'category' ? 1 : -1 });
+			sortState.splice(3);
+			const sorted = [...rows].sort((a, b) => {
+				for (const s of sortState) {
+					const av = valueFor(a, s.key);
+					const bv = valueFor(b, s.key);
+					if (av < bv) return -1 * s.dir;
+					if (av > bv) return 1 * s.dir;
+				}
+				return 0;
+			});
+			for (const row of sorted) tbody!.appendChild(row);
+			applyFilters();
+		}
+
+		table.querySelectorAll<HTMLElement>('[data-sort]').forEach((button) => {
+			button.addEventListener('click', () => sortRows(button.dataset.sort || 'model'));
+		});
+		tabs.forEach((tab) => {
+			tab.addEventListener('click', () => {
+				activeCategory = tab.dataset.modelCategory || 'all';
+				tabs.forEach((t) => t.classList.toggle('is-active', t === tab));
+				applyFilters();
+			});
+		});
+		search?.addEventListener('input', applyFilters);
+		batchToggle?.addEventListener('click', () => {
+			const pressed = batchToggle.getAttribute('aria-pressed') === 'true';
+			batchToggle.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+			table.querySelectorAll('[data-price]').forEach((cell) => {
+				const raw = Number(cell.getAttribute('data-raw') || 0);
+				const next = pressed ? raw : raw * 0.5;
+				cell.textContent = `$${next.toFixed(2)}`;
+			});
+		});
+	})();
+
 	(async () => {
 		const root = document.getElementById('models-leaderboard-root');
 		if (!root) return;
