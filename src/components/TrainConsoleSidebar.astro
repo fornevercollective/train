@@ -4,6 +4,8 @@ interface NavActive {
 	home: boolean;
 	featured: boolean;
 	predictions: boolean;
+	sports: boolean;
+	broadcast: boolean;
 	models: boolean;
 	directory: boolean;
 	listing: boolean;
@@ -33,6 +35,8 @@ type NavItem = {
 const items: NavItem[] = [
 	{ href: b, label: 'Home', match: 'home' },
 	{ href: `${b}predictions/`, label: 'Predictions', match: 'predictions' },
+	{ href: `${b}sports/`, label: 'Sports', match: 'sports' },
+	{ href: `${b}broadcast/`, label: 'Broadcast', match: 'broadcast' },
 	{ href: `${b}models/`, label: 'Models', match: 'models' },
 	{ href: `${b}predictions/#home-live-analysis`, label: 'Live analysis', match: 'liveAnalysis' },
 	{ href: `${b}directory/`, label: 'Markets', match: 'directory' },
@@ -83,6 +87,8 @@ function isActive(item: NavItem): boolean {
 							<svg class="train-sidebar-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
 						) : item.match === 'models' ? (
 							<svg class="train-sidebar-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18" /><path d="M7 16V9" /><path d="M12 16v-5" /><path d="M17 16V6" /></svg>
+						) : item.match === 'sports' || item.match === 'broadcast' ? (
+							<svg class="train-sidebar-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="12" rx="2" /><path d="m17 2-5 5" /><path d="m7 22 2-2" /><path d="m15 22-2-2" /></svg>
 						) : item.match === 'predictions' || item.match === 'liveAnalysis' || item.match === 'gameLive' ? (
 							<svg class="train-sidebar-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
 						) : item.match === 'directory' || item.match === 'featured' ? (
@@ -132,11 +138,13 @@ function isActive(item: NavItem): boolean {
 				<li>
 					<span class="train-mono">Sports</span>
 					<span class="muted">
+						<a class="train-sidebar-out-link" href={`${b}sports/`}>Train sports shell</a>
+						·{' '}
 						<a
 							class="train-sidebar-out-link"
 							href="https://ballerleague.us/en"
 							target="_blank"
-							rel="noopener noreferrer">Baller League US</a> context
+							rel="noopener noreferrer">Baller League US</a>
 					</span>
 				</li>
 				<li>

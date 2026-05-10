@@ -22,15 +22,20 @@ and Bloomberg side-chat iframes, and env-driven embed URLs (`NEXT_PUBLIC_UGRAD_S
 `NEXT_PUBLIC_UGRAD_TOOLS_DECK_URL`, `NEXT_PUBLIC_BLOOMBERG_CHAT_URL`).
 
 Train ships dedicated routes for each top tab: **`/directory/`** (full catalog explorer with filters
-and pagination), **`/predictions/`** (Game-style card grid), plus Featured, Listing, and Raw. The
+and pagination), **`/predictions/`** (Game-style card grid), **`/sports/`** (streaming-style layout shell
+for live tiles and rails — static on Pages), **`/broadcast/`** (placeholder roadmap for encoder / pipeline /
+collab surfaces; optional `PUBLIC_BROADCAST_PIPELINE_URL` for your live workpad origin), plus Featured,
+Listing, and Raw. The
 site header uses pill navigation with the **Directory search** field first, then the eyebrow and
-title, then the educational row, then the tab row (Home, Featured, Predictions, Directory, Listing,
-Raw) plus optional Game / Live when `PUBLIC_GAME_CONSOLE_URL` is set. From any non-directory page,
+title, then the educational row, then the tab row (Home, Featured, Predictions, Sports, Broadcast, Models, Directory, Listing,
+Raw, Captions, Ledger) plus optional Game / Live when `PUBLIC_GAME_CONSOLE_URL` is set. From any non-directory page,
 pressing **Enter** in the header search jumps to `/directory/?q=…`.
 
 Train’s homepage links out when you set at **build** time:
 
 - **`PUBLIC_GAME_CONSOLE_URL`** — Game origin with no trailing slash (for example `http://localhost:3000` or your deployed base).
+- **`PUBLIC_BROADCAST_PIPELINE_URL`** (optional) — Origin with no trailing slash for a separate live pipeline / encoder workpad; the **Broadcast** tab shows an “Open pipeline workpad” button when set.
+- **`PUBLIC_BROADCAST_EMBED_HOSTS`** (optional) — Comma-separated hostnames (e.g. `127.0.0.1,localhost,pipeline.example.com`). When set, the Broadcast **iframe** loads only if the pipeline URL’s host matches one entry. When unset, any `http`/`https` pipeline URL from the variable may embed (still no user/password in the URL).
 
 Example:
 
@@ -38,11 +43,19 @@ Example:
 PUBLIC_GAME_CONSOLE_URL=http://localhost:3000 npm run build
 ```
 
+Pipeline workpad (optional):
+
+```bash
+PUBLIC_BROADCAST_PIPELINE_URL=http://127.0.0.1:8787 PUBLIC_GAME_CONSOLE_URL=http://localhost:3000 npm run build
+```
+
 If unset, the new homepage sections still show demo cards and wiring notes; the site header omits
 the “Game console” / “Live desk” shortcuts until the variable is provided.
 
 For **GitHub Actions** deploys, define a repository variable `PUBLIC_GAME_CONSOLE_URL` (Settings →
-Secrets and variables → Actions → Variables) so Pages builds pick up the same origin.
+Secrets and variables → Actions → Variables) so Pages builds pick up the same origin. Add
+`PUBLIC_BROADCAST_PIPELINE_URL` when your pipeline workpad has a stable URL, and optional
+`PUBLIC_BROADCAST_EMBED_HOSTS` to allowlist which hosts may load in the Broadcast iframe.
 
 ## Liquid AI live tuning
 
@@ -243,11 +256,14 @@ caching:
 | Endpoint | Purpose |
 | --- | --- |
 | `GET /v1/health` | Worker liveness + Train Pages reachability |
-| `GET /v1/coverage/manifest` | Current manifest (shards + patches + etags) |
-| `GET /v1/coverage/index` | Ticker → shard id map |
-| `GET /v1/coverage/shard?id=NNNN` | One shard JSON (etag-cached, supports `If-None-Match`) |
-| `GET /v1/coverage/listing?ticker=AAPL` | Single profile (patch overlay if present, else shard entry) |
-| `GET /v1/coverage/diff?since=<etag>` | List of shards/patches that changed since the caller's last manifest |
+| `GET /v1/coverage/manifest` | Snowflake manifest (shards + patches + etags) |
+| `GET /v1/coverage/index` | Snowflake ticker → shard id map |
+| `GET /v1/coverage/shard?id=NNNN` | Snowflake shard JSON (etag-cached, supports `If-None-Match`) |
+| `GET /v1/coverage/listing?ticker=AAPL` | Snowflake profile (patch overlay if present, else shard entry) |
+| `GET /v1/coverage/diff?since=<etag>` | Snowflake shards/patches changed since the caller's last manifest |
+| `GET /v1/history/manifest` | 5y history manifest (per-ticker etags) |
+| `GET /v1/history/listing?ticker=AAPL` | Per-ticker OHLCV series (`If-None-Match` → 304) |
+| `GET /v1/history/diff?since=<etag>` | Tickers whose series file changed |
 | `GET /v1/catalog.json` | Cached pass-through of the full catalog |
 
 To point the browser at the API instead of static GitHub Pages, set
@@ -259,4 +275,97 @@ Deploy:
 cd workers/api-qbitos-ai
 npm install
 npx wrangler deploy
+```
+
+## US daily history (sharded + versioned, full available range)
+
+Every US-listed ticker on `NASDAQ`, `NYSE`, `NYSEARCA`, `NYSEMKT`, `CBOE`, `AMEX`,
+`BATS`, `OTC`, `OTCBB` (~21 K listings) can be backed by a daily OHLCV series stored
+under:
+
+```
+public/data/history/
+├── manifest.json                  # ticker index + sha-256 etags (small, fetched once)
+└── series/v1/<TICKER>.json        # parallel-array OHLCV (~30 KB / 5y, ~250 KB / full history)
+```
+
+The format is parallel arrays (`d`, `o`, `h`, `l`, `c`, `v`) with `YYYYMMDD` integer
+dates — gzip-friendly, and ECharts consumes it directly via `lttb` sampling. The
+listing page (`/listing/?id=AAPL`) auto-renders a price chart plus
+total-return / annualized / max-drawdown / avg-volume metrics whenever a series file
+exists for that ticker. The chart adapts to whatever span the file actually covers
+(e.g. AAPL's full series goes back to 1980, IBM's to 1962).
+
+Like the snowflake coverage system, only the small manifest is fetched up front; per-
+ticker series files are loaded on demand and cached in `sessionStorage` keyed by their
+sha-256 etag, so a single ticker's data refresh is one ~30–250 KB file — never the
+full catalog.
+
+### Lookback window
+
+The fetcher defaults to **`--lookback max`**, which asks each upstream for the full
+available history per ticker. You can shrink the window when bandwidth or storage
+matters:
+
+```
+--lookback max         # default: full available history (1962+ for the oldest tickers)
+--lookback 5y          # last 5 calendar years only
+--lookback 10y         # last 10 calendar years only
+--lookback 1825d       # last 1825 days
+```
+
+Each series file records both `lookbackYears` (numeric hint, `0` for max) and
+`lookbackMode` (`'fixed' | 'max'`) so the listing-page UI can honestly label the span.
+
+### Backfill workflows
+
+Pick the path your environment can authenticate.
+
+**A. yfinance (recommended for full backfill — handles Yahoo's auth crumbs):**
+
+```bash
+pip install yfinance
+python3 scripts/fetch_us_history.py --source yfinance \
+    --exchange NASDAQ,NYSE,NYSEARCA,NYSEMKT,CBOE \
+    --lookback max
+```
+
+**B. Yahoo's keyless v8 chart endpoint (small batches; rate-limits aggressively):**
+
+```bash
+npm run history:fetch -- --tickers AAPL,MSFT,SPY,QQQ,NVDA --lookback max --delay 1.5
+```
+
+**C. Stooq with API key (US series back to ~1969):**
+
+```bash
+export STOOQ_APIKEY=<your-key>
+npm run history:fetch -- --source stooq --exchange NASDAQ,NYSE --lookback max --delay 0.3
+```
+
+**D. Manual CSV import (any source — Polygon, Tiingo, your data lake, Yahoo CSV
+download from the browser):**
+
+```bash
+npm run history:import -- --lookback max ./csvs/AAPL.csv ./csvs/MSFT.csv
+# header columns auto-detected: Date, Open, High, Low, Close, Volume
+```
+
+After any backfill, regenerate the manifest:
+
+```bash
+npm run history:manifest      # or just run npm run prepare:data / npm run build
+```
+
+### Filtering options
+
+```
+--exchange NASDAQ,NYSE      # comma-separated US exchanges
+--tickers AAPL,MSFT,SPY     # explicit list
+--limit 500                 # cap per run for sharded CI jobs
+--skip 500                  # offset (parallel-shard across machines)
+--max-age-days 7            # skip tickers refreshed within this window
+--force                     # re-fetch even when fresh
+--delay 1.5                 # seconds between requests
+--lookback max              # full available history (default), or 5y / 10y / 1825d
 ```

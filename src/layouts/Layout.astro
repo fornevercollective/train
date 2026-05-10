@@ -44,6 +44,8 @@ const navActive = {
 		!path.includes('/directory') &&
 		!path.includes('/featured') &&
 		!path.includes('/predictions') &&
+		!path.includes('/sports') &&
+		!path.includes('/broadcast') &&
 		!path.includes('/models') &&
 		!path.includes('/listing') &&
 		!path.includes('/raw') &&
@@ -51,6 +53,8 @@ const navActive = {
 		!path.includes('/ledger'),
 	featured: path.includes('/featured'),
 	predictions: path.includes('/predictions'),
+	sports: path.includes('/sports'),
+	broadcast: path.includes('/broadcast'),
 	models: path.includes('/models'),
 	directory: path.includes('/directory'),
 	listing: path.includes('/listing'),
@@ -236,6 +240,15 @@ const navActive = {
 							href={`${baseUrl}predictions/`}
 						>
 							Predictions
+						</a>
+						<a class:list={['site-nav-pill', { 'is-active': navActive.sports }]} href={`${baseUrl}sports/`}>
+							Sports
+						</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.broadcast }]}
+							href={`${baseUrl}broadcast/`}
+						>
+							Broadcast
 						</a>
 						<a class:list={['site-nav-pill', { 'is-active': navActive.models }]} href={`${baseUrl}models/`}>
 							Models

@@ -1,0 +1,240 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
+const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
+---
+
+<Layout
+	title="Sports · streaming shell | Erika Train"
+	description="Static sports-style viewing shell on Train: hero live tile, stats rail, and shelf placeholders — wire real playback from a companion app or pipeline origin."
+	pageClass="page-sports"
+	eyebrow="Sports"
+	subtitle="Layout-only surface inspired by major sports streamers; GitHub Pages serves HTML and CSS, not a broadcast encoder."
+>
+	<section class="container sports-shell">
+		<header class="sports-hero card">
+			<div class="sports-hero-copy">
+				<p class="sports-kicker mono">Train · static shell</p>
+				<h1 class="sports-title">Sports viewing layout</h1>
+				<p class="muted sports-lead">
+					This route holds the <strong>grid, rails, and typography</strong> for a premium live sports experience.
+					Attach a real player from your Game <code>/live</code> desk, a WebRTC/HLS workpad, or another origin in a
+					new tab or iframe once you deploy that stack outside Pages.
+				</p>
+				<div class="sports-hero-actions">
+					{
+						gameLiveUrl ? (
+							<a class="button" href={gameLiveUrl} target="_blank" rel="noopener noreferrer">
+								Open Game live desk
+							</a>
+						) : null
+					}
+					<a class="button-secondary" href={`${import.meta.env.BASE_URL}predictions/`}>
+						Predictions + field viz
+					</a>
+					<a
+						class="button-secondary"
+						href="https://ballerleague.us/en"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Baller League (sample feed)
+					</a>
+				</div>
+			</div>
+			<div class="sports-hero-stage card sports-live-card" aria-label="Main live tile placeholder">
+				<span class="sports-live-badge">LIVE</span>
+				<div class="sports-live-inner">
+					<p class="sports-live-title">Primary program</p>
+					<p class="muted sports-live-sub">16:9 hero · drop HLS or iframe here</p>
+				</div>
+			</div>
+		</header>
+
+		<div class="sports-grid">
+			<aside class="sports-rail card" aria-label="Scores and stats rail">
+				<h2 class="sports-rail-title">Side rail</h2>
+				<p class="muted small">
+					Box score, downs &amp; distance, possession, fantasy deltas — bind to your data plane later.
+				</p>
+				<ul class="sports-rail-list mono small muted">
+					<li>period — Q3</li>
+					<li>clock — 7:42</li>
+					<li>possession — home</li>
+					<li>timeouts — 2 / 3</li>
+				</ul>
+			</aside>
+
+			<div class="sports-main-col">
+				<section class="card sports-shelf" aria-label="Camera angles and secondary tiles">
+					<h2 class="sports-shelf-title">Multi-angle shelf</h2>
+					<p class="muted small">PiP / iso cams / replay stack — same pattern as national broadcast UIs.</p>
+					<div class="sports-thumb-row">
+						<div class="sports-thumb is-active"><span class="mono small">PGM</span></div>
+						<div class="sports-thumb"><span class="mono small">CAM 2</span></div>
+						<div class="sports-thumb"><span class="mono small">CAM 3</span></div>
+						<div class="sports-thumb"><span class="mono small">REPLAY</span></div>
+					</div>
+				</section>
+
+				<section class="card sports-shelf" aria-label="Lower metadata row">
+					<h2 class="sports-shelf-title">Lower third strip</h2>
+					<p class="muted small">Commentary names, sponsor rotator, closed captions lane — browser overlays only on Train.</p>
+				</section>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.sports-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding-top: 6px;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.sports-hero {
+		display: grid;
+		grid-template-columns: 1fr minmax(240px, 38%);
+		gap: 20px;
+		align-items: stretch;
+	}
+
+	@media (max-width: 900px) {
+		.sports-hero {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.sports-kicker {
+		margin: 0 0 8px;
+		font-size: 11px;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.sports-title {
+		margin: 0 0 10px;
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 650;
+	}
+
+	.sports-lead {
+		margin: 0 0 16px;
+		max-width: 52ch;
+		line-height: 1.55;
+		font-size: 13px;
+	}
+
+	.sports-hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.sports-live-card {
+		position: relative;
+		min-height: 200px;
+		display: flex;
+		align-items: flex-end;
+		padding: 0;
+		overflow: hidden;
+		background:
+			linear-gradient(160deg, rgba(20, 30, 55, 0.95), rgba(8, 12, 22, 0.88)),
+			radial-gradient(ellipse 80% 60% at 50% 40%, rgba(72, 224, 188, 0.12), transparent);
+		border: 1px solid rgba(72, 224, 188, 0.2);
+	}
+
+	.sports-live-badge {
+		position: absolute;
+		top: 12px;
+		left: 12px;
+		padding: 4px 10px;
+		border-radius: 6px;
+		font-family: var(--font-mono);
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		background: rgba(220, 60, 60, 0.9);
+		color: #fff;
+	}
+
+	.sports-live-inner {
+		padding: 16px 18px;
+		width: 100%;
+		background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+	}
+
+	.sports-live-title {
+		margin: 0 0 4px;
+		font-weight: 600;
+		font-size: 1rem;
+	}
+
+	.sports-live-sub {
+		margin: 0;
+		font-size: 12px;
+	}
+
+	.sports-grid {
+		display: grid;
+		grid-template-columns: minmax(200px, 260px) 1fr;
+		gap: 18px;
+		align-items: start;
+	}
+
+	@media (max-width: 820px) {
+		.sports-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.sports-rail-title,
+	.sports-shelf-title {
+		margin: 0 0 8px;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	.sports-rail-list {
+		margin: 14px 0 0;
+		padding-left: 1.1rem;
+		line-height: 1.7;
+	}
+
+	.sports-main-col {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.sports-thumb-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 12px;
+	}
+
+	.sports-thumb {
+		flex: 1 1 120px;
+		min-height: 64px;
+		border-radius: 12px;
+		border: 1px dashed rgba(255, 255, 255, 0.2);
+		display: grid;
+		place-items: center;
+		background: rgba(0, 0, 0, 0.2);
+		color: var(--muted);
+	}
+
+	.sports-thumb.is-active {
+		border-style: solid;
+		border-color: rgba(72, 224, 188, 0.45);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.08);
+	}
+</style>

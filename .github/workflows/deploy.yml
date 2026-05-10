@@ -45,6 +45,8 @@ jobs:
         env:
           # Optional: set in repo Settings → Secrets and variables → Actions → Variables
           PUBLIC_GAME_CONSOLE_URL: ${{ vars.PUBLIC_GAME_CONSOLE_URL }}
+          PUBLIC_BROADCAST_PIPELINE_URL: ${{ vars.PUBLIC_BROADCAST_PIPELINE_URL }}
+          PUBLIC_BROADCAST_EMBED_HOSTS: ${{ vars.PUBLIC_BROADCAST_EMBED_HOSTS }}
         run: npm run build
 
       - name: Upload Pages artifact

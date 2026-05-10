@@ -1,0 +1,327 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
+const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
+const pipelineUrl = (import.meta.env.PUBLIC_BROADCAST_PIPELINE_URL || '').replace(/\/$/, '');
+
+const grokCliRepo = 'https://github.com/fornevercollective/grok-cli';
+
+/** Safe root URL for iframe `src` when env passes validation; otherwise null (no embed). */
+function pipelineEmbedSrc(raw: string): string | null {
+	const trimmed = raw.trim();
+	if (!trimmed) return null;
+	let u: URL;
+	try {
+		const withProto = trimmed.includes('://') ? trimmed : `http://${trimmed}`;
+		u = new URL(withProto);
+	} catch {
+		return null;
+	}
+	if (u.username || u.password) return null;
+	if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
+	const allowRaw = (import.meta.env.PUBLIC_BROADCAST_EMBED_HOSTS || '').trim();
+	if (allowRaw) {
+		const hosts = allowRaw
+			.split(',')
+			.map((h: string) => h.trim().toLowerCase())
+			.filter(Boolean);
+		const host = u.hostname.toLowerCase();
+		if (!hosts.includes(host)) return null;
+	}
+	return `${u.origin}/`;
+}
+
+const pipelineIframeSrc = pipelineUrl ? pipelineEmbedSrc(pipelineUrl) : null;
+
+/** Sandboxed but functional for typical SPAs (HLS viewer, operator UIs). */
+const pipelineIframeSandbox =
+	'allow-scripts allow-forms allow-same-origin allow-downloads allow-popups allow-popups-to-escape-sandbox';
+---
+
+<Layout
+	title="Broadcast desk · roadmap | Erika Train"
+	description="Placeholder on Train for live broadcasting and production-adjacent tools: ingest, pipeline telemetry, notebook and collab hooks — static shell; execution lives off Pages."
+	pageClass="page-broadcast"
+	eyebrow="Broadcast"
+	subtitle="Roadmap surface for encoder paths, HLS shards, and operator desks. Compare the multi-app layout in fornevercollective/grok-cli (notes, terminal, ML, sync)."
+>
+	<section class="container broadcast-shell">
+		<header class="broadcast-hero card">
+			<div>
+				<h1 class="broadcast-title">Live broadcast capabilities</h1>
+				<p class="muted broadcast-lead">
+					Train stays a <strong>static site</strong>. This tab documents where a future <strong>broadcast stack</strong>
+					lives: same patterns as mature operator repos that bundle notebook UI, terminals, collaboration, and ML hooks
+					(for example the structure described in
+					<a href={grokCliRepo} target="_blank" rel="noopener noreferrer">fornevercollective/grok-cli</a>
+					— React/TS notes front-end, Node backends, deploy scripts).
+				</p>
+			</div>
+			<div class="broadcast-hero-aside">
+				{
+					pipelineUrl ? (
+						<>
+							<p class="mono small muted">PUBLIC_BROADCAST_PIPELINE_URL</p>
+							<a class="button" href={`${pipelineUrl}/`} target="_blank" rel="noopener noreferrer">
+								Open pipeline workpad
+							</a>
+						</>
+					) : (
+						<p class="mono small muted">
+							Set <code class="broadcast-code">PUBLIC_BROADCAST_PIPELINE_URL</code> at build time for a button to your
+							yt-dlp / FFmpeg / HLS viewer (or any live desk origin).
+						</p>
+					)
+				}
+				{
+					gameLiveUrl ? (
+						<a class="button-secondary" href={gameLiveUrl} target="_blank" rel="noopener noreferrer">
+							Game /live (iframes)
+						</a>
+					) : null
+				}
+			</div>
+		</header>
+
+		{
+			pipelineIframeSrc ? (
+				<section class="card broadcast-embed-card" aria-labelledby="broadcast-embed-h">
+					<div class="broadcast-embed-head">
+						<h2 id="broadcast-embed-h" class="broadcast-card-title">
+							Pipeline workpad <span class="broadcast-embed-badge mono small">embedded</span>
+						</h2>
+						<a
+							class="button-secondary broadcast-embed-open"
+							href={pipelineIframeSrc}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Open in new tab
+						</a>
+					</div>
+					<p class="muted small broadcast-embed-note">
+						Iframe uses a strict <code class="broadcast-code">sandbox</code> and only loads the origin from{' '}
+						<code class="broadcast-code">PUBLIC_BROADCAST_PIPELINE_URL</code>
+						{import.meta.env.PUBLIC_BROADCAST_EMBED_HOSTS?.trim() ? (
+							<>
+								{' '}
+								when the host is listed in <code class="broadcast-code">PUBLIC_BROADCAST_EMBED_HOSTS</code>.
+							</>
+						) : (
+							<>
+								. Set <code class="broadcast-code">PUBLIC_BROADCAST_EMBED_HOSTS</code> (comma-separated hosts) in
+								production to restrict embeds.
+							</>
+						)}{' '}
+						If the workpad sends <code class="broadcast-code">X-Frame-Options</code> or a CSP frame-ancestors policy
+						that blocks GitHub Pages, the frame stays blank; use “Open in new tab”.
+					</p>
+					<div class="broadcast-embed-frameWrap">
+						<iframe
+							class="broadcast-embed-frame"
+							title="Pipeline broadcast workpad"
+							src={pipelineIframeSrc}
+							sandbox={pipelineIframeSandbox}
+							loading="lazy"
+							referrerpolicy="strict-origin-when-cross-origin"
+						/>
+					</div>
+				</section>
+			) : pipelineUrl ? (
+				<section class="card broadcast-embed-card broadcast-embed-card--blocked" aria-labelledby="broadcast-embed-blocked-h">
+					<h2 id="broadcast-embed-blocked-h" class="broadcast-card-title">Pipeline embed disabled</h2>
+					<p class="muted small">
+						<code class="broadcast-code">PUBLIC_BROADCAST_PIPELINE_URL</code> is set but the URL did not pass embed
+						validation (must be <code class="broadcast-code">http:</code> or <code class="broadcast-code">https:</code>, no
+						embedded credentials
+						{import.meta.env.PUBLIC_BROADCAST_EMBED_HOSTS?.trim()
+							? ', and hostname must appear in PUBLIC_BROADCAST_EMBED_HOSTS'
+							: ''}
+						). Use “Open pipeline workpad” above or fix the env vars.
+					</p>
+				</section>
+			) : null
+		}
+
+		<div class="broadcast-grid">
+			<article class="card broadcast-card">
+				<h2 class="broadcast-card-title">Ingest &amp; transcode</h2>
+				<p class="muted small">
+					RTMP/SRT listen, direct pulls, YouTube via yt-dlp — own a small always-on service; Train only links to it.
+				</p>
+			</article>
+			<article class="card broadcast-card">
+				<h2 class="broadcast-card-title">Telemetry &amp; shards</h2>
+				<p class="muted small">
+					WebSocket segment ledger, FFmpeg progress, off-ramp webhooks — mirror the “instrument everything” path from
+					your local pipeline viewer.
+				</p>
+			</article>
+			<article class="card broadcast-card">
+				<h2 class="broadcast-card-title">Operator notebook</h2>
+				<p class="muted small">
+					Jupyter-like cells, markdown runbooks, and AI assist panels — reference implementation families in
+					<a href={grokCliRepo} target="_blank" rel="noopener noreferrer">grok-cli</a>
+					(<code class="broadcast-code">grok-notes-ts</code>, <code class="broadcast-code">grok-notes-backend</code>).
+				</p>
+			</article>
+			<article class="card broadcast-card">
+				<h2 class="broadcast-card-title">Terminal &amp; sync</h2>
+				<p class="muted small">
+					Embedded shell for health checks, <code class="broadcast-code">ffmpeg</code> probes, and git deploy hooks;
+					collaboration / offline sync when you promote this from placeholder to product.
+				</p>
+			</article>
+		</div>
+
+		<section class="card broadcast-foot">
+			<h2 class="broadcast-card-title">Next integration step</h2>
+			<ol class="broadcast-steps mono small muted">
+				<li>Deploy pipeline or Game on a real origin with HTTPS.</li>
+				<li>
+					Set repository variables for <code class="broadcast-code">PUBLIC_GAME_CONSOLE_URL</code> and optionally{' '}
+					<code class="broadcast-code">PUBLIC_BROADCAST_PIPELINE_URL</code> (plus{' '}
+					<code class="broadcast-code">PUBLIC_BROADCAST_EMBED_HOSTS</code> to allowlist iframe hosts in production).
+				</li>
+				<li>Use <strong>Sports</strong> for the public shell and <strong>Broadcast</strong> for operator-facing links, embed, and docs.</li>
+			</ol>
+		</section>
+	</section>
+</Layout>
+
+<style>
+	.broadcast-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding-top: 6px;
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+
+	.broadcast-hero {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 20px;
+		align-items: flex-start;
+	}
+
+	.broadcast-title {
+		margin: 0 0 10px;
+		font-size: clamp(1.45rem, 2.8vw, 1.85rem);
+		font-weight: 650;
+	}
+
+	.broadcast-lead {
+		margin: 0;
+		max-width: 62ch;
+		line-height: 1.55;
+		font-size: 13px;
+	}
+
+	.broadcast-lead a {
+		color: var(--accent);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.broadcast-hero-aside {
+		flex: 0 1 280px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.broadcast-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 16px;
+	}
+
+	@media (max-width: 720px) {
+		.broadcast-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.broadcast-card-title {
+		margin: 0 0 8px;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	.broadcast-foot .broadcast-card-title {
+		margin-bottom: 12px;
+	}
+
+	.broadcast-steps {
+		margin: 0;
+		padding-left: 1.2rem;
+		line-height: 1.75;
+	}
+
+	.broadcast-code {
+		font-size: 0.92em;
+		color: rgba(200, 230, 255, 0.88);
+	}
+
+	.broadcast-embed-card {
+		padding: 0;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.broadcast-embed-head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 16px 18px 0;
+	}
+
+	.broadcast-embed-badge {
+		margin-left: 8px;
+		padding: 2px 8px;
+		border-radius: 999px;
+		border: 1px solid rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		font-weight: 600;
+		vertical-align: middle;
+	}
+
+	.broadcast-embed-open {
+		flex-shrink: 0;
+	}
+
+	.broadcast-embed-note {
+		margin: 0;
+		padding: 10px 18px 14px;
+		max-width: none;
+		line-height: 1.55;
+	}
+
+	.broadcast-embed-frameWrap {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16 / 10;
+		min-height: 360px;
+		background: rgba(0, 0, 0, 0.35);
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.broadcast-embed-frame {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+
+	.broadcast-embed-card--blocked {
+		padding: 16px 18px;
+	}
+</style>

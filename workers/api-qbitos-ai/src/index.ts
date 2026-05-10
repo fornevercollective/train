@@ -6,8 +6,14 @@
  *   GET  /v1/coverage/manifest                     -> the small manifest.json
  *   GET  /v1/coverage/index                        -> ticker -> shardId map (single download)
  *   GET  /v1/coverage/shard?id=NNNN                -> one shard JSON (~600KB, etag-cached)
- *   GET  /v1/coverage/listing?ticker=NASDAQ:AAPL   -> single profile (shard entry + patch overlay)
+ *   GET  /v1/coverage/listing?ticker=AAPL          -> single profile (shard entry + patch overlay)
  *   GET  /v1/coverage/diff?since=<manifestEtag>    -> what shards/patches changed since `since`
+ *
+ * History (5y daily OHLCV) endpoints — same shim/blob model so clients refresh one
+ * ticker's series file at a time:
+ *   GET  /v1/history/manifest                      -> ticker index with sha-256 etags
+ *   GET  /v1/history/listing?ticker=AAPL           -> per-ticker OHLCV (etag-cached, 304-aware)
+ *   GET  /v1/history/diff?since=<seriesEtag>       -> tickers whose series file changed
  *
  * Deploy: cd workers/api-qbitos-ai && npm i && npx wrangler deploy
  */
@@ -16,6 +22,7 @@ export interface Env {
 	TRAIN_ORIGIN: string;
 	CATALOG_PATH: string;
 	HEALTH_PATH?: string;
+	HISTORY_PATH?: string;
 	ALLOWED_ORIGINS?: string;
 }
 
@@ -61,6 +68,31 @@ type ShardPayload = {
 	profiles: Record<string, unknown>;
 };
 
+type HistoryManifestEntry = {
+	ticker: string;
+	exchange: string;
+	url: string;
+	etag: string;
+	bytes: number;
+	rows: number;
+	rangeStart: number;
+	rangeEnd: number;
+	asOfISO: string;
+	source: string;
+};
+
+type HistoryManifest = {
+	schemaVersion: 1;
+	generatedAt: string;
+	lookbackYears: number;
+	lookbackMode?: 'fixed' | 'max';
+	tickerCount: number;
+	totalBytes: number;
+	earliest: number;
+	latest: number;
+	entries: HistoryManifestEntry[];
+};
+
 function corsHeaders(env: Env, req: Request): HeadersInit {
 	const origin = req.headers.get('Origin') ?? '';
 	const allowed = (env.ALLOWED_ORIGINS ?? '')
@@ -94,6 +126,12 @@ function jsonResponse(payload: unknown, init: ResponseInit = {}): Response {
 function healthBaseUrl(env: Env): string {
 	const origin = env.TRAIN_ORIGIN.replace(/\/$/, '');
 	const path = (env.HEALTH_PATH ?? '/data/health').replace(/\/$/, '');
+	return `${origin}${path}`;
+}
+
+function historyBaseUrl(env: Env): string {
+	const origin = env.TRAIN_ORIGIN.replace(/\/$/, '');
+	const path = (env.HISTORY_PATH ?? '/data/history').replace(/\/$/, '');
 	return `${origin}${path}`;
 }
 
@@ -245,6 +283,88 @@ async function handleCoverageListing(env: Env, req: Request, url: URL): Promise<
 	);
 }
 
+async function loadHistoryManifest(env: Env): Promise<HistoryManifest> {
+	const { json } = await fetchUpstreamJson<HistoryManifest>(
+		`${historyBaseUrl(env)}/manifest.json`,
+		60,
+	);
+	return json;
+}
+
+async function handleHistoryManifest(env: Env, req: Request): Promise<Response> {
+	const url = `${historyBaseUrl(env)}/manifest.json`;
+	const upstream = await fetch(url, {
+		headers: { Accept: 'application/json' },
+		cf: { cacheTtl: 60, cacheEverything: true },
+	});
+	const out = new Response(upstream.body, {
+		status: upstream.status,
+		headers: {
+			'content-type': 'application/json; charset=utf-8',
+			'cache-control': 'public, max-age=30, s-maxage=120',
+		},
+	});
+	return withCors(env, req, out);
+}
+
+async function handleHistoryListing(env: Env, req: Request, url: URL): Promise<Response> {
+	const ticker = url.searchParams.get('ticker');
+	if (!ticker) return badRequest(env, req, "missing required query parameter 'ticker'");
+
+	const manifest = await loadHistoryManifest(env);
+	const entry = manifest.entries.find((e) => e.ticker === ticker);
+	if (!entry) return notFound(env, req, `ticker not in history manifest: ${ticker}`);
+
+	const ifNoneMatch = req.headers.get('If-None-Match');
+	if (ifNoneMatch && ifNoneMatch === entry.etag) {
+		return withCors(env, req, new Response(null, { status: 304, headers: { etag: entry.etag } }));
+	}
+
+	const upstream = await fetch(`${historyBaseUrl(env)}/${entry.url}`, {
+		headers: { Accept: 'application/json' },
+		cf: { cacheTtl: 86400, cacheEverything: true },
+	});
+	const out = new Response(upstream.body, {
+		status: upstream.status,
+		headers: {
+			'content-type': 'application/json; charset=utf-8',
+			etag: entry.etag,
+			'x-history-rows': String(entry.rows),
+			'x-history-source': entry.source,
+			'x-history-range': `${entry.rangeStart}..${entry.rangeEnd}`,
+			'cache-control': 'public, max-age=300, s-maxage=86400, immutable',
+		},
+	});
+	return withCors(env, req, out);
+}
+
+async function handleHistoryDiff(env: Env, req: Request, url: URL): Promise<Response> {
+	const since = url.searchParams.get('since') ?? '';
+	const manifest = await loadHistoryManifest(env);
+	const changed = manifest.entries
+		.filter((entry) => entry.etag !== since)
+		.map((entry) => ({
+			ticker: entry.ticker,
+			etag: entry.etag,
+			bytes: entry.bytes,
+			rows: entry.rows,
+			rangeStart: entry.rangeStart,
+			rangeEnd: entry.rangeEnd,
+			asOfISO: entry.asOfISO,
+		}));
+	return withCors(
+		env,
+		req,
+		jsonResponse({
+			schemaVersion: manifest.schemaVersion,
+			generatedAt: manifest.generatedAt,
+			tickerCount: manifest.tickerCount,
+			since,
+			changed,
+		}),
+	);
+}
+
 async function handleCoverageDiff(env: Env, req: Request, url: URL): Promise<Response> {
 	const since = url.searchParams.get('since') ?? '';
 	const manifest = await loadManifest(env);
@@ -330,6 +450,16 @@ export default {
 			}
 			if (url.pathname === '/v1/coverage/diff') {
 				return handleCoverageDiff(env, request, url);
+			}
+
+			if (url.pathname === '/v1/history/manifest') {
+				return handleHistoryManifest(env, request);
+			}
+			if (url.pathname === '/v1/history/listing') {
+				return handleHistoryListing(env, request, url);
+			}
+			if (url.pathname === '/v1/history/diff') {
+				return handleHistoryDiff(env, request, url);
 			}
 
 			if (url.pathname.startsWith('/v1/train')) {
