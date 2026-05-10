@@ -102,7 +102,7 @@ const coverageMeta = {
 		</section>
 	</section>
 
-	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
+	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL, coverageAxes: coverageMeta.axes }}>
 		const pageSize = 24;
 		const filterElements = {
 			query: document.querySelector('#filter-query'),
@@ -240,6 +240,17 @@ const coverageMeta = {
 			state.page = Math.min(state.page, maxPage);
 		}
 
+		const miniChartHandles = [];
+
+		function clearMiniChartHandles() {
+			while (miniChartHandles.length) {
+				const h = miniChartHandles.pop();
+				try {
+					if (h && typeof h.dispose === 'function') h.dispose();
+				} catch {}
+			}
+		}
+
 		function renderResults() {
 			filterCatalog();
 			const total = filteredCatalog.length;
@@ -255,6 +266,8 @@ const coverageMeta = {
 			pageMeta.textContent = `Page ${state.page} of ${Math.max(Math.ceil(total / pageSize), 1)}`;
 			previousButton.disabled = state.page <= 1;
 			nextButton.disabled = state.page >= Math.max(Math.ceil(total / pageSize), 1);
+
+			clearMiniChartHandles();
 
 			if (pageItems.length === 0) {
 				resultsGrid.innerHTML = `
@@ -296,6 +309,17 @@ const coverageMeta = {
 								<dt>Snowflake</dt>
 								<dd class="snowflake-axes muted">Loading coverage…</dd>
 							</dl>
+							<div class="result-card-chart-block" aria-label="Erika daily price history">
+								<div class="result-card-chart-label mono small muted">Current interval · our OHLCV</div>
+								<div
+									class="result-card-chart"
+									data-chart-host="1"
+									data-chart-ticker="${escapeHtml(entry.id)}"
+									role="img"
+									aria-label="Price history chart for ${escapeHtml(entry.id)}"
+								></div>
+								<p class="result-card-chart-status muted micro" data-chart-status>Loading chart…</p>
+							</div>
 							<div class="result-card-footer">
 								<span class="muted">Company: ${escapeHtml(formatDate(entry.cd))}</span>
 								<span class="muted">IPO: ${escapeHtml(formatDate(entry.ip))}</span>
@@ -308,11 +332,25 @@ const coverageMeta = {
 				})
 				.join('');
 
-			void hydrateSnowflakeBadges(pageItems.map((entry) => entry.id));
+			const pageTickers = pageItems.map((entry) => entry.id);
+			void hydrateSnowflakeBadges(pageTickers);
+			void hydrateMiniCharts(pageTickers);
 		}
 
 		const snowflakeCache = new Map();
 		const axisLabels = { value: 'V', future: 'F', past: 'Pa', health: 'H', dividends: 'D' };
+		const chartNumFmt = new Intl.NumberFormat();
+
+		function skeletonSummaryFromManifest(ticker, axes) {
+			if (!axes || !axes.length) return null;
+			let totalChecks = 0;
+			const axisRows = axes.map((a) => {
+				const n = typeof a.checkCount === 'number' ? a.checkCount : 0;
+				totalChecks += n;
+				return { name: a.name, passed: 0, total: n, na: n };
+			});
+			return { ticker, totalChecks, naChecks: totalChecks, axes: axisRows };
+		}
 
 		function whenCoverageHelpersReady(timeoutMs = 8000) {
 			return new Promise((resolve) => {
@@ -331,49 +369,137 @@ const coverageMeta = {
 
 		async function hydrateSnowflakeBadges(tickers) {
 			const helpers = await whenCoverageHelpersReady();
-			if (!helpers || typeof helpers.getCoverageSummaryForTicker !== 'function') return;
-			const summaries = await Promise.all(
+			const hasGet = helpers && typeof helpers.getCoverageSummaryForTicker === 'function';
+
+			const rows = await Promise.all(
 				tickers.map(async (ticker) => {
-					if (snowflakeCache.has(ticker)) return snowflakeCache.get(ticker);
-					try {
-						const summary = await helpers.getCoverageSummaryForTicker(ticker);
-						snowflakeCache.set(ticker, summary);
-						return summary;
-					} catch {
-						return null;
+					let summary = null;
+					if (hasGet) {
+						if (snowflakeCache.has(ticker)) {
+							summary = snowflakeCache.get(ticker);
+						} else {
+							try {
+								summary = await helpers.getCoverageSummaryForTicker(ticker);
+								if (summary) snowflakeCache.set(ticker, summary);
+							} catch {
+								summary = null;
+							}
+						}
 					}
+					return { ticker, summary };
 				}),
 			);
-			summaries.forEach((summary, index) => {
-				const ticker = tickers[index];
+
+			rows.forEach(({ ticker, summary }) => {
 				const card = resultsGrid.querySelector(`.result-card[data-ticker="${cssEscape(ticker)}"]`);
 				if (!card) return;
 				const wrap = card.querySelector('[data-snowflake]');
 				const target = card.querySelector('.snowflake-axes');
 				if (!wrap || !target) return;
-				if (!summary) {
+
+				const skeleton = skeletonSummaryFromManifest(ticker, coverageAxes);
+				if (!summary && !skeleton) {
 					wrap.dataset.snowflake = 'unavailable';
-					target.textContent = 'Coverage unavailable.';
+					target.textContent = 'Coverage manifest unavailable.';
 					return;
 				}
-				wrap.dataset.snowflake = 'ready';
-				if (summary.totalChecks === 0) {
+
+				const display = summary || skeleton;
+				const isSkeleton = !summary;
+				wrap.dataset.snowflake = isSkeleton ? 'skeleton' : 'ready';
+
+				if (display.totalChecks === 0) {
 					target.textContent = 'No checks defined.';
 					return;
 				}
-				const filled = summary.totalChecks - summary.naChecks;
-				const filledLabel = filled === 0 ? 'awaiting research overlay' : `${filled}/${summary.totalChecks} checks scored`;
+
+				const filled = display.totalChecks - display.naChecks;
+				let filledLabel;
+				if (isSkeleton) {
+					filledLabel = `Not in shard index yet · ${display.totalChecks} checks when patched`;
+				} else if (filled === 0) {
+					filledLabel = 'awaiting research overlay';
+				} else {
+					filledLabel = `${filled}/${display.totalChecks} checks scored`;
+				}
+
 				target.innerHTML = `
 					<span class="snowflake-axes-row">
-						${summary.axes
+						${display.axes
 							.map(
-								(axis) => `<span class="axis-pip ${axis.passed > 0 ? 'on' : 'na'}" title="${axis.name} ${axis.passed}/${axis.total}">${axisLabels[axis.name] || axis.name[0].toUpperCase()}<small>${axis.passed}/${axis.total}</small></span>`,
+								(axis) =>
+									`<span class="axis-pip ${axis.passed > 0 ? 'on' : 'na'}" title="${axis.name} ${axis.passed}/${axis.total}">${axisLabels[axis.name] || String(axis.name)[0].toUpperCase()}<small>${axis.passed}/${axis.total}</small></span>`,
 							)
 							.join('')}
 					</span>
 					<span class="snowflake-meta muted">${filledLabel}</span>
 				`;
 			});
+		}
+
+		function whenHistoryHelpersReady(timeoutMs = 8000) {
+			return new Promise((resolve) => {
+				if (window.__qbitosHistoryLoader__) return resolve(window.__qbitosHistoryLoader__);
+				const start = Date.now();
+				const handler = () => resolve(window.__qbitosHistoryLoader__ ?? null);
+				const tick = () => {
+					if (window.__qbitosHistoryLoader__) return resolve(window.__qbitosHistoryLoader__);
+					if (Date.now() - start > timeoutMs) return resolve(null);
+					setTimeout(tick, 80);
+				};
+				window.addEventListener('qbitos:history-loader-ready', handler, { once: true });
+				tick();
+			});
+		}
+
+		async function mountSparkline(host, series) {
+			const spark = window.__qbitosSparkline__;
+			if (!spark || typeof spark.mountHistorySparkline !== 'function') {
+				return await new Promise((resolve) => {
+					const handler = () => {
+						const ready = window.__qbitosSparkline__;
+						if (ready && ready.mountHistorySparkline) resolve(ready.mountHistorySparkline(host, series));
+					};
+					window.addEventListener('qbitos:sparkline-ready', handler, { once: true });
+					setTimeout(() => {
+						const late = window.__qbitosSparkline__;
+						if (late && late.mountHistorySparkline) resolve(late.mountHistorySparkline(host, series));
+						else resolve({ dispose() {} });
+					}, 4000);
+				});
+			}
+			return spark.mountHistorySparkline(host, series);
+		}
+
+		async function hydrateMiniCharts(tickers) {
+			const helpers = await whenHistoryHelpersReady();
+			for (let i = 0; i < tickers.length; i += 1) {
+				const ticker = tickers[i];
+				const card = resultsGrid.querySelector(`.result-card[data-ticker="${cssEscape(ticker)}"]`);
+				const host = card && card.querySelector('[data-chart-host]');
+				const statusEl = card && card.querySelector('[data-chart-status]');
+				if (!host || !statusEl) continue;
+
+				if (!helpers || typeof helpers.getHistoryForTicker !== 'function') {
+					statusEl.textContent = 'History loader unavailable.';
+					continue;
+				}
+
+				try {
+					statusEl.textContent = 'Loading chart…';
+					const series = await helpers.getHistoryForTicker(ticker);
+					if (!series) {
+						statusEl.textContent = 'No history shim yet — same store as listing profile.';
+						continue;
+					}
+					statusEl.textContent = `${chartNumFmt.format(series.rows)} daily bars · ${series.source || 'erika'}`;
+					const handle = await mountSparkline(host, series);
+					miniChartHandles.push(handle);
+				} catch (err) {
+					statusEl.textContent =
+						err && err.message ? `Chart error: ${err.message}` : 'Chart failed to load.';
+				}
+			}
 		}
 
 		function cssEscape(value) {
@@ -503,6 +629,14 @@ const coverageMeta = {
 			prefetchShardForTicker,
 			summarizeProfile,
 		} from '../../lib/health-shard-loader.ts';
+		import {
+			getHistoryForTicker,
+			hasHistoryForTicker,
+			loadHistoryManifest,
+			summarizeHistoryWindow,
+			dayKeyToISO,
+		} from '../../lib/history-shard-loader.ts';
+		import { mountHistorySparkline } from '../../lib/history-sparkline.ts';
 
 		window.__qbitosHealthLoader__ = {
 			getCoverageForTicker,
@@ -511,7 +645,17 @@ const coverageMeta = {
 			prefetchShardForTicker,
 			summarizeProfile,
 		};
+		window.__qbitosHistoryLoader__ = {
+			getHistoryForTicker,
+			hasHistoryForTicker,
+			loadHistoryManifest,
+			summarizeHistoryWindow,
+			dayKeyToISO,
+		};
+		window.__qbitosSparkline__ = { mountHistorySparkline };
 		window.dispatchEvent(new CustomEvent('qbitos:health-loader-ready'));
+		window.dispatchEvent(new CustomEvent('qbitos:history-loader-ready'));
+		window.dispatchEvent(new CustomEvent('qbitos:sparkline-ready'));
 	</script>
 </Layout>
 
@@ -553,6 +697,28 @@ const coverageMeta = {
 		display: flex;
 		flex-direction: column;
 		gap: 6px;
+	}
+
+	.result-card-chart-block {
+		margin-top: 0.75rem;
+		padding-top: 0.75rem;
+		border-top: 1px solid rgba(148, 163, 184, 0.2);
+	}
+
+	.result-card-chart-label {
+		margin-bottom: 0.35rem;
+	}
+
+	.result-card-chart {
+		min-height: 120px;
+		width: 100%;
+		border-radius: 0.5rem;
+		background: rgba(15, 23, 42, 0.35);
+		border: 1px solid rgba(148, 163, 184, 0.15);
+	}
+
+	.result-card-chart-status {
+		margin: 0.35rem 0 0;
 	}
 
 	.snowflake-axes-row {

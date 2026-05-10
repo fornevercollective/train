@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import summary from '../../generated/catalog-meta.json';
-import { YAHOO_TO_TRADINGVIEW } from '../../lib/yahoo-tv-map';
 
 const featuredListings = summary.featuredListings.slice(0, 6);
 ---
@@ -33,14 +32,12 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 						<div>
 							<div class="ticker">Live market snapshot</div>
 							<div id="listing-live-subtitle" class="name">
-								Hourly-capable TradingView embed plus Yahoo Finance for the same Yahoo-style
-								symbol.
+								Price chart from the same per-ticker daily OHLCV shim as the full listing profile — not Yahoo or
+								TradingView.
 							</div>
 						</div>
 						<div class="hero-actions">
-							<a id="listing-live-yahoo" class="button-secondary" href="#" target="_blank" rel="noreferrer"
-								>Open Yahoo Finance</a
-							>
+							<a id="listing-live-profile" class="button-secondary" href="#">Open catalog profile</a>
 							<a class="button-secondary" href="../directory/">← Directory</a>
 						</div>
 					</div>
@@ -49,11 +46,12 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 							<p id="listing-live-id" class="metaPill"></p>
 							<h1 id="listing-live-title">Loading…</h1>
 						</div>
-						<span class="badge muted">External quote</span>
+						<span class="badge muted">Erika history</span>
 					</div>
 					<p class="listing-live-disclaimer muted">
-						Quotes load from TradingView’s embed; they are indicative, can differ from the Erika
-						static lake, and are not investment advice.
+						Data is served from this site’s static history store (<code>public/data/history/</code>) when present.
+						Backfill with <code>npm run history:fetch</code> or import CSVs if a ticker is missing. Educational use
+						only.
 					</p>
 				</article>
 				<aside class="card listing-metrics">
@@ -72,15 +70,29 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				<div class="tileTop">
 					<div>
 						<div class="ticker">Current interval</div>
-						<div class="name">Embedded overview (60m); open Yahoo for full depth.</div>
+						<div class="name">Daily close series from our shim — same chart path as “Price history” on the full profile.</div>
 					</div>
 				</div>
-				<iframe
-					id="listing-live-iframe"
-					class="listing-live-iframe"
-					title="Live quote"
-					referrerpolicy="no-referrer-when-downgrade"
-				></iframe>
+				<div id="listing-live-stats" class="history-stats listing-live-stats" hidden>
+					<div class="metric-card">
+						<span class="muted">Total return (window)</span>
+						<strong id="listing-live-total-return">—</strong>
+					</div>
+					<div class="metric-card">
+						<span class="muted">Annualized</span>
+						<strong id="listing-live-annualized">—</strong>
+					</div>
+					<div class="metric-card">
+						<span class="muted">Max drawdown</span>
+						<strong id="listing-live-drawdown">—</strong>
+					</div>
+					<div class="metric-card">
+						<span class="muted">Avg daily volume</span>
+						<strong id="listing-live-volume">—</strong>
+					</div>
+				</div>
+				<div id="listing-live-chart" class="history-chart" aria-label="Erika price history chart"></div>
+				<p id="listing-live-chart-status" class="muted history-status">Loading history…</p>
 			</section>
 		</div>
 
@@ -244,13 +256,19 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		</div>
 	</section>
 
-	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL, YAHOO_TO_TRADINGVIEW }}>
+	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
 		const statusElement = document.querySelector('#listing-status');
 		const liveRoot = document.querySelector('#listing-live-root');
 		const liveTitle = document.querySelector('#listing-live-title');
 		const liveId = document.querySelector('#listing-live-id');
-		const liveIframe = document.querySelector('#listing-live-iframe');
-		const liveYahoo = document.querySelector('#listing-live-yahoo');
+		const liveProfile = document.querySelector('#listing-live-profile');
+		const liveStats = document.querySelector('#listing-live-stats');
+		const liveChart = document.querySelector('#listing-live-chart');
+		const liveChartStatus = document.querySelector('#listing-live-chart-status');
+		const liveTotal = document.querySelector('#listing-live-total-return');
+		const liveAnnualized = document.querySelector('#listing-live-annualized');
+		const liveDrawdown = document.querySelector('#listing-live-drawdown');
+		const liveVolume = document.querySelector('#listing-live-volume');
 		const emptyElement = document.querySelector('#listing-empty');
 		const emptyTitleElement = document.querySelector('#listing-empty-title');
 		const emptyCopyElement = document.querySelector('#listing-empty-copy');
@@ -309,38 +327,63 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				.join('');
 		}
 
-		function tradingViewMiniUrl(tvSymbol) {
-			const params = new URLSearchParams({
-				locale: 'en',
-				symbol: tvSymbol,
-				colorTheme: 'dark',
-				isTransparent: 'true',
-				autosize: 'true',
-				interval: '60',
-			});
-			return `https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?${params.toString()}`;
-		}
+		let liveChartHandle = null;
 
 		function showLiveSnapshot(ticker, label) {
-			const tvSymbol = YAHOO_TO_TRADINGVIEW[ticker];
 			const displayName = label || ticker;
 			document.title = `${displayName} | Live snapshot`;
-			statusElement.textContent = 'Live snapshot ready.';
+			statusElement.textContent = 'Loading Erika history…';
 			emptyElement.hidden = true;
 			contentElement.hidden = true;
 			liveRoot.hidden = false;
 			liveTitle.textContent = displayName;
 			liveId.textContent = ticker;
-			const yahooUrl = `https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}`;
-			liveYahoo.href = yahooUrl;
-			if (tvSymbol) {
-				liveIframe.src = tradingViewMiniUrl(tvSymbol);
-				liveIframe.hidden = false;
-			} else {
-				liveIframe.removeAttribute('src');
-				liveIframe.hidden = true;
-				statusElement.textContent =
-					'No TradingView mapping for this ticker; use Yahoo Finance for live context.';
+			if (liveProfile) {
+				liveProfile.href = `${window.location.pathname}?id=${encodeURIComponent(ticker)}`;
+			}
+			if (liveStats) liveStats.hidden = true;
+			if (liveChart) liveChart.innerHTML = '';
+			if (liveChartStatus) liveChartStatus.textContent = 'Loading history…';
+			if (liveChartHandle) {
+				liveChartHandle.dispose();
+				liveChartHandle = null;
+			}
+			void renderLiveSnapshotChart(ticker);
+		}
+
+		async function renderLiveSnapshotChart(ticker) {
+			if (!liveChart || !liveChartStatus) return;
+			const helpers = await whenHistoryHelpersReady();
+			if (!helpers) {
+				liveChartStatus.textContent = 'History loader unavailable; refresh the page.';
+				statusElement.textContent = 'History loader unavailable.';
+				return;
+			}
+			liveChartStatus.textContent = 'Loading history…';
+			try {
+				const series = await helpers.getHistoryForTicker(ticker);
+				if (!series) {
+					if (liveStats) liveStats.hidden = true;
+					liveChartStatus.textContent =
+						'No history series for this ticker. Run `npm run history:fetch -- --tickers=' +
+						ticker +
+						' --lookback max` or import a CSV, then rebuild.';
+					statusElement.textContent = 'No shim history for this ticker.';
+					return;
+				}
+				const summary = helpers.summarizeHistoryWindow(series);
+				if (liveStats) liveStats.hidden = false;
+				if (liveTotal) liveTotal.textContent = pctFormatter.format(summary.totalReturnPct / 100);
+				if (liveAnnualized) liveAnnualized.textContent = pctFormatter.format(summary.annualizedReturnPct / 100);
+				if (liveDrawdown) liveDrawdown.textContent = pctFormatter.format(summary.maxDrawdownPct / 100);
+				if (liveVolume) liveVolume.textContent = numFormatter.format(Math.round(summary.avgVolume));
+				liveChartStatus.textContent = `${numFormatter.format(series.rows)} daily bars · ${helpers.dayKeyToISO(series.rangeStart)} → ${helpers.dayKeyToISO(series.rangeEnd)} · source: ${series.source}`;
+				statusElement.textContent = 'Chart ready (Erika shim).';
+				if (liveChartHandle) liveChartHandle.dispose();
+				liveChartHandle = await mountSparkline(liveChart, series);
+			} catch (err) {
+				liveChartStatus.textContent = `History failed: ${err && err.message ? err.message : err}`;
+				statusElement.textContent = 'History failed to load.';
 			}
 		}
 
@@ -752,16 +795,17 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 
 	.listing-live-frame-card {
 		padding: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
 	}
 
-	.listing-live-iframe {
-		display: block;
-		width: 100%;
-		min-height: 420px;
-		margin-top: 14px;
-		border: 0;
-		border-radius: 14px;
-		background: rgba(0, 0, 0, 0.2);
+	.listing-live-stats {
+		margin-top: 4px;
+	}
+
+	.listing-live-frame-card .history-chart {
+		margin-top: 4px;
 	}
 
 	.header {
