@@ -1,0 +1,162 @@
+{
+	"defaultSeason": 2026,
+	"seasons": [
+		{
+			"year": 2024,
+			"label": "2024 NCAA Division I men's basketball tournament",
+			"academicSeason": "2023–24",
+			"selectionSunday": "2024-03-17",
+			"champion": { "name": "UConn", "seed": 1 },
+			"runnerUp": { "name": "Purdue", "seed": 1 },
+			"finalFour": [
+				{ "name": "UConn", "seed": 1, "region": "East" },
+				{ "name": "Alabama", "seed": 4, "region": "West" },
+				{ "name": "NC State", "seed": 11, "region": "South" },
+				{ "name": "Purdue", "seed": 1, "region": "Midwest" }
+			],
+			"finalFourSite": "State Farm Stadium · Glendale, AZ",
+			"titleSite": "State Farm Stadium · Glendale, AZ",
+			"regions": [
+				{ "name": "South", "oneSeed": "Houston" },
+				{ "name": "East", "oneSeed": "UConn" },
+				{ "name": "Midwest", "oneSeed": "Purdue" },
+				{ "name": "West", "oneSeed": "North Carolina" }
+			],
+			"markets": [
+				{
+					"id": "2024-champ",
+					"title": "National champion (resolved)",
+					"venue": "kalshi",
+					"url": "https://kalshi.com/category/sports/mens-college-basketball",
+					"kind": "champion",
+					"bracketGameId": "champ-2024",
+					"note": "Archive / similar series next season — use your exchange slug."
+				},
+				{
+					"id": "2024-ff-uconn",
+					"title": "UConn reaches Final Four",
+					"venue": "polymarket",
+					"url": "https://polymarket.com/sports/mens-college-basketball",
+					"kind": "region",
+					"bracketGameId": "ff-2024-e",
+					"note": "Link pattern for game- or team-scoped contracts."
+				},
+				{
+					"id": "2024-r64-5v12",
+					"title": "Round of 64 · classic 5/12 upset watch",
+					"venue": "kalshi",
+					"url": "https://kalshi.com/category/sports/mens-college-basketball",
+					"kind": "game",
+					"bracketGameId": "s-r64-3",
+					"note": "Map `bracketGameId` to your internal matchup key (see march-arena `Game.id`)."
+				}
+			]
+		},
+		{
+			"year": 2025,
+			"label": "2025 NCAA Division I men's basketball tournament",
+			"academicSeason": "2024–25",
+			"selectionSunday": "2025-03-16",
+			"champion": { "name": "Florida", "seed": 1 },
+			"runnerUp": { "name": "Houston", "seed": 1 },
+			"finalFour": [
+				{ "name": "Florida", "seed": 1, "region": "West" },
+				{ "name": "Auburn", "seed": 1, "region": "South" },
+				{ "name": "Houston", "seed": 1, "region": "Midwest" },
+				{ "name": "Duke", "seed": 1, "region": "East" }
+			],
+			"finalFourSite": "Alamodome · San Antonio, TX",
+			"titleSite": "Alamodome · San Antonio, TX",
+			"regions": [
+				{ "name": "South", "oneSeed": "Auburn" },
+				{ "name": "East", "oneSeed": "Duke" },
+				{ "name": "Midwest", "oneSeed": "Houston" },
+				{ "name": "West", "oneSeed": "Florida" }
+			],
+			"markets": [
+				{
+					"id": "2025-champ",
+					"title": "Champion · Florida vs Houston field (example)",
+					"venue": "kalshi",
+					"url": "https://kalshi.com/category/sports/mens-college-basketball",
+					"kind": "champion",
+					"bracketGameId": "champ-2025",
+					"note": "Resolved bracket id aligns with march-arena `champ-2025` naming."
+				},
+				{
+					"id": "2025-ff-left",
+					"title": "Final Four · Auburn vs Florida",
+					"venue": "polymarket",
+					"url": "https://polymarket.com/sports/mens-college-basketball",
+					"kind": "game",
+					"bracketGameId": "ff-2025-l",
+					"note": "Semifinal leg — wire odds from your provider to this row."
+				},
+				{
+					"id": "2025-ff-right",
+					"title": "Final Four · Duke vs Houston",
+					"venue": "polymarket",
+					"url": "https://polymarket.com/sports/mens-college-basketball",
+					"kind": "game",
+					"bracketGameId": "ff-2025-r",
+					"note": "Second FF game id for cross-linking sims + settlements."
+				},
+				{
+					"id": "2025-most-outstanding",
+					"title": "Most Outstanding Player (MOP) of the Final Four",
+					"venue": "kalshi",
+					"url": "https://kalshi.com/category/sports/mens-college-basketball",
+					"kind": "prop",
+					"bracketGameId": null,
+					"note": "No single bracket cell — props still keyed by season in this file."
+				}
+			]
+		},
+		{
+			"year": 2026,
+			"label": "2026 NCAA Division I men's basketball tournament",
+			"academicSeason": "2025–26",
+			"selectionSunday": "2026-03-08",
+			"champion": null,
+			"runnerUp": null,
+			"finalFour": [],
+			"finalFourSite": "Domed football stadiums (Indianapolis FF per NCAA release cycle)",
+			"titleSite": "Lucas Oil Stadium · Indianapolis, IN",
+			"regions": [
+				{ "name": "South", "oneSeed": "TBD (Selection Sunday)" },
+				{ "name": "East", "oneSeed": "TBD" },
+				{ "name": "Midwest", "oneSeed": "TBD" },
+				{ "name": "West", "oneSeed": "TBD" }
+			],
+			"markets": [
+				{
+					"id": "2026-champ-futures",
+					"title": "Futures · national champion (pre-bracket)",
+					"venue": "kalshi",
+					"url": "https://kalshi.com/category/sports/mens-college-basketball",
+					"kind": "champion",
+					"bracketGameId": null,
+					"note": "Before seeds: list season-wide; after Selection Sunday, shard per region."
+				},
+				{
+					"id": "2026-1-seeds",
+					"title": "Number of unique conferences represented by 1-seeds",
+					"venue": "polymarket",
+					"url": "https://polymarket.com/sports/mens-college-basketball",
+					"kind": "prop",
+					"bracketGameId": null,
+					"note": "Macro bracket prop — no `bracketGameId` until matchups exist."
+				},
+				{
+					"id": "2026-first-four",
+					"title": "First Four · at least one double-digit seed advances to R64",
+					"venue": "kalshi",
+					"url": "https://kalshi.com/category/sports/mens-college-basketball",
+					"kind": "prop",
+					"bracketGameId": "ff-slot-aggregate",
+					"note": "Optional aggregate id; per-game ids follow march-arena `FIRST_FOUR_SLOTS` order."
+				}
+			]
+		}
+	]
+}
