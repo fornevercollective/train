@@ -3,6 +3,402 @@ import Layout from '../../layouts/Layout.astro';
 
 const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
 const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
+
+const kalshiSportsUrl = 'https://kalshi.com/category/sports/all-sports';
+
+/** Core tab metadata (static shell). */
+const genreCore = [
+	{
+		id: 'all',
+		section: 'sports',
+		label: 'All sports',
+		heroTitle: 'All sports · featured ladder',
+		heroSub: 'Cross-league tiles · Kalshi-style discovery',
+	},
+	{
+		id: 'nfl',
+		section: 'sports',
+		label: 'NFL',
+		heroTitle: 'NFL · primary program',
+		heroSub: 'Spreads · totals · props · futures',
+	},
+	{
+		id: 'nba',
+		section: 'sports',
+		label: 'NBA',
+		heroTitle: 'NBA · primary program',
+		heroSub: 'Sides · player props · series prices',
+	},
+	{
+		id: 'mlb',
+		section: 'sports',
+		label: 'MLB',
+		heroTitle: 'MLB · primary program',
+		heroSub: 'Moneylines · run lines · K props',
+	},
+	{
+		id: 'nhl',
+		section: 'sports',
+		label: 'NHL',
+		heroTitle: 'NHL · primary program',
+		heroSub: 'Puck lines · totals · SOG',
+	},
+	{
+		id: 'ncaaf',
+		section: 'sports',
+		label: 'NCAA FB',
+		heroTitle: 'NCAA football',
+		heroSub: 'Bowls · CFP · weekly ladders',
+	},
+	{
+		id: 'ncaamb',
+		section: 'sports',
+		label: 'NCAA BK',
+		heroTitle: 'NCAA basketball',
+		heroSub: 'March lines · conference packs',
+	},
+	{
+		id: 'wnba',
+		section: 'sports',
+		label: 'WNBA',
+		heroTitle: 'WNBA · primary program',
+		heroSub: 'Game lines · awards futures',
+	},
+	{
+		id: 'soccer',
+		section: 'sports',
+		label: 'Soccer',
+		heroTitle: 'Soccer · primary program',
+		heroSub: '3-way · Asian handicap · totals',
+	},
+	{
+		id: 'tennis',
+		section: 'sports',
+		label: 'Tennis',
+		heroTitle: 'Tennis · primary program',
+		heroSub: 'Match · set · game contracts',
+	},
+	{
+		id: 'golf',
+		section: 'sports',
+		label: 'Golf',
+		heroTitle: 'Golf · primary program',
+		heroSub: 'Tournament winner · round matchups',
+	},
+	{
+		id: 'mma',
+		section: 'sports',
+		label: 'MMA / Boxing',
+		heroTitle: 'Fighting · primary program',
+		heroSub: 'Moneyline · rounds · method',
+	},
+	{
+		id: 'esports',
+		section: 'sports',
+		label: 'Esports',
+		heroTitle: 'Esports · primary program',
+		heroSub: 'Maps · series · first blood',
+	},
+	{
+		id: 'motorsports',
+		section: 'sports',
+		label: 'Motorsports',
+		heroTitle: 'Motorsports · primary program',
+		heroSub: 'Race winner · head-to-head · stage',
+	},
+	{
+		id: 'olympics',
+		section: 'sports',
+		label: 'Olympics',
+		heroTitle: 'Olympics · primary program',
+		heroSub: 'Medal tables · event winners',
+	},
+	{
+		id: 'cricket',
+		section: 'sports',
+		label: 'Cricket',
+		heroTitle: 'Cricket · primary program',
+		heroSub: 'Match · innings · player milestones',
+	},
+	{
+		id: 'rugby',
+		section: 'sports',
+		label: 'Rugby',
+		heroTitle: 'Rugby · primary program',
+		heroSub: 'Handicap · totals · tournament',
+	},
+	{
+		id: 'pickleball',
+		section: 'sports',
+		label: 'Pickleball',
+		heroTitle: 'Pickleball · primary program',
+		heroSub: 'Match · game · side-out ladders',
+	},
+	{
+		id: 'politics',
+		section: 'markets',
+		label: 'Politics',
+		heroTitle: 'Politics · prediction desk',
+		heroSub: 'Elections · legislation · appointments',
+	},
+	{
+		id: 'economics',
+		section: 'markets',
+		label: 'Economics',
+		heroTitle: 'Economics · prediction desk',
+		heroSub: 'Rates · CPI · payroll · GDP prints',
+	},
+	{
+		id: 'financials',
+		section: 'markets',
+		label: 'Financials',
+		heroTitle: 'Companies · earnings',
+		heroSub: 'EPS beat · guidance · single-name',
+	},
+	{
+		id: 'crypto',
+		section: 'markets',
+		label: 'Crypto',
+		heroTitle: 'Crypto · prediction desk',
+		heroSub: 'Spot paths · ETF flows · regulatory',
+	},
+	{
+		id: 'science',
+		section: 'markets',
+		label: 'Science',
+		heroTitle: 'Science & health',
+		heroSub: 'Trials · approvals · milestones',
+	},
+	{
+		id: 'climate',
+		section: 'markets',
+		label: 'Climate',
+		heroTitle: 'Climate & weather',
+		heroSub: 'Temps · storms · seasonal',
+	},
+	{
+		id: 'culture',
+		section: 'markets',
+		label: 'Culture',
+		heroTitle: 'Culture & awards',
+		heroSub: 'Box office · Emmys · Oscars ladder',
+	},
+	{
+		id: 'demographics',
+		section: 'markets',
+		label: 'Demographics',
+		heroTitle: 'Demographics & social',
+		heroSub: 'Census · population · migration',
+	},
+	{
+		id: 'world',
+		section: 'markets',
+		label: 'World',
+		heroTitle: 'World & geopolitics',
+		heroSub: 'Conflict · sanctions · diplomacy',
+	},
+];
+
+/** Placeholder “this week” slates — wire to your exchange / EPG feed. */
+const upcomingById: Record<string, { when: string; title: string; markets: string }[]> = {
+	all: [
+		{ when: 'Thu · 8:15p ET', title: 'NFL · KC @ BUF', markets: 'ML · spread · O/U' },
+		{ when: 'Thu · 10:00p ET', title: 'NBA · BOS @ DEN', markets: 'ML · margin · player pts' },
+		{ when: 'Sat · 12:00p ET', title: 'NCAA FB · rivalry window', markets: 'ML · O/U · 1H' },
+		{ when: 'Sat · 7:30p ET', title: 'Soccer · EPL featured', markets: '3-way · Asian HC · BTTS' },
+		{ when: 'Sun · 1:00p ET', title: 'NFL · main slate (8 games)', markets: 'SGP · teasers · alt lines' },
+	],
+	nfl: [
+		{ when: 'Thu · 8:15p ET', title: 'KC @ BUF', markets: 'ML · spread · O/U 47.5' },
+		{ when: 'Sun · 1:00p ET', title: 'BAL @ PIT', markets: 'division · alt spread' },
+		{ when: 'Sun · 4:25p ET', title: 'SF @ PHI', markets: 'NFC seeding · player pass yds' },
+		{ when: 'Sun · 8:20p ET', title: 'SNF · national window', markets: 'kicking · anytime TD' },
+		{ when: 'Mon · 8:15p ET', title: 'MNF · closing twin', markets: 'live ML · 2H totals' },
+	],
+	nba: [
+		{ when: 'Wed · 7:00p ET', title: 'MIL @ BOS', markets: 'ML · spread · team total' },
+		{ when: 'Wed · 9:30p ET', title: 'DAL @ PHX', markets: 'margin · Q1 winner' },
+		{ when: 'Fri · 7:30p ET', title: 'NYK @ MIA', markets: 'player ast · 3PM O/U' },
+		{ when: 'Sat · 8:00p ET', title: 'DEN @ OKC', markets: 'series hedge · alt lines' },
+		{ when: 'Sun · 3:30p ET', title: 'LAL @ LAC', markets: 'double-double · rebounds' },
+	],
+	mlb: [
+		{ when: 'Mon · 6:40p ET', title: 'NYY @ TOR', markets: 'ML · RL · F5' },
+		{ when: 'Tue · 7:05p ET', title: 'HOU @ TEX', markets: 'K props · 1st inning' },
+		{ when: 'Wed · 4:10p ET', title: 'LAD @ SD', markets: 'YRFI/NRFI · team hits' },
+		{ when: 'Fri · 8:10p ET', title: 'Weekend series G1', markets: 'series price · sweep' },
+		{ when: 'Sun · 1:10p ET', title: 'Getaway day DH risk', markets: 'alt totals · bullpen' },
+	],
+	nhl: [
+		{ when: 'Tue · 7:00p ET', title: 'EDM @ VAN', markets: 'ML · puck line · O/U' },
+		{ when: 'Thu · 7:30p ET', title: 'TOR @ FLA', markets: 'reg time · SO yes/no' },
+		{ when: 'Sat · 4:00p ET', title: 'Outdoor / specialty', markets: '1P winner · shots' },
+		{ when: 'Sat · 10:00p ET', title: 'West coast stack', markets: 'alt goals · PP goals' },
+		{ when: 'Sun · 5:00p ET', title: 'Metro matinee', markets: 'back-to-back fatigue' },
+	],
+	ncaaf: [
+		{ when: 'Fri · 8:00p ET', title: 'Group of 5 spotlight', markets: 'ML · O/U · 1H' },
+		{ when: 'Sat · 12:00p ET', title: 'Noon SEC / Big Ten', markets: 'spread ladder · TT' },
+		{ when: 'Sat · 3:30p ET', title: 'ABC / CBS headliner', markets: 'CFP impact · live ML' },
+		{ when: 'Sat · 7:30p ET', title: 'Prime time rivalry', markets: 'player rush yds' },
+		{ when: 'Sat · 10:30p ET', title: 'Pac-12 / late window', markets: 'alt totals · weather' },
+	],
+	ncaamb: [
+		{ when: 'Mon · 7:00p ET', title: 'Top-25 undercard', markets: 'ML · spread · 1H' },
+		{ when: 'Tue · 9:00p ET', title: 'Conference home stand', markets: 'team total · margin' },
+		{ when: 'Thu · 7:00p ET', title: 'Gavitt / MTE spillover', markets: 'player pts · 3PM' },
+		{ when: 'Sat · 12:00p ET', title: 'Saturday hoops slate', markets: 'parlay anchors' },
+		{ when: 'Sun · 1:00p ET', title: 'Bracketology watch', markets: 'bubble teams ML' },
+	],
+	wnba: [
+		{ when: 'Tue · 8:00p ET', title: 'Playoff seeding game', markets: 'ML · spread · TT' },
+		{ when: 'Thu · 7:30p ET', title: 'Commissioner’s Cup echo', markets: 'player PRA' },
+		{ when: 'Fri · 8:00p ET', title: 'Rivalry night', markets: '1Q · race to 20' },
+		{ when: 'Sun · 3:00p ET', title: 'Matinee double-header', markets: '2H · alt lines' },
+		{ when: 'Wed · 9:00p ET', title: 'West coast closer', markets: 'live totals' },
+	],
+	soccer: [
+		{ when: 'Sat · 7:30a ET', title: 'EPL early kickoff', markets: '3-way · Asian HC · O/U' },
+		{ when: 'Sat · 10:00a ET', title: 'UCL knock-out leg', markets: 'BTTS · corners' },
+		{ when: 'Sat · 12:30p ET', title: 'MLS decision day', markets: 'playoff line · DNB' },
+		{ when: 'Sun · 9:00a ET', title: 'Serie A / LaLiga', markets: 'draw no bet · cards' },
+		{ when: 'Wed · 3:00p ET', title: 'Midweek cup replay', markets: 'qualify · ET yes/no' },
+	],
+	tennis: [
+		{ when: 'Mon · 11:00a ET', title: 'ATP R32 · center court', markets: 'match ML · set handicap' },
+		{ when: 'Tue · 2:00p ET', title: 'WTA QF', markets: 'total games · tiebreak' },
+		{ when: 'Thu · 4:00p ET', title: 'ATP SF', markets: 'aces · double faults' },
+		{ when: 'Sat · 1:00p ET', title: 'Final · best-of-5', markets: 'exact sets · live ML' },
+		{ when: 'Sun · 12:00p ET', title: 'Doubles / specialty', markets: 'match tiebreak' },
+	],
+	golf: [
+		{ when: 'Thu · 7:00a ET', title: 'Major R1 tee times', markets: 'tournament winner · T5' },
+		{ when: 'Fri · 7:00a ET', title: 'Cut line drama', markets: 'make/miss cut · RD2 leader' },
+		{ when: 'Sat · 9:00a ET', title: 'Moving day', markets: 'RD3 low round · 3-ball' },
+		{ when: 'Sun · 9:00a ET', title: 'Final round', markets: 'head-to-head · winning margin' },
+		{ when: 'Mon · playoff?', title: 'Weather / Monday finish', markets: 'playoff yes/no' },
+	],
+	mma: [
+		{ when: 'Sat · 6:00p ET', title: 'Early prelims', markets: 'ML · O/U rounds' },
+		{ when: 'Sat · 8:00p ET', title: 'Main card · title', markets: 'method · distance' },
+		{ when: 'Sat · 10:00p ET', title: 'Co-main heavyweights', markets: 'KD in fight' },
+		{ when: 'Sun · boxing PPV', title: 'Cross-promo', markets: 'exact rounds' },
+		{ when: 'Wed · contender', title: 'DWCS / short notice', markets: 'fight starts round' },
+	],
+	esports: [
+		{ when: 'Thu · 3:00p ET', title: 'Bo5 · map 1 winner', markets: 'series · map handicap' },
+		{ when: 'Fri · 5:00p ET', title: 'International LAN', markets: 'first blood · total kills' },
+		{ when: 'Sat · 1:00p ET', title: 'Double elim upper', markets: 'duration · tech pause' },
+		{ when: 'Sat · 8:00p ET', title: 'Prime finals', markets: 'live map ML' },
+		{ when: 'Sun · 12:00p ET', title: 'Regional league', markets: 'ace · baron' },
+	],
+	motorsports: [
+		{ when: 'Fri · practice', title: 'FP2 · quali form', markets: 'pole · top-3' },
+		{ when: 'Sat · quali', title: 'Grid set', markets: 'front row · Q3 times' },
+		{ when: 'Sun · race', title: 'Grand Prix', markets: 'winner · podium · H2H' },
+		{ when: 'Sun · NASCAR', title: 'Stage winners', markets: 'stage 1/2/3' },
+		{ when: 'Mon · review', title: 'Protest / DSQ risk', markets: 'official classification' },
+	],
+	olympics: [
+		{ when: 'Mon · session', title: 'Swim finals', markets: 'gold nation · WR' },
+		{ when: 'Tue · session', title: 'Track heats', markets: 'advance yes/no' },
+		{ when: 'Wed · session', title: 'Gymnastics team', markets: 'medal count delta' },
+		{ when: 'Thu · session', title: 'Basketball QF', markets: 'spread · total' },
+		{ when: 'Sun · closing', title: 'Medal table tiebreak', markets: 'top-3 order' },
+	],
+	cricket: [
+		{ when: 'Wed · T20I', title: 'Tri-series evening', markets: 'match · innings O/U' },
+		{ when: 'Thu · ODI', title: 'Day/night', markets: 'top batter · wickets' },
+		{ when: 'Fri · Test D3', title: 'Session markets', markets: 'lead after D3' },
+		{ when: 'Sat · IPL', title: 'Evening window', markets: 'powerplay runs · sixes' },
+		{ when: 'Sun · BBL', title: 'Double-header', markets: 'most sixes in day' },
+	],
+	rugby: [
+		{ when: 'Fri · URC', title: 'Conference clash', markets: 'handicap · winning margin' },
+		{ when: 'Sat · Six Nations', title: 'Round 3', markets: 'first try · total tries' },
+		{ when: 'Sat · NRL', title: 'Anzac / showcase', markets: 'HT/FT' },
+		{ when: 'Sun · Premiership', title: 'Derby', markets: 'cards · pens' },
+		{ when: 'Wed · Super Rugby', title: 'Tour week', markets: 'alt handicap' },
+	],
+	pickleball: [
+		{ when: 'Thu · 6:00p ET', title: 'PPA · mixed doubles', markets: 'match · game handicap' },
+		{ when: 'Fri · 5:00p ET', title: 'Singles ladder', markets: 'race to 11' },
+		{ when: 'Sat · 2:00p ET', title: 'Bracket final', markets: 'side-out count' },
+		{ when: 'Sun · 11:00a ET', title: 'Regional open', markets: 'exact games' },
+		{ when: 'Tue · 7:00p ET', title: 'League night', markets: 'season points' },
+	],
+	politics: [
+		{ when: 'Mon · 9:00a ET', title: 'Primary delegate path', markets: 'threshold · brokered?' },
+		{ when: 'Tue · all day', title: 'Special election night', markets: 'margin band' },
+		{ when: 'Wed · hearing', title: 'Committee outcome', markets: 'Yes/No · timeline' },
+		{ when: 'Thu · filing', title: 'Ballot access deadline', markets: 'qualify · challenge' },
+		{ when: 'Sun · poll drop', title: 'Approval swing', markets: 'week-over-week' },
+	],
+	economics: [
+		{ when: 'Wed · 8:30a ET', title: 'CPI print', markets: 'YoY core · surprise' },
+		{ when: 'Fri · 8:30a ET', title: 'Payroll / UR', markets: 'NFP band · participation' },
+		{ when: 'Mon · 10:00a ET', title: 'ISM services', markets: 'above 50?' },
+		{ when: 'Thu · 8:30a ET', title: 'Jobless claims', markets: '4wk avg move' },
+		{ when: 'Tue · 2:00p ET', title: 'FOMC read-through', markets: 'dots vs swaps' },
+	],
+	financials: [
+		{ when: 'Mon AH', title: 'Mag7 name · earnings', markets: 'EPS beat · guide up' },
+		{ when: 'Tue BMO', title: 'Retail read', markets: 'same-store · inventory' },
+		{ when: 'Wed AMC', title: 'Semis supply chain', markets: 'data-center rev' },
+		{ when: 'Thu BMO', title: 'Bank net interest', markets: 'NCO ratio' },
+		{ when: 'Fri · rebalance', title: 'Index adds/drops', markets: 'inclusion vol' },
+	],
+	crypto: [
+		{ when: 'Mon · weekly', title: 'BTC range resolve', markets: 'above X on Fri close?' },
+		{ when: 'Tue · flow', title: 'ETF net flow', markets: 'positive 5 of 5 days?' },
+		{ when: 'Wed · event', title: 'FOMC beta', markets: 'ETH/BTC ratio' },
+		{ when: 'Thu · options', title: 'Quarterly expiry', markets: 'max pain' },
+		{ when: 'Sun · funding', title: 'Perp basis', markets: 'negative funding streak' },
+	],
+	science: [
+		{ when: 'Mon · PDUFA', title: 'FDA decision window', markets: 'approve · CRL' },
+		{ when: 'Tue · readout', title: 'Phase III top-line', markets: 'primary met?' },
+		{ when: 'Wed · panel', title: 'AdCom vote', markets: 'positive recommendation' },
+		{ when: 'Thu · journal', title: 'Publication embargo', markets: 'stat sig' },
+		{ when: 'Fri · trial', title: 'Enrollment complete', markets: 'timeline slip' },
+	],
+	climate: [
+		{ when: 'Mon · 7d', title: 'Regional heat dome', markets: 'max temp band' },
+		{ when: 'Tue · 72h', title: 'Named storm formation', markets: 'ACE bucket' },
+		{ when: 'Wed · seasonal', title: 'Hurricane season', markets: 'count O/U' },
+		{ when: 'Thu · precip', title: 'West coast AR', markets: 'river stage' },
+		{ when: 'Sun · verify', title: 'NWS final numbers', markets: 'record tied?' },
+	],
+	culture: [
+		{ when: 'Thu · BO', title: 'Opening weekend', markets: 'domestic O/U' },
+		{ when: 'Sun · awards', title: 'Guild precursor', markets: 'picture · director' },
+		{ when: 'Mon · noms', title: 'Oscar shortlist', markets: 'snub index' },
+		{ when: 'Wed · ratings', title: 'Season finale', markets: 'YoY drop' },
+		{ when: 'Fri · fest', title: 'Acquisition buzz', markets: 'sale price band' },
+	],
+	demographics: [
+		{ when: 'Tue · release', title: 'Census vintage update', markets: 'revision direction' },
+		{ when: 'Wed · metro', title: 'Population rank swap', markets: 'top-10 order' },
+		{ when: 'Thu · migration', title: 'Net domestic flow', markets: 'Sun Belt gain' },
+		{ when: 'Fri · ACS', title: '1-year survey', markets: 'median income band' },
+		{ when: 'Sun · model', title: 'UN revision', markets: '2050 peak pop?' },
+	],
+	world: [
+		{ when: 'Mon · wire', title: 'Sanctions package', markets: 'sector coverage' },
+		{ when: 'Tue · talks', title: 'Ceasefire window', markets: '72h hold' },
+		{ when: 'Wed · border', title: 'Escalation step', markets: 'NATO Article?' },
+		{ when: 'Thu · energy', title: 'Pipeline flow', markets: 'cut volume' },
+		{ when: 'Fri · UN', title: 'Resolution vote', markets: 'abstain count' },
+	],
+};
+
+const genreTabsForClient = genreCore.map((g) => ({
+	...g,
+	upcoming: upcomingById[g.id] ?? [],
+}));
+
+const sportsGenres = genreTabsForClient.filter((g) => g.section === 'sports');
+const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 ---
 
 <Layout
@@ -14,78 +410,316 @@ const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
 >
 	<section class="container sports-shell">
 		<header class="sports-hero card">
-			<div class="sports-hero-copy">
-				<p class="sports-kicker mono">Train · static shell</p>
-				<h1 class="sports-title">Sports viewing layout</h1>
-				<p class="muted sports-lead">
-					This route holds the <strong>grid, rails, and typography</strong> for a premium live sports experience.
-					Attach a real player from your Game <code>/live</code> desk, a WebRTC/HLS workpad, or another origin in a
-					new tab or iframe once you deploy that stack outside Pages.
-				</p>
-				<div class="sports-hero-actions">
-					{
-						gameLiveUrl ? (
-							<a class="button" href={gameLiveUrl} target="_blank" rel="noopener noreferrer">
-								Open Game live desk
-							</a>
-						) : null
-					}
-					<a class="button-secondary" href={`${import.meta.env.BASE_URL}predictions/`}>
-						Predictions + field viz
-					</a>
-					<a
-						class="button-secondary"
-						href="https://ballerleague.us/en"
-						target="_blank"
-						rel="noopener noreferrer"
+			<div class="sports-hero-genres">
+				<div class="sports-genre-strip">
+					<div class="sports-genre-strip-head">
+						<span class="sports-genre-strip-label mono small">Sports</span>
+						<a
+							class="sports-genre-kalshi mono small"
+							href={kalshiSportsUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Kalshi · all sports
+						</a>
+					</div>
+					<div
+						class="sports-genre-scroll"
+						role="tablist"
+						aria-label="Sports genres and leagues"
 					>
-						Baller League (sample feed)
-					</a>
+						{
+							sportsGenres.map((g) => (
+								<button
+									type="button"
+									class="sports-genre-tab"
+									role="tab"
+									id={`genre-tab-${g.id}`}
+									data-genre-tab={g.id}
+									aria-selected={g.id === 'all' ? 'true' : 'false'}
+									tabindex={g.id === 'all' ? 0 : -1}
+								>
+									{g.label}
+								</button>
+							))
+						}
+					</div>
 				</div>
+				<div class="sports-genre-strip">
+					<div class="sports-genre-strip-head">
+						<span class="sports-genre-strip-label mono small">Prediction markets</span>
+						<span class="sports-genre-strip-hint muted small">Beyond sports · same contract UX</span>
+					</div>
+					<div
+						class="sports-genre-scroll"
+						role="tablist"
+						aria-label="Prediction market categories"
+					>
+						{
+							marketGenres.map((g) => (
+								<button
+									type="button"
+									class="sports-genre-tab sports-genre-tab--markets"
+									role="tab"
+									id={`genre-tab-${g.id}`}
+									data-genre-tab={g.id}
+									aria-selected="false"
+									tabindex={-1}
+								>
+									{g.label}
+								</button>
+							))
+						}
+					</div>
+				</div>
+				<p class="sports-genre-readout mono small" id="sports-genre-readout" aria-live="polite">
+					Sports · All sports
+				</p>
 			</div>
-			<div class="sports-hero-stage card sports-live-card" aria-label="Main live tile placeholder">
-				<span class="sports-live-badge">LIVE</span>
-				<div class="sports-live-inner">
-					<p class="sports-live-title">Primary program</p>
-					<p class="muted sports-live-sub">16:9 hero · drop HLS or iframe here</p>
+
+			<div class="sports-hero-body">
+				<div class="sports-hero-copy">
+					<p class="sports-kicker mono">Train · static shell</p>
+					<h1 class="sports-title">Sports viewing layout</h1>
+					<p class="muted sports-lead">
+						This route holds the <strong>grid, rails, and typography</strong> for a premium live sports experience.
+						Use the genre tabs above for sportsbooks-style navigation (aligned with discovery patterns like{' '}
+						<a href={kalshiSportsUrl} target="_blank" rel="noopener noreferrer">Kalshi all sports</a>
+						) plus full prediction-market verticals. Attach a real player from your Game <code>/live</code> desk, a
+						WebRTC/HLS workpad, or another origin in a new tab or iframe once you deploy that stack outside Pages.
+					</p>
+					<div class="sports-hero-actions">
+						{
+							gameLiveUrl ? (
+								<a class="button" href={gameLiveUrl} target="_blank" rel="noopener noreferrer">
+									Open Game live desk
+								</a>
+							) : null
+						}
+						<a class="button-secondary" href={`${import.meta.env.BASE_URL}predictions/`}>
+							Predictions + field viz
+						</a>
+						<a
+							class="button-secondary"
+							href="https://ballerleague.us/en"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Baller League (sample feed)
+						</a>
+					</div>
+				</div>
+				<div class="sports-hero-stage card sports-live-card" aria-label="Main live tile placeholder">
+					<span class="sports-live-badge">LIVE</span>
+					<div class="sports-live-inner">
+						<p class="sports-live-title" id="sports-live-program">All sports · featured ladder</p>
+						<p class="muted sports-live-sub" id="sports-live-program-sub">
+							Cross-league tiles · Kalshi-style discovery
+						</p>
+					</div>
 				</div>
 			</div>
 		</header>
 
 		<div class="sports-grid">
-			<aside class="sports-rail card" aria-label="Scores and stats rail">
-				<h2 class="sports-rail-title">Side rail</h2>
-				<p class="muted small">
-					Box score, downs &amp; distance, possession, fantasy deltas — bind to your data plane later.
+			<aside class="sports-rail card" aria-label="Upcoming games and markets this week">
+				<h2 class="sports-rail-title">This week</h2>
+				<p class="muted small sports-rail-lede">
+					Upcoming games and markets in the weekly window — static placeholder slate; swap for your EPG, exchange
+					calendar, or Kalshi-style event list.
 				</p>
-				<ul class="sports-rail-list mono small muted">
-					<li>period — Q3</li>
-					<li>clock — 7:42</li>
-					<li>possession — home</li>
-					<li>timeouts — 2 / 3</li>
+				<p class="sports-rail-week mono small muted" id="sports-rail-week-hint">
+					This week · games &amp; props (sample slate)
+				</p>
+				<ul class="sports-upcoming-list" id="sports-rail-lines">
+					{
+						genreTabsForClient
+							.find((g) => g.id === 'all')
+							?.upcoming.map((row) => (
+								<li class="sports-upcoming-item">
+									<span class="sports-upcoming-when mono">{row.when}</span>
+									<div class="sports-upcoming-body">
+										<span class="sports-upcoming-title">{row.title}</span>
+										<span class="sports-upcoming-mkts muted">{row.markets}</span>
+									</div>
+								</li>
+							))
+					}
 				</ul>
 			</aside>
 
 			<div class="sports-main-col">
-				<section class="card sports-shelf" aria-label="Camera angles and secondary tiles">
+				<section
+					class="card sports-shelf"
+					aria-label="Camera angles, vision analysis lanes, and Gaussian splats"
+				>
 					<h2 class="sports-shelf-title">Multi-angle shelf</h2>
-					<p class="muted small">PiP / iso cams / replay stack — same pattern as national broadcast UIs.</p>
-					<div class="sports-thumb-row">
+					<p class="muted small">
+						PiP / iso cams / replay stack — same pattern as national broadcast UIs. Below: analysis lanes for
+						<strong>jersey kits</strong>, <strong>segment-anything class masks</strong>, and <strong>3D Gaussian splats</strong> (preview
+						bus / research trees — not rendered on this static page).
+					</p>
+					<div class="sports-thumb-row" aria-label="Program and camera tiles">
 						<div class="sports-thumb is-active"><span class="mono small">PGM</span></div>
 						<div class="sports-thumb"><span class="mono small">CAM 2</span></div>
 						<div class="sports-thumb"><span class="mono small">CAM 3</span></div>
 						<div class="sports-thumb"><span class="mono small">REPLAY</span></div>
 					</div>
+
+					<h3 class="sports-shelf-subtitle mono">Analysis lanes</h3>
+					<div class="sports-analysis-grid" role="list">
+						<div class="sports-analysis-tile" role="listitem">
+							<span class="sports-analysis-pill mono small">kits</span>
+							<p class="sports-analysis-copy small">
+								League and club <strong>kit palettes</strong> (HEX / RGB) for lower-thirds, virtual ads, and
+								graphics math — same idea as the bundled sports-field jersey tables in the live workpad.
+							</p>
+						</div>
+						<div class="sports-analysis-tile" role="listitem">
+							<span class="sports-analysis-pill mono small">segment_anything</span>
+							<p class="sports-analysis-copy small">
+								Promptable <strong>masks</strong> (SAM / SAM2) for players, pitch lines, and equipment — feed
+								tensors to stats or comp; wire inference off-process via{' '}
+								<code class="sports-inline-code">SAM2_SERVICE_URL</code> on your pipeline host (see Broadcast desk).
+							</p>
+						</div>
+						<div class="sports-analysis-tile" role="listitem">
+							<span class="sports-analysis-pill mono small">gsplats</span>
+							<p class="sports-analysis-copy small">
+								<strong>3D Gaussian splats</strong> for venue / set preview (SuperSplat, mkkellogg viewer): load
+								<code class="sports-inline-code">.splat</code> beside the program for director rehearsal — keep GPU
+								work off GitHub Pages.
+							</p>
+						</div>
+					</div>
+					<p class="muted micro sports-analysis-links">
+						<a href={`${import.meta.env.BASE_URL}broadcast/`}>Broadcast desk</a>
+						<span aria-hidden="true"> · </span>
+						<a href={`${import.meta.env.BASE_URL}predictions/`}>Predictions + field viz</a>
+						<span aria-hidden="true"> · </span>
+						<span
+							>Vision stack runs off Pages: SAM / SAM2 inference service, Segment Anything weights, SuperSplat or
+							mkkellogg splat preview — mount via your pipeline / Game origin.</span
+						>
+					</p>
 				</section>
 
-				<section class="card sports-shelf" aria-label="Lower metadata row">
-					<h2 class="sports-shelf-title">Lower third strip</h2>
-					<p class="muted small">Commentary names, sponsor rotator, closed captions lane — browser overlays only on Train.</p>
+				<section
+					class="card sports-shelf sports-shelf--field-out"
+					aria-label="Lower third and field analysis output"
+				>
+					<h2 class="sports-shelf-title">Lower third · field output</h2>
+					<p class="muted small">
+						Browser-side strip for <strong>commentary IDs</strong>, <strong>sponsor rotation</strong>, and{' '}
+						<strong>CC</strong> — plus <strong>downstream readouts</strong> from the pitch: Gaussian splat rig,
+						segment-anything tracks, and player / pattern classifiers (static placeholders on Train).
+					</p>
+					<div class="sports-field-output-bar" role="group" aria-label="Sample field analysis outputs">
+						<div class="sports-field-chip mono small">
+							<span class="sports-field-chip-k">gsplat</span>
+							<span class="sports-field-chip-v">rig Δ 2.1cm · yaw locked</span>
+						</div>
+						<div class="sports-field-chip mono small">
+							<span class="sports-field-chip-k">player</span>
+							<span class="sports-field-chip-v">track #14 · SAM mask IoU 0.91</span>
+						</div>
+						<div class="sports-field-chip mono small">
+							<span class="sports-field-chip-k">pattern</span>
+							<span class="sports-field-chip-v">high press · 4-3-3 detect</span>
+						</div>
+						<div class="sports-field-chip mono small">
+							<span class="sports-field-chip-k">field</span>
+							<span class="sports-field-chip-v">line snap · homography err 0.4px</span>
+						</div>
+						<div class="sports-field-chip mono small">
+							<span class="sports-field-chip-k">hex</span>
+							<span class="sports-field-chip-v">cell 7f2a · ladder rung 4</span>
+						</div>
+					</div>
+					<p class="muted micro sports-field-out-foot">
+						Pipe JSON / WebSocket shards from your workpad into these tiles; keep GPU + splat decode off GitHub Pages.
+					</p>
 				</section>
 			</div>
 		</div>
 	</section>
 </Layout>
+
+<script is:inline define:vars={{ genreTabsForClient }}>
+	(() => {
+		const tabs = Array.from(document.querySelectorAll('[data-genre-tab]'));
+		const readout = document.getElementById('sports-genre-readout');
+		const liveTitle = document.getElementById('sports-live-program');
+		const liveSub = document.getElementById('sports-live-program-sub');
+		const railUl = document.getElementById('sports-rail-lines');
+		const weekHint = document.getElementById('sports-rail-week-hint');
+		if (!tabs.length || !readout || !liveTitle || !liveSub || !railUl) return;
+
+		const byId = new Map(genreTabsForClient.map((g) => [g.id, g]));
+
+		function renderUpcoming(rows) {
+			railUl.replaceChildren(
+				...rows.map((row) => {
+					const li = document.createElement('li');
+					li.className = 'sports-upcoming-item';
+					const when = document.createElement('span');
+					when.className = 'sports-upcoming-when mono';
+					when.textContent = row.when;
+					const body = document.createElement('div');
+					body.className = 'sports-upcoming-body';
+					const title = document.createElement('span');
+					title.className = 'sports-upcoming-title';
+					title.textContent = row.title;
+					const mkts = document.createElement('span');
+					mkts.className = 'sports-upcoming-mkts muted';
+					mkts.textContent = row.markets;
+					body.append(title, mkts);
+					li.append(when, body);
+					return li;
+				})
+			);
+		}
+
+		function select(id) {
+			const g = byId.get(id);
+			if (!g) return;
+			tabs.forEach((el) => {
+				const on = el.getAttribute('data-genre-tab') === id;
+				el.setAttribute('aria-selected', on ? 'true' : 'false');
+				el.tabIndex = on ? 0 : -1;
+			});
+			readout.textContent = `${g.section === 'sports' ? 'Sports' : 'Markets'} · ${g.label}`;
+			liveTitle.textContent = g.heroTitle;
+			liveSub.textContent = g.heroSub;
+			renderUpcoming(g.upcoming);
+			if (weekHint) {
+				weekHint.textContent =
+					g.section === 'sports'
+						? 'This week · games & props (sample slate)'
+						: 'This week · macro & event contracts (sample slate)';
+			}
+		}
+
+		tabs.forEach((btn) => {
+			btn.addEventListener('click', () => select(btn.getAttribute('data-genre-tab') || ''));
+			btn.addEventListener('keydown', (e) => {
+				if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft' && e.key !== 'Home' && e.key !== 'End') return;
+				e.preventDefault();
+				const i = tabs.indexOf(btn);
+				let next = i;
+				if (e.key === 'ArrowRight') next = Math.min(tabs.length - 1, i + 1);
+				if (e.key === 'ArrowLeft') next = Math.max(0, i - 1);
+				if (e.key === 'Home') next = 0;
+				if (e.key === 'End') next = tabs.length - 1;
+				const t = tabs[next];
+				if (t) {
+					t.focus();
+					select(t.getAttribute('data-genre-tab') || '');
+				}
+			});
+		});
+	})();
+</script>
 
 <style>
 	.sports-shell {
@@ -98,6 +732,124 @@ const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
 	}
 
 	.sports-hero {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		align-items: stretch;
+	}
+
+	.sports-hero-genres {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding-bottom: 4px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.sports-genre-strip {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		min-width: 0;
+	}
+
+	.sports-genre-strip-head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 8px 14px;
+	}
+
+	.sports-genre-strip-label {
+		color: var(--accent);
+		letter-spacing: 0.12em;
+	}
+
+	.sports-genre-strip-hint {
+		font-size: 11px;
+	}
+
+	.sports-genre-kalshi {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		font-size: 11px;
+		letter-spacing: 0.06em;
+	}
+
+	.sports-genre-kalshi:hover {
+		color: #dfeaff;
+	}
+
+	.sports-genre-scroll {
+		display: flex;
+		flex-wrap: nowrap;
+		gap: 8px;
+		overflow-x: auto;
+		padding: 4px 2px 10px;
+		scroll-snap-type: x proximity;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
+		scrollbar-color: rgba(72, 224, 188, 0.35) rgba(0, 0, 0, 0.2);
+	}
+
+	.sports-genre-scroll::-webkit-scrollbar {
+		height: 6px;
+	}
+
+	.sports-genre-scroll::-webkit-scrollbar-thumb {
+		background: rgba(72, 224, 188, 0.35);
+		border-radius: 999px;
+	}
+
+	.sports-genre-tab {
+		flex: 0 0 auto;
+		scroll-snap-align: start;
+		padding: 8px 14px;
+		border-radius: 999px;
+		border: 1px dashed rgba(255, 255, 255, 0.22);
+		background: rgba(0, 0, 0, 0.2);
+		color: rgba(230, 236, 255, 0.78);
+		font-family: var(--font-mono);
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		cursor: pointer;
+		white-space: nowrap;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.sports-genre-tab:hover {
+		border-style: solid;
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		background: rgba(72, 224, 188, 0.07);
+	}
+
+	.sports-genre-tab[aria-selected='true'] {
+		border-style: solid;
+		border-color: rgba(72, 224, 188, 0.5);
+		color: var(--text);
+		background: rgba(72, 224, 188, 0.14);
+		font-weight: 600;
+	}
+
+	.sports-genre-tab--markets[aria-selected='true'] {
+		border-color: rgba(170, 90, 255, 0.45);
+		background: rgba(170, 90, 255, 0.12);
+	}
+
+	.sports-genre-readout {
+		margin: 4px 0 0;
+		color: var(--muted);
+		letter-spacing: 0.06em;
+	}
+
+	.sports-hero-body {
 		display: grid;
 		grid-template-columns: 1fr minmax(240px, 38%);
 		gap: 20px;
@@ -105,7 +857,7 @@ const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
 	}
 
 	@media (max-width: 900px) {
-		.sports-hero {
+		.sports-hero-body {
 			grid-template-columns: 1fr;
 		}
 	}
@@ -129,6 +881,12 @@ const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
 		max-width: 52ch;
 		line-height: 1.55;
 		font-size: 13px;
+	}
+
+	.sports-lead a {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
 	}
 
 	.sports-hero-actions {
@@ -183,7 +941,7 @@ const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
 
 	.sports-grid {
 		display: grid;
-		grid-template-columns: minmax(200px, 260px) 1fr;
+		grid-template-columns: minmax(260px, 360px) 1fr;
 		gap: 18px;
 		align-items: start;
 	}
@@ -194,6 +952,119 @@ const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
 		}
 	}
 
+	.sports-shelf-subtitle {
+		margin: 18px 0 10px;
+		font-size: 11px;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.sports-analysis-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 4px;
+	}
+
+	@media (max-width: 900px) {
+		.sports-analysis-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.sports-analysis-tile {
+		padding: 12px 14px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		min-width: 0;
+	}
+
+	.sports-analysis-pill {
+		align-self: flex-start;
+		padding: 4px 10px;
+		border-radius: 999px;
+		border: 1px solid rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		font-weight: 600;
+		letter-spacing: 0.06em;
+	}
+
+	.sports-analysis-copy {
+		margin: 0;
+		line-height: 1.5;
+		color: var(--muted);
+	}
+
+	.sports-analysis-copy strong {
+		color: rgba(255, 255, 255, 0.88);
+		font-weight: 600;
+	}
+
+	.sports-inline-code {
+		font-family: var(--font-mono);
+		font-size: 0.88em;
+		color: rgba(200, 230, 255, 0.9);
+	}
+
+	.sports-analysis-links {
+		margin: 14px 0 0;
+		line-height: 1.55;
+	}
+
+	.sports-analysis-links a {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.sports-shelf--field-out .sports-shelf-title {
+		margin-bottom: 6px;
+	}
+
+	.sports-field-output-bar {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 14px;
+	}
+
+	.sports-field-chip {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		min-width: min(100%, 160px);
+		flex: 1 1 140px;
+		padding: 10px 12px;
+		border-radius: 12px;
+		border: 1px solid rgba(170, 90, 255, 0.22);
+		background: rgba(170, 90, 255, 0.06);
+		line-height: 1.35;
+	}
+
+	.sports-field-chip-k {
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: rgba(200, 170, 255, 0.95);
+	}
+
+	.sports-field-chip-v {
+		font-size: 11px;
+		color: var(--muted);
+		word-break: break-word;
+	}
+
+	.sports-field-out-foot {
+		margin: 12px 0 0;
+		line-height: 1.45;
+	}
+
 	.sports-rail-title,
 	.sports-shelf-title {
 		margin: 0 0 8px;
@@ -201,10 +1072,63 @@ const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
 		font-weight: 600;
 	}
 
-	.sports-rail-list {
-		margin: 14px 0 0;
-		padding-left: 1.1rem;
-		line-height: 1.7;
+	.sports-rail-lede {
+		margin: 0 0 8px;
+		line-height: 1.45;
+	}
+
+	.sports-rail-week {
+		margin: 0 0 12px;
+		letter-spacing: 0.06em;
+	}
+
+	.sports-upcoming-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.sports-upcoming-item {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 10px 12px;
+		align-items: start;
+		padding: 10px 12px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	.sports-upcoming-when {
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--accent);
+		white-space: nowrap;
+		padding-top: 2px;
+	}
+
+	.sports-upcoming-body {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		min-width: 0;
+	}
+
+	.sports-upcoming-title {
+		font-size: 13px;
+		font-weight: 600;
+		line-height: 1.35;
+		color: var(--text);
+	}
+
+	.sports-upcoming-mkts {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		line-height: 1.4;
 	}
 
 	.sports-main-col {
