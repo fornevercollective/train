@@ -8,13 +8,8 @@
 -
 # Erika Market Data- in colaboration with - Ritual ROI 
 
-https://roi.kevencraftrituals.com/
 -
 <img width="1284" height="794" alt="Screenshot 2026-05-10 at 5 43 14 PM" src="https://github.com/user-attachments/assets/5357a14f-35c7-46b2-98b0-722c7036add4" />
--
-<img width="1284" height="794" alt="Screenshot 2026-05-10 at 5 42 35 PM" src="https://github.com/user-attachments/assets/2d9c717f-7443-41e2-94a1-44975242c9f1" />
--
-<img width="1284" height="794" alt="Screenshot 2026-05-10 at 5 43 01 PM" src="https://github.com/user-attachments/assets/3ce9bfb0-b355-4a32-8892-a91cb7ddffbb" />
 -
 <img width="1284" height="794" alt="Screenshot 2026-05-10 at 5 43 41 PM" src="https://github.com/user-attachments/assets/4520be6d-d37d-4e13-9a1d-6439b0b63973" />
 -
