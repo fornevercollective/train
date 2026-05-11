@@ -1,6 +1,17 @@
-# Erika Market Directory
-
-This project turns the Erika market dataset into a static directory site designed for GitHub
+<img width="1284" height="794" alt="Screenshot 2026-05-10 at 5 37 26 PM" src="https://github.com/user-attachments/assets/919025e0-1f21-45e1-95f8-8a7c7ecac673" />
+-
+<img width="1284" height="794" alt="Screenshot 2026-05-10 at 5 37 12 PM" src="https://github.com/user-attachments/assets/512008fd-ea76-4a58-bc73-111860f2de6f" />
+-
+<img width="1284" height="794" alt="Screenshot 2026-05-10 at 5 37 36 PM" src="https://github.com/user-attachments/assets/83f1403b-396a-426a-8e5d-bd529eed7201" />
+-
+<img width="1284" height="794" alt="Screenshot 2026-05-10 at 5 37 49 PM" src="https://github.com/user-attachments/assets/e0b58d98-796a-4991-9cbc-2cbd7bc3ead8" />
+-
+# Train Market Data - /* | *\ - COLLAB WITH ERIKA out SOOON
+-
+<img width="1284" height="794" alt="Screenshot 2026-05-10 at 5 43 14 PM" src="https://github.com/user-attachments/assets/5357a14f-35c7-46b2-98b0-722c7036add4" />
+-
+-
+This project turns the Train market dataset into a static directory site designed for GitHub
 Pages. It behaves like a searchable catalog, with a landing page for discovery and a dedicated
 profile view for individual listings.
 
@@ -200,7 +211,7 @@ The deployment workflow is in `.github/workflows/deploy.yml`.
 
 ## Data refresh
 
-When the Erika source CSV changes, rebuild the site:
+When the Train source CSV changes, rebuild the site:
 
 ```bash
 npm run prepare:data
