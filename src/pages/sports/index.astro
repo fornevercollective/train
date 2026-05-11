@@ -1,6 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import marchBundle from '../../data/sports/march-seasons.json';
+import marchSeasonsBase from '../../data/sports/march-seasons.json';
+import marchBracket2025 from '../../data/sports/march-bracket-2025.json';
+
+const marchBundle = {
+	...marchSeasonsBase,
+	seasons: marchSeasonsBase.seasons.map((s) =>
+		s.year === 2025 ? { ...s, bracket: marchBracket2025 } : s
+	),
+};
 
 const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
 const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
@@ -559,11 +567,69 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 						<div class="sports-march-head-copy">
 							<h2 class="sports-march-title" id="sports-march-title">March Madness · brackets &amp; markets</h2>
 							<p class="muted small sports-march-lede">
-								Tournament-season selector, Final Four summary, and curated prediction-market rows keyed by{' '}
-								<code class="sports-inline-code">bracketGameId</code> (same id style as march-arena{' '}
-								<code class="sports-inline-code">Game.id</code>). Replace JSON with your exchange API or static
-								generator pipeline.
+								<strong>Regional brackets</strong> (R64→E8) when JSON includes a <code class="sports-inline-code">bracket</code>{' '}
+								tree — 2025 is a full archive from march-arena pairings. Every game keeps{' '}
+								<code class="sports-inline-code">id</code> for prediction-market joins. Static data:{' '}
+								<code class="sports-inline-code">march-seasons.json</code> +{' '}
+								<code class="sports-inline-code">march-bracket-2025.json</code>.
 							</p>
+							<details class="sports-march-changelog">
+								<summary class="sports-march-changelog-sum mono small">Bracket panel · shipped updates 1–5</summary>
+								<ol class="sports-march-updates muted small">
+									<li>
+										<strong>Full 2025 tree</strong> — four regions, R64 → R32 → S16 → E8 with scores and winners.
+									</li>
+									<li>
+										<strong>National rounds</strong> — Final Four (<code class="sports-inline-code">ff-2025-l</code>,{' '}
+										<code class="sports-inline-code">ff-2025-r</code>) + championship (
+										<code class="sports-inline-code">champ-2025</code>).
+									</li>
+									<li>
+										<strong>Region tabs</strong> — switch quadrants; horizontal scroll on narrow viewports.
+									</li>
+									<li>
+										<strong>Seeds 1–5 strip</strong> — top chalk in each region pulled from the R64 slate.
+									</li>
+									<li>
+										<strong>Market linkage</strong> — listing rows still use <code class="sports-inline-code">bracketGameId</code>{' '}
+										matching these <code class="sports-inline-code">id</code> fields.
+									</li>
+								</ol>
+							</details>
+							<details class="sports-march-changelog sports-march-changelog--extra">
+								<summary class="sports-march-changelog-sum mono small">Extra · UX, URLs &amp; file paths</summary>
+								<ul class="sports-march-extra muted small">
+									<li>
+										<strong>Deep link</strong> — add <code class="sports-inline-code">?tourney=2025</code> (or{' '}
+										<code class="sports-inline-code">2024</code>, <code class="sports-inline-code">2026</code>) to sync the
+										season dropdown; changing the dropdown updates the query without a full navigation.
+									</li>
+									<li>
+										<strong>Copy game id</strong> — each matchup with an <code class="sports-inline-code">id</code> has a
+										“Copy id” control for desks, tickets, or Kalshi/Polymarket mapping (uses the Clipboard API on HTTPS /
+										localhost).
+									</li>
+									<li>
+										<strong>Region tab keyboard</strong> — when a region tab is focused: ← → move selection; Home / End jump
+										to first / last region (ARIA tablist pattern).
+									</li>
+									<li>
+										<strong>Market hover</strong> — rows with <code class="sports-inline-code">bracketGameId</code> highlight
+										the matching card (purple ring) for quick visual join checks.
+									</li>
+									<li>
+										<strong>Source files</strong> —{' '}
+										<code class="sports-inline-code">src/data/sports/march-seasons.json</code> (seasons + markets); full 2025
+										tree in <code class="sports-inline-code">src/data/sports/march-bracket-2025.json</code> merged at build
+										time for the 2025 row only.
+									</li>
+									<li>
+										<strong>Related routes</strong> —{' '}
+										<a href={`${import.meta.env.BASE_URL}predictions/`}>Predictions + field viz</a> ·{' '}
+										<a href={`${import.meta.env.BASE_URL}broadcast/`}>Broadcast desk</a> (SAM2 / pipeline story).
+									</li>
+								</ul>
+							</details>
 						</div>
 						<label class="sports-march-season-field">
 							<span class="mono small muted">NCAA tournament year</span>
@@ -580,6 +646,14 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 					<div class="sports-march-markets-block">
 						<h3 class="sports-march-subhead mono">Prediction market listings</h3>
 						<ul id="march-markets-list" class="sports-march-markets"></ul>
+						<p class="muted micro sports-march-foot">
+							Deep link this panel: <code class="sports-inline-code">?tourney=</code>
+							<span class="mono">{marchBundle.defaultSeason}</span>
+							<span aria-hidden="true"> · </span>
+							<a href={`${import.meta.env.BASE_URL}predictions/`}>Predictions</a>
+							<span aria-hidden="true"> · </span>
+							<a href={`${import.meta.env.BASE_URL}broadcast/`}>Broadcast</a>
+						</p>
 					</div>
 				</section>
 
@@ -696,6 +770,28 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 		const byId = new Map(genreTabsForClient.map((g) => [g.id, g]));
 		const seasonsByYear = new Map((marchBundle.seasons || []).map((s) => [s.year, s]));
 
+		const TOURNEY_Q = 'tourney';
+
+		function readTourneyYear() {
+			try {
+				const raw = new URLSearchParams(window.location.search).get(TOURNEY_Q);
+				if (raw == null || raw === '') return null;
+				const y = Number(raw);
+				if (!Number.isFinite(y)) return null;
+				return seasonsByYear.has(y) ? y : null;
+			} catch {
+				return null;
+			}
+		}
+
+		function pushTourneyYear(y) {
+			try {
+				const u = new URL(window.location.href);
+				u.searchParams.set(TOURNEY_Q, String(y));
+				window.history.replaceState({}, '', u.toString());
+			} catch {}
+		}
+
 		function venueLabel(v) {
 			if (v === 'kalshi') return 'Kalshi';
 			if (v === 'polymarket') return 'Polymarket';
@@ -708,6 +804,243 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 			if (k === 'region') return 'Region / advance';
 			if (k === 'prop') return 'Prop';
 			return String(k || 'Market');
+		}
+
+		function seeds15FromR64(r64) {
+			const rows = [];
+			if (!Array.isArray(r64)) return rows;
+			const seen = new Set();
+			for (const g of r64) {
+				[
+					{ s: g.s1, n: g.n1 },
+					{ s: g.s2, n: g.n2 },
+				].forEach((x) => {
+					if (x.s >= 1 && x.s <= 5 && x.n && !seen.has(x.n)) {
+						seen.add(x.n);
+						rows.push({ seed: x.s, name: x.n });
+					}
+				});
+			}
+			rows.sort((a, b) => a.seed - b.seed);
+			return rows;
+		}
+
+		function matchupCard(g) {
+			const wrap = document.createElement('div');
+			wrap.className = 'sports-bracket-game';
+			if (g.id) wrap.dataset.gameId = g.id;
+
+			function line(seed, name, pts, win) {
+				const row = document.createElement('div');
+				row.className = 'sports-bracket-line' + (win ? ' is-winner' : '');
+				const sEl = document.createElement('span');
+				sEl.className = 'sports-bracket-seed mono';
+				sEl.textContent = String(seed);
+				const nEl = document.createElement('span');
+				nEl.className = 'sports-bracket-name';
+				nEl.textContent = name || '—';
+				const pEl = document.createElement('span');
+				pEl.className = 'sports-bracket-pts mono';
+				pEl.textContent = String(pts);
+				row.append(sEl, nEl, pEl);
+				return row;
+			}
+
+			wrap.append(
+				line(g.s1, g.n1, g.p1, g.w === 1),
+				line(g.s2, g.n2, g.p2, g.w === 2)
+			);
+			const idRow = document.createElement('div');
+			idRow.className = 'sports-bracket-id mono micro muted';
+			idRow.textContent = g.id || '';
+			wrap.append(idRow);
+
+			if (g.id) {
+				const actions = document.createElement('div');
+				actions.className = 'sports-bracket-game-actions';
+				const copyBtn = document.createElement('button');
+				copyBtn.type = 'button';
+				copyBtn.className = 'sports-bracket-copy mono micro';
+				copyBtn.setAttribute('aria-label', 'Copy bracket game id ' + g.id);
+				copyBtn.textContent = 'Copy id';
+				copyBtn.addEventListener('click', () => {
+					const id = g.id;
+					function done(ok) {
+						copyBtn.textContent = ok ? 'Copied' : 'Copy failed';
+						window.setTimeout(() => {
+							copyBtn.textContent = 'Copy id';
+						}, 1600);
+					}
+					if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+						navigator.clipboard.writeText(id).then(() => done(true), () => done(false));
+					} else {
+						done(false);
+					}
+				});
+				actions.append(copyBtn);
+				wrap.append(actions);
+			}
+
+			return wrap;
+		}
+
+		function bracketColumn(label, games, singleGame) {
+			const col = document.createElement('div');
+			col.className = 'sports-bracket-col';
+			const h = document.createElement('div');
+			h.className = 'sports-bracket-col-head mono small';
+			h.textContent = label;
+			col.append(h);
+			const stack = document.createElement('div');
+			stack.className = 'sports-bracket-col-stack';
+			if (singleGame && singleGame.id) {
+				stack.append(matchupCard(singleGame));
+			} else if (Array.isArray(games)) {
+				for (const g of games) stack.append(matchupCard(g));
+			}
+			col.append(stack);
+			return col;
+		}
+
+		function appendFullBracket(parent, bracket) {
+			if (!bracket || !Array.isArray(bracket.regions)) return;
+
+			const h = document.createElement('h3');
+			h.className = 'sports-march-subhead mono sports-march-subhead--spaced';
+			h.textContent = 'Regional brackets · R64 → E8';
+			parent.append(h);
+
+			const shell = document.createElement('div');
+			shell.className = 'sports-bracket-shell';
+
+			const tabs = document.createElement('div');
+			tabs.className = 'sports-bracket-region-tabs';
+			tabs.setAttribute('role', 'tablist');
+			tabs.setAttribute('aria-label', 'Bracket region');
+
+			const mount = document.createElement('div');
+			mount.className = 'sports-bracket-region-mount';
+			mount.id = 'march-bracket-region-panel';
+			mount.setAttribute('role', 'tabpanel');
+			mount.setAttribute('aria-label', 'Regional bracket for selected quadrant');
+
+			const seedStrip = document.createElement('div');
+			seedStrip.className = 'sports-bracket-seedstrip';
+			seedStrip.id = 'march-bracket-seedstrip';
+
+			const tabButtons = [];
+
+			function paintRegion(idx) {
+				const reg = bracket.regions[idx];
+				if (!reg) return;
+				mount.replaceChildren();
+				const row = document.createElement('div');
+				row.className = 'sports-bracket-cols';
+				row.append(
+					bracketColumn('Round of 64', reg.r64),
+					bracketColumn('Round of 32', reg.r32),
+					bracketColumn('Sweet 16', reg.s16),
+					bracketColumn('Elite 8', null, reg.e8)
+				);
+				mount.append(row);
+
+				seedStrip.replaceChildren();
+				const lab = document.createElement('span');
+				lab.className = 'mono small muted';
+				lab.textContent = 'Seeds 1–5 · ' + reg.name;
+				seedStrip.append(lab);
+				for (const x of seeds15FromR64(reg.r64)) {
+					const chip = document.createElement('span');
+					chip.className = 'sports-bracket-seed-chip mono small';
+					chip.textContent = String(x.seed) + ' ' + x.name;
+					seedStrip.append(chip);
+				}
+			}
+
+			function activateTab(idx) {
+				const n = bracket.regions.length;
+				const i = Math.max(0, Math.min(n - 1, idx));
+				tabButtons.forEach((el, j) => {
+					const on = j === i;
+					el.setAttribute('aria-selected', on ? 'true' : 'false');
+					el.tabIndex = on ? 0 : -1;
+				});
+				paintRegion(i);
+			}
+
+			bracket.regions.forEach((reg, idx) => {
+				const b = document.createElement('button');
+				b.type = 'button';
+				b.className = 'sports-bracket-region-tab';
+				b.setAttribute('role', 'tab');
+				b.id = 'march-bracket-tab-' + idx;
+				b.setAttribute('aria-controls', 'march-bracket-region-panel');
+				b.dataset.regionIndex = String(idx);
+				b.textContent = reg.name;
+				b.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+				b.tabIndex = idx === 0 ? 0 : -1;
+				b.addEventListener('click', () => {
+					activateTab(idx);
+					tabButtons[idx].focus();
+				});
+				tabButtons.push(b);
+				tabs.append(b);
+			});
+
+			tabs.addEventListener('keydown', (e) => {
+				const i = tabButtons.findIndex((t) => t.getAttribute('aria-selected') === 'true');
+				if (i < 0) return;
+				let next = i;
+				if (e.key === 'ArrowRight') {
+					e.preventDefault();
+					next = Math.min(tabButtons.length - 1, i + 1);
+				} else if (e.key === 'ArrowLeft') {
+					e.preventDefault();
+					next = Math.max(0, i - 1);
+				} else if (e.key === 'Home') {
+					e.preventDefault();
+					next = 0;
+				} else if (e.key === 'End') {
+					e.preventDefault();
+					next = tabButtons.length - 1;
+				} else {
+					return;
+				}
+				activateTab(next);
+				tabButtons[next].focus();
+			});
+
+			shell.append(tabs, seedStrip, mount);
+			parent.append(shell);
+			activateTab(0);
+
+			const natH = document.createElement('h3');
+			natH.className = 'sports-march-subhead mono sports-march-subhead--spaced';
+			natH.textContent = 'Final Four & championship';
+			parent.append(natH);
+
+			const natRow = document.createElement('div');
+			natRow.className = 'sports-bracket-national';
+			const ffWrap = document.createElement('div');
+			ffWrap.className = 'sports-bracket-national-ff';
+			const ffLab = document.createElement('div');
+			ffLab.className = 'mono small muted';
+			ffLab.textContent = 'Semifinals';
+			ffWrap.append(ffLab);
+			if (Array.isArray(bracket.finalFour)) {
+				for (const g of bracket.finalFour) ffWrap.append(matchupCard(g));
+			}
+			const chWrap = document.createElement('div');
+			chWrap.className = 'sports-bracket-national-champ';
+			const chLab = document.createElement('div');
+			chLab.className = 'mono small muted';
+			chLab.textContent = 'Title game';
+			chWrap.append(chLab);
+			if (bracket.championship && bracket.championship.id) {
+				chWrap.append(matchupCard(bracket.championship));
+			}
+			natRow.append(ffWrap, chWrap);
+			parent.append(natRow);
 		}
 
 		function renderMarch(year) {
@@ -761,7 +1094,9 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 				marchBracket.append(regGrid);
 			}
 
-			if (Array.isArray(s.finalFour) && s.finalFour.length) {
+			if (s.bracket && s.bracket.regions) {
+				appendFullBracket(marchBracket, s.bracket);
+			} else if (Array.isArray(s.finalFour) && s.finalFour.length) {
 				const ffTitle = document.createElement('h3');
 				ffTitle.className = 'sports-march-subhead mono sports-march-subhead--spaced';
 				ffTitle.textContent = 'Final Four';
@@ -792,7 +1127,7 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 				marchBracket.append(ph);
 			}
 
-			if (s.champion && s.champion.name) {
+			if (!(s.bracket && s.bracket.regions) && s.champion && s.champion.name) {
 				const ch = document.createElement('div');
 				ch.className = 'sports-march-champ';
 				const chLab = document.createElement('span');
@@ -815,6 +1150,7 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 			for (const m of mk) {
 				const li = document.createElement('li');
 				li.className = 'sports-march-market-row';
+				if (m.bracketGameId) li.dataset.bracketGameId = String(m.bracketGameId);
 				const left = document.createElement('div');
 				left.className = 'sports-march-market-main';
 				const title = document.createElement('a');
@@ -847,11 +1183,35 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 				empty.textContent = 'No market rows for this season — add objects under `markets` in JSON.';
 				marchMarkets.append(empty);
 			}
+
+			if (marchMarkets && marchBracket) {
+				marchMarkets.querySelectorAll('.sports-march-market-row').forEach((li) => {
+					li.addEventListener('mouseenter', () => {
+						const id = li.dataset.bracketGameId;
+						if (!id) return;
+						const esc = window.CSS && typeof window.CSS.escape === 'function' ? window.CSS.escape(id) : id;
+						const cell = marchBracket.querySelector('[data-game-id="' + esc + '"]');
+						if (cell) cell.classList.add('is-highlighted');
+					});
+					li.addEventListener('mouseleave', () => {
+						marchBracket.querySelectorAll('.sports-bracket-game.is-highlighted').forEach((el) => {
+							el.classList.remove('is-highlighted');
+						});
+					});
+				});
+			}
 		}
 
 		if (marchSeason && marchBracket && marchMarkets) {
-			renderMarch(marchSeason.value || marchBundle.defaultSeason);
-			marchSeason.addEventListener('change', () => renderMarch(marchSeason.value));
+			const urlY = readTourneyYear();
+			if (urlY != null) marchSeason.value = String(urlY);
+			const initialY = Number(marchSeason.value) || marchBundle.defaultSeason;
+			renderMarch(initialY);
+			marchSeason.addEventListener('change', () => {
+				const y = Number(marchSeason.value) || marchBundle.defaultSeason;
+				renderMarch(y);
+				pushTourneyYear(y);
+			});
 		}
 
 		function renderUpcoming(rows) {
@@ -1579,5 +1939,265 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 		border-radius: 999px;
 		border: 1px solid rgba(170, 90, 255, 0.35);
 		color: rgba(220, 200, 255, 0.95);
+	}
+
+	.sports-march-changelog {
+		margin-top: 10px;
+		padding: 8px 12px;
+		border-radius: 12px;
+		border: 1px dashed rgba(255, 255, 255, 0.15);
+		background: rgba(0, 0, 0, 0.15);
+	}
+
+	.sports-march-changelog-sum {
+		cursor: pointer;
+		color: var(--accent);
+		letter-spacing: 0.06em;
+	}
+
+	.sports-march-updates {
+		margin: 10px 0 4px 18px;
+		padding: 0;
+		line-height: 1.55;
+	}
+
+	.sports-march-updates li {
+		margin-bottom: 6px;
+	}
+
+	.sports-bracket-shell {
+		margin-top: 8px;
+		padding: 12px;
+		border-radius: 14px;
+		border: 1px solid rgba(72, 224, 188, 0.2);
+		background: rgba(0, 0, 0, 0.2);
+	}
+
+	.sports-bracket-region-tabs {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-bottom: 12px;
+	}
+
+	.sports-bracket-region-tab {
+		padding: 6px 14px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.18);
+		background: rgba(0, 0, 0, 0.25);
+		color: var(--muted);
+		font-family: var(--font-mono);
+		font-size: 11px;
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.sports-bracket-region-tab:hover {
+		border-color: rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+	}
+
+	.sports-bracket-region-tab[aria-selected='true'] {
+		border-color: rgba(72, 224, 188, 0.5);
+		color: var(--text);
+		background: rgba(72, 224, 188, 0.1);
+	}
+
+	.sports-bracket-seedstrip {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 12px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.sports-bracket-seed-chip {
+		padding: 4px 10px;
+		border-radius: 8px;
+		border: 1px solid rgba(255, 200, 120, 0.25);
+		background: rgba(255, 200, 120, 0.06);
+		color: rgba(255, 220, 180, 0.95);
+	}
+
+	.sports-bracket-region-mount {
+		overflow-x: auto;
+		padding-bottom: 6px;
+	}
+
+	.sports-bracket-cols {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(160px, 1fr));
+		gap: 12px;
+		min-width: min(100%, 720px);
+	}
+
+	@media (max-width: 900px) {
+		.sports-bracket-cols {
+			grid-template-columns: repeat(4, minmax(140px, 1fr));
+		}
+	}
+
+	.sports-bracket-col {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		min-width: 0;
+	}
+
+	.sports-bracket-col-head {
+		color: var(--accent);
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.sports-bracket-col-stack {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.sports-bracket-game {
+		padding: 8px 10px;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.25);
+		transition:
+			border-color 0.15s ease,
+			box-shadow 0.15s ease;
+	}
+
+	.sports-bracket-game.is-highlighted {
+		border-color: rgba(170, 90, 255, 0.55);
+		box-shadow: 0 0 0 2px rgba(170, 90, 255, 0.15);
+	}
+
+	.sports-bracket-line {
+		display: grid;
+		grid-template-columns: 22px 1fr 28px;
+		gap: 6px;
+		align-items: baseline;
+		font-size: 12px;
+		line-height: 1.35;
+		padding: 2px 0;
+		color: var(--muted);
+	}
+
+	.sports-bracket-line.is-winner {
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.sports-bracket-seed {
+		opacity: 0.85;
+		font-size: 10px;
+	}
+
+	.sports-bracket-name {
+		min-width: 0;
+		word-break: break-word;
+	}
+
+	.sports-bracket-pts {
+		text-align: right;
+		font-weight: 600;
+	}
+
+	.sports-bracket-id {
+		margin-top: 6px;
+		word-break: break-all;
+	}
+
+	.sports-bracket-national {
+		display: grid;
+		grid-template-columns: 1fr minmax(200px, 280px);
+		gap: 14px;
+		margin-top: 6px;
+	}
+
+	@media (max-width: 720px) {
+		.sports-bracket-national {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.sports-bracket-national-ff,
+	.sports-bracket-national-champ {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 12px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	.sports-march-changelog--extra {
+		margin-top: 10px;
+	}
+
+	.sports-march-extra {
+		margin: 10px 0 4px 16px;
+		padding: 0;
+		line-height: 1.55;
+		list-style: disc;
+	}
+
+	.sports-march-extra li {
+		margin-bottom: 8px;
+	}
+
+	.sports-march-extra a {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.sports-march-foot {
+		margin: 12px 0 0;
+		line-height: 1.5;
+	}
+
+	.sports-march-foot a {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.sports-bracket-game-actions {
+		margin-top: 8px;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.sports-bracket-copy {
+		padding: 4px 10px;
+		border-radius: 8px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		background: rgba(0, 0, 0, 0.35);
+		color: var(--muted);
+		cursor: pointer;
+		font-family: var(--font-mono);
+	}
+
+	.sports-bracket-copy:hover {
+		border-color: rgba(72, 224, 188, 0.4);
+		color: var(--accent);
+	}
+
+	.sports-bracket-copy:focus-visible {
+		outline: 2px solid rgba(72, 224, 188, 0.55);
+		outline-offset: 2px;
+	}
+
+	.sports-bracket-region-tab:focus-visible {
+		outline: 2px solid rgba(72, 224, 188, 0.55);
+		outline-offset: 2px;
+	}
+
+	.sports-march-market-row[data-bracket-game-id] {
+		cursor: default;
 	}
 </style>

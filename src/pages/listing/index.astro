@@ -6,7 +6,7 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 ---
 
 <Layout
-	title="Listing Profile | Erika Market Directory"
+	title="Listing Profile | Train Market Data"
 	description="Inspect a single market listing from the Erika dataset."
 	pageClass="page-stock"
 	eyebrow="Listing view"
@@ -605,7 +605,7 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					return;
 				}
 
-				document.title = `${record.nm} | Erika Market Directory`;
+				document.title = `${record.nm} | Train Market Data`;
 				emptyElement.hidden = true;
 				titleElement.textContent = record.nm;
 				subtitleElement.textContent = `${record.id} · ${record.ty} · ${record.ex}`;

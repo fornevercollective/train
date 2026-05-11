@@ -139,8 +139,14 @@ function isActive(item: NavItem): boolean {
 					<span class="train-mono">Sports</span>
 					<span class="muted">
 						<a class="train-sidebar-out-link" href={`${b}sports/`}>Train sports shell</a>
-						· March bracket + markets (
-						<code class="train-mono">src/data/sports/march-seasons.json</code>) ·{' '}
+						· March (
+						<code class="train-mono">march-seasons.json</code> +{' '}
+						<code class="train-mono">march-bracket-2025.json</code>
+						) · deep link{' '}
+						<a class="train-sidebar-out-link" href={`${b}sports/?tourney=2025`}>
+							<code class="train-mono">?tourney=2025</code>
+						</a>{' '}
+						·{' '}
 						<a
 							class="train-sidebar-out-link"
 							href="https://ballerleague.us/en"

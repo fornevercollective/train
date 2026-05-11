@@ -1,0 +1,110 @@
+{
+	"source": "Pairings/results aligned with march-arena lib/bracket-2025.ts",
+	"regions": [
+		{
+			"name": "South",
+			"code": "s",
+			"r64": [
+				{ "id": "s-r64-1", "s1": 1, "n1": "Auburn", "s2": 16, "n2": "Alabama St", "p1": 83, "p2": 59, "w": 1 },
+				{ "id": "s-r64-2", "s1": 8, "n1": "Louisville", "s2": 9, "n2": "Creighton", "p1": 86, "p2": 89, "w": 2 },
+				{ "id": "s-r64-3", "s1": 5, "n1": "Michigan", "s2": 12, "n2": "UC San Diego", "p1": 81, "p2": 65, "w": 1 },
+				{ "id": "s-r64-4", "s1": 4, "n1": "Texas A&M", "s2": 13, "n2": "Yale", "p1": 80, "p2": 69, "w": 1 },
+				{ "id": "s-r64-5", "s1": 6, "n1": "Ole Miss", "s2": 11, "n2": "North Carolina", "p1": 91, "p2": 74, "w": 1 },
+				{ "id": "s-r64-6", "s1": 3, "n1": "Iowa State", "s2": 14, "n2": "Lipscomb", "p1": 82, "p2": 55, "w": 1 },
+				{ "id": "s-r64-7", "s1": 7, "n1": "Marquette", "s2": 10, "n2": "New Mexico", "p1": 85, "p2": 69, "w": 1 },
+				{ "id": "s-r64-8", "s1": 2, "n1": "Michigan St", "s2": 15, "n2": "Bryant", "p1": 69, "p2": 65, "w": 1 }
+			],
+			"r32": [
+				{ "id": "s-r32-1", "s1": 1, "n1": "Auburn", "s2": 9, "n2": "Creighton", "p1": 82, "p2": 70, "w": 1 },
+				{ "id": "s-r32-2", "s1": 5, "n1": "Michigan", "s2": 4, "n2": "Texas A&M", "p1": 69, "p2": 65, "w": 1 },
+				{ "id": "s-r32-3", "s1": 6, "n1": "Ole Miss", "s2": 3, "n2": "Iowa State", "p1": 91, "p2": 87, "w": 1 },
+				{ "id": "s-r32-4", "s1": 7, "n1": "Marquette", "s2": 2, "n2": "Michigan St", "p1": 63, "p2": 60, "w": 1 }
+			],
+			"s16": [
+				{ "id": "s-s16-1", "s1": 1, "n1": "Auburn", "s2": 5, "n2": "Michigan", "p1": 78, "p2": 65, "w": 1 },
+				{ "id": "s-s16-2", "s1": 6, "n1": "Ole Miss", "s2": 7, "n2": "Marquette", "p1": 73, "p2": 72, "w": 1 }
+			],
+			"e8": { "id": "s-e8", "s1": 1, "n1": "Auburn", "s2": 6, "n2": "Ole Miss", "p1": 78, "p2": 75, "w": 1 }
+		},
+		{
+			"name": "West",
+			"code": "w",
+			"r64": [
+				{ "id": "w-r64-1", "s1": 1, "n1": "Florida", "s2": 16, "n2": "Norfolk St", "p1": 95, "p2": 69, "w": 1 },
+				{ "id": "w-r64-2", "s1": 8, "n1": "UConn", "s2": 9, "n2": "Oklahoma", "p1": 97, "p2": 76, "w": 1 },
+				{ "id": "w-r64-3", "s1": 5, "n1": "Memphis", "s2": 12, "n2": "Colorado St", "p1": 70, "p2": 68, "w": 1 },
+				{ "id": "w-r64-4", "s1": 4, "n1": "Maryland", "s2": 13, "n2": "Grand Canyon", "p1": 81, "p2": 49, "w": 1 },
+				{ "id": "w-r64-5", "s1": 6, "n1": "Missouri", "s2": 11, "n2": "Drake", "p1": 81, "p2": 70, "w": 1 },
+				{ "id": "w-r64-6", "s1": 3, "n1": "Texas Tech", "s2": 14, "n2": "UNC Wilmington", "p1": 82, "p2": 62, "w": 1 },
+				{ "id": "w-r64-7", "s1": 7, "n1": "Kansas", "s2": 10, "n2": "Arkansas", "p1": 72, "p2": 79, "w": 2 },
+				{ "id": "w-r64-8", "s1": 2, "n1": "St John's", "s2": 15, "n2": "Omaha", "p1": 86, "p2": 70, "w": 1 }
+			],
+			"r32": [
+				{ "id": "w-r32-1", "s1": 1, "n1": "Florida", "s2": 8, "n2": "UConn", "p1": 77, "p2": 75, "w": 1 },
+				{ "id": "w-r32-2", "s1": 5, "n1": "Memphis", "s2": 4, "n2": "Maryland", "p1": 71, "p2": 77, "w": 2 },
+				{ "id": "w-r32-3", "s1": 6, "n1": "Missouri", "s2": 3, "n2": "Texas Tech", "p1": 83, "p2": 98, "w": 2 },
+				{ "id": "w-r32-4", "s1": 2, "n1": "St John's", "s2": 10, "n2": "Arkansas", "p1": 66, "p2": 75, "w": 2 }
+			],
+			"s16": [
+				{ "id": "w-s16-1", "s1": 1, "n1": "Florida", "s2": 4, "n2": "Maryland", "p1": 87, "p2": 71, "w": 1 },
+				{ "id": "w-s16-2", "s1": 3, "n1": "Texas Tech", "s2": 10, "n2": "Arkansas", "p1": 85, "p2": 78, "w": 1 }
+			],
+			"e8": { "id": "w-e8", "s1": 1, "n1": "Florida", "s2": 3, "n2": "Texas Tech", "p1": 84, "p2": 79, "w": 1 }
+		},
+		{
+			"name": "East",
+			"code": "e",
+			"r64": [
+				{ "id": "e-r64-1", "s1": 1, "n1": "Duke", "s2": 16, "n2": "American", "p1": 93, "p2": 61, "w": 1 },
+				{ "id": "e-r64-2", "s1": 8, "n1": "Mississippi St", "s2": 9, "n2": "Baylor", "p1": 50, "p2": 56, "w": 2 },
+				{ "id": "e-r64-3", "s1": 5, "n1": "Oregon", "s2": 12, "n2": "Liberty", "p1": 79, "p2": 73, "w": 1 },
+				{ "id": "e-r64-4", "s1": 4, "n1": "Arizona", "s2": 13, "n2": "Akron", "p1": 85, "p2": 65, "w": 1 },
+				{ "id": "e-r64-5", "s1": 11, "n1": "VCU", "s2": 6, "n2": "BYU", "p1": 80, "p2": 76, "w": 1 },
+				{ "id": "e-r64-6", "s1": 3, "n1": "Wisconsin", "s2": 14, "n2": "Montana", "p1": 85, "p2": 61, "w": 1 },
+				{ "id": "e-r64-7", "s1": 7, "n1": "Saint Mary's", "s2": 10, "n2": "Vanderbilt", "p1": 76, "p2": 75, "w": 1 },
+				{ "id": "e-r64-8", "s1": 2, "n1": "Alabama", "s2": 15, "n2": "Robert Morris", "p1": 83, "p2": 63, "w": 1 }
+			],
+			"r32": [
+				{ "id": "e-r32-1", "s1": 1, "n1": "Duke", "s2": 9, "n2": "Baylor", "p1": 89, "p2": 77, "w": 1 },
+				{ "id": "e-r32-2", "s1": 4, "n1": "Arizona", "s2": 5, "n2": "Oregon", "p1": 87, "p2": 83, "w": 1 },
+				{ "id": "e-r32-3", "s1": 3, "n1": "Wisconsin", "s2": 11, "n2": "VCU", "p1": 62, "p2": 58, "w": 1 },
+				{ "id": "e-r32-4", "s1": 2, "n1": "Alabama", "s2": 7, "n2": "Saint Mary's", "p1": 80, "p2": 66, "w": 1 }
+			],
+			"s16": [
+				{ "id": "e-s16-1", "s1": 1, "n1": "Duke", "s2": 4, "n2": "Arizona", "p1": 100, "p2": 93, "w": 1 },
+				{ "id": "e-s16-2", "s1": 2, "n1": "Alabama", "s2": 3, "n2": "Wisconsin", "p1": 93, "p2": 85, "w": 1 }
+			],
+			"e8": { "id": "e-e8", "s1": 1, "n1": "Duke", "s2": 2, "n2": "Alabama", "p1": 85, "p2": 65, "w": 1 }
+		},
+		{
+			"name": "Midwest",
+			"code": "m",
+			"r64": [
+				{ "id": "m-r64-1", "s1": 1, "n1": "Houston", "s2": 16, "n2": "SIUE", "p1": 62, "p2": 41, "w": 1 },
+				{ "id": "m-r64-2", "s1": 8, "n1": "Gonzaga", "s2": 9, "n2": "Georgia", "p1": 89, "p2": 68, "w": 1 },
+				{ "id": "m-r64-3", "s1": 12, "n1": "McNeese", "s2": 5, "n2": "Clemson", "p1": 69, "p2": 57, "w": 1 },
+				{ "id": "m-r64-4", "s1": 4, "n1": "Purdue", "s2": 13, "n2": "High Point", "p1": 75, "p2": 63, "w": 1 },
+				{ "id": "m-r64-5", "s1": 6, "n1": "Illinois", "s2": 11, "n2": "Texas", "p1": 80, "p2": 86, "w": 2 },
+				{ "id": "m-r64-6", "s1": 3, "n1": "Kentucky", "s2": 14, "n2": "Troy", "p1": 76, "p2": 57, "w": 1 },
+				{ "id": "m-r64-7", "s1": 7, "n1": "UCLA", "s2": 10, "n2": "Utah State", "p1": 76, "p2": 72, "w": 1 },
+				{ "id": "m-r64-8", "s1": 2, "n1": "Tennessee", "s2": 15, "n2": "Wofford", "p1": 69, "p2": 49, "w": 1 }
+			],
+			"r32": [
+				{ "id": "m-r32-1", "s1": 1, "n1": "Houston", "s2": 8, "n2": "Gonzaga", "p1": 81, "p2": 42, "w": 1 },
+				{ "id": "m-r32-2", "s1": 4, "n1": "Purdue", "s2": 12, "n2": "McNeese", "p1": 76, "p2": 62, "w": 1 },
+				{ "id": "m-r32-3", "s1": 3, "n1": "Kentucky", "s2": 11, "n2": "Texas", "p1": 93, "p2": 80, "w": 1 },
+				{ "id": "m-r32-4", "s1": 2, "n1": "Tennessee", "s2": 7, "n2": "UCLA", "p1": 65, "p2": 58, "w": 1 }
+			],
+			"s16": [
+				{ "id": "m-s16-1", "s1": 1, "n1": "Houston", "s2": 4, "n2": "Purdue", "p1": 62, "p2": 45, "w": 1 },
+				{ "id": "m-s16-2", "s1": 2, "n1": "Tennessee", "s2": 3, "n2": "Kentucky", "p1": 78, "p2": 65, "w": 1 }
+			],
+			"e8": { "id": "m-e8", "s1": 1, "n1": "Houston", "s2": 2, "n2": "Tennessee", "p1": 69, "p2": 50, "w": 1 }
+		}
+	],
+	"finalFour": [
+		{ "id": "ff-2025-l", "s1": 1, "n1": "Auburn", "s2": 1, "n2": "Florida", "p1": 65, "p2": 79, "w": 2 },
+		{ "id": "ff-2025-r", "s1": 1, "n1": "Duke", "s2": 1, "n2": "Houston", "p1": 67, "p2": 69, "w": 2 }
+	],
+	"championship": { "id": "champ-2025", "s1": 1, "n1": "Florida", "s2": 1, "n2": "Houston", "p1": 65, "p2": 63, "w": 1 }
+}
