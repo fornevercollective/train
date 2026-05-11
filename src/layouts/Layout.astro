@@ -46,6 +46,7 @@ const navActive = {
 		!path.includes('/predictions') &&
 		!path.includes('/sports') &&
 		!path.includes('/broadcast') &&
+		!path.includes('/podcast') &&
 		!path.includes('/models') &&
 		!path.includes('/listing') &&
 		!path.includes('/raw') &&
@@ -55,6 +56,7 @@ const navActive = {
 	predictions: path.includes('/predictions'),
 	sports: path.includes('/sports'),
 	broadcast: path.includes('/broadcast'),
+	podcast: path.includes('/podcast'),
 	models: path.includes('/models'),
 	directory: path.includes('/directory'),
 	listing: path.includes('/listing'),
@@ -249,6 +251,12 @@ const navActive = {
 							href={`${baseUrl}broadcast/`}
 						>
 							Broadcast
+						</a>
+						<a
+							class:list={['site-nav-pill', { 'is-active': navActive.podcast }]}
+							href={`${baseUrl}podcast/`}
+						>
+							Podcast
 						</a>
 						<a class:list={['site-nav-pill', { 'is-active': navActive.models }]} href={`${baseUrl}models/`}>
 							Models

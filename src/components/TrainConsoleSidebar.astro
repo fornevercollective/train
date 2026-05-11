@@ -6,6 +6,7 @@ interface NavActive {
 	predictions: boolean;
 	sports: boolean;
 	broadcast: boolean;
+	podcast: boolean;
 	models: boolean;
 	directory: boolean;
 	listing: boolean;
@@ -37,6 +38,7 @@ const items: NavItem[] = [
 	{ href: `${b}predictions/`, label: 'Predictions', match: 'predictions' },
 	{ href: `${b}sports/`, label: 'Sports', match: 'sports' },
 	{ href: `${b}broadcast/`, label: 'Broadcast', match: 'broadcast' },
+	{ href: `${b}podcast/`, label: 'Podcast', match: 'podcast' },
 	{ href: `${b}models/`, label: 'Models', match: 'models' },
 	{ href: `${b}predictions/#home-live-analysis`, label: 'Live analysis', match: 'liveAnalysis' },
 	{ href: `${b}directory/`, label: 'Markets', match: 'directory' },
@@ -89,6 +91,8 @@ function isActive(item: NavItem): boolean {
 							<svg class="train-sidebar-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18" /><path d="M7 16V9" /><path d="M12 16v-5" /><path d="M17 16V6" /></svg>
 						) : item.match === 'sports' || item.match === 'broadcast' ? (
 							<svg class="train-sidebar-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="12" rx="2" /><path d="m17 2-5 5" /><path d="m7 22 2-2" /><path d="m15 22-2-2" /></svg>
+						) : item.match === 'podcast' ? (
+							<svg class="train-sidebar-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6" /><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" /></svg>
 						) : item.match === 'predictions' || item.match === 'liveAnalysis' || item.match === 'gameLive' ? (
 							<svg class="train-sidebar-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
 						) : item.match === 'directory' || item.match === 'featured' ? (

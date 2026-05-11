@@ -13,7 +13,59 @@ const marchBundle = {
 const gameConsoleUrl = (import.meta.env.PUBLIC_GAME_CONSOLE_URL || '').replace(/\/$/, '');
 const gameLiveUrl = gameConsoleUrl ? `${gameConsoleUrl}/live` : '';
 
+const rerunRepoUrl = 'https://github.com/rerun-io/rerun';
+const rerunIoUrl = 'https://www.rerun.io';
+
+const rerunViewerRaw = (import.meta.env.PUBLIC_RERUN_VIEWER_URL || '').trim();
+const sportsFieldLabUrl = (
+	import.meta.env.PUBLIC_UVSPEED_SPORTS_FIELD_URL || 'http://127.0.0.1:8787/uvspeed/sports-field-ugrad.html'
+).trim();
+const youtubePipelineViewerUrl = (
+	import.meta.env.PUBLIC_YOUTUBE_PIPELINE_VIEWER_URL || 'http://127.0.0.1:8787/'
+).trim();
+const overviewWorkspaceUrl = (import.meta.env.PUBLIC_OVERVIEW_URL || 'http://127.0.0.1:5173/').trim();
+const liveCaptionsUrl = `${import.meta.env.BASE_URL}live-captions/`;
+
+function parseHttpUrl(raw: string): URL | null {
+	if (!raw) return null;
+	try {
+		const withProto = raw.includes('://') ? raw : `http://${raw}`;
+		const u = new URL(withProto);
+		if (u.username || u.password) return null;
+		if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
+		return u;
+	} catch {
+		return null;
+	}
+}
+
+function rerunIframeHref(u: URL): string | null {
+	const allowRaw = (import.meta.env.PUBLIC_RERUN_EMBED_HOSTS || '').trim();
+	if (allowRaw) {
+		const hosts = allowRaw
+			.split(',')
+			.map((h: string) => h.trim().toLowerCase())
+			.filter(Boolean);
+		const host = u.hostname.toLowerCase();
+		if (!hosts.includes(host)) return null;
+	}
+	return u.href;
+}
+
+const rerunViewerUrl = parseHttpUrl(rerunViewerRaw);
+const rerunOpenHref = rerunViewerUrl ? rerunViewerUrl.href : null;
+const rerunIframeSrc = rerunViewerUrl ? rerunIframeHref(rerunViewerUrl) : null;
+
+/** Sandboxed embed (viewer or web app serving the Rerun UI). */
+const rerunIframeSandbox =
+	'allow-scripts allow-forms allow-same-origin allow-downloads allow-popups allow-popups-to-escape-sandbox';
+
 const kalshiSportsUrl = 'https://kalshi.com/category/sports/all-sports';
+const kalshiMbbUrl = 'https://kalshi.com/category/sports/mens-college-basketball';
+const polyCbbUrl = 'https://polymarket.com/sports/cbb';
+const marchArenaUrl = 'https://www.marcharena.com';
+const marchArenaRepoUrl = 'https://github.com/leerob/march-arena';
+const ncaamRepoUrl = 'https://github.com/leerob/ncaam';
 
 /** Core tab metadata (static shell). */
 const genreCore = [
@@ -494,8 +546,12 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 						This route holds the <strong>grid, rails, and typography</strong> for a premium live sports experience.
 						Use the genre tabs above for sportsbooks-style navigation (aligned with discovery patterns like{' '}
 						<a href={kalshiSportsUrl} target="_blank" rel="noopener noreferrer">Kalshi all sports</a>
-						) plus full prediction-market verticals. Attach a real player from your Game <code>/live</code> desk, a
-						WebRTC/HLS workpad, or another origin in a new tab or iframe once you deploy that stack outside Pages.
+						) plus full prediction-market verticals. The main column includes a <strong>live NCAA men’s scoreboard</strong>{' '}
+						(ESPN day strip) next to the archived March bracket so you can line up games with market ladders.{' '}
+						<strong>Rerun</strong> is the planned multimodal desk for live sports vision (frames, masks, tracks, tensors,
+						time series) alongside that stack — see the Rerun card below. Attach a real player from your Game{' '}
+						<code>/live</code> desk, a WebRTC/HLS workpad, or another origin in a new tab or iframe once you deploy outside
+						Pages.
 					</p>
 					<div class="sports-hero-actions">
 						{
@@ -558,6 +614,194 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 			</aside>
 
 			<div class="sports-main-col">
+				<section class="card sports-ncaamb-live" id="sports-ncaamb-live" aria-labelledby="sports-ncaamb-live-title">
+					<div class="sports-ncaamb-live-head">
+						<div class="sports-ncaamb-live-head-copy">
+							<h2 class="sports-ncaamb-live-title" id="sports-ncaamb-live-title">
+								Live NCAA men’s · scoreboard
+							</h2>
+							<p class="muted small sports-ncaamb-live-lede">
+								Client-side pull from ESPN’s public scoreboard API for the calendar day you pick — use it beside the bracket
+								panel and market rows. Deep link with <code class="sports-inline-code">?espnDate=YYYYMMDD</code> (updates when
+								you load a day).
+							</p>
+						</div>
+						<div class="sports-ncaamb-live-controls">
+							<label class="sports-ncaamb-live-date-field">
+								<span class="mono small muted">Day</span>
+								<input type="date" id="sports-ncaamb-live-date" class="sports-ncaamb-live-date-input" />
+							</label>
+							<button type="button" class="button-secondary" id="sports-ncaamb-live-apply">
+								Load day
+							</button>
+							<button type="button" class="button-secondary" id="sports-ncaamb-live-refresh">
+								Refresh
+							</button>
+						</div>
+					</div>
+					<p class="muted small sports-ncaamb-live-market-row">
+						<strong>Market ladders</strong>
+						<span aria-hidden="true"> · </span>
+						<a href={kalshiMbbUrl} target="_blank" rel="noopener noreferrer">
+							Kalshi · men’s college basketball
+						</a>
+						<span aria-hidden="true"> · </span>
+						<a href={polyCbbUrl} target="_blank" rel="noopener noreferrer">
+							Polymarket · college basketball
+						</a>
+						<span aria-hidden="true"> · </span>
+						<a href={marchArenaUrl} target="_blank" rel="noopener noreferrer">
+							March Arena (live bracket UX)
+						</a>
+					</p>
+					<p class="muted micro sports-ncaamb-live-status" id="sports-ncaamb-live-status" aria-live="polite">
+						Loading scoreboard…
+					</p>
+					<div class="sports-ncaamb-live-games" id="sports-ncaamb-live-games"></div>
+				</section>
+
+				<section class="card sports-rerun-card" id="sports-rerun-desk" aria-labelledby="sports-rerun-title">
+					<div class="sports-rerun-head">
+						<h2 class="sports-rerun-title" id="sports-rerun-title">Rerun · live multimodal desk</h2>
+						<p class="muted small sports-rerun-lede">
+							<a href={rerunRepoUrl} target="_blank" rel="noopener noreferrer">rerun-io/rerun</a> logs images, tensors,
+							point clouds, and text with a shared timeline — useful for sports pipelines that mix{' '}
+							<strong>decode → perception → stats</strong> (for example SAM masks, homography, player tracks, or splat
+							previews). Stream to the native or web viewer, record <code class="sports-inline-code">.rrd</code>, or query
+							back with the dataframe APIs. Train stays static: wire your SDK off-process, then optionally embed the viewer
+							URL below.
+						</p>
+						<p class="muted small sports-rerun-links">
+							<a href={rerunRepoUrl} target="_blank" rel="noopener noreferrer">
+								GitHub
+							</a>
+							<span aria-hidden="true"> · </span>
+							<a href={rerunIoUrl} target="_blank" rel="noopener noreferrer">
+								rerun.io docs
+							</a>
+							{rerunOpenHref ? (
+								<>
+									<span aria-hidden="true"> · </span>
+									<a href={rerunOpenHref} target="_blank" rel="noopener noreferrer">
+										Configured viewer (new tab)
+									</a>
+								</>
+							) : null}
+						</p>
+					</div>
+
+					<div class="sports-rerun-flow" aria-label="Sports telemetry integration plan">
+						<div class="sports-rerun-flow-card">
+							<span class="mono micro sports-rerun-flow-step">01 · telemetry</span>
+							<h3>uvspeed sports field</h3>
+							<p class="muted small">
+								Open <a href={sportsFieldLabUrl} target="_blank" rel="noopener noreferrer">sports-field-ugrad</a> from
+								youtube-pipeline-viewer or the uvspeed web root. It publishes and applies
+								<code class="sports-inline-code">sportsfield-telemetry</code> /
+								<code class="sports-inline-code">sportsfield-ball</code> on
+								<code class="sports-inline-code">BroadcastChannel('hexcast-stream')</code>.
+							</p>
+						</div>
+						<div class="sports-rerun-flow-card">
+							<span class="mono micro sports-rerun-flow-step">02 · timeline</span>
+							<h3>Rerun sidecar</h3>
+							<p class="muted small">
+								Run a local Python or JS sidecar that listens to the same channel (or a WebSocket bridge), logs ball
+								meters, players, captions, and frame timestamps into Rerun, then serves a web viewer URL via
+								<code class="sports-inline-code">PUBLIC_RERUN_VIEWER_URL</code>.
+							</p>
+						</div>
+						<div class="sports-rerun-flow-card">
+							<span class="mono micro sports-rerun-flow-step">03 · transcript</span>
+							<h3>Transcript + memo</h3>
+							<p class="muted small">
+								Use <a href={youtubePipelineViewerUrl} target="_blank" rel="noopener noreferrer">youtube-pipeline-viewer</a>
+								for HLS, WebSocket segment telemetry, chapters, and transcript sidebar; use
+								<a href={liveCaptionsUrl}>Train live-captions</a> or
+								<a href={overviewWorkspaceUrl} target="_blank" rel="noopener noreferrer">Overview</a> for the research memo.
+							</p>
+						</div>
+					</div>
+
+					<details class="sports-rerun-runbook">
+						<summary class="mono small">Local integration runbook</summary>
+						<div class="sports-rerun-runbook-grid">
+							<div>
+								<p class="muted micro">Mount uvspeed assets in the pipeline viewer:</p>
+								<code>cd /Users/tref/projects/youtube-pipeline-viewer &amp;&amp; UVSPEED_WEB=/Users/tref/dev/projects/uvspeed/web npm start</code>
+							</div>
+							<div>
+								<p class="muted micro">Run this Astro desk:</p>
+								<code>cd /Volumes/qbitOS/00.dev/cursor/train/train &amp;&amp; npm run dev</code>
+							</div>
+							<div>
+								<p class="muted micro">Optional memo surface:</p>
+								<code>cd /Users/tref/projects/overview &amp;&amp; npm run dev</code>
+							</div>
+							<div>
+								<p class="muted micro">Optional Rerun viewer:</p>
+								<code>PUBLIC_RERUN_VIEWER_URL=http://127.0.0.1:PORT/ npm run dev</code>
+							</div>
+						</div>
+					</details>
+
+					{
+						rerunIframeSrc ? (
+							<div class="sports-rerun-embed">
+								<div class="sports-rerun-embed-head">
+									<span class="mono small sports-rerun-embed-badge">embedded</span>
+									<a class="button-secondary sports-rerun-embed-open" href={rerunIframeSrc} target="_blank" rel="noopener noreferrer">
+										Open in new tab
+									</a>
+								</div>
+								<p class="muted micro sports-rerun-embed-note">
+									Iframe uses a strict <code class="sports-inline-code">sandbox</code>. Set{' '}
+									<code class="sports-inline-code">PUBLIC_RERUN_VIEWER_URL</code>
+									{import.meta.env.PUBLIC_RERUN_EMBED_HOSTS?.trim() ? (
+										<>
+											{' '}
+											and allow the host via <code class="sports-inline-code">PUBLIC_RERUN_EMBED_HOSTS</code>
+										</>
+									) : (
+										<>
+											; use <code class="sports-inline-code">PUBLIC_RERUN_EMBED_HOSTS</code> in production to restrict
+											embeds
+										</>
+									)}
+									. If the viewer blocks framing, the tile stays blank — use “Open in new tab”.
+								</p>
+								<div class="sports-rerun-embed-frameWrap">
+									<iframe
+										class="sports-rerun-embed-frame"
+										title="Rerun viewer"
+										src={rerunIframeSrc}
+										sandbox={rerunIframeSandbox}
+										loading="lazy"
+										referrerpolicy="strict-origin-when-cross-origin"
+									/>
+								</div>
+							</div>
+						) : rerunViewerRaw ? (
+							<div class="sports-rerun-embed sports-rerun-embed--blocked">
+								<p class="muted small">
+									<code class="sports-inline-code">PUBLIC_RERUN_VIEWER_URL</code> is set but the URL did not pass embed
+									validation (must be <code class="sports-inline-code">http:</code> or{' '}
+									<code class="sports-inline-code">https:</code>, no embedded credentials
+									{import.meta.env.PUBLIC_RERUN_EMBED_HOSTS?.trim()
+										? ', and hostname must appear in PUBLIC_RERUN_EMBED_HOSTS'
+										: ''}
+									). Fix the env vars or open the viewer from your deployment host.
+								</p>
+							</div>
+						) : (
+							<p class="muted small sports-rerun-placeholder">
+								Set <code class="sports-inline-code">PUBLIC_RERUN_VIEWER_URL</code> at build time to surface an embed
+								plus “open in new tab” (same pattern as the Broadcast desk pipeline URL).
+							</p>
+						)
+					}
+				</section>
+
 				<section
 					class="card sports-march-panel"
 					id="sports-march-panel"
@@ -571,7 +815,13 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 								tree — 2025 is a full archive from march-arena pairings. Every game keeps{' '}
 								<code class="sports-inline-code">id</code> for prediction-market joins. Static data:{' '}
 								<code class="sports-inline-code">march-seasons.json</code> +{' '}
-								<code class="sports-inline-code">march-bracket-2025.json</code>.
+								<code class="sports-inline-code">march-bracket-2025.json</code>. Matchup and round columns are laid out as
+								<strong> nested cards</strong> (similar density to{' '}
+								<a href={marchArenaRepoUrl} target="_blank" rel="noopener noreferrer">leerob/march-arena</a>
+								<span aria-hidden="true"> / </span>
+								<a href={marchArenaUrl} target="_blank" rel="noopener noreferrer">marcharena.com</a>
+								) with ESPN-style scores like{' '}
+								<a href={ncaamRepoUrl} target="_blank" rel="noopener noreferrer">leerob/ncaam</a>.
 							</p>
 							<details class="sports-march-changelog">
 								<summary class="sports-march-changelog-sum mono small">Bracket panel · shipped updates 1–5</summary>
@@ -827,7 +1077,7 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 
 		function matchupCard(g) {
 			const wrap = document.createElement('div');
-			wrap.className = 'sports-bracket-game';
+			wrap.className = 'sports-bracket-game sports-bracket-game--tile';
 			if (g.id) wrap.dataset.gameId = g.id;
 
 			function line(seed, name, pts, win) {
@@ -885,12 +1135,11 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 		}
 
 		function bracketColumn(label, games, singleGame) {
-			const col = document.createElement('div');
-			col.className = 'sports-bracket-col';
+			const card = document.createElement('div');
+			card.className = 'sports-bracket-col-card';
 			const h = document.createElement('div');
 			h.className = 'sports-bracket-col-head mono small';
 			h.textContent = label;
-			col.append(h);
 			const stack = document.createElement('div');
 			stack.className = 'sports-bracket-col-stack';
 			if (singleGame && singleGame.id) {
@@ -898,8 +1147,8 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 			} else if (Array.isArray(games)) {
 				for (const g of games) stack.append(matchupCard(g));
 			}
-			col.append(stack);
-			return col;
+			card.append(h, stack);
+			return card;
 		}
 
 		function appendFullBracket(parent, bracket) {
@@ -1057,7 +1306,7 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 			}
 
 			const meta = document.createElement('div');
-			meta.className = 'sports-march-meta muted small';
+			meta.className = 'sports-march-meta sports-march-summary-card muted small';
 			const metaP = document.createElement('p');
 			metaP.className = 'sports-march-meta-line';
 			metaP.append(
@@ -1279,6 +1528,207 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 				}
 			});
 		});
+	})();
+</script>
+
+<script is:inline>
+	(() => {
+		const ESPN_SCOREBOARD =
+			'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard';
+		const ESPN_Q = 'espnDate';
+
+		const statusEl = document.getElementById('sports-ncaamb-live-status');
+		const gamesEl = document.getElementById('sports-ncaamb-live-games');
+		const dateInput = document.getElementById('sports-ncaamb-live-date');
+		const applyBtn = document.getElementById('sports-ncaamb-live-apply');
+		const refreshBtn = document.getElementById('sports-ncaamb-live-refresh');
+		if (!statusEl || !gamesEl || !dateInput) return;
+
+		function localYmdCompact(d) {
+			const y = d.getFullYear();
+			const m = String(d.getMonth() + 1).padStart(2, '0');
+			const day = String(d.getDate()).padStart(2, '0');
+			return `${y}${m}${day}`;
+		}
+
+		function hyphenToCompact(h) {
+			const compact = String(h || '')
+				.trim()
+				.replace(/-/g, '');
+			return /^\d{8}$/.test(compact) ? compact : null;
+		}
+
+		function compactToHyphen(c) {
+			return /^\d{8}$/.test(c) ? `${c.slice(0, 4)}-${c.slice(4, 6)}-${c.slice(6, 8)}` : null;
+		}
+
+		function readUrlCompact() {
+			try {
+				const raw = new URLSearchParams(window.location.search).get(ESPN_Q);
+				if (!raw) return null;
+				const t = raw.trim();
+				if (/^\d{8}$/.test(t)) return t;
+				return hyphenToCompact(t);
+			} catch {
+				return null;
+			}
+		}
+
+		function pushUrlCompact(compact) {
+			try {
+				const u = new URL(window.location.href);
+				u.searchParams.set(ESPN_Q, compact);
+				window.history.replaceState({}, '', u.toString());
+			} catch {}
+		}
+
+		function initDateInput() {
+			const urlC = readUrlCompact();
+			const fallback = localYmdCompact(new Date());
+			const compact = urlC || fallback;
+			const hyp = compactToHyphen(compact);
+			if (hyp) dateInput.value = hyp;
+		}
+
+		function parseEvent(ev) {
+			const comp = ev.competitions && ev.competitions[0];
+			if (!comp) return null;
+			const teams = comp.competitors || [];
+			const home = teams.find((t) => t.homeAway === 'home');
+			const away = teams.find((t) => t.homeAway === 'away');
+			const st = comp.status && comp.status.type;
+			const state = st && st.state ? String(st.state) : '';
+			const completed = st && st.completed === true;
+			return {
+				label: String(ev.shortName || ev.name || '').trim() || 'Game',
+				detail: String((st && (st.detail || st.shortDetail || st.description)) || '').trim(),
+				state,
+				completed,
+				home: home
+					? {
+							name: String(
+								(home.team && (home.team.shortDisplayName || home.team.displayName)) || 'Home'
+							).trim(),
+							score: home.score != null ? String(home.score) : '—',
+						}
+					: null,
+				away: away
+					? {
+							name: String(
+								(away.team && (away.team.shortDisplayName || away.team.displayName)) || 'Away'
+							).trim(),
+							score: away.score != null ? String(away.score) : '—',
+						}
+					: null,
+			};
+		}
+
+		function renderGame(p) {
+			const row = document.createElement('div');
+			row.className = 'sports-ncaamb-live-game';
+			if (p.completed) row.classList.add('sports-ncaamb-live-game--final');
+			if (!p.completed && p.state === 'in') row.classList.add('sports-ncaamb-live-game--live');
+
+			const top = document.createElement('div');
+			top.className = 'sports-ncaamb-live-game-top';
+			const name = document.createElement('span');
+			name.className = 'sports-ncaamb-live-game-name mono small';
+			name.textContent = p.label;
+			const stat = document.createElement('span');
+			stat.className = 'muted micro sports-ncaamb-live-game-stat';
+			stat.textContent = p.detail || (p.completed ? 'Final' : p.state === 'in' ? 'Live' : '');
+			top.appendChild(name);
+			top.appendChild(stat);
+
+			const mid = document.createElement('div');
+			mid.className = 'sports-ncaamb-live-game-mid';
+			const awayCell = document.createElement('div');
+			awayCell.className = 'sports-ncaamb-live-team';
+			const awayN = document.createElement('span');
+			awayN.className = 'sports-ncaamb-live-team-name';
+			awayN.textContent = p.away ? p.away.name : '—';
+			const awayS = document.createElement('span');
+			awayS.className = 'sports-ncaamb-live-team-score mono';
+			awayS.textContent = p.away ? p.away.score : '—';
+			awayCell.appendChild(awayN);
+			awayCell.appendChild(awayS);
+
+			const vs = document.createElement('span');
+			vs.className = 'sports-ncaamb-live-vs muted micro';
+			vs.textContent = '@';
+
+			const homeCell = document.createElement('div');
+			homeCell.className = 'sports-ncaamb-live-team sports-ncaamb-live-team--home';
+			const homeN = document.createElement('span');
+			homeN.className = 'sports-ncaamb-live-team-name';
+			homeN.textContent = p.home ? p.home.name : '—';
+			const homeS = document.createElement('span');
+			homeS.className = 'sports-ncaamb-live-team-score mono';
+			homeS.textContent = p.home ? p.home.score : '—';
+			homeCell.appendChild(homeN);
+			homeCell.appendChild(homeS);
+
+			mid.appendChild(awayCell);
+			mid.appendChild(vs);
+			mid.appendChild(homeCell);
+
+			row.appendChild(top);
+			row.appendChild(mid);
+			return row;
+		}
+
+		async function loadBoard() {
+			const compact = hyphenToCompact(dateInput.value) || localYmdCompact(new Date());
+			const hyp = compactToHyphen(compact);
+			if (hyp) dateInput.value = hyp;
+			pushUrlCompact(compact);
+
+			statusEl.textContent = 'Loading scoreboard…';
+			gamesEl.replaceChildren();
+
+			const url = `${ESPN_SCOREBOARD}?dates=${encodeURIComponent(compact)}&limit=400`;
+			let data;
+			try {
+				const r = await fetch(url, { credentials: 'omit' });
+				if (!r.ok) throw new Error(String(r.status));
+				data = await r.json();
+			} catch {
+				statusEl.textContent =
+					'Could not load ESPN from this origin (network or browser block). Use the links above or open ESPN directly.';
+				const p = document.createElement('p');
+				p.className = 'muted small';
+				const a = document.createElement('a');
+				a.href = `https://www.espn.com/mens-college-basketball/scoreboard/_/date/${compact}`;
+				a.target = '_blank';
+				a.rel = 'noopener noreferrer';
+				a.textContent = `ESPN scoreboard · ${compact}`;
+				p.appendChild(a);
+				gamesEl.appendChild(p);
+				return;
+			}
+
+			const events = Array.isArray(data.events) ? data.events : [];
+			const dayLabel = (data.day && data.day.date) || compact;
+			if (!events.length) {
+				statusEl.textContent = `No games in ESPN feed for ${dayLabel} (off day or outside the MBB calendar).`;
+				return;
+			}
+
+			statusEl.textContent = `${events.length} games · ESPN day ${dayLabel}`;
+
+			const frag = document.createDocumentFragment();
+			for (const ev of events) {
+				const p = parseEvent(ev);
+				if (!p || !p.home || !p.away) continue;
+				frag.appendChild(renderGame(p));
+			}
+			gamesEl.appendChild(frag);
+		}
+
+		applyBtn && applyBtn.addEventListener('click', () => void loadBoard());
+		refreshBtn && refreshBtn.addEventListener('click', () => void loadBoard());
+		initDateInput();
+		void loadBoard();
 	})();
 </script>
 
@@ -1698,6 +2148,322 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 		gap: 16px;
 	}
 
+	.sports-ncaamb-live-title {
+		margin: 0 0 6px;
+		font-size: 1.05rem;
+		font-weight: 650;
+	}
+
+	.sports-ncaamb-live-lede {
+		margin: 0;
+		max-width: 72ch;
+		line-height: 1.5;
+	}
+
+	.sports-ncaamb-live-head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 14px 20px;
+		margin-bottom: 12px;
+	}
+
+	.sports-ncaamb-live-head-copy {
+		flex: 1 1 280px;
+		min-width: 0;
+	}
+
+	.sports-ncaamb-live-controls {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		gap: 10px;
+	}
+
+	.sports-ncaamb-live-date-field {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.sports-ncaamb-live-date-input {
+		font-family: var(--font-mono);
+		font-size: 12px;
+		padding: 8px 10px;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		background: rgba(0, 0, 0, 0.35);
+		color: var(--text);
+	}
+
+	.sports-ncaamb-live-market-row {
+		margin: 0 0 8px;
+		line-height: 1.5;
+	}
+
+	.sports-ncaamb-live-market-row a {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.sports-ncaamb-live-status {
+		margin: 0 0 10px;
+	}
+
+	.sports-ncaamb-live-games {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.sports-ncaamb-live-game {
+		padding: 12px 14px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+	}
+
+	.sports-ncaamb-live-game--live {
+		border-color: rgba(72, 224, 188, 0.42);
+		box-shadow: 0 0 0 1px rgba(72, 224, 188, 0.1);
+	}
+
+	.sports-ncaamb-live-game--final {
+		opacity: 0.92;
+	}
+
+	.sports-ncaamb-live-game-top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 6px 12px;
+		margin-bottom: 10px;
+	}
+
+	.sports-ncaamb-live-game-name {
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	.sports-ncaamb-live-game-mid {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		gap: 10px 12px;
+		align-items: center;
+	}
+
+	.sports-ncaamb-live-team {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		min-width: 0;
+	}
+
+	.sports-ncaamb-live-team--home {
+		flex-direction: row-reverse;
+		text-align: right;
+	}
+
+	.sports-ncaamb-live-team-name {
+		font-size: 13px;
+		font-weight: 600;
+		line-height: 1.3;
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.sports-ncaamb-live-team-score {
+		font-size: 15px;
+		font-weight: 700;
+		flex-shrink: 0;
+	}
+
+	.sports-ncaamb-live-vs {
+		opacity: 0.65;
+	}
+
+	.sports-rerun-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.sports-rerun-head {
+		padding: 4px 2px 14px;
+	}
+
+	.sports-rerun-title {
+		margin: 0 0 8px;
+		font-size: 1.05rem;
+		font-weight: 650;
+	}
+
+	.sports-rerun-lede {
+		margin: 0 0 10px;
+		max-width: 72ch;
+		line-height: 1.55;
+	}
+
+	.sports-rerun-lede a,
+	.sports-rerun-links a {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.sports-rerun-links {
+		margin: 0;
+	}
+
+	.sports-rerun-placeholder {
+		margin: 0;
+		padding-top: 4px;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		line-height: 1.5;
+	}
+
+	.sports-rerun-flow {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 10px;
+		padding: 14px 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.sports-rerun-flow-card {
+		padding: 12px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.18);
+	}
+
+	.sports-rerun-flow-card h3 {
+		margin: 6px 0 6px;
+		font-size: 0.9rem;
+		font-weight: 650;
+	}
+
+	.sports-rerun-flow-card p {
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	.sports-rerun-flow-card a {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.sports-rerun-flow-step {
+		color: var(--accent);
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.sports-rerun-runbook {
+		margin: 0 0 14px;
+		padding: 12px;
+		border-radius: 12px;
+		border: 1px solid rgba(72, 224, 188, 0.22);
+		background: rgba(72, 224, 188, 0.06);
+	}
+
+	.sports-rerun-runbook summary {
+		cursor: pointer;
+		color: var(--accent);
+	}
+
+	.sports-rerun-runbook-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+		margin-top: 12px;
+	}
+
+	.sports-rerun-runbook-grid p {
+		margin: 0 0 4px;
+	}
+
+	.sports-rerun-runbook-grid code {
+		display: block;
+		overflow-x: auto;
+		white-space: nowrap;
+		padding: 8px;
+		border-radius: 8px;
+		background: rgba(0, 0, 0, 0.35);
+		color: rgba(238, 244, 255, 0.9);
+		font-size: 0.72rem;
+	}
+
+	.sports-rerun-embed {
+		display: flex;
+		flex-direction: column;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		overflow: hidden;
+	}
+
+	.sports-rerun-embed--blocked {
+		padding: 14px 0 4px;
+	}
+
+	.sports-rerun-embed-head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 14px 0 0;
+	}
+
+	.sports-rerun-embed-badge {
+		padding: 2px 8px;
+		border-radius: 999px;
+		border: 1px solid rgba(72, 224, 188, 0.35);
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	.sports-rerun-embed-open {
+		flex-shrink: 0;
+	}
+
+	.sports-rerun-embed-note {
+		margin: 0;
+		padding: 8px 0 12px;
+		line-height: 1.5;
+		max-width: none;
+	}
+
+	.sports-rerun-embed-frameWrap {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16 / 10;
+		min-height: 320px;
+		background: rgba(0, 0, 0, 0.35);
+		border-radius: 0 0 12px 12px;
+	}
+
+	.sports-rerun-embed-frame {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+
+	@media (max-width: 900px) {
+		.sports-rerun-flow,
+		.sports-rerun-runbook-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
 	.sports-thumb-row {
 		display: flex;
 		flex-wrap: wrap;
@@ -1761,6 +2527,12 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 		line-height: 1.5;
 	}
 
+	.sports-march-lede a {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
 	.sports-march-season-field {
 		display: flex;
 		flex-direction: column;
@@ -1782,9 +2554,17 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 	.sports-march-bracket {
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
-		padding: 12px 0 4px;
+		gap: 14px;
+		padding: 14px 0 4px;
 		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.sports-march-summary-card {
+		padding: 12px 14px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.22);
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 	}
 
 	.sports-march-meta-line {
@@ -1967,10 +2747,13 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 
 	.sports-bracket-shell {
 		margin-top: 8px;
-		padding: 12px;
+		padding: 14px 14px 16px;
 		border-radius: 14px;
-		border: 1px solid rgba(72, 224, 188, 0.2);
-		background: rgba(0, 0, 0, 0.2);
+		border: 1px solid rgba(72, 224, 188, 0.28);
+		background: linear-gradient(165deg, rgba(20, 32, 40, 0.55) 0%, rgba(0, 0, 0, 0.35) 100%);
+		box-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.06) inset,
+			0 8px 28px rgba(0, 0, 0, 0.35);
 	}
 
 	.sports-bracket-region-tabs {
@@ -2028,25 +2811,34 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 
 	.sports-bracket-cols {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(160px, 1fr));
-		gap: 12px;
-		min-width: min(100%, 720px);
+		grid-template-columns: repeat(4, minmax(168px, 1fr));
+		gap: 14px;
+		align-items: start;
+		min-width: min(100%, 760px);
 	}
 
 	@media (max-width: 900px) {
 		.sports-bracket-cols {
-			grid-template-columns: repeat(4, minmax(140px, 1fr));
+			grid-template-columns: repeat(4, minmax(148px, 1fr));
 		}
 	}
 
-	.sports-bracket-col {
+	.sports-bracket-col-card {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
 		min-width: 0;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(0, 0, 0, 0.28);
+		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+		overflow: hidden;
 	}
 
 	.sports-bracket-col-head {
+		flex-shrink: 0;
+		padding: 10px 12px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.35);
 		color: var(--accent);
 		font-weight: 600;
 		letter-spacing: 0.08em;
@@ -2056,7 +2848,9 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 	.sports-bracket-col-stack {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
+		gap: 10px;
+		padding: 10px 10px 12px;
+		min-height: 0;
 	}
 
 	.sports-bracket-game {
@@ -2069,9 +2863,31 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 			box-shadow 0.15s ease;
 	}
 
+	.sports-bracket-game--tile {
+		padding: 11px 12px 10px;
+		border-radius: 11px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: linear-gradient(180deg, rgba(40, 48, 58, 0.55) 0%, rgba(12, 14, 18, 0.75) 100%);
+		box-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.05) inset,
+			0 3px 10px rgba(0, 0, 0, 0.35);
+	}
+
+	.sports-bracket-game--tile::before {
+		content: '';
+		display: block;
+		height: 2px;
+		margin: -11px -12px 8px;
+		border-radius: 11px 11px 0 0;
+		background: linear-gradient(90deg, rgba(72, 224, 188, 0.35), rgba(170, 90, 255, 0.35));
+		opacity: 0.85;
+	}
+
 	.sports-bracket-game.is-highlighted {
-		border-color: rgba(170, 90, 255, 0.55);
-		box-shadow: 0 0 0 2px rgba(170, 90, 255, 0.15);
+		border-color: rgba(170, 90, 255, 0.65);
+		box-shadow:
+			0 0 0 2px rgba(170, 90, 255, 0.18),
+			0 4px 16px rgba(0, 0, 0, 0.4);
 	}
 
 	.sports-bracket-line {
@@ -2128,10 +2944,18 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
-		padding: 12px;
+		padding: 12px 12px 14px;
 		border-radius: 12px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background: rgba(0, 0, 0, 0.18);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(0, 0, 0, 0.28);
+		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+	}
+
+	.sports-bracket-national-ff > .mono:first-child,
+	.sports-bracket-national-champ > .mono:first-child {
+		padding-bottom: 2px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		margin-bottom: 2px;
 	}
 
 	.sports-march-changelog--extra {

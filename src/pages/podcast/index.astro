@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const feedUrl = (import.meta.env.PUBLIC_PODCAST_FEED_URL || '').trim();
+const nextMusicPlayer = 'https://github.com/leerob/next-music-player';
+---
+
+<Layout
+	title="Podcast · Train Market Data"
+	description="Podcast desk on Train: RSS hooks, episode placeholders, and links to player patterns."
+	pageClass="page-podcast"
+	eyebrow="Podcast"
+	subtitle="Static shell for show notes, RSS, and an embedded player once you host audio off GitHub Pages."
+>
+	<section class="container podcast-shell">
+		<header class="podcast-hero card">
+			<div>
+				<h1 class="podcast-title">Podcast</h1>
+				<p class="muted podcast-lead">
+					Train stays a <strong>static site</strong>. This tab is the home for a future <strong>audio program</strong>: show
+					notes, chapter markers, and outbound links to your feed or a dedicated player app. For a full-featured listening
+					UI pattern (queue, transcripts, mobile layout), see{' '}
+					<a href={nextMusicPlayer} target="_blank" rel="noopener noreferrer">leerob/next-music-player</a>.
+				</p>
+			</div>
+			<div class="podcast-hero-aside">
+				{
+					feedUrl ? (
+						<>
+							<p class="mono small muted">PUBLIC_PODCAST_FEED_URL</p>
+							<a class="button" href={feedUrl} target="_blank" rel="noopener noreferrer">
+								Open RSS / Atom feed
+							</a>
+						</>
+					) : (
+						<p class="mono small muted">
+							Set <code class="podcast-code">PUBLIC_PODCAST_FEED_URL</code> at build time to surface a button to your public
+							feed.
+						</p>
+					)
+				}
+				<a class="button-secondary" href={`${import.meta.env.BASE_URL}sports/`}>
+					Sports · live scoreboard
+				</a>
+				<a class="button-secondary" href={`${import.meta.env.BASE_URL}broadcast/`}>
+					Broadcast desk
+				</a>
+			</div>
+		</header>
+
+		<div class="podcast-grid">
+			<article class="card podcast-card">
+				<h2 class="podcast-card-title">Feed &amp; metadata</h2>
+				<p class="muted small">
+					Publish RSS or Atom from your host; Train only links. Episode art, duration, and enclosure URLs stay in the feed —
+					no server execution on Pages.
+				</p>
+			</article>
+			<article class="card podcast-card">
+				<h2 class="podcast-card-title">Embedded player</h2>
+				<p class="muted small">
+					When you have an HTTPS origin that allows framing, add an iframe or web component here (same pattern as the
+					Broadcast desk embed guardrails).
+				</p>
+			</article>
+			<article class="card podcast-card">
+				<h2 class="podcast-card-title">Show notes</h2>
+				<p class="muted small">
+					Markdown or MDX routes can list seasons and episodes; wire build-time data or a headless CMS when you outgrow
+					placeholders.
+				</p>
+			</article>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.podcast-shell {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding-top: 6px;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.podcast-hero {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	.podcast-title {
+		margin: 0 0 10px;
+		font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+	}
+
+	.podcast-lead {
+		margin: 0;
+		max-width: 62ch;
+		line-height: 1.55;
+	}
+
+	.podcast-lead a {
+		color: rgba(169, 200, 255, 0.95);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.podcast-hero-aside {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 10px;
+		min-width: min(100%, 240px);
+	}
+
+	.podcast-code {
+		font-family: var(--font-mono, ui-monospace, monospace);
+		font-size: 0.92em;
+		padding: 1px 6px;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.25);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+	}
+
+	.podcast-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 16px;
+	}
+
+	.podcast-card-title {
+		margin: 0 0 8px;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	.podcast-card p {
+		margin: 0;
+		line-height: 1.45;
+	}
+</style>

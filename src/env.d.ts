@@ -14,6 +14,18 @@ interface ImportMetaEnv {
 	 * When unset, any http(s) origin from `PUBLIC_BROADCAST_PIPELINE_URL` may embed (still no userinfo in URL).
 	 */
 	readonly PUBLIC_BROADCAST_EMBED_HOSTS?: string;
+	/** Optional RSS or Atom feed URL for the Podcast tab (shown when set). */
+	readonly PUBLIC_PODCAST_FEED_URL?: string;
+	/**
+	 * Optional Rerun Viewer URL (with path/query if needed, no trailing slash required),
+	 * e.g. https://app.rerun.io/... or your self-hosted viewer — Sports tab embed + “open” link.
+	 */
+	readonly PUBLIC_RERUN_VIEWER_URL?: string;
+	/**
+	 * Optional comma-separated hostnames allowed for the Rerun iframe (lowercase).
+	 * When set, the embed loads only if the URL hostname is listed.
+	 */
+	readonly PUBLIC_RERUN_EMBED_HOSTS?: string;
 }
 
 interface ImportMeta {
