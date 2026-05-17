@@ -1,0 +1,13 @@
+{
+  "updated": "2026-05-17",
+  "source": "yahoo_finance_predefined_screener",
+  "sectors": [
+    {
+      "sectorId": "technology",
+      "sectorLabel": "Technology",
+      "yahooScrId": "sec-ind_sec-largest-equities_technology",
+      "file": "technology.json",
+      "count": 250
+    }
+  ]
+}
