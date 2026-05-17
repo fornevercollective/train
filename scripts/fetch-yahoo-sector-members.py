@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import json
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import date
@@ -27,46 +28,62 @@ MANIFEST = Path(__file__).resolve().parent / "yahoo-sector-screeners.json"
 OUT_DIR = ROOT / "public" / "data" / "sector-members"
 USER_AGENT = "RitualROI-TrainSectorFetch/1.0 (kevencraftrituals/train; local batch job)"
 PAGE_SIZE = 250
+MAX_RETRIES = 4
 
 
-def fetch_page(scr_id: str, offset: int, count: int = PAGE_SIZE) -> dict:
-    qs = urllib.parse.urlencode({"scrIds": scr_id, "count": count, "offset": offset})
+def fetch_page(scr_id: str, start: int, count: int = PAGE_SIZE) -> dict:
+    # Yahoo ignores `offset` on this endpoint; `start` paginates correctly.
+    qs = urllib.parse.urlencode({"scrIds": scr_id, "count": count, "start": start})
     url = f"https://query1.finance.yahoo.com/v1/finance/screener/predefined/saved?{qs}"
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    last_err = None
+    for attempt in range(MAX_RETRIES):
+        try:
+            with urllib.request.urlopen(req, timeout=90) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+            last_err = e
+            if attempt + 1 < MAX_RETRIES:
+                time.sleep(2.0 * (attempt + 1))
+    raise RuntimeError(f"Yahoo screener failed after {MAX_RETRIES} tries: {last_err}")
 
 
-def fetch_screener(scr_id: str, sleep_s: float) -> list[dict]:
+def fetch_screener(scr_id: str, sleep_s: float, verbose: bool = False) -> list[dict]:
     seen: set[str] = set()
     rows: list[dict] = []
-    offset = 0
+    start = 0
     total = None
+    page = 0
 
     while True:
-        payload = fetch_page(scr_id, offset)
+        page += 1
+        payload = fetch_page(scr_id, start)
         result = (payload.get("finance") or {}).get("result") or []
         block = result[0] if result else {}
         if total is None:
             total = int(block.get("total") or 0)
         quotes = block.get("quotes") or []
+        if verbose:
+            print(f"    page {page}: start={start} got={len(quotes)} total={total}", flush=True)
         if not quotes:
             break
+        added = 0
         for q in quotes:
             sym = str(q.get("symbol") or "").strip().upper()
             if not sym or sym in seen:
                 continue
             seen.add(sym)
-            name = (
-                str(q.get("longName") or q.get("shortName") or q.get("name") or sym).strip()
-            )
+            name = str(q.get("longName") or q.get("shortName") or q.get("name") or sym).strip()
             rows.append({"sy": sym, "name": name})
-        offset += len(quotes)
-        if offset >= total or len(quotes) < PAGE_SIZE:
+            added += 1
+        start += len(quotes)
+        if start >= total or len(quotes) < PAGE_SIZE:
             break
         if sleep_s > 0:
             time.sleep(sleep_s)
 
+    if total and len(rows) < total and verbose:
+        print(f"    warning: expected {total} tickers, collected {len(rows)}", flush=True)
     return rows
 
 
@@ -103,6 +120,12 @@ def main() -> int:
         default=MANIFEST,
         help="Path to yahoo-sector-screeners.json",
     )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Print per-page fetch progress",
+    )
     args = parser.parse_args()
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
@@ -120,7 +143,7 @@ def main() -> int:
         label = entry.get("sectorLabel") or entry.get("sectorId")
         print(f"[{i + 1}/{len(sectors)}] {label} ({scr}) …", flush=True)
         try:
-            tickers = fetch_screener(scr, args.sleep if i else 0)
+            tickers = fetch_screener(scr, args.sleep, verbose=args.verbose)
         except Exception as e:
             print(f"  FAILED: {e}", flush=True)
             continue

@@ -3,7 +3,7 @@
   "sectorLabel": "Technology",
   "yahooScrId": "sec-ind_sec-largest-equities_technology",
   "updated": "2026-05-17",
-  "count": 250,
+  "count": 488,
   "tickers": [
     {
       "sy": "NVDA",
@@ -1004,6 +1004,958 @@
     {
       "sy": "QTWO",
       "name": "Q2 Holdings, Inc."
+    },
+    {
+      "sy": "NTCT",
+      "name": "NetScout Systems, Inc."
+    },
+    {
+      "sy": "INFQ",
+      "name": "Infleqtion, Inc."
+    },
+    {
+      "sy": "NSIT",
+      "name": "Insight Enterprises, Inc."
+    },
+    {
+      "sy": "FSLY",
+      "name": "Fastly, Inc."
+    },
+    {
+      "sy": "WK",
+      "name": "Workiva Inc."
+    },
+    {
+      "sy": "VISN",
+      "name": "Vistance Networks, Inc."
+    },
+    {
+      "sy": "KD",
+      "name": "Kyndryl Holdings, Inc."
+    },
+    {
+      "sy": "ICHR",
+      "name": "Ichor Holdings, Ltd."
+    },
+    {
+      "sy": "CALX",
+      "name": "Calix, Inc."
+    },
+    {
+      "sy": "EEFT",
+      "name": "Euronet Worldwide, Inc."
+    },
+    {
+      "sy": "ROG",
+      "name": "Rogers Corporation"
+    },
+    {
+      "sy": "FRSH",
+      "name": "Freshworks Inc."
+    },
+    {
+      "sy": "PAGS",
+      "name": "PagSeguro Digital Ltd."
+    },
+    {
+      "sy": "POET",
+      "name": "POET Technologies Inc."
+    },
+    {
+      "sy": "NIQ",
+      "name": "NIQ Global Intelligence plc"
+    },
+    {
+      "sy": "DBD",
+      "name": "Diebold Nixdorf, Incorporated"
+    },
+    {
+      "sy": "GRND",
+      "name": "Grindr Inc."
+    },
+    {
+      "sy": "PENG",
+      "name": "Penguin Solutions, Inc."
+    },
+    {
+      "sy": "TENB",
+      "name": "Tenable Holdings, Inc."
+    },
+    {
+      "sy": "QUBT",
+      "name": "Quantum Computing Inc."
+    },
+    {
+      "sy": "BRZE",
+      "name": "Braze, Inc."
+    },
+    {
+      "sy": "DGII",
+      "name": "Digi International Inc."
+    },
+    {
+      "sy": "STNE",
+      "name": "StoneCo Ltd."
+    },
+    {
+      "sy": "CSGS",
+      "name": "CSG Systems International, Inc."
+    },
+    {
+      "sy": "WIX",
+      "name": "Wix.com Ltd."
+    },
+    {
+      "sy": "COHU",
+      "name": "Cohu, Inc."
+    },
+    {
+      "sy": "OUST",
+      "name": "Ouster, Inc."
+    },
+    {
+      "sy": "PLUS",
+      "name": "ePlus inc."
+    },
+    {
+      "sy": "AVPT",
+      "name": "AvePoint, Inc."
+    },
+    {
+      "sy": "ALRM",
+      "name": "Alarm.com Holdings, Inc."
+    },
+    {
+      "sy": "VERX",
+      "name": "Vertex, Inc."
+    },
+    {
+      "sy": "ATEN",
+      "name": "A10 Networks, Inc."
+    },
+    {
+      "sy": "VRRM",
+      "name": "Verra Mobility Corporation"
+    },
+    {
+      "sy": "FLYW",
+      "name": "Flywire Corporation"
+    },
+    {
+      "sy": "AGYS",
+      "name": "Agilysys, Inc."
+    },
+    {
+      "sy": "SPSC",
+      "name": "SPS Commerce, Inc."
+    },
+    {
+      "sy": "RAMP",
+      "name": "LiveRamp Holdings, Inc."
+    },
+    {
+      "sy": "PDFS",
+      "name": "PDF Solutions, Inc."
+    },
+    {
+      "sy": "MGRT",
+      "name": "Mega Fortune Company Limited"
+    },
+    {
+      "sy": "ALKT",
+      "name": "Alkami Technology, Inc."
+    },
+    {
+      "sy": "SONO",
+      "name": "Sonos, Inc."
+    },
+    {
+      "sy": "SHLS",
+      "name": "Shoals Technologies Group, Inc."
+    },
+    {
+      "sy": "BAND",
+      "name": "Bandwidth Inc."
+    },
+    {
+      "sy": "SKYT",
+      "name": "SkyWater Technology, Inc."
+    },
+    {
+      "sy": "BVC",
+      "name": "BitVentures Limited"
+    },
+    {
+      "sy": "WLTH",
+      "name": "Wealthfront Corporation"
+    },
+    {
+      "sy": "GLOB",
+      "name": "Globant S.A."
+    },
+    {
+      "sy": "EVCM",
+      "name": "EverCommerce Inc."
+    },
+    {
+      "sy": "CTS",
+      "name": "CTS Corporation"
+    },
+    {
+      "sy": "FIVN",
+      "name": "Five9, Inc."
+    },
+    {
+      "sy": "NCNO",
+      "name": "nCino, Inc."
+    },
+    {
+      "sy": "CNXN",
+      "name": "PC Connection, Inc."
+    },
+    {
+      "sy": "INTA",
+      "name": "Intapp, Inc."
+    },
+    {
+      "sy": "BL",
+      "name": "BlackLine, Inc."
+    },
+    {
+      "sy": "AIP",
+      "name": "Arteris, Inc."
+    },
+    {
+      "sy": "AMBQ",
+      "name": "Ambiq Micro, Inc."
+    },
+    {
+      "sy": "BRAI",
+      "name": "Braiin Limited"
+    },
+    {
+      "sy": "ASAN",
+      "name": "Asana, Inc."
+    },
+    {
+      "sy": "CNXC",
+      "name": "Concentrix Corporation"
+    },
+    {
+      "sy": "DXC",
+      "name": "DXC Technology Company"
+    },
+    {
+      "sy": "EVTC",
+      "name": "EVERTEC, Inc."
+    },
+    {
+      "sy": "RXT",
+      "name": "Rackspace Technology, Inc."
+    },
+    {
+      "sy": "KDK",
+      "name": "Kodiak AI, Inc."
+    },
+    {
+      "sy": "APPN",
+      "name": "Appian Corporation"
+    },
+    {
+      "sy": "KARO",
+      "name": "Karooooo Ltd."
+    },
+    {
+      "sy": "BLKB",
+      "name": "Blackbaud, Inc."
+    },
+    {
+      "sy": "ARRY",
+      "name": "Array Technologies, Inc."
+    },
+    {
+      "sy": "PICS",
+      "name": "PicS N.V."
+    },
+    {
+      "sy": "HLIT",
+      "name": "Harmonic Inc."
+    },
+    {
+      "sy": "MOVE",
+      "name": "Corvex Inc."
+    },
+    {
+      "sy": "GCT",
+      "name": "GigaCloud Technology Inc."
+    },
+    {
+      "sy": "VPG",
+      "name": "Vishay Precision Group, Inc."
+    },
+    {
+      "sy": "AEVA",
+      "name": "Aeva Technologies, Inc."
+    },
+    {
+      "sy": "CXM",
+      "name": "Sprinklr, Inc."
+    },
+    {
+      "sy": "AI",
+      "name": "C3.ai, Inc."
+    },
+    {
+      "sy": "CSIQ",
+      "name": "Canadian Solar Inc."
+    },
+    {
+      "sy": "ADTN",
+      "name": "ADTRAN Holdings, Inc."
+    },
+    {
+      "sy": "VIA",
+      "name": "Via Transportation, Inc."
+    },
+    {
+      "sy": "RDWR",
+      "name": "Radware Ltd."
+    },
+    {
+      "sy": "PRGS",
+      "name": "Progress Software Corporation"
+    },
+    {
+      "sy": "AOSL",
+      "name": "Alpha and Omega Semiconductor Limited"
+    },
+    {
+      "sy": "GILT",
+      "name": "Gilat Satellite Networks Ltd."
+    },
+    {
+      "sy": "ITRN",
+      "name": "Ituran Location and Control Ltd."
+    },
+    {
+      "sy": "PGY",
+      "name": "Pagaya Technologies Ltd."
+    },
+    {
+      "sy": "ALNT",
+      "name": "Allient Inc."
+    },
+    {
+      "sy": "CEVA",
+      "name": "CEVA, Inc."
+    },
+    {
+      "sy": "UPBD",
+      "name": "Upbound Group, Inc."
+    },
+    {
+      "sy": "DFIN",
+      "name": "Donnelley Financial Solutions, Inc."
+    },
+    {
+      "sy": "WYFI",
+      "name": "WhiteFiber, Inc."
+    },
+    {
+      "sy": "KOPN",
+      "name": "Kopin Corporation"
+    },
+    {
+      "sy": "DAKT",
+      "name": "Daktronics, Inc."
+    },
+    {
+      "sy": "VYX",
+      "name": "NCR Voyix Corporation"
+    },
+    {
+      "sy": "MRAM",
+      "name": "Everspin Technologies, Inc."
+    },
+    {
+      "sy": "SHAZ",
+      "name": "SharonAI Holdings Inc."
+    },
+    {
+      "sy": "LYTS",
+      "name": "LSI Industries Inc."
+    },
+    {
+      "sy": "SCSC",
+      "name": "ScanSource, Inc."
+    },
+    {
+      "sy": "AMPL",
+      "name": "Amplitude, Inc."
+    },
+    {
+      "sy": "UMAC",
+      "name": "Unusual Machines, Inc."
+    },
+    {
+      "sy": "ACAT",
+      "name": "Acasia Technology, Inc."
+    },
+    {
+      "sy": "SSYS",
+      "name": "Stratasys Ltd."
+    },
+    {
+      "sy": "LPTH",
+      "name": "LightPath Technologies, Inc."
+    },
+    {
+      "sy": "CRSR",
+      "name": "Corsair Gaming, Inc."
+    },
+    {
+      "sy": "IBTA",
+      "name": "Ibotta, Inc."
+    },
+    {
+      "sy": "CGNT",
+      "name": "Cognyte Software Ltd."
+    },
+    {
+      "sy": "NTGR",
+      "name": "NETGEAR, Inc."
+    },
+    {
+      "sy": "RDVT",
+      "name": "Red Violet, Inc."
+    },
+    {
+      "sy": "MITK",
+      "name": "Mitek Systems, Inc."
+    },
+    {
+      "sy": "DJCO",
+      "name": "Daily Journal Corporation"
+    },
+    {
+      "sy": "HQ",
+      "name": "Horizon Quantum Holdings Ltd."
+    },
+    {
+      "sy": "FFPP",
+      "name": "Fast Finance Pay Corp."
+    },
+    {
+      "sy": "PAR",
+      "name": "PAR Technology Corporation"
+    },
+    {
+      "sy": "CLFD",
+      "name": "Clearfield, Inc."
+    },
+    {
+      "sy": "MNTN",
+      "name": "MNTN, Inc."
+    },
+    {
+      "sy": "FEIM",
+      "name": "Frequency Electronics, Inc."
+    },
+    {
+      "sy": "GDYN",
+      "name": "Grid Dynamics Holdings, Inc."
+    },
+    {
+      "sy": "VELO",
+      "name": "Velo3D, Inc."
+    },
+    {
+      "sy": "MLAB",
+      "name": "Mesa Laboratories, Inc."
+    },
+    {
+      "sy": "CCSI",
+      "name": "Consensus Cloud Solutions, Inc."
+    },
+    {
+      "sy": "EACO",
+      "name": "EACO Corporation"
+    },
+    {
+      "sy": "PD",
+      "name": "PagerDuty, Inc."
+    },
+    {
+      "sy": "OOMA",
+      "name": "Ooma, Inc."
+    },
+    {
+      "sy": "OWLS",
+      "name": "Obook Holdings Inc."
+    },
+    {
+      "sy": "MFI",
+      "name": "mF International Limited"
+    },
+    {
+      "sy": "TASK",
+      "name": "TaskUs, Inc."
+    },
+    {
+      "sy": "GLOO",
+      "name": "Gloo Holdings, Inc."
+    },
+    {
+      "sy": "PRTH",
+      "name": "Priority Technology Holdings, Inc."
+    },
+    {
+      "sy": "TOYO",
+      "name": "TOYO Co., Ltd."
+    },
+    {
+      "sy": "IMXI",
+      "name": "International Money Express, Inc."
+    },
+    {
+      "sy": "SUPX",
+      "name": "SuperX AI Technology Limited"
+    },
+    {
+      "sy": "ALMU",
+      "name": "Aeluma, Inc."
+    },
+    {
+      "sy": "OSPN",
+      "name": "OneSpan Inc."
+    },
+    {
+      "sy": "PUBM",
+      "name": "PubMatic, Inc."
+    },
+    {
+      "sy": "CRNC",
+      "name": "Cerence Inc."
+    },
+    {
+      "sy": "RPD",
+      "name": "Rapid7, Inc."
+    },
+    {
+      "sy": "NVEC",
+      "name": "NVE Corporation"
+    },
+    {
+      "sy": "BLZE",
+      "name": "Backblaze, Inc."
+    },
+    {
+      "sy": "IBEX",
+      "name": "IBEX Limited"
+    },
+    {
+      "sy": "OSS",
+      "name": "One Stop Systems, Inc."
+    },
+    {
+      "sy": "PSFE",
+      "name": "Paysafe Limited"
+    },
+    {
+      "sy": "GRIQ",
+      "name": "GrocerIQ Holdings, Inc."
+    },
+    {
+      "sy": "SPT",
+      "name": "Sprout Social, Inc."
+    },
+    {
+      "sy": "TTGT",
+      "name": "TechTarget, Inc."
+    },
+    {
+      "sy": "MEI",
+      "name": "Methode Electronics, Inc."
+    },
+    {
+      "sy": "XPER",
+      "name": "Xperi Inc."
+    },
+    {
+      "sy": "BKKT",
+      "name": "Bakkt, Inc."
+    },
+    {
+      "sy": "IIIV",
+      "name": "i3 Verticals, Inc."
+    },
+    {
+      "sy": "SWMR",
+      "name": "Swarmer, Inc"
+    },
+    {
+      "sy": "CLMB",
+      "name": "Climb Global Solutions, Inc."
+    },
+    {
+      "sy": "GRRR",
+      "name": "Gorilla Technology Group Inc."
+    },
+    {
+      "sy": "ALLT",
+      "name": "Allot Ltd."
+    },
+    {
+      "sy": "GSIT",
+      "name": "GSI Technology, Inc."
+    },
+    {
+      "sy": "MPTI",
+      "name": "M-tron Industries, Inc."
+    },
+    {
+      "sy": "ATOM",
+      "name": "Atomera Incorporated"
+    },
+    {
+      "sy": "QUIK",
+      "name": "QuickLogic Corporation"
+    },
+    {
+      "sy": "SVCO",
+      "name": "Silvaco Group, Inc."
+    },
+    {
+      "sy": "PLTS",
+      "name": "Platinum Analytics Cayman Limited"
+    },
+    {
+      "sy": "PAYS",
+      "name": "Paysign, Inc."
+    },
+    {
+      "sy": "BKTI",
+      "name": "BK Technologies Corporation"
+    },
+    {
+      "sy": "TSSI",
+      "name": "TSS, Inc."
+    },
+    {
+      "sy": "ASYS",
+      "name": "Amtech Systems, Inc."
+    },
+    {
+      "sy": "PDYN",
+      "name": "Palladyne AI Corp."
+    },
+    {
+      "sy": "OPTX",
+      "name": "Syntec Optics Holdings, Inc."
+    },
+    {
+      "sy": "SILC",
+      "name": "Silicom Ltd."
+    },
+    {
+      "sy": "ATGL",
+      "name": "Alpha Technology Group Limited"
+    },
+    {
+      "sy": "DUOT",
+      "name": "Duos Technologies Group, Inc."
+    },
+    {
+      "sy": "AZ",
+      "name": "A2Z Cust2Mate Solutions Corp."
+    },
+    {
+      "sy": "LTRX",
+      "name": "Lantronix, Inc."
+    },
+    {
+      "sy": "RELL",
+      "name": "Richardson Electronics, Ltd."
+    },
+    {
+      "sy": "ASUR",
+      "name": "Asure Software, Inc."
+    },
+    {
+      "sy": "HCKT",
+      "name": "The Hackett Group, Inc."
+    },
+    {
+      "sy": "INTT",
+      "name": "InTest Corporation"
+    },
+    {
+      "sy": "INSG",
+      "name": "Inseego Corp."
+    },
+    {
+      "sy": "DMRC",
+      "name": "Digimarc Corporation"
+    },
+    {
+      "sy": "TBCH",
+      "name": "Turtle Beach Corporation"
+    },
+    {
+      "sy": "DSP",
+      "name": "Viant Technology Inc."
+    },
+    {
+      "sy": "ARQQ",
+      "name": "Arqit Quantum Inc."
+    },
+    {
+      "sy": "AVNW",
+      "name": "Aviat Networks, Inc."
+    },
+    {
+      "sy": "IMMR",
+      "name": "Immersion Corporation"
+    },
+    {
+      "sy": "TRT",
+      "name": "Trio-Tech International"
+    },
+    {
+      "sy": "EXOD",
+      "name": "Exodus Movement, Inc."
+    },
+    {
+      "sy": "MCAP",
+      "name": "MCAP Inc."
+    },
+    {
+      "sy": "EGAN",
+      "name": "eGain Corporation"
+    },
+    {
+      "sy": "TRAK",
+      "name": "ReposiTrak, Inc."
+    },
+    {
+      "sy": "TCX",
+      "name": "Tucows Inc."
+    },
+    {
+      "sy": "BNAI",
+      "name": "Brand Engagement Network, Inc."
+    },
+    {
+      "sy": "WATT",
+      "name": "Energous Corporation"
+    },
+    {
+      "sy": "QMCO",
+      "name": "Quantum Corporation"
+    },
+    {
+      "sy": "AMCI",
+      "name": "AMC Robotics Corporation"
+    },
+    {
+      "sy": "ROC",
+      "name": "Rank One Computing Corporation"
+    },
+    {
+      "sy": "ALOT",
+      "name": "AstroNova, Inc."
+    },
+    {
+      "sy": "OCC",
+      "name": "Optical Cable Corporation"
+    },
+    {
+      "sy": "WYY",
+      "name": "WidePoint Corporation"
+    },
+    {
+      "sy": "BCRD",
+      "name": "BlueOne Technologies, Inc."
+    },
+    {
+      "sy": "SCOR",
+      "name": "comScore, Inc."
+    },
+    {
+      "sy": "CSPI",
+      "name": "CSP Inc."
+    },
+    {
+      "sy": "AIRG",
+      "name": "Airgain, Inc."
+    },
+    {
+      "sy": "AEYE",
+      "name": "AudioEye, Inc."
+    },
+    {
+      "sy": "SSTI",
+      "name": "SoundThinking, Inc."
+    },
+    {
+      "sy": "SOTK",
+      "name": "Sono-Tek Corporation"
+    },
+    {
+      "sy": "WSTL",
+      "name": "Westell Technologies, Inc."
+    },
+    {
+      "sy": "IPWR",
+      "name": "Ideal Power Inc."
+    },
+    {
+      "sy": "MIND",
+      "name": "MIND Technology, Inc."
+    },
+    {
+      "sy": "VHC",
+      "name": "VirnetX Holding Corporation"
+    },
+    {
+      "sy": "ELTK",
+      "name": "Eltek Ltd."
+    },
+    {
+      "sy": "BKFG",
+      "name": "BKF Capital Group, Inc."
+    },
+    {
+      "sy": "FIEE",
+      "name": "FiEE, Inc."
+    },
+    {
+      "sy": "AIOS",
+      "name": "AIOS Tech Inc."
+    },
+    {
+      "sy": "AXIL",
+      "name": "AXIL Brands, Inc."
+    },
+    {
+      "sy": "LGL",
+      "name": "The LGL Group, Inc."
+    },
+    {
+      "sy": "IEHC",
+      "name": "IEH Corporation"
+    },
+    {
+      "sy": "PXLW",
+      "name": "Pixelworks, Inc."
+    },
+    {
+      "sy": "ACFN",
+      "name": "Acorn Energy, Inc."
+    },
+    {
+      "sy": "TAOX",
+      "name": "TAO Synergies Inc."
+    },
+    {
+      "sy": "SCIA",
+      "name": "SCI Engineered Materials, Inc."
+    },
+    {
+      "sy": "AGPU",
+      "name": "Axe Compute Inc."
+    },
+    {
+      "sy": "KPLT",
+      "name": "Katapult Holdings, Inc."
+    },
+    {
+      "sy": "INLX",
+      "name": "Intellinetics, Inc."
+    },
+    {
+      "sy": "AATC",
+      "name": "Autoscope Technologies Corporation"
+    },
+    {
+      "sy": "ANKM",
+      "name": "ANKAM INC."
+    },
+    {
+      "sy": "ELSE",
+      "name": "Electro-Sensors, Inc."
+    },
+    {
+      "sy": "SAIH",
+      "name": "SAIHEAT Limited"
+    },
+    {
+      "sy": "NXPL",
+      "name": "NextPlat Corp"
+    },
+    {
+      "sy": "HMELF",
+      "name": "Hold Me Ltd"
+    },
+    {
+      "sy": "MSAI",
+      "name": "MultiSensor AI Holdings, Inc."
+    },
+    {
+      "sy": "RVYL",
+      "name": "Ryvyl Inc."
+    },
+    {
+      "sy": "PGNT",
+      "name": "Paragon Technologies, Inc."
+    },
+    {
+      "sy": "JTAI",
+      "name": "Jet.AI Inc."
+    },
+    {
+      "sy": "BNZI",
+      "name": "Banzai International, Inc."
+    },
+    {
+      "sy": "BRUN",
+      "name": "Boost Run, Inc."
+    },
+    {
+      "sy": "CBRS",
+      "name": "Cerebras Systems Inc. Class A Common Stock"
+    },
+    {
+      "sy": "CHRN",
+      "name": "ChronoScale Corporation"
+    },
+    {
+      "sy": "CNTMD",
+      "name": "ConnectM Technology Solutions, Inc."
+    },
+    {
+      "sy": "EFOR",
+      "name": "Everforth, Inc."
+    },
+    {
+      "sy": "EXYN",
+      "name": "Exyn Technologies, Inc. Common Stock"
+    },
+    {
+      "sy": "P",
+      "name": "Everpure, Inc."
+    },
+    {
+      "sy": "RTB",
+      "name": "RTB Digital, Inc."
+    },
+    {
+      "sy": "WSE",
+      "name": "Wise Group plc"
+    },
+    {
+      "sy": "ZSQR",
+      "name": "Z Squared Inc."
     }
   ]
 }

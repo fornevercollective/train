@@ -1,0 +1,841 @@
+{
+  "sectorId": "real_estate",
+  "sectorLabel": "Real Estate",
+  "yahooScrId": "sec-ind_sec-largest-equities_real-estate",
+  "updated": "2026-05-17",
+  "count": 208,
+  "tickers": [
+    {
+      "sy": "WELL",
+      "name": "Welltower Inc."
+    },
+    {
+      "sy": "PLD",
+      "name": "Prologis, Inc."
+    },
+    {
+      "sy": "EQIX",
+      "name": "Equinix, Inc."
+    },
+    {
+      "sy": "AMT",
+      "name": "American Tower Corporation"
+    },
+    {
+      "sy": "DLR",
+      "name": "Digital Realty Trust, Inc."
+    },
+    {
+      "sy": "SPG",
+      "name": "Simon Property Group, Inc."
+    },
+    {
+      "sy": "O",
+      "name": "Realty Income Corporation"
+    },
+    {
+      "sy": "PSA",
+      "name": "Public Storage"
+    },
+    {
+      "sy": "VTR",
+      "name": "Ventas, Inc."
+    },
+    {
+      "sy": "CBRE",
+      "name": "CBRE Group, Inc."
+    },
+    {
+      "sy": "CCI",
+      "name": "Crown Castle Inc."
+    },
+    {
+      "sy": "IRM",
+      "name": "Iron Mountain Incorporated"
+    },
+    {
+      "sy": "VICI",
+      "name": "VICI Properties Inc."
+    },
+    {
+      "sy": "EXR",
+      "name": "Extra Space Storage Inc."
+    },
+    {
+      "sy": "AVB",
+      "name": "AvalonBay Communities, Inc."
+    },
+    {
+      "sy": "EQR",
+      "name": "Equity Residential"
+    },
+    {
+      "sy": "SBAC",
+      "name": "SBA Communications Corporation"
+    },
+    {
+      "sy": "ESS",
+      "name": "Essex Property Trust, Inc."
+    },
+    {
+      "sy": "INVH",
+      "name": "Invitation Homes Inc."
+    },
+    {
+      "sy": "WY",
+      "name": "Weyerhaeuser Company"
+    },
+    {
+      "sy": "WPC",
+      "name": "W. P. Carey Inc."
+    },
+    {
+      "sy": "NLY",
+      "name": "Annaly Capital Management, Inc."
+    },
+    {
+      "sy": "KIM",
+      "name": "Kimco Realty Corporation"
+    },
+    {
+      "sy": "SUI",
+      "name": "Sun Communities, Inc."
+    },
+    {
+      "sy": "LAMR",
+      "name": "Lamar Advertising Company"
+    },
+    {
+      "sy": "HST",
+      "name": "Host Hotels & Resorts, Inc."
+    },
+    {
+      "sy": "MAA",
+      "name": "Mid-America Apartment Communities, Inc."
+    },
+    {
+      "sy": "OHI",
+      "name": "Omega Healthcare Investors, Inc."
+    },
+    {
+      "sy": "REG",
+      "name": "Regency Centers Corporation"
+    },
+    {
+      "sy": "JLL",
+      "name": "Jones Lang LaSalle Incorporated"
+    },
+    {
+      "sy": "DOC",
+      "name": "Healthpeak Properties, Inc."
+    },
+    {
+      "sy": "CSGP",
+      "name": "CoStar Group, Inc."
+    },
+    {
+      "sy": "GLPI",
+      "name": "Gaming and Leisure Properties, Inc."
+    },
+    {
+      "sy": "UDR",
+      "name": "UDR, Inc."
+    },
+    {
+      "sy": "AGNC",
+      "name": "AGNC Investment Corp."
+    },
+    {
+      "sy": "ELS",
+      "name": "Equity LifeStyle Properties, Inc."
+    },
+    {
+      "sy": "AMH",
+      "name": "American Homes 4 Rent"
+    },
+    {
+      "sy": "EGP",
+      "name": "EastGroup Properties, Inc."
+    },
+    {
+      "sy": "CPT",
+      "name": "Camden Property Trust"
+    },
+    {
+      "sy": "FRT",
+      "name": "Federal Realty Investment Trust"
+    },
+    {
+      "sy": "CTRE",
+      "name": "CareTrust REIT, Inc."
+    },
+    {
+      "sy": "AHR",
+      "name": "American Healthcare REIT, Inc."
+    },
+    {
+      "sy": "BXP",
+      "name": "BXP, Inc."
+    },
+    {
+      "sy": "BRX",
+      "name": "Brixmor Property Group Inc."
+    },
+    {
+      "sy": "ADC",
+      "name": "Agree Realty Corporation"
+    },
+    {
+      "sy": "LINE",
+      "name": "Lineage, Inc."
+    },
+    {
+      "sy": "CUBE",
+      "name": "CubeSmart"
+    },
+    {
+      "sy": "NNN",
+      "name": "NNN REIT, Inc."
+    },
+    {
+      "sy": "FR",
+      "name": "First Industrial Realty Trust, Inc."
+    },
+    {
+      "sy": "REXR",
+      "name": "Rexford Industrial Realty, Inc."
+    },
+    {
+      "sy": "ARE",
+      "name": "Alexandria Real Estate Equities, Inc."
+    },
+    {
+      "sy": "STAG",
+      "name": "STAG Industrial, Inc."
+    },
+    {
+      "sy": "HR",
+      "name": "Healthcare Realty Trust Incorporated"
+    },
+    {
+      "sy": "TRNO",
+      "name": "Terreno Realty Corporation"
+    },
+    {
+      "sy": "RHP",
+      "name": "Ryman Hospitality Properties, Inc."
+    },
+    {
+      "sy": "EPRT",
+      "name": "Essential Properties Realty Trust, Inc."
+    },
+    {
+      "sy": "STWD",
+      "name": "Starwood Property Trust, Inc."
+    },
+    {
+      "sy": "RYN",
+      "name": "Rayonier Inc."
+    },
+    {
+      "sy": "COMP",
+      "name": "Compass, Inc."
+    },
+    {
+      "sy": "VNO",
+      "name": "Vornado Realty Trust"
+    },
+    {
+      "sy": "MAC",
+      "name": "The Macerich Company"
+    },
+    {
+      "sy": "OUT",
+      "name": "OUTFRONT Media Inc."
+    },
+    {
+      "sy": "KRG",
+      "name": "Kite Realty Group Trust"
+    },
+    {
+      "sy": "SBRA",
+      "name": "Sabra Health Care REIT, Inc."
+    },
+    {
+      "sy": "RITM",
+      "name": "Rithm Capital Corp."
+    },
+    {
+      "sy": "JAN",
+      "name": "Janus Living, Inc."
+    },
+    {
+      "sy": "PECO",
+      "name": "Phillips Edison & Company, Inc."
+    },
+    {
+      "sy": "MRP",
+      "name": "Millrose Properties, Inc."
+    },
+    {
+      "sy": "EPR",
+      "name": "EPR Properties"
+    },
+    {
+      "sy": "CUZ",
+      "name": "Cousins Properties Incorporated"
+    },
+    {
+      "sy": "FRMI",
+      "name": "Fermi Inc."
+    },
+    {
+      "sy": "COLD",
+      "name": "Americold Realty Trust, Inc."
+    },
+    {
+      "sy": "SKT",
+      "name": "Tanger Inc."
+    },
+    {
+      "sy": "KRC",
+      "name": "Kilroy Realty Corporation"
+    },
+    {
+      "sy": "BNL",
+      "name": "Broadstone Net Lease, Inc."
+    },
+    {
+      "sy": "HHH",
+      "name": "Howard Hughes Holdings Inc."
+    },
+    {
+      "sy": "IRT",
+      "name": "Independence Realty Trust, Inc."
+    },
+    {
+      "sy": "JOE",
+      "name": "The St. Joe Company"
+    },
+    {
+      "sy": "NHI",
+      "name": "National Health Investors, Inc."
+    },
+    {
+      "sy": "CDP",
+      "name": "COPT Defense Properties"
+    },
+    {
+      "sy": "APLE",
+      "name": "Apple Hospitality REIT, Inc."
+    },
+    {
+      "sy": "NSA",
+      "name": "National Storage Affiliates Trust"
+    },
+    {
+      "sy": "BXMT",
+      "name": "Blackstone Mortgage Trust, Inc."
+    },
+    {
+      "sy": "MPT",
+      "name": "Medical Properties Trust, Inc."
+    },
+    {
+      "sy": "SLG",
+      "name": "SL Green Realty Corp."
+    },
+    {
+      "sy": "LXP",
+      "name": "LXP Industrial Trust"
+    },
+    {
+      "sy": "CWK",
+      "name": "Cushman & Wakefield Limited"
+    },
+    {
+      "sy": "CURB",
+      "name": "Curbline Properties Corp."
+    },
+    {
+      "sy": "HIW",
+      "name": "Highwoods Properties, Inc."
+    },
+    {
+      "sy": "AKR",
+      "name": "Acadia Realty Trust"
+    },
+    {
+      "sy": "DX",
+      "name": "Dynex Capital, Inc."
+    },
+    {
+      "sy": "IHS",
+      "name": "IHS Holding Limited"
+    },
+    {
+      "sy": "FCPT",
+      "name": "Four Corners Property Trust, Inc."
+    },
+    {
+      "sy": "UE",
+      "name": "Urban Edge Properties"
+    },
+    {
+      "sy": "UNIT",
+      "name": "Uniti Group Inc."
+    },
+    {
+      "sy": "NMRK",
+      "name": "Newmark Group, Inc."
+    },
+    {
+      "sy": "IVT",
+      "name": "InvenTrust Properties Corp."
+    },
+    {
+      "sy": "PK",
+      "name": "Park Hotels & Resorts Inc."
+    },
+    {
+      "sy": "ARR",
+      "name": "ARMOUR Residential REIT, Inc."
+    },
+    {
+      "sy": "DRH",
+      "name": "DiamondRock Hospitality Company"
+    },
+    {
+      "sy": "DHC",
+      "name": "Diversified Healthcare Trust"
+    },
+    {
+      "sy": "NTST",
+      "name": "NETSTREIT Corp."
+    },
+    {
+      "sy": "GTY",
+      "name": "Getty Realty Corp."
+    },
+    {
+      "sy": "DEI",
+      "name": "Douglas Emmett, Inc."
+    },
+    {
+      "sy": "GNL",
+      "name": "Global Net Lease, Inc."
+    },
+    {
+      "sy": "LTC",
+      "name": "LTC Properties, Inc."
+    },
+    {
+      "sy": "SHO",
+      "name": "Sunstone Hotel Investors, Inc."
+    },
+    {
+      "sy": "VRE",
+      "name": "Veris Residential, Inc."
+    },
+    {
+      "sy": "SILA",
+      "name": "Sila Realty Trust, Inc."
+    },
+    {
+      "sy": "EFC",
+      "name": "Ellington Financial Inc."
+    },
+    {
+      "sy": "SMA",
+      "name": "SmartStop Self Storage REIT, Inc."
+    },
+    {
+      "sy": "PEB",
+      "name": "Pebblebrook Hotel Trust"
+    },
+    {
+      "sy": "IIPR",
+      "name": "Innovative Industrial Properties, Inc."
+    },
+    {
+      "sy": "KW",
+      "name": "Kennedy-Wilson Holdings, Inc."
+    },
+    {
+      "sy": "ESBA",
+      "name": "Empire State Realty OP, L.P."
+    },
+    {
+      "sy": "XHR",
+      "name": "Xenia Hotels & Resorts, Inc."
+    },
+    {
+      "sy": "CBL",
+      "name": "CBL & Associates Properties, Inc."
+    },
+    {
+      "sy": "ARI",
+      "name": "Apollo Commercial Real Estate Finance, Inc."
+    },
+    {
+      "sy": "HBNB",
+      "name": "Hotel101 Global Holdings Corp."
+    },
+    {
+      "sy": "CCS",
+      "name": "Century Communities, Inc."
+    },
+    {
+      "sy": "ORC",
+      "name": "Orchid Island Capital, Inc."
+    },
+    {
+      "sy": "RLJ",
+      "name": "RLJ Lodging Trust"
+    },
+    {
+      "sy": "TWO",
+      "name": "Two Harbors Investment Corp."
+    },
+    {
+      "sy": "FOR",
+      "name": "Forestar Group Inc."
+    },
+    {
+      "sy": "AAT",
+      "name": "American Assets Trust, Inc."
+    },
+    {
+      "sy": "UMH",
+      "name": "UMH Properties, Inc."
+    },
+    {
+      "sy": "LADR",
+      "name": "Ladder Capital Corp"
+    },
+    {
+      "sy": "ALX",
+      "name": "Alexander's, Inc."
+    },
+    {
+      "sy": "CSR",
+      "name": "Centerspace"
+    },
+    {
+      "sy": "ABR",
+      "name": "Arbor Realty Trust, Inc."
+    },
+    {
+      "sy": "CIM",
+      "name": "Chimera Investment Corporation"
+    },
+    {
+      "sy": "DEA",
+      "name": "Easterly Government Properties, Inc."
+    },
+    {
+      "sy": "MMI",
+      "name": "Marcus & Millichap, Inc."
+    },
+    {
+      "sy": "SAFE",
+      "name": "Safehold Inc."
+    },
+    {
+      "sy": "WSR",
+      "name": "Whitestone REIT"
+    },
+    {
+      "sy": "PDM",
+      "name": "Piedmont Realty Trust, Inc."
+    },
+    {
+      "sy": "MFA",
+      "name": "MFA Financial, Inc."
+    },
+    {
+      "sy": "ESRT",
+      "name": "Empire State Realty Trust, Inc."
+    },
+    {
+      "sy": "PMT",
+      "name": "PennyMac Mortgage Investment Trust"
+    },
+    {
+      "sy": "JBGS",
+      "name": "JBG SMITH Properties"
+    },
+    {
+      "sy": "BFS",
+      "name": "Saul Centers, Inc."
+    },
+    {
+      "sy": "ADAM",
+      "name": "Adamas Trust, Inc."
+    },
+    {
+      "sy": "BRSP",
+      "name": "BrightSpire Capital, Inc."
+    },
+    {
+      "sy": "IVR",
+      "name": "Invesco Mortgage Capital Inc."
+    },
+    {
+      "sy": "NXRT",
+      "name": "NexPoint Residential Trust, Inc."
+    },
+    {
+      "sy": "FBRT",
+      "name": "Franklin BSP Realty Trust, Inc."
+    },
+    {
+      "sy": "CTO",
+      "name": "CTO Realty Growth, Inc."
+    },
+    {
+      "sy": "RWT",
+      "name": "Redwood Trust, Inc."
+    },
+    {
+      "sy": "PSTL",
+      "name": "Postal Realty Trust, Inc."
+    },
+    {
+      "sy": "TRTX",
+      "name": "TPG RE Finance Trust, Inc."
+    },
+    {
+      "sy": "HPP",
+      "name": "Hudson Pacific Properties, Inc."
+    },
+    {
+      "sy": "GOOD",
+      "name": "Gladstone Commercial Corporation"
+    },
+    {
+      "sy": "INN",
+      "name": "Summit Hotel Properties, Inc."
+    },
+    {
+      "sy": "UHT",
+      "name": "Universal Health Realty Income Trust"
+    },
+    {
+      "sy": "ILPT",
+      "name": "Industrial Logistics Properties Trust"
+    },
+    {
+      "sy": "AHRT",
+      "name": "AH REALTY TRUST INC"
+    },
+    {
+      "sy": "OLP",
+      "name": "One Liberty Properties, Inc."
+    },
+    {
+      "sy": "CHCT",
+      "name": "Community Healthcare Trust Incorporated"
+    },
+    {
+      "sy": "CLDT",
+      "name": "Chatham Lodging Trust"
+    },
+    {
+      "sy": "XRN",
+      "name": "Chiron Real Estate Inc."
+    },
+    {
+      "sy": "FPI",
+      "name": "Farmland Partners Inc."
+    },
+    {
+      "sy": "FRPH",
+      "name": "FRP Holdings, Inc."
+    },
+    {
+      "sy": "KREF",
+      "name": "KKR Real Estate Finance Trust Inc."
+    },
+    {
+      "sy": "LAND",
+      "name": "Gladstone Land Corporation"
+    },
+    {
+      "sy": "FVR",
+      "name": "FrontView REIT, Inc."
+    },
+    {
+      "sy": "RMR",
+      "name": "The RMR Group Inc."
+    },
+    {
+      "sy": "PINE",
+      "name": "Alpine Income Property Trust, Inc."
+    },
+    {
+      "sy": "TCI",
+      "name": "Transcontinental Realty Investors, Inc."
+    },
+    {
+      "sy": "SKYH",
+      "name": "Sky Harbour Group Corporation"
+    },
+    {
+      "sy": "MLP",
+      "name": "Maui Land & Pineapple Company, Inc."
+    },
+    {
+      "sy": "NLCP",
+      "name": "NewLake Capital Partners, Inc."
+    },
+    {
+      "sy": "SEG",
+      "name": "Seaport Entertainment Group Inc."
+    },
+    {
+      "sy": "SITC",
+      "name": "SITE Centers Corp."
+    },
+    {
+      "sy": "NREF",
+      "name": "NexPoint Real Estate Finance, Inc."
+    },
+    {
+      "sy": "BRT",
+      "name": "BRT Apartments Corp."
+    },
+    {
+      "sy": "REFI",
+      "name": "Chicago Atlantic Real Estate Finance, Inc."
+    },
+    {
+      "sy": "MITT",
+      "name": "TPG Mortgage Investment Trust, Inc."
+    },
+    {
+      "sy": "STRS",
+      "name": "Stratus Properties Inc."
+    },
+    {
+      "sy": "ARL",
+      "name": "American Realty Investors, Inc."
+    },
+    {
+      "sy": "AOMR",
+      "name": "Angel Oak Mortgage REIT, Inc."
+    },
+    {
+      "sy": "MNPP",
+      "name": "Merchants' National Properties, Inc."
+    },
+    {
+      "sy": "OZ",
+      "name": "Belpointe PREP, LLC"
+    },
+    {
+      "sy": "RMAX",
+      "name": "RE/MAX Holdings, Inc."
+    },
+    {
+      "sy": "MDV",
+      "name": "Modiv Industrial, Inc."
+    },
+    {
+      "sy": "SEVN",
+      "name": "Seven Hills Realty Trust"
+    },
+    {
+      "sy": "STRW",
+      "name": "Strawberry Fields REIT, Inc."
+    },
+    {
+      "sy": "NLOP",
+      "name": "Net Lease Office Properties"
+    },
+    {
+      "sy": "CHCI",
+      "name": "Comstock Holding Companies, Inc."
+    },
+    {
+      "sy": "ACR",
+      "name": "ACRES Commercial Realty Corp."
+    },
+    {
+      "sy": "AXR",
+      "name": "AMREP Corporation"
+    },
+    {
+      "sy": "RPT",
+      "name": "Rithm Property Trust Inc."
+    },
+    {
+      "sy": "SUNS",
+      "name": "Sunrise Realty Trust, Inc."
+    },
+    {
+      "sy": "STHO",
+      "name": "Star Holdings"
+    },
+    {
+      "sy": "SDHC",
+      "name": "Smith Douglas Homes Corp."
+    },
+    {
+      "sy": "CPTP",
+      "name": "Capital Properties, Inc."
+    },
+    {
+      "sy": "JFB",
+      "name": "JFB Construction Holdings"
+    },
+    {
+      "sy": "ASPS",
+      "name": "Altisource Portfolio Solutions S.A."
+    },
+    {
+      "sy": "FHRT",
+      "name": "First Hartford Corporation"
+    },
+    {
+      "sy": "SELF",
+      "name": "Global Self Storage, Inc."
+    },
+    {
+      "sy": "BHM",
+      "name": "Bluerock Homes Trust, Inc."
+    },
+    {
+      "sy": "EUDA",
+      "name": "EUDA Health Holdings Limited"
+    },
+    {
+      "sy": "NYC",
+      "name": "American Strategic Investment Co."
+    },
+    {
+      "sy": "MDRR",
+      "name": "Medalist Diversified, Inc."
+    },
+    {
+      "sy": "GYRO",
+      "name": "Gyrodyne, LLC"
+    },
+    {
+      "sy": "CMCT",
+      "name": "Creative Media & Community Trust Corporation"
+    },
+    {
+      "sy": "MGAG",
+      "name": "Mortgage Oil Corp."
+    },
+    {
+      "sy": "BXDC",
+      "name": "Blackstone Digital Infrastructure Trust Inc."
+    },
+    {
+      "sy": "NHP",
+      "name": "National Healthcare Properties, Inc."
+    }
+  ]
+}

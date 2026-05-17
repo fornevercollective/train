@@ -1,0 +1,557 @@
+{
+  "sectorId": "basic_materials",
+  "sectorLabel": "Basic Materials",
+  "yahooScrId": "sec-ind_sec-largest-equities_basic-materials",
+  "updated": "2026-05-17",
+  "count": 137,
+  "tickers": [
+    {
+      "sy": "LIN",
+      "name": "Linde plc"
+    },
+    {
+      "sy": "SCCO",
+      "name": "Southern Copper Corporation"
+    },
+    {
+      "sy": "NEM",
+      "name": "Newmont Corporation"
+    },
+    {
+      "sy": "FCX",
+      "name": "Freeport-McMoRan Inc."
+    },
+    {
+      "sy": "SHW",
+      "name": "The Sherwin-Williams Company"
+    },
+    {
+      "sy": "ECL",
+      "name": "Ecolab Inc."
+    },
+    {
+      "sy": "CRH",
+      "name": "CRH plc"
+    },
+    {
+      "sy": "APD",
+      "name": "Air Products and Chemicals, Inc."
+    },
+    {
+      "sy": "CTVA",
+      "name": "Corteva, Inc."
+    },
+    {
+      "sy": "NUE",
+      "name": "Nucor Corporation"
+    },
+    {
+      "sy": "AU",
+      "name": "AngloGold Ashanti plc"
+    },
+    {
+      "sy": "VMC",
+      "name": "Vulcan Materials Company"
+    },
+    {
+      "sy": "MLM",
+      "name": "Martin Marietta Materials, Inc."
+    },
+    {
+      "sy": "STLD",
+      "name": "Steel Dynamics, Inc."
+    },
+    {
+      "sy": "DOW",
+      "name": "Dow Inc."
+    },
+    {
+      "sy": "LYB",
+      "name": "LyondellBasell Industries N.V."
+    },
+    {
+      "sy": "PPG",
+      "name": "PPG Industries, Inc."
+    },
+    {
+      "sy": "ALB",
+      "name": "Albemarle Corporation"
+    },
+    {
+      "sy": "DD",
+      "name": "DuPont de Nemours, Inc."
+    },
+    {
+      "sy": "RGLD",
+      "name": "Royal Gold, Inc."
+    },
+    {
+      "sy": "CF",
+      "name": "CF Industries Holdings, Inc."
+    },
+    {
+      "sy": "IFF",
+      "name": "International Flavors & Fragrances Inc."
+    },
+    {
+      "sy": "RS",
+      "name": "Reliance, Inc."
+    },
+    {
+      "sy": "CDE",
+      "name": "Coeur Mining, Inc."
+    },
+    {
+      "sy": "AA",
+      "name": "Alcoa Corporation"
+    },
+    {
+      "sy": "SOLS",
+      "name": "Solstice Advanced Materials, Inc."
+    },
+    {
+      "sy": "RPM",
+      "name": "RPM International Inc."
+    },
+    {
+      "sy": "HL",
+      "name": "Hecla Mining Company"
+    },
+    {
+      "sy": "WLK",
+      "name": "Westlake Corporation"
+    },
+    {
+      "sy": "JHX",
+      "name": "James Hardie Industries plc"
+    },
+    {
+      "sy": "MP",
+      "name": "MP Materials Corp."
+    },
+    {
+      "sy": "ESI",
+      "name": "Element Solutions Inc"
+    },
+    {
+      "sy": "EMN",
+      "name": "Eastman Chemical Company"
+    },
+    {
+      "sy": "SSD",
+      "name": "Simpson Manufacturing Co., Inc."
+    },
+    {
+      "sy": "MOS",
+      "name": "The Mosaic Company"
+    },
+    {
+      "sy": "AUGO",
+      "name": "Aura Minerals Inc."
+    },
+    {
+      "sy": "NEU",
+      "name": "NewMarket Corporation"
+    },
+    {
+      "sy": "CE",
+      "name": "Celanese Corporation"
+    },
+    {
+      "sy": "EXP",
+      "name": "Eagle Materials Inc."
+    },
+    {
+      "sy": "CLF",
+      "name": "Cleveland-Cliffs Inc."
+    },
+    {
+      "sy": "AXTA",
+      "name": "Axalta Coating Systems Ltd."
+    },
+    {
+      "sy": "CENX",
+      "name": "Century Aluminum Company"
+    },
+    {
+      "sy": "USAR",
+      "name": "USA Rare Earth, Inc."
+    },
+    {
+      "sy": "PRM",
+      "name": "Perimeter Solutions, Inc."
+    },
+    {
+      "sy": "BCPC",
+      "name": "Balchem Corporation"
+    },
+    {
+      "sy": "OICT",
+      "name": "Oicintra, Inc."
+    },
+    {
+      "sy": "SXT",
+      "name": "Sensient Technologies Corporation"
+    },
+    {
+      "sy": "EMAT",
+      "name": "Evolution Metals & Technologies Corp."
+    },
+    {
+      "sy": "UFPI",
+      "name": "UFP Industries, Inc."
+    },
+    {
+      "sy": "HCC",
+      "name": "Warrior Met Coal, Inc."
+    },
+    {
+      "sy": "CSTM",
+      "name": "Constellium SE"
+    },
+    {
+      "sy": "KNF",
+      "name": "Knife River Corporation"
+    },
+    {
+      "sy": "MTRN",
+      "name": "Materion Corporation"
+    },
+    {
+      "sy": "CBT",
+      "name": "Cabot Corporation"
+    },
+    {
+      "sy": "CC",
+      "name": "The Chemours Company"
+    },
+    {
+      "sy": "HWKN",
+      "name": "Hawkins, Inc."
+    },
+    {
+      "sy": "HYMC",
+      "name": "Hycroft Mining Holding Corporation"
+    },
+    {
+      "sy": "SMG",
+      "name": "The Scotts Miracle-Gro Company"
+    },
+    {
+      "sy": "SA",
+      "name": "Seabridge Gold Inc."
+    },
+    {
+      "sy": "FUL",
+      "name": "H.B. Fuller Company"
+    },
+    {
+      "sy": "AVNT",
+      "name": "Avient Corporation"
+    },
+    {
+      "sy": "OLN",
+      "name": "Olin Corporation"
+    },
+    {
+      "sy": "USLM",
+      "name": "United States Lime & Minerals, Inc."
+    },
+    {
+      "sy": "EXK",
+      "name": "Endeavour Silver Corp."
+    },
+    {
+      "sy": "TTAM",
+      "name": "Titan America SA"
+    },
+    {
+      "sy": "KALU",
+      "name": "Kaiser Aluminum Corporation"
+    },
+    {
+      "sy": "CLMT",
+      "name": "Calumet, Inc."
+    },
+    {
+      "sy": "WDFC",
+      "name": "WD-40 Company"
+    },
+    {
+      "sy": "ASH",
+      "name": "Ashland Inc."
+    },
+    {
+      "sy": "HUN",
+      "name": "Huntsman Corporation"
+    },
+    {
+      "sy": "KWR",
+      "name": "Quaker Chemical Corporation"
+    },
+    {
+      "sy": "MTX",
+      "name": "Minerals Technologies Inc."
+    },
+    {
+      "sy": "NGVT",
+      "name": "Ingevity Corporation"
+    },
+    {
+      "sy": "TMC",
+      "name": "TMC the metals company Inc."
+    },
+    {
+      "sy": "BCC",
+      "name": "Boise Cascade Company"
+    },
+    {
+      "sy": "AMR",
+      "name": "Alpha Metallurgical Resources, Inc."
+    },
+    {
+      "sy": "LWLG",
+      "name": "Lightwave Logic, Inc."
+    },
+    {
+      "sy": "IE",
+      "name": "Ivanhoe Electric Inc."
+    },
+    {
+      "sy": "WS",
+      "name": "Worthington Steel, Inc."
+    },
+    {
+      "sy": "NEXA",
+      "name": "Nexa Resources S.A."
+    },
+    {
+      "sy": "IOSP",
+      "name": "Innospec Inc."
+    },
+    {
+      "sy": "FMC",
+      "name": "FMC Corporation"
+    },
+    {
+      "sy": "TGLS",
+      "name": "Tecnoglass Inc."
+    },
+    {
+      "sy": "REX",
+      "name": "REX American Resources Corporation"
+    },
+    {
+      "sy": "CRML",
+      "name": "Critical Metals Corp."
+    },
+    {
+      "sy": "ECVT",
+      "name": "Ecovyst Inc."
+    },
+    {
+      "sy": "SLVM",
+      "name": "Sylvamo Corporation"
+    },
+    {
+      "sy": "UAN",
+      "name": "CVR Partners, LP"
+    },
+    {
+      "sy": "MUX",
+      "name": "McEwen Inc."
+    },
+    {
+      "sy": "UAMY",
+      "name": "United States Antimony Corporation"
+    },
+    {
+      "sy": "TROX",
+      "name": "Tronox Holdings plc"
+    },
+    {
+      "sy": "CMP",
+      "name": "Compass Minerals International, Inc."
+    },
+    {
+      "sy": "GPRE",
+      "name": "Green Plains Inc."
+    },
+    {
+      "sy": "SCL",
+      "name": "Stepan Company"
+    },
+    {
+      "sy": "ODC",
+      "name": "Oil-Dri Corporation of America"
+    },
+    {
+      "sy": "MCEM",
+      "name": "The Monarch Cement Company"
+    },
+    {
+      "sy": "NWPX",
+      "name": "NWPX Infrastructure, Inc."
+    },
+    {
+      "sy": "LXU",
+      "name": "LSB Industries, Inc."
+    },
+    {
+      "sy": "METC",
+      "name": "Ramaco Resources, Inc."
+    },
+    {
+      "sy": "WLKP",
+      "name": "Westlake Chemical Partners LP"
+    },
+    {
+      "sy": "KOP",
+      "name": "Koppers Holdings Inc."
+    },
+    {
+      "sy": "NB",
+      "name": "NioCorp Developments Ltd."
+    },
+    {
+      "sy": "KRO",
+      "name": "Kronos Worldwide, Inc."
+    },
+    {
+      "sy": "TMCR",
+      "name": "The Metals Royalty Company Inc."
+    },
+    {
+      "sy": "DC",
+      "name": "Dakota Gold Corp."
+    },
+    {
+      "sy": "MTUS",
+      "name": "Metallus Inc."
+    },
+    {
+      "sy": "ASPI",
+      "name": "ASP Isotopes Inc."
+    },
+    {
+      "sy": "CTGO",
+      "name": "Contango Silver & Gold Inc."
+    },
+    {
+      "sy": "SXC",
+      "name": "SunCoke Energy, Inc."
+    },
+    {
+      "sy": "IDR",
+      "name": "Idaho Strategic Resources, Inc."
+    },
+    {
+      "sy": "RYAM",
+      "name": "Rayonier Advanced Materials Inc."
+    },
+    {
+      "sy": "ASIX",
+      "name": "AdvanSix Inc."
+    },
+    {
+      "sy": "IPI",
+      "name": "Intrepid Potash, Inc."
+    },
+    {
+      "sy": "ALOY",
+      "name": "REalloys Inc."
+    },
+    {
+      "sy": "MATV",
+      "name": "Mativ Holdings, Inc."
+    },
+    {
+      "sy": "CMCL",
+      "name": "Caledonia Mining Corporation Plc"
+    },
+    {
+      "sy": "OEC",
+      "name": "Orion S.A."
+    },
+    {
+      "sy": "VHI",
+      "name": "Valhi, Inc."
+    },
+    {
+      "sy": "MSB",
+      "name": "Mesabi Trust"
+    },
+    {
+      "sy": "USAU",
+      "name": "U.S. Gold Corp."
+    },
+    {
+      "sy": "CLW",
+      "name": "Clearwater Paper Corporation"
+    },
+    {
+      "sy": "CMT",
+      "name": "Core Molding Technologies, Inc."
+    },
+    {
+      "sy": "SINC",
+      "name": "Sincerity Applied Materials Holdings Corp."
+    },
+    {
+      "sy": "USGO",
+      "name": "U.S. GoldMining Inc."
+    },
+    {
+      "sy": "SMID",
+      "name": "Smith-Midland Corporation"
+    },
+    {
+      "sy": "FRD",
+      "name": "Friedman Industries, Incorporated"
+    },
+    {
+      "sy": "LUD",
+      "name": "Luda Technology Group Limited"
+    },
+    {
+      "sy": "ACNT",
+      "name": "Ascent Industries Co."
+    },
+    {
+      "sy": "ACRG",
+      "name": "American Clean Resources Group, Inc."
+    },
+    {
+      "sy": "FSI",
+      "name": "Flexible Solutions International, Inc."
+    },
+    {
+      "sy": "NTIC",
+      "name": "Northern Technologies International Corporation"
+    },
+    {
+      "sy": "ATCX",
+      "name": "Atlas Critical Minerals Corporation"
+    },
+    {
+      "sy": "BLTH",
+      "name": "American Battery Materials, Inc."
+    },
+    {
+      "sy": "AVOA",
+      "name": "Avoca LLC"
+    },
+    {
+      "sy": "REA",
+      "name": "Rare Earths Americas, Inc."
+    },
+    {
+      "sy": "RMIX",
+      "name": "Suncrete, Inc."
+    },
+    {
+      "sy": "SBMT",
+      "name": "Silver Bow Mining Corp."
+    }
+  ]
+}

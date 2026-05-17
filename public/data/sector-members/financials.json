@@ -1,0 +1,5841 @@
+{
+  "sectorId": "financials",
+  "sectorLabel": "Financial services",
+  "yahooScrId": "sec-ind_sec-largest-equities_financial-services",
+  "updated": "2026-05-17",
+  "count": 1458,
+  "tickers": [
+    {
+      "sy": "BRK-B",
+      "name": "Berkshire Hathaway Inc."
+    },
+    {
+      "sy": "JPM",
+      "name": "JPMorgan Chase & Co."
+    },
+    {
+      "sy": "V",
+      "name": "Visa Inc."
+    },
+    {
+      "sy": "BAC",
+      "name": "Bank of America Corporation"
+    },
+    {
+      "sy": "MA",
+      "name": "Mastercard Incorporated"
+    },
+    {
+      "sy": "GS",
+      "name": "The Goldman Sachs Group, Inc."
+    },
+    {
+      "sy": "MS",
+      "name": "Morgan Stanley"
+    },
+    {
+      "sy": "C",
+      "name": "Citigroup Inc."
+    },
+    {
+      "sy": "RY",
+      "name": "Royal Bank of Canada"
+    },
+    {
+      "sy": "WFC",
+      "name": "Wells Fargo & Company"
+    },
+    {
+      "sy": "AXP",
+      "name": "American Express Company"
+    },
+    {
+      "sy": "TD",
+      "name": "The Toronto-Dominion Bank"
+    },
+    {
+      "sy": "BLK",
+      "name": "BlackRock, Inc."
+    },
+    {
+      "sy": "SCHW",
+      "name": "The Charles Schwab Corporation"
+    },
+    {
+      "sy": "BX",
+      "name": "Blackstone Inc."
+    },
+    {
+      "sy": "CB",
+      "name": "Chubb Limited"
+    },
+    {
+      "sy": "SPGI",
+      "name": "S&P Global Inc."
+    },
+    {
+      "sy": "PGR",
+      "name": "The Progressive Corporation"
+    },
+    {
+      "sy": "COF",
+      "name": "Capital One Financial Corporation"
+    },
+    {
+      "sy": "CME",
+      "name": "CME Group Inc."
+    },
+    {
+      "sy": "BK",
+      "name": "The Bank of New York Mellon Corporation"
+    },
+    {
+      "sy": "ICE",
+      "name": "Intercontinental Exchange, Inc."
+    },
+    {
+      "sy": "KKR",
+      "name": "KKR & Co. Inc."
+    },
+    {
+      "sy": "PNC",
+      "name": "The PNC Financial Services Group, Inc."
+    },
+    {
+      "sy": "USB",
+      "name": "U.S. Bancorp"
+    },
+    {
+      "sy": "APO",
+      "name": "Apollo Global Management, Inc."
+    },
+    {
+      "sy": "MRSH",
+      "name": "Marsh & McLennan Companies, Inc."
+    },
+    {
+      "sy": "MCO",
+      "name": "Moody's Corporation"
+    },
+    {
+      "sy": "HOOD",
+      "name": "Robinhood Markets, Inc."
+    },
+    {
+      "sy": "AON",
+      "name": "Aon plc"
+    },
+    {
+      "sy": "TRV",
+      "name": "The Travelers Companies, Inc."
+    },
+    {
+      "sy": "AFL",
+      "name": "Aflac Incorporated"
+    },
+    {
+      "sy": "NU",
+      "name": "Nu Holdings Ltd."
+    },
+    {
+      "sy": "TFC",
+      "name": "Truist Financial Corporation"
+    },
+    {
+      "sy": "ALL",
+      "name": "The Allstate Corporation"
+    },
+    {
+      "sy": "NDAQ",
+      "name": "Nasdaq, Inc."
+    },
+    {
+      "sy": "COIN",
+      "name": "Coinbase Global, Inc."
+    },
+    {
+      "sy": "AJG",
+      "name": "Arthur J. Gallagher & Co."
+    },
+    {
+      "sy": "MET",
+      "name": "MetLife, Inc."
+    },
+    {
+      "sy": "FNMA",
+      "name": "Federal National Mortgage Association"
+    },
+    {
+      "sy": "FITB",
+      "name": "Fifth Third Bancorp"
+    },
+    {
+      "sy": "STT",
+      "name": "State Street Corporation"
+    },
+    {
+      "sy": "AMP",
+      "name": "Ameriprise Financial, Inc."
+    },
+    {
+      "sy": "MSCI",
+      "name": "MSCI Inc."
+    },
+    {
+      "sy": "AIG",
+      "name": "American International Group, Inc."
+    },
+    {
+      "sy": "PYPL",
+      "name": "PayPal Holdings, Inc."
+    },
+    {
+      "sy": "IBKR",
+      "name": "Interactive Brokers Group, Inc."
+    },
+    {
+      "sy": "CBOE",
+      "name": "Cboe Global Markets, Inc."
+    },
+    {
+      "sy": "RKT",
+      "name": "Rocket Companies, Inc."
+    },
+    {
+      "sy": "HIG",
+      "name": "The Hartford Insurance Group, Inc."
+    },
+    {
+      "sy": "PRU",
+      "name": "Prudential Financial, Inc."
+    },
+    {
+      "sy": "ACGL",
+      "name": "Arch Capital Group Ltd."
+    },
+    {
+      "sy": "HBAN",
+      "name": "Huntington Bancshares Incorporated"
+    },
+    {
+      "sy": "NTRS",
+      "name": "Northern Trust Corporation"
+    },
+    {
+      "sy": "RJF",
+      "name": "Raymond James Financial, Inc."
+    },
+    {
+      "sy": "MTB",
+      "name": "M&T Bank Corporation"
+    },
+    {
+      "sy": "CRCL",
+      "name": "Circle Internet Group"
+    },
+    {
+      "sy": "ARES",
+      "name": "Ares Management Corporation"
+    },
+    {
+      "sy": "CINF",
+      "name": "Cincinnati Financial Corporation"
+    },
+    {
+      "sy": "CFG",
+      "name": "Citizens Financial Group, Inc."
+    },
+    {
+      "sy": "BAP",
+      "name": "Credicorp Ltd."
+    },
+    {
+      "sy": "WRB",
+      "name": "W. R. Berkley Corporation"
+    },
+    {
+      "sy": "SYF",
+      "name": "Synchrony Financial"
+    },
+    {
+      "sy": "LPLA",
+      "name": "LPL Financial Holdings Inc."
+    },
+    {
+      "sy": "TW",
+      "name": "Tradeweb Markets Inc."
+    },
+    {
+      "sy": "WTW",
+      "name": "Willis Towers Watson Public Limited Company"
+    },
+    {
+      "sy": "MKL",
+      "name": "Markel Group Inc."
+    },
+    {
+      "sy": "KEY",
+      "name": "KeyCorp"
+    },
+    {
+      "sy": "RF",
+      "name": "Regions Financial Corporation"
+    },
+    {
+      "sy": "FCNCA",
+      "name": "First Citizens BancShares, Inc."
+    },
+    {
+      "sy": "FMCC",
+      "name": "Federal Home Loan Mortgage Corporation"
+    },
+    {
+      "sy": "AFRM",
+      "name": "Affirm Holdings, Inc."
+    },
+    {
+      "sy": "TROW",
+      "name": "T. Rowe Price Group, Inc."
+    },
+    {
+      "sy": "L",
+      "name": "Loews Corporation"
+    },
+    {
+      "sy": "PFG",
+      "name": "Principal Financial Group, Inc."
+    },
+    {
+      "sy": "SOFI",
+      "name": "SoFi Technologies, Inc."
+    },
+    {
+      "sy": "BRO",
+      "name": "Brown & Brown, Inc."
+    },
+    {
+      "sy": "IREN",
+      "name": "IREN Limited"
+    },
+    {
+      "sy": "ALLY",
+      "name": "Ally Financial Inc."
+    },
+    {
+      "sy": "CG",
+      "name": "The Carlyle Group Inc."
+    },
+    {
+      "sy": "BEN",
+      "name": "Franklin Resources, Inc."
+    },
+    {
+      "sy": "EWBC",
+      "name": "East West Bancorp, Inc."
+    },
+    {
+      "sy": "PSLV",
+      "name": "Sprott Physical Silver Trust"
+    },
+    {
+      "sy": "PNFP",
+      "name": "Pinnacle Financial Partners, Inc."
+    },
+    {
+      "sy": "EG",
+      "name": "Everest Group, Ltd."
+    },
+    {
+      "sy": "RGA",
+      "name": "Reinsurance Group of America, Incorporated"
+    },
+    {
+      "sy": "ARCC",
+      "name": "Ares Capital Corporation"
+    },
+    {
+      "sy": "UNM",
+      "name": "Unum Group"
+    },
+    {
+      "sy": "EVR",
+      "name": "Evercore Inc."
+    },
+    {
+      "sy": "FNF",
+      "name": "Fidelity National Financial, Inc."
+    },
+    {
+      "sy": "TRU",
+      "name": "TransUnion"
+    },
+    {
+      "sy": "AIZ",
+      "name": "Assurant, Inc."
+    },
+    {
+      "sy": "CRBG",
+      "name": "Corebridge Financial, Inc."
+    },
+    {
+      "sy": "RNR",
+      "name": "RenaissanceRe Holdings Ltd."
+    },
+    {
+      "sy": "GL",
+      "name": "Globe Life Inc."
+    },
+    {
+      "sy": "IVZ",
+      "name": "Invesco Ltd."
+    },
+    {
+      "sy": "EQH",
+      "name": "Equitable Holdings, Inc."
+    },
+    {
+      "sy": "CNA",
+      "name": "CNA Financial Corporation"
+    },
+    {
+      "sy": "HUT",
+      "name": "Hut 8 Corp."
+    },
+    {
+      "sy": "WBS",
+      "name": "Webster Financial Corporation"
+    },
+    {
+      "sy": "SF",
+      "name": "Stifel Financial Corp."
+    },
+    {
+      "sy": "BMNR",
+      "name": "Bitmine Immersion Technologies, Inc."
+    },
+    {
+      "sy": "FHN",
+      "name": "First Horizon Corporation"
+    },
+    {
+      "sy": "AFG",
+      "name": "American Financial Group, Inc."
+    },
+    {
+      "sy": "ERIE",
+      "name": "Erie Indemnity Company"
+    },
+    {
+      "sy": "WULF",
+      "name": "TeraWulf Inc."
+    },
+    {
+      "sy": "SEIC",
+      "name": "SEI Investments Company"
+    },
+    {
+      "sy": "JEF",
+      "name": "Jefferies Financial Group Inc."
+    },
+    {
+      "sy": "HLI",
+      "name": "Houlihan Lokey, Inc."
+    },
+    {
+      "sy": "FCFS",
+      "name": "FirstCash Holdings, Inc."
+    },
+    {
+      "sy": "WTFC",
+      "name": "Wintrust Financial Corporation"
+    },
+    {
+      "sy": "ORI",
+      "name": "Old Republic International Corporation"
+    },
+    {
+      "sy": "FIGR",
+      "name": "Figure Technology Solutions, Inc."
+    },
+    {
+      "sy": "UMBF",
+      "name": "UMB Financial Corporation"
+    },
+    {
+      "sy": "BPOP",
+      "name": "Popular, Inc."
+    },
+    {
+      "sy": "XP",
+      "name": "XP Inc."
+    },
+    {
+      "sy": "SSB",
+      "name": "SouthState Bank Corporation"
+    },
+    {
+      "sy": "ONB",
+      "name": "Old National Bancorp"
+    },
+    {
+      "sy": "RIOT",
+      "name": "Riot Platforms, Inc."
+    },
+    {
+      "sy": "ZION",
+      "name": "Zions Bancorporation, National Association"
+    },
+    {
+      "sy": "SNEX",
+      "name": "StoneX Group Inc."
+    },
+    {
+      "sy": "FRHC",
+      "name": "Freedom Holdings Corp."
+    },
+    {
+      "sy": "PRI",
+      "name": "Primerica, Inc."
+    },
+    {
+      "sy": "CFR",
+      "name": "Cullen/Frost Bankers, Inc."
+    },
+    {
+      "sy": "COLB",
+      "name": "Columbia Banking System, Inc."
+    },
+    {
+      "sy": "WAL",
+      "name": "Western Alliance Bancorporation"
+    },
+    {
+      "sy": "JHG",
+      "name": "Janus Henderson Group plc"
+    },
+    {
+      "sy": "AMG",
+      "name": "Affiliated Managers Group, Inc."
+    },
+    {
+      "sy": "FDS",
+      "name": "FactSet Research Systems Inc."
+    },
+    {
+      "sy": "BOKF",
+      "name": "BOK Financial Corporation"
+    },
+    {
+      "sy": "JXN",
+      "name": "Jackson Financial Inc."
+    },
+    {
+      "sy": "CBSH",
+      "name": "Commerce Bancshares, Inc."
+    },
+    {
+      "sy": "VOYA",
+      "name": "Voya Financial, Inc."
+    },
+    {
+      "sy": "PDI",
+      "name": "PIMCO Dynamic Income Fund"
+    },
+    {
+      "sy": "AXS",
+      "name": "AXIS Capital Holdings Limited"
+    },
+    {
+      "sy": "KNSL",
+      "name": "Kinsale Capital Group, Inc."
+    },
+    {
+      "sy": "VLY",
+      "name": "Valley National Bancorp"
+    },
+    {
+      "sy": "FAF",
+      "name": "First American Financial Corporation"
+    },
+    {
+      "sy": "THG",
+      "name": "The Hanover Insurance Group, Inc."
+    },
+    {
+      "sy": "PB",
+      "name": "Prosperity Bancshares, Inc."
+    },
+    {
+      "sy": "TPG",
+      "name": "TPG Inc."
+    },
+    {
+      "sy": "LNC",
+      "name": "Lincoln National Corporation"
+    },
+    {
+      "sy": "MORN",
+      "name": "Morningstar, Inc."
+    },
+    {
+      "sy": "OWL",
+      "name": "Blue Owl Capital Inc."
+    },
+    {
+      "sy": "CBC",
+      "name": "Central Bancompany, Inc."
+    },
+    {
+      "sy": "OMF",
+      "name": "OneMain Holdings, Inc."
+    },
+    {
+      "sy": "FNB",
+      "name": "F.N.B. Corporation"
+    },
+    {
+      "sy": "ACT",
+      "name": "Enact Holdings, Inc."
+    },
+    {
+      "sy": "GBCI",
+      "name": "Glacier Bancorp, Inc."
+    },
+    {
+      "sy": "UBSI",
+      "name": "United Bankshares, Inc."
+    },
+    {
+      "sy": "CACC",
+      "name": "Credit Acceptance Corporation"
+    },
+    {
+      "sy": "GLXY",
+      "name": "Galaxy Digital"
+    },
+    {
+      "sy": "BXSL",
+      "name": "Blackstone Secured Lending Fund"
+    },
+    {
+      "sy": "ESNT",
+      "name": "Essent Group Ltd."
+    },
+    {
+      "sy": "OBDC",
+      "name": "Blue Owl Capital Corporation"
+    },
+    {
+      "sy": "ABCB",
+      "name": "Ameris Bancorp"
+    },
+    {
+      "sy": "FLG",
+      "name": "Flagstar Bank, National Association"
+    },
+    {
+      "sy": "MTG",
+      "name": "MGIC Investment Corporation"
+    },
+    {
+      "sy": "MCY",
+      "name": "Mercury General Corporation"
+    },
+    {
+      "sy": "BGC",
+      "name": "BGC Group, Inc."
+    },
+    {
+      "sy": "VCTR",
+      "name": "Victory Capital Holdings, Inc."
+    },
+    {
+      "sy": "MIAX",
+      "name": "Miami International Holdings, Inc."
+    },
+    {
+      "sy": "PIPR",
+      "name": "Piper Sandler Companies"
+    },
+    {
+      "sy": "WTM",
+      "name": "White Mountains Insurance Group, Ltd."
+    },
+    {
+      "sy": "SIGI",
+      "name": "Selective Insurance Group, Inc."
+    },
+    {
+      "sy": "HASI",
+      "name": "HA Sustainable Infrastructure Capital, Inc."
+    },
+    {
+      "sy": "HWC",
+      "name": "Hancock Whitney Corporation"
+    },
+    {
+      "sy": "AUB",
+      "name": "Atlantic Union Bankshares Corporation"
+    },
+    {
+      "sy": "HOMB",
+      "name": "Home BancShares, Inc."
+    },
+    {
+      "sy": "OTF",
+      "name": "Blue Owl Technology Finance Corp."
+    },
+    {
+      "sy": "ASB",
+      "name": "Associated Banc-Corp"
+    },
+    {
+      "sy": "FINN",
+      "name": "First National of Nebraska, Inc."
+    },
+    {
+      "sy": "OZK",
+      "name": "Bank OZK"
+    },
+    {
+      "sy": "MKTX",
+      "name": "MarketAxess Holdings Inc."
+    },
+    {
+      "sy": "RDN",
+      "name": "Radian Group Inc."
+    },
+    {
+      "sy": "MARA",
+      "name": "MARA Holdings, Inc."
+    },
+    {
+      "sy": "VIRT",
+      "name": "Virtu Financial, Inc."
+    },
+    {
+      "sy": "MC",
+      "name": "Moelis & Company"
+    },
+    {
+      "sy": "AX",
+      "name": "Axos Financial, Inc."
+    },
+    {
+      "sy": "MAIN",
+      "name": "Main Street Capital Corporation"
+    },
+    {
+      "sy": "RLI",
+      "name": "RLI Corp."
+    },
+    {
+      "sy": "NNI",
+      "name": "Nelnet, Inc."
+    },
+    {
+      "sy": "FFIN",
+      "name": "First Financial Bankshares, Inc."
+    },
+    {
+      "sy": "LAZ",
+      "name": "Lazard, Inc."
+    },
+    {
+      "sy": "PFSI",
+      "name": "PennyMac Financial Services, Inc."
+    },
+    {
+      "sy": "IBOC",
+      "name": "International Bancshares Corporation"
+    },
+    {
+      "sy": "CNO",
+      "name": "CNO Financial Group, Inc."
+    },
+    {
+      "sy": "TFSL",
+      "name": "TFS Financial Corporation"
+    },
+    {
+      "sy": "STEP",
+      "name": "StepStone Group Inc."
+    },
+    {
+      "sy": "TCBI",
+      "name": "Texas Capital Bancshares, Inc."
+    },
+    {
+      "sy": "EBC",
+      "name": "Eastern Bankshares, Inc."
+    },
+    {
+      "sy": "RYAN",
+      "name": "Ryan Specialty Holdings, Inc."
+    },
+    {
+      "sy": "FHI",
+      "name": "Federated Hermes, Inc."
+    },
+    {
+      "sy": "SFBS",
+      "name": "ServisFirst Bancshares, Inc."
+    },
+    {
+      "sy": "ENVA",
+      "name": "Enova International, Inc."
+    },
+    {
+      "sy": "PJT",
+      "name": "PJT Partners Inc."
+    },
+    {
+      "sy": "DNP",
+      "name": "DNP Select Income Fund Inc."
+    },
+    {
+      "sy": "SLM",
+      "name": "SLM Corporation"
+    },
+    {
+      "sy": "MRX",
+      "name": "Marex Group plc"
+    },
+    {
+      "sy": "FULT",
+      "name": "Fulton Financial Corporation"
+    },
+    {
+      "sy": "LMND",
+      "name": "Lemonade, Inc."
+    },
+    {
+      "sy": "NP",
+      "name": "Neptune Insurance Holdings Inc."
+    },
+    {
+      "sy": "UTG",
+      "name": "Reaves Utility Income Fund"
+    },
+    {
+      "sy": "UCB",
+      "name": "United Community Banks, Inc."
+    },
+    {
+      "sy": "HLNE",
+      "name": "Hamilton Lane Incorporated"
+    },
+    {
+      "sy": "CATY",
+      "name": "Cathay General Bancorp"
+    },
+    {
+      "sy": "FG",
+      "name": "F&G Annuities & Life, Inc."
+    },
+    {
+      "sy": "CNS",
+      "name": "Cohen & Steers, Inc."
+    },
+    {
+      "sy": "INDB",
+      "name": "Independent Bank Corp."
+    },
+    {
+      "sy": "WSFS",
+      "name": "WSFS Financial Corporation"
+    },
+    {
+      "sy": "RNST",
+      "name": "Renasant Corporation"
+    },
+    {
+      "sy": "FBP",
+      "name": "First BanCorp."
+    },
+    {
+      "sy": "BHF",
+      "name": "Brighthouse Financial, Inc."
+    },
+    {
+      "sy": "BANF",
+      "name": "BancFirst Corporation"
+    },
+    {
+      "sy": "MAAS",
+      "name": "Maase Inc."
+    },
+    {
+      "sy": "AB",
+      "name": "AllianceBernstein Holding L.P."
+    },
+    {
+      "sy": "BFH",
+      "name": "Bread Financial Holdings, Inc."
+    },
+    {
+      "sy": "GNW",
+      "name": "Genworth Financial, Inc."
+    },
+    {
+      "sy": "CVBF",
+      "name": "CVB Financial Corp."
+    },
+    {
+      "sy": "GBDC",
+      "name": "Golub Capital BDC, Inc."
+    },
+    {
+      "sy": "NEA",
+      "name": "Nuveen AMT-Free Quality Municipal Income Fund"
+    },
+    {
+      "sy": "ARX",
+      "name": "Accelerant Holdings"
+    },
+    {
+      "sy": "CLSK",
+      "name": "CleanSpark, Inc."
+    },
+    {
+      "sy": "SEZL",
+      "name": "Sezzle Inc."
+    },
+    {
+      "sy": "AGO",
+      "name": "Assured Guaranty Ltd."
+    },
+    {
+      "sy": "FIBK",
+      "name": "First Interstate BancSystem, Inc."
+    },
+    {
+      "sy": "BKU",
+      "name": "BankUnited, Inc."
+    },
+    {
+      "sy": "CBU",
+      "name": "Community Financial System, Inc."
+    },
+    {
+      "sy": "CSQ",
+      "name": "Calamos Strategic Total Return Fund"
+    },
+    {
+      "sy": "ETOR",
+      "name": "eToro Group Ltd."
+    },
+    {
+      "sy": "FHB",
+      "name": "First Hawaiian, Inc."
+    },
+    {
+      "sy": "MCHB",
+      "name": "Mechanics Bancorp"
+    },
+    {
+      "sy": "WSBC",
+      "name": "WesBanco, Inc."
+    },
+    {
+      "sy": "HG",
+      "name": "Hamilton Insurance Group, Ltd."
+    },
+    {
+      "sy": "FFBC",
+      "name": "First Financial Bancorp."
+    },
+    {
+      "sy": "FSK",
+      "name": "FS KKR Capital Corp."
+    },
+    {
+      "sy": "TOWN",
+      "name": "TowneBank"
+    },
+    {
+      "sy": "ADX",
+      "name": "Adams Diversified Equity Fund, Inc."
+    },
+    {
+      "sy": "BOH",
+      "name": "Bank of Hawaii Corporation"
+    },
+    {
+      "sy": "UTF",
+      "name": "Cohen & Steers Infrastructure Fund, Inc"
+    },
+    {
+      "sy": "SFNC",
+      "name": "Simmons First National Corporation"
+    },
+    {
+      "sy": "WT",
+      "name": "WisdomTree, Inc."
+    },
+    {
+      "sy": "PRK",
+      "name": "Park National Corporation"
+    },
+    {
+      "sy": "PLMR",
+      "name": "Palomar Holdings, Inc."
+    },
+    {
+      "sy": "CRVL",
+      "name": "CorVel Corporation"
+    },
+    {
+      "sy": "NIC",
+      "name": "Nicolet Bankshares, Inc."
+    },
+    {
+      "sy": "HTGC",
+      "name": "Hercules Capital, Inc."
+    },
+    {
+      "sy": "SBCF",
+      "name": "Seacoast Banking Corporation of Florida"
+    },
+    {
+      "sy": "JPC",
+      "name": "Nuveen Preferred & Income Opportunities Fund"
+    },
+    {
+      "sy": "DBRG",
+      "name": "DigitalBridge Group, Inc."
+    },
+    {
+      "sy": "NMIH",
+      "name": "NMI Holdings, Inc."
+    },
+    {
+      "sy": "UPST",
+      "name": "Upstart Holdings, Inc."
+    },
+    {
+      "sy": "BANC",
+      "name": "Banc of California, Inc."
+    },
+    {
+      "sy": "EXG",
+      "name": "Eaton Vance Tax-Managed Global Diversified Equity Income Fund"
+    },
+    {
+      "sy": "PFS",
+      "name": "Provident Financial Services, Inc."
+    },
+    {
+      "sy": "XXI",
+      "name": "Twenty One Capital, Inc."
+    },
+    {
+      "sy": "NAD",
+      "name": "Nuveen Quality Municipal Income Fund"
+    },
+    {
+      "sy": "SPNT",
+      "name": "SiriusPoint Ltd."
+    },
+    {
+      "sy": "FBK",
+      "name": "FB Financial Corporation"
+    },
+    {
+      "sy": "NVG",
+      "name": "Nuveen AMT-Free Municipal Credit Income Fund"
+    },
+    {
+      "sy": "WU",
+      "name": "The Western Union Company"
+    },
+    {
+      "sy": "APAM",
+      "name": "Artisan Partners Asset Management Inc."
+    },
+    {
+      "sy": "INTR",
+      "name": "Inter & Co, Inc."
+    },
+    {
+      "sy": "WAFD",
+      "name": "WaFd, Inc."
+    },
+    {
+      "sy": "TRMK",
+      "name": "Trustmark Corporation"
+    },
+    {
+      "sy": "PTY",
+      "name": "PIMCO Corporate & Income Opportunity Fund"
+    },
+    {
+      "sy": "GDV",
+      "name": "The Gabelli Dividend & Income Trust"
+    },
+    {
+      "sy": "FRME",
+      "name": "First Merchants Corporation"
+    },
+    {
+      "sy": "AAMI",
+      "name": "Acadian Asset Management Inc."
+    },
+    {
+      "sy": "CUBI",
+      "name": "Customers Bancorp, Inc."
+    },
+    {
+      "sy": "KYN",
+      "name": "Kayne Anderson Energy Infrastructure Fund, Inc."
+    },
+    {
+      "sy": "NZF",
+      "name": "Nuveen Municipal Credit Income Fund"
+    },
+    {
+      "sy": "FBNC",
+      "name": "First Bancorp"
+    },
+    {
+      "sy": "GOF",
+      "name": "Guggenheim Strategic Opportunities Fund"
+    },
+    {
+      "sy": "ETY",
+      "name": "Eaton Vance Tax-Managed Diversified Equity Income Fund"
+    },
+    {
+      "sy": "BBT",
+      "name": "Beacon Financial Corporation"
+    },
+    {
+      "sy": "NBTB",
+      "name": "NBT Bancorp Inc."
+    },
+    {
+      "sy": "TBBK",
+      "name": "The Bancorp, Inc."
+    },
+    {
+      "sy": "CLM",
+      "name": "Cornerstone Strategic Investment Fund, Inc."
+    },
+    {
+      "sy": "RVT",
+      "name": "Royce Small-Cap Trust, Inc."
+    },
+    {
+      "sy": "BUSE",
+      "name": "First Busey Corporation"
+    },
+    {
+      "sy": "NTB",
+      "name": "The Bank of N.T. Butterfield & Son Limited"
+    },
+    {
+      "sy": "SLDE",
+      "name": "Slide Insurance Holdings, Inc."
+    },
+    {
+      "sy": "EFSC",
+      "name": "Enterprise Financial Services Corp"
+    },
+    {
+      "sy": "BANR",
+      "name": "Banner Corporation"
+    },
+    {
+      "sy": "HTH",
+      "name": "Hilltop Holdings Inc."
+    },
+    {
+      "sy": "SYBT",
+      "name": "Stock Yards Bancorp, Inc."
+    },
+    {
+      "sy": "MBIN",
+      "name": "Merchants Bancorp"
+    },
+    {
+      "sy": "CLBK",
+      "name": "Columbia Financial, Inc."
+    },
+    {
+      "sy": "STC",
+      "name": "Stewart Information Services Corporation"
+    },
+    {
+      "sy": "EZPW",
+      "name": "EZCORP, Inc."
+    },
+    {
+      "sy": "HCI",
+      "name": "HCI Group, Inc."
+    },
+    {
+      "sy": "NWBI",
+      "name": "Northwest Bancshares, Inc."
+    },
+    {
+      "sy": "BLX",
+      "name": "Banco Latinoamericano de Comercio Exterior, S. A."
+    },
+    {
+      "sy": "BWIN",
+      "name": "The Baldwin Insurance Group, Inc."
+    },
+    {
+      "sy": "EVT",
+      "name": "Eaton Vance Tax-Advantaged Dividend Income Fund"
+    },
+    {
+      "sy": "BSTZ",
+      "name": "BlackRock Science and Technology Term Trust"
+    },
+    {
+      "sy": "NUV",
+      "name": "Nuveen Municipal Value Fund, Inc."
+    },
+    {
+      "sy": "SKWD",
+      "name": "Skyward Specialty Insurance Group, Inc."
+    },
+    {
+      "sy": "OFG",
+      "name": "OFG Bancorp"
+    },
+    {
+      "sy": "STEL",
+      "name": "Stellar Bancorp, Inc."
+    },
+    {
+      "sy": "NAC",
+      "name": "Nuveen California Quality Municipal Income Fund"
+    },
+    {
+      "sy": "FCF",
+      "name": "First Commonwealth Financial Corporation"
+    },
+    {
+      "sy": "NBHC",
+      "name": "National Bank Holdings Corporation"
+    },
+    {
+      "sy": "HMN",
+      "name": "Horace Mann Educators Corporation"
+    },
+    {
+      "sy": "PAX",
+      "name": "Patria Investments Limited"
+    },
+    {
+      "sy": "PDO",
+      "name": "Pimco Dynamic Income Opportunities Fund"
+    },
+    {
+      "sy": "LC",
+      "name": "LendingClub Corporation"
+    },
+    {
+      "sy": "FIHL",
+      "name": "Pelagos Insurance Capital Limited"
+    },
+    {
+      "sy": "WD",
+      "name": "Walker & Dunlop, Inc."
+    },
+    {
+      "sy": "ECPG",
+      "name": "Encore Capital Group, Inc."
+    },
+    {
+      "sy": "KMPR",
+      "name": "Kemper Corporation"
+    },
+    {
+      "sy": "RQI",
+      "name": "Cohen & Steers Quality Income Realty Fund, Inc."
+    },
+    {
+      "sy": "ETG",
+      "name": "Eaton Vance Tax-Advantaged Global Dividend Income Fund"
+    },
+    {
+      "sy": "USA",
+      "name": "Liberty All-Star Equity Fund"
+    },
+    {
+      "sy": "GAB",
+      "name": "The Gabelli Equity Trust Inc."
+    },
+    {
+      "sy": "WTBFA",
+      "name": "W.T.B. Financial Corporation"
+    },
+    {
+      "sy": "SRCE",
+      "name": "1st Source Corporation"
+    },
+    {
+      "sy": "CHCO",
+      "name": "City Holding Company"
+    },
+    {
+      "sy": "STEW",
+      "name": "SRH Total Return Fund, Inc."
+    },
+    {
+      "sy": "CASH",
+      "name": "Pathward Financial, Inc."
+    },
+    {
+      "sy": "TSLX",
+      "name": "Sixth Street Specialty Lending, Inc."
+    },
+    {
+      "sy": "ETV",
+      "name": "Eaton Vance Tax-Managed Buy-Write Opportunities Fund"
+    },
+    {
+      "sy": "LOB",
+      "name": "Live Oak Bancshares, Inc."
+    },
+    {
+      "sy": "BCAT",
+      "name": "BlackRock Capital Allocation Term Trust"
+    },
+    {
+      "sy": "FSUN",
+      "name": "FirstSun Capital Bancorp"
+    },
+    {
+      "sy": "AGM-A",
+      "name": "Federal Agricultural Mortgage Corporation"
+    },
+    {
+      "sy": "BDJ",
+      "name": "BlackRock Enhanced Equity Dividend Trust"
+    },
+    {
+      "sy": "BFC",
+      "name": "Bank First Corporation"
+    },
+    {
+      "sy": "DCOM",
+      "name": "Dime Community Bancshares, Inc."
+    },
+    {
+      "sy": "BST",
+      "name": "BlackRock Science and Technology Trust"
+    },
+    {
+      "sy": "GABC",
+      "name": "German American Bancorp, Inc."
+    },
+    {
+      "sy": "CET",
+      "name": "Central Securities Corporation"
+    },
+    {
+      "sy": "STBA",
+      "name": "S&T Bancorp, Inc."
+    },
+    {
+      "sy": "TCBK",
+      "name": "TriCo Bancshares"
+    },
+    {
+      "sy": "GAM",
+      "name": "General American Investors Company, Inc."
+    },
+    {
+      "sy": "HOPE",
+      "name": "Hope Bancorp, Inc."
+    },
+    {
+      "sy": "TRIN",
+      "name": "Trinity Capital Inc."
+    },
+    {
+      "sy": "ECAT",
+      "name": "BlackRock ESG Capital Allocation Term Trust"
+    },
+    {
+      "sy": "QQQX",
+      "name": "Nuveen Nasdaq 100 Dynamic Overwrite Fund"
+    },
+    {
+      "sy": "RBCAA",
+      "name": "Republic Bancorp, Inc."
+    },
+    {
+      "sy": "TFIN",
+      "name": "Triumph Financial, Inc."
+    },
+    {
+      "sy": "CNOB",
+      "name": "ConnectOne Bancorp, Inc."
+    },
+    {
+      "sy": "BY",
+      "name": "Byline Bancorp, Inc."
+    },
+    {
+      "sy": "QCRH",
+      "name": "QCR Holdings, Inc."
+    },
+    {
+      "sy": "DXYZ",
+      "name": "Destiny Tech100 Inc."
+    },
+    {
+      "sy": "BTT",
+      "name": "Blackrock Municipal 2030 Target Term Trust"
+    },
+    {
+      "sy": "CSWC",
+      "name": "Capital Southwest Corporation"
+    },
+    {
+      "sy": "LKFN",
+      "name": "Lakeland Financial Corporation"
+    },
+    {
+      "sy": "OBK",
+      "name": "Origin Bancorp, Inc."
+    },
+    {
+      "sy": "HYT",
+      "name": "BlackRock Corporate High Yield Fund, Inc."
+    },
+    {
+      "sy": "LIFE",
+      "name": "Ethos Technologies Inc."
+    },
+    {
+      "sy": "NFJ",
+      "name": "Virtus Dividend, Interest & Premium Strategy Fund"
+    },
+    {
+      "sy": "SBET",
+      "name": "Sharplink, Inc."
+    },
+    {
+      "sy": "PWP",
+      "name": "Perella Weinberg Partners"
+    },
+    {
+      "sy": "MSDL",
+      "name": "Morgan Stanley Direct Lending Fund"
+    },
+    {
+      "sy": "PRA",
+      "name": "ProAssurance Corporation"
+    },
+    {
+      "sy": "WABC",
+      "name": "Westamerica Bancorporation"
+    },
+    {
+      "sy": "BHRB",
+      "name": "Burke & Herbert Financial Services Corp."
+    },
+    {
+      "sy": "UFCS",
+      "name": "United Fire Group, Inc."
+    },
+    {
+      "sy": "XZO",
+      "name": "Exzeo Group, Inc."
+    },
+    {
+      "sy": "DSL",
+      "name": "DoubleLine Income Solutions Fund"
+    },
+    {
+      "sy": "ASST",
+      "name": "Strive Asset Management, LLC"
+    },
+    {
+      "sy": "ASA",
+      "name": "ASA Gold and Precious Metals Limited"
+    },
+    {
+      "sy": "JFR",
+      "name": "Nuveen Floating Rate Income Fund"
+    },
+    {
+      "sy": "EOS",
+      "name": "Eaton Vance Enhanced Equity Income Fund II"
+    },
+    {
+      "sy": "NMZ",
+      "name": "Nuveen Municipal High Income Opportunity Fund"
+    },
+    {
+      "sy": "PEBO",
+      "name": "Peoples Bancorp Inc."
+    },
+    {
+      "sy": "AMAL",
+      "name": "Amalgamated Financial Corp."
+    },
+    {
+      "sy": "TMP",
+      "name": "Tompkins Financial Corporation"
+    },
+    {
+      "sy": "ATLC",
+      "name": "Atlanticus Holdings Corporation"
+    },
+    {
+      "sy": "CRF",
+      "name": "Cornerstone Total Return Fund, Inc."
+    },
+    {
+      "sy": "CTBI",
+      "name": "Community Trust Bancorp, Inc."
+    },
+    {
+      "sy": "AGBK",
+      "name": "AGI Inc"
+    },
+    {
+      "sy": "HQH",
+      "name": "Abrdn Healthcare Investors"
+    },
+    {
+      "sy": "GOLD",
+      "name": "Gold.com, Inc."
+    },
+    {
+      "sy": "FMBH",
+      "name": "First Mid Bancshares, Inc."
+    },
+    {
+      "sy": "FPF",
+      "name": "First Trust Intermediate Duration Preferred & Income Fund"
+    },
+    {
+      "sy": "AOD",
+      "name": "Abrdn Total Dynamic Dividend Fund"
+    },
+    {
+      "sy": "UVE",
+      "name": "Universal Insurance Holdings, Inc."
+    },
+    {
+      "sy": "MCB",
+      "name": "Metropolitan Bank Holding Corp."
+    },
+    {
+      "sy": "PRCH",
+      "name": "Porch Group, Inc."
+    },
+    {
+      "sy": "FBAK",
+      "name": "First National Bank Alaska"
+    },
+    {
+      "sy": "HFWA",
+      "name": "Heritage Financial Corporation"
+    },
+    {
+      "sy": "PFBC",
+      "name": "Preferred Bank"
+    },
+    {
+      "sy": "EVV",
+      "name": "Eaton Vance Limited Duration Income Fund"
+    },
+    {
+      "sy": "OCSL",
+      "name": "Oaktree Specialty Lending Corporation"
+    },
+    {
+      "sy": "HGTY",
+      "name": "Hagerty, Inc."
+    },
+    {
+      "sy": "PTA",
+      "name": "Cohen & Steers Tax-Advantaged Preferred Securities and Income Fund"
+    },
+    {
+      "sy": "IGIC",
+      "name": "International General Insurance Holdings Ltd."
+    },
+    {
+      "sy": "OSBC",
+      "name": "Old Second Bancorp, Inc."
+    },
+    {
+      "sy": "EMO",
+      "name": "ClearBridge Energy Midstream Opportunity Fund Inc"
+    },
+    {
+      "sy": "OCFC",
+      "name": "OceanFirst Financial Corp."
+    },
+    {
+      "sy": "UVSP",
+      "name": "Univest Financial Corporation"
+    },
+    {
+      "sy": "CCB",
+      "name": "Coastal Financial Corporation"
+    },
+    {
+      "sy": "SAFT",
+      "name": "Safety Insurance Group, Inc."
+    },
+    {
+      "sy": "BTGO",
+      "name": "BitGo Holdings, Inc."
+    },
+    {
+      "sy": "FMBL",
+      "name": "Farmers & Merchants Bank of Long Beach"
+    },
+    {
+      "sy": "CII",
+      "name": "BlackRock Enhanced Large Cap Core Fund, Inc."
+    },
+    {
+      "sy": "OPY",
+      "name": "Oppenheimer Holdings Inc."
+    },
+    {
+      "sy": "CHY",
+      "name": "Calamos Convertible and High Income Fund"
+    },
+    {
+      "sy": "GSBD",
+      "name": "Goldman Sachs BDC, Inc."
+    },
+    {
+      "sy": "BTX",
+      "name": "BlackRock Innovation and Growth Term Trust"
+    },
+    {
+      "sy": "MUC",
+      "name": "BlackRock MuniHoldings California Quality Fund, Inc."
+    },
+    {
+      "sy": "ETW",
+      "name": "Eaton Vance Tax-Managed Global Buy-Write Opportunities Fund"
+    },
+    {
+      "sy": "JCAP",
+      "name": "Jefferson Capital, Inc."
+    },
+    {
+      "sy": "TYG",
+      "name": "Tortoise Energy Infrastructure Corporation"
+    },
+    {
+      "sy": "HBT",
+      "name": "HBT Financial, Inc."
+    },
+    {
+      "sy": "NBN",
+      "name": "Northeast Bank"
+    },
+    {
+      "sy": "RNP",
+      "name": "Cohen & Steers REIT and Preferred Income Fund, Inc."
+    },
+    {
+      "sy": "KBDC",
+      "name": "Kayne Anderson BDC, Inc."
+    },
+    {
+      "sy": "CHI",
+      "name": "Calamos Convertible Opportunities and Income Fund"
+    },
+    {
+      "sy": "TRUP",
+      "name": "Trupanion, Inc."
+    },
+    {
+      "sy": "OXLC",
+      "name": "Oxford Lane Capital Corp."
+    },
+    {
+      "sy": "BBN",
+      "name": "BlackRock Taxable Municipal Bond Trust"
+    },
+    {
+      "sy": "PDX",
+      "name": "PIMCO Dynamic Income Strategy Fund"
+    },
+    {
+      "sy": "ASIC",
+      "name": "Ategrity Specialty Insurance Company Holdings"
+    },
+    {
+      "sy": "SBSI",
+      "name": "Southside Bancshares, Inc."
+    },
+    {
+      "sy": "CFFN",
+      "name": "Capitol Federal Financial, Inc."
+    },
+    {
+      "sy": "BTZ",
+      "name": "BlackRock Credit Allocation Income Trust"
+    },
+    {
+      "sy": "FMCB",
+      "name": "Farmers & Merchants Bancorp"
+    },
+    {
+      "sy": "BOW",
+      "name": "Bowhead Specialty Holdings Inc."
+    },
+    {
+      "sy": "VRTS",
+      "name": "Virtus Investment Partners, Inc."
+    },
+    {
+      "sy": "EQBK",
+      "name": "Equity Bancshares, Inc."
+    },
+    {
+      "sy": "ESQ",
+      "name": "Esquire Financial Holdings, Inc."
+    },
+    {
+      "sy": "NRK",
+      "name": "Nuveen New York AMT-Free Quality Municipal Income Fund"
+    },
+    {
+      "sy": "MFIC",
+      "name": "MidCap Financial Investment Corporation"
+    },
+    {
+      "sy": "BCX",
+      "name": "Blackrock Resources & Commodities Strategy Trust"
+    },
+    {
+      "sy": "RPC",
+      "name": "Ridgepost Capital, Inc"
+    },
+    {
+      "sy": "HBNC",
+      "name": "Horizon Bancorp, Inc."
+    },
+    {
+      "sy": "SBNC",
+      "name": "Southern BancShares (N.C.), Inc."
+    },
+    {
+      "sy": "AIO",
+      "name": "Virtus Artificial Intelligence & Technology Opportunities Fund"
+    },
+    {
+      "sy": "BBDC",
+      "name": "Barings BDC, Inc."
+    },
+    {
+      "sy": "MCBS",
+      "name": "MetroCity Bankshares, Inc."
+    },
+    {
+      "sy": "GSHD",
+      "name": "Goosehead Insurance, Inc."
+    },
+    {
+      "sy": "HTD",
+      "name": "John Hancock Tax-Advantaged Dividend Income Fund"
+    },
+    {
+      "sy": "STK",
+      "name": "Columbia Seligman Premium Technology Growth Fund"
+    },
+    {
+      "sy": "CPF",
+      "name": "Central Pacific Financial Corp."
+    },
+    {
+      "sy": "AMTB",
+      "name": "Amerant Bancorp Inc."
+    },
+    {
+      "sy": "BFST",
+      "name": "Business First Bancshares, Inc."
+    },
+    {
+      "sy": "ROOT",
+      "name": "Root, Inc."
+    },
+    {
+      "sy": "ABX",
+      "name": "Abacus Global Management, Inc."
+    },
+    {
+      "sy": "CCNE",
+      "name": "CNB Financial Corporation"
+    },
+    {
+      "sy": "AWF",
+      "name": "AllianceBernstein Global High Income Fund"
+    },
+    {
+      "sy": "BCSF",
+      "name": "Bain Capital Specialty Finance, Inc."
+    },
+    {
+      "sy": "PURR",
+      "name": "Hyperliquid Strategies Inc."
+    },
+    {
+      "sy": "PCN",
+      "name": "PIMCO Corporate & Income Strategy Fund"
+    },
+    {
+      "sy": "HAFC",
+      "name": "Hanmi Financial Corporation"
+    },
+    {
+      "sy": "BMEZ",
+      "name": "BlackRock Health Sciences Term Trust"
+    },
+    {
+      "sy": "FSBC",
+      "name": "Five Star Bancorp"
+    },
+    {
+      "sy": "MBWM",
+      "name": "Mercantile Bank Corporation"
+    },
+    {
+      "sy": "TRST",
+      "name": "TrustCo Bank Corp NY"
+    },
+    {
+      "sy": "PFLT",
+      "name": "PennantPark Floating Rate Capital Ltd."
+    },
+    {
+      "sy": "NBBK",
+      "name": "NB Bancorp, Inc."
+    },
+    {
+      "sy": "GGN",
+      "name": "GAMCO Global Gold, Natural Resources & Income Trust"
+    },
+    {
+      "sy": "FMNB",
+      "name": "Farmers National Banc Corp."
+    },
+    {
+      "sy": "MQY",
+      "name": "BlackRock MuniYield Quality Fund, Inc."
+    },
+    {
+      "sy": "ACGP",
+      "name": "Associated Capital Group, Inc."
+    },
+    {
+      "sy": "EOI",
+      "name": "Eaton Vance Enhanced Equity Income Fund"
+    },
+    {
+      "sy": "CAC",
+      "name": "Camden National Corporation"
+    },
+    {
+      "sy": "MPB",
+      "name": "Mid Penn Bancorp, Inc."
+    },
+    {
+      "sy": "CSHR",
+      "name": "CoinShares PLC"
+    },
+    {
+      "sy": "CGBD",
+      "name": "Carlyle Secured Lending, Inc."
+    },
+    {
+      "sy": "CCBG",
+      "name": "Capital City Bank Group, Inc."
+    },
+    {
+      "sy": "FCBC",
+      "name": "First Community Bankshares, Inc."
+    },
+    {
+      "sy": "THFF",
+      "name": "First Financial Corporation"
+    },
+    {
+      "sy": "EIG",
+      "name": "Employers Holdings, Inc."
+    },
+    {
+      "sy": "NAVI",
+      "name": "Navient Corporation"
+    },
+    {
+      "sy": "NMFC",
+      "name": "New Mountain Finance Corporation"
+    },
+    {
+      "sy": "HTB",
+      "name": "HomeTrust Bancshares, Inc."
+    },
+    {
+      "sy": "FFC",
+      "name": "Flaherty & Crumrine Preferred Securities Income Fund Inc."
+    },
+    {
+      "sy": "SPFI",
+      "name": "South Plains Financial, Inc."
+    },
+    {
+      "sy": "HBIA",
+      "name": "Hills Bancorporation"
+    },
+    {
+      "sy": "THQ",
+      "name": "Abrdn Healthcare Opportunities Fund"
+    },
+    {
+      "sy": "EGBN",
+      "name": "Eagle Bancorp, Inc."
+    },
+    {
+      "sy": "NXP",
+      "name": "Nuveen Select Tax-Free Income Portfolio"
+    },
+    {
+      "sy": "NIE",
+      "name": "Virtus Equity & Convertible Income Fund"
+    },
+    {
+      "sy": "PGC",
+      "name": "Peapack-Gladstone Financial Corporation"
+    },
+    {
+      "sy": "OPFI",
+      "name": "OppFi Inc."
+    },
+    {
+      "sy": "SMBC",
+      "name": "Southern Missouri Bancorp, Inc."
+    },
+    {
+      "sy": "GSBC",
+      "name": "Great Southern Bancorp, Inc."
+    },
+    {
+      "sy": "PEO",
+      "name": "Adams Natural Resources Fund, Inc."
+    },
+    {
+      "sy": "SLRC",
+      "name": "SLR Investment Corp."
+    },
+    {
+      "sy": "GDOT",
+      "name": "Green Dot Corporation"
+    },
+    {
+      "sy": "MYI",
+      "name": "BlackRock MuniYield Quality Fund III, Inc."
+    },
+    {
+      "sy": "FDUS",
+      "name": "Fidus Investment Corporation"
+    },
+    {
+      "sy": "RMT",
+      "name": "Royce Micro-Cap Trust, Inc."
+    },
+    {
+      "sy": "HRTG",
+      "name": "Heritage Insurance Holdings, Inc."
+    },
+    {
+      "sy": "BIT",
+      "name": "BlackRock Multi-Sector Income Trust"
+    },
+    {
+      "sy": "GEMI",
+      "name": "Gemini Space Station, Inc."
+    },
+    {
+      "sy": "BTO",
+      "name": "John Hancock Financial Opportunities Fund"
+    },
+    {
+      "sy": "RA",
+      "name": "Brookfield Real Assets Income Fund Inc."
+    },
+    {
+      "sy": "ORRF",
+      "name": "Orrstown Financial Services, Inc."
+    },
+    {
+      "sy": "WRLD",
+      "name": "World Acceptance Corporation"
+    },
+    {
+      "sy": "CCD",
+      "name": "Calamos Dynamic Convertible and Income Fund"
+    },
+    {
+      "sy": "SMBK",
+      "name": "SmartFinancial, Inc."
+    },
+    {
+      "sy": "HIPO",
+      "name": "Hippo Holdings Inc."
+    },
+    {
+      "sy": "DLY",
+      "name": "DoubleLine Yield Opportunities Fund"
+    },
+    {
+      "sy": "IBCP",
+      "name": "Independent Bank Corporation"
+    },
+    {
+      "sy": "VINP",
+      "name": "Vinci Compass Investments Ltd."
+    },
+    {
+      "sy": "ACP",
+      "name": "Abrdn Income Credit Strategies Fund"
+    },
+    {
+      "sy": "BUI",
+      "name": "BlackRock Utilities, Infrastructure & Power Opportunities Trust"
+    },
+    {
+      "sy": "ALRS",
+      "name": "Alerus Financial Corporation"
+    },
+    {
+      "sy": "PFN",
+      "name": "PIMCO Income Strategy Fund II"
+    },
+    {
+      "sy": "VEL",
+      "name": "Velocity Financial, Inc."
+    },
+    {
+      "sy": "FISI",
+      "name": "Financial Institutions, Inc."
+    },
+    {
+      "sy": "NKX",
+      "name": "Nuveen California AMT-Free Quality Municipal Income Fund"
+    },
+    {
+      "sy": "CD",
+      "name": "Chaince Digital Holdings Inc."
+    },
+    {
+      "sy": "NCDL",
+      "name": "Nuveen Churchill Direct Lending Corp."
+    },
+    {
+      "sy": "GAIN",
+      "name": "Gladstone Investment Corporation"
+    },
+    {
+      "sy": "MUJ",
+      "name": "BlackRock MuniHoldings New Jersey Quality Fund, Inc."
+    },
+    {
+      "sy": "GCMG",
+      "name": "GCM Grosvenor Inc."
+    },
+    {
+      "sy": "BOE",
+      "name": "BlackRock Enhanced Global Dividend Trust"
+    },
+    {
+      "sy": "AMBZ",
+      "name": "American Business Bank"
+    },
+    {
+      "sy": "DMII",
+      "name": "Drugs Made In America Acquisition II Corp."
+    },
+    {
+      "sy": "SHBI",
+      "name": "Shore Bancshares, Inc."
+    },
+    {
+      "sy": "ALPIB",
+      "name": "Alpine Banks of Colorado"
+    },
+    {
+      "sy": "BHK",
+      "name": "BlackRock Core Bond Trust"
+    },
+    {
+      "sy": "THVB",
+      "name": "Thomasville Bancshares, Inc."
+    },
+    {
+      "sy": "OTCM",
+      "name": "OTC Markets Group Inc."
+    },
+    {
+      "sy": "DGICA",
+      "name": "Donegal Group Inc."
+    },
+    {
+      "sy": "CWBC",
+      "name": "Community West Bancshares"
+    },
+    {
+      "sy": "PDT",
+      "name": "John Hancock Premium Dividend Fund"
+    },
+    {
+      "sy": "TIPT",
+      "name": "Tiptree Inc."
+    },
+    {
+      "sy": "DSU",
+      "name": "BlackRock Debt Strategies Fund, Inc."
+    },
+    {
+      "sy": "TCBX",
+      "name": "Third Coast Bancshares, Inc."
+    },
+    {
+      "sy": "EMD",
+      "name": "Western Asset Emerging Markets Debt Fund Inc."
+    },
+    {
+      "sy": "NDMO",
+      "name": "Nuveen Dynamic Municipal Opportunities Fund"
+    },
+    {
+      "sy": "FAX",
+      "name": "Abrdn Asia-Pacific Income Fund Inc"
+    },
+    {
+      "sy": "MHD",
+      "name": "BlackRock MuniHoldings Fund, Inc."
+    },
+    {
+      "sy": "BCAL",
+      "name": "California BanCorp"
+    },
+    {
+      "sy": "NML",
+      "name": "Neuberger Berman Income Funds - Neuberger Energy Infrastructure and Income Fund Inc."
+    },
+    {
+      "sy": "EVAC",
+      "name": "EQV Ventures Acquisition Corp. II"
+    },
+    {
+      "sy": "BCSS",
+      "name": "Bain Capital GSS Investment Cor"
+    },
+    {
+      "sy": "NPB",
+      "name": "Northpointe Bancshares, Inc."
+    },
+    {
+      "sy": "NMCO",
+      "name": "Nuveen Municipal Credit Opportunities Fund"
+    },
+    {
+      "sy": "LDP",
+      "name": "Cohen & Steers Limited Duration Preferred and Income Fund, Inc."
+    },
+    {
+      "sy": "CEPF",
+      "name": "Cantor Equity Partners IV, Inc."
+    },
+    {
+      "sy": "WASH",
+      "name": "Washington Trust Bancorp, Inc."
+    },
+    {
+      "sy": "NFBK",
+      "name": "Northfield Bancorp, Inc."
+    },
+    {
+      "sy": "RRBI",
+      "name": "Red River Bancshares, Inc."
+    },
+    {
+      "sy": "RCBC",
+      "name": "River City Bank"
+    },
+    {
+      "sy": "CARE",
+      "name": "Carter Bankshares, Inc."
+    },
+    {
+      "sy": "AROW",
+      "name": "Arrow Financial Corporation"
+    },
+    {
+      "sy": "GLRE",
+      "name": "Greenlight Capital Re, Ltd."
+    },
+    {
+      "sy": "AEXA",
+      "name": "American Exceptionalism Acquisition Corp. A"
+    },
+    {
+      "sy": "PRAA",
+      "name": "PRA Group, Inc."
+    },
+    {
+      "sy": "HIFS",
+      "name": "Hingham Institution for Savings"
+    },
+    {
+      "sy": "CCXI",
+      "name": "Churchill Capital Corp XI"
+    },
+    {
+      "sy": "AMSF",
+      "name": "AMERISAFE, Inc."
+    },
+    {
+      "sy": "IIM",
+      "name": "Invesco Value Municipal Income Trust"
+    },
+    {
+      "sy": "INV",
+      "name": "Innventure, Inc."
+    },
+    {
+      "sy": "PFIS",
+      "name": "Peoples Financial Services Corp."
+    },
+    {
+      "sy": "BHB",
+      "name": "Bar Harbor Bankshares"
+    },
+    {
+      "sy": "ETJ",
+      "name": "Eaton Vance Risk-Managed Diversified Equity Income Fund"
+    },
+    {
+      "sy": "GUT",
+      "name": "The Gabelli Utility Trust"
+    },
+    {
+      "sy": "MMU",
+      "name": "Western Asset Managed Municipals Fund Inc."
+    },
+    {
+      "sy": "CHW",
+      "name": "Calamos Global Dynamic Income Fund"
+    },
+    {
+      "sy": "AVK",
+      "name": "Advent Convertible and Income Fund"
+    },
+    {
+      "sy": "MSBI",
+      "name": "Midland States Bancorp, Inc."
+    },
+    {
+      "sy": "MSIF",
+      "name": "MSC Income Fund, Inc."
+    },
+    {
+      "sy": "HQL",
+      "name": "Abrdn Life Sciences Investors"
+    },
+    {
+      "sy": "ACNB",
+      "name": "ACNB Corporation"
+    },
+    {
+      "sy": "VKQ",
+      "name": "Invesco Municipal Trust"
+    },
+    {
+      "sy": "HKHC",
+      "name": "Horizon Kinetics Holding Corporation"
+    },
+    {
+      "sy": "UNTY",
+      "name": "Unity Bancorp, Inc."
+    },
+    {
+      "sy": "CAEP",
+      "name": "Cantor Equity Partners III, Inc."
+    },
+    {
+      "sy": "ACIC",
+      "name": "American Coastal Insurance Corporation"
+    },
+    {
+      "sy": "FFIC",
+      "name": "Flushing Financial Corporation"
+    },
+    {
+      "sy": "DPG",
+      "name": "Duff & Phelps Utility and Infrastructure Fund Inc."
+    },
+    {
+      "sy": "TWN",
+      "name": "The Taiwan Fund, Inc."
+    },
+    {
+      "sy": "NRIM",
+      "name": "Northrim BanCorp, Inc."
+    },
+    {
+      "sy": "SFST",
+      "name": "Southern First Bancshares, Inc."
+    },
+    {
+      "sy": "WCCB",
+      "name": "West Coast Community Bancorp"
+    },
+    {
+      "sy": "WIW",
+      "name": "Western Asset Inflation-Linked Opportunities & Income Fund"
+    },
+    {
+      "sy": "THW",
+      "name": "Abrdn World Healthcare Fund"
+    },
+    {
+      "sy": "BETR",
+      "name": "Better Home & Finance Holding Company"
+    },
+    {
+      "sy": "BGB",
+      "name": "Blackstone Strategic Credit 2027 Term Fund"
+    },
+    {
+      "sy": "BGY",
+      "name": "BlackRock Enhanced International Dividend Trust"
+    },
+    {
+      "sy": "GAMI",
+      "name": "GAMCO Investors, Inc."
+    },
+    {
+      "sy": "CIVB",
+      "name": "Civista Bancshares, Inc."
+    },
+    {
+      "sy": "NWAX",
+      "name": "New America Acquisition I Corp."
+    },
+    {
+      "sy": "BWB",
+      "name": "Bridgewater Bancshares, Inc."
+    },
+    {
+      "sy": "EIM",
+      "name": "Eaton Vance Municipal Bond Fund"
+    },
+    {
+      "sy": "BME",
+      "name": "BlackRock Health Sciences Trust"
+    },
+    {
+      "sy": "TREE",
+      "name": "LendingTree, Inc."
+    },
+    {
+      "sy": "KRNY",
+      "name": "Kearny Financial Corp."
+    },
+    {
+      "sy": "IFN",
+      "name": "Aberdeen India Fund, Inc."
+    },
+    {
+      "sy": "FTHY",
+      "name": "First Trust High Yield Opportunities 2027 Term Fund"
+    },
+    {
+      "sy": "PML",
+      "name": "PIMCO Municipal Income Fund II"
+    },
+    {
+      "sy": "HBCP",
+      "name": "Home Bancorp, Inc."
+    },
+    {
+      "sy": "CBNK",
+      "name": "Capital Bancorp, Inc."
+    },
+    {
+      "sy": "ETO",
+      "name": "Eaton Vance Tax-Advantaged Global Dividend Opportunities Fund"
+    },
+    {
+      "sy": "BSRR",
+      "name": "Sierra Bancorp"
+    },
+    {
+      "sy": "GHY",
+      "name": "PGIM Global High Yield Fund, Inc"
+    },
+    {
+      "sy": "DBIN",
+      "name": "Dacotah Banks, Inc."
+    },
+    {
+      "sy": "CRD-A",
+      "name": "Crawford & Company"
+    },
+    {
+      "sy": "BLW",
+      "name": "BlackRock Limited Duration Income Trust"
+    },
+    {
+      "sy": "WFHG",
+      "name": "World Financial Holding Group"
+    },
+    {
+      "sy": "KRSP",
+      "name": "Rice Acquisition Corporation 3"
+    },
+    {
+      "sy": "IGD",
+      "name": "Voya Global Equity Dividend and Premium Opportunity Fund"
+    },
+    {
+      "sy": "ANSC",
+      "name": "Agriculture & Natural Solutions Acquisition Corporation"
+    },
+    {
+      "sy": "CRAN",
+      "name": "Crane Harbor Acquisition Corp. II"
+    },
+    {
+      "sy": "GTEN",
+      "name": "Gores Holdings X, Inc."
+    },
+    {
+      "sy": "GPAT",
+      "name": "GP-Act III Acquisition Corp."
+    },
+    {
+      "sy": "HPS",
+      "name": "John Hancock Preferred Income Fund III"
+    },
+    {
+      "sy": "FFMR",
+      "name": "First Farmers Financial Corporation"
+    },
+    {
+      "sy": "APXT",
+      "name": "Apex Treasury Corporation"
+    },
+    {
+      "sy": "NBB",
+      "name": "Nuveen Taxable Municipal Income Fund"
+    },
+    {
+      "sy": "KIO",
+      "name": "KKR Income Opportunities Fund"
+    },
+    {
+      "sy": "COFS",
+      "name": "ChoiceOne Financial Services, Inc."
+    },
+    {
+      "sy": "FBIZ",
+      "name": "First Business Financial Services, Inc."
+    },
+    {
+      "sy": "FFA",
+      "name": "First Trust Enhanced Equity Income Fund"
+    },
+    {
+      "sy": "BCAR",
+      "name": "D. Boral ARC Acquisition I Corp."
+    },
+    {
+      "sy": "ITIC",
+      "name": "Investors Title Company"
+    },
+    {
+      "sy": "ETB",
+      "name": "Eaton Vance Tax-Managed Buy-Write Income Fund"
+    },
+    {
+      "sy": "OBT",
+      "name": "Orange County Bancorp, Inc."
+    },
+    {
+      "sy": "IEAG",
+      "name": "Infinite Eagle Acquisition Corp."
+    },
+    {
+      "sy": "MBVI",
+      "name": "M3-Brigade Acquisition Vi Corp."
+    },
+    {
+      "sy": "GLAD",
+      "name": "Gladstone Capital Corporation"
+    },
+    {
+      "sy": "ISD",
+      "name": "PGIM High Yield Bond Fund, Inc."
+    },
+    {
+      "sy": "IACO",
+      "name": "Idea Acquisition Corp."
+    },
+    {
+      "sy": "MESH",
+      "name": "Meshflow Acquisition Corp."
+    },
+    {
+      "sy": "DBCA",
+      "name": "D. Boral Acquisition I Corp."
+    },
+    {
+      "sy": "HPI",
+      "name": "John Hancock Preferred Income Fund"
+    },
+    {
+      "sy": "KRAQ",
+      "name": "KRAKacquisition Corp."
+    },
+    {
+      "sy": "FINS",
+      "name": "Angel Oak Financial Strategies Income Term Trust"
+    },
+    {
+      "sy": "PDLB",
+      "name": "Ponce Financial Group, Inc."
+    },
+    {
+      "sy": "EVN",
+      "name": "Eaton Vance Municipal Income Trust"
+    },
+    {
+      "sy": "GCBC",
+      "name": "Greene County Bancorp, Inc."
+    },
+    {
+      "sy": "PBAM",
+      "name": "Private Bancorp of America, Inc."
+    },
+    {
+      "sy": "DFP",
+      "name": "Flaherty & Crumrine Dynamic Preferred and Income Fund Inc."
+    },
+    {
+      "sy": "BGR",
+      "name": "BlackRock Energy and Resources Trust"
+    },
+    {
+      "sy": "KFII",
+      "name": "K&F Growth Acquisition Corp. II"
+    },
+    {
+      "sy": "BMRC",
+      "name": "Bank of Marin Bancorp"
+    },
+    {
+      "sy": "MUA",
+      "name": "BlackRock MuniAssets Fund, Inc."
+    },
+    {
+      "sy": "CCAP",
+      "name": "Crescent Capital BDC, Inc."
+    },
+    {
+      "sy": "CBAN",
+      "name": "Colony Bankcorp, Inc."
+    },
+    {
+      "sy": "GBLI",
+      "name": "Global Indemnity Group, LLC"
+    },
+    {
+      "sy": "CLBR",
+      "name": "Colombier Acquisition Corp. III"
+    },
+    {
+      "sy": "BWFG",
+      "name": "Bankwell Financial Group, Inc."
+    },
+    {
+      "sy": "BSVN",
+      "name": "Bank7 Corp."
+    },
+    {
+      "sy": "NPAC",
+      "name": "New Providence Acquisition Corp. III"
+    },
+    {
+      "sy": "BBCQ",
+      "name": "Bleichroeder Acquisition Corp. II"
+    },
+    {
+      "sy": "MEVO",
+      "name": "M Evo Global Acquisition Corp II"
+    },
+    {
+      "sy": "CCIX",
+      "name": "Churchill Capital Corp IX"
+    },
+    {
+      "sy": "TACO",
+      "name": "Berto Acquisition Corp."
+    },
+    {
+      "sy": "LEO",
+      "name": "BNY Mellon Strategic Municipals, Inc."
+    },
+    {
+      "sy": "FRA",
+      "name": "BlackRock Floating Rate Income Strategies Fund, Inc."
+    },
+    {
+      "sy": "VKI",
+      "name": "Invesco Advantage Municipal Income Trust II"
+    },
+    {
+      "sy": "SDHY",
+      "name": "PGIM Short Duration High Yield Opportunities Fund"
+    },
+    {
+      "sy": "ALF",
+      "name": "Centurion Acquisition Corp."
+    },
+    {
+      "sy": "RBB",
+      "name": "RBB Bancorp"
+    },
+    {
+      "sy": "WTBA",
+      "name": "West Bancorporation, Inc."
+    },
+    {
+      "sy": "MBAV",
+      "name": "M3-Brigade Acquisition V Corp."
+    },
+    {
+      "sy": "ZKP",
+      "name": "Lafayette Digital Acquisition Corp. I"
+    },
+    {
+      "sy": "GBFH",
+      "name": "GBank Financial Holdings Inc."
+    },
+    {
+      "sy": "NCV",
+      "name": "Virtus Convertible & Income Fund"
+    },
+    {
+      "sy": "RDAG",
+      "name": "Republic Digital Acquisition Company"
+    },
+    {
+      "sy": "WENN",
+      "name": "Wen Acquisition Corp."
+    },
+    {
+      "sy": "ISTR",
+      "name": "Investar Holding Corporation"
+    },
+    {
+      "sy": "EAD",
+      "name": "Wells Fargo Advantage Funds - Allspring Income Opportunities Fund"
+    },
+    {
+      "sy": "GBAB",
+      "name": "Guggenheim Taxable Municipal Bond & Investment Grade Debt Trust"
+    },
+    {
+      "sy": "FOF",
+      "name": "Cohen & Steers Closed-End Opportunity Fund, Inc."
+    },
+    {
+      "sy": "PFL",
+      "name": "PIMCO Income Strategy Fund"
+    },
+    {
+      "sy": "CBK",
+      "name": "Commercial Bancgroup, Inc."
+    },
+    {
+      "sy": "MYN",
+      "name": "BlackRock MuniYield New York Quality Fund, Inc."
+    },
+    {
+      "sy": "CEPT",
+      "name": "Cantor Equity Partners II, Inc."
+    },
+    {
+      "sy": "SOR",
+      "name": "Source Capital"
+    },
+    {
+      "sy": "FRBA",
+      "name": "First Bank"
+    },
+    {
+      "sy": "HACQ",
+      "name": "HCM IV Acquisition Corp."
+    },
+    {
+      "sy": "AEF",
+      "name": "abrdn Emerging Markets ex-China Fund, Inc."
+    },
+    {
+      "sy": "FCRS",
+      "name": "FutureCrest Acquisition Corp."
+    },
+    {
+      "sy": "GIW",
+      "name": "GigCapital8 Corp."
+    },
+    {
+      "sy": "NEWT",
+      "name": "NewtekOne, Inc."
+    },
+    {
+      "sy": "NAN",
+      "name": "Nuveen New York Quality Municipal Income Fund"
+    },
+    {
+      "sy": "FMAO",
+      "name": "Farmers & Merchants Bancorp, Inc."
+    },
+    {
+      "sy": "FVAV",
+      "name": "Fortress Value Acquisition Corp. V"
+    },
+    {
+      "sy": "CZNC",
+      "name": "Citizens & Northern Corporation"
+    },
+    {
+      "sy": "SDHI",
+      "name": "Siddhi Acquisition Corp."
+    },
+    {
+      "sy": "GIX",
+      "name": "GigCapital9 Corp."
+    },
+    {
+      "sy": "ALUB",
+      "name": "Alussa Energy Acquisition Corp. II"
+    },
+    {
+      "sy": "PBFS",
+      "name": "Pioneer Bancorp, Inc."
+    },
+    {
+      "sy": "OIM",
+      "name": "OneIM Acquisition Corp."
+    },
+    {
+      "sy": "CGCT",
+      "name": "Cartesian Growth Corporation III"
+    },
+    {
+      "sy": "AWP",
+      "name": "abrdn Global Premier Properties Fund"
+    },
+    {
+      "sy": "TACH",
+      "name": "Titan Acquisition Corp"
+    },
+    {
+      "sy": "DMAA",
+      "name": "Drugs Made In America Acquisition Corp."
+    },
+    {
+      "sy": "PLBC",
+      "name": "Plumas Bancorp"
+    },
+    {
+      "sy": "SAR",
+      "name": "Saratoga Investment Corp."
+    },
+    {
+      "sy": "IPCX",
+      "name": "Inflection Point Acquisition Corp. III"
+    },
+    {
+      "sy": "CCII",
+      "name": "Cohen Circle Acquisition Corp. II"
+    },
+    {
+      "sy": "MCI",
+      "name": "Barings Corporate Investors"
+    },
+    {
+      "sy": "KCHV",
+      "name": "Kochav Defense Acquisition Corp."
+    },
+    {
+      "sy": "PKBK",
+      "name": "Parke Bancorp, Inc."
+    },
+    {
+      "sy": "JGH",
+      "name": "Nuveen Global High Income Fund"
+    },
+    {
+      "sy": "KTF",
+      "name": "DWS Municipal Income Trust"
+    },
+    {
+      "sy": "HCIC",
+      "name": "Hennessy Capital Investment Corp. VIII"
+    },
+    {
+      "sy": "AVBC",
+      "name": "Avidia Bancorp, Inc."
+    },
+    {
+      "sy": "SOUL",
+      "name": "Soulpower Acquisition Corporation"
+    },
+    {
+      "sy": "ARCI",
+      "name": "Archimedes Tech SPAC Partners III Co."
+    },
+    {
+      "sy": "SCD",
+      "name": "LMP Capital and Income Fund Inc."
+    },
+    {
+      "sy": "EDD",
+      "name": "Morgan Stanley Emerging Markets Domestic Debt Fund, Inc."
+    },
+    {
+      "sy": "BDCI",
+      "name": "BTC Development Corp."
+    },
+    {
+      "sy": "OYSE",
+      "name": "Oyster Enterprises II Acquisition Corp"
+    },
+    {
+      "sy": "BLZR",
+      "name": "Trailblazer Acquisition Corp."
+    },
+    {
+      "sy": "TLNC",
+      "name": "Talon Capital Corp."
+    },
+    {
+      "sy": "KBON",
+      "name": "Karbon Capital Partners Corp."
+    },
+    {
+      "sy": "MIY",
+      "name": "BlackRock MuniYield Michigan Quality Fund, Inc."
+    },
+    {
+      "sy": "SSSS",
+      "name": "SuRo Capital Corp."
+    },
+    {
+      "sy": "SORN",
+      "name": "Soren Acquisition Corp."
+    },
+    {
+      "sy": "SIMA",
+      "name": "SIM Acquisition Corp. I"
+    },
+    {
+      "sy": "FRST",
+      "name": "Primis Financial Corp."
+    },
+    {
+      "sy": "HPF",
+      "name": "John Hancock Preferred Income Fund II"
+    },
+    {
+      "sy": "HCMA",
+      "name": "HCM III Acquisition Corp."
+    },
+    {
+      "sy": "JRI",
+      "name": "Nuveen Real Asset Income and Growth Fund"
+    },
+    {
+      "sy": "HFRO",
+      "name": "Highland Funds I - Highland Opportunities and Income Fund"
+    },
+    {
+      "sy": "DSAC",
+      "name": "Daedalus Special Acquisition Corp."
+    },
+    {
+      "sy": "AACI",
+      "name": "Armada Acquisition Corp. III"
+    },
+    {
+      "sy": "PTOR",
+      "name": "Praetorian Acquisition Corp."
+    },
+    {
+      "sy": "CION",
+      "name": "CION Investment Corporation"
+    },
+    {
+      "sy": "NXG",
+      "name": "NXG NextGen Infrastructure Income Fund"
+    },
+    {
+      "sy": "BKT",
+      "name": "BlackRock Income Trust, Inc."
+    },
+    {
+      "sy": "RILY",
+      "name": "BRC Group Holdings, Inc."
+    },
+    {
+      "sy": "AII",
+      "name": "American Integrity Insurance Group, Inc."
+    },
+    {
+      "sy": "PCB",
+      "name": "PCB Bancorp"
+    },
+    {
+      "sy": "BLUW",
+      "name": "Blue Water Acquisition Corp. III"
+    },
+    {
+      "sy": "PSBD",
+      "name": "Palmer Square Capital BDC Inc."
+    },
+    {
+      "sy": "CUB",
+      "name": "Lionheart Holdings"
+    },
+    {
+      "sy": "BEAG",
+      "name": "Bold Eagle Acquisition Corp."
+    },
+    {
+      "sy": "JOF",
+      "name": "Japan Smaller Capitalization Fund, Inc."
+    },
+    {
+      "sy": "BFCC",
+      "name": "BankFirst Capital Corporation"
+    },
+    {
+      "sy": "XRPN",
+      "name": "Armada Acquisition Corp. II"
+    },
+    {
+      "sy": "CAF",
+      "name": "Morgan Stanley China A Share Fund, Inc."
+    },
+    {
+      "sy": "MLAC",
+      "name": "Mountain Lake Acquisition Corp."
+    },
+    {
+      "sy": "USCB",
+      "name": "USCB Financial Holdings, Inc."
+    },
+    {
+      "sy": "SNLC",
+      "name": "Security National Corporation"
+    },
+    {
+      "sy": "VACH",
+      "name": "Voyager Acquisition Corp."
+    },
+    {
+      "sy": "EMF",
+      "name": "Templeton Emerging Markets Fund"
+    },
+    {
+      "sy": "CEPV",
+      "name": "Cantor Equity Partners V, Inc."
+    },
+    {
+      "sy": "BCML",
+      "name": "BayCom Corp"
+    },
+    {
+      "sy": "ASG",
+      "name": "Liberty All-Star Growth Fund, Inc."
+    },
+    {
+      "sy": "BGT",
+      "name": "BlackRock Floating Rate Income Trust"
+    },
+    {
+      "sy": "PCAP",
+      "name": "ProCap Acquisition Corp"
+    },
+    {
+      "sy": "WSBF",
+      "name": "Waterstone Financial, Inc."
+    },
+    {
+      "sy": "RTAC",
+      "name": "Renatus Tactical Acquisition Corp I"
+    },
+    {
+      "sy": "FERA",
+      "name": "Fifth Era Acquisition Corp I"
+    },
+    {
+      "sy": "ATII",
+      "name": "Archimedes Tech SPAC Partners II Co."
+    },
+    {
+      "sy": "BACQ",
+      "name": "Inflection Point Acquisition Corp IV"
+    },
+    {
+      "sy": "DRDB",
+      "name": "Roman DBDR Acquisition Corp. II"
+    },
+    {
+      "sy": "SAAQ",
+      "name": "Space Asset Acquisition Corp."
+    },
+    {
+      "sy": "SZZL",
+      "name": "Sizzle Acquisition Corp. II"
+    },
+    {
+      "sy": "VACI",
+      "name": "Viking Acquisition Corp. I"
+    },
+    {
+      "sy": "SVAC",
+      "name": "Spring Valley Acquisition Corp. III"
+    },
+    {
+      "sy": "MVBF",
+      "name": "MVB Financial Corp."
+    },
+    {
+      "sy": "OBA",
+      "name": "Oxley Bridge Acquisition Limited"
+    },
+    {
+      "sy": "CRAQ",
+      "name": "Cal Redwood Acquisition Corp."
+    },
+    {
+      "sy": "NECB",
+      "name": "Northeast Community Bancorp, Inc."
+    },
+    {
+      "sy": "SPXX",
+      "name": "Nuveen S&P 500 Dynamic Overwrite Fund"
+    },
+    {
+      "sy": "EVOX",
+      "name": "Evolution Global Acquisition Corp"
+    },
+    {
+      "sy": "RFMZ",
+      "name": "RiverNorth Flexible Municipal Income Fund II, Inc."
+    },
+    {
+      "sy": "KOYN",
+      "name": "CSLM Digital Asset Acquisition Corp III, Ltd"
+    },
+    {
+      "sy": "PMTR",
+      "name": "Perimeter Acquisition Corp. I"
+    },
+    {
+      "sy": "MSBC",
+      "name": "Mission Bancorp"
+    },
+    {
+      "sy": "AVBH",
+      "name": "Avidbank Holdings, Inc."
+    },
+    {
+      "sy": "AGD",
+      "name": "Abrdn Global Dynamic Dividend Fund"
+    },
+    {
+      "sy": "SAC",
+      "name": "Safeguard Acquisition Corp."
+    },
+    {
+      "sy": "ALDF",
+      "name": "Aldel Financial II Inc."
+    },
+    {
+      "sy": "POLE",
+      "name": "Andretti Acquisition Corp. II"
+    },
+    {
+      "sy": "CHMG",
+      "name": "Chemung Financial Corporation"
+    },
+    {
+      "sy": "RNGT",
+      "name": "Range Capital Acquisition Corp II"
+    },
+    {
+      "sy": "AFB",
+      "name": "AllianceBernstein National Municipal Income Fund, Inc."
+    },
+    {
+      "sy": "RM",
+      "name": "Regional Management Corp."
+    },
+    {
+      "sy": "TVA",
+      "name": "Texas Ventures Acquisition III Corp"
+    },
+    {
+      "sy": "JACS",
+      "name": "Jackson Acquisition Company II"
+    },
+    {
+      "sy": "NCA",
+      "name": "Nuveen California Municipal Value Fund"
+    },
+    {
+      "sy": "RIV",
+      "name": "RiverNorth Opportunities Fund, Inc."
+    },
+    {
+      "sy": "NWFL",
+      "name": "Norwood Financial Corp."
+    },
+    {
+      "sy": "FNLC",
+      "name": "The First Bancorp, Inc."
+    },
+    {
+      "sy": "MXF",
+      "name": "The Mexico Fund, Inc."
+    },
+    {
+      "sy": "AEAQ",
+      "name": "Activate Energy Acquisition Corp."
+    },
+    {
+      "sy": "VALU",
+      "name": "Value Line, Inc."
+    },
+    {
+      "sy": "GRAF",
+      "name": "Graf Global Corp."
+    },
+    {
+      "sy": "CMII",
+      "name": "Columbus Circle Capital Corp II"
+    },
+    {
+      "sy": "LEGO",
+      "name": "Legato Merger Corp. IV"
+    },
+    {
+      "sy": "LPAA",
+      "name": "Launch One Acquisition Corp."
+    },
+    {
+      "sy": "CAQ",
+      "name": "Cambridge Acquisition Corp."
+    },
+    {
+      "sy": "TMTS",
+      "name": "Spartacus Acquisition Corp. II"
+    },
+    {
+      "sy": "SVIV",
+      "name": "Spring Valley Acquisition Corp. IV"
+    },
+    {
+      "sy": "TSBK",
+      "name": "Timberland Bancorp, Inc."
+    },
+    {
+      "sy": "LPBB",
+      "name": "Launch Two Acquisition Corp."
+    },
+    {
+      "sy": "COSO",
+      "name": "CoastalSouth Bancshares, Inc."
+    },
+    {
+      "sy": "LWAC",
+      "name": "LightWave Acquisition Corp."
+    },
+    {
+      "sy": "RAC",
+      "name": "Rithm Acquisition Corp."
+    },
+    {
+      "sy": "ITHA",
+      "name": "ITHAX Acquisition Corp III"
+    },
+    {
+      "sy": "EFR",
+      "name": "Eaton Vance Senior Floating-Rate Trust"
+    },
+    {
+      "sy": "NBH",
+      "name": "Neuberger Berman Income Funds - Neuberger Municipal Fund Inc."
+    },
+    {
+      "sy": "VHCP",
+      "name": "Vine Hill Capital Investment Corp. II"
+    },
+    {
+      "sy": "ARDC",
+      "name": "Ares Dynamic Credit Allocation Fund, Inc."
+    },
+    {
+      "sy": "KCLI",
+      "name": "Kansas City Life Insurance Company"
+    },
+    {
+      "sy": "FUND",
+      "name": "Sprott Focus Trust, Inc."
+    },
+    {
+      "sy": "CZFS",
+      "name": "Citizens Financial Services, Inc."
+    },
+    {
+      "sy": "BIXI",
+      "name": "Bitcoin Infrastructure Acquisition Corp Ltd."
+    },
+    {
+      "sy": "MFGI",
+      "name": "Merchants Financial Group, Inc."
+    },
+    {
+      "sy": "LOKV",
+      "name": "Live Oak Acquisition Corp. V"
+    },
+    {
+      "sy": "JENA",
+      "name": "Jena Acquisition Corporation II"
+    },
+    {
+      "sy": "DSM",
+      "name": "BNY Mellon Strategic Municipal Bond Fund, Inc."
+    },
+    {
+      "sy": "OTGA",
+      "name": "OTG Acquisition Corp. I"
+    },
+    {
+      "sy": "ONIT",
+      "name": "Onity Group Inc."
+    },
+    {
+      "sy": "MBI",
+      "name": "MBIA Inc."
+    },
+    {
+      "sy": "GSRF",
+      "name": "GSR IV Acquisition Corp."
+    },
+    {
+      "sy": "HVMC",
+      "name": "Highview Merger Corp."
+    },
+    {
+      "sy": "RFI",
+      "name": "Cohen & Steers Total Return Realty Fund, Inc."
+    },
+    {
+      "sy": "ISBA",
+      "name": "Isabella Bank Corporation"
+    },
+    {
+      "sy": "TEI",
+      "name": "Templeton Emerging Markets Income Fund"
+    },
+    {
+      "sy": "GPAC",
+      "name": "General Purpose Acquisition Corp."
+    },
+    {
+      "sy": "FSBW",
+      "name": "FS Bancorp, Inc."
+    },
+    {
+      "sy": "FRMO",
+      "name": "FRMO Corporation"
+    },
+    {
+      "sy": "IRHO",
+      "name": "Iron Horse Acquisitions Corp. II"
+    },
+    {
+      "sy": "NCZ",
+      "name": "Virtus Convertible & Income Fund II"
+    },
+    {
+      "sy": "HCAC",
+      "name": "Hall Chadwick Acquisition Corp."
+    },
+    {
+      "sy": "JMSB",
+      "name": "John Marshall Bancorp, Inc."
+    },
+    {
+      "sy": "BACC",
+      "name": "Blue Acquisition Corp."
+    },
+    {
+      "sy": "NHIC",
+      "name": "NewHold Investment Corp III"
+    },
+    {
+      "sy": "SVAQ",
+      "name": "Silicon Valley Acquisition Corp."
+    },
+    {
+      "sy": "XFLT",
+      "name": "XAI Octagon Floating Rate & Alternative Income Trust"
+    },
+    {
+      "sy": "FNRN",
+      "name": "First Northern Community Bancorp"
+    },
+    {
+      "sy": "PACH",
+      "name": "Pioneer Acquisition I Corp"
+    },
+    {
+      "sy": "CSHX",
+      "name": "Cashmere Valley Bank"
+    },
+    {
+      "sy": "EFT",
+      "name": "Eaton Vance Floating-Rate Income Trust"
+    },
+    {
+      "sy": "LRBI",
+      "name": "Lake Ridge Bancorp Inc."
+    },
+    {
+      "sy": "AACB",
+      "name": "Artius II Acquisition Inc."
+    },
+    {
+      "sy": "JWSMF",
+      "name": "Jaws Mustang Acquisition Corp."
+    },
+    {
+      "sy": "UCFI",
+      "name": "CN Healthy Food Tech Group Corp."
+    },
+    {
+      "sy": "TRUX",
+      "name": "Truxton Corporation"
+    },
+    {
+      "sy": "BRW",
+      "name": "Saba Capital Income & Opportunities Fund"
+    },
+    {
+      "sy": "LPCV",
+      "name": "Launchpad Cadenza Acquisition Corp I"
+    },
+    {
+      "sy": "LEGT",
+      "name": "Legato Merger Corp. III"
+    },
+    {
+      "sy": "NASB",
+      "name": "NASB Financial, Inc."
+    },
+    {
+      "sy": "ADAC",
+      "name": "American Drive Acquisition Company"
+    },
+    {
+      "sy": "PMO",
+      "name": "Putnam Municipal Opportunities Trust"
+    },
+    {
+      "sy": "TDF",
+      "name": "Templeton Dragon Fund, Inc."
+    },
+    {
+      "sy": "FGII",
+      "name": "FG Imperii Acquisition Corp."
+    },
+    {
+      "sy": "RMM",
+      "name": "Rivernorth Managed Duration Municipal Income Fund Inc."
+    },
+    {
+      "sy": "NODK",
+      "name": "NI Holdings, Inc."
+    },
+    {
+      "sy": "MMD",
+      "name": "NYLI MacKay DefinedTerm Muni Opportunities Fund"
+    },
+    {
+      "sy": "BGH",
+      "name": "Barings Global Short Duration High Yield Fund"
+    },
+    {
+      "sy": "DBL",
+      "name": "DoubleLine Opportunistic Credit Fund"
+    },
+    {
+      "sy": "RWAY",
+      "name": "Runway Growth Finance Corp."
+    },
+    {
+      "sy": "ACV",
+      "name": "Virtus Diversified Income & Convertible Fund"
+    },
+    {
+      "sy": "TVAI",
+      "name": "Thayer Ventures Acquisition Corporation II"
+    },
+    {
+      "sy": "XCBE",
+      "name": "X3 Acquisition Corp. Ltd."
+    },
+    {
+      "sy": "CFNB",
+      "name": "California First Leasing Corporation"
+    },
+    {
+      "sy": "AXIN",
+      "name": "Axiom Intelligence Acquisition Corp 1"
+    },
+    {
+      "sy": "JCE",
+      "name": "Nuveen Core Equity Alpha Fund"
+    },
+    {
+      "sy": "CCFN",
+      "name": "Muncy Columbia Financial Corporation"
+    },
+    {
+      "sy": "OVLY",
+      "name": "Oak Valley Bancorp"
+    },
+    {
+      "sy": "FVCB",
+      "name": "FVCBankcorp, Inc."
+    },
+    {
+      "sy": "EOD",
+      "name": "Wells Fargo Advantage Funds - Allspring Global Dividend Opportunity Fund"
+    },
+    {
+      "sy": "FCCO",
+      "name": "First Community Corporation"
+    },
+    {
+      "sy": "SBXD",
+      "name": "SilverBox Corp IV"
+    },
+    {
+      "sy": "XSLL",
+      "name": "Xsolla SPAC 1"
+    },
+    {
+      "sy": "MYFW",
+      "name": "First Western Financial, Inc."
+    },
+    {
+      "sy": "KF",
+      "name": "The Korea Fund, Inc."
+    },
+    {
+      "sy": "DVTC",
+      "name": "Development Technologies Corp."
+    },
+    {
+      "sy": "HVII",
+      "name": "Hennessy Capital Investment Corp. VII"
+    },
+    {
+      "sy": "MUZE",
+      "name": "Muzero Acquisition Corp"
+    },
+    {
+      "sy": "CEPO",
+      "name": "Cantor Equity Partners I, Inc."
+    },
+    {
+      "sy": "DNMX",
+      "name": "Dynamix Corporation III"
+    },
+    {
+      "sy": "PMM",
+      "name": "Putnam Managed Municipal Income Trust"
+    },
+    {
+      "sy": "FFBB",
+      "name": "FFB Bancorp"
+    },
+    {
+      "sy": "WNEB",
+      "name": "Western New England Bancorp, Inc."
+    },
+    {
+      "sy": "CIA",
+      "name": "Citizens, Inc."
+    },
+    {
+      "sy": "EOT",
+      "name": "Eaton Vance National Municipal Opportunities Trust"
+    },
+    {
+      "sy": "SCM",
+      "name": "Stellus Capital Investment Corporation"
+    },
+    {
+      "sy": "OACC",
+      "name": "Oaktree Acquisition Corp. III Life Sciences"
+    },
+    {
+      "sy": "RAAQ",
+      "name": "Real Asset Acquisition Corp."
+    },
+    {
+      "sy": "FDBC",
+      "name": "Fidelity D & D Bancorp, Inc."
+    },
+    {
+      "sy": "PLMK",
+      "name": "Plum Acquisition Corp. IV"
+    },
+    {
+      "sy": "FACT",
+      "name": "FACT II Acquisition Corp"
+    },
+    {
+      "sy": "NTWO",
+      "name": "Newbury Street II Acquisition Corp"
+    },
+    {
+      "sy": "GLO",
+      "name": "Clough Global Opportunities Fund"
+    },
+    {
+      "sy": "CPZ",
+      "name": "Calamos Long/Short Equity & Dynamic Income Term Trust"
+    },
+    {
+      "sy": "OSG",
+      "name": "Octave Specialty Group, Inc."
+    },
+    {
+      "sy": "RCS",
+      "name": "PIMCO Strategic Income Fund, Inc."
+    },
+    {
+      "sy": "VNME",
+      "name": "Vendome Acquisition Corporation I"
+    },
+    {
+      "sy": "FCT",
+      "name": "First Trust Senior Floating Rate Income Fund II"
+    },
+    {
+      "sy": "EXSR",
+      "name": "Exchange Bank"
+    },
+    {
+      "sy": "ERC",
+      "name": "Allspring Multi-Sector Income Fund"
+    },
+    {
+      "sy": "NUW",
+      "name": "Nuveen AMT-Free Municipal Value Fund"
+    },
+    {
+      "sy": "SCII",
+      "name": "SC II Acquisition Corp."
+    },
+    {
+      "sy": "EIC",
+      "name": "Eagle Point Income Company Inc."
+    },
+    {
+      "sy": "MCR",
+      "name": "MFS Charter Income Trust"
+    },
+    {
+      "sy": "MKLY",
+      "name": "McKinley Acquisition Corporation"
+    },
+    {
+      "sy": "COPL",
+      "name": "Copley Acquisition Corp"
+    },
+    {
+      "sy": "FRAF",
+      "name": "Franklin Financial Services Corporation"
+    },
+    {
+      "sy": "ATLO",
+      "name": "Ames National Corporation"
+    },
+    {
+      "sy": "GTERA",
+      "name": "Globa Terra Acquisition Corporation"
+    },
+    {
+      "sy": "HWBK",
+      "name": "Hawthorn Bancshares, Inc."
+    },
+    {
+      "sy": "QDMI",
+      "name": "QDM International Inc."
+    },
+    {
+      "sy": "CBNA",
+      "name": "Chain Bridge Bancorp, Inc."
+    },
+    {
+      "sy": "MCGA",
+      "name": "Yorkville Acquisition Corp."
+    },
+    {
+      "sy": "FXNC",
+      "name": "First National Corporation"
+    },
+    {
+      "sy": "OPRT",
+      "name": "Oportun Financial Corporation"
+    },
+    {
+      "sy": "SNFCA",
+      "name": "Security National Financial Corporation"
+    },
+    {
+      "sy": "SOCA",
+      "name": "Solarius Capital Acquisition Corp."
+    },
+    {
+      "sy": "IGAC",
+      "name": "Invest Green Acquisition Corporation"
+    },
+    {
+      "sy": "SSAC",
+      "name": "SPACSphere Acquisition Corp."
+    },
+    {
+      "sy": "FUNC",
+      "name": "First United Corporation"
+    },
+    {
+      "sy": "TPVG",
+      "name": "TriplePoint Venture Growth BDC Corp."
+    },
+    {
+      "sy": "FTF",
+      "name": "Franklin Limited Duration Income Trust"
+    },
+    {
+      "sy": "DAAQ",
+      "name": "Digital Asset Acquisition Corp."
+    },
+    {
+      "sy": "TWFG",
+      "name": "TWFG, Inc."
+    },
+    {
+      "sy": "TDWD",
+      "name": "Tailwind 2.0 Acquisition Corp."
+    },
+    {
+      "sy": "CFFI",
+      "name": "C&F Financial Corporation"
+    },
+    {
+      "sy": "MACI",
+      "name": "Melar Acquisition Corp. I"
+    },
+    {
+      "sy": "TWLV",
+      "name": "Twelve Seas Investment Company III"
+    },
+    {
+      "sy": "TDAC",
+      "name": "Translational Development Acquisition Corp."
+    },
+    {
+      "sy": "BPRN",
+      "name": "Princeton Bancorp, Inc."
+    },
+    {
+      "sy": "JRS",
+      "name": "Nuveen Real Estate Income Fund"
+    },
+    {
+      "sy": "PSF",
+      "name": "Cohen & Steers Select Preferred and Income Fund, Inc."
+    },
+    {
+      "sy": "SABA",
+      "name": "Saba Capital Income & Opportunities Fund II"
+    },
+    {
+      "sy": "LATA",
+      "name": "Galata Acquisition Corp. II"
+    },
+    {
+      "sy": "DYOR",
+      "name": "Insight Digital Partners II"
+    },
+    {
+      "sy": "SRV",
+      "name": "NXG Cushing Midstream Energy Fund"
+    },
+    {
+      "sy": "BLRK",
+      "name": "Bluerock Acquisition Corp."
+    },
+    {
+      "sy": "LGI",
+      "name": "Lazard Global Total Return and Income Fund, Inc."
+    },
+    {
+      "sy": "BIII",
+      "name": "Black Spade Acquisition III Co"
+    },
+    {
+      "sy": "MFIN",
+      "name": "Medallion Financial Corp."
+    },
+    {
+      "sy": "IRAB",
+      "name": "Iris Acquisition Corp II"
+    },
+    {
+      "sy": "PBNC",
+      "name": "PB Financial Corporation"
+    },
+    {
+      "sy": "FFMH",
+      "name": "First Farmers and Merchants Corporation"
+    },
+    {
+      "sy": "FBLA",
+      "name": "FB Bancorp, Inc."
+    },
+    {
+      "sy": "VABK",
+      "name": "Virginia National Bankshares Corporation"
+    },
+    {
+      "sy": "HLXC",
+      "name": "Helix Acquisition Corp. III"
+    },
+    {
+      "sy": "MFM",
+      "name": "MFS Municipal Income Trust"
+    },
+    {
+      "sy": "LCNB",
+      "name": "LCNB Corp."
+    },
+    {
+      "sy": "CBTN",
+      "name": "Citizens Bancorp Investment, Inc."
+    },
+    {
+      "sy": "LIEN",
+      "name": "Chicago Atlantic BDC, Inc."
+    },
+    {
+      "sy": "NKSH",
+      "name": "National Bankshares, Inc."
+    },
+    {
+      "sy": "ONCH",
+      "name": "1RT Acquisition Corp."
+    },
+    {
+      "sy": "QNBC",
+      "name": "QNB Corp."
+    },
+    {
+      "sy": "MLGF",
+      "name": "Malaga Financial Corporation"
+    },
+    {
+      "sy": "CRAC",
+      "name": "Crown Reserve Acquisition Corp. I"
+    },
+    {
+      "sy": "CMTV",
+      "name": "Community Bancorp"
+    },
+    {
+      "sy": "NPV",
+      "name": "Nuveen Virginia Quality Municipal Income Fund"
+    },
+    {
+      "sy": "CPSS",
+      "name": "Consumer Portfolio Services, Inc."
+    },
+    {
+      "sy": "KINS",
+      "name": "Kingstone Companies, Inc."
+    },
+    {
+      "sy": "OVBC",
+      "name": "Ohio Valley Banc Corp."
+    },
+    {
+      "sy": "GSHR",
+      "name": "Gesher Acquisition Corp. II"
+    },
+    {
+      "sy": "EGHA",
+      "name": "EGH Acquisition Corp."
+    },
+    {
+      "sy": "PEBK",
+      "name": "Peoples Bancorp of North Carolina, Inc."
+    },
+    {
+      "sy": "BXSY",
+      "name": "Bexil Investment Trust"
+    },
+    {
+      "sy": "IPOD",
+      "name": "Collective Acquisition Corp."
+    },
+    {
+      "sy": "IDE",
+      "name": "Voya Infrastructure, Industrials and Materials Fund"
+    },
+    {
+      "sy": "HAVA",
+      "name": "Harvard Ave Acquisition Corporation"
+    },
+    {
+      "sy": "FOTB",
+      "name": "First Ottawa Bancshares, Inc."
+    },
+    {
+      "sy": "ETX",
+      "name": "Eaton Vance Municipal Income 2028 Term Trust"
+    },
+    {
+      "sy": "ANTA",
+      "name": "Antalpha Platform Holding Compa"
+    },
+    {
+      "sy": "MRBK",
+      "name": "Meridian Corporation"
+    },
+    {
+      "sy": "OPBK",
+      "name": "OP Bancorp"
+    },
+    {
+      "sy": "IIF",
+      "name": "Morgan Stanley India Investment Fund, Inc."
+    },
+    {
+      "sy": "INBK",
+      "name": "First Internet Bancorp"
+    },
+    {
+      "sy": "WLII",
+      "name": "Willow Lane Acquisition Corp. II"
+    },
+    {
+      "sy": "EFSI",
+      "name": "Eagle Financial Services, Inc."
+    },
+    {
+      "sy": "PKIN",
+      "name": "Pekin Life Insurance Company"
+    },
+    {
+      "sy": "KTWO",
+      "name": "K2 Capital Acquisition Corporation"
+    },
+    {
+      "sy": "FT",
+      "name": "Franklin Universal Trust"
+    },
+    {
+      "sy": "DMB",
+      "name": "BNY Mellon Municipal Bond Infrastructure Fund, Inc."
+    },
+    {
+      "sy": "CZWI",
+      "name": "Citizens Community Bancorp, Inc."
+    },
+    {
+      "sy": "FIGX",
+      "name": "FIGX Capital Acquisition Corp."
+    },
+    {
+      "sy": "NHS",
+      "name": "Neuberger Berman Income Funds - Neuberger High Yield Strategies Fund Inc."
+    },
+    {
+      "sy": "LFAC",
+      "name": "Leapfrog Acquisition Corporation"
+    },
+    {
+      "sy": "AIIA",
+      "name": "AI Infrastructure Acquisition Corp."
+    },
+    {
+      "sy": "VPV",
+      "name": "Invesco Pennsylvania Value Municipal Income Trust"
+    },
+    {
+      "sy": "HONT",
+      "name": "Honat Bancorp, Inc."
+    },
+    {
+      "sy": "PMTS",
+      "name": "CPI Card Group Inc."
+    },
+    {
+      "sy": "GF",
+      "name": "The New Germany Fund, Inc."
+    },
+    {
+      "sy": "OPP",
+      "name": "RiverNorth/DoubleLine Strategic Opportunity Fund, Inc."
+    },
+    {
+      "sy": "FXLG",
+      "name": "FS Bancorp"
+    },
+    {
+      "sy": "DLMI",
+      "name": "Diamond Lake Minerals, Inc."
+    },
+    {
+      "sy": "WIA",
+      "name": "Western Asset Inflation-Linked Income Fund"
+    },
+    {
+      "sy": "HGLB",
+      "name": "Highland Global Allocation Fund"
+    },
+    {
+      "sy": "BANX",
+      "name": "ArrowMark Financial Corp."
+    },
+    {
+      "sy": "KISB",
+      "name": "Kish Bancorp, Inc."
+    },
+    {
+      "sy": "FACO",
+      "name": "First Acceptance Corporation"
+    },
+    {
+      "sy": "OAKC",
+      "name": "Oakworth Capital Inc."
+    },
+    {
+      "sy": "FCAP",
+      "name": "First Capital, Inc."
+    },
+    {
+      "sy": "EHI",
+      "name": "Western Asset Global High Income Fund Inc."
+    },
+    {
+      "sy": "MPV",
+      "name": "Barings Participation Investors"
+    },
+    {
+      "sy": "SOME",
+      "name": "Somerset Trust Holding Company"
+    },
+    {
+      "sy": "BKGM",
+      "name": "BankGuam Holding Company"
+    },
+    {
+      "sy": "FINW",
+      "name": "FinWise Bancorp"
+    },
+    {
+      "sy": "SABK",
+      "name": "South Atlantic Bancshares, Inc."
+    },
+    {
+      "sy": "RBKB",
+      "name": "Rhinebeck Bancorp, Inc."
+    },
+    {
+      "sy": "PLQC",
+      "name": "Plains Acquisition Corporation"
+    },
+    {
+      "sy": "CFBK",
+      "name": "CF Bankshares Inc."
+    },
+    {
+      "sy": "FOA",
+      "name": "Finance of America Companies Inc."
+    },
+    {
+      "sy": "FLC",
+      "name": "Flaherty & Crumrine Total Return Fund Inc."
+    },
+    {
+      "sy": "CBFV",
+      "name": "CB Financial Services, Inc."
+    },
+    {
+      "sy": "ECF",
+      "name": "Ellsworth Growth and Income Fund Ltd."
+    },
+    {
+      "sy": "CHEC",
+      "name": "Chenghe Acquisition III Co."
+    },
+    {
+      "sy": "LYBC",
+      "name": "Lyons Bancorp Inc."
+    },
+    {
+      "sy": "CSBB",
+      "name": "CSB Bancorp, Inc."
+    },
+    {
+      "sy": "TRCY",
+      "name": "Tri City Bankshares Corporation"
+    },
+    {
+      "sy": "EBMT",
+      "name": "Eagle Bancorp Montana, Inc."
+    },
+    {
+      "sy": "BMBN",
+      "name": "Benchmark Bankshares, Inc."
+    },
+    {
+      "sy": "BSL",
+      "name": "Blackstone Senior Floating Rate 2027 Term Fund"
+    },
+    {
+      "sy": "BKUT",
+      "name": "Bank of Utica"
+    },
+    {
+      "sy": "RANG",
+      "name": "Range Capital Acquisition Corp."
+    },
+    {
+      "sy": "VBF",
+      "name": "Invesco Bond Fund"
+    },
+    {
+      "sy": "BVFL",
+      "name": "BV Financial, Inc."
+    },
+    {
+      "sy": "FGFH",
+      "name": "Foresight Financial Group, Inc."
+    },
+    {
+      "sy": "EDF",
+      "name": "Virtus Stone Harbor Emerging Markets Income Fund"
+    },
+    {
+      "sy": "BCBP",
+      "name": "BCB Bancorp, Inc."
+    },
+    {
+      "sy": "LARK",
+      "name": "Landmark Bancorp, Inc."
+    },
+    {
+      "sy": "PCQ",
+      "name": "PIMCO California Municipal Income Fund"
+    },
+    {
+      "sy": "NAZ",
+      "name": "Nuveen Arizona Quality Municipal Income Fund"
+    },
+    {
+      "sy": "NMP",
+      "name": "NMP Acquisition Corp."
+    },
+    {
+      "sy": "CPKF",
+      "name": "Chesapeake Financial Shares, Inc."
+    },
+    {
+      "sy": "NODB",
+      "name": "North Dallas Bank & Trust Co."
+    },
+    {
+      "sy": "PFLC",
+      "name": "Pacific Financial Corporation"
+    },
+    {
+      "sy": "UBAB",
+      "name": "United Bancorporation of Alabama, Inc."
+    },
+    {
+      "sy": "HNVR",
+      "name": "Hanover Bancorp, Inc."
+    },
+    {
+      "sy": "SBKO",
+      "name": "Summit Bank Group, Inc."
+    },
+    {
+      "sy": "LKSP",
+      "name": "Lake Superior Acquisition Corp."
+    },
+    {
+      "sy": "NNY",
+      "name": "Nuveen New York Municipal Value Fund"
+    },
+    {
+      "sy": "GLQ",
+      "name": "Clough Global Equity Fund"
+    },
+    {
+      "sy": "VTN",
+      "name": "Invesco Trust for Investment Grade New York Municipals"
+    },
+    {
+      "sy": "WHF",
+      "name": "WhiteHorse Finance, Inc."
+    },
+    {
+      "sy": "MNSB",
+      "name": "MainStreet Bancshares, Inc."
+    },
+    {
+      "sy": "SPEG",
+      "name": "Silver Pegasus Acquisition Corp."
+    },
+    {
+      "sy": "WPAC",
+      "name": "White Pearl Acquisition Corp."
+    },
+    {
+      "sy": "MHF",
+      "name": "Western Asset Municipal High Income Fund Inc."
+    },
+    {
+      "sy": "ECBK",
+      "name": "ECB Bancorp, Inc."
+    },
+    {
+      "sy": "MSWV",
+      "name": "Main Street Financial Services Corp."
+    },
+    {
+      "sy": "PONT",
+      "name": "Pontiac Bancorp, Inc."
+    },
+    {
+      "sy": "INAC",
+      "name": "Indigo Acquisition Corp."
+    },
+    {
+      "sy": "SPE",
+      "name": "Special Opportunities Fund, Inc."
+    },
+    {
+      "sy": "ARBV",
+      "name": "American Riviera Bancorp"
+    },
+    {
+      "sy": "EMYB",
+      "name": "Embassy Bancorp, Inc."
+    },
+    {
+      "sy": "WHG",
+      "name": "Westwood Holdings Group, Inc."
+    },
+    {
+      "sy": "CEPS",
+      "name": "Cantor Equity Partners VI, Inc."
+    },
+    {
+      "sy": "FGBI",
+      "name": "First Guaranty Bancshares, Inc."
+    },
+    {
+      "sy": "YCY",
+      "name": "AA Mission Acquisition Corp. II"
+    },
+    {
+      "sy": "MSD",
+      "name": "Morgan Stanley Emerging Markets Debt Fund, Inc."
+    },
+    {
+      "sy": "IGA",
+      "name": "Voya Global Advantage and Premium Opportunity Fund"
+    },
+    {
+      "sy": "BCV",
+      "name": "Bancroft Fund Ltd."
+    },
+    {
+      "sy": "MPA",
+      "name": "BlackRock MuniYield Pennsylvania Quality Fund"
+    },
+    {
+      "sy": "ENBP",
+      "name": "ENB Financial Corp"
+    },
+    {
+      "sy": "PFD",
+      "name": "Flaherty & Crumrine Preferred Income Fund Inc."
+    },
+    {
+      "sy": "EVG",
+      "name": "Eaton Vance Short Duration Diversified Income Fund"
+    },
+    {
+      "sy": "TYCB",
+      "name": "Calvin B. Taylor Bankshares, Inc."
+    },
+    {
+      "sy": "SLBK",
+      "name": "Skyline Bankshares, Inc."
+    },
+    {
+      "sy": "UAC",
+      "name": "United Acquisition Corp. I"
+    },
+    {
+      "sy": "MNAT",
+      "name": "Marquette National Corporation"
+    },
+    {
+      "sy": "FNWD",
+      "name": "Finward Bancorp"
+    },
+    {
+      "sy": "PRMY",
+      "name": "Primary Bank"
+    },
+    {
+      "sy": "INBC",
+      "name": "InBankshares, Corp"
+    },
+    {
+      "sy": "FMBN",
+      "name": "Farmers & Merchants Bancshares, Inc."
+    },
+    {
+      "sy": "BGX",
+      "name": "Blackstone Long-Short Credit Income Fund"
+    },
+    {
+      "sy": "XFLH",
+      "name": "XFLH Capital Corporation"
+    },
+    {
+      "sy": "RFAM",
+      "name": "RF Acquisition Corp III"
+    },
+    {
+      "sy": "RMBI",
+      "name": "Richmond Mutual Bancorporation, Inc."
+    },
+    {
+      "sy": "AFBI",
+      "name": "Affinity Bancshares, Inc."
+    },
+    {
+      "sy": "HEQ",
+      "name": "John Hancock Diversified Income Fund"
+    },
+    {
+      "sy": "SCPQ",
+      "name": "Social Commerce Partners Corporation"
+    },
+    {
+      "sy": "HYI",
+      "name": "Western Asset High Yield Opportunity Fund Inc."
+    },
+    {
+      "sy": "SRBK",
+      "name": "SR Bancorp, Inc."
+    },
+    {
+      "sy": "DIMC",
+      "name": "Dimeco, Inc."
+    },
+    {
+      "sy": "CEE",
+      "name": "The Central and Eastern Europe Fund, Inc."
+    },
+    {
+      "sy": "SBFG",
+      "name": "SB Financial Group, Inc."
+    },
+    {
+      "sy": "FFDF",
+      "name": "FFD Financial Corporation"
+    },
+    {
+      "sy": "GRX",
+      "name": "The Gabelli Healthcare & Wellness Trust"
+    },
+    {
+      "sy": "CGO",
+      "name": "Calamos Global Total Return Fund"
+    },
+    {
+      "sy": "BWG",
+      "name": "Legg Mason BW Global Income Opportunities Fund Inc."
+    },
+    {
+      "sy": "TYFG",
+      "name": "Tri-County Financial Group, Inc."
+    },
+    {
+      "sy": "BEOB",
+      "name": "BEO Bancorp"
+    },
+    {
+      "sy": "WRIV",
+      "name": "White River Bancshares Co"
+    },
+    {
+      "sy": "GNT",
+      "name": "GAMCO Natural Resources, Gold & Income Trust"
+    },
+    {
+      "sy": "SOMC",
+      "name": "Southern Michigan Bancorp, Inc."
+    },
+    {
+      "sy": "JHS",
+      "name": "John Hancock Income Securities Trust"
+    },
+    {
+      "sy": "DMO",
+      "name": "Western Asset Mortgage Opportunity Fund Inc."
+    },
+    {
+      "sy": "IHD",
+      "name": "Voya Emerging Markets High Dividend Equity Fund"
+    },
+    {
+      "sy": "NMT",
+      "name": "Nuveen Massachusetts Quality Municipal Income Fund"
+    },
+    {
+      "sy": "AFJK",
+      "name": "Aimei Health Technology Co., Ltd"
+    },
+    {
+      "sy": "BLHK",
+      "name": "blueharbor bank"
+    },
+    {
+      "sy": "CMRB",
+      "name": "First Commerce Bancorp, Inc."
+    },
+    {
+      "sy": "IPEX",
+      "name": "Inflection Point Acquisition Corp. V"
+    },
+    {
+      "sy": "VFL",
+      "name": "abrdn National Municipal Income Fund"
+    },
+    {
+      "sy": "WEA",
+      "name": "Western Asset Premier Bond Fund"
+    },
+    {
+      "sy": "IAF",
+      "name": "Abrdn Australia Equity Fund Inc"
+    },
+    {
+      "sy": "GHI",
+      "name": "Greystone Housing Impact Investors LP"
+    },
+    {
+      "sy": "LSBK",
+      "name": "Lake Shore Bancorp, Inc."
+    },
+    {
+      "sy": "FMBM",
+      "name": "F & M Bank Corp."
+    },
+    {
+      "sy": "PCSC",
+      "name": "Perceptive Capital Solutions Corp"
+    },
+    {
+      "sy": "NMI",
+      "name": "Nuveen Municipal Income Fund, Inc."
+    },
+    {
+      "sy": "MCN",
+      "name": "XAI Madison Equity Premium Income Fund"
+    },
+    {
+      "sy": "TAVI",
+      "name": "Tavia Acquisition Corp."
+    },
+    {
+      "sy": "CTUY",
+      "name": "Century Next Financial Corporation"
+    },
+    {
+      "sy": "BNCC",
+      "name": "BNCCORP, Inc."
+    },
+    {
+      "sy": "BBNA",
+      "name": "Bonvenu Bancorp, Inc."
+    },
+    {
+      "sy": "CBBI",
+      "name": "CBB Bancorp, Inc."
+    },
+    {
+      "sy": "QSEA",
+      "name": "Quartzsea Acquisition Corporati"
+    },
+    {
+      "sy": "CHBH",
+      "name": "Croghan Bancshares, Inc."
+    },
+    {
+      "sy": "PFO",
+      "name": "Flaherty & Crumrine Preferred Income Opportunity Fund Inc."
+    },
+    {
+      "sy": "FKYS",
+      "name": "First Keystone Corporation"
+    },
+    {
+      "sy": "JFBC",
+      "name": "Jeffersonville Bancorp"
+    },
+    {
+      "sy": "GGZ",
+      "name": "The Gabelli Global Small and Mid Cap Value Trust"
+    },
+    {
+      "sy": "CHAR",
+      "name": "Charlton Aria Acquisition Corporation"
+    },
+    {
+      "sy": "UNIB",
+      "name": "University Bancorp, Inc."
+    },
+    {
+      "sy": "FCPB",
+      "name": "First Capital Bancshares, Inc."
+    },
+    {
+      "sy": "GLU",
+      "name": "The Gabelli Global Utility & Income Trust"
+    },
+    {
+      "sy": "HYNE",
+      "name": "Hoyne Bancorp, Inc."
+    },
+    {
+      "sy": "JDVB",
+      "name": "JD Bancshares, Inc."
+    },
+    {
+      "sy": "QUMS",
+      "name": "Quantumsphere Acquisition Corporation"
+    },
+    {
+      "sy": "PGAC",
+      "name": "Pantages Capital Acquisition Corporation"
+    },
+    {
+      "sy": "PPBN",
+      "name": "Pinnacle Bankshares Corporation"
+    },
+    {
+      "sy": "AMBK",
+      "name": "American Bank Incorporated"
+    },
+    {
+      "sy": "PAI",
+      "name": "Western Asset Investment Grade Income Fund Inc."
+    },
+    {
+      "sy": "JHI",
+      "name": "John Hancock Investors Trust"
+    },
+    {
+      "sy": "MGYR",
+      "name": "Magyar Bancorp, Inc."
+    },
+    {
+      "sy": "NIM",
+      "name": "Nuveen Select Maturities Municipal Fund"
+    },
+    {
+      "sy": "WSBK",
+      "name": "Winchester Bancorp, Inc."
+    },
+    {
+      "sy": "CNBP",
+      "name": "Cornerstone Bancorp Inc."
+    },
+    {
+      "sy": "FSRL",
+      "name": "First Reliance Bancshares, Inc."
+    },
+    {
+      "sy": "SFDL",
+      "name": "Security Federal Corporation"
+    },
+    {
+      "sy": "RVSB",
+      "name": "Riverview Bancorp, Inc."
+    },
+    {
+      "sy": "OFED",
+      "name": "Oconee Federal Financial Corp."
+    },
+    {
+      "sy": "CWBK",
+      "name": "CW Bancorp"
+    },
+    {
+      "sy": "CCNB",
+      "name": "Coastal Carolina Bancshares, Inc."
+    },
+    {
+      "sy": "PSBQ",
+      "name": "PSB Holdings, Inc."
+    },
+    {
+      "sy": "BSBK",
+      "name": "Bogota Financial Corp."
+    },
+    {
+      "sy": "SBI",
+      "name": "Western Asset Intermediate Muni Fund Inc."
+    },
+    {
+      "sy": "MPCB",
+      "name": "Mountain Pacific Bancorp, Inc."
+    },
+    {
+      "sy": "PPLL",
+      "name": "Peoples Ltd."
+    },
+    {
+      "sy": "UNB",
+      "name": "Union Bankshares, Inc."
+    },
+    {
+      "sy": "PROV",
+      "name": "Provident Financial Holdings, Inc."
+    },
+    {
+      "sy": "FGMC",
+      "name": "FG Merger II Corp."
+    },
+    {
+      "sy": "PBCO",
+      "name": "PBCO Financial Corporation"
+    },
+    {
+      "sy": "PCF",
+      "name": "High Income Securities Fund"
+    },
+    {
+      "sy": "CURN",
+      "name": "Currency Exchange International, Corp."
+    },
+    {
+      "sy": "TYBT",
+      "name": "Trinity Bank, N.A."
+    },
+    {
+      "sy": "KTHN",
+      "name": "Katahdin Bankshares Corp."
+    },
+    {
+      "sy": "GSBX",
+      "name": "Golden State Bancorp"
+    },
+    {
+      "sy": "BOTJ",
+      "name": "Bank of the James Financial Group, Inc."
+    },
+    {
+      "sy": "ERH",
+      "name": "Allspring Utilities and High Income Fund"
+    },
+    {
+      "sy": "ENDI",
+      "name": "CrossingBridge Advisors, LLC"
+    },
+    {
+      "sy": "SPKL",
+      "name": "Spark I Acquisition Corporation"
+    },
+    {
+      "sy": "BORT",
+      "name": "Bank of Botetourt"
+    },
+    {
+      "sy": "CHPG",
+      "name": "ChampionsGate Acquisition Corporation"
+    },
+    {
+      "sy": "CMHF",
+      "name": "Community Heritage Financial, Inc."
+    },
+    {
+      "sy": "UBOH",
+      "name": "United Bancshares, Inc."
+    },
+    {
+      "sy": "CSTAF",
+      "name": "Constellation Acquisition Corp"
+    },
+    {
+      "sy": "JLS",
+      "name": "Nuveen Mortgage and Income Fund"
+    },
+    {
+      "sy": "BCTF",
+      "name": "Bancorp 34, Inc."
+    },
+    {
+      "sy": "CYVF",
+      "name": "Crystal Valley Financial Corporation"
+    },
+    {
+      "sy": "PGP",
+      "name": "PIMCO Global StocksPLUS & Income Fund"
+    },
+    {
+      "sy": "BYLB",
+      "name": "Boyle Bancorp, Inc."
+    },
+    {
+      "sy": "SFBC",
+      "name": "Sound Financial Bancorp, Inc."
+    },
+    {
+      "sy": "HARL",
+      "name": "Harleysville Financial Corporation"
+    },
+    {
+      "sy": "NOEM",
+      "name": "CO2 Energy Transition Corp."
+    },
+    {
+      "sy": "PBNK",
+      "name": "Pinnacle Bank"
+    },
+    {
+      "sy": "NMBF",
+      "name": "Nmb Financial Corp"
+    },
+    {
+      "sy": "PFBX",
+      "name": "Peoples Financial Corporation"
+    },
+    {
+      "sy": "CZBS",
+      "name": "Citizens Bancshares Corporation"
+    },
+    {
+      "sy": "RMI",
+      "name": "RiverNorth Opportunistic Municipal Income Fund, Inc."
+    },
+    {
+      "sy": "REDW",
+      "name": "Redwood Financial, Inc."
+    },
+    {
+      "sy": "BYFC",
+      "name": "Broadway Financial Corporation"
+    },
+    {
+      "sy": "IGI",
+      "name": "Western Asset Investment Grade Opportunity Trust Inc."
+    },
+    {
+      "sy": "CNBB",
+      "name": "CNB Community Bancorp, Inc."
+    },
+    {
+      "sy": "FTFI",
+      "name": "First Berlin Bancorp, Inc."
+    },
+    {
+      "sy": "BCIC",
+      "name": "BCP Investment Corp."
+    },
+    {
+      "sy": "SEBC",
+      "name": "Southeastern Banking Corporation"
+    },
+    {
+      "sy": "RGT",
+      "name": "Royce Global Trust, Inc."
+    },
+    {
+      "sy": "SRL",
+      "name": "Scully Royalty Ltd."
+    },
+    {
+      "sy": "GDL",
+      "name": "The GDL Fund"
+    },
+    {
+      "sy": "ZBAI",
+      "name": "ATIF Holdings Limited"
+    },
+    {
+      "sy": "LCCC",
+      "name": "Lakeshore Acquisition III Corp."
+    },
+    {
+      "sy": "SAMG",
+      "name": "Silvercrest Asset Management Group Inc."
+    },
+    {
+      "sy": "STBK",
+      "name": "Studio Financial Holdings, Inc."
+    },
+    {
+      "sy": "SSBI",
+      "name": "Summit State Bank"
+    },
+    {
+      "sy": "PTBS",
+      "name": "Potomac Bancshares, Inc."
+    },
+    {
+      "sy": "RFAI",
+      "name": "RF Acquisition Corp II"
+    },
+    {
+      "sy": "USMT",
+      "name": "US Metro Bancorp, Inc."
+    },
+    {
+      "sy": "CIWV",
+      "name": "Citizens Financial Corp."
+    },
+    {
+      "sy": "CULL",
+      "name": "Cullman Bancorp, Inc."
+    },
+    {
+      "sy": "UBCP",
+      "name": "United Bancorp, Inc."
+    },
+    {
+      "sy": "RFM",
+      "name": "RiverNorth Flexible Municipal Income Fund, Inc."
+    },
+    {
+      "sy": "FUSB",
+      "name": "First US Bancshares, Inc."
+    },
+    {
+      "sy": "MMTX",
+      "name": "Miluna Acquisition Corp"
+    },
+    {
+      "sy": "ORIQ",
+      "name": "Origin Investment Corp I"
+    },
+    {
+      "sy": "KSBI",
+      "name": "KS Bancorp, Inc."
+    },
+    {
+      "sy": "IAE",
+      "name": "Voya Asia Pacific High Dividend Equity Income Fund"
+    },
+    {
+      "sy": "JBTC",
+      "name": "JBT Bancorp, Inc."
+    },
+    {
+      "sy": "BSFO",
+      "name": "Bank of San Francisco"
+    },
+    {
+      "sy": "FABP",
+      "name": "Farmers Bancorp"
+    },
+    {
+      "sy": "FMN",
+      "name": "Federated Hermes Premier Municipal Income Fund"
+    },
+    {
+      "sy": "INFT",
+      "name": "Infinity Bancorp"
+    },
+    {
+      "sy": "FDVA",
+      "name": "Freedom Financial Holdings, Inc."
+    },
+    {
+      "sy": "FNWB",
+      "name": "First Northwest Bancorp"
+    },
+    {
+      "sy": "BKSC",
+      "name": "Bank of South Carolina Corporation"
+    },
+    {
+      "sy": "GECC",
+      "name": "Great Elm Capital Corp."
+    },
+    {
+      "sy": "PBKC",
+      "name": "Pioneer Bankcorp, Inc."
+    },
+    {
+      "sy": "ALIS",
+      "name": "Calisa Acquisition Corp"
+    },
+    {
+      "sy": "PBHC",
+      "name": "Pathfinder Bancorp, Inc."
+    },
+    {
+      "sy": "CBKM",
+      "name": "Consumers Bancorp, Inc."
+    },
+    {
+      "sy": "AUBN",
+      "name": "Auburn National Bancorporation, Inc."
+    },
+    {
+      "sy": "KLIB",
+      "name": "Killbuck Bancshares, Inc."
+    },
+    {
+      "sy": "UWHR",
+      "name": "Uwharrie Capital Corp"
+    },
+    {
+      "sy": "VGI",
+      "name": "Virtus Global Multi-Sector Income Fund"
+    },
+    {
+      "sy": "SOBS",
+      "name": "Solvay Bank Corp."
+    },
+    {
+      "sy": "PLMJF",
+      "name": "Plum Acquisition Corp. III"
+    },
+    {
+      "sy": "CZBC",
+      "name": "Citizens Bancorp"
+    },
+    {
+      "sy": "KG",
+      "name": "Kestrel Group Ltd"
+    },
+    {
+      "sy": "CZBT",
+      "name": "Citizens Bancorp of Virginia, Inc."
+    },
+    {
+      "sy": "HMLN",
+      "name": "Hamlin Bank and Trust Company"
+    },
+    {
+      "sy": "FVN",
+      "name": "Future Vision II Acquisition Corp."
+    },
+    {
+      "sy": "SLRK",
+      "name": "Solera National Bancorp, Inc."
+    },
+    {
+      "sy": "FSMK",
+      "name": "1ST SUMMIT BANCORP of Johnstown, Inc."
+    },
+    {
+      "sy": "APAC",
+      "name": "StoneBridge Acquisition II Corporation"
+    },
+    {
+      "sy": "GDO",
+      "name": "Western Asset Global Corporate Defined Opportunity Fund Inc."
+    },
+    {
+      "sy": "MCBK",
+      "name": "Madison County Financial, Inc."
+    },
+    {
+      "sy": "BCSO",
+      "name": "Bancorp. of Southern Indiana"
+    },
+    {
+      "sy": "PFX",
+      "name": "PhenixFIN Corporation"
+    },
+    {
+      "sy": "ORPB",
+      "name": "Oregon Pacific Bancorp"
+    },
+    {
+      "sy": "DTF",
+      "name": "DTF Tax-Free Income 2028 Term Fund Inc."
+    },
+    {
+      "sy": "IBTN",
+      "name": "InsCorp, Inc."
+    },
+    {
+      "sy": "FBSI",
+      "name": "First Bancshares, Inc."
+    },
+    {
+      "sy": "ISRL",
+      "name": "Israel Acquisitions Corp"
+    },
+    {
+      "sy": "FDSB",
+      "name": "Fifth District Bancorp, Inc."
+    },
+    {
+      "sy": "RVCB",
+      "name": "River Valley Community Bancorp"
+    },
+    {
+      "sy": "HNNA",
+      "name": "Hennessy Advisors, Inc."
+    },
+    {
+      "sy": "FSEA",
+      "name": "First Seacoast Bancorp, Inc."
+    },
+    {
+      "sy": "GLV",
+      "name": "Clough Global Dividend and Income Fund"
+    },
+    {
+      "sy": "CYFL",
+      "name": "Century Financial Corporation"
+    },
+    {
+      "sy": "PNI",
+      "name": "PIMCO New York Municipal Income Fund II"
+    },
+    {
+      "sy": "EDVR",
+      "name": "Endeavor Bancorp"
+    },
+    {
+      "sy": "BSAA",
+      "name": "BEST SPAC I Acquisition Corp."
+    },
+    {
+      "sy": "WTG",
+      "name": "Wintergreen Acquisition Corp."
+    },
+    {
+      "sy": "CZNL",
+      "name": "Citizens National Corporation"
+    },
+    {
+      "sy": "NBRG",
+      "name": "Newbridge Acquisition Limited"
+    },
+    {
+      "sy": "NMS",
+      "name": "Nuveen Minnesota Quality Municipal Income Fund"
+    },
+    {
+      "sy": "CPBI",
+      "name": "Central Plains Bancshares, Inc."
+    },
+    {
+      "sy": "STLE",
+      "name": "Steele Bancorp Inc."
+    },
+    {
+      "sy": "NTBP",
+      "name": "New Tripoli Bancorp, Inc."
+    },
+    {
+      "sy": "BPAC",
+      "name": "Blueport Acquisition Ltd"
+    },
+    {
+      "sy": "SVBT",
+      "name": "SVB & T Corporation"
+    },
+    {
+      "sy": "FBTT",
+      "name": "First Bankers Trustshares, Inc."
+    },
+    {
+      "sy": "JUVF",
+      "name": "Juniata Valley Financial Corp."
+    },
+    {
+      "sy": "MNMB",
+      "name": "Merchants & Marine Bancorp, Inc."
+    },
+    {
+      "sy": "DWNX",
+      "name": "Delhi Bank Corp."
+    },
+    {
+      "sy": "CEV",
+      "name": "Eaton Vance California Municipal Income Trust"
+    },
+    {
+      "sy": "EEA",
+      "name": "The European Equity Fund, Inc."
+    },
+    {
+      "sy": "CBRRF",
+      "name": "Chain Bridge I"
+    },
+    {
+      "sy": "PCM",
+      "name": "PCM Fund Inc."
+    },
+    {
+      "sy": "HCBN",
+      "name": "HCB Financial Corp."
+    },
+    {
+      "sy": "KVAC",
+      "name": "Keen Vision Acquisition Corporation"
+    },
+    {
+      "sy": "NACB",
+      "name": "National Capital Bancorp, Inc."
+    },
+    {
+      "sy": "VLT",
+      "name": "Invesco High Income Trust II"
+    },
+    {
+      "sy": "SMAL",
+      "name": "Summit Bancshares, Inc."
+    },
+    {
+      "sy": "FRSB",
+      "name": "First Resource Bancorp, Inc."
+    },
+    {
+      "sy": "OPHC",
+      "name": "OptimumBank Holdings, Inc."
+    },
+    {
+      "sy": "AASP",
+      "name": "Agassi Sports Entertainment Corp."
+    },
+    {
+      "sy": "ORBN",
+      "name": "Oregon Bancorp, Inc."
+    },
+    {
+      "sy": "NSTS",
+      "name": "NSTS Bancorp, Inc."
+    },
+    {
+      "sy": "CXH",
+      "name": "MFS Investment Grade Municipal Trust"
+    },
+    {
+      "sy": "PBKX",
+      "name": "Partners Bank of California"
+    },
+    {
+      "sy": "PGZ",
+      "name": "Principal Real Estate Income Fund"
+    },
+    {
+      "sy": "CLST",
+      "name": "Catalyst Bancorp, Inc."
+    },
+    {
+      "sy": "CBWA",
+      "name": "Commencement Bancorp Inc."
+    },
+    {
+      "sy": "MVLY",
+      "name": "Mission Valley Bancorp"
+    },
+    {
+      "sy": "CBAF",
+      "name": "CITBA Financial Corporation"
+    },
+    {
+      "sy": "IBAC",
+      "name": "IB Acquisition Corp."
+    },
+    {
+      "sy": "RWCB",
+      "name": "Redwood Capital Bancorp"
+    },
+    {
+      "sy": "FBVI",
+      "name": "FCN Banc Corp."
+    },
+    {
+      "sy": "MXE",
+      "name": "Mexico Equity & Income Fund Inc."
+    },
+    {
+      "sy": "HFBL",
+      "name": "Home Federal Bancorp, Inc. of Louisiana"
+    },
+    {
+      "sy": "CCBC",
+      "name": "Chino Commercial Bancorp"
+    },
+    {
+      "sy": "HFBK",
+      "name": "Harford Bank"
+    },
+    {
+      "sy": "HBSI",
+      "name": "Highlands Bankshares, Inc."
+    },
+    {
+      "sy": "CDAQF",
+      "name": "Compass Digital Acquisition Corp."
+    },
+    {
+      "sy": "BAOB",
+      "name": "The Baraboo Bancorporation, Inc."
+    },
+    {
+      "sy": "RSF",
+      "name": "RiverNorth Capital and Income Fund, Inc."
+    },
+    {
+      "sy": "LFGP",
+      "name": "Ledyard Financial Group, Inc."
+    },
+    {
+      "sy": "NEFB",
+      "name": "Neffs Bancorp, Inc."
+    },
+    {
+      "sy": "PGNN",
+      "name": "Paragon Financial Solutions, Inc."
+    },
+    {
+      "sy": "VRM",
+      "name": "Vroom, Inc."
+    },
+    {
+      "sy": "CAPN",
+      "name": "Cayson Acquisition Corp"
+    },
+    {
+      "sy": "BSPA",
+      "name": "Ballston Spa Bancorp, Inc."
+    },
+    {
+      "sy": "CEFC",
+      "name": "Commercial National Financial Corporation"
+    },
+    {
+      "sy": "BBBK",
+      "name": "Baker Boyer Bancorp"
+    },
+    {
+      "sy": "FMFG",
+      "name": "Farmers and Merchants Bancshares, Inc."
+    },
+    {
+      "sy": "FFBW",
+      "name": "FFBW, Inc."
+    },
+    {
+      "sy": "FSHP",
+      "name": "Flag Ship Acquisition Corporation"
+    },
+    {
+      "sy": "UYSC",
+      "name": "UY Scuti Acquisition Corp."
+    },
+    {
+      "sy": "LSFG",
+      "name": "Lifestore Financial Group, Inc."
+    },
+    {
+      "sy": "EURK",
+      "name": "Eureka Acquisition Corp"
+    },
+    {
+      "sy": "CIZN",
+      "name": "Citizens Holding Company"
+    },
+    {
+      "sy": "BCOW",
+      "name": "1895 Bancorp of Wisconsin, Inc."
+    },
+    {
+      "sy": "FFWC",
+      "name": "FFW Corporation"
+    },
+    {
+      "sy": "NIDB",
+      "name": "Northeast Indiana Bancorp, Inc."
+    },
+    {
+      "sy": "JMM",
+      "name": "Nuveen Multi-Market Income Fund"
+    },
+    {
+      "sy": "MBKL",
+      "name": "MBT Bancshares, Inc."
+    },
+    {
+      "sy": "STBI",
+      "name": "Sturgis Bancorp, Inc."
+    },
+    {
+      "sy": "RDAC",
+      "name": "Rising Dragon Acquisition Corp."
+    },
+    {
+      "sy": "CIBH",
+      "name": "CIB Marine Bancshares, Inc."
+    },
+    {
+      "sy": "PVBK",
+      "name": "Pacific Valley Bancorp"
+    },
+    {
+      "sy": "UNBK",
+      "name": "United National Bank"
+    },
+    {
+      "sy": "SOUB",
+      "name": "SouthPoint Bancshares, Inc."
+    },
+    {
+      "sy": "OAKV",
+      "name": "Oak View Bankshares, Inc."
+    },
+    {
+      "sy": "OSBK",
+      "name": "Oconee Financial Corporation"
+    },
+    {
+      "sy": "FGFI",
+      "name": "First Greenwich Financial, Inc."
+    },
+    {
+      "sy": "TBBC",
+      "name": "Triad Business Bank"
+    },
+    {
+      "sy": "GVYB",
+      "name": "Golden Valley Bancshares, Inc."
+    },
+    {
+      "sy": "HSPT",
+      "name": "Horizon Space Acquisition II Corp."
+    },
+    {
+      "sy": "DENI",
+      "name": "Denali Bancorporation, Inc."
+    },
+    {
+      "sy": "COLA",
+      "name": "Columbus Acquisition Corp"
+    },
+    {
+      "sy": "BKFL",
+      "name": "BankFLORIDA Bancorp, Inc."
+    },
+    {
+      "sy": "MFBP",
+      "name": "M&F Bancorp, Inc."
+    },
+    {
+      "sy": "ALCY",
+      "name": "Alchemy Investments Acquisition Corp 1"
+    },
+    {
+      "sy": "BKHA",
+      "name": "Black Hawk Acquisition Corporation"
+    },
+    {
+      "sy": "FMY",
+      "name": "First Trust Mortgage Income Fund"
+    },
+    {
+      "sy": "FSBH",
+      "name": "FSBH Corp."
+    },
+    {
+      "sy": "TCBS",
+      "name": "Texas Community Bancshares, Inc."
+    },
+    {
+      "sy": "QNTO",
+      "name": "Quaint Oak Bancorp, Inc."
+    },
+    {
+      "sy": "LUMB",
+      "name": "Lumbee Guaranty Bank"
+    },
+    {
+      "sy": "FIGP",
+      "name": "Forge Group, Inc."
+    },
+    {
+      "sy": "QETA",
+      "name": "Quetta Acquisition Corporation"
+    },
+    {
+      "sy": "MKTW",
+      "name": "MarketWise, Inc."
+    },
+    {
+      "sy": "MBBC",
+      "name": "Marathon Bancorp, Inc."
+    },
+    {
+      "sy": "ESBS",
+      "name": "ES Bancshares, Inc."
+    },
+    {
+      "sy": "CYSM",
+      "name": "Community Bancorp of Santa Maria"
+    },
+    {
+      "sy": "EQFN",
+      "name": "Equitable Financial Corp."
+    },
+    {
+      "sy": "WDFN",
+      "name": "Woodlands Financial Services Company"
+    },
+    {
+      "sy": "ALBY",
+      "name": "Community Capital Bancshares, Inc."
+    },
+    {
+      "sy": "MDVT",
+      "name": "Middlebury National Corporation"
+    },
+    {
+      "sy": "TMAK",
+      "name": "Touchmark Bancshares, Inc."
+    },
+    {
+      "sy": "DTSQ",
+      "name": "DT Cloud Star Acquisition Corporation"
+    },
+    {
+      "sy": "GSIW",
+      "name": "Garden Stage Limited"
+    },
+    {
+      "sy": "MSSAF",
+      "name": "Metal Sky Star Acquisition Corporation"
+    },
+    {
+      "sy": "GRF",
+      "name": "Eagle Capital Growth Fund, Inc."
+    },
+    {
+      "sy": "FMFP",
+      "name": "First Community Financial Corporation"
+    },
+    {
+      "sy": "ANDC",
+      "name": "Andover Bancorp, Inc."
+    },
+    {
+      "sy": "FGNX",
+      "name": "FG Nexus Inc."
+    },
+    {
+      "sy": "LKSB",
+      "name": "Lakeside Bancshares, Inc."
+    },
+    {
+      "sy": "PNBI",
+      "name": "Pioneer Bankshares, Inc."
+    },
+    {
+      "sy": "HFBA",
+      "name": "HFB Financial Corporation"
+    },
+    {
+      "sy": "HCBC",
+      "name": "High Country Bancorp, Inc."
+    },
+    {
+      "sy": "SCYT",
+      "name": "Security Bancorp, Inc."
+    },
+    {
+      "sy": "BHDB",
+      "name": "Bank of Labor Bancshares, Inc."
+    },
+    {
+      "sy": "HCKG",
+      "name": "Hocking Valley Bancshares, Inc."
+    },
+    {
+      "sy": "HERZ",
+      "name": "Herzfeld Credit Income Fund, Inc."
+    },
+    {
+      "sy": "EFSG",
+      "name": "Enterprise Financial Services Group, Inc."
+    },
+    {
+      "sy": "OTTW",
+      "name": "Ottawa Bancorp, Inc."
+    },
+    {
+      "sy": "FRFC",
+      "name": "First Robinson Financial Corporation"
+    },
+    {
+      "sy": "BAFN",
+      "name": "BayFirst Financial Corp."
+    },
+    {
+      "sy": "PCLB",
+      "name": "Pinnacle Bancshares, Inc."
+    },
+    {
+      "sy": "SSBP",
+      "name": "SSB Bancorp, Inc."
+    },
+    {
+      "sy": "BAYA",
+      "name": "Bayview Acquisition Corp"
+    },
+    {
+      "sy": "RAND",
+      "name": "Rand Capital Corporation"
+    },
+    {
+      "sy": "FBPA",
+      "name": "The Farmers Bank of Appomattox"
+    },
+    {
+      "sy": "WOBK",
+      "name": "Woodsboro Bank"
+    },
+    {
+      "sy": "PWBK",
+      "name": "Pacific West Bancorp"
+    },
+    {
+      "sy": "SFCO",
+      "name": "Southern Financial Corporation"
+    },
+    {
+      "sy": "RBNK",
+      "name": "RiverBank Holding Company"
+    },
+    {
+      "sy": "JFWV",
+      "name": "JSB Financial Inc."
+    },
+    {
+      "sy": "IBWC",
+      "name": "IBW Financial Corporation"
+    },
+    {
+      "sy": "CDAB",
+      "name": "Coeur d'Alene Bancorp, Inc."
+    },
+    {
+      "sy": "HSPOF",
+      "name": "Horizon Space Acquisition I Corp."
+    },
+    {
+      "sy": "AMFC",
+      "name": "AMB Financial Corp."
+    },
+    {
+      "sy": "COHN",
+      "name": "Cohen & Company Inc."
+    },
+    {
+      "sy": "ELMA",
+      "name": "Elmer Bancorp, Inc."
+    },
+    {
+      "sy": "PFSB",
+      "name": "PFS Bancorp, Inc."
+    },
+    {
+      "sy": "CNBZ",
+      "name": "CNB Corporation"
+    },
+    {
+      "sy": "EBSH",
+      "name": "Empire Bancshares, Inc."
+    },
+    {
+      "sy": "APLO",
+      "name": "Apollo Bancorp, Inc."
+    },
+    {
+      "sy": "VWFB",
+      "name": "VWF Bancorp, Inc."
+    },
+    {
+      "sy": "BOWN",
+      "name": "Bowen Acquisition Corp"
+    },
+    {
+      "sy": "PFBN",
+      "name": "Pacific Alliance Bank"
+    },
+    {
+      "sy": "HCGI",
+      "name": "Huntwicke Capital Group Inc."
+    },
+    {
+      "sy": "ASPC",
+      "name": "A SPAC III Acquisition Corp."
+    },
+    {
+      "sy": "GTPS",
+      "name": "Great American Bancorp, Inc."
+    },
+    {
+      "sy": "MNBO",
+      "name": "MNB Holdings Corporation"
+    },
+    {
+      "sy": "ECLP",
+      "name": "Eclipse Bancorp, Inc."
+    },
+    {
+      "sy": "HRBK",
+      "name": "Harbor Bankshares Corporation"
+    },
+    {
+      "sy": "FBPI",
+      "name": "First Bancorp of Indiana, Inc."
+    },
+    {
+      "sy": "WVFC",
+      "name": "WVS Financial Corp."
+    },
+    {
+      "sy": "FPBC",
+      "name": "First Pacific Bancorp"
+    },
+    {
+      "sy": "HRGG",
+      "name": "Heritage NOLA Bancorp, Inc."
+    },
+    {
+      "sy": "TETAA",
+      "name": "Teton Advisors, LLC"
+    },
+    {
+      "sy": "CNAF",
+      "name": "Commercial National Financial Corporation"
+    },
+    {
+      "sy": "BCCB",
+      "name": "Beach Cities Commercial Bank"
+    },
+    {
+      "sy": "SNNF",
+      "name": "Seneca Bancorp, Inc."
+    },
+    {
+      "sy": "FIBH",
+      "name": "First Bancshares, Inc."
+    },
+    {
+      "sy": "MCHT",
+      "name": "Mauch Chunk Trust Financial Corp."
+    },
+    {
+      "sy": "GOVB",
+      "name": "Gouverneur Bancorp, Inc."
+    },
+    {
+      "sy": "UNTN",
+      "name": "United Tennessee Bankshares, Inc."
+    },
+    {
+      "sy": "MKIN",
+      "name": "MCNB Banks, Inc."
+    },
+    {
+      "sy": "LOGN",
+      "name": "Logansport Financial Corp."
+    },
+    {
+      "sy": "CTYP",
+      "name": "Community Bankers' Corporation"
+    },
+    {
+      "sy": "TDCB",
+      "name": "Third Century Bancorp"
+    },
+    {
+      "sy": "CIBN",
+      "name": "Community Investors Bancorp, Inc."
+    },
+    {
+      "sy": "JTNB",
+      "name": "JTNB Bancorp, Inc."
+    },
+    {
+      "sy": "CRZY",
+      "name": "Crazy Woman Creek Bancorp Incorporated"
+    },
+    {
+      "sy": "BHV",
+      "name": "BlackRock Virginia Municipal Bond Trust"
+    },
+    {
+      "sy": "TVLF",
+      "name": "Tennessee Valley Financial Holdings, Inc."
+    },
+    {
+      "sy": "MSBB",
+      "name": "Mercer Bancorp, Inc."
+    },
+    {
+      "sy": "FIDS",
+      "name": "FNB, Inc."
+    },
+    {
+      "sy": "CCYY",
+      "name": "CCCB Bancorp, Inc."
+    },
+    {
+      "sy": "TBBA",
+      "name": "TEB Bancorp, Inc"
+    },
+    {
+      "sy": "TCNB",
+      "name": "Town Center Bank"
+    },
+    {
+      "sy": "GVFF",
+      "name": "Greenville Federal Financial Corporation"
+    },
+    {
+      "sy": "ACMTA",
+      "name": "ACMAT Corporation"
+    },
+    {
+      "sy": "ERKH",
+      "name": "Eureka Homestead Bancorp, Inc."
+    },
+    {
+      "sy": "ASCN",
+      "name": "Absecon Bancorp"
+    },
+    {
+      "sy": "FNFI",
+      "name": "First Niles Financial, Inc."
+    },
+    {
+      "sy": "WCFB",
+      "name": "WCF Bancorp, Inc."
+    },
+    {
+      "sy": "FXBY",
+      "name": "Foxby Corp."
+    },
+    {
+      "sy": "ELLH",
+      "name": "Elah Holdings, Inc."
+    },
+    {
+      "sy": "FSGB",
+      "name": "1st Federal Savings Bank of SC, Inc."
+    },
+    {
+      "sy": "SRNN",
+      "name": "The Southern Banc Company, Inc."
+    },
+    {
+      "sy": "VERF",
+      "name": "Versailles Financial Corporation"
+    },
+    {
+      "sy": "BAKR",
+      "name": "Baker Global Asset Management Inc."
+    },
+    {
+      "sy": "WNMLA",
+      "name": "Winmill & Co. Incorporated"
+    },
+    {
+      "sy": "EWSB",
+      "name": "EWSB Bancorp, Inc."
+    },
+    {
+      "sy": "MFBI",
+      "name": "Monroe Federal Bancorp, Inc."
+    },
+    {
+      "sy": "IPST",
+      "name": "IP Strategy Holdings, Inc."
+    },
+    {
+      "sy": "ABBB",
+      "name": "Auburn Bancorp, Inc."
+    },
+    {
+      "sy": "LINSA",
+      "name": "Life Insurance Company Of Alabama"
+    },
+    {
+      "sy": "BUSC",
+      "name": "Blue Star Global, Inc."
+    },
+    {
+      "sy": "DEFG",
+      "name": "Grayscale Decentralized Finance (DeFi) Fund LLC"
+    },
+    {
+      "sy": "ACAA",
+      "name": "Averin Capital Acquisition Corp."
+    },
+    {
+      "sy": "BGDE",
+      "name": "Big Digital Energy, Inc."
+    },
+    {
+      "sy": "BHAV",
+      "name": "BHAV Acquisition Corp"
+    },
+    {
+      "sy": "BOT",
+      "name": "Robostrategy, Inc."
+    },
+    {
+      "sy": "BREZU",
+      "name": "Breeze Acquisition Corp. II"
+    },
+    {
+      "sy": "BWIV",
+      "name": "Blue Water Acquisition Corp. IV"
+    },
+    {
+      "sy": "DYNC",
+      "name": "Dynamix Corporation"
+    },
+    {
+      "sy": "GLED",
+      "name": "GalaxyEdge Acquisition Corporation"
+    },
+    {
+      "sy": "ILLU",
+      "name": "Illumination Acquisition Corp I"
+    },
+    {
+      "sy": "IPFXU",
+      "name": "Inflection Point Acquisition Corp. VI"
+    },
+    {
+      "sy": "JATT",
+      "name": "JATT II Acquisition Corp."
+    },
+    {
+      "sy": "MTAL",
+      "name": "Metals Acquisition Corp. II"
+    },
+    {
+      "sy": "MYX",
+      "name": "Maywood Acquisition Corp. 2 Class A Ordinary Share"
+    },
+    {
+      "sy": "MZYX",
+      "name": "MOZAYYX Acquisition Corp."
+    },
+    {
+      "sy": "PAAC",
+      "name": "Proem Acquisition Corp I"
+    },
+    {
+      "sy": "PALO",
+      "name": "Paloma Acquisition Corp I"
+    },
+    {
+      "sy": "PLGO",
+      "name": "Pelagos Insurance Capital Limit"
+    },
+    {
+      "sy": "PONO",
+      "name": "Pono Capital Four, Inc."
+    },
+    {
+      "sy": "PS",
+      "name": "Pershing Square Inc."
+    },
+    {
+      "sy": "QRED",
+      "name": "Quasaredge Acquisition Corporation"
+    },
+    {
+      "sy": "SPMA",
+      "name": "Sound Point Meridian Capital, Inc."
+    },
+    {
+      "sy": "SUMA",
+      "name": "SUMA Acquisition Corporation"
+    },
+    {
+      "sy": "TRAD",
+      "name": "Apex Tech Acquisition Inc."
+    },
+    {
+      "sy": "TRGS",
+      "name": "TRG Latin America Acquisitions Corp."
+    },
+    {
+      "sy": "URSB",
+      "name": "URSB Bancorp, Inc."
+    },
+    {
+      "sy": "WENC",
+      "name": "West Enclave Merger Corp."
+    }
+  ]
+}

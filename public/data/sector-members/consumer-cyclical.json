@@ -1,0 +1,1429 @@
+{
+  "sectorId": "consumer_cyclical",
+  "sectorLabel": "Consumer Cyclical",
+  "yahooScrId": "sec-ind_sec-largest-equities_consumer-cyclical",
+  "updated": "2026-05-17",
+  "count": 355,
+  "tickers": [
+    {
+      "sy": "AMZN",
+      "name": "Amazon.com, Inc."
+    },
+    {
+      "sy": "TSLA",
+      "name": "Tesla, Inc."
+    },
+    {
+      "sy": "HD",
+      "name": "The Home Depot, Inc."
+    },
+    {
+      "sy": "MCD",
+      "name": "McDonald's Corporation"
+    },
+    {
+      "sy": "TJX",
+      "name": "The TJX Companies, Inc."
+    },
+    {
+      "sy": "LOW",
+      "name": "Lowe's Companies, Inc."
+    },
+    {
+      "sy": "SBUX",
+      "name": "Starbucks Corporation"
+    },
+    {
+      "sy": "BKNG",
+      "name": "Booking Holdings Inc."
+    },
+    {
+      "sy": "MAR",
+      "name": "Marriott International, Inc."
+    },
+    {
+      "sy": "ABNB",
+      "name": "Airbnb, Inc."
+    },
+    {
+      "sy": "MELI",
+      "name": "MercadoLibre, Inc."
+    },
+    {
+      "sy": "ORLY",
+      "name": "O'Reilly Automotive, Inc."
+    },
+    {
+      "sy": "HLT",
+      "name": "Hilton Worldwide Holdings Inc."
+    },
+    {
+      "sy": "RCL",
+      "name": "Royal Caribbean Cruises Ltd."
+    },
+    {
+      "sy": "DASH",
+      "name": "DoorDash, Inc."
+    },
+    {
+      "sy": "ROST",
+      "name": "Ross Stores, Inc."
+    },
+    {
+      "sy": "GM",
+      "name": "General Motors Company"
+    },
+    {
+      "sy": "NKE",
+      "name": "NIKE, Inc."
+    },
+    {
+      "sy": "AZO",
+      "name": "AutoZone, Inc."
+    },
+    {
+      "sy": "F",
+      "name": "Ford Motor Company"
+    },
+    {
+      "sy": "EBAY",
+      "name": "eBay Inc."
+    },
+    {
+      "sy": "CVNA",
+      "name": "Carvana Co."
+    },
+    {
+      "sy": "CMG",
+      "name": "Chipotle Mexican Grill, Inc."
+    },
+    {
+      "sy": "YUM",
+      "name": "Yum! Brands, Inc."
+    },
+    {
+      "sy": "DHI",
+      "name": "D.R. Horton, Inc."
+    },
+    {
+      "sy": "VIK",
+      "name": "Viking Holdings Ltd"
+    },
+    {
+      "sy": "CCL",
+      "name": "Carnival Corporation Ltd."
+    },
+    {
+      "sy": "LVS",
+      "name": "Las Vegas Sands Corp."
+    },
+    {
+      "sy": "CASY",
+      "name": "Casey's General Stores, Inc."
+    },
+    {
+      "sy": "CPNG",
+      "name": "Coupang, Inc."
+    },
+    {
+      "sy": "EXPE",
+      "name": "Expedia Group, Inc."
+    },
+    {
+      "sy": "TPR",
+      "name": "Tapestry, Inc."
+    },
+    {
+      "sy": "ROL",
+      "name": "Rollins, Inc."
+    },
+    {
+      "sy": "DRI",
+      "name": "Darden Restaurants, Inc."
+    },
+    {
+      "sy": "ULTA",
+      "name": "Ulta Beauty, Inc."
+    },
+    {
+      "sy": "PHM",
+      "name": "PulteGroup, Inc."
+    },
+    {
+      "sy": "LEN",
+      "name": "Lennar Corporation"
+    },
+    {
+      "sy": "WSM",
+      "name": "Williams-Sonoma, Inc."
+    },
+    {
+      "sy": "RL",
+      "name": "Ralph Lauren Corporation"
+    },
+    {
+      "sy": "SW",
+      "name": "Smurfit Westrock Plc"
+    },
+    {
+      "sy": "DKS",
+      "name": "DICK'S Sporting Goods, Inc."
+    },
+    {
+      "sy": "AS",
+      "name": "Amer Sports, Inc."
+    },
+    {
+      "sy": "PKG",
+      "name": "Packaging Corporation of America"
+    },
+    {
+      "sy": "RIVN",
+      "name": "Rivian Automotive, Inc."
+    },
+    {
+      "sy": "BURL",
+      "name": "Burlington Stores, Inc."
+    },
+    {
+      "sy": "AMCR",
+      "name": "Amcor plc"
+    },
+    {
+      "sy": "TSCO",
+      "name": "Tractor Supply Company"
+    },
+    {
+      "sy": "IP",
+      "name": "International Paper Company"
+    },
+    {
+      "sy": "FLUT",
+      "name": "Flutter Entertainment plc"
+    },
+    {
+      "sy": "YUMC",
+      "name": "Yum China Holdings, Inc."
+    },
+    {
+      "sy": "H",
+      "name": "Hyatt Hotels Corporation"
+    },
+    {
+      "sy": "AUR",
+      "name": "Aurora Innovation, Inc."
+    },
+    {
+      "sy": "NVR",
+      "name": "NVR, Inc."
+    },
+    {
+      "sy": "SN",
+      "name": "SharkNinja, Inc."
+    },
+    {
+      "sy": "BALL",
+      "name": "Ball Corporation"
+    },
+    {
+      "sy": "MOD",
+      "name": "Modine Manufacturing Company"
+    },
+    {
+      "sy": "LULU",
+      "name": "lululemon athletica inc."
+    },
+    {
+      "sy": "HAS",
+      "name": "Hasbro, Inc."
+    },
+    {
+      "sy": "DECK",
+      "name": "Deckers Outdoor Corporation"
+    },
+    {
+      "sy": "SGI",
+      "name": "Somnigroup International Inc."
+    },
+    {
+      "sy": "BWA",
+      "name": "BorgWarner Inc."
+    },
+    {
+      "sy": "GPC",
+      "name": "Genuine Parts Company"
+    },
+    {
+      "sy": "ONON",
+      "name": "On Holding AG"
+    },
+    {
+      "sy": "DKNG",
+      "name": "DraftKings Inc."
+    },
+    {
+      "sy": "TOL",
+      "name": "Toll Brothers, Inc."
+    },
+    {
+      "sy": "AVY",
+      "name": "Avery Dennison Corporation"
+    },
+    {
+      "sy": "BBY",
+      "name": "Best Buy Co., Inc."
+    },
+    {
+      "sy": "FIVE",
+      "name": "Five Below, Inc."
+    },
+    {
+      "sy": "TXRH",
+      "name": "Texas Roadhouse, Inc."
+    },
+    {
+      "sy": "APTV",
+      "name": "Aptiv PLC"
+    },
+    {
+      "sy": "CCK",
+      "name": "Crown Holdings, Inc."
+    },
+    {
+      "sy": "SCI",
+      "name": "Service Corporation International"
+    },
+    {
+      "sy": "PAG",
+      "name": "Penske Automotive Group, Inc."
+    },
+    {
+      "sy": "MUSA",
+      "name": "Murphy USA Inc."
+    },
+    {
+      "sy": "DPZ",
+      "name": "Domino's Pizza, Inc."
+    },
+    {
+      "sy": "ALTB",
+      "name": "Alpine Auto Brokers Inc."
+    },
+    {
+      "sy": "WYNN",
+      "name": "Wynn Resorts, Limited"
+    },
+    {
+      "sy": "ALSN",
+      "name": "Allison Transmission Holdings, Inc."
+    },
+    {
+      "sy": "GME",
+      "name": "GameStop Corp."
+    },
+    {
+      "sy": "MGM",
+      "name": "MGM Resorts International"
+    },
+    {
+      "sy": "CART",
+      "name": "Maplebear Inc."
+    },
+    {
+      "sy": "CAVA",
+      "name": "CAVA Group, Inc."
+    },
+    {
+      "sy": "CHWY",
+      "name": "Chewy, Inc."
+    },
+    {
+      "sy": "ALV",
+      "name": "Autoliv, Inc."
+    },
+    {
+      "sy": "MBLY",
+      "name": "Mobileye Global Inc."
+    },
+    {
+      "sy": "DDS",
+      "name": "Dillard's, Inc."
+    },
+    {
+      "sy": "LEVI",
+      "name": "Levi Strauss & Co."
+    },
+    {
+      "sy": "GAP",
+      "name": "The Gap, Inc."
+    },
+    {
+      "sy": "W",
+      "name": "Wayfair Inc."
+    },
+    {
+      "sy": "LTH",
+      "name": "Life Time Group Holdings, Inc."
+    },
+    {
+      "sy": "NCLH",
+      "name": "Norwegian Cruise Line Holdings Ltd."
+    },
+    {
+      "sy": "BROS",
+      "name": "Dutch Bros Inc."
+    },
+    {
+      "sy": "SGHC",
+      "name": "Super Group (SGHC) Limited"
+    },
+    {
+      "sy": "LEA",
+      "name": "Lear Corporation"
+    },
+    {
+      "sy": "VFC",
+      "name": "V.F. Corporation"
+    },
+    {
+      "sy": "LKQ",
+      "name": "LKQ Corporation"
+    },
+    {
+      "sy": "AN",
+      "name": "AutoNation, Inc."
+    },
+    {
+      "sy": "CHDN",
+      "name": "Churchill Downs Incorporated"
+    },
+    {
+      "sy": "SIG",
+      "name": "Signet Jewelers Limited"
+    },
+    {
+      "sy": "LAD",
+      "name": "Lithia Motors, Inc."
+    },
+    {
+      "sy": "WH",
+      "name": "Wyndham Hotels & Resorts, Inc."
+    },
+    {
+      "sy": "URBN",
+      "name": "Urban Outfitters, Inc."
+    },
+    {
+      "sy": "MHK",
+      "name": "Mohawk Industries, Inc."
+    },
+    {
+      "sy": "EAT",
+      "name": "Brinker International, Inc."
+    },
+    {
+      "sy": "BYD",
+      "name": "Boyd Gaming Corporation"
+    },
+    {
+      "sy": "GTX",
+      "name": "Garrett Motion Inc."
+    },
+    {
+      "sy": "BIRK",
+      "name": "Birkenstock Holding plc"
+    },
+    {
+      "sy": "CZR",
+      "name": "Caesars Entertainment, Inc."
+    },
+    {
+      "sy": "IBP",
+      "name": "Installed Building Products, Inc."
+    },
+    {
+      "sy": "ETSY",
+      "name": "Etsy, Inc."
+    },
+    {
+      "sy": "RUSHA",
+      "name": "Rush Enterprises, Inc."
+    },
+    {
+      "sy": "KMX",
+      "name": "CarMax, Inc."
+    },
+    {
+      "sy": "TMHC",
+      "name": "Taylor Morrison Home Corporation"
+    },
+    {
+      "sy": "BC",
+      "name": "Brunswick Corporation"
+    },
+    {
+      "sy": "GOLF",
+      "name": "Acushnet Holdings Corp."
+    },
+    {
+      "sy": "QS",
+      "name": "QuantumScape Corporation"
+    },
+    {
+      "sy": "GBTG",
+      "name": "Global Business Travel Group, Inc."
+    },
+    {
+      "sy": "GNTX",
+      "name": "Gentex Corporation"
+    },
+    {
+      "sy": "CHH",
+      "name": "Choice Hotels International, Inc."
+    },
+    {
+      "sy": "M",
+      "name": "Macy's, Inc."
+    },
+    {
+      "sy": "ALH",
+      "name": "Alliance Laundry Holdings Inc."
+    },
+    {
+      "sy": "HRB",
+      "name": "H&R Block, Inc."
+    },
+    {
+      "sy": "CROX",
+      "name": "Crocs, Inc."
+    },
+    {
+      "sy": "FND",
+      "name": "Floor & Decor Holdings, Inc."
+    },
+    {
+      "sy": "GLBE",
+      "name": "Global-E Online Ltd."
+    },
+    {
+      "sy": "SON",
+      "name": "Sonoco Products Company"
+    },
+    {
+      "sy": "REYN",
+      "name": "Reynolds Consumer Products Inc."
+    },
+    {
+      "sy": "MAT",
+      "name": "Mattel, Inc."
+    },
+    {
+      "sy": "BOOT",
+      "name": "Boot Barn Holdings, Inc."
+    },
+    {
+      "sy": "MTN",
+      "name": "Vail Resorts, Inc."
+    },
+    {
+      "sy": "FTDR",
+      "name": "Frontdoor, Inc."
+    },
+    {
+      "sy": "ATMU",
+      "name": "Atmus Filtration Technologies Inc."
+    },
+    {
+      "sy": "PLNT",
+      "name": "Planet Fitness, Inc."
+    },
+    {
+      "sy": "VVV",
+      "name": "Valvoline Inc."
+    },
+    {
+      "sy": "MMYT",
+      "name": "MakeMyTrip Limited"
+    },
+    {
+      "sy": "TPH",
+      "name": "Tri Pointe Homes, Inc."
+    },
+    {
+      "sy": "ANDG",
+      "name": "Andersen Group Inc."
+    },
+    {
+      "sy": "MTH",
+      "name": "Meritage Homes Corporation"
+    },
+    {
+      "sy": "TNL",
+      "name": "Travel + Leisure Co."
+    },
+    {
+      "sy": "THO",
+      "name": "THOR Industries, Inc."
+    },
+    {
+      "sy": "SLGN",
+      "name": "Silgan Holdings Inc."
+    },
+    {
+      "sy": "GPI",
+      "name": "Group 1 Automotive, Inc."
+    },
+    {
+      "sy": "OPLN",
+      "name": "OPENLANE, Inc."
+    },
+    {
+      "sy": "PII",
+      "name": "Polaris Inc."
+    },
+    {
+      "sy": "SKY",
+      "name": "Champion Homes, Inc."
+    },
+    {
+      "sy": "PVH",
+      "name": "PVH Corp."
+    },
+    {
+      "sy": "VSCO",
+      "name": "Victoria's Secret & Co."
+    },
+    {
+      "sy": "DAN",
+      "name": "Dana Incorporated"
+    },
+    {
+      "sy": "BFAM",
+      "name": "Bright Horizons Family Solutions Inc."
+    },
+    {
+      "sy": "HGV",
+      "name": "Hilton Grand Vacations Inc."
+    },
+    {
+      "sy": "GEF",
+      "name": "Greif, Inc."
+    },
+    {
+      "sy": "CVCO",
+      "name": "Cavco Industries, Inc."
+    },
+    {
+      "sy": "WING",
+      "name": "Wingstop Inc."
+    },
+    {
+      "sy": "DORM",
+      "name": "Dorman Products, Inc."
+    },
+    {
+      "sy": "BBWI",
+      "name": "Bath & Body Works, Inc."
+    },
+    {
+      "sy": "KTB",
+      "name": "Kontoor Brands, Inc."
+    },
+    {
+      "sy": "ZGN",
+      "name": "Ermenegildo Zegna N.V."
+    },
+    {
+      "sy": "ABG",
+      "name": "Asbury Automotive Group, Inc."
+    },
+    {
+      "sy": "ASO",
+      "name": "Academy Sports and Outdoors, Inc."
+    },
+    {
+      "sy": "YETI",
+      "name": "YETI Holdings, Inc."
+    },
+    {
+      "sy": "ANF",
+      "name": "Abercrombie & Fitch Co."
+    },
+    {
+      "sy": "MHO",
+      "name": "M/I Homes, Inc."
+    },
+    {
+      "sy": "VGNT",
+      "name": "Versigent PLC"
+    },
+    {
+      "sy": "RRR",
+      "name": "Red Rock Resorts, Inc."
+    },
+    {
+      "sy": "PATK",
+      "name": "Patrick Industries, Inc."
+    },
+    {
+      "sy": "CAKE",
+      "name": "The Cheesecake Factory Incorporated"
+    },
+    {
+      "sy": "COLM",
+      "name": "Columbia Sportswear Company"
+    },
+    {
+      "sy": "VC",
+      "name": "Visteon Corporation"
+    },
+    {
+      "sy": "GPK",
+      "name": "Graphic Packaging Holding Company"
+    },
+    {
+      "sy": "AAP",
+      "name": "Advance Auto Parts, Inc."
+    },
+    {
+      "sy": "SHOO",
+      "name": "Steven Madden, Ltd."
+    },
+    {
+      "sy": "KBH",
+      "name": "KB Home"
+    },
+    {
+      "sy": "PHIN",
+      "name": "PHINIA Inc."
+    },
+    {
+      "sy": "RSI",
+      "name": "Rush Street Interactive, Inc."
+    },
+    {
+      "sy": "CALY",
+      "name": "Callaway Golf Company"
+    },
+    {
+      "sy": "LCII",
+      "name": "LCI Industries"
+    },
+    {
+      "sy": "GRBK",
+      "name": "Green Brick Partners, Inc."
+    },
+    {
+      "sy": "HOG",
+      "name": "Harley-Davidson, Inc."
+    },
+    {
+      "sy": "WHR",
+      "name": "Whirlpool Corporation"
+    },
+    {
+      "sy": "CARG",
+      "name": "CarGurus, Inc."
+    },
+    {
+      "sy": "AEO",
+      "name": "American Eagle Outfitters, Inc."
+    },
+    {
+      "sy": "PLBL",
+      "name": "Polibeli Group Ltd"
+    },
+    {
+      "sy": "BKE",
+      "name": "The Buckle, Inc."
+    },
+    {
+      "sy": "SHAK",
+      "name": "Shake Shack Inc."
+    },
+    {
+      "sy": "VAC",
+      "name": "Marriott Vacations Worldwide Corporation"
+    },
+    {
+      "sy": "OSW",
+      "name": "OneSpaWorld Holdings Limited"
+    },
+    {
+      "sy": "LCID",
+      "name": "Lucid Group, Inc."
+    },
+    {
+      "sy": "SAH",
+      "name": "Sonic Automotive, Inc."
+    },
+    {
+      "sy": "MCW",
+      "name": "Mister Car Wash, Inc."
+    },
+    {
+      "sy": "RH",
+      "name": "RH"
+    },
+    {
+      "sy": "PTON",
+      "name": "Peloton Interactive, Inc."
+    },
+    {
+      "sy": "UAA",
+      "name": "Under Armour, Inc."
+    },
+    {
+      "sy": "FUN",
+      "name": "Six Flags Entertainment Corporation"
+    },
+    {
+      "sy": "PENN",
+      "name": "PENN Entertainment, Inc."
+    },
+    {
+      "sy": "HNI",
+      "name": "HNI Corporation"
+    },
+    {
+      "sy": "DRVN",
+      "name": "Driven Brands Holdings Inc."
+    },
+    {
+      "sy": "MCRI",
+      "name": "Monarch Casino & Resort, Inc."
+    },
+    {
+      "sy": "CPRI",
+      "name": "Capri Holdings Limited"
+    },
+    {
+      "sy": "BRSL",
+      "name": "Brightstar Lottery PLC"
+    },
+    {
+      "sy": "FIGS",
+      "name": "FIGS, Inc."
+    },
+    {
+      "sy": "CYD",
+      "name": "China Yuchai International Limited"
+    },
+    {
+      "sy": "AIN",
+      "name": "Albany International Corp."
+    },
+    {
+      "sy": "ARCO",
+      "name": "Arcos Dorados Holdings Inc."
+    },
+    {
+      "sy": "PRKS",
+      "name": "United Parks & Resorts Inc."
+    },
+    {
+      "sy": "ADNT",
+      "name": "Adient plc"
+    },
+    {
+      "sy": "TILE",
+      "name": "Interface, Inc."
+    },
+    {
+      "sy": "GT",
+      "name": "The Goodyear Tire & Rubber Company"
+    },
+    {
+      "sy": "BOBS",
+      "name": "Bob's Discount Furniture, Inc."
+    },
+    {
+      "sy": "WEN",
+      "name": "The Wendy's Company"
+    },
+    {
+      "sy": "DCH",
+      "name": "Dauch Corporation"
+    },
+    {
+      "sy": "LZB",
+      "name": "La-Z-Boy Incorporated"
+    },
+    {
+      "sy": "EYE",
+      "name": "National Vision Holdings, Inc."
+    },
+    {
+      "sy": "TRS",
+      "name": "TriMas Corporation"
+    },
+    {
+      "sy": "RVLV",
+      "name": "Revolve Group, Inc."
+    },
+    {
+      "sy": "KSS",
+      "name": "Kohl's Corporation"
+    },
+    {
+      "sy": "OI",
+      "name": "O-I Glass, Inc."
+    },
+    {
+      "sy": "WWW",
+      "name": "Wolverine World Wide, Inc."
+    },
+    {
+      "sy": "WINA",
+      "name": "Winmark Corporation"
+    },
+    {
+      "sy": "LEG",
+      "name": "Leggett & Platt, Incorporated"
+    },
+    {
+      "sy": "CRI",
+      "name": "Carter's, Inc."
+    },
+    {
+      "sy": "LIND",
+      "name": "Lindblad Expeditions Holdings, Inc."
+    },
+    {
+      "sy": "GIII",
+      "name": "G-III Apparel Group, Ltd."
+    },
+    {
+      "sy": "DFH",
+      "name": "Dream Finders Homes, Inc."
+    },
+    {
+      "sy": "XPEL",
+      "name": "XPEL, Inc."
+    },
+    {
+      "sy": "PZZA",
+      "name": "Papa John's International, Inc."
+    },
+    {
+      "sy": "PRSU",
+      "name": "Pursuit Attractions and Hospitality, Inc."
+    },
+    {
+      "sy": "SBH",
+      "name": "Sally Beauty Holdings, Inc."
+    },
+    {
+      "sy": "LUCK",
+      "name": "Lucky Strike Entertainment Corporation"
+    },
+    {
+      "sy": "TRIP",
+      "name": "Tripadvisor, Inc."
+    },
+    {
+      "sy": "SVV",
+      "name": "Savers Value Village, Inc."
+    },
+    {
+      "sy": "REAL",
+      "name": "The RealReal, Inc."
+    },
+    {
+      "sy": "ACVA",
+      "name": "ACV Auctions Inc."
+    },
+    {
+      "sy": "LQDT",
+      "name": "Liquidity Services, Inc."
+    },
+    {
+      "sy": "PLOW",
+      "name": "Douglas Dynamics, Inc."
+    },
+    {
+      "sy": "MLKN",
+      "name": "MillerKnoll, Inc."
+    },
+    {
+      "sy": "SG",
+      "name": "Sweetgreen, Inc."
+    },
+    {
+      "sy": "ACEL",
+      "name": "Accel Entertainment, Inc."
+    },
+    {
+      "sy": "LGIH",
+      "name": "LGI Homes, Inc."
+    },
+    {
+      "sy": "THRM",
+      "name": "Gentherm Incorporated"
+    },
+    {
+      "sy": "MBC",
+      "name": "MasterBrand, Inc."
+    },
+    {
+      "sy": "BJRI",
+      "name": "BJ's Restaurants, Inc."
+    },
+    {
+      "sy": "BH",
+      "name": "Biglari Holdings Inc."
+    },
+    {
+      "sy": "MYE",
+      "name": "Myers Industries, Inc."
+    },
+    {
+      "sy": "SMP",
+      "name": "Standard Motor Products, Inc."
+    },
+    {
+      "sy": "WGO",
+      "name": "Winnebago Industries, Inc."
+    },
+    {
+      "sy": "ARHS",
+      "name": "Arhaus, Inc."
+    },
+    {
+      "sy": "ARKO",
+      "name": "Arko Corp."
+    },
+    {
+      "sy": "HZO",
+      "name": "MarineMax, Inc."
+    },
+    {
+      "sy": "FWRG",
+      "name": "First Watch Restaurant Group, Inc."
+    },
+    {
+      "sy": "BLMN",
+      "name": "Bloomin' Brands, Inc."
+    },
+    {
+      "sy": "CBRL",
+      "name": "Cracker Barrel Old Country Store, Inc."
+    },
+    {
+      "sy": "CSV",
+      "name": "Carriage Services, Inc."
+    },
+    {
+      "sy": "FOXF",
+      "name": "Fox Factory Holding Corp."
+    },
+    {
+      "sy": "ELA",
+      "name": "Envela Corporation"
+    },
+    {
+      "sy": "KRUS",
+      "name": "Kura Sushi USA, Inc."
+    },
+    {
+      "sy": "BZH",
+      "name": "Beazer Homes USA, Inc."
+    },
+    {
+      "sy": "MOV",
+      "name": "Movado Group, Inc."
+    },
+    {
+      "sy": "BWMX",
+      "name": "Betterware de México, S.A.P.I. de C.V."
+    },
+    {
+      "sy": "OXM",
+      "name": "Oxford Industries, Inc."
+    },
+    {
+      "sy": "CNNE",
+      "name": "Cannae Holdings, Inc."
+    },
+    {
+      "sy": "HOV",
+      "name": "Hovnanian Enterprises, Inc."
+    },
+    {
+      "sy": "BALY",
+      "name": "Bally's Corporation"
+    },
+    {
+      "sy": "KRT",
+      "name": "Karat Packaging Inc."
+    },
+    {
+      "sy": "MLR",
+      "name": "Miller Industries, Inc."
+    },
+    {
+      "sy": "WCHS",
+      "name": "Digital Energy Reserve Inc"
+    },
+    {
+      "sy": "LEGH",
+      "name": "Legacy Housing Corporation"
+    },
+    {
+      "sy": "XWIN",
+      "name": "XMax Inc."
+    },
+    {
+      "sy": "MBUU",
+      "name": "Malibu Boats, Inc."
+    },
+    {
+      "sy": "AMWD",
+      "name": "American Woodmark Corporation"
+    },
+    {
+      "sy": "PACK",
+      "name": "Ranpak Holdings Corp."
+    },
+    {
+      "sy": "ETD",
+      "name": "Ethan Allen Interiors Inc."
+    },
+    {
+      "sy": "CPS",
+      "name": "Cooper-Standard Holdings Inc."
+    },
+    {
+      "sy": "MNRO",
+      "name": "Monro, Inc."
+    },
+    {
+      "sy": "BBW",
+      "name": "Build-A-Bear Workshop, Inc."
+    },
+    {
+      "sy": "SCVL",
+      "name": "Shoe Carnival, Inc."
+    },
+    {
+      "sy": "JOUT",
+      "name": "Johnson Outdoors Inc."
+    },
+    {
+      "sy": "NEGG",
+      "name": "Newegg Commerce, Inc."
+    },
+    {
+      "sy": "CDRO",
+      "name": "Codere Online Luxembourg, S.A."
+    },
+    {
+      "sy": "CWH",
+      "name": "Camping World Holdings, Inc."
+    },
+    {
+      "sy": "NATH",
+      "name": "Nathan's Famous, Inc."
+    },
+    {
+      "sy": "LOCO",
+      "name": "El Pollo Loco Holdings, Inc."
+    },
+    {
+      "sy": "LOGC",
+      "name": "ContextLogic Holdings Inc."
+    },
+    {
+      "sy": "ZUMZ",
+      "name": "Zumiez Inc."
+    },
+    {
+      "sy": "MCFT",
+      "name": "MasterCraft Boat Holdings, Inc."
+    },
+    {
+      "sy": "DIN",
+      "name": "Dine Brands Global, Inc."
+    },
+    {
+      "sy": "CAL",
+      "name": "Caleres, Inc."
+    },
+    {
+      "sy": "CVEO",
+      "name": "Civeo Corporation"
+    },
+    {
+      "sy": "GCO",
+      "name": "Genesco Inc."
+    },
+    {
+      "sy": "CTRN",
+      "name": "Citi Trends, Inc."
+    },
+    {
+      "sy": "LE",
+      "name": "Lands' End, Inc."
+    },
+    {
+      "sy": "HVT",
+      "name": "Haverty Furniture Companies, Inc."
+    },
+    {
+      "sy": "WEYS",
+      "name": "Weyco Group, Inc."
+    },
+    {
+      "sy": "DBI",
+      "name": "Designer Brands Inc."
+    },
+    {
+      "sy": "KFS",
+      "name": "Kingsway Financial Services Inc."
+    },
+    {
+      "sy": "BNED",
+      "name": "Barnes & Noble Education, Inc."
+    },
+    {
+      "sy": "RDNW",
+      "name": "RideNow Group, Inc."
+    },
+    {
+      "sy": "FNKO",
+      "name": "Funko, Inc."
+    },
+    {
+      "sy": "MPX",
+      "name": "Marine Products Corporation"
+    },
+    {
+      "sy": "STRT",
+      "name": "Strattec Security Corporation"
+    },
+    {
+      "sy": "RCKY",
+      "name": "Rocky Brands, Inc."
+    },
+    {
+      "sy": "ESCA",
+      "name": "Escalade, Incorporated"
+    },
+    {
+      "sy": "HBB",
+      "name": "Hamilton Beach Brands Holding Company"
+    },
+    {
+      "sy": "JAKK",
+      "name": "JAKKS Pacific, Inc."
+    },
+    {
+      "sy": "JPO",
+      "name": "YieldMax JP Option Income Strategy ETF"
+    },
+    {
+      "sy": "LOVE",
+      "name": "The Lovesac Company"
+    },
+    {
+      "sy": "FLXS",
+      "name": "Flexsteel Industries, Inc."
+    },
+    {
+      "sy": "MPAA",
+      "name": "Motorcar Parts of America, Inc."
+    },
+    {
+      "sy": "JACK",
+      "name": "Jack in the Box Inc."
+    },
+    {
+      "sy": "INSE",
+      "name": "Inspired Entertainment, Inc."
+    },
+    {
+      "sy": "SRI",
+      "name": "Stoneridge, Inc."
+    },
+    {
+      "sy": "RICK",
+      "name": "RCI Hospitality Holdings, Inc."
+    },
+    {
+      "sy": "JILL",
+      "name": "J.Jill, Inc."
+    },
+    {
+      "sy": "SGC",
+      "name": "Superior Group of Companies, Inc."
+    },
+    {
+      "sy": "ONEW",
+      "name": "OneWater Marine Inc."
+    },
+    {
+      "sy": "NUTR",
+      "name": "NusaTrip Incorporated"
+    },
+    {
+      "sy": "CVGI",
+      "name": "Commercial Vehicle Group, Inc."
+    },
+    {
+      "sy": "LCUT",
+      "name": "Lifetime Brands, Inc."
+    },
+    {
+      "sy": "CHPT",
+      "name": "ChargePoint Holdings, Inc."
+    },
+    {
+      "sy": "BRCB",
+      "name": "Black Rock Coffee Bar, Inc."
+    },
+    {
+      "sy": "EMPD",
+      "name": "Empery Digital Inc."
+    },
+    {
+      "sy": "MED",
+      "name": "Medifast, Inc."
+    },
+    {
+      "sy": "HOFT",
+      "name": "Hooker Furnishings Corporation"
+    },
+    {
+      "sy": "BSET",
+      "name": "Bassett Furniture Industries, Incorporated"
+    },
+    {
+      "sy": "COOK",
+      "name": "Traeger, Inc."
+    },
+    {
+      "sy": "KEQU",
+      "name": "Kewaunee Scientific Corporation"
+    },
+    {
+      "sy": "MB",
+      "name": "MasterBeef Group"
+    },
+    {
+      "sy": "AOUT",
+      "name": "American Outdoor Brands, Inc."
+    },
+    {
+      "sy": "AKA",
+      "name": "a.k.a. Brands Holding Corp."
+    },
+    {
+      "sy": "MCRAA",
+      "name": "McRae Industries, Inc."
+    },
+    {
+      "sy": "VIRC",
+      "name": "Virco Mfg. Corporation"
+    },
+    {
+      "sy": "LAKE",
+      "name": "Lakeland Industries, Inc."
+    },
+    {
+      "sy": "CRMT",
+      "name": "America's Car-Mart, Inc."
+    },
+    {
+      "sy": "NOBH",
+      "name": "Nobility Homes, Inc."
+    },
+    {
+      "sy": "GFLT",
+      "name": "GenFlat Holdings, Inc."
+    },
+    {
+      "sy": "CPHC",
+      "name": "Canterbury Park Holding Corporation"
+    },
+    {
+      "sy": "INTG",
+      "name": "The InterGroup Corporation"
+    },
+    {
+      "sy": "LEAT",
+      "name": "Leatt Corporation"
+    },
+    {
+      "sy": "BARK",
+      "name": "BARK, Inc."
+    },
+    {
+      "sy": "NDLS",
+      "name": "Noodles & Company"
+    },
+    {
+      "sy": "RGS",
+      "name": "Regis Corporation"
+    },
+    {
+      "sy": "JXG",
+      "name": "JX Luxventure Group Inc."
+    },
+    {
+      "sy": "ROLR",
+      "name": "High Roller Technologies, Inc."
+    },
+    {
+      "sy": "BDL",
+      "name": "Flanigan's Enterprises, Inc."
+    },
+    {
+      "sy": "PTLE",
+      "name": "PTL Limited"
+    },
+    {
+      "sy": "LIVE",
+      "name": "Live Ventures Incorporated"
+    },
+    {
+      "sy": "PRKA",
+      "name": "Parks! America, Inc."
+    },
+    {
+      "sy": "MKDW",
+      "name": "MKDWELL Tech Inc."
+    },
+    {
+      "sy": "LVLU",
+      "name": "Lulu's Fashion Lounge Holdings, Inc."
+    },
+    {
+      "sy": "JL",
+      "name": "J-Long Group Limited"
+    },
+    {
+      "sy": "ARKR",
+      "name": "Ark Restaurants Corp."
+    },
+    {
+      "sy": "BRRE",
+      "name": "Blue Ridge Real Estate Company"
+    },
+    {
+      "sy": "GLFE",
+      "name": "Golf Entertainment Group Inc."
+    },
+    {
+      "sy": "KXIN",
+      "name": "Kaixin Holdings"
+    },
+    {
+      "sy": "ENZN",
+      "name": "Viskase Companies, Inc."
+    },
+    {
+      "sy": "VEEE",
+      "name": "Twin Vee Powercats Co."
+    }
+  ]
+}

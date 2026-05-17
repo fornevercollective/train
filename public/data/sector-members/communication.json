@@ -1,0 +1,509 @@
+{
+  "sectorId": "communication",
+  "sectorLabel": "Communication Services",
+  "yahooScrId": "sec-ind_sec-largest-equities_communication-services",
+  "updated": "2026-05-17",
+  "count": 125,
+  "tickers": [
+    {
+      "sy": "GOOG",
+      "name": "Alphabet Inc."
+    },
+    {
+      "sy": "META",
+      "name": "Meta Platforms, Inc."
+    },
+    {
+      "sy": "NFLX",
+      "name": "Netflix, Inc."
+    },
+    {
+      "sy": "TMUS",
+      "name": "T-Mobile US, Inc."
+    },
+    {
+      "sy": "VZ",
+      "name": "Verizon Communications Inc."
+    },
+    {
+      "sy": "DIS",
+      "name": "The Walt Disney Company"
+    },
+    {
+      "sy": "APP",
+      "name": "AppLovin Corporation"
+    },
+    {
+      "sy": "T",
+      "name": "AT&T Inc."
+    },
+    {
+      "sy": "SPOT",
+      "name": "Spotify Technology S.A."
+    },
+    {
+      "sy": "CMCSA",
+      "name": "Comcast Corporation"
+    },
+    {
+      "sy": "WBD",
+      "name": "Warner Bros. Discovery, Inc."
+    },
+    {
+      "sy": "NBIS",
+      "name": "Nebius Group N.V."
+    },
+    {
+      "sy": "EA",
+      "name": "Electronic Arts Inc."
+    },
+    {
+      "sy": "TTWO",
+      "name": "Take-Two Interactive Software, Inc."
+    },
+    {
+      "sy": "SATS",
+      "name": "EchoStar Corporation"
+    },
+    {
+      "sy": "LYV",
+      "name": "Live Nation Entertainment, Inc."
+    },
+    {
+      "sy": "RBLX",
+      "name": "Roblox Corporation"
+    },
+    {
+      "sy": "RDDT",
+      "name": "Reddit, Inc."
+    },
+    {
+      "sy": "FOXA",
+      "name": "Fox Corporation"
+    },
+    {
+      "sy": "FWONA",
+      "name": "Formula One Group"
+    },
+    {
+      "sy": "OMC",
+      "name": "Omnicom Group Inc."
+    },
+    {
+      "sy": "CHTR",
+      "name": "Charter Communications, Inc."
+    },
+    {
+      "sy": "ROKU",
+      "name": "Roku, Inc."
+    },
+    {
+      "sy": "WMG",
+      "name": "Warner Music Group Corp."
+    },
+    {
+      "sy": "TKO",
+      "name": "TKO Group Holdings, Inc."
+    },
+    {
+      "sy": "NWSA",
+      "name": "News Corporation"
+    },
+    {
+      "sy": "TIGO",
+      "name": "Millicom International Cellular S.A."
+    },
+    {
+      "sy": "NYT",
+      "name": "The New York Times Company"
+    },
+    {
+      "sy": "PSKY",
+      "name": "Paramount Skydance Corporation"
+    },
+    {
+      "sy": "PINS",
+      "name": "Pinterest, Inc."
+    },
+    {
+      "sy": "GSAT",
+      "name": "Globalstar, Inc."
+    },
+    {
+      "sy": "LUMN",
+      "name": "Lumen Technologies, Inc."
+    },
+    {
+      "sy": "TTD",
+      "name": "The Trade Desk, Inc."
+    },
+    {
+      "sy": "SNAP",
+      "name": "Snap Inc."
+    },
+    {
+      "sy": "LLYVA",
+      "name": "Liberty Live Holdings, Inc."
+    },
+    {
+      "sy": "ZG",
+      "name": "Zillow Group, Inc."
+    },
+    {
+      "sy": "SIRI",
+      "name": "Sirius XM Holdings Inc."
+    },
+    {
+      "sy": "MSGS",
+      "name": "Madison Square Garden Sports Corp."
+    },
+    {
+      "sy": "MTCH",
+      "name": "Match Group, Inc."
+    },
+    {
+      "sy": "QMMM",
+      "name": "QMMM Holdings Limited"
+    },
+    {
+      "sy": "VSNT",
+      "name": "Versant Media Group, Inc."
+    },
+    {
+      "sy": "NXST",
+      "name": "Nexstar Media Group, Inc."
+    },
+    {
+      "sy": "SPHR",
+      "name": "Sphere Entertainment Co."
+    },
+    {
+      "sy": "LBRDA",
+      "name": "Liberty Broadband Corporation"
+    },
+    {
+      "sy": "TDS",
+      "name": "Telephone and Data Systems, Inc."
+    },
+    {
+      "sy": "IRDM",
+      "name": "Iridium Communications Inc."
+    },
+    {
+      "sy": "AD",
+      "name": "Array Digital Infrastructure, Inc."
+    },
+    {
+      "sy": "LBTYA",
+      "name": "Liberty Global Ltd."
+    },
+    {
+      "sy": "LION",
+      "name": "Lionsgate Studios Corp."
+    },
+    {
+      "sy": "BATRA",
+      "name": "Atlanta Braves Holdings, Inc."
+    },
+    {
+      "sy": "MANU",
+      "name": "Manchester United plc"
+    },
+    {
+      "sy": "STUB",
+      "name": "StubHub Holdings, Inc."
+    },
+    {
+      "sy": "MSGE",
+      "name": "Madison Square Garden Entertainment Corp."
+    },
+    {
+      "sy": "KYIV",
+      "name": "Kyivstar Group Ltd."
+    },
+    {
+      "sy": "CNK",
+      "name": "Cinemark Holdings, Inc."
+    },
+    {
+      "sy": "IAC",
+      "name": "IAC Inc."
+    },
+    {
+      "sy": "DJT",
+      "name": "Trump Media & Technology Group Corp."
+    },
+    {
+      "sy": "WLY",
+      "name": "John Wiley & Sons, Inc."
+    },
+    {
+      "sy": "IMAX",
+      "name": "IMAX Corporation"
+    },
+    {
+      "sy": "MGNI",
+      "name": "Magnite, Inc."
+    },
+    {
+      "sy": "WBTN",
+      "name": "WEBTOON Entertainment Inc."
+    },
+    {
+      "sy": "RUM",
+      "name": "Rumble Inc."
+    },
+    {
+      "sy": "STGW",
+      "name": "Stagwell Inc."
+    },
+    {
+      "sy": "ZD",
+      "name": "Ziff Davis, Inc."
+    },
+    {
+      "sy": "LILA",
+      "name": "Liberty Latin America Ltd."
+    },
+    {
+      "sy": "DV",
+      "name": "DoubleVerify Holdings, Inc."
+    },
+    {
+      "sy": "IDT",
+      "name": "IDT Corporation"
+    },
+    {
+      "sy": "YELP",
+      "name": "Yelp Inc."
+    },
+    {
+      "sy": "TDAY",
+      "name": "USA TODAY Co., Inc."
+    },
+    {
+      "sy": "GTN-A",
+      "name": "Gray Media, Inc."
+    },
+    {
+      "sy": "ATEX",
+      "name": "Anterix Inc."
+    },
+    {
+      "sy": "GLIBA",
+      "name": "GCI Liberty, Inc. - Series A GC"
+    },
+    {
+      "sy": "SBGI",
+      "name": "Sinclair, Inc."
+    },
+    {
+      "sy": "UPWK",
+      "name": "Upwork Inc."
+    },
+    {
+      "sy": "NMAX",
+      "name": "Newsmax, Inc."
+    },
+    {
+      "sy": "SHEN",
+      "name": "Shenandoah Telecommunications Company"
+    },
+    {
+      "sy": "CCOI",
+      "name": "Cogent Communications Holdings, Inc."
+    },
+    {
+      "sy": "SCHL",
+      "name": "Scholastic Corporation"
+    },
+    {
+      "sy": "EVC",
+      "name": "Entravision Communications Corporation"
+    },
+    {
+      "sy": "RSVR",
+      "name": "Reservoir Media, Inc."
+    },
+    {
+      "sy": "GRPN",
+      "name": "Groupon, Inc."
+    },
+    {
+      "sy": "QNST",
+      "name": "QuinStreet, Inc."
+    },
+    {
+      "sy": "EVER",
+      "name": "EverQuote, Inc."
+    },
+    {
+      "sy": "SSTK",
+      "name": "Shutterstock, Inc."
+    },
+    {
+      "sy": "CARS",
+      "name": "Cars.com Inc."
+    },
+    {
+      "sy": "MCS",
+      "name": "The Marcus Corporation"
+    },
+    {
+      "sy": "NRDS",
+      "name": "NerdWallet, Inc."
+    },
+    {
+      "sy": "ADV",
+      "name": "Advantage Solutions Inc."
+    },
+    {
+      "sy": "MAX",
+      "name": "MediaAlpha, Inc."
+    },
+    {
+      "sy": "NEXN",
+      "name": "Nexxen International Ltd."
+    },
+    {
+      "sy": "ATNI",
+      "name": "ATN International, Inc."
+    },
+    {
+      "sy": "STRZ",
+      "name": "Starz Entertainment Corp."
+    },
+    {
+      "sy": "FVRR",
+      "name": "Fiverr International Ltd."
+    },
+    {
+      "sy": "AMCX",
+      "name": "AMC Global Media Inc."
+    },
+    {
+      "sy": "PLAY",
+      "name": "Dave & Buster's Entertainment, Inc."
+    },
+    {
+      "sy": "AENT",
+      "name": "Alliance Entertainment Holding Corporation"
+    },
+    {
+      "sy": "CXDO",
+      "name": "Crexendo, Inc."
+    },
+    {
+      "sy": "GDEV",
+      "name": "GDEV Inc."
+    },
+    {
+      "sy": "FUBO",
+      "name": "FuboTV Inc."
+    },
+    {
+      "sy": "CABO",
+      "name": "Cable One, Inc."
+    },
+    {
+      "sy": "RDCM",
+      "name": "RADCOM Ltd."
+    },
+    {
+      "sy": "KVHI",
+      "name": "KVH Industries, Inc."
+    },
+    {
+      "sy": "LEE",
+      "name": "Lee Enterprises, Incorporated"
+    },
+    {
+      "sy": "KORE",
+      "name": "KORE Group Holdings, Inc."
+    },
+    {
+      "sy": "MRDN",
+      "name": "Meridian Holdings Inc."
+    },
+    {
+      "sy": "SEAT",
+      "name": "Vivid Seats Inc."
+    },
+    {
+      "sy": "TSQ",
+      "name": "Townsquare Media, Inc."
+    },
+    {
+      "sy": "SKLZ",
+      "name": "Skillz Inc."
+    },
+    {
+      "sy": "TZOO",
+      "name": "Travelzoo"
+    },
+    {
+      "sy": "NUVR",
+      "name": "Nuvera Communications, Inc."
+    },
+    {
+      "sy": "BODI",
+      "name": "The Beachbody Company, Inc."
+    },
+    {
+      "sy": "WSHP",
+      "name": "WeShop Holdings Limited"
+    },
+    {
+      "sy": "LVO",
+      "name": "LiveOne, Inc."
+    },
+    {
+      "sy": "SGA",
+      "name": "Saga Communications, Inc."
+    },
+    {
+      "sy": "ELWT",
+      "name": "Elauwit Connection, Inc."
+    },
+    {
+      "sy": "SLMT",
+      "name": "Brera Holdings PLC"
+    },
+    {
+      "sy": "ACCS",
+      "name": "ACCESS Newswire Inc."
+    },
+    {
+      "sy": "UONE",
+      "name": "Urban One, Inc."
+    },
+    {
+      "sy": "BBGI",
+      "name": "Beasley Broadcast Group, Inc."
+    },
+    {
+      "sy": "STFS",
+      "name": "Star Fashion Culture Holdings Limited"
+    },
+    {
+      "sy": "IDWM",
+      "name": "IDW Media Holdings, Inc."
+    },
+    {
+      "sy": "SLE",
+      "name": "Super League Enterprise, Inc."
+    },
+    {
+      "sy": "DKI",
+      "name": "Darkiris Inc."
+    },
+    {
+      "sy": "CRTD",
+      "name": "Creatd, Inc."
+    },
+    {
+      "sy": "LYXX",
+      "name": "LYXX"
+    }
+  ]
+}

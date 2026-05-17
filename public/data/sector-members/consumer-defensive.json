@@ -1,0 +1,557 @@
+{
+  "sectorId": "consumer_defensive",
+  "sectorLabel": "Consumer Defensive",
+  "yahooScrId": "sec-ind_sec-largest-equities_consumer-defensive",
+  "updated": "2026-05-17",
+  "count": 137,
+  "tickers": [
+    {
+      "sy": "WMT",
+      "name": "Walmart Inc."
+    },
+    {
+      "sy": "COST",
+      "name": "Costco Wholesale Corporation"
+    },
+    {
+      "sy": "KO",
+      "name": "The Coca-Cola Company"
+    },
+    {
+      "sy": "PG",
+      "name": "The Procter & Gamble Company"
+    },
+    {
+      "sy": "PM",
+      "name": "Philip Morris International Inc."
+    },
+    {
+      "sy": "PEP",
+      "name": "PepsiCo, Inc."
+    },
+    {
+      "sy": "MO",
+      "name": "Altria Group, Inc."
+    },
+    {
+      "sy": "MNST",
+      "name": "Monster Beverage Corporation"
+    },
+    {
+      "sy": "MDLZ",
+      "name": "Mondelez International, Inc."
+    },
+    {
+      "sy": "CL",
+      "name": "Colgate-Palmolive Company"
+    },
+    {
+      "sy": "TGT",
+      "name": "Target Corporation"
+    },
+    {
+      "sy": "KR",
+      "name": "The Kroger Co."
+    },
+    {
+      "sy": "KDP",
+      "name": "Keurig Dr Pepper Inc."
+    },
+    {
+      "sy": "ADM",
+      "name": "Archer-Daniels-Midland Company"
+    },
+    {
+      "sy": "HSY",
+      "name": "The Hershey Company"
+    },
+    {
+      "sy": "SYY",
+      "name": "Sysco Corporation"
+    },
+    {
+      "sy": "KVUE",
+      "name": "Kenvue Inc."
+    },
+    {
+      "sy": "KMB",
+      "name": "Kimberly-Clark Corporation"
+    },
+    {
+      "sy": "EL",
+      "name": "The Estée Lauder Companies Inc."
+    },
+    {
+      "sy": "KHC",
+      "name": "The Kraft Heinz Company"
+    },
+    {
+      "sy": "STZ",
+      "name": "Constellation Brands, Inc."
+    },
+    {
+      "sy": "BG",
+      "name": "Bunge Global SA"
+    },
+    {
+      "sy": "TSN",
+      "name": "Tyson Foods, Inc."
+    },
+    {
+      "sy": "DG",
+      "name": "Dollar General Corporation"
+    },
+    {
+      "sy": "CHD",
+      "name": "Church & Dwight Co., Inc."
+    },
+    {
+      "sy": "USFD",
+      "name": "US Foods Holding Corp."
+    },
+    {
+      "sy": "GIS",
+      "name": "General Mills, Inc."
+    },
+    {
+      "sy": "DLTR",
+      "name": "Dollar Tree, Inc."
+    },
+    {
+      "sy": "PFGC",
+      "name": "Performance Food Group Company"
+    },
+    {
+      "sy": "JBS",
+      "name": "JBS N.V."
+    },
+    {
+      "sy": "MKC",
+      "name": "McCormick & Company, Incorporated"
+    },
+    {
+      "sy": "BJ",
+      "name": "BJ's Wholesale Club Holdings, Inc."
+    },
+    {
+      "sy": "BF-B",
+      "name": "Brown-Forman Corporation"
+    },
+    {
+      "sy": "COKE",
+      "name": "Coca-Cola Consolidated, Inc."
+    },
+    {
+      "sy": "CLX",
+      "name": "The Clorox Company"
+    },
+    {
+      "sy": "HRL",
+      "name": "Hormel Foods Corporation"
+    },
+    {
+      "sy": "SJM",
+      "name": "The J. M. Smucker Company"
+    },
+    {
+      "sy": "DAR",
+      "name": "Darling Ingredients Inc."
+    },
+    {
+      "sy": "SFD",
+      "name": "Smithfield Foods, Inc."
+    },
+    {
+      "sy": "PRMB",
+      "name": "Primo Brands Corporation"
+    },
+    {
+      "sy": "ACI",
+      "name": "Albertsons Companies, Inc."
+    },
+    {
+      "sy": "SFM",
+      "name": "Sprouts Farmers Market, Inc."
+    },
+    {
+      "sy": "CELH",
+      "name": "Celsius Holdings, Inc."
+    },
+    {
+      "sy": "TAP",
+      "name": "Molson Coors Beverage Company"
+    },
+    {
+      "sy": "PPC",
+      "name": "Pilgrim's Pride Corporation"
+    },
+    {
+      "sy": "INGR",
+      "name": "Ingredion Incorporated"
+    },
+    {
+      "sy": "CAG",
+      "name": "Conagra Brands, Inc."
+    },
+    {
+      "sy": "LW",
+      "name": "Lamb Weston Holdings, Inc."
+    },
+    {
+      "sy": "CPB",
+      "name": "The Campbell's Company"
+    },
+    {
+      "sy": "PSMT",
+      "name": "PriceSmart, Inc."
+    },
+    {
+      "sy": "OLLI",
+      "name": "Ollie's Bargain Outlet Holdings, Inc."
+    },
+    {
+      "sy": "GHC",
+      "name": "Graham Holdings Company"
+    },
+    {
+      "sy": "POST",
+      "name": "Post Holdings, Inc."
+    },
+    {
+      "sy": "LAUR",
+      "name": "Laureate Education, Inc."
+    },
+    {
+      "sy": "COCO",
+      "name": "The Vita Coco Company, Inc."
+    },
+    {
+      "sy": "TBBB",
+      "name": "BBB Foods Inc."
+    },
+    {
+      "sy": "LOPE",
+      "name": "Grand Canyon Education, Inc."
+    },
+    {
+      "sy": "CVSA",
+      "name": "Covista Inc."
+    },
+    {
+      "sy": "LRN",
+      "name": "Stride, Inc."
+    },
+    {
+      "sy": "CALM",
+      "name": "Cal-Maine Foods, Inc."
+    },
+    {
+      "sy": "ELF",
+      "name": "e.l.f. Beauty, Inc."
+    },
+    {
+      "sy": "CHEF",
+      "name": "The Chefs' Warehouse, Inc."
+    },
+    {
+      "sy": "FIZZ",
+      "name": "National Beverage Corp."
+    },
+    {
+      "sy": "MZTI",
+      "name": "The Marzetti Company"
+    },
+    {
+      "sy": "UNFI",
+      "name": "United Natural Foods, Inc."
+    },
+    {
+      "sy": "TR",
+      "name": "Tootsie Roll Industries, Inc."
+    },
+    {
+      "sy": "IPAR",
+      "name": "Interparfums, Inc."
+    },
+    {
+      "sy": "ANDE",
+      "name": "The Andersons, Inc."
+    },
+    {
+      "sy": "FRPT",
+      "name": "Freshpet, Inc."
+    },
+    {
+      "sy": "CENT",
+      "name": "Central Garden & Pet Company"
+    },
+    {
+      "sy": "MH",
+      "name": "McGraw Hill, Inc."
+    },
+    {
+      "sy": "UTI",
+      "name": "Universal Technical Institute, Inc."
+    },
+    {
+      "sy": "PRDO",
+      "name": "Perdoceo Education Corporation"
+    },
+    {
+      "sy": "AGRO",
+      "name": "Adecoagro S.A."
+    },
+    {
+      "sy": "SAM",
+      "name": "The Boston Beer Company, Inc."
+    },
+    {
+      "sy": "SPB",
+      "name": "Spectrum Brands Holdings, Inc."
+    },
+    {
+      "sy": "STRA",
+      "name": "Strategic Education, Inc."
+    },
+    {
+      "sy": "WMK",
+      "name": "Weis Markets, Inc."
+    },
+    {
+      "sy": "TPB",
+      "name": "Turning Point Brands, Inc."
+    },
+    {
+      "sy": "IMKTA",
+      "name": "Ingles Markets, Incorporated"
+    },
+    {
+      "sy": "LINC",
+      "name": "Lincoln Educational Services Corporation"
+    },
+    {
+      "sy": "FDP",
+      "name": "Fresh Del Monte Produce Inc."
+    },
+    {
+      "sy": "FLO",
+      "name": "Flowers Foods, Inc."
+    },
+    {
+      "sy": "COUR",
+      "name": "Coursera, Inc."
+    },
+    {
+      "sy": "NOMD",
+      "name": "Nomad Foods Limited"
+    },
+    {
+      "sy": "DOLE",
+      "name": "Dole plc"
+    },
+    {
+      "sy": "JJSF",
+      "name": "J&J Snack Foods Corp."
+    },
+    {
+      "sy": "UVV",
+      "name": "Universal Corporation"
+    },
+    {
+      "sy": "HLF",
+      "name": "Herbalife Ltd."
+    },
+    {
+      "sy": "AFYA",
+      "name": "Afya Limited"
+    },
+    {
+      "sy": "BRBR",
+      "name": "BellRing Brands, Inc."
+    },
+    {
+      "sy": "PXED",
+      "name": "Phoenix Education Partners, Inc."
+    },
+    {
+      "sy": "SMPL",
+      "name": "The Simply Good Foods Company"
+    },
+    {
+      "sy": "RAJAF",
+      "name": "CORDYCEPS SUNSHINE BIOTECH HOLD"
+    },
+    {
+      "sy": "APEI",
+      "name": "American Public Education, Inc."
+    },
+    {
+      "sy": "SENEA",
+      "name": "Seneca Foods Corporation"
+    },
+    {
+      "sy": "JBSS",
+      "name": "John B. Sanfilippo & Son, Inc."
+    },
+    {
+      "sy": "AVO",
+      "name": "Mission Produce, Inc."
+    },
+    {
+      "sy": "WEST",
+      "name": "Westrock Coffee Company"
+    },
+    {
+      "sy": "EPC",
+      "name": "Edgewell Personal Care Company"
+    },
+    {
+      "sy": "GO",
+      "name": "Grocery Outlet Holding Corp."
+    },
+    {
+      "sy": "ODD",
+      "name": "Oddity Tech Ltd."
+    },
+    {
+      "sy": "OFRM",
+      "name": "Once Upon A Farm, PBC"
+    },
+    {
+      "sy": "VLGEA",
+      "name": "Village Super Market, Inc."
+    },
+    {
+      "sy": "NGVC",
+      "name": "Natural Grocers by Vitamin Cottage, Inc."
+    },
+    {
+      "sy": "UTZ",
+      "name": "Utz Brands, Inc."
+    },
+    {
+      "sy": "MAMA",
+      "name": "Mama's Creations, Inc."
+    },
+    {
+      "sy": "HELE",
+      "name": "Helen of Troy Limited"
+    },
+    {
+      "sy": "WILC",
+      "name": "G. Willi-Food International Ltd."
+    },
+    {
+      "sy": "CVGW",
+      "name": "Calavo Growers, Inc."
+    },
+    {
+      "sy": "AGCC",
+      "name": "Agencia Comercial Spirits Ltd"
+    },
+    {
+      "sy": "NATR",
+      "name": "Nature's Sunshine Products, Inc."
+    },
+    {
+      "sy": "MGPI",
+      "name": "MGP Ingredients, Inc."
+    },
+    {
+      "sy": "LWAY",
+      "name": "Lifeway Foods, Inc."
+    },
+    {
+      "sy": "VITL",
+      "name": "Vital Farms, Inc."
+    },
+    {
+      "sy": "MAGN",
+      "name": "Magnera Corporation"
+    },
+    {
+      "sy": "USNA",
+      "name": "USANA Health Sciences, Inc."
+    },
+    {
+      "sy": "AMNF",
+      "name": "Armanino Foods of Distinction, Inc."
+    },
+    {
+      "sy": "ALCO",
+      "name": "Alico, Inc."
+    },
+    {
+      "sy": "NUS",
+      "name": "Nu Skin Enterprises, Inc."
+    },
+    {
+      "sy": "AFRI",
+      "name": "Forafric Global PLC"
+    },
+    {
+      "sy": "PTNM",
+      "name": "Pitanium Limited"
+    },
+    {
+      "sy": "LMNR",
+      "name": "Limoneira Company"
+    },
+    {
+      "sy": "FC",
+      "name": "Franklin Covey Co."
+    },
+    {
+      "sy": "ACU",
+      "name": "Acme United Corporation"
+    },
+    {
+      "sy": "LGCY",
+      "name": "Legacy Education Inc."
+    },
+    {
+      "sy": "BUDA",
+      "name": "Buda Juice, Inc."
+    },
+    {
+      "sy": "FTLF",
+      "name": "FitLife Brands, Inc."
+    },
+    {
+      "sy": "CLNN",
+      "name": "Clene Inc."
+    },
+    {
+      "sy": "DIT",
+      "name": "AMCON Distributing Company"
+    },
+    {
+      "sy": "BRID",
+      "name": "Bridgford Foods Corporation"
+    },
+    {
+      "sy": "LFVN",
+      "name": "LifeVantage Corporation"
+    },
+    {
+      "sy": "RYM",
+      "name": "RYTHM, Inc."
+    },
+    {
+      "sy": "SKIL",
+      "name": "Skillsoft Corp."
+    },
+    {
+      "sy": "UG",
+      "name": "United-Guardian, Inc."
+    },
+    {
+      "sy": "SUJA",
+      "name": "Suja Life, Inc."
+    },
+    {
+      "sy": "YSWY",
+      "name": "Yesway, Inc."
+    }
+  ]
+}

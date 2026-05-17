@@ -12,6 +12,8 @@ python3 scripts/fetch-yahoo-sector-members.py                       # all sector
 
 Throttle is built in (`--sleep 1.25` default). Run weekly, not on every page view.
 
+**Pagination:** Yahoo’s API uses query param `start` (not `offset`). Technology should be **488** tickers, not 250.
+
 ## Commit & publish
 
 ```bash

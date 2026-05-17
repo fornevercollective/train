@@ -1,0 +1,317 @@
+{
+  "sectorId": "utilities",
+  "sectorLabel": "Utilities",
+  "yahooScrId": "sec-ind_sec-largest-equities_utilities",
+  "updated": "2026-05-17",
+  "count": 77,
+  "tickers": [
+    {
+      "sy": "NEE",
+      "name": "NextEra Energy, Inc."
+    },
+    {
+      "sy": "SO",
+      "name": "The Southern Company"
+    },
+    {
+      "sy": "CEG",
+      "name": "Constellation Energy Corporation"
+    },
+    {
+      "sy": "DUK",
+      "name": "Duke Energy Corporation"
+    },
+    {
+      "sy": "AEP",
+      "name": "American Electric Power Company, Inc."
+    },
+    {
+      "sy": "SRE",
+      "name": "Sempra"
+    },
+    {
+      "sy": "D",
+      "name": "Dominion Energy, Inc."
+    },
+    {
+      "sy": "ETR",
+      "name": "Entergy Corporation"
+    },
+    {
+      "sy": "XEL",
+      "name": "Xcel Energy Inc."
+    },
+    {
+      "sy": "VST",
+      "name": "Vistra Corp."
+    },
+    {
+      "sy": "EXC",
+      "name": "Exelon Corporation"
+    },
+    {
+      "sy": "ED",
+      "name": "Consolidated Edison, Inc."
+    },
+    {
+      "sy": "PEG",
+      "name": "Public Service Enterprise Group Incorporated"
+    },
+    {
+      "sy": "WEC",
+      "name": "WEC Energy Group, Inc."
+    },
+    {
+      "sy": "PCG",
+      "name": "PG&E Corporation"
+    },
+    {
+      "sy": "ATO",
+      "name": "Atmos Energy Corporation"
+    },
+    {
+      "sy": "AEE",
+      "name": "Ameren Corporation"
+    },
+    {
+      "sy": "DTE",
+      "name": "DTE Energy Company"
+    },
+    {
+      "sy": "CNP",
+      "name": "CenterPoint Energy, Inc."
+    },
+    {
+      "sy": "NRG",
+      "name": "NRG Energy, Inc."
+    },
+    {
+      "sy": "EIX",
+      "name": "Edison International"
+    },
+    {
+      "sy": "PPL",
+      "name": "PPL Corporation"
+    },
+    {
+      "sy": "FE",
+      "name": "FirstEnergy Corp."
+    },
+    {
+      "sy": "ES",
+      "name": "Eversource Energy"
+    },
+    {
+      "sy": "AWK",
+      "name": "American Water Works Company, Inc."
+    },
+    {
+      "sy": "NI",
+      "name": "NiSource Inc."
+    },
+    {
+      "sy": "CMS",
+      "name": "CMS Energy Corporation"
+    },
+    {
+      "sy": "EVRG",
+      "name": "Evergy, Inc."
+    },
+    {
+      "sy": "LNT",
+      "name": "Alliant Energy Corporation"
+    },
+    {
+      "sy": "TLN",
+      "name": "Talen Energy Corporation"
+    },
+    {
+      "sy": "PNW",
+      "name": "Pinnacle West Capital Corporation"
+    },
+    {
+      "sy": "OKLO",
+      "name": "Oklo Inc."
+    },
+    {
+      "sy": "WTRG",
+      "name": "Essential Utilities, Inc."
+    },
+    {
+      "sy": "AES",
+      "name": "The AES Corporation"
+    },
+    {
+      "sy": "OGE",
+      "name": "OGE Energy Corp."
+    },
+    {
+      "sy": "MWH",
+      "name": "SOLV Energy, Inc."
+    },
+    {
+      "sy": "ORA",
+      "name": "Ormat Technologies, Inc."
+    },
+    {
+      "sy": "IDA",
+      "name": "IDACORP, Inc."
+    },
+    {
+      "sy": "UGI",
+      "name": "UGI Corporation"
+    },
+    {
+      "sy": "TXNM",
+      "name": "TXNM Energy, Inc."
+    },
+    {
+      "sy": "SWX",
+      "name": "Southwest Gas Holdings, Inc."
+    },
+    {
+      "sy": "NJR",
+      "name": "New Jersey Resources Corporation"
+    },
+    {
+      "sy": "CWEN",
+      "name": "Clearway Energy, Inc."
+    },
+    {
+      "sy": "BKH",
+      "name": "Black Hills Corporation"
+    },
+    {
+      "sy": "POR",
+      "name": "Portland General Electric Company"
+    },
+    {
+      "sy": "OGS",
+      "name": "ONE Gas, Inc."
+    },
+    {
+      "sy": "SR",
+      "name": "Spire Inc."
+    },
+    {
+      "sy": "MDU",
+      "name": "MDU Resources Group, Inc."
+    },
+    {
+      "sy": "KEN",
+      "name": "Kenon Holdings Ltd."
+    },
+    {
+      "sy": "NWE",
+      "name": "NorthWestern Energy Group, Inc."
+    },
+    {
+      "sy": "AVA",
+      "name": "Avista Corporation"
+    },
+    {
+      "sy": "CTRI",
+      "name": "Centuri Holdings, Inc."
+    },
+    {
+      "sy": "CPK",
+      "name": "Chesapeake Utilities Corporation"
+    },
+    {
+      "sy": "AWR",
+      "name": "American States Water Company"
+    },
+    {
+      "sy": "MGEE",
+      "name": "MGE Energy, Inc."
+    },
+    {
+      "sy": "FLNC",
+      "name": "Fluence Energy, Inc."
+    },
+    {
+      "sy": "CWT",
+      "name": "California Water Service Group"
+    },
+    {
+      "sy": "HTO",
+      "name": "H2O America"
+    },
+    {
+      "sy": "HE",
+      "name": "Hawaiian Electric Industries, Inc."
+    },
+    {
+      "sy": "NWN",
+      "name": "Northwest Natural Holding Company"
+    },
+    {
+      "sy": "RNW",
+      "name": "ReNew Energy Global Plc"
+    },
+    {
+      "sy": "SPH",
+      "name": "Suburban Propane Partners, L.P."
+    },
+    {
+      "sy": "XIFR",
+      "name": "XPLR Infrastructure, LP"
+    },
+    {
+      "sy": "NRGV",
+      "name": "Energy Vault Holdings, Inc."
+    },
+    {
+      "sy": "MSEX",
+      "name": "Middlesex Water Company"
+    },
+    {
+      "sy": "UTL",
+      "name": "Unitil Corporation"
+    },
+    {
+      "sy": "IMSR",
+      "name": "Terrestrial Energy Inc."
+    },
+    {
+      "sy": "YORW",
+      "name": "The York Water Company"
+    },
+    {
+      "sy": "CWCO",
+      "name": "Consolidated Water Co. Ltd."
+    },
+    {
+      "sy": "NKLR",
+      "name": "Terra Innovatum Global N.V."
+    },
+    {
+      "sy": "GNE",
+      "name": "Genie Energy Ltd."
+    },
+    {
+      "sy": "ARTNA",
+      "name": "Artesian Resources Corporation"
+    },
+    {
+      "sy": "ELLO",
+      "name": "Ellomay Capital Ltd."
+    },
+    {
+      "sy": "PCYO",
+      "name": "Pure Cycle Corporation"
+    },
+    {
+      "sy": "RGCO",
+      "name": "RGC Resources, Inc."
+    },
+    {
+      "sy": "GWRS",
+      "name": "Global Water Resources, Inc."
+    },
+    {
+      "sy": "STEM",
+      "name": "Stem, Inc."
+    }
+  ]
+}

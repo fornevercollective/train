@@ -1,0 +1,705 @@
+{
+  "sectorId": "war_tape",
+  "sectorLabel": "Energy & oil (war tape)",
+  "yahooScrId": "sec-ind_sec-largest-equities_energy",
+  "updated": "2026-05-17",
+  "count": 174,
+  "tickers": [
+    {
+      "sy": "XOM",
+      "name": "Exxon Mobil Corporation"
+    },
+    {
+      "sy": "CVX",
+      "name": "Chevron Corporation"
+    },
+    {
+      "sy": "COP",
+      "name": "ConocoPhillips"
+    },
+    {
+      "sy": "WMB",
+      "name": "The Williams Companies, Inc."
+    },
+    {
+      "sy": "EPD",
+      "name": "Enterprise Products Partners L.P."
+    },
+    {
+      "sy": "SLB",
+      "name": "SLB N.V."
+    },
+    {
+      "sy": "KMI",
+      "name": "Kinder Morgan, Inc."
+    },
+    {
+      "sy": "EOG",
+      "name": "EOG Resources, Inc."
+    },
+    {
+      "sy": "VLO",
+      "name": "Valero Energy Corporation"
+    },
+    {
+      "sy": "MPC",
+      "name": "Marathon Petroleum Corporation"
+    },
+    {
+      "sy": "PSX",
+      "name": "Phillips 66"
+    },
+    {
+      "sy": "ET",
+      "name": "Energy Transfer LP"
+    },
+    {
+      "sy": "BKR",
+      "name": "Baker Hughes Company"
+    },
+    {
+      "sy": "OXY",
+      "name": "Occidental Petroleum Corporation"
+    },
+    {
+      "sy": "TRGP",
+      "name": "Targa Resources Corp."
+    },
+    {
+      "sy": "OKE",
+      "name": "ONEOK, Inc."
+    },
+    {
+      "sy": "FANG",
+      "name": "Diamondback Energy, Inc."
+    },
+    {
+      "sy": "DVN",
+      "name": "Devon Energy Corporation"
+    },
+    {
+      "sy": "MPLX",
+      "name": "MPLX LP"
+    },
+    {
+      "sy": "LNG",
+      "name": "Cheniere Energy, Inc."
+    },
+    {
+      "sy": "VG",
+      "name": "Venture Global, Inc."
+    },
+    {
+      "sy": "EQT",
+      "name": "EQT Corporation"
+    },
+    {
+      "sy": "HAL",
+      "name": "Halliburton Company"
+    },
+    {
+      "sy": "CQP",
+      "name": "Cheniere Energy Partners, L.P."
+    },
+    {
+      "sy": "FTI",
+      "name": "TechnipFMC plc"
+    },
+    {
+      "sy": "TPL",
+      "name": "Texas Pacific Land Corporation"
+    },
+    {
+      "sy": "EXE",
+      "name": "Expand Energy Corporation"
+    },
+    {
+      "sy": "WES",
+      "name": "Western Midstream Partners, LP"
+    },
+    {
+      "sy": "PR",
+      "name": "Permian Resources Corporation"
+    },
+    {
+      "sy": "OVV",
+      "name": "Ovintiv Inc."
+    },
+    {
+      "sy": "PAA",
+      "name": "Plains All American Pipeline, L.P."
+    },
+    {
+      "sy": "DTM",
+      "name": "DT Midstream, Inc."
+    },
+    {
+      "sy": "APA",
+      "name": "APA Corporation"
+    },
+    {
+      "sy": "SUN",
+      "name": "Sunoco LP"
+    },
+    {
+      "sy": "DINO",
+      "name": "HF Sinclair Corporation"
+    },
+    {
+      "sy": "AR",
+      "name": "Antero Resources Corporation"
+    },
+    {
+      "sy": "AM",
+      "name": "Antero Midstream Corporation"
+    },
+    {
+      "sy": "RRC",
+      "name": "Range Resources Corporation"
+    },
+    {
+      "sy": "VNOM",
+      "name": "Viper Energy, Inc."
+    },
+    {
+      "sy": "NE",
+      "name": "Noble Corporation plc"
+    },
+    {
+      "sy": "CHRD",
+      "name": "Chord Energy Corporation"
+    },
+    {
+      "sy": "FRO",
+      "name": "Frontline plc"
+    },
+    {
+      "sy": "RIG",
+      "name": "Transocean Ltd."
+    },
+    {
+      "sy": "WFRD",
+      "name": "Weatherford International plc"
+    },
+    {
+      "sy": "SM",
+      "name": "SM Energy Company"
+    },
+    {
+      "sy": "NFG",
+      "name": "National Fuel Gas Company"
+    },
+    {
+      "sy": "MTDR",
+      "name": "Matador Resources Company"
+    },
+    {
+      "sy": "NOV",
+      "name": "NOV Inc."
+    },
+    {
+      "sy": "VAL",
+      "name": "Valaris Limited"
+    },
+    {
+      "sy": "UEC",
+      "name": "Uranium Energy Corp."
+    },
+    {
+      "sy": "AROC",
+      "name": "Archrock, Inc."
+    },
+    {
+      "sy": "KGS",
+      "name": "Kodiak Gas Services, Inc."
+    },
+    {
+      "sy": "MUR",
+      "name": "Murphy Oil Corporation"
+    },
+    {
+      "sy": "GLNG",
+      "name": "Golar LNG Limited"
+    },
+    {
+      "sy": "IEP",
+      "name": "Icahn Enterprises L.P."
+    },
+    {
+      "sy": "MGY",
+      "name": "Magnolia Oil & Gas Corporation"
+    },
+    {
+      "sy": "CRC",
+      "name": "California Resources Corporation"
+    },
+    {
+      "sy": "LBRT",
+      "name": "Liberty Energy Inc."
+    },
+    {
+      "sy": "HESM",
+      "name": "Hess Midstream LP"
+    },
+    {
+      "sy": "CNX",
+      "name": "CNX Resources Corporation"
+    },
+    {
+      "sy": "PBF",
+      "name": "PBF Energy Inc."
+    },
+    {
+      "sy": "PAGP",
+      "name": "Plains GP Holdings, L.P."
+    },
+    {
+      "sy": "PTEN",
+      "name": "Patterson-UTI Energy, Inc."
+    },
+    {
+      "sy": "SEI",
+      "name": "Solaris Energy Infrastructure, Inc."
+    },
+    {
+      "sy": "CRK",
+      "name": "Comstock Resources, Inc."
+    },
+    {
+      "sy": "CRGY",
+      "name": "Crescent Energy Company"
+    },
+    {
+      "sy": "USAC",
+      "name": "USA Compression Partners, LP"
+    },
+    {
+      "sy": "INSW",
+      "name": "International Seaways, Inc."
+    },
+    {
+      "sy": "CNR",
+      "name": "Core Natural Resources, Inc."
+    },
+    {
+      "sy": "TDW",
+      "name": "Tidewater Inc."
+    },
+    {
+      "sy": "STNG",
+      "name": "Scorpio Tankers Inc."
+    },
+    {
+      "sy": "WHD",
+      "name": "Cactus, Inc."
+    },
+    {
+      "sy": "HP",
+      "name": "Helmerich & Payne, Inc."
+    },
+    {
+      "sy": "OII",
+      "name": "Oceaneering International, Inc."
+    },
+    {
+      "sy": "KNTK",
+      "name": "Kinetik Holdings Inc."
+    },
+    {
+      "sy": "SUNC",
+      "name": "SunocoCorp LLC"
+    },
+    {
+      "sy": "LEU",
+      "name": "Centrus Energy Corp."
+    },
+    {
+      "sy": "CVI",
+      "name": "CVR Energy, Inc."
+    },
+    {
+      "sy": "SDRL",
+      "name": "Seadrill Limited"
+    },
+    {
+      "sy": "GPOR",
+      "name": "Gulfport Energy Corporation"
+    },
+    {
+      "sy": "ARLP",
+      "name": "Alliance Resource Partners, L.P."
+    },
+    {
+      "sy": "BKV",
+      "name": "BKV Corporation"
+    },
+    {
+      "sy": "BSM",
+      "name": "Black Stone Minerals, L.P."
+    },
+    {
+      "sy": "PARR",
+      "name": "Par Pacific Holdings, Inc."
+    },
+    {
+      "sy": "BTU",
+      "name": "Peabody Energy Corporation"
+    },
+    {
+      "sy": "DHT",
+      "name": "DHT Holdings, Inc."
+    },
+    {
+      "sy": "DKL",
+      "name": "Delek Logistics Partners, LP"
+    },
+    {
+      "sy": "DK",
+      "name": "Delek US Holdings, Inc."
+    },
+    {
+      "sy": "TALO",
+      "name": "Talos Energy Inc."
+    },
+    {
+      "sy": "TNK",
+      "name": "Teekay Tankers Ltd."
+    },
+    {
+      "sy": "NOG",
+      "name": "Northern Oil and Gas, Inc."
+    },
+    {
+      "sy": "NESR",
+      "name": "National Energy Services Reunited Corp."
+    },
+    {
+      "sy": "MNR",
+      "name": "Mach Natural Resources LP"
+    },
+    {
+      "sy": "NEXT",
+      "name": "NextDecade Corporation"
+    },
+    {
+      "sy": "WTTR",
+      "name": "Select Water Solutions, Inc."
+    },
+    {
+      "sy": "AESI",
+      "name": "Atlas Energy Solutions Inc."
+    },
+    {
+      "sy": "SOC",
+      "name": "Sable Offshore Corp."
+    },
+    {
+      "sy": "NGL",
+      "name": "NGL Energy Partners LP"
+    },
+    {
+      "sy": "PUMP",
+      "name": "ProPetro Holding Corp."
+    },
+    {
+      "sy": "GEL",
+      "name": "Genesis Energy, L.P."
+    },
+    {
+      "sy": "LB",
+      "name": "LandBridge Company LLC"
+    },
+    {
+      "sy": "BORR",
+      "name": "Borr Drilling Limited"
+    },
+    {
+      "sy": "INVX",
+      "name": "Innovex International, Inc."
+    },
+    {
+      "sy": "XPRO",
+      "name": "Expro Group Holdings N.V."
+    },
+    {
+      "sy": "LPG",
+      "name": "Dorian LPG Ltd."
+    },
+    {
+      "sy": "FLNG",
+      "name": "FLEX LNG Ltd."
+    },
+    {
+      "sy": "GLP",
+      "name": "Global Partners LP"
+    },
+    {
+      "sy": "NBR",
+      "name": "Nabors Industries Ltd."
+    },
+    {
+      "sy": "RES",
+      "name": "RPC, Inc."
+    },
+    {
+      "sy": "KRP",
+      "name": "Kimbell Royalty Partners, LP"
+    },
+    {
+      "sy": "HLX",
+      "name": "Helix Energy Solutions Group, Inc."
+    },
+    {
+      "sy": "NVGS",
+      "name": "Navigator Holdings Ltd."
+    },
+    {
+      "sy": "WKC",
+      "name": "World Kinect Corporation"
+    },
+    {
+      "sy": "WBI",
+      "name": "WaterBridge Infrastructure LLC"
+    },
+    {
+      "sy": "NRP",
+      "name": "Natural Resource Partners L.P."
+    },
+    {
+      "sy": "PBT",
+      "name": "Permian Basin Royalty Trust"
+    },
+    {
+      "sy": "DMLP",
+      "name": "Dorchester Minerals, L.P."
+    },
+    {
+      "sy": "ACDC",
+      "name": "ProFrac Holding Corp."
+    },
+    {
+      "sy": "NPKI",
+      "name": "NPK International Inc."
+    },
+    {
+      "sy": "TEN",
+      "name": "Tsakos Energy Navigation Limited"
+    },
+    {
+      "sy": "VTOL",
+      "name": "Bristow Group Inc."
+    },
+    {
+      "sy": "DEC",
+      "name": "Diversified Energy Company"
+    },
+    {
+      "sy": "NAT",
+      "name": "Nordic American Tankers Limited"
+    },
+    {
+      "sy": "TK",
+      "name": "Teekay Corporation Ltd."
+    },
+    {
+      "sy": "FLOC",
+      "name": "Flowco Holdings Inc."
+    },
+    {
+      "sy": "EE",
+      "name": "Excelerate Energy, Inc."
+    },
+    {
+      "sy": "SBR",
+      "name": "Sabine Royalty Trust"
+    },
+    {
+      "sy": "TBN",
+      "name": "Tamboran Resources Corporation"
+    },
+    {
+      "sy": "APC",
+      "name": "ARKO Petroleum Corp."
+    },
+    {
+      "sy": "HMH",
+      "name": "HMH Holding Inc."
+    },
+    {
+      "sy": "HPK",
+      "name": "HighPeak Energy, Inc."
+    },
+    {
+      "sy": "CAPL",
+      "name": "CrossAmerica Partners LP"
+    },
+    {
+      "sy": "HNRG",
+      "name": "Hallador Energy Company"
+    },
+    {
+      "sy": "REPX",
+      "name": "Riley Exploration Permian, Inc."
+    },
+    {
+      "sy": "GFR",
+      "name": "Greenfire Resources Ltd."
+    },
+    {
+      "sy": "VTS",
+      "name": "Vitesse Energy, Inc."
+    },
+    {
+      "sy": "GRNT",
+      "name": "Granite Ridge Resources, Inc."
+    },
+    {
+      "sy": "TXO",
+      "name": "TXO Partners, L.P."
+    },
+    {
+      "sy": "FTK",
+      "name": "Flotek Industries, Inc."
+    },
+    {
+      "sy": "EGY",
+      "name": "VAALCO Energy, Inc."
+    },
+    {
+      "sy": "FET",
+      "name": "Forum Energy Technologies, Inc."
+    },
+    {
+      "sy": "GPRK",
+      "name": "GeoPark Limited"
+    },
+    {
+      "sy": "CLB",
+      "name": "Core Laboratories Inc."
+    },
+    {
+      "sy": "SD",
+      "name": "SandRidge Energy, Inc."
+    },
+    {
+      "sy": "OIS",
+      "name": "Oil States International, Inc."
+    },
+    {
+      "sy": "NGS",
+      "name": "Natural Gas Services Group, Inc."
+    },
+    {
+      "sy": "FTW",
+      "name": "Presidio Production Company"
+    },
+    {
+      "sy": "SMC",
+      "name": "Summit Midstream Corporation"
+    },
+    {
+      "sy": "PNRG",
+      "name": "PrimeEnergy Resources Corporation"
+    },
+    {
+      "sy": "SGU",
+      "name": "Star Group, L.P."
+    },
+    {
+      "sy": "RNGR",
+      "name": "Ranger Energy Services, Inc."
+    },
+    {
+      "sy": "NC",
+      "name": "NACCO Industries, Inc."
+    },
+    {
+      "sy": "KNOP",
+      "name": "KNOT Offshore Partners LP"
+    },
+    {
+      "sy": "UNTC",
+      "name": "Unit Corporation"
+    },
+    {
+      "sy": "GTE",
+      "name": "Gran Tierra Energy Inc."
+    },
+    {
+      "sy": "NUCL",
+      "name": "Eagle Nuclear Energy Corp."
+    },
+    {
+      "sy": "INR",
+      "name": "Infinity Natural Resources, Inc."
+    },
+    {
+      "sy": "AMPY",
+      "name": "Amplify Energy Corp."
+    },
+    {
+      "sy": "PED",
+      "name": "PEDEVCO Corp."
+    },
+    {
+      "sy": "EPSN",
+      "name": "Epsilon Energy Ltd."
+    },
+    {
+      "sy": "TORO",
+      "name": "Toro Corp."
+    },
+    {
+      "sy": "FGPR",
+      "name": "Ferrellgas Partners, L.P."
+    },
+    {
+      "sy": "NINE",
+      "name": "Nine Energy Service, Inc."
+    },
+    {
+      "sy": "NCSM",
+      "name": "NCS Multistage Holdings, Inc."
+    },
+    {
+      "sy": "GEOS",
+      "name": "Geospace Technologies Corporation"
+    },
+    {
+      "sy": "NRT",
+      "name": "North European Oil Royalty Trust"
+    },
+    {
+      "sy": "CRT",
+      "name": "Cross Timbers Royalty Trust"
+    },
+    {
+      "sy": "RSRV",
+      "name": "The Reserve Petroleum Company"
+    },
+    {
+      "sy": "AMEN",
+      "name": "AMEN Properties, Inc."
+    },
+    {
+      "sy": "CKX",
+      "name": "CKX Lands, Inc."
+    },
+    {
+      "sy": "MXC",
+      "name": "Mexco Energy Corporation"
+    },
+    {
+      "sy": "MARPS",
+      "name": "Marine Petroleum Trust"
+    },
+    {
+      "sy": "EROK",
+      "name": "EagleRock Land, LLC"
+    },
+    {
+      "sy": "RISE",
+      "name": "Pictet Emerging Markets Rising Economies ETF"
+    }
+  ]
+}

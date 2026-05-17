@@ -7,7 +7,77 @@
       "sectorLabel": "Technology",
       "yahooScrId": "sec-ind_sec-largest-equities_technology",
       "file": "technology.json",
-      "count": 250
+      "count": 488
+    },
+    {
+      "sectorId": "financials",
+      "sectorLabel": "Financial services",
+      "yahooScrId": "sec-ind_sec-largest-equities_financial-services",
+      "file": "financials.json",
+      "count": 1458
+    },
+    {
+      "sectorId": "communication",
+      "sectorLabel": "Communication Services",
+      "yahooScrId": "sec-ind_sec-largest-equities_communication-services",
+      "file": "communication.json",
+      "count": 125
+    },
+    {
+      "sectorId": "consumer_cyclical",
+      "sectorLabel": "Consumer Cyclical",
+      "yahooScrId": "sec-ind_sec-largest-equities_consumer-cyclical",
+      "file": "consumer-cyclical.json",
+      "count": 355
+    },
+    {
+      "sectorId": "healthcare",
+      "sectorLabel": "Health Care",
+      "yahooScrId": "sec-ind_sec-largest-equities_healthcare",
+      "file": "healthcare.json",
+      "count": 540
+    },
+    {
+      "sectorId": "industrials",
+      "sectorLabel": "Industrials",
+      "yahooScrId": "sec-ind_sec-largest-equities_industrials",
+      "file": "industrials.json",
+      "count": 483
+    },
+    {
+      "sectorId": "consumer_defensive",
+      "sectorLabel": "Consumer Defensive",
+      "yahooScrId": "sec-ind_sec-largest-equities_consumer-defensive",
+      "file": "consumer-defensive.json",
+      "count": 137
+    },
+    {
+      "sectorId": "war_tape",
+      "sectorLabel": "Energy & oil (war tape)",
+      "yahooScrId": "sec-ind_sec-largest-equities_energy",
+      "file": "energy.json",
+      "count": 174
+    },
+    {
+      "sectorId": "basic_materials",
+      "sectorLabel": "Basic Materials",
+      "yahooScrId": "sec-ind_sec-largest-equities_basic-materials",
+      "file": "basic-materials.json",
+      "count": 137
+    },
+    {
+      "sectorId": "real_estate",
+      "sectorLabel": "Real Estate",
+      "yahooScrId": "sec-ind_sec-largest-equities_real-estate",
+      "file": "real-estate.json",
+      "count": 208
+    },
+    {
+      "sectorId": "utilities",
+      "sectorLabel": "Utilities",
+      "yahooScrId": "sec-ind_sec-largest-equities_utilities",
+      "file": "utilities.json",
+      "count": 77
     }
   ]
 }
