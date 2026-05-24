@@ -1,0 +1,148 @@
+{
+  "categoryId": "money-market",
+  "categoryLabel": "Money Market",
+  "updated": "2026-05-24",
+  "count": 28,
+  "tickers": [
+    {
+      "sy": "CAFG",
+      "name": "Pacer US Small Cap Cash Cows Growth Leaders ETF",
+      "id": "CAFG"
+    },
+    {
+      "sy": "COWG",
+      "name": "Pacer US Large Cap Cash Cows Growth Leaders ETF",
+      "id": "COWG"
+    },
+    {
+      "sy": "COWS",
+      "name": "Amplify Cash Flow Dividend Leaders ETF",
+      "id": "COWS"
+    },
+    {
+      "sy": "CSHI",
+      "name": "SHP ETF Trust - NEOS Enhanced Income Cash Alternative ETF",
+      "id": "CSHI"
+    },
+    {
+      "sy": "DSMC",
+      "name": "Distillate Small/Mid Cash Flow ETF",
+      "id": "DSMC"
+    },
+    {
+      "sy": "FCFY",
+      "name": "First Trust S&P 500 Diversified Free Cash Flow ETF",
+      "id": "FCFY"
+    },
+    {
+      "sy": "FTSM",
+      "name": "First Trust Enhanced Short Maturity ETF",
+      "id": "FTSM"
+    },
+    {
+      "sy": "FXY",
+      "name": "Invesco CurrencyShares® Japanese Yen Trust",
+      "id": "FXY"
+    },
+    {
+      "sy": "GCOW",
+      "name": "Pacer Global Cash Cows Dividend ETF",
+      "id": "GCOW"
+    },
+    {
+      "sy": "GFLW",
+      "name": "VictoryShares Free Cash Flow Growth ETF",
+      "id": "GFLW"
+    },
+    {
+      "sy": "GMMF",
+      "name": "iShares Government Money Market ETF",
+      "id": "GMMF"
+    },
+    {
+      "sy": "HCOW",
+      "name": "Amplify Cash Flow High Income ETF",
+      "id": "HCOW"
+    },
+    {
+      "sy": "HERD",
+      "name": "Pacer Cash Cows Fund of Funds ETF",
+      "id": "HERD"
+    },
+    {
+      "sy": "HFSP",
+      "name": "TradersAI Large Cap Equity & Cash ETF",
+      "id": "HFSP"
+    },
+    {
+      "sy": "IFLO",
+      "name": "VictoryShares International Free Cash Flow ETF",
+      "id": "IFLO"
+    },
+    {
+      "sy": "IQMM",
+      "name": "ProShares GENIUS Money Market ETF",
+      "id": "IQMM"
+    },
+    {
+      "sy": "LGCF",
+      "name": "Themes US Cash Flow Champions ETF",
+      "id": "LGCF"
+    },
+    {
+      "sy": "OPER",
+      "name": "ClearShares Ultra-Short Maturity ETF",
+      "id": "OPER"
+    },
+    {
+      "sy": "PMMF",
+      "name": "iShares Prime Money Market ETF",
+      "id": "PMMF"
+    },
+    {
+      "sy": "QOWZ",
+      "name": "Invesco Nasdaq Free Cash Flow Achievers ETF",
+      "id": "QOWZ"
+    },
+    {
+      "sy": "QQQG",
+      "name": "Pacer Nasdaq 100 Top 50 Cash Cows Growth Leaders ETF",
+      "id": "QQQG"
+    },
+    {
+      "sy": "QQWZ",
+      "name": "Pacer Cash COWZ 100-Nasdaq 100 Rotator ETF",
+      "id": "QQWZ"
+    },
+    {
+      "sy": "RMME",
+      "name": "Rareview Government Money Market ETF",
+      "id": "RMME"
+    },
+    {
+      "sy": "SBIL",
+      "name": "Simplify Government Money Market ETF",
+      "id": "SBIL"
+    },
+    {
+      "sy": "SFLO",
+      "name": "VictoryShares Small Cap Free Cash Flow ETF",
+      "id": "SFLO"
+    },
+    {
+      "sy": "SMCF",
+      "name": "Themes US Small Cap Cash Flow Champions ETF",
+      "id": "SMCF"
+    },
+    {
+      "sy": "UUP",
+      "name": "Invesco DB US Dollar Index Bullish Fund",
+      "id": "UUP"
+    },
+    {
+      "sy": "VFLO",
+      "name": "VictoryShares Free Cash Flow ETF",
+      "id": "VFLO"
+    }
+  ]
+}

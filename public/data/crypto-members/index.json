@@ -1,0 +1,30 @@
+{
+  "updated": "2026-05-24",
+  "source": "coingecko_markets_v3",
+  "categories": [
+    {
+      "categoryId": "large-cap",
+      "categoryLabel": "Large cap",
+      "file": "large-cap.json",
+      "count": 8
+    },
+    {
+      "categoryId": "layer-1",
+      "categoryLabel": "Layer 1",
+      "file": "layer-1.json",
+      "count": 7
+    },
+    {
+      "categoryId": "defi",
+      "categoryLabel": "DeFi",
+      "file": "defi.json",
+      "count": 4
+    },
+    {
+      "categoryId": "other-majors",
+      "categoryLabel": "Other majors",
+      "file": "other-majors.json",
+      "count": 24
+    }
+  ]
+}

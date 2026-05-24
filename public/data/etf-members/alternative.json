@@ -1,0 +1,188 @@
+{
+  "categoryId": "alternative",
+  "categoryLabel": "Alternative",
+  "updated": "2026-05-24",
+  "count": 36,
+  "tickers": [
+    {
+      "sy": "AETH",
+      "name": "Bitwise Trendwise Ethereum & Treasuries Rotation Strategy ETF",
+      "id": "AETH"
+    },
+    {
+      "sy": "APRB",
+      "name": "Aptus April Buffer ETF",
+      "id": "APRB"
+    },
+    {
+      "sy": "APRP",
+      "name": "PGIM US Large-Cap Buffer 12 ETF - April",
+      "id": "APRP"
+    },
+    {
+      "sy": "APXM",
+      "name": "FT Vest U.S. Equity Max Buffer ETF - April",
+      "id": "APXM"
+    },
+    {
+      "sy": "ARKB",
+      "name": "ARK 21Shares Bitcoin ETF",
+      "id": "ARKB"
+    },
+    {
+      "sy": "ARKD",
+      "name": "ARK DIET Q1 Buffer ETF",
+      "id": "ARKD"
+    },
+    {
+      "sy": "AUGP",
+      "name": "PGIM US Large-Cap Buffer 12 ETF - August",
+      "id": "AUGP"
+    },
+    {
+      "sy": "BAGY",
+      "name": "Amplify Bitcoin Max Income Covered Call ETF",
+      "id": "BAGY"
+    },
+    {
+      "sy": "BAPR",
+      "name": "Innovator S&P 500 Buffer ETF - April New",
+      "id": "BAPR"
+    },
+    {
+      "sy": "BAUG",
+      "name": "Innovator U.S. Equity Buffer ETF - August",
+      "id": "BAUG"
+    },
+    {
+      "sy": "BCCC",
+      "name": "Global X Bitcoin Covered Call ETF",
+      "id": "BCCC"
+    },
+    {
+      "sy": "BDEC",
+      "name": "Innovator S&P 500 Buffer ETF - December",
+      "id": "BDEC"
+    },
+    {
+      "sy": "BETH",
+      "name": "ProShares Bitcoin & Ether Market Cap Weight ETF",
+      "id": "BETH"
+    },
+    {
+      "sy": "BFAP",
+      "name": "FT Vest Bitcoin Strategy Floor15 ETF - April",
+      "id": "BFAP"
+    },
+    {
+      "sy": "BFEB",
+      "name": "Innovator S&P 500 Buffer ETF - February",
+      "id": "BFEB"
+    },
+    {
+      "sy": "BFJA",
+      "name": "FT Vest Bitcoin Strategy Floor15 ETF - January",
+      "id": "BFJA"
+    },
+    {
+      "sy": "BFJL",
+      "name": "FT Vest Bitcoin Strategy Floor15 ETF - July",
+      "id": "BFJL"
+    },
+    {
+      "sy": "BFLB",
+      "name": "BufferLABS US Equity Dynamic Buffer ETF",
+      "id": "BFLB"
+    },
+    {
+      "sy": "BFOC",
+      "name": "FT Vest Bitcoin Strat Floor15 ETF - Oct",
+      "id": "BFOC"
+    },
+    {
+      "sy": "BFRZ",
+      "name": "Innovator Equity Managed 100 Buffer ETF",
+      "id": "BFRZ"
+    },
+    {
+      "sy": "BGLD",
+      "name": "FT Cboe Vest Gold Tactical Buffer ETF",
+      "id": "BGLD"
+    },
+    {
+      "sy": "BHDG",
+      "name": "Nicholas Bitcoin Tail ETF",
+      "id": "BHDG"
+    },
+    {
+      "sy": "BITB",
+      "name": "Bitwise Bitcoin ETF",
+      "id": "BITB"
+    },
+    {
+      "sy": "BITO",
+      "name": "ProShares Bitcoin Strategy ETF",
+      "id": "BITO"
+    },
+    {
+      "sy": "BITQ",
+      "name": "Bitwise Crypto Industry Innovators ETF",
+      "id": "BITQ"
+    },
+    {
+      "sy": "BITS",
+      "name": "Global X Blockchain & Bitcoin Strategy ETF",
+      "id": "BITS"
+    },
+    {
+      "sy": "BITU",
+      "name": "Proshares Ultra Bitcoin ETF",
+      "id": "BITU"
+    },
+    {
+      "sy": "BITY",
+      "name": "Amplify Bitcoin 24% Premium Income ETF",
+      "id": "BITY"
+    },
+    {
+      "sy": "BJAN",
+      "name": "Innovator S&P 500 Buffer - January",
+      "id": "BJAN"
+    },
+    {
+      "sy": "BJUL",
+      "name": "Innovator U.S. Equity Buffer ETF - July",
+      "id": "BJUL"
+    },
+    {
+      "sy": "BJUN",
+      "name": "Innovator S&P 500 Buffer ETF - June",
+      "id": "BJUN"
+    },
+    {
+      "sy": "BLOX",
+      "name": "Nicholas Crypto Income ETF",
+      "id": "BLOX"
+    },
+    {
+      "sy": "BNOV",
+      "name": "Innovator S&P 500 Buffer ETF - November",
+      "id": "BNOV"
+    },
+    {
+      "sy": "BOCT",
+      "name": "Innovator S&P 500 Buffer October",
+      "id": "BOCT"
+    },
+    {
+      "sy": "BRRR",
+      "name": "Coinshares Bitcoin ETF",
+      "id": "BRRR"
+    },
+    {
+      "sy": "BSTP",
+      "name": "Innovator Buffer Step-Up Strategy ETF",
+      "id": "BSTP"
+    }
+  ]
+}

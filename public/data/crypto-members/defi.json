@@ -1,0 +1,44 @@
+{
+  "categoryId": "defi",
+  "categoryLabel": "DeFi",
+  "updated": "2026-05-24",
+  "count": 4,
+  "tickers": [
+    {
+      "id": "chainlink",
+      "sy": "LINK-USD",
+      "cgId": "chainlink",
+      "name": "Chainlink",
+      "marketCap": 6878213547.0,
+      "change24hPct": 1.79063,
+      "weight": 61.3565
+    },
+    {
+      "id": "uniswap",
+      "sy": "UNI-USD",
+      "cgId": "uniswap",
+      "name": "Uniswap",
+      "marketCap": 2156275086.0,
+      "change24hPct": -0.02417,
+      "weight": 19.2349
+    },
+    {
+      "id": "internet-computer",
+      "sy": "ICP-USD",
+      "cgId": "internet-computer",
+      "name": "Internet Computer",
+      "marketCap": 1424313434.0,
+      "change24hPct": 0.47665,
+      "weight": 12.7055
+    },
+    {
+      "id": "filecoin",
+      "sy": "FIL-USD",
+      "cgId": "filecoin",
+      "name": "Filecoin",
+      "marketCap": 751441031.0,
+      "change24hPct": -0.48727,
+      "weight": 6.7032
+    }
+  ]
+}

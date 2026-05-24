@@ -1,0 +1,188 @@
+{
+  "categoryId": "real-estate",
+  "categoryLabel": "Real Estate",
+  "updated": "2026-05-24",
+  "count": 36,
+  "tickers": [
+    {
+      "sy": "AVRE",
+      "name": "Avantis Real Estate ETF",
+      "id": "AVRE"
+    },
+    {
+      "sy": "BBRE",
+      "name": "JPMorgan BetaBuilders MSCI US REIT",
+      "id": "BBRE"
+    },
+    {
+      "sy": "BLDG",
+      "name": "Cambria ETF Trust - Cambria Global Real Estate ETF",
+      "id": "BLDG"
+    },
+    {
+      "sy": "BPRE",
+      "name": "Bluerock Private Real Estate Fund",
+      "id": "BPRE"
+    },
+    {
+      "sy": "BYRE",
+      "name": "Principal Exchange-Traded Funds - Principal Real Estate Active Opportunities ETF",
+      "id": "BYRE"
+    },
+    {
+      "sy": "CMBS",
+      "name": "iShares CMBS ETF",
+      "id": "CMBS"
+    },
+    {
+      "sy": "CSRE",
+      "name": "Cohen & Steers Real Estate Active ETF",
+      "id": "CSRE"
+    },
+    {
+      "sy": "DCMB",
+      "name": "Doubleline Etf Trust - Commercial Real Estate ETF",
+      "id": "DCMB"
+    },
+    {
+      "sy": "DFAR",
+      "name": "Dimensional US Real Estate ETF",
+      "id": "DFAR"
+    },
+    {
+      "sy": "DFGR",
+      "name": "Dimensional Global Real Estate ETF",
+      "id": "DFGR"
+    },
+    {
+      "sy": "DRN",
+      "name": "Direxion Daily Real Estate Bull 3X Shares",
+      "id": "DRN"
+    },
+    {
+      "sy": "DRV",
+      "name": "Direxion Daily Real Estate Bear 3X Shares",
+      "id": "DRV"
+    },
+    {
+      "sy": "ERET",
+      "name": "iShares Environmentally Aware Real Estate ETF",
+      "id": "ERET"
+    },
+    {
+      "sy": "FPRO",
+      "name": "Fidelity Real Estate Investment ETF",
+      "id": "FPRO"
+    },
+    {
+      "sy": "FREL",
+      "name": "Fidelity® MSCI Real Estate Index ETF",
+      "id": "FREL"
+    },
+    {
+      "sy": "GQRE",
+      "name": "FlexShares Global Quality Real Estate Index Fund",
+      "id": "GQRE"
+    },
+    {
+      "sy": "HAUS",
+      "name": "Residential REIT ETF",
+      "id": "HAUS"
+    },
+    {
+      "sy": "HOMZ",
+      "name": "The Hoya Capital Housing ETF",
+      "id": "HOMZ"
+    },
+    {
+      "sy": "HYIN",
+      "name": "WisdomTree Alternative Income Fund",
+      "id": "HYIN"
+    },
+    {
+      "sy": "ICF",
+      "name": "iShares Cohen & Steers REIT ETF",
+      "id": "ICF"
+    },
+    {
+      "sy": "IDGT",
+      "name": "iShares U.S. Digital Infrastructure and Real Estate ETF",
+      "id": "IDGT"
+    },
+    {
+      "sy": "IEI",
+      "name": "iShares 3-7 Year Treasury Bond ETF",
+      "id": "IEI"
+    },
+    {
+      "sy": "IFGL",
+      "name": "iShares International Developed Real Estate ETF",
+      "id": "IFGL"
+    },
+    {
+      "sy": "ISDMF",
+      "name": "iShares II Public Limited Company - iShares Developed Markets Property Yield UCITS ETF",
+      "id": "OTC:ISDMF"
+    },
+    {
+      "sy": "IYR",
+      "name": "iShares U.S. Real Estate ETF",
+      "id": "IYR"
+    },
+    {
+      "sy": "IYRI",
+      "name": "NEOS ETF Trust NEOS Real Estate",
+      "id": "IYRI"
+    },
+    {
+      "sy": "JRE",
+      "name": "Janus Henderson U.S. Real Estate ETF",
+      "id": "JRE"
+    },
+    {
+      "sy": "KBWY",
+      "name": "Invesco KBW Premium Yield Equity REIT ETF",
+      "id": "KBWY"
+    },
+    {
+      "sy": "LPRE",
+      "name": "Long Pond Real Estate Select ETF",
+      "id": "LPRE"
+    },
+    {
+      "sy": "MORT",
+      "name": "VanEck Mortgage REIT Income ETF",
+      "id": "MORT"
+    },
+    {
+      "sy": "NETL",
+      "name": "Fundamental Income Net Lease Real Estate ETF",
+      "id": "NETL"
+    },
+    {
+      "sy": "NURE",
+      "name": "Nuveen Short-Term REIT ETF",
+      "id": "NURE"
+    },
+    {
+      "sy": "NYF",
+      "name": "iShares New York Muni Bond ETF",
+      "id": "NYF"
+    },
+    {
+      "sy": "PFFR",
+      "name": "ETFis Series Trust I - InfraCap REIT Preferred ETF",
+      "id": "PFFR"
+    },
+    {
+      "sy": "PPTY",
+      "name": "U.S. Diversified Real Estate",
+      "id": "PPTY"
+    },
+    {
+      "sy": "PSR",
+      "name": "Invesco Active U.S. Real Estate Fund",
+      "id": "PSR"
+    }
+  ]
+}

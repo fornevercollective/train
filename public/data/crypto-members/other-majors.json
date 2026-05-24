@@ -1,0 +1,224 @@
+{
+  "categoryId": "other-majors",
+  "categoryLabel": "Other majors",
+  "updated": "2026-05-24",
+  "count": 24,
+  "tickers": [
+    {
+      "id": "tether",
+      "sy": "USDT-USD",
+      "cgId": "tether",
+      "name": "Tether",
+      "marketCap": 189490860353.0,
+      "change24hPct": -0.00217,
+      "weight": 46.2149
+    },
+    {
+      "id": "usd-coin",
+      "sy": "USDC-USD",
+      "cgId": "usd-coin",
+      "name": "USDC",
+      "marketCap": 76406483673.0,
+      "change24hPct": -0.00817,
+      "weight": 18.6348
+    },
+    {
+      "id": "figure-heloc",
+      "sy": "FIGR_HELOC-USD",
+      "cgId": "figure-heloc",
+      "name": "Figure Heloc",
+      "marketCap": 18622163653.0,
+      "change24hPct": 1.2035,
+      "weight": 4.5418
+    },
+    {
+      "id": "hyperliquid",
+      "sy": "HYPE-USD",
+      "cgId": "hyperliquid",
+      "name": "Hyperliquid",
+      "marketCap": 15051374553.0,
+      "change24hPct": 10.01483,
+      "weight": 3.6709
+    },
+    {
+      "id": "zcash",
+      "sy": "ZEC-USD",
+      "cgId": "zcash",
+      "name": "Zcash",
+      "marketCap": 11148759062.0,
+      "change24hPct": 10.52122,
+      "weight": 2.7191
+    },
+    {
+      "id": "usds",
+      "sy": "USDS-USD",
+      "cgId": "usds",
+      "name": "USDS",
+      "marketCap": 11131766470.0,
+      "change24hPct": -0.01542,
+      "weight": 2.7149
+    },
+    {
+      "id": "leo-token",
+      "sy": "LEO-USD",
+      "cgId": "leo-token",
+      "name": "LEO Token",
+      "marketCap": 9239399574.0,
+      "change24hPct": 1.09085,
+      "weight": 2.2534
+    },
+    {
+      "id": "monero",
+      "sy": "XMR-USD",
+      "cgId": "monero",
+      "name": "Monero",
+      "marketCap": 7251356622.0,
+      "change24hPct": 3.58899,
+      "weight": 1.7685
+    },
+    {
+      "id": "bitcoin-cash",
+      "sy": "BCH-USD",
+      "cgId": "bitcoin-cash",
+      "name": "Bitcoin Cash",
+      "marketCap": 7019175511.0,
+      "change24hPct": -0.25038,
+      "weight": 1.7119
+    },
+    {
+      "id": "whitebit",
+      "sy": "WBT-USD",
+      "cgId": "whitebit",
+      "name": "WhiteBIT Coin",
+      "marketCap": 6694514230.0,
+      "change24hPct": 1.70534,
+      "weight": 1.6327
+    },
+    {
+      "id": "canton-network",
+      "sy": "CC-USD",
+      "cgId": "canton-network",
+      "name": "Canton",
+      "marketCap": 6351370403.0,
+      "change24hPct": 3.47133,
+      "weight": 1.549
+    },
+    {
+      "id": "stellar",
+      "sy": "XLM-USD",
+      "cgId": "stellar",
+      "name": "Stellar",
+      "marketCap": 4913267927.0,
+      "change24hPct": 1.26079,
+      "weight": 1.1983
+    },
+    {
+      "id": "usd1-wlfi",
+      "sy": "USD1-USD",
+      "cgId": "usd1-wlfi",
+      "name": "USD1",
+      "marketCap": 4781531916.0,
+      "change24hPct": -0.03123,
+      "weight": 1.1662
+    },
+    {
+      "id": "the-open-network",
+      "sy": "TON-USD",
+      "cgId": "the-open-network",
+      "name": "Toncoin",
+      "marketCap": 4742031312.0,
+      "change24hPct": -1.01219,
+      "weight": 1.1565
+    },
+    {
+      "id": "ethena-usde",
+      "sy": "USDE-USD",
+      "cgId": "ethena-usde",
+      "name": "Ethena USDe",
+      "marketCap": 4446409605.0,
+      "change24hPct": -0.0314,
+      "weight": 1.0844
+    },
+    {
+      "id": "dai",
+      "sy": "DAI-USD",
+      "cgId": "dai",
+      "name": "Dai",
+      "marketCap": 4359908807.0,
+      "change24hPct": 0.00697,
+      "weight": 1.0633
+    },
+    {
+      "id": "sui",
+      "sy": "SUI-USD",
+      "cgId": "sui",
+      "name": "Sui",
+      "marketCap": 4186137375.0,
+      "change24hPct": 0.39276,
+      "weight": 1.021
+    },
+    {
+      "id": "hedera-hashgraph",
+      "sy": "HBAR-USD",
+      "cgId": "hedera-hashgraph",
+      "name": "Hedera",
+      "marketCap": 3840204644.0,
+      "change24hPct": 1.03616,
+      "weight": 0.9366
+    },
+    {
+      "id": "memecore",
+      "sy": "M-USD",
+      "cgId": "memecore",
+      "name": "MemeCore",
+      "marketCap": 3768293301.0,
+      "change24hPct": 0.21875,
+      "weight": 0.919
+    },
+    {
+      "id": "paypal-usd",
+      "sy": "PYUSD-USD",
+      "cgId": "paypal-usd",
+      "name": "PayPal USD",
+      "marketCap": 3614953498.0,
+      "change24hPct": 0.04169,
+      "weight": 0.8817
+    },
+    {
+      "id": "rain",
+      "sy": "RAIN-USD",
+      "cgId": "rain",
+      "name": "Rain",
+      "marketCap": 3568126415.0,
+      "change24hPct": 1.85285,
+      "weight": 0.8702
+    },
+    {
+      "id": "shiba-inu",
+      "sy": "SHIB-USD",
+      "cgId": "shiba-inu",
+      "name": "Shiba Inu",
+      "marketCap": 3293990895.0,
+      "change24hPct": 0.02887,
+      "weight": 0.8034
+    },
+    {
+      "id": "crypto-com-chain",
+      "sy": "CRO-USD",
+      "cgId": "crypto-com-chain",
+      "name": "Cronos",
+      "marketCap": 3099305898.0,
+      "change24hPct": 0.40737,
+      "weight": 0.7559
+    },
+    {
+      "id": "hashnote-usyc",
+      "sy": "USYC-USD",
+      "cgId": "hashnote-usyc",
+      "name": "Circle USYC",
+      "marketCap": 2999355049.0,
+      "change24hPct": null,
+      "weight": 0.7315
+    }
+  ]
+}
