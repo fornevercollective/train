@@ -1,0 +1,72 @@
+{
+  "updated": "2026-05-16",
+  "note": "Yahoo predefined screener scrIds (US largest equities per sector). Find more at finance.yahoo.com/research-hub/screener/",
+  "sectors": [
+    {
+      "sectorId": "technology",
+      "sectorLabel": "Technology",
+      "yahooScrId": "sec-ind_sec-largest-equities_technology",
+      "file": "technology.json"
+    },
+    {
+      "sectorId": "financials",
+      "sectorLabel": "Financial services",
+      "yahooScrId": "sec-ind_sec-largest-equities_financial-services",
+      "file": "financials.json"
+    },
+    {
+      "sectorId": "communication",
+      "sectorLabel": "Communication Services",
+      "yahooScrId": "sec-ind_sec-largest-equities_communication-services",
+      "file": "communication.json"
+    },
+    {
+      "sectorId": "consumer_cyclical",
+      "sectorLabel": "Consumer Cyclical",
+      "yahooScrId": "sec-ind_sec-largest-equities_consumer-cyclical",
+      "file": "consumer-cyclical.json"
+    },
+    {
+      "sectorId": "healthcare",
+      "sectorLabel": "Health Care",
+      "yahooScrId": "sec-ind_sec-largest-equities_healthcare",
+      "file": "healthcare.json"
+    },
+    {
+      "sectorId": "industrials",
+      "sectorLabel": "Industrials",
+      "yahooScrId": "sec-ind_sec-largest-equities_industrials",
+      "file": "industrials.json"
+    },
+    {
+      "sectorId": "consumer_defensive",
+      "sectorLabel": "Consumer Defensive",
+      "yahooScrId": "sec-ind_sec-largest-equities_consumer-defensive",
+      "file": "consumer-defensive.json"
+    },
+    {
+      "sectorId": "war_tape",
+      "sectorLabel": "Energy & oil (war tape)",
+      "yahooScrId": "sec-ind_sec-largest-equities_energy",
+      "file": "energy.json"
+    },
+    {
+      "sectorId": "basic_materials",
+      "sectorLabel": "Basic Materials",
+      "yahooScrId": "sec-ind_sec-largest-equities_basic-materials",
+      "file": "basic-materials.json"
+    },
+    {
+      "sectorId": "real_estate",
+      "sectorLabel": "Real Estate",
+      "yahooScrId": "sec-ind_sec-largest-equities_real-estate",
+      "file": "real-estate.json"
+    },
+    {
+      "sectorId": "utilities",
+      "sectorLabel": "Utilities",
+      "yahooScrId": "sec-ind_sec-largest-equities_utilities",
+      "file": "utilities.json"
+    }
+  ]
+}

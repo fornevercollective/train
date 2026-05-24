@@ -1,0 +1,188 @@
+{
+  "categoryId": "fixed-income",
+  "categoryLabel": "Fixed Income",
+  "updated": "2026-05-24",
+  "count": 36,
+  "tickers": [
+    {
+      "sy": "ABXB",
+      "name": "Abacus Flexible Bond Leaders ETF",
+      "id": "ABXB"
+    },
+    {
+      "sy": "ACVT",
+      "name": "Advent Convertible Bond ETF",
+      "id": "ACVT"
+    },
+    {
+      "sy": "ADFI",
+      "name": "Anfield Dynamic Fixed Income ETF",
+      "id": "ADFI"
+    },
+    {
+      "sy": "AFIF",
+      "name": "Anfield Universal Fixed Income ETF",
+      "id": "AFIF"
+    },
+    {
+      "sy": "AFIX",
+      "name": "Allspring Broad Market Core Bond ETF",
+      "id": "AFIX"
+    },
+    {
+      "sy": "AGG",
+      "name": "iShares Core U.S. Aggregate Bond ETF",
+      "id": "AGG"
+    },
+    {
+      "sy": "AGGA",
+      "name": "Astoria Dynamic Core US Fixed Income ETF",
+      "id": "AGGA"
+    },
+    {
+      "sy": "AGGH",
+      "name": "Simplify Aggregate Bond ETF",
+      "id": "AGGH"
+    },
+    {
+      "sy": "AGGS",
+      "name": "Harbor Disciplined Bond ETF",
+      "id": "AGGS"
+    },
+    {
+      "sy": "AGGY",
+      "name": "WisdomTree Yield Enhanced U.S. Aggregate Bond Fund",
+      "id": "AGGY"
+    },
+    {
+      "sy": "AGRH",
+      "name": "iShares U.S. ETF Trust - iShares Interest Rate Hedged U.S. Aggregate Bond ETF",
+      "id": "AGRH"
+    },
+    {
+      "sy": "AGZ",
+      "name": "iShares Agency Bond ETF",
+      "id": "AGZ"
+    },
+    {
+      "sy": "AGZD",
+      "name": "WisdomTree Interest Rate Hedged U.S. Aggregate Bond Fund",
+      "id": "AGZD"
+    },
+    {
+      "sy": "AHYB",
+      "name": "American Century Select High Yield ETF",
+      "id": "AHYB"
+    },
+    {
+      "sy": "AOHY",
+      "name": "Angel Oak High Yield Opportunities ETF",
+      "id": "AOHY"
+    },
+    {
+      "sy": "APCB",
+      "name": "ActivePassive Core Bond ETF",
+      "id": "APCB"
+    },
+    {
+      "sy": "APMU",
+      "name": "ActivePassive Intermediate Municipal Bond ETF",
+      "id": "APMU"
+    },
+    {
+      "sy": "AVIG",
+      "name": "Avantis Core Fixed Income ETF",
+      "id": "AVIG"
+    },
+    {
+      "sy": "AVMU",
+      "name": "Avantis Core Municipal Fixed Income ETF",
+      "id": "AVMU"
+    },
+    {
+      "sy": "AVSF",
+      "name": "Avantis Short-Term Fixed Income ETF",
+      "id": "AVSF"
+    },
+    {
+      "sy": "BAMB",
+      "name": "Brookstone Intermediate Bond ETF",
+      "id": "BAMB"
+    },
+    {
+      "sy": "BBBI",
+      "name": "Bondbloxx BBB Rated 5-10 Year Corporate Bond ETF",
+      "id": "BBBI"
+    },
+    {
+      "sy": "BBBL",
+      "name": "Bondbloxx BBB Rated 10+ Year Corporate Bond ETF",
+      "id": "BBBL"
+    },
+    {
+      "sy": "BBBS",
+      "name": "Bondbloxx BBB Rated 1-5 Year Corporate Bond ETF",
+      "id": "BBBS"
+    },
+    {
+      "sy": "BBHY",
+      "name": "JPMorgan BetaBuilders USD High Yield Corporate Bond ETF",
+      "id": "BBHY"
+    },
+    {
+      "sy": "BBIB",
+      "name": "JPMorgan BetaBuilders U.S. Treasury Bond 3-10 Year ETF",
+      "id": "BBIB"
+    },
+    {
+      "sy": "BBLB",
+      "name": "J.P. Morgan Exchange - Traded Fund Trust - Betabuilders U S Treasury Bond 20+ Year Etf",
+      "id": "BBLB"
+    },
+    {
+      "sy": "BBSB",
+      "name": "JPMorgan BetaBuilders U.S. Treasury Bond 1-3 Year ETF",
+      "id": "BBSB"
+    },
+    {
+      "sy": "BDBT",
+      "name": "Bluemonte Core Bond ETF",
+      "id": "BDBT"
+    },
+    {
+      "sy": "BEMB",
+      "name": "iShares J.P. Morgan Broad USD Emerging Markets Bond ETF",
+      "id": "BEMB"
+    },
+    {
+      "sy": "BGRN",
+      "name": "iShares USD Green Bond ETF",
+      "id": "BGRN"
+    },
+    {
+      "sy": "BIL",
+      "name": "SPDR® Bloomberg 1-3 Month T-Bill ETF",
+      "id": "BIL"
+    },
+    {
+      "sy": "BILS",
+      "name": "SPDR Series Trust - SPDR Bloomberg Barclays 3-12 Month T-Bill ETF",
+      "id": "BILS"
+    },
+    {
+      "sy": "BIV",
+      "name": "Vanguard Intermediate-Term Bond Index Fund ETF Shares",
+      "id": "BIV"
+    },
+    {
+      "sy": "BKAG",
+      "name": "BNY Mellon Core Bond ETF",
+      "id": "BKAG"
+    },
+    {
+      "sy": "BKHY",
+      "name": "BNY Mellon High Yield Beta ETF",
+      "id": "BKHY"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "categoryId": "other",
+  "categoryLabel": "Other",
+  "updated": "2026-05-24",
+  "count": 36,
+  "tickers": [
+    {
+      "sy": "AAAA",
+      "name": "Amplius Aggressive Asset Allocation ETF",
+      "id": "AAAA"
+    },
+    {
+      "sy": "AAAC",
+      "name": "Columbia AAA CLO ETF",
+      "id": "AAAC"
+    },
+    {
+      "sy": "AALG",
+      "name": "Leverage Shares 2X Long AAL Daily ETF",
+      "id": "AALG"
+    },
+    {
+      "sy": "AAOX",
+      "name": "Tradr 2X Long AAOI Daily ETF",
+      "id": "AAOX"
+    },
+    {
+      "sy": "AAPB",
+      "name": "GraniteShares ETF Trust - GraniteShares 2x Long Tilray Daily ETF",
+      "id": "AAPB"
+    },
+    {
+      "sy": "AAPD",
+      "name": "Direxion Daily AAPL Bear 1X ETF",
+      "id": "AAPD"
+    },
+    {
+      "sy": "AAPU",
+      "name": "Direxion Daily AAPL Bull 2X ETF",
+      "id": "AAPU"
+    },
+    {
+      "sy": "AAPW",
+      "name": "Roundhill AAPL WeeklyPay ETF",
+      "id": "AAPW"
+    },
+    {
+      "sy": "AAPX",
+      "name": "Etf Opportunities Trust - T Rex 2x Long Apple Daily Target Etf",
+      "id": "AAPX"
+    },
+    {
+      "sy": "AAPY",
+      "name": "Kurv Yield Premium Strategy Apple (AAPL) ETF",
+      "id": "AAPY"
+    },
+    {
+      "sy": "AAUA",
+      "name": "Alpha Architect US Equity 3 ETF",
+      "id": "AAUA"
+    },
+    {
+      "sy": "AAUM",
+      "name": "Tema Alternative Asset Managers ETF",
+      "id": "AAUM"
+    },
+    {
+      "sy": "ABFL",
+      "name": "Abacus FCF Leaders ETF",
+      "id": "ABFL"
+    },
+    {
+      "sy": "ABLG",
+      "name": "Abacus FCF International Leaders ETF",
+      "id": "ABLG"
+    },
+    {
+      "sy": "ABNG",
+      "name": "Leverage Shares 2x Long ABNB Daily ETF",
+      "id": "ABNG"
+    },
+    {
+      "sy": "ABNY",
+      "name": "YieldMax ABNB Option Income Strategy ETF",
+      "id": "ABNY"
+    },
+    {
+      "sy": "ABOT",
+      "name": "Abacus FCF Innovation Leaders ETF",
+      "id": "ABOT"
+    },
+    {
+      "sy": "ABUF",
+      "name": "Aptus Laddered Buffer ETF",
+      "id": "ABUF"
+    },
+    {
+      "sy": "ACIO",
+      "name": "Aptus Collared Income Opportunity ETF",
+      "id": "ACIO"
+    },
+    {
+      "sy": "ACKY",
+      "name": "VistaShares Target 15 ACKtivist Select Income ETF",
+      "id": "ACKY"
+    },
+    {
+      "sy": "ACLO",
+      "name": "TCW AAA CLO ETF",
+      "id": "ACLO"
+    },
+    {
+      "sy": "ACTS",
+      "name": "FIS Tactical Equity ETF",
+      "id": "ACTS"
+    },
+    {
+      "sy": "ACVU",
+      "name": "Hartford Alpha Capture Value ETF",
+      "id": "ACVU"
+    },
+    {
+      "sy": "ACWEF",
+      "name": "SSgA SPDR ETFs Europe I Public Limited Company - SPDR MSCI ACWI UCITS ETF",
+      "id": "OTC:ACWEF"
+    },
+    {
+      "sy": "ACYN",
+      "name": "FT Vest Laddered Autocallable Barrier & Income ETF",
+      "id": "ACYN"
+    },
+    {
+      "sy": "ACYS",
+      "name": "FT Vest Laddered Autocallable Barrier & Resilient Income ETF",
+      "id": "ACYS"
+    },
+    {
+      "sy": "ADBG",
+      "name": "Leverage Shares 2X Long ADBE Daily ETF",
+      "id": "ADBG"
+    },
+    {
+      "sy": "ADBU",
+      "name": "Direxion Daily Adbe Bull 2X ETF",
+      "id": "ADBU"
+    },
+    {
+      "sy": "ADPV",
+      "name": "Series Portfolios Trust - Adaptive Select ETF",
+      "id": "ADPV"
+    },
+    {
+      "sy": "AEMS",
+      "name": "Anfield Enhanced Market ETF",
+      "id": "AEMS"
+    },
+    {
+      "sy": "AFOS",
+      "name": "ARS Focused Opportunity Strategy ETF",
+      "id": "AFOS"
+    },
+    {
+      "sy": "AFRU",
+      "name": "T-REX 2X Long AFRM Daily Target ETF",
+      "id": "AFRU"
+    },
+    {
+      "sy": "AGFXF",
+      "name": "DB Agriculture Long ETN",
+      "id": "OTC:AGFXF"
+    },
+    {
+      "sy": "AGOX",
+      "name": "Adaptive Alpha Opportunities ETF",
+      "id": "AGOX"
+    },
+    {
+      "sy": "AGQ",
+      "name": "ProShares Ultra Silver",
+      "id": "AGQ"
+    },
+    {
+      "sy": "AHLT",
+      "name": "AHL Trend ETF",
+      "id": "AHLT"
+    }
+  ]
+}

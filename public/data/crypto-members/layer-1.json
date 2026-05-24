@@ -1,0 +1,71 @@
+{
+  "categoryId": "layer-1",
+  "categoryLabel": "Layer 1",
+  "updated": "2026-05-24",
+  "count": 7,
+  "tickers": [
+    {
+      "id": "litecoin",
+      "sy": "LTC-USD",
+      "cgId": "litecoin",
+      "name": "Litecoin",
+      "marketCap": 4076987102.0,
+      "change24hPct": 0.03746,
+      "weight": 24.2639
+    },
+    {
+      "id": "avalanche-2",
+      "sy": "AVAX-USD",
+      "cgId": "avalanche-2",
+      "name": "Avalanche",
+      "marketCap": 3994591264.0,
+      "change24hPct": 1.58577,
+      "weight": 23.7735
+    },
+    {
+      "id": "near",
+      "sy": "NEAR-USD",
+      "cgId": "near",
+      "name": "NEAR Protocol",
+      "marketCap": 3155729795.0,
+      "change24hPct": 3.93048,
+      "weight": 18.7811
+    },
+    {
+      "id": "polkadot",
+      "sy": "DOT-USD",
+      "cgId": "polkadot",
+      "name": "Polkadot",
+      "marketCap": 2127105336.0,
+      "change24hPct": 1.11058,
+      "weight": 12.6593
+    },
+    {
+      "id": "ethereum-classic",
+      "sy": "ETC-USD",
+      "cgId": "ethereum-classic",
+      "name": "Ethereum Classic",
+      "marketCap": 1400500230.0,
+      "change24hPct": 1.07316,
+      "weight": 8.335
+    },
+    {
+      "id": "cosmos",
+      "sy": "ATOM-USD",
+      "cgId": "cosmos",
+      "name": "Cosmos Hub",
+      "marketCap": 1045543420.0,
+      "change24hPct": -0.55806,
+      "weight": 6.2225
+    },
+    {
+      "id": "algorand",
+      "sy": "ALGO-USD",
+      "cgId": "algorand",
+      "name": "Algorand",
+      "marketCap": 1002245521.0,
+      "change24hPct": -0.5571,
+      "weight": 5.9648
+    }
+  ]
+}

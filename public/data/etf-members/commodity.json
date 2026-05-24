@@ -1,0 +1,188 @@
+{
+  "categoryId": "commodity",
+  "categoryLabel": "Commodity",
+  "updated": "2026-05-24",
+  "count": 36,
+  "tickers": [
+    {
+      "sy": "AAAU",
+      "name": "Goldman Sachs Physical Gold ETF",
+      "id": "AAAU"
+    },
+    {
+      "sy": "AGMI",
+      "name": "Themes Silver Miners ETF",
+      "id": "AGMI"
+    },
+    {
+      "sy": "AUMI",
+      "name": "Themes Gold Miners ETF",
+      "id": "AUMI"
+    },
+    {
+      "sy": "BCD",
+      "name": "abrdn Bloomberg All Commodity Longer Dated Strategy K-1 Free ETF",
+      "id": "BCD"
+    },
+    {
+      "sy": "BNO",
+      "name": "United States Brent Oil Fund LP",
+      "id": "BNO"
+    },
+    {
+      "sy": "BTGD",
+      "name": "STKD Bitcoin & Gold ETF",
+      "id": "BTGD"
+    },
+    {
+      "sy": "BWET",
+      "name": "ETF Managers Group Commodity Trust I",
+      "id": "BWET"
+    },
+    {
+      "sy": "CMDY",
+      "name": "iShares Bloomberg Roll Select Broad Commodity ETF",
+      "id": "CMDY"
+    },
+    {
+      "sy": "COMT",
+      "name": "iShares GSCI Commodity Dynamic Roll Strategy ETF",
+      "id": "COMT"
+    },
+    {
+      "sy": "COPJ",
+      "name": "Sprott Junior Copper Miners ETF",
+      "id": "COPJ"
+    },
+    {
+      "sy": "CPER",
+      "name": "United States Copper Index Fund LP",
+      "id": "CPER"
+    },
+    {
+      "sy": "DBC",
+      "name": "Invesco DB Commodity Index Tracking Fund",
+      "id": "DBC"
+    },
+    {
+      "sy": "DJP",
+      "name": "iPath® Bloomberg Commodity Index Total Return(SM) ETN",
+      "id": "DJP"
+    },
+    {
+      "sy": "DYYXF",
+      "name": "DB Commodity Double Long ETN",
+      "id": "OTC:DYYXF"
+    },
+    {
+      "sy": "EFMSF",
+      "name": "ETFS Metal Securities Limited - ETFS Physical Gold",
+      "id": "OTC:EFMSF"
+    },
+    {
+      "sy": "EMET",
+      "name": "VanEck ETF Trust - VanEck Copper And Green Metals ETF",
+      "id": "EMET"
+    },
+    {
+      "sy": "EVMT",
+      "name": "Invesco Electric Vehicle Metals Commodity Strategy No K-1 ETF",
+      "id": "EVMT"
+    },
+    {
+      "sy": "FGDL",
+      "name": "Franklin Responsibly Sourced Gold ETF",
+      "id": "FGDL"
+    },
+    {
+      "sy": "FTGC",
+      "name": "First Trust Global Tactical Commodity Strategy Fund",
+      "id": "FTGC"
+    },
+    {
+      "sy": "FTXN",
+      "name": "First Trust Nasdaq Oil & Gas ETF",
+      "id": "FTXN"
+    },
+    {
+      "sy": "GBUG",
+      "name": "Sprott Active Gold & Silver Miners ETF",
+      "id": "GBUG"
+    },
+    {
+      "sy": "GDE",
+      "name": "WisdomTree Efficient Gold Plus Equity Strategy Fund",
+      "id": "GDE"
+    },
+    {
+      "sy": "GDMN",
+      "name": "WisdomTree Efficient Gold Plus Gold Miners Strategy Fund",
+      "id": "GDMN"
+    },
+    {
+      "sy": "GDXW",
+      "name": "Roundhill Gold Miners Weeklypay ETF",
+      "id": "GDXW"
+    },
+    {
+      "sy": "GDXY",
+      "name": "YieldMax Gold Miners Option Income Strategy ETF",
+      "id": "GDXY"
+    },
+    {
+      "sy": "GLDW",
+      "name": "Roundhill Gold WeeklyPay ETF",
+      "id": "GLDW"
+    },
+    {
+      "sy": "GLDY",
+      "name": "Defiance Gold Enhanced Options Income ETF",
+      "id": "GLDY"
+    },
+    {
+      "sy": "GSG",
+      "name": "iShares S&P GSCI Commodity-Indexed Trust",
+      "id": "GSG"
+    },
+    {
+      "sy": "HARD",
+      "name": "Simplify Commodities Strategy No K-1 ETF",
+      "id": "HARD"
+    },
+    {
+      "sy": "IAUI",
+      "name": "NEOS Gold High Income ETF",
+      "id": "IAUI"
+    },
+    {
+      "sy": "IAUM",
+      "name": "iShares® Gold Trust Micro",
+      "id": "IAUM"
+    },
+    {
+      "sy": "ICOP",
+      "name": "iShares Copper and Metals Mining ETF",
+      "id": "ICOP"
+    },
+    {
+      "sy": "ISBG",
+      "name": "IncomeSTKd 1x Bitcoin & 1x Gold Premium ETF",
+      "id": "ISBG"
+    },
+    {
+      "sy": "ISCMF",
+      "name": "iShares VI Public Limited Company - iShares Diversified Commodity Swap UCITS ETF",
+      "id": "OTC:ISCMF"
+    },
+    {
+      "sy": "KCOP",
+      "name": "Kurv Copper & Mining Enhanced I",
+      "id": "KCOP"
+    },
+    {
+      "sy": "KGLD",
+      "name": "Kurv Gold Enhanced Income ETF",
+      "id": "KGLD"
+    }
+  ]
+}

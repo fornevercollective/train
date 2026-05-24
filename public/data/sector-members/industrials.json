@@ -1,0 +1,1941 @@
+{
+  "sectorId": "industrials",
+  "sectorLabel": "Industrials",
+  "yahooScrId": "sec-ind_sec-largest-equities_industrials",
+  "updated": "2026-05-17",
+  "count": 483,
+  "tickers": [
+    {
+      "sy": "CAT",
+      "name": "Caterpillar Inc."
+    },
+    {
+      "sy": "GE",
+      "name": "GE Aerospace"
+    },
+    {
+      "sy": "GEV",
+      "name": "GE Vernova Inc."
+    },
+    {
+      "sy": "RTX",
+      "name": "RTX Corporation"
+    },
+    {
+      "sy": "BA",
+      "name": "The Boeing Company"
+    },
+    {
+      "sy": "UNP",
+      "name": "Union Pacific Corporation"
+    },
+    {
+      "sy": "ETN",
+      "name": "Eaton Corporation plc"
+    },
+    {
+      "sy": "DE",
+      "name": "Deere & Company"
+    },
+    {
+      "sy": "VRT",
+      "name": "Vertiv Holdings Co"
+    },
+    {
+      "sy": "HON",
+      "name": "Honeywell International Inc."
+    },
+    {
+      "sy": "LMT",
+      "name": "Lockheed Martin Corporation"
+    },
+    {
+      "sy": "PWR",
+      "name": "Quanta Services, Inc."
+    },
+    {
+      "sy": "PH",
+      "name": "Parker-Hannifin Corporation"
+    },
+    {
+      "sy": "HWM",
+      "name": "Howmet Aerospace Inc."
+    },
+    {
+      "sy": "TT",
+      "name": "Trane Technologies plc"
+    },
+    {
+      "sy": "CMI",
+      "name": "Cummins Inc."
+    },
+    {
+      "sy": "GD",
+      "name": "General Dynamics Corporation"
+    },
+    {
+      "sy": "FDX",
+      "name": "FedEx Corporation"
+    },
+    {
+      "sy": "WM",
+      "name": "Waste Management, Inc."
+    },
+    {
+      "sy": "JCI",
+      "name": "Johnson Controls International plc"
+    },
+    {
+      "sy": "CSX",
+      "name": "CSX Corporation"
+    },
+    {
+      "sy": "UPS",
+      "name": "United Parcel Service, Inc."
+    },
+    {
+      "sy": "BE",
+      "name": "Bloom Energy Corporation"
+    },
+    {
+      "sy": "NOC",
+      "name": "Northrop Grumman Corporation"
+    },
+    {
+      "sy": "MMM",
+      "name": "3M Company"
+    },
+    {
+      "sy": "EMR",
+      "name": "Emerson Electric Co."
+    },
+    {
+      "sy": "RKLB",
+      "name": "Rocket Lab Corporation"
+    },
+    {
+      "sy": "ITW",
+      "name": "Illinois Tool Works Inc."
+    },
+    {
+      "sy": "NSC",
+      "name": "Norfolk Southern Corporation"
+    },
+    {
+      "sy": "FIX",
+      "name": "Comfort Systems USA, Inc."
+    },
+    {
+      "sy": "CTAS",
+      "name": "Cintas Corporation"
+    },
+    {
+      "sy": "TDG",
+      "name": "TransDigm Group Incorporated"
+    },
+    {
+      "sy": "RSG",
+      "name": "Republic Services, Inc."
+    },
+    {
+      "sy": "URI",
+      "name": "United Rentals, Inc."
+    },
+    {
+      "sy": "GWW",
+      "name": "W.W. Grainger, Inc."
+    },
+    {
+      "sy": "PCAR",
+      "name": "PACCAR Inc"
+    },
+    {
+      "sy": "LHX",
+      "name": "L3Harris Technologies, Inc."
+    },
+    {
+      "sy": "CARR",
+      "name": "Carrier Global Corporation"
+    },
+    {
+      "sy": "AME",
+      "name": "AMETEK, Inc."
+    },
+    {
+      "sy": "ROK",
+      "name": "Rockwell Automation, Inc."
+    },
+    {
+      "sy": "FAST",
+      "name": "Fastenal Company"
+    },
+    {
+      "sy": "DAL",
+      "name": "Delta Air Lines, Inc."
+    },
+    {
+      "sy": "WAB",
+      "name": "Westinghouse Air Brake Technologies Corporation"
+    },
+    {
+      "sy": "FERG",
+      "name": "Ferguson Enterprises Inc."
+    },
+    {
+      "sy": "ODFL",
+      "name": "Old Dominion Freight Line, Inc."
+    },
+    {
+      "sy": "EME",
+      "name": "EMCOR Group, Inc."
+    },
+    {
+      "sy": "WCN",
+      "name": "Waste Connections, Inc."
+    },
+    {
+      "sy": "MTZ",
+      "name": "MasTec, Inc."
+    },
+    {
+      "sy": "AXON",
+      "name": "Axon Enterprise, Inc."
+    },
+    {
+      "sy": "SUNB",
+      "name": "Sunbelt Rentals Holdings, Inc."
+    },
+    {
+      "sy": "CPRT",
+      "name": "Copart, Inc."
+    },
+    {
+      "sy": "HEI-A",
+      "name": "HEICO Corporation"
+    },
+    {
+      "sy": "UAL",
+      "name": "United Airlines Holdings, Inc."
+    },
+    {
+      "sy": "DOV",
+      "name": "Dover Corporation"
+    },
+    {
+      "sy": "IR",
+      "name": "Ingersoll Rand Inc."
+    },
+    {
+      "sy": "NVT",
+      "name": "nVent Electric plc"
+    },
+    {
+      "sy": "OTIS",
+      "name": "Otis Worldwide Corporation"
+    },
+    {
+      "sy": "CW",
+      "name": "Curtiss-Wright Corporation"
+    },
+    {
+      "sy": "STRL",
+      "name": "Sterling Infrastructure, Inc."
+    },
+    {
+      "sy": "XYL",
+      "name": "Xylem Inc."
+    },
+    {
+      "sy": "HUBB",
+      "name": "Hubbell Incorporated"
+    },
+    {
+      "sy": "JBHT",
+      "name": "J.B. Hunt Transport Services, Inc."
+    },
+    {
+      "sy": "FTAI",
+      "name": "FTAI Aviation Ltd."
+    },
+    {
+      "sy": "XPO",
+      "name": "XPO, Inc."
+    },
+    {
+      "sy": "AER",
+      "name": "AerCap Holdings N.V."
+    },
+    {
+      "sy": "VRSK",
+      "name": "Verisk Analytics, Inc."
+    },
+    {
+      "sy": "ATI",
+      "name": "ATI Inc."
+    },
+    {
+      "sy": "VLTO",
+      "name": "Veralto Corporation"
+    },
+    {
+      "sy": "WWD",
+      "name": "Woodward, Inc."
+    },
+    {
+      "sy": "EXPD",
+      "name": "Expeditors International of Washington, Inc."
+    },
+    {
+      "sy": "CRS",
+      "name": "Carpenter Technology Corporation"
+    },
+    {
+      "sy": "ULS",
+      "name": "UL Solutions Inc."
+    },
+    {
+      "sy": "CHRW",
+      "name": "C.H. Robinson Worldwide, Inc."
+    },
+    {
+      "sy": "EFX",
+      "name": "Equifax Inc."
+    },
+    {
+      "sy": "LUV",
+      "name": "Southwest Airlines Co."
+    },
+    {
+      "sy": "BWXT",
+      "name": "BWX Technologies, Inc."
+    },
+    {
+      "sy": "APG",
+      "name": "APi Group Corporation"
+    },
+    {
+      "sy": "SNA",
+      "name": "Snap-on Incorporated"
+    },
+    {
+      "sy": "GPN",
+      "name": "Global Payments Inc."
+    },
+    {
+      "sy": "RBC",
+      "name": "RBC Bearings Incorporated"
+    },
+    {
+      "sy": "WCC",
+      "name": "WESCO International, Inc."
+    },
+    {
+      "sy": "LII",
+      "name": "Lennox International Inc."
+    },
+    {
+      "sy": "ITT",
+      "name": "ITT Inc."
+    },
+    {
+      "sy": "WSO",
+      "name": "Watsco, Inc."
+    },
+    {
+      "sy": "CLH",
+      "name": "Clean Harbors, Inc."
+    },
+    {
+      "sy": "GNRC",
+      "name": "Generac Holdings Inc."
+    },
+    {
+      "sy": "TXT",
+      "name": "Textron Inc."
+    },
+    {
+      "sy": "IEX",
+      "name": "IDEX Corporation"
+    },
+    {
+      "sy": "NDSN",
+      "name": "Nordson Corporation"
+    },
+    {
+      "sy": "MLI",
+      "name": "Mueller Industries, Inc."
+    },
+    {
+      "sy": "PL",
+      "name": "Planet Labs PBC"
+    },
+    {
+      "sy": "LECO",
+      "name": "Lincoln Electric Holdings, Inc."
+    },
+    {
+      "sy": "ARMK",
+      "name": "Aramark"
+    },
+    {
+      "sy": "IESC",
+      "name": "IES Holdings, Inc."
+    },
+    {
+      "sy": "GFL",
+      "name": "GFL Environmental Inc."
+    },
+    {
+      "sy": "CSL",
+      "name": "Carlisle Companies Incorporated"
+    },
+    {
+      "sy": "MAS",
+      "name": "Masco Corporation"
+    },
+    {
+      "sy": "DY",
+      "name": "Dycom Industries, Inc."
+    },
+    {
+      "sy": "RRX",
+      "name": "Regal Rexnord Corporation"
+    },
+    {
+      "sy": "J",
+      "name": "Jacobs Solutions Inc."
+    },
+    {
+      "sy": "CNH",
+      "name": "CNH Industrial N.V."
+    },
+    {
+      "sy": "HII",
+      "name": "Huntington Ingalls Industries, Inc."
+    },
+    {
+      "sy": "GGG",
+      "name": "Graco Inc."
+    },
+    {
+      "sy": "AEIS",
+      "name": "Advanced Energy Industries, Inc."
+    },
+    {
+      "sy": "SAIA",
+      "name": "Saia, Inc."
+    },
+    {
+      "sy": "QXO",
+      "name": "QXO, Inc."
+    },
+    {
+      "sy": "PNR",
+      "name": "Pentair plc"
+    },
+    {
+      "sy": "SWK",
+      "name": "Stanley Black & Decker, Inc."
+    },
+    {
+      "sy": "AIT",
+      "name": "Applied Industrial Technologies, Inc."
+    },
+    {
+      "sy": "BLD",
+      "name": "TopBuild Corp."
+    },
+    {
+      "sy": "KNX",
+      "name": "Knight-Swift Transportation Holdings Inc."
+    },
+    {
+      "sy": "AAON",
+      "name": "AAON, Inc."
+    },
+    {
+      "sy": "DRS",
+      "name": "Leonardo DRS, Inc."
+    },
+    {
+      "sy": "FPS",
+      "name": "Forgent Power Solutions, Inc."
+    },
+    {
+      "sy": "ALLE",
+      "name": "Allegion plc"
+    },
+    {
+      "sy": "POWL",
+      "name": "Powell Industries, Inc."
+    },
+    {
+      "sy": "WMS",
+      "name": "Advanced Drainage Systems, Inc."
+    },
+    {
+      "sy": "JOBY",
+      "name": "Joby Aviation, Inc."
+    },
+    {
+      "sy": "AGX",
+      "name": "Argan, Inc."
+    },
+    {
+      "sy": "SPXC",
+      "name": "SPX Technologies, Inc."
+    },
+    {
+      "sy": "CR",
+      "name": "Crane Company"
+    },
+    {
+      "sy": "GTLS",
+      "name": "Chart Industries, Inc."
+    },
+    {
+      "sy": "WTS",
+      "name": "Watts Water Technologies, Inc."
+    },
+    {
+      "sy": "VMI",
+      "name": "Valmont Industries, Inc."
+    },
+    {
+      "sy": "KTOS",
+      "name": "Kratos Defense & Security Solutions, Inc."
+    },
+    {
+      "sy": "MOG-A",
+      "name": "Moog Inc."
+    },
+    {
+      "sy": "DCI",
+      "name": "Donaldson Company, Inc."
+    },
+    {
+      "sy": "UHAL",
+      "name": "U-Haul Holding Company"
+    },
+    {
+      "sy": "OC",
+      "name": "Owens Corning"
+    },
+    {
+      "sy": "ACM",
+      "name": "AECOM"
+    },
+    {
+      "sy": "R",
+      "name": "Ryder System, Inc."
+    },
+    {
+      "sy": "CNM",
+      "name": "Core & Main, Inc."
+    },
+    {
+      "sy": "BAH",
+      "name": "Booz Allen Hamilton Holding Corporation"
+    },
+    {
+      "sy": "ENS",
+      "name": "EnerSys"
+    },
+    {
+      "sy": "TTC",
+      "name": "The Toro Company"
+    },
+    {
+      "sy": "AYI",
+      "name": "Acuity Inc."
+    },
+    {
+      "sy": "SARO",
+      "name": "StandardAero, Inc."
+    },
+    {
+      "sy": "KRMN",
+      "name": "Karman Holdings Inc."
+    },
+    {
+      "sy": "FLS",
+      "name": "Flowserve Corporation"
+    },
+    {
+      "sy": "AGCO",
+      "name": "AGCO Corporation"
+    },
+    {
+      "sy": "AAL",
+      "name": "American Airlines Group Inc."
+    },
+    {
+      "sy": "ZWS",
+      "name": "Zurn Elkay Water Solutions Corporation"
+    },
+    {
+      "sy": "ECG",
+      "name": "Everus Construction Group, Inc."
+    },
+    {
+      "sy": "AVAV",
+      "name": "AeroVironment, Inc."
+    },
+    {
+      "sy": "TKR",
+      "name": "The Timken Company"
+    },
+    {
+      "sy": "CMC",
+      "name": "Commercial Metals Company"
+    },
+    {
+      "sy": "KEX",
+      "name": "Kirby Corporation"
+    },
+    {
+      "sy": "AOS",
+      "name": "A. O. Smith Corporation"
+    },
+    {
+      "sy": "BLDR",
+      "name": "Builders FirstSource, Inc."
+    },
+    {
+      "sy": "OSK",
+      "name": "Oshkosh Corporation"
+    },
+    {
+      "sy": "MYRG",
+      "name": "MYR Group Inc."
+    },
+    {
+      "sy": "TEX",
+      "name": "Terex Corporation"
+    },
+    {
+      "sy": "TTEK",
+      "name": "Tetra Tech, Inc."
+    },
+    {
+      "sy": "FSS",
+      "name": "Federal Signal Corporation"
+    },
+    {
+      "sy": "HXL",
+      "name": "Hexcel Corporation"
+    },
+    {
+      "sy": "ROAD",
+      "name": "Construction Partners, Inc."
+    },
+    {
+      "sy": "AWI",
+      "name": "Armstrong World Industries, Inc."
+    },
+    {
+      "sy": "MSA",
+      "name": "MSA Safety Incorporated"
+    },
+    {
+      "sy": "NPO",
+      "name": "Enpro Inc."
+    },
+    {
+      "sy": "JBTM",
+      "name": "JBT Marel Corporation"
+    },
+    {
+      "sy": "MIDD",
+      "name": "The Middleby Corporation"
+    },
+    {
+      "sy": "LGN",
+      "name": "Legence Corp."
+    },
+    {
+      "sy": "FLY",
+      "name": "Firefly Aerospace Inc."
+    },
+    {
+      "sy": "POOL",
+      "name": "Pool Corporation"
+    },
+    {
+      "sy": "FLR",
+      "name": "Fluor Corporation"
+    },
+    {
+      "sy": "GTES",
+      "name": "Gates Industrial Corporation plc"
+    },
+    {
+      "sy": "PRIM",
+      "name": "Primoris Services Corporation"
+    },
+    {
+      "sy": "GATX",
+      "name": "GATX Corporation"
+    },
+    {
+      "sy": "EQPT",
+      "name": "EquipmentShare.com Inc."
+    },
+    {
+      "sy": "ACA",
+      "name": "Arcosa, Inc."
+    },
+    {
+      "sy": "GVA",
+      "name": "Granite Construction Incorporated"
+    },
+    {
+      "sy": "SYM",
+      "name": "Symbotic Inc."
+    },
+    {
+      "sy": "LSTR",
+      "name": "Landstar System, Inc."
+    },
+    {
+      "sy": "MSM",
+      "name": "MSC Industrial Direct Co., Inc."
+    },
+    {
+      "sy": "AMTM",
+      "name": "Amentum Holdings, Inc."
+    },
+    {
+      "sy": "SNDR",
+      "name": "Schneider National, Inc."
+    },
+    {
+      "sy": "GXO",
+      "name": "GXO Logistics, Inc."
+    },
+    {
+      "sy": "MRCY",
+      "name": "Mercury Systems, Inc."
+    },
+    {
+      "sy": "MATX",
+      "name": "Matson, Inc."
+    },
+    {
+      "sy": "LUNR",
+      "name": "Intuitive Machines, Inc."
+    },
+    {
+      "sy": "CWST",
+      "name": "Casella Waste Systems, Inc."
+    },
+    {
+      "sy": "ESAB",
+      "name": "ESAB Corporation"
+    },
+    {
+      "sy": "CPA",
+      "name": "Copa Holdings, S.A."
+    },
+    {
+      "sy": "LOAR",
+      "name": "Loar Holdings Inc."
+    },
+    {
+      "sy": "CAR",
+      "name": "Avis Budget Group, Inc."
+    },
+    {
+      "sy": "SITE",
+      "name": "SiteOne Landscape Supply, Inc."
+    },
+    {
+      "sy": "ADT",
+      "name": "ADT Inc."
+    },
+    {
+      "sy": "DLB",
+      "name": "Dolby Laboratories, Inc."
+    },
+    {
+      "sy": "LPX",
+      "name": "Louisiana-Pacific Corporation"
+    },
+    {
+      "sy": "VSEC",
+      "name": "VSE Corporation"
+    },
+    {
+      "sy": "UNF",
+      "name": "UniFirst Corporation"
+    },
+    {
+      "sy": "HRI",
+      "name": "Herc Holdings Inc."
+    },
+    {
+      "sy": "ACHR",
+      "name": "Archer Aviation Inc."
+    },
+    {
+      "sy": "XMTR",
+      "name": "Xometry, Inc."
+    },
+    {
+      "sy": "SEB",
+      "name": "Seaboard Corporation"
+    },
+    {
+      "sy": "MIR",
+      "name": "Mirion Technologies, Inc."
+    },
+    {
+      "sy": "WSC",
+      "name": "WillScot Holdings Corporation"
+    },
+    {
+      "sy": "FCN",
+      "name": "FTI Consulting, Inc."
+    },
+    {
+      "sy": "REZI",
+      "name": "Resideo Technologies, Inc."
+    },
+    {
+      "sy": "BCO",
+      "name": "The Brink's Company"
+    },
+    {
+      "sy": "FELE",
+      "name": "Franklin Electric Co., Inc."
+    },
+    {
+      "sy": "AZZ",
+      "name": "AZZ Inc."
+    },
+    {
+      "sy": "CSW",
+      "name": "CSW Industrials, Inc."
+    },
+    {
+      "sy": "TPC",
+      "name": "Tutor Perini Corporation"
+    },
+    {
+      "sy": "AIR",
+      "name": "AAR Corp."
+    },
+    {
+      "sy": "ALK",
+      "name": "Alaska Air Group, Inc."
+    },
+    {
+      "sy": "FBIN",
+      "name": "Fortune Brands Innovations, Inc."
+    },
+    {
+      "sy": "MWA",
+      "name": "Mueller Water Products, Inc."
+    },
+    {
+      "sy": "CAAP",
+      "name": "Corporación América Airports S.A."
+    },
+    {
+      "sy": "TREX",
+      "name": "Trex Company, Inc."
+    },
+    {
+      "sy": "SMR",
+      "name": "NuScale Power Corporation"
+    },
+    {
+      "sy": "KBR",
+      "name": "KBR, Inc."
+    },
+    {
+      "sy": "GFF",
+      "name": "Griffon Corporation"
+    },
+    {
+      "sy": "KAI",
+      "name": "Kadant Inc."
+    },
+    {
+      "sy": "OTTR",
+      "name": "Otter Tail Corporation"
+    },
+    {
+      "sy": "BETA",
+      "name": "BETA Technologies, Inc."
+    },
+    {
+      "sy": "GPGI",
+      "name": "GPGI, Inc."
+    },
+    {
+      "sy": "BRC",
+      "name": "Brady Corporation"
+    },
+    {
+      "sy": "KFY",
+      "name": "Korn Ferry"
+    },
+    {
+      "sy": "SKYW",
+      "name": "SkyWest, Inc."
+    },
+    {
+      "sy": "MMS",
+      "name": "Maximus, Inc."
+    },
+    {
+      "sy": "RXO",
+      "name": "RXO, Inc."
+    },
+    {
+      "sy": "ZIM",
+      "name": "ZIM Integrated Shipping Services Ltd."
+    },
+    {
+      "sy": "YSS",
+      "name": "York Space Systems, Inc."
+    },
+    {
+      "sy": "GEO",
+      "name": "The GEO Group, Inc."
+    },
+    {
+      "sy": "SXI",
+      "name": "Standex International Corporation"
+    },
+    {
+      "sy": "BW",
+      "name": "Babcock & Wilcox Enterprises, Inc."
+    },
+    {
+      "sy": "HAYW",
+      "name": "Hayward Holdings, Inc."
+    },
+    {
+      "sy": "SBLK",
+      "name": "Star Bulk Carriers Corp."
+    },
+    {
+      "sy": "CECO",
+      "name": "CECO Environmental Corp."
+    },
+    {
+      "sy": "ATRO",
+      "name": "Astronics Corporation"
+    },
+    {
+      "sy": "RDW",
+      "name": "Redwire Corporation"
+    },
+    {
+      "sy": "MGRC",
+      "name": "McGrath RentCorp"
+    },
+    {
+      "sy": "ARCB",
+      "name": "ArcBest Corporation"
+    },
+    {
+      "sy": "TRN",
+      "name": "Trinity Industries, Inc."
+    },
+    {
+      "sy": "EOSE",
+      "name": "Eos Energy Enterprises, Inc."
+    },
+    {
+      "sy": "KMT",
+      "name": "Kennametal Inc."
+    },
+    {
+      "sy": "WOR",
+      "name": "Worthington Enterprises, Inc."
+    },
+    {
+      "sy": "AMSC",
+      "name": "American Superconductor Corporation"
+    },
+    {
+      "sy": "EXPO",
+      "name": "Exponent, Inc."
+    },
+    {
+      "sy": "RHI",
+      "name": "Robert Half Inc."
+    },
+    {
+      "sy": "FA",
+      "name": "First Advantage Corporation"
+    },
+    {
+      "sy": "HLIO",
+      "name": "Helios Technologies, Inc."
+    },
+    {
+      "sy": "ATKR",
+      "name": "Atkore Inc."
+    },
+    {
+      "sy": "DNOW",
+      "name": "DNOW Inc."
+    },
+    {
+      "sy": "AMPX",
+      "name": "Amprius Technologies, Inc."
+    },
+    {
+      "sy": "DAC",
+      "name": "Danaos Corporation"
+    },
+    {
+      "sy": "ABM",
+      "name": "ABM Industries Incorporated"
+    },
+    {
+      "sy": "HUBG",
+      "name": "Hub Group, Inc."
+    },
+    {
+      "sy": "CMPR",
+      "name": "Cimpress plc"
+    },
+    {
+      "sy": "PCT",
+      "name": "PureCycle Technologies, Inc."
+    },
+    {
+      "sy": "DXPE",
+      "name": "DXP Enterprises, Inc."
+    },
+    {
+      "sy": "BLBD",
+      "name": "Blue Bird Corporation"
+    },
+    {
+      "sy": "CTOS",
+      "name": "Custom Truck One Source, Inc."
+    },
+    {
+      "sy": "WERN",
+      "name": "Werner Enterprises, Inc."
+    },
+    {
+      "sy": "CXT",
+      "name": "Crane NXT, Co."
+    },
+    {
+      "sy": "VVX",
+      "name": "V2X, Inc."
+    },
+    {
+      "sy": "DCO",
+      "name": "Ducommun Incorporated"
+    },
+    {
+      "sy": "THR",
+      "name": "Thermon Group Holdings, Inc."
+    },
+    {
+      "sy": "PBI",
+      "name": "Pitney Bowes Inc."
+    },
+    {
+      "sy": "CMRE",
+      "name": "Costamare Inc."
+    },
+    {
+      "sy": "CXW",
+      "name": "CoreCivic, Inc."
+    },
+    {
+      "sy": "NMM",
+      "name": "Navios Maritime Partners L.P."
+    },
+    {
+      "sy": "VOYG",
+      "name": "Voyager Technologies, Inc."
+    },
+    {
+      "sy": "ALGT",
+      "name": "Allegiant Travel Company"
+    },
+    {
+      "sy": "TIC",
+      "name": "TIC Solutions, Inc."
+    },
+    {
+      "sy": "GRC",
+      "name": "The Gorman-Rupp Company"
+    },
+    {
+      "sy": "TH",
+      "name": "Target Hospitality Corp."
+    },
+    {
+      "sy": "TNET",
+      "name": "TriNet Group, Inc."
+    },
+    {
+      "sy": "ALG",
+      "name": "Alamo Group Inc."
+    },
+    {
+      "sy": "AMRC",
+      "name": "Ameresco, Inc."
+    },
+    {
+      "sy": "HTZ",
+      "name": "Hertz Global Holdings, Inc."
+    },
+    {
+      "sy": "EPAC",
+      "name": "Enerpac Tool Group Corp."
+    },
+    {
+      "sy": "PRLB",
+      "name": "Proto Labs, Inc."
+    },
+    {
+      "sy": "HURN",
+      "name": "Huron Consulting Group Inc."
+    },
+    {
+      "sy": "PLPC",
+      "name": "Preformed Line Products Company"
+    },
+    {
+      "sy": "SFL",
+      "name": "SFL Corporation Ltd."
+    },
+    {
+      "sy": "VSTS",
+      "name": "Vestis Corporation"
+    },
+    {
+      "sy": "NVRI",
+      "name": "Enviri Corporation"
+    },
+    {
+      "sy": "TE",
+      "name": "T1 Energy Inc."
+    },
+    {
+      "sy": "CBZ",
+      "name": "CBIZ, Inc."
+    },
+    {
+      "sy": "GBX",
+      "name": "The Greenbrier Companies, Inc."
+    },
+    {
+      "sy": "GSL",
+      "name": "Global Ship Lease, Inc."
+    },
+    {
+      "sy": "SATL",
+      "name": "Satellogic Inc."
+    },
+    {
+      "sy": "BKSY",
+      "name": "BlackSky Technology Inc."
+    },
+    {
+      "sy": "WLFC",
+      "name": "Willis Lease Finance Corporation"
+    },
+    {
+      "sy": "TTI",
+      "name": "TETRA Technologies, Inc."
+    },
+    {
+      "sy": "HLMN",
+      "name": "Hillman Solutions Corp."
+    },
+    {
+      "sy": "WLDN",
+      "name": "Willdan Group, Inc."
+    },
+    {
+      "sy": "RCAT",
+      "name": "Red Cat Holdings, Inc."
+    },
+    {
+      "sy": "TNC",
+      "name": "Tennant Company"
+    },
+    {
+      "sy": "ARLO",
+      "name": "Arlo Technologies, Inc."
+    },
+    {
+      "sy": "ENVX",
+      "name": "Enovix Corporation"
+    },
+    {
+      "sy": "PRG",
+      "name": "PROG Holdings, Inc."
+    },
+    {
+      "sy": "RYZ",
+      "name": "Ryerson Holding Corporation"
+    },
+    {
+      "sy": "NNE",
+      "name": "NANO Nuclear Energy Inc."
+    },
+    {
+      "sy": "NSSC",
+      "name": "Napco Security Technologies, Inc."
+    },
+    {
+      "sy": "CDRE",
+      "name": "Cadre Holdings, Inc."
+    },
+    {
+      "sy": "MRTN",
+      "name": "Marten Transport, Ltd."
+    },
+    {
+      "sy": "CCEC",
+      "name": "Capital Clean Energy Carriers Corp."
+    },
+    {
+      "sy": "DSGR",
+      "name": "Distribution Solutions Group, Inc."
+    },
+    {
+      "sy": "MAN",
+      "name": "ManpowerGroup Inc."
+    },
+    {
+      "sy": "BV",
+      "name": "BrightView Holdings, Inc."
+    },
+    {
+      "sy": "NSP",
+      "name": "Insperity, Inc."
+    },
+    {
+      "sy": "ENR",
+      "name": "Energizer Holdings, Inc."
+    },
+    {
+      "sy": "FCEL",
+      "name": "FuelCell Energy, Inc."
+    },
+    {
+      "sy": "GIC",
+      "name": "Global Industrial Company"
+    },
+    {
+      "sy": "ICFI",
+      "name": "ICF International, Inc."
+    },
+    {
+      "sy": "LNN",
+      "name": "Lindsay Corporation"
+    },
+    {
+      "sy": "GHM",
+      "name": "Graham Corporation"
+    },
+    {
+      "sy": "ASTE",
+      "name": "Astec Industries, Inc."
+    },
+    {
+      "sy": "GNK",
+      "name": "Genco Shipping & Trading Limited"
+    },
+    {
+      "sy": "DLX",
+      "name": "Deluxe Corporation"
+    },
+    {
+      "sy": "ROCK",
+      "name": "Gibraltar Industries, Inc."
+    },
+    {
+      "sy": "HTLD",
+      "name": "Heartland Express, Inc."
+    },
+    {
+      "sy": "LZ",
+      "name": "LegalZoom.com, Inc."
+    },
+    {
+      "sy": "EVLV",
+      "name": "Evolv Technologies Holdings, Inc."
+    },
+    {
+      "sy": "NPK",
+      "name": "National Presto Industries, Inc."
+    },
+    {
+      "sy": "RJET",
+      "name": "Republic Airways Holdings Inc."
+    },
+    {
+      "sy": "KODK",
+      "name": "Eastman Kodak Company"
+    },
+    {
+      "sy": "AEBI",
+      "name": "Aebi Schmidt Holding AG"
+    },
+    {
+      "sy": "CODI",
+      "name": "Compass Diversified"
+    },
+    {
+      "sy": "PSIX",
+      "name": "Power Solutions International, Inc."
+    },
+    {
+      "sy": "CRAI",
+      "name": "CRA International, Inc."
+    },
+    {
+      "sy": "SNCY",
+      "name": "Sun Country Airlines Holdings, Inc."
+    },
+    {
+      "sy": "LMB",
+      "name": "Limbach Holdings, Inc."
+    },
+    {
+      "sy": "CVLG",
+      "name": "Covenant Logistics Group, Inc."
+    },
+    {
+      "sy": "RHLD",
+      "name": "Resolute Holdings Management, Inc."
+    },
+    {
+      "sy": "MATW",
+      "name": "Matthews International Corporation"
+    },
+    {
+      "sy": "CDNL",
+      "name": "Cardinal Infrastructure Group Inc."
+    },
+    {
+      "sy": "SPIR",
+      "name": "Spire Global, Inc."
+    },
+    {
+      "sy": "ASC",
+      "name": "Ardmore Shipping Corporation"
+    },
+    {
+      "sy": "NX",
+      "name": "Quanex Building Products Corporation"
+    },
+    {
+      "sy": "BBSI",
+      "name": "Barrett Business Services, Inc."
+    },
+    {
+      "sy": "APOG",
+      "name": "Apogee Enterprises, Inc."
+    },
+    {
+      "sy": "SB",
+      "name": "Safe Bulkers, Inc."
+    },
+    {
+      "sy": "KFRC",
+      "name": "Kforce Inc."
+    },
+    {
+      "sy": "TRNS",
+      "name": "Transcat, Inc."
+    },
+    {
+      "sy": "SERV",
+      "name": "Serve Robotics Inc."
+    },
+    {
+      "sy": "KRNT",
+      "name": "Kornit Digital Ltd."
+    },
+    {
+      "sy": "ADSE",
+      "name": "ADS-TEC Energy PLC"
+    },
+    {
+      "sy": "SWBI",
+      "name": "Smith & Wesson Brands, Inc."
+    },
+    {
+      "sy": "PKE",
+      "name": "Park Aerospace Corp."
+    },
+    {
+      "sy": "CYRX",
+      "name": "Cryoport, Inc."
+    },
+    {
+      "sy": "HY",
+      "name": "Hyster-Yale, Inc."
+    },
+    {
+      "sy": "RGR",
+      "name": "Sturm, Ruger & Company, Inc."
+    },
+    {
+      "sy": "MRLN",
+      "name": "Merlin, Inc."
+    },
+    {
+      "sy": "ORN",
+      "name": "Orion Group Holdings, Inc."
+    },
+    {
+      "sy": "KE",
+      "name": "Kimball Electronics, Inc."
+    },
+    {
+      "sy": "CASS",
+      "name": "Cass Information Systems, Inc."
+    },
+    {
+      "sy": "MCCK",
+      "name": "Mestek, Inc."
+    },
+    {
+      "sy": "BWMN",
+      "name": "Bowman Consulting Group Ltd."
+    },
+    {
+      "sy": "MG",
+      "name": "Mistras Group, Inc."
+    },
+    {
+      "sy": "PANL",
+      "name": "Pangaea Logistics Solutions Ltd."
+    },
+    {
+      "sy": "MEC",
+      "name": "Mayville Engineering Company, Inc."
+    },
+    {
+      "sy": "FBYD",
+      "name": "Falcon's Beyond Global, Inc."
+    },
+    {
+      "sy": "TRC",
+      "name": "Tejon Ranch Co."
+    },
+    {
+      "sy": "EBF",
+      "name": "Ennis, Inc."
+    },
+    {
+      "sy": "IIIN",
+      "name": "Insteel Industries Inc."
+    },
+    {
+      "sy": "JLHL",
+      "name": "Julong Holding Limited"
+    },
+    {
+      "sy": "ESEA",
+      "name": "Euroseas Ltd."
+    },
+    {
+      "sy": "TWI",
+      "name": "Titan International, Inc."
+    },
+    {
+      "sy": "ROMA",
+      "name": "Roma Green Finance Limited"
+    },
+    {
+      "sy": "ASPN",
+      "name": "Aspen Aerogels, Inc."
+    },
+    {
+      "sy": "TITN",
+      "name": "Titan Machinery Inc."
+    },
+    {
+      "sy": "CMDB",
+      "name": "Costamare Bulkers Holdings Limited"
+    },
+    {
+      "sy": "PKOH",
+      "name": "Park-Ohio Holdings Corp."
+    },
+    {
+      "sy": "MTW",
+      "name": "The Manitowoc Company, Inc."
+    },
+    {
+      "sy": "ERII",
+      "name": "Energy Recovery, Inc."
+    },
+    {
+      "sy": "LXFR",
+      "name": "Luxfer Holdings PLC"
+    },
+    {
+      "sy": "CMCO",
+      "name": "Columbus McKinnon Corporation"
+    },
+    {
+      "sy": "FSTR",
+      "name": "L.B. Foster Company"
+    },
+    {
+      "sy": "MUEL",
+      "name": "Paul Mueller Company"
+    },
+    {
+      "sy": "SHMD",
+      "name": "SCHMID Group N.V."
+    },
+    {
+      "sy": "BXC",
+      "name": "BlueLinx Holdings Inc."
+    },
+    {
+      "sy": "RLGT",
+      "name": "Radiant Logistics, Inc."
+    },
+    {
+      "sy": "LTBR",
+      "name": "Lightbridge Corporation"
+    },
+    {
+      "sy": "GASS",
+      "name": "StealthGas Inc."
+    },
+    {
+      "sy": "NL",
+      "name": "NL Industries, Inc."
+    },
+    {
+      "sy": "QUAD",
+      "name": "Quad/Graphics, Inc."
+    },
+    {
+      "sy": "BBCP",
+      "name": "Concrete Pumping Holdings, Inc."
+    },
+    {
+      "sy": "ULH",
+      "name": "Universal Logistics Holdings, Inc."
+    },
+    {
+      "sy": "BUUU",
+      "name": "BUUU Group Limited"
+    },
+    {
+      "sy": "ESOA",
+      "name": "Energy Services of America Corporation"
+    },
+    {
+      "sy": "SHIP",
+      "name": "Seanergy Maritime Holdings Corp"
+    },
+    {
+      "sy": "BOC",
+      "name": "Boston Omaha Corporation"
+    },
+    {
+      "sy": "MTRX",
+      "name": "Matrix Service Company"
+    },
+    {
+      "sy": "KELYA",
+      "name": "Kelly Services, Inc."
+    },
+    {
+      "sy": "ASLE",
+      "name": "AerSale Corporation"
+    },
+    {
+      "sy": "EFTY",
+      "name": "Etoiles Capital Group Co., Ltd"
+    },
+    {
+      "sy": "CGEH",
+      "name": "Capstone Energy+, Inc."
+    },
+    {
+      "sy": "ISSC",
+      "name": "Innovative Aerosystems, Inc."
+    },
+    {
+      "sy": "PHOE",
+      "name": "Phoenix Asia Holdings Limited"
+    },
+    {
+      "sy": "WNC",
+      "name": "Wabash National Corporation"
+    },
+    {
+      "sy": "TG",
+      "name": "Tredegar Corporation"
+    },
+    {
+      "sy": "CIX",
+      "name": "CompX International Inc."
+    },
+    {
+      "sy": "FWRD",
+      "name": "Forward Air Corporation"
+    },
+    {
+      "sy": "OFLX",
+      "name": "Omega Flex, Inc."
+    },
+    {
+      "sy": "PPIH",
+      "name": "Perma-Pipe International Holdings, Inc."
+    },
+    {
+      "sy": "HUHU",
+      "name": "HUHUTECH International Group Inc."
+    },
+    {
+      "sy": "TWIN",
+      "name": "Twin Disc, Incorporated"
+    },
+    {
+      "sy": "FJET",
+      "name": "Starfighters Space, Inc."
+    },
+    {
+      "sy": "EAF",
+      "name": "GrafTech International Ltd."
+    },
+    {
+      "sy": "MAGH",
+      "name": "Magnitude International Ltd"
+    },
+    {
+      "sy": "AP",
+      "name": "Ampco-Pittsburgh Corporation"
+    },
+    {
+      "sy": "EVI",
+      "name": "EVI Industries, Inc."
+    },
+    {
+      "sy": "MAMK",
+      "name": "MaxsMaking Inc."
+    },
+    {
+      "sy": "PAMT",
+      "name": "PAMT CORP"
+    },
+    {
+      "sy": "GENC",
+      "name": "Gencor Industries, Inc."
+    },
+    {
+      "sy": "EGG",
+      "name": "Enigmatig Limited"
+    },
+    {
+      "sy": "ALTG",
+      "name": "Alta Equipment Group Inc."
+    },
+    {
+      "sy": "ICTSF",
+      "name": "ICTS International N.V."
+    },
+    {
+      "sy": "ESP",
+      "name": "Espey Mfg. & Electronics Corp."
+    },
+    {
+      "sy": "AIRO",
+      "name": "AIRO Group Holdings, Inc."
+    },
+    {
+      "sy": "TGEN",
+      "name": "Tecogen Inc."
+    },
+    {
+      "sy": "SMHI",
+      "name": "SEACOR Marine Holdings Inc."
+    },
+    {
+      "sy": "RFIL",
+      "name": "RF Industries, Ltd."
+    },
+    {
+      "sy": "UP",
+      "name": "Wheels Up Experience Inc."
+    },
+    {
+      "sy": "PESI",
+      "name": "Perma-Fix Environmental Services, Inc."
+    },
+    {
+      "sy": "HQI",
+      "name": "HireQuest, Inc."
+    },
+    {
+      "sy": "TBI",
+      "name": "TrueBlue, Inc."
+    },
+    {
+      "sy": "TAYD",
+      "name": "Taylor Devices, Inc."
+    },
+    {
+      "sy": "RCMT",
+      "name": "RCM Technologies, Inc."
+    },
+    {
+      "sy": "QEPC",
+      "name": "Q.E.P. Co., Inc."
+    },
+    {
+      "sy": "RAIL",
+      "name": "FreightCar America, Inc."
+    },
+    {
+      "sy": "VATE",
+      "name": "INNOVATE Corp."
+    },
+    {
+      "sy": "BOOM",
+      "name": "DMC Global Inc."
+    },
+    {
+      "sy": "CNRD",
+      "name": "Conrad Industries, Inc."
+    },
+    {
+      "sy": "VWAV",
+      "name": "VisionWave Holdings, Inc."
+    },
+    {
+      "sy": "CODA",
+      "name": "Coda Octopus Group, Inc."
+    },
+    {
+      "sy": "FORR",
+      "name": "Forrester Research, Inc."
+    },
+    {
+      "sy": "BURCA",
+      "name": "Burnham Holdings, Inc."
+    },
+    {
+      "sy": "EML",
+      "name": "The Eastern Company"
+    },
+    {
+      "sy": "LICN",
+      "name": "Lichen International Limited"
+    },
+    {
+      "sy": "SIF",
+      "name": "SIFCO Industries, Inc."
+    },
+    {
+      "sy": "PSIG",
+      "name": "PS International Group Ltd."
+    },
+    {
+      "sy": "HURC",
+      "name": "Hurco Companies, Inc."
+    },
+    {
+      "sy": "ULBI",
+      "name": "Ultralife Corporation"
+    },
+    {
+      "sy": "LNZA",
+      "name": "LanzaTech Global, Inc."
+    },
+    {
+      "sy": "ANPA",
+      "name": "Rich Sparkle Holdings Limited"
+    },
+    {
+      "sy": "MHH",
+      "name": "Mastech Digital, Inc."
+    },
+    {
+      "sy": "DLHC",
+      "name": "DLH Holdings Corp."
+    },
+    {
+      "sy": "OPXS",
+      "name": "Optex Systems Holdings, Inc"
+    },
+    {
+      "sy": "TISI",
+      "name": "Team, Inc."
+    },
+    {
+      "sy": "MOB",
+      "name": "Mobilicom Limited"
+    },
+    {
+      "sy": "APTL",
+      "name": "Alaska Power & Telephone Company"
+    },
+    {
+      "sy": "EDRY",
+      "name": "EuroDry Ltd."
+    },
+    {
+      "sy": "SPCB",
+      "name": "SuperCom Ltd."
+    },
+    {
+      "sy": "AIRT",
+      "name": "Air T, Inc."
+    },
+    {
+      "sy": "JANL",
+      "name": "Janel Corporation"
+    },
+    {
+      "sy": "APT",
+      "name": "Alpha Pro Tech, Ltd."
+    },
+    {
+      "sy": "BGSF",
+      "name": "BGSF, Inc."
+    },
+    {
+      "sy": "NCEW",
+      "name": "New Century Logistics (BVI) Limited"
+    },
+    {
+      "sy": "WFCF",
+      "name": "Where Food Comes From, Inc."
+    },
+    {
+      "sy": "HTCO",
+      "name": "High-Trend International Group"
+    },
+    {
+      "sy": "STI",
+      "name": "Solidion Technology, Inc."
+    },
+    {
+      "sy": "JYD",
+      "name": "Jayud Global Logistics Limited"
+    },
+    {
+      "sy": "OESX",
+      "name": "Orion Energy Systems, Inc."
+    },
+    {
+      "sy": "CVV",
+      "name": "CVD Equipment Corporation"
+    },
+    {
+      "sy": "STRR",
+      "name": "Star Equity Holdings, Inc."
+    },
+    {
+      "sy": "MNTS",
+      "name": "Momentus Inc."
+    },
+    {
+      "sy": "PC",
+      "name": "Premium Catering (Holdings) Limited"
+    },
+    {
+      "sy": "EHLD",
+      "name": "Euroholdings Ltd."
+    },
+    {
+      "sy": "NSYC",
+      "name": "National Stock Yards Company"
+    },
+    {
+      "sy": "UUU",
+      "name": "Universal Safety Products, Inc"
+    },
+    {
+      "sy": "DUKR",
+      "name": "DUKE Robotics Corp. Common Stock"
+    },
+    {
+      "sy": "INTJ",
+      "name": "Intelligent Group Limited"
+    },
+    {
+      "sy": "RVSN",
+      "name": "Rail Vision Ltd."
+    },
+    {
+      "sy": "FSCR",
+      "name": "Federal Screw Works"
+    },
+    {
+      "sy": "SVRN",
+      "name": "OceanPal Inc."
+    },
+    {
+      "sy": "CVR",
+      "name": "Chicago Rivet & Machine Co."
+    },
+    {
+      "sy": "SKAS",
+      "name": "Saker Aviation Services, Inc."
+    },
+    {
+      "sy": "OLOX",
+      "name": "Olenox Industries Inc."
+    },
+    {
+      "sy": "HCAI",
+      "name": "Huachen AI Parking Management Technology Holding Co., Ltd"
+    },
+    {
+      "sy": "SMX",
+      "name": "SMX (Security Matters) Public Limited Company"
+    },
+    {
+      "sy": "AIAI",
+      "name": "AIAI Holdings Corporation Class A Common Stock"
+    },
+    {
+      "sy": "ARXS",
+      "name": "Arxis, Inc."
+    },
+    {
+      "sy": "AVEX",
+      "name": "AEVEX Corp."
+    },
+    {
+      "sy": "ELMT",
+      "name": "The Elmet Group Co."
+    },
+    {
+      "sy": "HAWK",
+      "name": "HawkEye 360, Inc."
+    },
+    {
+      "sy": "MAIR",
+      "name": "Madison Air Solutions Corporation"
+    },
+    {
+      "sy": "ONT",
+      "name": "Onterris, Inc."
+    },
+    {
+      "sy": "XE",
+      "name": "X-Energy, Inc."
+    }
+  ]
+}

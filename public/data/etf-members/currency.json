@@ -1,0 +1,43 @@
+{
+  "categoryId": "currency",
+  "categoryLabel": "Currency",
+  "updated": "2026-05-24",
+  "count": 7,
+  "tickers": [
+    {
+      "sy": "FXA",
+      "name": "Invesco CurrencyShares® Australian Dollar Trust",
+      "id": "FXA"
+    },
+    {
+      "sy": "FXB",
+      "name": "Invesco CurrencyShares® British Pound Sterling Trust",
+      "id": "FXB"
+    },
+    {
+      "sy": "FXE",
+      "name": "Invesco CurrencyShares® Euro Currency Trust",
+      "id": "FXE"
+    },
+    {
+      "sy": "FXF",
+      "name": "Invesco CurrencyShares® Swiss Franc Trust",
+      "id": "FXF"
+    },
+    {
+      "sy": "NEMD",
+      "name": "Neuberger Berman Emerging Markets Debt Hard Currency ETF",
+      "id": "NEMD"
+    },
+    {
+      "sy": "UDN",
+      "name": "Invesco DB US Dollar Index Bearish Fund",
+      "id": "UDN"
+    },
+    {
+      "sy": "USDU",
+      "name": "WisdomTree Bloomberg U.S. Dollar Bullish Fund",
+      "id": "USDU"
+    }
+  ]
+}

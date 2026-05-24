@@ -1,0 +1,2169 @@
+{
+  "sectorId": "healthcare",
+  "sectorLabel": "Health Care",
+  "yahooScrId": "sec-ind_sec-largest-equities_healthcare",
+  "updated": "2026-05-17",
+  "count": 540,
+  "tickers": [
+    {
+      "sy": "LLY",
+      "name": "Eli Lilly and Company"
+    },
+    {
+      "sy": "JNJ",
+      "name": "Johnson & Johnson"
+    },
+    {
+      "sy": "ABBV",
+      "name": "AbbVie Inc."
+    },
+    {
+      "sy": "UNH",
+      "name": "UnitedHealth Group Incorporated"
+    },
+    {
+      "sy": "MRK",
+      "name": "Merck & Co., Inc."
+    },
+    {
+      "sy": "AMGN",
+      "name": "Amgen Inc."
+    },
+    {
+      "sy": "TMO",
+      "name": "Thermo Fisher Scientific Inc."
+    },
+    {
+      "sy": "GILD",
+      "name": "Gilead Sciences, Inc."
+    },
+    {
+      "sy": "ISRG",
+      "name": "Intuitive Surgical, Inc."
+    },
+    {
+      "sy": "ABT",
+      "name": "Abbott Laboratories"
+    },
+    {
+      "sy": "PFE",
+      "name": "Pfizer Inc."
+    },
+    {
+      "sy": "CVS",
+      "name": "CVS Health Corporation"
+    },
+    {
+      "sy": "SYK",
+      "name": "Stryker Corporation"
+    },
+    {
+      "sy": "BMY",
+      "name": "Bristol-Myers Squibb Company"
+    },
+    {
+      "sy": "DHR",
+      "name": "Danaher Corporation"
+    },
+    {
+      "sy": "VRTX",
+      "name": "Vertex Pharmaceuticals Incorporated"
+    },
+    {
+      "sy": "MDT",
+      "name": "Medtronic plc"
+    },
+    {
+      "sy": "HCA",
+      "name": "HCA Healthcare, Inc."
+    },
+    {
+      "sy": "MCK",
+      "name": "McKesson Corporation"
+    },
+    {
+      "sy": "ELV",
+      "name": "Elevance Health, Inc."
+    },
+    {
+      "sy": "BSX",
+      "name": "Boston Scientific Corporation"
+    },
+    {
+      "sy": "CI",
+      "name": "The Cigna Group"
+    },
+    {
+      "sy": "REGN",
+      "name": "Regeneron Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "COR",
+      "name": "Cencora, Inc."
+    },
+    {
+      "sy": "EW",
+      "name": "Edwards Lifesciences Corporation"
+    },
+    {
+      "sy": "CAH",
+      "name": "Cardinal Health, Inc."
+    },
+    {
+      "sy": "IDXX",
+      "name": "IDEXX Laboratories, Inc."
+    },
+    {
+      "sy": "BDX",
+      "name": "Becton, Dickinson and Company"
+    },
+    {
+      "sy": "ALNY",
+      "name": "Alnylam Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "HUM",
+      "name": "Humana Inc."
+    },
+    {
+      "sy": "WAT",
+      "name": "Waters Corporation"
+    },
+    {
+      "sy": "A",
+      "name": "Agilent Technologies, Inc."
+    },
+    {
+      "sy": "ZTS",
+      "name": "Zoetis Inc."
+    },
+    {
+      "sy": "RVMD",
+      "name": "Revolution Medicines, Inc."
+    },
+    {
+      "sy": "MDLN",
+      "name": "Medline Inc."
+    },
+    {
+      "sy": "RMD",
+      "name": "ResMed Inc."
+    },
+    {
+      "sy": "CNC",
+      "name": "Centene Corporation"
+    },
+    {
+      "sy": "BIIB",
+      "name": "Biogen Inc."
+    },
+    {
+      "sy": "IQV",
+      "name": "IQVIA Holdings Inc."
+    },
+    {
+      "sy": "GEHC",
+      "name": "GE HealthCare Technologies Inc."
+    },
+    {
+      "sy": "NTRA",
+      "name": "Natera, Inc."
+    },
+    {
+      "sy": "VEEV",
+      "name": "Veeva Systems Inc."
+    },
+    {
+      "sy": "UTHR",
+      "name": "United Therapeutics Corporation"
+    },
+    {
+      "sy": "DXCM",
+      "name": "DexCom, Inc."
+    },
+    {
+      "sy": "INSM",
+      "name": "Insmed Incorporated"
+    },
+    {
+      "sy": "RPRX",
+      "name": "Royalty Pharma plc"
+    },
+    {
+      "sy": "ILMN",
+      "name": "Illumina, Inc."
+    },
+    {
+      "sy": "WST",
+      "name": "West Pharmaceutical Services, Inc."
+    },
+    {
+      "sy": "ROIV",
+      "name": "Roivant Sciences Ltd."
+    },
+    {
+      "sy": "MTD",
+      "name": "Mettler-Toledo International Inc."
+    },
+    {
+      "sy": "STE",
+      "name": "STERIS plc"
+    },
+    {
+      "sy": "DGX",
+      "name": "Quest Diagnostics Incorporated"
+    },
+    {
+      "sy": "LH",
+      "name": "Labcorp Holdings Inc."
+    },
+    {
+      "sy": "MRNA",
+      "name": "Moderna, Inc."
+    },
+    {
+      "sy": "VTRS",
+      "name": "Viatris Inc."
+    },
+    {
+      "sy": "INCY",
+      "name": "Incyte Corporation"
+    },
+    {
+      "sy": "THC",
+      "name": "Tenet Healthcare Corporation"
+    },
+    {
+      "sy": "ZBH",
+      "name": "Zimmer Biomet Holdings, Inc."
+    },
+    {
+      "sy": "NBIX",
+      "name": "Neurocrine Biosciences, Inc."
+    },
+    {
+      "sy": "ASND",
+      "name": "Ascendis Pharma A/S"
+    },
+    {
+      "sy": "JAZZ",
+      "name": "Jazz Pharmaceuticals plc"
+    },
+    {
+      "sy": "RGC",
+      "name": "Regencell Bioscience Holdings Limited"
+    },
+    {
+      "sy": "SMMT",
+      "name": "Summit Therapeutics Inc."
+    },
+    {
+      "sy": "BBIO",
+      "name": "BridgeBio Pharma, Inc."
+    },
+    {
+      "sy": "SOLV",
+      "name": "Solventum Corporation"
+    },
+    {
+      "sy": "DVA",
+      "name": "DaVita Inc."
+    },
+    {
+      "sy": "PEN",
+      "name": "Penumbra, Inc."
+    },
+    {
+      "sy": "EXEL",
+      "name": "Exelixis, Inc."
+    },
+    {
+      "sy": "GH",
+      "name": "Guardant Health, Inc."
+    },
+    {
+      "sy": "IONS",
+      "name": "Ionis Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "MDGL",
+      "name": "Madrigal Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "MEDP",
+      "name": "Medpace Holdings, Inc."
+    },
+    {
+      "sy": "AXSM",
+      "name": "Axsome Therapeutics, Inc."
+    },
+    {
+      "sy": "COO",
+      "name": "The Cooper Companies, Inc."
+    },
+    {
+      "sy": "ALGN",
+      "name": "Align Technology, Inc."
+    },
+    {
+      "sy": "BTSG",
+      "name": "BrightSpring Health Services, Inc."
+    },
+    {
+      "sy": "ARWR",
+      "name": "Arrowhead Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "EHC",
+      "name": "Encompass Health Corporation"
+    },
+    {
+      "sy": "RVTY",
+      "name": "Revvity, Inc."
+    },
+    {
+      "sy": "GMED",
+      "name": "Globus Medical, Inc."
+    },
+    {
+      "sy": "ENSG",
+      "name": "The Ensign Group, Inc."
+    },
+    {
+      "sy": "CYTK",
+      "name": "Cytokinetics, Incorporated"
+    },
+    {
+      "sy": "PODD",
+      "name": "Insulet Corporation"
+    },
+    {
+      "sy": "UHS",
+      "name": "Universal Health Services, Inc."
+    },
+    {
+      "sy": "BMRN",
+      "name": "BioMarin Pharmaceutical Inc."
+    },
+    {
+      "sy": "ELAN",
+      "name": "Elanco Animal Health Incorporated"
+    },
+    {
+      "sy": "MOH",
+      "name": "Molina Healthcare, Inc."
+    },
+    {
+      "sy": "PRAX",
+      "name": "Praxis Precision Medicines, Inc."
+    },
+    {
+      "sy": "MASI",
+      "name": "Masimo Corporation"
+    },
+    {
+      "sy": "KRYS",
+      "name": "Krystal Biotech, Inc."
+    },
+    {
+      "sy": "BAX",
+      "name": "Baxter International Inc."
+    },
+    {
+      "sy": "ICLR",
+      "name": "ICON Public Limited Company"
+    },
+    {
+      "sy": "GKOS",
+      "name": "Glaukos Corporation"
+    },
+    {
+      "sy": "IBRX",
+      "name": "ImmunityBio, Inc."
+    },
+    {
+      "sy": "HSIC",
+      "name": "Henry Schein, Inc."
+    },
+    {
+      "sy": "NUVL",
+      "name": "Nuvalent, Inc."
+    },
+    {
+      "sy": "HALO",
+      "name": "Halozyme Therapeutics, Inc."
+    },
+    {
+      "sy": "TEM",
+      "name": "Tempus AI, Inc."
+    },
+    {
+      "sy": "PCVX",
+      "name": "Vaxcyte, Inc."
+    },
+    {
+      "sy": "ATR",
+      "name": "AptarGroup, Inc."
+    },
+    {
+      "sy": "CRL",
+      "name": "Charles River Laboratories International, Inc."
+    },
+    {
+      "sy": "OSCR",
+      "name": "Oscar Health, Inc."
+    },
+    {
+      "sy": "HQY",
+      "name": "HealthEquity, Inc."
+    },
+    {
+      "sy": "QGEN",
+      "name": "Qiagen N.V."
+    },
+    {
+      "sy": "TECH",
+      "name": "Bio-Techne Corporation"
+    },
+    {
+      "sy": "KYMR",
+      "name": "Kymera Therapeutics, Inc."
+    },
+    {
+      "sy": "CELC",
+      "name": "Celcuity Inc."
+    },
+    {
+      "sy": "BIO",
+      "name": "Bio-Rad Laboratories, Inc."
+    },
+    {
+      "sy": "PTGX",
+      "name": "Protagonist Therapeutics, Inc."
+    },
+    {
+      "sy": "BRKR",
+      "name": "Bruker Corporation"
+    },
+    {
+      "sy": "SYRE",
+      "name": "Spyre Therapeutics, Inc."
+    },
+    {
+      "sy": "ALKS",
+      "name": "Alkermes plc"
+    },
+    {
+      "sy": "MIRM",
+      "name": "Mirum Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "RYTM",
+      "name": "Rhythm Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "APGE",
+      "name": "Apogee Therapeutics, Inc."
+    },
+    {
+      "sy": "LNTH",
+      "name": "Lantheus Holdings, Inc."
+    },
+    {
+      "sy": "CORT",
+      "name": "Corcept Therapeutics Incorporated"
+    },
+    {
+      "sy": "TGTX",
+      "name": "TG Therapeutics, Inc."
+    },
+    {
+      "sy": "PACS",
+      "name": "PACS Group, Inc."
+    },
+    {
+      "sy": "PTCT",
+      "name": "PTC Therapeutics, Inc."
+    },
+    {
+      "sy": "SRRK",
+      "name": "Scholar Rock Holding Corporation"
+    },
+    {
+      "sy": "CGON",
+      "name": "CG Oncology, Inc."
+    },
+    {
+      "sy": "RGEN",
+      "name": "Repligen Corporation"
+    },
+    {
+      "sy": "HIMS",
+      "name": "Hims & Hers Health, Inc."
+    },
+    {
+      "sy": "CHE",
+      "name": "Chemed Corporation"
+    },
+    {
+      "sy": "TFX",
+      "name": "Teleflex Incorporated"
+    },
+    {
+      "sy": "IMVT",
+      "name": "Immunovant, Inc."
+    },
+    {
+      "sy": "COGT",
+      "name": "Cogent Biosciences, Inc."
+    },
+    {
+      "sy": "XENE",
+      "name": "Xenon Pharmaceuticals Inc."
+    },
+    {
+      "sy": "APLS",
+      "name": "Apellis Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "AVTR",
+      "name": "Avantor, Inc."
+    },
+    {
+      "sy": "LQDA",
+      "name": "Liquidia Corporation"
+    },
+    {
+      "sy": "STVN",
+      "name": "Stevanato Group S.p.A."
+    },
+    {
+      "sy": "DNTH",
+      "name": "Dianthus Therapeutics, Inc."
+    },
+    {
+      "sy": "CRSP",
+      "name": "CRISPR Therapeutics AG"
+    },
+    {
+      "sy": "SHC",
+      "name": "Sotera Health Company"
+    },
+    {
+      "sy": "KNSA",
+      "name": "Kiniksa Pharmaceuticals International, plc"
+    },
+    {
+      "sy": "INDV",
+      "name": "Indivior Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "LGND",
+      "name": "Ligand Pharmaceuticals Incorporated"
+    },
+    {
+      "sy": "HNGE",
+      "name": "Hinge Health, Inc."
+    },
+    {
+      "sy": "NAMS",
+      "name": "NewAmsterdam Pharma Company N.V."
+    },
+    {
+      "sy": "MANE",
+      "name": "Veradermics, Incorporated"
+    },
+    {
+      "sy": "RDNT",
+      "name": "RadNet, Inc."
+    },
+    {
+      "sy": "CAI",
+      "name": "Caris Life Sciences, Inc."
+    },
+    {
+      "sy": "TVTX",
+      "name": "Travere Therapeutics, Inc."
+    },
+    {
+      "sy": "CRNX",
+      "name": "Crinetics Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "LIVN",
+      "name": "LivaNova PLC"
+    },
+    {
+      "sy": "CPRX",
+      "name": "Catalyst Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "AMRX",
+      "name": "Amneal Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "BLLN",
+      "name": "BillionToOne, Inc."
+    },
+    {
+      "sy": "NVST",
+      "name": "Envista Holdings Corporation"
+    },
+    {
+      "sy": "IRTC",
+      "name": "iRhythm Holdings, Inc."
+    },
+    {
+      "sy": "ORKA",
+      "name": "Oruka Therapeutics, Inc."
+    },
+    {
+      "sy": "ACAD",
+      "name": "ACADIA Pharmaceuticals Inc."
+    },
+    {
+      "sy": "MMSI",
+      "name": "Merit Medical Systems, Inc."
+    },
+    {
+      "sy": "EWTX",
+      "name": "Edgewise Therapeutics, Inc."
+    },
+    {
+      "sy": "WRBY",
+      "name": "Warby Parker Inc."
+    },
+    {
+      "sy": "OGN",
+      "name": "Organon & Co."
+    },
+    {
+      "sy": "VKTX",
+      "name": "Viking Therapeutics, Inc."
+    },
+    {
+      "sy": "DOCS",
+      "name": "Doximity, Inc."
+    },
+    {
+      "sy": "WAY",
+      "name": "Waystar Holding Corp."
+    },
+    {
+      "sy": "CON",
+      "name": "Concentra Group Holdings Parent, Inc."
+    },
+    {
+      "sy": "ALHC",
+      "name": "Alignment Healthcare, Inc."
+    },
+    {
+      "sy": "ERAS",
+      "name": "Erasca, Inc."
+    },
+    {
+      "sy": "BKD",
+      "name": "Brookdale Senior Living Inc."
+    },
+    {
+      "sy": "VCYT",
+      "name": "Veracyte, Inc."
+    },
+    {
+      "sy": "OPCH",
+      "name": "Option Care Health, Inc."
+    },
+    {
+      "sy": "TWST",
+      "name": "Twist Bioscience Corporation"
+    },
+    {
+      "sy": "MMED",
+      "name": "MiniMed Group, Inc."
+    },
+    {
+      "sy": "NHC",
+      "name": "National HealthCare Corporation"
+    },
+    {
+      "sy": "ITGR",
+      "name": "Integer Holdings Corporation"
+    },
+    {
+      "sy": "RCUS",
+      "name": "Arcus Biosciences, Inc."
+    },
+    {
+      "sy": "TNGX",
+      "name": "Tango Therapeutics, Inc."
+    },
+    {
+      "sy": "ICUI",
+      "name": "ICU Medical, Inc."
+    },
+    {
+      "sy": "DNLI",
+      "name": "Denali Therapeutics Inc."
+    },
+    {
+      "sy": "LFST",
+      "name": "LifeStance Health Group, Inc."
+    },
+    {
+      "sy": "ALMS",
+      "name": "Alumis Inc."
+    },
+    {
+      "sy": "PRVA",
+      "name": "Privia Health Group, Inc."
+    },
+    {
+      "sy": "BEAM",
+      "name": "Beam Therapeutics Inc."
+    },
+    {
+      "sy": "SUPN",
+      "name": "Supernus Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "DYN",
+      "name": "Dyne Therapeutics, Inc."
+    },
+    {
+      "sy": "SLNO",
+      "name": "Soleno Therapeutics, Inc."
+    },
+    {
+      "sy": "TXG",
+      "name": "10x Genomics, Inc."
+    },
+    {
+      "sy": "TARS",
+      "name": "Tarsus Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "VERA",
+      "name": "Vera Therapeutics, Inc."
+    },
+    {
+      "sy": "ARQT",
+      "name": "Arcutis Biotherapeutics, Inc."
+    },
+    {
+      "sy": "HAE",
+      "name": "Haemonetics Corporation"
+    },
+    {
+      "sy": "GRAL",
+      "name": "GRAIL, Inc."
+    },
+    {
+      "sy": "IRON",
+      "name": "Disc Medicine, Inc."
+    },
+    {
+      "sy": "ELVN",
+      "name": "Enliven Therapeutics, Inc."
+    },
+    {
+      "sy": "IDYA",
+      "name": "IDEAYA Biosciences, Inc."
+    },
+    {
+      "sy": "RARE",
+      "name": "Ultragenyx Pharmaceutical Inc."
+    },
+    {
+      "sy": "CLDX",
+      "name": "Celldex Therapeutics, Inc."
+    },
+    {
+      "sy": "HTFL",
+      "name": "Heartflow, Inc."
+    },
+    {
+      "sy": "NKTR",
+      "name": "Nektar Therapeutics"
+    },
+    {
+      "sy": "ACHC",
+      "name": "Acadia Healthcare Company, Inc."
+    },
+    {
+      "sy": "IMNM",
+      "name": "Immunome, Inc."
+    },
+    {
+      "sy": "RLAY",
+      "name": "Relay Therapeutics, Inc."
+    },
+    {
+      "sy": "GRDN",
+      "name": "Guardian Pharmacy Services, Inc."
+    },
+    {
+      "sy": "KOD",
+      "name": "Kodiak Sciences Inc."
+    },
+    {
+      "sy": "BCRX",
+      "name": "BioCryst Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "DFTX",
+      "name": "Definium Therapeutics, Inc."
+    },
+    {
+      "sy": "MLYS",
+      "name": "Mineralys Therapeutics, Inc."
+    },
+    {
+      "sy": "LMAT",
+      "name": "LeMaitre Vascular, Inc."
+    },
+    {
+      "sy": "PBH",
+      "name": "Prestige Consumer Healthcare Inc."
+    },
+    {
+      "sy": "TYRA",
+      "name": "Tyra Biosciences, Inc."
+    },
+    {
+      "sy": "TMDX",
+      "name": "TransMedics Group, Inc."
+    },
+    {
+      "sy": "AXGN",
+      "name": "Axogen, Inc."
+    },
+    {
+      "sy": "PHVS",
+      "name": "Pharvaris N.V."
+    },
+    {
+      "sy": "ADPT",
+      "name": "Adaptive Biotechnologies Corporation"
+    },
+    {
+      "sy": "GENB",
+      "name": "Generate Biomedicines, Inc."
+    },
+    {
+      "sy": "SEM",
+      "name": "Select Medical Holdings Corporation"
+    },
+    {
+      "sy": "NVCR",
+      "name": "NovoCure Limited"
+    },
+    {
+      "sy": "XRAY",
+      "name": "DENTSPLY SIRONA Inc."
+    },
+    {
+      "sy": "TRVI",
+      "name": "Trevi Therapeutics, Inc."
+    },
+    {
+      "sy": "OCUL",
+      "name": "Ocular Therapeutix, Inc."
+    },
+    {
+      "sy": "AUPH",
+      "name": "Aurinia Pharmaceuticals Inc."
+    },
+    {
+      "sy": "OMCL",
+      "name": "Omnicell, Inc."
+    },
+    {
+      "sy": "ESTA",
+      "name": "Establishment Labs Holdings Inc."
+    },
+    {
+      "sy": "RTEZ",
+      "name": "REST EZ INC"
+    },
+    {
+      "sy": "ADMA",
+      "name": "ADMA Biologics, Inc."
+    },
+    {
+      "sy": "NTLA",
+      "name": "Intellia Therapeutics, Inc."
+    },
+    {
+      "sy": "ASTH",
+      "name": "Astrana Health, Inc."
+    },
+    {
+      "sy": "STOK",
+      "name": "Stoke Therapeutics, Inc."
+    },
+    {
+      "sy": "SRPT",
+      "name": "Sarepta Therapeutics, Inc."
+    },
+    {
+      "sy": "MD",
+      "name": "Pediatrix Medical Group, Inc."
+    },
+    {
+      "sy": "ANAB",
+      "name": "AnaptysBio, Inc."
+    },
+    {
+      "sy": "OCS",
+      "name": "Oculis Holding AG"
+    },
+    {
+      "sy": "SGRY",
+      "name": "Surgery Partners, Inc."
+    },
+    {
+      "sy": "PGNY",
+      "name": "Progyny, Inc."
+    },
+    {
+      "sy": "SION",
+      "name": "Sionna Therapeutics, Inc."
+    },
+    {
+      "sy": "SNDX",
+      "name": "Syndax Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "SNDA",
+      "name": "Sonida Senior Living, Inc."
+    },
+    {
+      "sy": "NEOG",
+      "name": "Neogen Corporation"
+    },
+    {
+      "sy": "ANIP",
+      "name": "ANI Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "RAPP",
+      "name": "Rapport Therapeutics, Inc."
+    },
+    {
+      "sy": "ZYME",
+      "name": "Zymeworks Inc."
+    },
+    {
+      "sy": "HRMY",
+      "name": "Harmony Biosciences Holdings, Inc."
+    },
+    {
+      "sy": "VRDN",
+      "name": "Viridian Therapeutics, Inc."
+    },
+    {
+      "sy": "TSHA",
+      "name": "Taysha Gene Therapies, Inc."
+    },
+    {
+      "sy": "QURE",
+      "name": "uniQure N.V."
+    },
+    {
+      "sy": "PLSE",
+      "name": "Pulse Biosciences, Inc."
+    },
+    {
+      "sy": "ADUS",
+      "name": "Addus HomeCare Corporation"
+    },
+    {
+      "sy": "VCEL",
+      "name": "Vericel Corporation"
+    },
+    {
+      "sy": "AVAH",
+      "name": "Aveanna Healthcare Holdings Inc."
+    },
+    {
+      "sy": "AGIO",
+      "name": "Agios Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "CAPR",
+      "name": "Capricor Therapeutics, Inc."
+    },
+    {
+      "sy": "UFPT",
+      "name": "UFP Technologies, Inc."
+    },
+    {
+      "sy": "NRIX",
+      "name": "Nurix Therapeutics, Inc."
+    },
+    {
+      "sy": "PVLA",
+      "name": "Palvella Therapeutics, Inc."
+    },
+    {
+      "sy": "INVA",
+      "name": "Innoviva, Inc."
+    },
+    {
+      "sy": "STAA",
+      "name": "STAAR Surgical Company"
+    },
+    {
+      "sy": "INBX",
+      "name": "Inhibrx Biosciences, Inc."
+    },
+    {
+      "sy": "MBX",
+      "name": "MBX Biosciences, Inc."
+    },
+    {
+      "sy": "ARDX",
+      "name": "Ardelyx, Inc."
+    },
+    {
+      "sy": "GLUE",
+      "name": "Monte Rosa Therapeutics, Inc."
+    },
+    {
+      "sy": "NVAX",
+      "name": "Novavax, Inc."
+    },
+    {
+      "sy": "PRCT",
+      "name": "PROCEPT BioRobotics Corporation"
+    },
+    {
+      "sy": "IMTX",
+      "name": "Immatics N.V."
+    },
+    {
+      "sy": "DMRA",
+      "name": "Damora Therapeutics, Inc."
+    },
+    {
+      "sy": "VIR",
+      "name": "Vir Biotechnology, Inc."
+    },
+    {
+      "sy": "AMLX",
+      "name": "Amylyx Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "PRGO",
+      "name": "Perrigo Company plc"
+    },
+    {
+      "sy": "GHRS",
+      "name": "GH Research PLC"
+    },
+    {
+      "sy": "HCSG",
+      "name": "Healthcare Services Group, Inc."
+    },
+    {
+      "sy": "AHCO",
+      "name": "AdaptHealth Corp."
+    },
+    {
+      "sy": "ARDT",
+      "name": "Ardent Health, Inc."
+    },
+    {
+      "sy": "ATRC",
+      "name": "AtriCure, Inc."
+    },
+    {
+      "sy": "KALV",
+      "name": "KalVista Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "MAZE",
+      "name": "Maze Therapeutics, Inc."
+    },
+    {
+      "sy": "URGN",
+      "name": "UroGen Pharma Ltd."
+    },
+    {
+      "sy": "ENOV",
+      "name": "Enovis Corporation"
+    },
+    {
+      "sy": "PAHC",
+      "name": "Phibro Animal Health Corporation"
+    },
+    {
+      "sy": "AGL",
+      "name": "agilon health, inc."
+    },
+    {
+      "sy": "BCAX",
+      "name": "Bicara Therapeutics Inc."
+    },
+    {
+      "sy": "BHVN",
+      "name": "Biohaven Ltd."
+    },
+    {
+      "sy": "SLS",
+      "name": "SELLAS Life Sciences Group, Inc."
+    },
+    {
+      "sy": "MPLT",
+      "name": "MapLight Therapeutics, Inc."
+    },
+    {
+      "sy": "WVE",
+      "name": "Wave Life Sciences Ltd."
+    },
+    {
+      "sy": "AVBP",
+      "name": "ArriVent BioPharma, Inc."
+    },
+    {
+      "sy": "FTRE",
+      "name": "Fortrea Holdings Inc."
+    },
+    {
+      "sy": "MLTX",
+      "name": "MoonLake Immunotherapeutics"
+    },
+    {
+      "sy": "PNTG",
+      "name": "The Pennant Group, Inc."
+    },
+    {
+      "sy": "SEPN",
+      "name": "Septerna, Inc."
+    },
+    {
+      "sy": "WGS",
+      "name": "GeneDx Holdings Corp."
+    },
+    {
+      "sy": "OLMA",
+      "name": "Olema Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "NNNN",
+      "name": "Anbio Biotechnology"
+    },
+    {
+      "sy": "ATEC",
+      "name": "Alphatec Holdings, Inc."
+    },
+    {
+      "sy": "HROW",
+      "name": "Harrow, Inc."
+    },
+    {
+      "sy": "ZBIO",
+      "name": "Zenas BioPharma, Inc."
+    },
+    {
+      "sy": "AVNS",
+      "name": "Avanos Medical, Inc."
+    },
+    {
+      "sy": "KMTS",
+      "name": "Kestra Medical Technologies, Ltd."
+    },
+    {
+      "sy": "INSP",
+      "name": "Inspire Medical Systems, Inc."
+    },
+    {
+      "sy": "JBIO",
+      "name": "Jade Biosciences, Inc."
+    },
+    {
+      "sy": "TDOC",
+      "name": "Teladoc Health, Inc."
+    },
+    {
+      "sy": "AMN",
+      "name": "AMN Healthcare Services, Inc."
+    },
+    {
+      "sy": "AORT",
+      "name": "Artivion, Inc."
+    },
+    {
+      "sy": "IRMD",
+      "name": "IRADIMED CORPORATION"
+    },
+    {
+      "sy": "IART",
+      "name": "Integra LifeSciences Holdings Corporation"
+    },
+    {
+      "sy": "COLL",
+      "name": "Collegium Pharmaceutical, Inc."
+    },
+    {
+      "sy": "AKTS",
+      "name": "Aktis Oncology, Inc."
+    },
+    {
+      "sy": "XERS",
+      "name": "Xeris Biopharma Holdings, Inc."
+    },
+    {
+      "sy": "NEO",
+      "name": "NeoGenomics, Inc."
+    },
+    {
+      "sy": "CNMD",
+      "name": "CONMED Corporation"
+    },
+    {
+      "sy": "EYPT",
+      "name": "EyePoint, Inc."
+    },
+    {
+      "sy": "CRVS",
+      "name": "Corvus Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "CDNA",
+      "name": "CareDx, Inc."
+    },
+    {
+      "sy": "SVRA",
+      "name": "Savara Inc."
+    },
+    {
+      "sy": "BLFS",
+      "name": "BioLife Solutions, Inc."
+    },
+    {
+      "sy": "OMDA",
+      "name": "Omada Health, Inc."
+    },
+    {
+      "sy": "CGEM",
+      "name": "Cullinan Therapeutics, Inc."
+    },
+    {
+      "sy": "INNV",
+      "name": "InnovAge Holding Corp."
+    },
+    {
+      "sy": "USPH",
+      "name": "U.S. Physical Therapy, Inc."
+    },
+    {
+      "sy": "PHAT",
+      "name": "Phathom Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "AVTX",
+      "name": "Avalo Therapeutics, Inc."
+    },
+    {
+      "sy": "DRTS",
+      "name": "Alpha Tau Medical Ltd."
+    },
+    {
+      "sy": "DSGN",
+      "name": "Design Therapeutics, Inc."
+    },
+    {
+      "sy": "SDGR",
+      "name": "Schrödinger, Inc."
+    },
+    {
+      "sy": "PCRX",
+      "name": "Pacira BioSciences, Inc."
+    },
+    {
+      "sy": "OMER",
+      "name": "Omeros Corporation"
+    },
+    {
+      "sy": "TNDM",
+      "name": "Tandem Diabetes Care, Inc."
+    },
+    {
+      "sy": "TALK",
+      "name": "Talkspace, Inc."
+    },
+    {
+      "sy": "MGTX",
+      "name": "MeiraGTx Holdings plc"
+    },
+    {
+      "sy": "NUTX",
+      "name": "Nutex Health Inc."
+    },
+    {
+      "sy": "AURA",
+      "name": "Aura Biosciences, Inc."
+    },
+    {
+      "sy": "ANNX",
+      "name": "Annexon, Inc."
+    },
+    {
+      "sy": "LBRX",
+      "name": "LB Pharmaceuticals Inc"
+    },
+    {
+      "sy": "JANX",
+      "name": "Janux Therapeutics, Inc."
+    },
+    {
+      "sy": "INMD",
+      "name": "InMode Ltd."
+    },
+    {
+      "sy": "ORIC",
+      "name": "ORIC Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "TBPH",
+      "name": "Theravance Biopharma, Inc."
+    },
+    {
+      "sy": "XNCR",
+      "name": "Xencor, Inc."
+    },
+    {
+      "sy": "ETON",
+      "name": "Eton Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "EVMN",
+      "name": "Evommune, Inc."
+    },
+    {
+      "sy": "KURA",
+      "name": "Kura Oncology, Inc."
+    },
+    {
+      "sy": "ANRO",
+      "name": "Alto Neuroscience, Inc."
+    },
+    {
+      "sy": "ABSI",
+      "name": "Absci Corporation"
+    },
+    {
+      "sy": "VOR",
+      "name": "Vor Biopharma Inc."
+    },
+    {
+      "sy": "BIOA",
+      "name": "BioAge Labs, Inc."
+    },
+    {
+      "sy": "SGP",
+      "name": "SpyGlass Pharma, Inc."
+    },
+    {
+      "sy": "AMPH",
+      "name": "Amphastar Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "AZTA",
+      "name": "Azenta, Inc."
+    },
+    {
+      "sy": "SPRY",
+      "name": "ARS Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "RLMD",
+      "name": "Relmada Therapeutics, Inc."
+    },
+    {
+      "sy": "EIKN",
+      "name": "Eikon Therapeutics, Inc."
+    },
+    {
+      "sy": "BVS",
+      "name": "Bioventus Inc."
+    },
+    {
+      "sy": "EHAB",
+      "name": "Enhabit, Inc."
+    },
+    {
+      "sy": "AVR",
+      "name": "Anteris Technologies Global Corp."
+    },
+    {
+      "sy": "QDEL",
+      "name": "QuidelOrtho Corporation"
+    },
+    {
+      "sy": "BBOT",
+      "name": "BridgeBio Oncology Therapeutics, Inc."
+    },
+    {
+      "sy": "SLDB",
+      "name": "Solid Biosciences Inc."
+    },
+    {
+      "sy": "LMRI",
+      "name": "Lumexa Imaging Holdings, Inc."
+    },
+    {
+      "sy": "PSNL",
+      "name": "Personalis, Inc."
+    },
+    {
+      "sy": "HSTM",
+      "name": "HealthStream, Inc."
+    },
+    {
+      "sy": "ZVRA",
+      "name": "Zevra Therapeutics, Inc."
+    },
+    {
+      "sy": "STRO",
+      "name": "Sutro Biopharma, Inc."
+    },
+    {
+      "sy": "CADL",
+      "name": "Candel Therapeutics, Inc."
+    },
+    {
+      "sy": "SVA",
+      "name": "Sinovac Biotech Ltd."
+    },
+    {
+      "sy": "TLRY",
+      "name": "Tilray Brands, Inc."
+    },
+    {
+      "sy": "GYRE",
+      "name": "Gyre Therapeutics, Inc."
+    },
+    {
+      "sy": "SIBN",
+      "name": "SI-BONE, Inc."
+    },
+    {
+      "sy": "CBLL",
+      "name": "CeriBell, Inc."
+    },
+    {
+      "sy": "CLYM",
+      "name": "Climb Bio Inc"
+    },
+    {
+      "sy": "CRMD",
+      "name": "CorMedix Inc."
+    },
+    {
+      "sy": "ARVN",
+      "name": "Arvinas, Inc."
+    },
+    {
+      "sy": "CSTL",
+      "name": "Castle Biosciences, Inc."
+    },
+    {
+      "sy": "KYTX",
+      "name": "Kyverna Therapeutics, Inc."
+    },
+    {
+      "sy": "CBIO",
+      "name": "Crescent Biopharma, Inc."
+    },
+    {
+      "sy": "ACHV",
+      "name": "Achieve Life Sciences, Inc."
+    },
+    {
+      "sy": "PHR",
+      "name": "Phreesia, Inc."
+    },
+    {
+      "sy": "IMMX",
+      "name": "Immix Biopharma, Inc."
+    },
+    {
+      "sy": "RIGL",
+      "name": "Rigel Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "TECX",
+      "name": "Tectonic Therapeutic, Inc."
+    },
+    {
+      "sy": "NPCE",
+      "name": "NeuroPace, Inc."
+    },
+    {
+      "sy": "XOMA",
+      "name": "XOMA Royalty Corporation"
+    },
+    {
+      "sy": "AGMB",
+      "name": "AgomAb Therapeutics NV"
+    },
+    {
+      "sy": "CTNM",
+      "name": "Contineum Therapeutics, Inc."
+    },
+    {
+      "sy": "TCMD",
+      "name": "Tactile Systems Technology, Inc."
+    },
+    {
+      "sy": "PRTA",
+      "name": "Prothena Corporation plc"
+    },
+    {
+      "sy": "MCTA",
+      "name": "Charming Medical Limited"
+    },
+    {
+      "sy": "DNA",
+      "name": "Ginkgo Bioworks Holdings, Inc."
+    },
+    {
+      "sy": "UPB",
+      "name": "Upstream Bio, Inc."
+    },
+    {
+      "sy": "OFIX",
+      "name": "Orthofix Medical Inc."
+    },
+    {
+      "sy": "STTK",
+      "name": "Shattuck Labs, Inc."
+    },
+    {
+      "sy": "FDMT",
+      "name": "4D Molecular Therapeutics, Inc."
+    },
+    {
+      "sy": "ARTV",
+      "name": "Artiva Biotherapeutics, Inc."
+    },
+    {
+      "sy": "FBRX",
+      "name": "Forte Biosciences, Inc."
+    },
+    {
+      "sy": "NGNE",
+      "name": "Neurogene Inc."
+    },
+    {
+      "sy": "ASMB",
+      "name": "Assembly Biosciences, Inc."
+    },
+    {
+      "sy": "KIDS",
+      "name": "OrthoPediatrics Corp."
+    },
+    {
+      "sy": "SRTA",
+      "name": "Strata Critical Medical, Inc."
+    },
+    {
+      "sy": "FLGT",
+      "name": "Fulgent Genetics, Inc."
+    },
+    {
+      "sy": "FULC",
+      "name": "Fulcrum Therapeutics, Inc."
+    },
+    {
+      "sy": "ANGO",
+      "name": "AngioDynamics, Inc."
+    },
+    {
+      "sy": "REPL",
+      "name": "Replimune Group, Inc."
+    },
+    {
+      "sy": "EOLS",
+      "name": "Evolus, Inc."
+    },
+    {
+      "sy": "SGMT",
+      "name": "Sagimet Biosciences Inc."
+    },
+    {
+      "sy": "BBNX",
+      "name": "Beta Bionics, Inc."
+    },
+    {
+      "sy": "WEAV",
+      "name": "Weave Communications, Inc."
+    },
+    {
+      "sy": "NRC",
+      "name": "NRC Health"
+    },
+    {
+      "sy": "LYEL",
+      "name": "Lyell Immunopharma, Inc."
+    },
+    {
+      "sy": "EBS",
+      "name": "Emergent BioSolutions Inc."
+    },
+    {
+      "sy": "CCRN",
+      "name": "Cross Country Healthcare, Inc."
+    },
+    {
+      "sy": "VREX",
+      "name": "Varex Imaging Corporation"
+    },
+    {
+      "sy": "LXEO",
+      "name": "Lexeo Therapeutics, Inc."
+    },
+    {
+      "sy": "MNPR",
+      "name": "Monopar Therapeutics Inc."
+    },
+    {
+      "sy": "BNTC",
+      "name": "Benitec Biopharma Inc."
+    },
+    {
+      "sy": "ENTA",
+      "name": "Enanta Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "TBRG",
+      "name": "TruBridge, Inc."
+    },
+    {
+      "sy": "DCTH",
+      "name": "Delcath Systems, Inc."
+    },
+    {
+      "sy": "VNDA",
+      "name": "Vanda Pharmaceuticals Inc."
+    },
+    {
+      "sy": "GLSI",
+      "name": "Greenwich LifeSciences, Inc."
+    },
+    {
+      "sy": "YDES",
+      "name": "YD Bio Ltd"
+    },
+    {
+      "sy": "VMD",
+      "name": "Viemed Healthcare, Inc."
+    },
+    {
+      "sy": "PBYI",
+      "name": "Puma Biotechnology, Inc."
+    },
+    {
+      "sy": "CLPT",
+      "name": "ClearPoint Neuro, Inc."
+    },
+    {
+      "sy": "IMRX",
+      "name": "Immuneering Corporation"
+    },
+    {
+      "sy": "SRZN",
+      "name": "Surrozen, Inc."
+    },
+    {
+      "sy": "DMAC",
+      "name": "DiaMedica Therapeutics Inc."
+    },
+    {
+      "sy": "SI",
+      "name": "Shoulder Innovations, Inc."
+    },
+    {
+      "sy": "CV",
+      "name": "CapsoVision, Inc."
+    },
+    {
+      "sy": "TENX",
+      "name": "Tenax Therapeutics, Inc."
+    },
+    {
+      "sy": "ABEO",
+      "name": "Abeona Therapeutics Inc."
+    },
+    {
+      "sy": "SENS",
+      "name": "Senseonics Holdings, Inc."
+    },
+    {
+      "sy": "CARL",
+      "name": "Carlsmed, Inc."
+    },
+    {
+      "sy": "RGNX",
+      "name": "REGENXBIO Inc."
+    },
+    {
+      "sy": "ARMP",
+      "name": "Armata Pharmaceuticals, Inc."
+    },
+    {
+      "sy": "ELMD",
+      "name": "Electromed, Inc."
+    },
+    {
+      "sy": "NVCT",
+      "name": "Nuvectis Pharma, Inc."
+    },
+    {
+      "sy": "TARA",
+      "name": "Protara Therapeutics, Inc."
+    },
+    {
+      "sy": "SLP",
+      "name": "Simulations Plus, Inc."
+    },
+    {
+      "sy": "PRE",
+      "name": "Prenetics Global Limited"
+    },
+    {
+      "sy": "MASS",
+      "name": "908 Devices Inc."
+    },
+    {
+      "sy": "TNXP",
+      "name": "Tonix Pharmaceuticals Holding Corp."
+    },
+    {
+      "sy": "TRDA",
+      "name": "Entrada Therapeutics, Inc."
+    },
+    {
+      "sy": "NERV",
+      "name": "Minerva Neurosciences, Inc."
+    },
+    {
+      "sy": "CTEV",
+      "name": "Claritev Corporation"
+    },
+    {
+      "sy": "SLGL",
+      "name": "Sol-Gel Technologies Ltd."
+    },
+    {
+      "sy": "RXST",
+      "name": "RxSight, Inc."
+    },
+    {
+      "sy": "LENZ",
+      "name": "LENZ Therapeutics, Inc."
+    },
+    {
+      "sy": "SPOK",
+      "name": "Spok Holdings, Inc."
+    },
+    {
+      "sy": "RNA",
+      "name": "Atrium Therapeutics, Inc."
+    },
+    {
+      "sy": "UNCY",
+      "name": "Unicycive Therapeutics, Inc."
+    },
+    {
+      "sy": "RNAC",
+      "name": "Cartesian Therapeutics, Inc."
+    },
+    {
+      "sy": "ARCT",
+      "name": "Arcturus Therapeutics Holdings Inc."
+    },
+    {
+      "sy": "MDWD",
+      "name": "MediWound Ltd."
+    },
+    {
+      "sy": "KROS",
+      "name": "Keros Therapeutics, Inc."
+    },
+    {
+      "sy": "IMDX",
+      "name": "Insight Molecular Diagnostics Inc."
+    },
+    {
+      "sy": "CRBP",
+      "name": "Corbus Pharmaceuticals Holdings, Inc."
+    },
+    {
+      "sy": "ELTX",
+      "name": "Elicio Therapeutics, Inc."
+    },
+    {
+      "sy": "UTMD",
+      "name": "Utah Medical Products, Inc."
+    },
+    {
+      "sy": "ANIK",
+      "name": "Anika Therapeutics, Inc."
+    },
+    {
+      "sy": "SMTI",
+      "name": "Sanara MedTech Inc."
+    },
+    {
+      "sy": "PDEX",
+      "name": "Pro-Dex, Inc."
+    },
+    {
+      "sy": "DTIL",
+      "name": "Precision BioSciences, Inc."
+    },
+    {
+      "sy": "INFU",
+      "name": "InfuSystem Holdings, Inc."
+    },
+    {
+      "sy": "DERM",
+      "name": "Journey Medical Corporation"
+    },
+    {
+      "sy": "KPTI",
+      "name": "Karyopharm Therapeutics Inc."
+    },
+    {
+      "sy": "INGN",
+      "name": "Inogen, Inc."
+    },
+    {
+      "sy": "IMUX",
+      "name": "Immunic, Inc."
+    },
+    {
+      "sy": "OWLT",
+      "name": "Owlet, Inc."
+    },
+    {
+      "sy": "CVRX",
+      "name": "CVRx, Inc."
+    },
+    {
+      "sy": "ASRT",
+      "name": "Assertio Holdings, Inc."
+    },
+    {
+      "sy": "KRRO",
+      "name": "Korro Bio, Inc."
+    },
+    {
+      "sy": "SPRB",
+      "name": "Spruce Biosciences, Inc."
+    },
+    {
+      "sy": "SNWV",
+      "name": "SANUWAVE Health, Inc."
+    },
+    {
+      "sy": "BDSX",
+      "name": "Biodesix, Inc."
+    },
+    {
+      "sy": "EMPG",
+      "name": "Empro Group Inc."
+    },
+    {
+      "sy": "VTVT",
+      "name": "vTv Therapeutics Inc."
+    },
+    {
+      "sy": "NTHI",
+      "name": "NeOnc Technologies Holdings, Inc."
+    },
+    {
+      "sy": "ACOG",
+      "name": "Alpha Cognition Inc."
+    },
+    {
+      "sy": "AMWL",
+      "name": "American Well Corporation"
+    },
+    {
+      "sy": "FONR",
+      "name": "FONAR Corporation"
+    },
+    {
+      "sy": "JYNT",
+      "name": "The Joint Corp."
+    },
+    {
+      "sy": "EDSA",
+      "name": "Edesa Biotech, Inc."
+    },
+    {
+      "sy": "VRCA",
+      "name": "Verrica Pharmaceuticals Inc."
+    },
+    {
+      "sy": "QTTB",
+      "name": "Q32 Bio Inc."
+    },
+    {
+      "sy": "WW",
+      "name": "WW International, Inc."
+    },
+    {
+      "sy": "LONA",
+      "name": "LeonaBio, Inc."
+    },
+    {
+      "sy": "OPRX",
+      "name": "OptimizeRx Corporation"
+    },
+    {
+      "sy": "NRXS",
+      "name": "NeurAxis, Inc."
+    },
+    {
+      "sy": "PMN",
+      "name": "ProMIS Neurosciences, Inc."
+    },
+    {
+      "sy": "CUE",
+      "name": "Cue Biopharma, Inc."
+    },
+    {
+      "sy": "PTHS",
+      "name": "Pelthos Therapeutics Inc."
+    },
+    {
+      "sy": "CSBR",
+      "name": "Champions Oncology, Inc."
+    },
+    {
+      "sy": "PARK",
+      "name": "Park Dental Partners, Inc."
+    },
+    {
+      "sy": "EXOZ",
+      "name": "eXoZymes, Inc."
+    },
+    {
+      "sy": "CPIX",
+      "name": "Cumberland Pharmaceuticals Inc."
+    },
+    {
+      "sy": "ATRA",
+      "name": "Atara Biotherapeutics, Inc."
+    },
+    {
+      "sy": "ICCC",
+      "name": "ImmuCell Corporation"
+    },
+    {
+      "sy": "RLYB",
+      "name": "Rallybio Corporation"
+    },
+    {
+      "sy": "MCRB",
+      "name": "Seres Therapeutics, Inc."
+    },
+    {
+      "sy": "ACET",
+      "name": "Adicet Bio, Inc."
+    },
+    {
+      "sy": "LNSR",
+      "name": "LENSAR, Inc."
+    },
+    {
+      "sy": "QTI",
+      "name": "QT Imaging Holdings, Inc."
+    },
+    {
+      "sy": "IMA",
+      "name": "ImageneBio, Inc."
+    },
+    {
+      "sy": "DXR",
+      "name": "Daxor Corporation"
+    },
+    {
+      "sy": "DRIO",
+      "name": "DarioHealth Corp."
+    },
+    {
+      "sy": "LIXT",
+      "name": "Lixte Biotechnology Holdings, Inc."
+    },
+    {
+      "sy": "MDNC",
+      "name": "Medinotec Inc."
+    },
+    {
+      "sy": "TIL",
+      "name": "Instil Bio, Inc."
+    },
+    {
+      "sy": "INKT",
+      "name": "MiNK Therapeutics, Inc."
+    },
+    {
+      "sy": "ECOR",
+      "name": "electroCore, Inc."
+    },
+    {
+      "sy": "XLO",
+      "name": "Xilio Therapeutics, Inc."
+    },
+    {
+      "sy": "PRPO",
+      "name": "Precipio, Inc."
+    },
+    {
+      "sy": "PAVM",
+      "name": "PAVmed Inc."
+    },
+    {
+      "sy": "SCLX",
+      "name": "Scilex Holding Company"
+    },
+    {
+      "sy": "PIII",
+      "name": "P3 Health Partners Inc."
+    },
+    {
+      "sy": "PSTV",
+      "name": "Plus Therapeutics, Inc."
+    },
+    {
+      "sy": "ALGS",
+      "name": "Aligos Therapeutics, Inc."
+    },
+    {
+      "sy": "NXTC",
+      "name": "NextCure, Inc."
+    },
+    {
+      "sy": "NSYS",
+      "name": "Nortech Systems Incorporated"
+    },
+    {
+      "sy": "TVGN",
+      "name": "Tevogen Bio Holdings Inc."
+    },
+    {
+      "sy": "APLM",
+      "name": "Apollomics, Inc."
+    },
+    {
+      "sy": "BIOQ",
+      "name": "Bioqual, Inc."
+    },
+    {
+      "sy": "PLRZ",
+      "name": "Polyrizon Ltd."
+    },
+    {
+      "sy": "KYNB",
+      "name": "Kyntra Bio, Inc."
+    },
+    {
+      "sy": "SNSE",
+      "name": "Sensei Biotherapeutics, Inc."
+    },
+    {
+      "sy": "PTN",
+      "name": "Palatin Technologies, Inc."
+    },
+    {
+      "sy": "HBIO",
+      "name": "Harvard Bioscience, Inc."
+    },
+    {
+      "sy": "LFWD",
+      "name": "Lifeward Ltd."
+    },
+    {
+      "sy": "PASG",
+      "name": "Passage Bio, Inc."
+    },
+    {
+      "sy": "ERNA",
+      "name": "Ernexa Therapeutics Inc."
+    },
+    {
+      "sy": "CVKD",
+      "name": "Cadrenal Therapeutics, Inc."
+    },
+    {
+      "sy": "AKAN",
+      "name": "Akanda Corp."
+    },
+    {
+      "sy": "CMPD",
+      "name": "CompuMed, Inc."
+    },
+    {
+      "sy": "ASBP",
+      "name": "Aspire Biopharma Holdings, Inc."
+    },
+    {
+      "sy": "NVNO",
+      "name": "enVVeno Medical Corporation"
+    },
+    {
+      "sy": "MLEC",
+      "name": "Moolec Science SA"
+    },
+    {
+      "sy": "NDRA",
+      "name": "ENDRA Life Sciences Inc."
+    },
+    {
+      "sy": "RNAZ",
+      "name": "TransCode Therapeutics, Inc."
+    },
+    {
+      "sy": "ALMR",
+      "name": "Alamar Biosciences, Inc."
+    },
+    {
+      "sy": "AVLN",
+      "name": "Avalyn Pharma Inc."
+    },
+    {
+      "sy": "COAG",
+      "name": "Hemab Therapeutics Holdings, Inc."
+    },
+    {
+      "sy": "GMRS",
+      "name": "GMR Solutions Inc."
+    },
+    {
+      "sy": "KLRA",
+      "name": "Kailera Therapeutics, Inc."
+    },
+    {
+      "sy": "MOBI",
+      "name": "Mobia Medical, Inc."
+    },
+    {
+      "sy": "ODTX",
+      "name": "Odyssey Therapeutics, Inc."
+    },
+    {
+      "sy": "SPTX",
+      "name": "Seaport Therapeutics, Inc."
+    },
+    {
+      "sy": "TRAX",
+      "name": "First Tracks Biotherapeutics, Inc."
+    }
+  ]
+}

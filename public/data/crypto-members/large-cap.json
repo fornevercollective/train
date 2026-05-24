@@ -1,0 +1,80 @@
+{
+  "categoryId": "large-cap",
+  "categoryLabel": "Large cap",
+  "updated": "2026-05-24",
+  "count": 8,
+  "tickers": [
+    {
+      "id": "bitcoin",
+      "sy": "BTC-USD",
+      "cgId": "bitcoin",
+      "name": "Bitcoin",
+      "marketCap": 1534861610260.0,
+      "change24hPct": 1.59708,
+      "weight": 74.1635
+    },
+    {
+      "id": "ethereum",
+      "sy": "ETH-USD",
+      "cgId": "ethereum",
+      "name": "Ethereum",
+      "marketCap": 253640305606.0,
+      "change24hPct": 1.90333,
+      "weight": 12.2557
+    },
+    {
+      "id": "binancecoin",
+      "sy": "BNB-USD",
+      "cgId": "binancecoin",
+      "name": "BNB",
+      "marketCap": 88428534796.0,
+      "change24hPct": 1.22505,
+      "weight": 4.2728
+    },
+    {
+      "id": "ripple",
+      "sy": "XRP-USD",
+      "cgId": "ripple",
+      "name": "XRP",
+      "marketCap": 83621555089.0,
+      "change24hPct": 1.10908,
+      "weight": 4.0405
+    },
+    {
+      "id": "solana",
+      "sy": "SOL-USD",
+      "cgId": "solana",
+      "name": "Solana",
+      "marketCap": 49480950149.0,
+      "change24hPct": 1.73089,
+      "weight": 2.3909
+    },
+    {
+      "id": "tron",
+      "sy": "TRX-USD",
+      "cgId": "tron",
+      "name": "TRON",
+      "marketCap": 34757556597.0,
+      "change24hPct": 1.90863,
+      "weight": 1.6795
+    },
+    {
+      "id": "dogecoin",
+      "sy": "DOGE-USD",
+      "cgId": "dogecoin",
+      "name": "Dogecoin",
+      "marketCap": 15788976737.0,
+      "change24hPct": 1.10456,
+      "weight": 0.7629
+    },
+    {
+      "id": "cardano",
+      "sy": "ADA-USD",
+      "cgId": "cardano",
+      "name": "Cardano",
+      "marketCap": 8985724451.0,
+      "change24hPct": 0.34081,
+      "weight": 0.4342
+    }
+  ]
+}
