@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "anchorPolicy": "cme_globex_chicago",
+  "location": {
+    "birthLocation": "Chicago, IL, USA",
+    "lat": 41.8781,
+    "lon": -87.6298,
+    "tz": "America/Chicago",
+    "exchange": "CME",
+    "venue": "CME Globex"
+  },
+  "contracts": [
+    {
+      "symbols": ["SIN26", "SIN2026"],
+      "yahoo": "SI=F",
+      "product": "SI",
+      "name": "COMEX Silver Jul 2026",
+      "genesisUtc": "2021-07-30T22:00:00.000Z",
+      "genesisMethod": "first_trade_tick",
+      "genesisSource": "tradingview_1m",
+      "genesisSession": "globex_open",
+      "firstVolumeDate": "2021-07-30",
+      "expiryUtc": "2026-07-29T22:00:00.000Z",
+      "verifiedAt": "2026-05-25",
+      "notes": "First 1m bar TradingView COMEX SIN2026; 17:00 CT = 22:00 UTC."
+    },
+    {
+      "symbols": ["GCM26", "GCM2026"],
+      "yahoo": "GC=F",
+      "product": "GC",
+      "name": "COMEX Gold Jun 2026",
+      "genesisUtc": "2020-06-29T22:00:00.000Z",
+      "genesisMethod": "first_trade_tick",
+      "genesisSource": "tradingview_1m",
+      "genesisSession": "globex_open",
+      "firstVolumeDate": "2020-06-29",
+      "expiryUtc": "2026-06-26T22:00:00.000Z",
+      "verifiedAt": "2026-05-25",
+      "notes": "First 1m bar TradingView COMEX GCM2026; 17:00 CT = 22:00 UTC."
+    }
+  ]
+}
