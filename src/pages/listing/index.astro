@@ -261,6 +261,19 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					<div id="alias-list" class="alias-list muted">No aliases provided.</div>
 				</article>
 			</section>
+
+			<section id="listing-edgar-panel" class="card listing-panel" hidden>
+				<div class="tileTop">
+					<div>
+						<div class="ticker">SEC EDGAR</div>
+						<div class="name">Search SEC filings for this US-registered security on EDGAR.</div>
+					</div>
+				</div>
+				<div id="listing-edgar-links" class="listing-edgar-links"></div>
+				<p class="muted listing-edgar-note">
+					Links open SEC EDGAR in a new tab. EDGAR covers US-listed companies and ETFs registered with the SEC. Educational use only.
+				</p>
+			</section>
 		</div>
 	</section>
 
@@ -296,6 +309,8 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		const classificationGrid = document.querySelector('#classification-grid');
 		const aliasList = document.querySelector('#alias-list');
 		const featuredLink = document.querySelector('#listing-featured-link');
+		const edgarPanel = document.querySelector('#listing-edgar-panel');
+		const edgarLinks = document.querySelector('#listing-edgar-links');
 		const dateFormatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' });
 
 		function escapeHtml(value) {
@@ -395,6 +410,40 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				liveChartStatus.textContent = `History failed: ${err && err.message ? err.message : err}`;
 				statusElement.textContent = 'History failed to load.';
 			}
+		}
+
+		const US_EXCHANGES = new Set(['NYSE', 'NASDAQ', 'OTC', 'NYSEARCA', 'BATS', 'NYSEAMERICAN', 'AMEX']);
+
+		function isUsListing(record) {
+			return record.co === 'United States' || US_EXCHANGES.has(record.ex);
+		}
+
+		function edgarTickerUrl(ticker) {
+			return `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${encodeURIComponent(ticker)}&type=&dateb=&owner=include&count=10`;
+		}
+
+		function edgarCompanyUrl(name) {
+			return `https://www.sec.gov/cgi-bin/browse-edgar?company=${encodeURIComponent(name)}&CIK=&type=&dateb=&owner=include&count=40&action=getcompany`;
+		}
+
+		function edgarFullTextUrl(query) {
+			return `https://efts.sec.gov/LATEST/search-index?q=${encodeURIComponent(`"${query}"`)}&forms=10-K,10-Q,8-K`;
+		}
+
+		function renderEdgarPanel(record) {
+			if (!edgarPanel || !edgarLinks) return;
+			if (!isUsListing(record)) {
+				edgarPanel.hidden = true;
+				return;
+			}
+			const ticker = record.sy || record.id.split(':').pop();
+			const name = record.ln || record.nm;
+			edgarLinks.innerHTML = [
+				`<a class="button-secondary edgar-link" href="${escapeHtml(edgarTickerUrl(ticker))}" target="_blank" rel="noopener noreferrer">EDGAR: ${escapeHtml(ticker)} filings</a>`,
+				`<a class="button-secondary edgar-link" href="${escapeHtml(edgarCompanyUrl(name))}" target="_blank" rel="noopener noreferrer">EDGAR: company search</a>`,
+				`<a class="button-secondary edgar-link" href="${escapeHtml(edgarFullTextUrl(ticker))}" target="_blank" rel="noopener noreferrer">EDGAR: full-text search</a>`,
+			].join('');
+			edgarPanel.hidden = false;
 		}
 
 		async function loadCatalog() {
@@ -667,6 +716,8 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					record.al && record.al.length
 						? record.al.map((value) => `<span class="badge muted">${escapeHtml(value)}</span>`).join('')
 						: '<span class="muted">No aliases provided.</span>';
+
+				renderEdgarPanel(record);
 
 				statusElement.textContent = 'Profile ready.';
 				contentElement.hidden = false;
@@ -980,5 +1031,22 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		.detail-grid {
 			grid-template-columns: 1fr;
 		}
+	}
+
+	#listing-edgar-panel {
+		padding: 16px;
+	}
+
+	.listing-edgar-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 14px;
+	}
+
+	.listing-edgar-note {
+		margin: 12px 0 0;
+		font-size: 0.88rem;
+		line-height: 1.55;
 	}
 </style>

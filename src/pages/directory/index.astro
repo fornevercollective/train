@@ -212,6 +212,20 @@ const coverageMeta = {
 			return Number.isNaN(epoch) ? 0 : epoch;
 		}
 
+		const US_EXCHANGES = new Set(['NYSE', 'NASDAQ', 'OTC', 'NYSEARCA', 'BATS', 'NYSEAMERICAN', 'AMEX']);
+
+		function isUsListing(entry) {
+			return entry.co === 'United States' || US_EXCHANGES.has(entry.ex);
+		}
+
+		function edgarTickerUrl(ticker) {
+			return `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${encodeURIComponent(ticker)}&type=&dateb=&owner=include&count=10`;
+		}
+
+		function edgarCompanyUrl(name) {
+			return `https://www.sec.gov/cgi-bin/browse-edgar?company=${encodeURIComponent(name)}&CIK=&type=&dateb=&owner=include&count=40&action=getcompany`;
+		}
+
 		function applyUrlState() {
 			const params = new URLSearchParams(window.location.search);
 			state.query = params.get('q') || '';
@@ -361,7 +375,7 @@ const coverageMeta = {
 				return;
 			}
 
-			resultsGrid.innerHTML = pageItems
+				resultsGrid.innerHTML = pageItems
 				.map((entry) => {
 					const tags = [
 						entry.ty,
@@ -372,6 +386,15 @@ const coverageMeta = {
 						`IPO ${entry.ic || 'missing'}`,
 						`Filing ${entry.fc || 'missing'}`,
 					].filter(Boolean);
+					const ticker = entry.sy || entry.id.split(':').pop();
+					const name = entry.ln || entry.nm;
+					const edgarHtml = isUsListing(entry)
+						? `<div class="result-card-edgar">
+								<span class="result-card-edgar-label muted">SEC EDGAR</span>
+								<a class="button-secondary result-edgar-link" href="${escapeHtml(edgarTickerUrl(ticker))}" target="_blank" rel="noopener noreferrer">${escapeHtml(ticker)} filings</a>
+								<a class="button-secondary result-edgar-link" href="${escapeHtml(edgarCompanyUrl(name))}" target="_blank" rel="noopener noreferrer">Company search</a>
+							</div>`
+						: '';
 					return `
 						<article class="result-card card" data-ticker="${escapeHtml(entry.id)}">
 							<div class="result-card-head">
@@ -404,6 +427,7 @@ const coverageMeta = {
 								></div>
 								<p class="result-card-chart-status muted micro" data-chart-status>Loading chart…</p>
 							</div>
+							${edgarHtml}
 							<div class="result-card-footer">
 								<span class="muted">Company: ${escapeHtml(formatDate(entry.cd))}</span>
 								<span class="muted">IPO: ${escapeHtml(formatDate(entry.ip))}</span>
@@ -857,5 +881,28 @@ const coverageMeta = {
 
 	.snowflake-meta {
 		font-size: 11px;
+	}
+
+	.result-card-edgar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px;
+		margin-top: 0.75rem;
+		padding-top: 0.75rem;
+		border-top: 1px solid rgba(148, 163, 184, 0.2);
+	}
+
+	.result-card-edgar-label {
+		font-size: 11px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		font-family: var(--font-mono);
+		flex-basis: 100%;
+	}
+
+	.result-edgar-link {
+		font-size: 0.8rem;
+		padding: 4px 10px;
 	}
 </style>
