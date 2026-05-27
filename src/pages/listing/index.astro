@@ -173,6 +173,14 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 							<span class="muted">First trade</span>
 							<strong id="listing-first-trade">Unavailable</strong>
 						</div>
+						<div class="metric-card">
+							<span class="muted">LLC filing timestamp</span>
+							<strong id="listing-filing-timestamp">Unavailable</strong>
+						</div>
+						<div class="metric-card">
+							<span class="muted">LLC filing location</span>
+							<strong id="listing-filing-location">Unavailable</strong>
+						</div>
 					</div>
 					<p id="listing-notes" class="listing-notes muted"></p>
 				</aside>
@@ -280,6 +288,8 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		const companyDateElement = document.querySelector('#listing-company-date');
 		const ipoDateElement = document.querySelector('#listing-ipo-date');
 		const firstTradeElement = document.querySelector('#listing-first-trade');
+		const filingTimestampElement = document.querySelector('#listing-filing-timestamp');
+		const filingLocationElement = document.querySelector('#listing-filing-location');
 		const notesElement = document.querySelector('#listing-notes');
 		const tagsElement = document.querySelector('#listing-tags');
 		const identityGrid = document.querySelector('#identity-grid');
@@ -616,6 +626,8 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				companyDateElement.textContent = formatDate(record.cd);
 				ipoDateElement.textContent = formatDate(record.ip);
 				firstTradeElement.textContent = formatDate(record.ft);
+				filingTimestampElement.textContent = formatDate(record.lt);
+				filingLocationElement.textContent = record.ll || 'Unavailable';
 				notesElement.textContent = record.nt || 'No additional notes were provided for this listing.';
 
 				tagsElement.innerHTML = [
@@ -645,6 +657,10 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					['Listing exchange label', record.lx],
 					['Source universe', record.su],
 					['Date coverage', record.dc],
+					['IPO/founding completeness', record.ic],
+					['LLC filing completeness', record.fc],
+					['LLC filing timestamp', record.lt],
+					['LLC filing location', record.ll],
 				]);
 
 				aliasList.innerHTML =
