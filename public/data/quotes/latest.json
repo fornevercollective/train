@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "asOf": "2026-05-28",
+  "builtAt": "2026-05-28T04:58:42.544Z",
+  "symbolCount": 29,
+  "ingestNotes": "Built by tools/build-daily-quote-snapshot.mjs. Publish to train public/data/quotes/. Not for trading.",
+  "symbols": {
+    "GOOGL": {
+      "price": 388.8299865722656,
+      "dayOpen": 386.6700134277344,
+      "previousClose": 388.8800048828125,
+      "changePct": -0.012862145113875893,
+      "sessionDate": "2026-05-27",
+      "shortName": "GOOGL",
+      "ingestSource": "worker_yahoo"
+    },
+    "^DJI": {
+      "price": 50644.28125,
+      "dayOpen": 50487.16015625,
+      "previousClose": 50461.6796875,
+      "changePct": 0.3618618397778636,
+      "sessionDate": "2026-05-27",
+      "shortName": "^DJI",
+      "ingestSource": "worker_yahoo"
+    },
+    "^IXIC": {
+      "price": 26674.73046875,
+      "dayOpen": 26695.439453125,
+      "previousClose": 26656.1796875,
+      "changePct": 0.0695927978708033,
+      "sessionDate": "2026-05-27",
+      "shortName": "^IXIC",
+      "ingestSource": "worker_yahoo"
+    },
+    "^GSPC": {
+      "price": 7520.35986328125,
+      "dayOpen": 7526.009765625,
+      "previousClose": 7519.1201171875,
+      "changePct": 0.016487914469089805,
+      "sessionDate": "2026-05-27",
+      "shortName": "^GSPC",
+      "ingestSource": "worker_yahoo"
+    },
+    "MSFT": {
+      "price": 412.6700134277344,
+      "dayOpen": 411.010009765625,
+      "previousClose": 416.0299987792969,
+      "changePct": -0.8076305462157228,
+      "sessionDate": "2026-05-27",
+      "shortName": "MSFT",
+      "ingestSource": "worker_yahoo"
+    },
+    "AAPL": {
+      "price": 310.8500061035156,
+      "dayOpen": 308.3299865722656,
+      "previousClose": 308.3299865722656,
+      "changePct": 0.817312503161078,
+      "sessionDate": "2026-05-27",
+      "shortName": "AAPL",
+      "ingestSource": "worker_yahoo"
+    },
+    "TSLA": {
+      "price": 440.3599853515625,
+      "dayOpen": 442.8900146484375,
+      "previousClose": 433.5899963378906,
+      "changePct": 1.5613803526029961,
+      "sessionDate": "2026-05-27",
+      "shortName": "TSLA",
+      "ingestSource": "worker_yahoo"
+    },
+    "META": {
+      "price": 635.260009765625,
+      "dayOpen": 609.4000244140625,
+      "previousClose": 612.3400268554688,
+      "changePct": 3.743015629381039,
+      "sessionDate": "2026-05-27",
+      "shortName": "META",
+      "ingestSource": "worker_yahoo"
+    },
+    "AMZN": {
+      "price": 271.8500061035156,
+      "dayOpen": 266.1499938964844,
+      "previousClose": 265.2900085449219,
+      "changePct": 2.472764652756584,
+      "sessionDate": "2026-05-27",
+      "shortName": "AMZN",
+      "ingestSource": "worker_yahoo"
+    },
+    "NVDA": {
+      "price": 212.60000610351562,
+      "dayOpen": 214.1199951171875,
+      "previousClose": 214.86000061035156,
+      "changePct": -1.0518451551782482,
+      "sessionDate": "2026-05-27",
+      "shortName": "NVDA",
+      "ingestSource": "worker_yahoo"
+    },
+    "JPM": {
+      "price": 299.2799987792969,
+      "dayOpen": 305,
+      "previousClose": 306.739990234375,
+      "changePct": -2.432024415655118,
+      "sessionDate": "2026-05-27",
+      "shortName": "JPM",
+      "ingestSource": "worker_yahoo"
+    },
+    "KO": {
+      "price": 81.62000274658203,
+      "dayOpen": 81.0999984741211,
+      "previousClose": 80.45999908447266,
+      "changePct": 1.44171473441296,
+      "sessionDate": "2026-05-27",
+      "shortName": "KO",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLK": {
+      "price": 184.42999267578125,
+      "dayOpen": 186.17999267578125,
+      "previousClose": 185.13999938964844,
+      "changePct": -0.3834972000690659,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLK",
+      "ingestSource": "worker_yahoo"
+    },
+    "NFLX": {
+      "price": 87.3499984741211,
+      "dayOpen": 87.05000305175781,
+      "previousClose": 87.68000030517578,
+      "changePct": -0.3763707001666233,
+      "sessionDate": "2026-05-27",
+      "shortName": "NFLX",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLV": {
+      "price": 148.7899932861328,
+      "dayOpen": 148.69000244140625,
+      "previousClose": 148.50999450683594,
+      "changePct": 0.1885386772968917,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLV",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLE": {
+      "price": 56.9900016784668,
+      "dayOpen": 57.0099983215332,
+      "previousClose": 57.849998474121094,
+      "changePct": -1.4865977845081744,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLE",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLF": {
+      "price": 51.41999816894531,
+      "dayOpen": 51.7400016784668,
+      "previousClose": 51.849998474121094,
+      "changePct": -0.8293159456704693,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLF",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLC": {
+      "price": 116.26000213623047,
+      "dayOpen": 115.2300033569336,
+      "previousClose": 115.55000305175781,
+      "changePct": 0.6144518093648422,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLC",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLB": {
+      "price": 51.18000030517578,
+      "dayOpen": 51.0099983215332,
+      "previousClose": 50.9900016784668,
+      "changePct": 0.3726193772400311,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLB",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLP": {
+      "price": 84.58000183105469,
+      "dayOpen": 84.0199966430664,
+      "previousClose": 83.62999725341797,
+      "changePct": 1.1359615076370124,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLP",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLI": {
+      "price": 174.3000030517578,
+      "dayOpen": 174.5399932861328,
+      "previousClose": 174.3000030517578,
+      "changePct": 0,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLI",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLU": {
+      "price": 45.13999938964844,
+      "dayOpen": 45.25,
+      "previousClose": 45.33000183105469,
+      "changePct": -0.4191538357187603,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLU",
+      "ingestSource": "worker_yahoo"
+    },
+    "XLY": {
+      "price": 121.55000305175781,
+      "dayOpen": 120.69000244140625,
+      "previousClose": 119.44999694824219,
+      "changePct": 1.758062919353242,
+      "sessionDate": "2026-05-27",
+      "shortName": "XLY",
+      "ingestSource": "worker_yahoo"
+    },
+    "GLD": {
+      "price": 408.489990234375,
+      "dayOpen": 404.3399963378906,
+      "previousClose": 414,
+      "changePct": -1.3309202332427537,
+      "sessionDate": "2026-05-27",
+      "shortName": "GLD",
+      "ingestSource": "worker_yahoo"
+    },
+    "USO": {
+      "price": 131.02999877929688,
+      "dayOpen": 131.38999938964844,
+      "previousClose": 137,
+      "changePct": -4.357665124600821,
+      "sessionDate": "2026-05-27",
+      "shortName": "USO",
+      "ingestSource": "worker_yahoo"
+    },
+    "SLV": {
+      "price": 67.5,
+      "dayOpen": 66.87999725341797,
+      "previousClose": 69.72000122070312,
+      "changePct": -3.1841669274726043,
+      "sessionDate": "2026-05-27",
+      "shortName": "SLV",
+      "ingestSource": "worker_yahoo"
+    },
+    "BTC-USD": {
+      "price": 73041.59375,
+      "dayOpen": 74332.9375,
+      "previousClose": 0,
+      "changePct": null,
+      "sessionDate": "2026-05-28",
+      "shortName": "BTC-USD",
+      "ingestSource": "worker_yahoo"
+    },
+    "GC=F": {
+      "price": 4401.10009765625,
+      "dayOpen": 4488,
+      "previousClose": 4447.5,
+      "changePct": -1.0432805473580664,
+      "sessionDate": "2026-05-28",
+      "shortName": "GC=F",
+      "ingestSource": "worker_yahoo"
+    },
+    "CL=F": {
+      "price": 92.1500015258789,
+      "dayOpen": 89.11000061035156,
+      "previousClose": 88.68000030517578,
+      "changePct": 3.912946784801262,
+      "sessionDate": "2026-05-28",
+      "shortName": "CL=F",
+      "ingestSource": "worker_yahoo"
+    }
+  },
+  "errors": {}
+}
