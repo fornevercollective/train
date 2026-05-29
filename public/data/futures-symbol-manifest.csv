@@ -1,0 +1,13 @@
+product,yahoo,name,outright,tv_symbol,venue,group,status,first_volume_date,notes
+GC,GC=F,COMEX Gold Jun 2026,GCM26,COMEX:GCM2026,comex,metals,verified,2020-06-29,genesis 2020-06-29T22:00:00Z first_trade_tick
+MGC,MGC=F,Micro Gold Jun 2026,MGCM26,COMEX:MGCM2026,comex,metals,verified,2024-06-14,COMEX Fri 2024-06-14 18:00 ET (6 PM) = 22:00 UTC
+SI,SI=F,COMEX Silver Jul 2026,SIN26,COMEX:SIN2026,comex,metals,verified,2021-07-30,genesis 2021-07-30T22:00:00Z first_trade_tick
+SIL,SIL=F,Micro Silver Jul 2026,SILN26,COMEX:SILN2026,comex,metals,verified,2025-07-17,COMEX 2025-07-17 18:00 ET (6 PM) = 22:00 UTC
+PL,PL=F,COMEX Platinum Jul 2026,PLN26,COMEX:PLN2026,comex,metals,verified,2023-07-28,genesis 2023-07-28T22:00:00Z first_trade_tick
+HG,HG=F,COMEX Copper Jul 2026,HGN26,COMEX:HGN2026,comex,metals,verified,2021-04-29,genesis 2021-04-29T22:00:00Z tier B
+PA,PA=F,COMEX Palladium Jun 2026,PAM26,COMEX:PAM2026,comex,metals,verified,2023-07-17,genesis 2023-07-17T22:00:00Z tier B
+CL,CL=F,NYMEX WTI Crude Jul 2026,CLN26,NYMEX:CLN2026,nymex,energy,verified,2018-01-22,natal NYC
+HO,HO=F,NYMEX Heating Oil Jul 2026,HON26,NYMEX:HON2026,nymex,energy,skipped,,ignore for now per user
+NG,NG=F,NYMEX Natural Gas Jul 2026,NGN26,NYMEX:NGN2026,nymex,energy,verified,2023-11-27,natal NYC
+RB,RB=F,NYMEX RBOB Gasoline Jul 2026,RBN26,NYMEX:RBN2026,nymex,energy,verified,2022-11-30,Jul 2026 contract RBN2026; natal NYC
+BZ,BZ=F,NYMEX Brent Crude Jul 2026,BZN26,NYMEX:BZN2026,nymex,energy,verified,2018-11-01,Jul 2026 contract BZN2026; natal NYC
