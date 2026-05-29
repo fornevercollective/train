@@ -1,121 +1,125 @@
 {
-  "totalSymbols": 40963,
+  "totalSymbols": 56307,
   "uniqueCountries": 80,
-  "uniqueExchanges": 70,
-  "withCompanyCreation": 4530,
-  "withIpoCreation": 15452,
+  "uniqueExchanges": 71,
+  "withCompanyCreation": 4555,
+  "withIpoCreation": 21215,
   "withLlcOriginalFilingTimestamp": 0,
   "withLlcOriginalFilingLocation": 0,
   "securityTypes": [
     {
       "name": "Stock",
-      "count": 40963
+      "count": 40962
+    },
+    {
+      "name": "ETF",
+      "count": 15345
     }
   ],
   "topCountries": [
     {
       "name": "United States",
-      "count": 11595
+      "count": 16571
     },
     {
       "name": "China",
-      "count": 5105
+      "count": 5994
     },
     {
       "name": "Canada",
-      "count": 3450
-    },
-    {
-      "name": "Japan",
-      "count": 2961
+      "count": 4947
     },
     {
       "name": "South Korea",
-      "count": 2423
+      "count": 3369
+    },
+    {
+      "name": "Japan",
+      "count": 3309
+    },
+    {
+      "name": "Ireland",
+      "count": 2578
     },
     {
       "name": "Taiwan",
-      "count": 2007
+      "count": 2333
     },
     {
       "name": "Australia",
-      "count": 1292
+      "count": 1743
+    },
+    {
+      "name": "Brazil",
+      "count": 1562
     },
     {
       "name": "United Kingdom",
-      "count": 1104
+      "count": 1346
+    },
+    {
+      "name": "Luxembourg",
+      "count": 1028
     },
     {
       "name": "Malaysia",
-      "count": 930
-    },
-    {
-      "name": "Indonesia",
-      "count": 736
-    },
-    {
-      "name": "Sweden",
-      "count": 728
-    },
-    {
-      "name": "Cayman Islands",
-      "count": 706
+      "count": 934
     }
   ],
   "topExchanges": [
     {
       "name": "OTC",
-      "count": 8078
+      "count": 8193
     },
     {
       "name": "NASDAQ",
-      "count": 4342
-    },
-    {
-      "name": "NYSE",
-      "count": 2892
-    },
-    {
-      "name": "TSE",
-      "count": 2843
-    },
-    {
-      "name": "SZSE",
-      "count": 2726
-    },
-    {
-      "name": "SSE",
-      "count": 2257
+      "count": 5560
     },
     {
       "name": "LSE",
-      "count": 1883
+      "count": 3767
+    },
+    {
+      "name": "TSE",
+      "count": 3191
+    },
+    {
+      "name": "SZSE",
+      "count": 3083
+    },
+    {
+      "name": "NYSE",
+      "count": 2985
+    },
+    {
+      "name": "SSE",
+      "count": 2789
+    },
+    {
+      "name": "NYSEARCA",
+      "count": 2688
+    },
+    {
+      "name": "XETRA",
+      "count": 2228
+    },
+    {
+      "name": "KRX",
+      "count": 1796
+    },
+    {
+      "name": "TSX",
+      "count": 1665
     },
     {
       "name": "KOSDAQ",
       "count": 1583
-    },
-    {
-      "name": "TSXV",
-      "count": 1053
-    },
-    {
-      "name": "TWSE",
-      "count": 1025
-    },
-    {
-      "name": "TPEX",
-      "count": 1009
-    },
-    {
-      "name": "BURSA",
-      "count": 931
     }
   ],
   "topSectors": [
     {
       "name": "(none)",
-      "count": 7016
+      "count": 22360
     },
     {
       "name": "Industrials",
@@ -163,19 +167,19 @@
     }
   ],
   "dateCoverage": {
-    "complete": 17452,
-    "partial": 10111,
-    "missing": 13400
+    "complete": 22872,
+    "partial": 14384,
+    "missing": 19051
   },
   "ipoFoundingCoverage": {
-    "complete": 3001,
-    "partial": 13980,
-    "missing": 23982
+    "complete": 3019,
+    "partial": 19732,
+    "missing": 33556
   },
   "llcOriginalFilingCoverage": {
     "complete": 0,
     "partial": 0,
-    "missing": 40963
+    "missing": 56307
   },
   "featuredListings": [
     {
@@ -234,6 +238,21 @@
       "cc": "US"
     },
     {
+      "id": "AAA",
+      "sy": "AAA",
+      "ex": "NYSEARCA",
+      "nm": "Alternative Access First Priority CLO Bond ETF",
+      "ty": "ETF",
+      "dc": "complete",
+      "su": "free_ticker_database",
+      "ic": "missing",
+      "fc": "missing",
+      "ln": "Alternative Access First Priority CLO Bond ETF",
+      "co": "Australia",
+      "cc": "AU",
+      "is": "AU000000AAA3"
+    },
+    {
       "id": "AACB",
       "sy": "AACB",
       "ex": "NASDAQ",
@@ -250,71 +269,48 @@
       "is": "KYG0509J1159"
     },
     {
-      "id": "AAT",
-      "sy": "AAT",
-      "ex": "NYSE",
-      "nm": "American Assets Trust Inc",
-      "ty": "Stock",
-      "dc": "complete",
-      "su": "free_ticker_database",
-      "ic": "missing",
-      "fc": "missing",
-      "ln": "American Assets Trust Inc",
-      "se": "Real Estate",
-      "co": "Poland",
-      "cc": "PL",
-      "is": "PLTRNSU00013"
-    },
-    {
-      "id": "AAUC",
-      "sy": "AAUC",
-      "ex": "NYSE",
-      "nm": "Allied Gold",
-      "ty": "Stock",
-      "dc": "complete",
-      "su": "free_ticker_database",
-      "ic": "partial",
-      "fc": "missing",
-      "ln": "Allied Gold",
-      "se": "Materials",
-      "co": "Canada",
-      "cc": "CA",
-      "is": "CA01921D2041",
-      "ip": "2024-08-15T00:00:00Z",
-      "ft": "2024-08-15T00:00:00Z",
-      "nt": "IPO and first trade use Yahoo max-history start as a public-market proxy."
-    },
-    {
-      "id": "AB",
-      "sy": "AB",
-      "ex": "NYSE",
-      "nm": "AllianceBernstein Holding L.P.",
-      "ty": "Stock",
-      "dc": "complete",
-      "su": "free_ticker_database",
-      "ic": "missing",
-      "fc": "missing",
-      "ln": "AllianceBernstein Holding L.P.",
-      "se": "Financials",
-      "co": "United States",
-      "cc": "US",
-      "is": "US01881G1067"
-    },
-    {
-      "id": "ABAT",
-      "sy": "ABAT",
+      "id": "AACBR",
+      "sy": "AACBR",
       "ex": "NASDAQ",
-      "nm": "American Battery Technology Company",
+      "nm": "Artius II Acquisition Inc. - Rights",
+      "ty": "Stock",
+      "dc": "complete",
+      "su": "nasdaq_directory",
+      "ic": "missing",
+      "fc": "missing",
+      "ln": "Artius II Acquisition Inc. - Rights",
+      "co": "United States",
+      "cc": "US"
+    },
+    {
+      "id": "AACBU",
+      "sy": "AACBU",
+      "ex": "NASDAQ",
+      "nm": "Artius II Acquisition Inc. - Units",
+      "ty": "Stock",
+      "dc": "complete",
+      "su": "nasdaq_directory",
+      "ic": "missing",
+      "fc": "missing",
+      "ln": "Artius II Acquisition Inc. - Units",
+      "co": "United States",
+      "cc": "US"
+    },
+    {
+      "id": "AACG",
+      "sy": "AACG",
+      "ex": "NASDAQ",
+      "nm": "ATA Creativity Global",
       "ty": "Stock",
       "dc": "complete",
       "su": "free_ticker_database",
       "ic": "missing",
       "fc": "missing",
-      "ln": "American Battery Technology Company",
-      "se": "Materials",
+      "ln": "ATA Creativity Global",
+      "se": "Consumer Staples",
       "co": "United States",
       "cc": "US",
-      "is": "US02451V3096"
+      "is": "US00211V1061"
     }
   ],
   "sourceCsv": "/tmp/workspace/erika/artifacts/ticker_checklist.csv",
