@@ -6,6 +6,10 @@
   "withIpoCreation": 21215,
   "withLlcOriginalFilingTimestamp": 0,
   "withLlcOriginalFilingLocation": 0,
+  "withLlcOriginalFilingCoordinates": 0,
+  "withHeadquartersLocation": 0,
+  "withHeadquartersCoordinates": 0,
+  "withBranchLocations": 0,
   "securityTypes": [
     {
       "name": "Stock",
