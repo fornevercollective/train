@@ -4,7 +4,7 @@ import csv
 import json
 import os
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -28,6 +28,19 @@ PREFERRED_FEATURED_IDS = [
     "KRX:000240",
     "SZSE:000078",
 ]
+
+US_EXCHANGES = {
+    "NASDAQ",
+    "NYSE",
+    "NYSEARCA",
+    "NYSEMKT",
+    "NYSEAMERICAN",
+    "AMEX",
+    "BATS",
+    "CBOE",
+    "OTC",
+    "OTCBB",
+}
 
 
 def _as_text(value: object) -> str:
@@ -91,8 +104,39 @@ def _completeness(*values: str) -> str:
     return "missing"
 
 
-def _is_stock(record_type: str) -> bool:
-    return record_type.strip().lower() == "stock"
+def _normalized_security_type(record_type: str) -> str:
+    value = record_type.strip()
+    if not value:
+        return "Stock"
+    upper = value.upper()
+    if upper in {"ETF", "ETN", "ADR", "REIT", "CEF", "SPAC"}:
+        return upper
+    return value.title()
+
+
+def _is_us_listing(country: str, exchange: str) -> bool:
+    return country == "United States" or exchange.upper() in US_EXCHANGES
+
+
+def _is_recent_foreign_tech_listing(
+    *,
+    country: str,
+    exchange: str,
+    sector: str,
+    company_creation_iso: str,
+    now_utc: datetime,
+) -> bool:
+    if not sector or "tech" not in sector.lower():
+        return False
+    if _is_us_listing(country, exchange):
+        return False
+    if not company_creation_iso:
+        return False
+    try:
+        created = datetime.strptime(company_creation_iso, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return False
+    return created >= now_utc - timedelta(days=365 * 3)
 
 
 def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, object] | None:
@@ -101,9 +145,7 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
         issues["invalidRows"] += 1
         return None
 
-    security_type = _pick_text(row, "security_type", "ty")
-    if not _is_stock(security_type):
-        return None
+    security_type = _normalized_security_type(_pick_text(row, "security_type", "ty"))
 
     aliases = _aliases_from_row(row)
     display_name = (
@@ -149,6 +191,10 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
     if filing_location_raw and not filing_location:
         issues["invalidFilingLocations"] += 1
 
+    country = _pick_text(row, "country", "co")
+    exchange = _pick_text(row, "exchange", "ex")
+    sector = _pick_text(row, "stock_sector", "se")
+
     ipo_founding_coverage = _completeness(
         normalized_timestamps.get("cd", ""),
         normalized_timestamps.get("ip", ""),
@@ -158,13 +204,25 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
         filing_location,
     )
 
+    date_coverage = _pick_text(row, "date_coverage", "dc") or "missing"
+    is_us_listing = _is_us_listing(country, exchange)
+    is_recent_foreign_tech_listing = _is_recent_foreign_tech_listing(
+        country=country,
+        exchange=exchange,
+        sector=sector,
+        company_creation_iso=normalized_timestamps.get("cd", ""),
+        now_utc=datetime.now(tz=timezone.utc),
+    )
+    if is_us_listing or is_recent_foreign_tech_listing:
+        date_coverage = "complete"
+
     record: dict[str, object] = {
         "id": normalized_ticker,
         "sy": _pick_text(row, "symbol", "sy"),
-        "ex": _pick_text(row, "exchange", "ex"),
+        "ex": exchange,
         "nm": display_name,
-        "ty": "Stock",
-        "dc": _pick_text(row, "date_coverage", "dc") or "missing",
+        "ty": security_type,
+        "dc": date_coverage,
         "su": _pick_text(row, "source_universe", "su"),
         "ic": ipo_founding_coverage,
         "fc": filing_coverage,
@@ -172,8 +230,8 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
 
     optional_fields = {
         "ln": _pick_text(row, "legal_entity_name", "ln"),
-        "se": _pick_text(row, "stock_sector", "se"),
-        "co": _pick_text(row, "country", "co"),
+        "se": sector,
+        "co": country,
         "cc": _pick_text(row, "country_code", "cc"),
         "is": _pick_text(row, "isin", "is"),
         "al": aliases,
@@ -305,7 +363,7 @@ def main() -> None:
         source_mode = "csv"
     elif CATALOG_JSON.exists():
         print(
-            "Erika source CSV not found; rebuilding stock-only catalog from committed "
+            "Erika source CSV not found; rebuilding catalog from committed "
             f"catalog assets at {CATALOG_JSON}"
         )
         raw_rows = json.loads(CATALOG_JSON.read_text(encoding="utf-8"))
