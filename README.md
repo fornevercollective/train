@@ -254,6 +254,24 @@ Practical limit: authoritative branch-office coverage is not realistically avail
 tickers from free redistributable sources, so branch data should remain optional and sparse unless a
 licensed commercial source is added.
 
+### Build attribution-safe enrichment overlay
+
+Use the enrichment builder to merge SEC EDGAR, GLEIF, Wikidata, and optional per-country registry
+inputs into one deterministic overlay consumed by `build_catalog_data.py`.
+
+```bash
+npm run enrichment:build -- \
+  --sec ./data/sec-edgar.ndjson \
+  --gleif ./data/gleif.ndjson \
+  --wikidata ./data/wikidata.ndjson \
+  --registry ./data/companies-house.ndjson --registry-license OGL
+```
+
+Output is written to `public/data/enrichment/attribution-safe.json` and contains only
+redistribution-safe fields (`lt`, `ll`, `lc`, `fs`, `hq`, `hc`, `hs`, `cd`, optional `br` / `bs`)
+plus per-field source and update metadata. During `npm run prepare:data`, the catalog builder
+automatically applies this overlay when present.
+
 ## Snowflake coverage profiles (sharded + versioned)
 
 Every catalog listing now also has a 5-axis snowflake coverage profile (Value, Future,

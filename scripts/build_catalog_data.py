@@ -17,6 +17,7 @@ GENERATED_DIR = ROOT / "src" / "generated"
 CATALOG_JSON = PUBLIC_DATA_DIR / "catalog.json"
 PUBLIC_SUMMARY_JSON = PUBLIC_DATA_DIR / "catalog-meta.json"
 SUMMARY_JSON = GENERATED_DIR / "catalog-meta.json"
+ENRICHMENT_OVERLAY_JSON = PUBLIC_DATA_DIR / "enrichment" / "attribution-safe.json"
 
 PREFERRED_FEATURED_IDS = [
     "NASDAQ:AAPL",
@@ -141,6 +142,80 @@ def _normalize_branch_locations(value: object) -> list[object]:
             normalized.append(branch)
 
     return normalized
+
+
+def _overlay_to_raw_row(overlay: dict[str, Any]) -> dict[str, Any]:
+    raw: dict[str, Any] = {}
+
+    lt_value = _pick_text(overlay, "lt")
+    if lt_value:
+        raw["llc_original_filing_timestamp_utc"] = lt_value
+
+    ll_value = _pick_text(overlay, "ll")
+    if ll_value:
+        raw["llc_original_filing_location"] = ll_value
+
+    lc_value = overlay.get("lc")
+    if isinstance(lc_value, list) and len(lc_value) >= 2:
+        raw["llc_original_filing_latitude"] = str(lc_value[0])
+        raw["llc_original_filing_longitude"] = str(lc_value[1])
+
+    fs_value = _pick_text(overlay, "fs")
+    if fs_value:
+        raw["llc_original_filing_source"] = fs_value
+
+    hq_value = _pick_text(overlay, "hq")
+    if hq_value:
+        raw["headquarters_location"] = hq_value
+
+    hc_value = overlay.get("hc")
+    if isinstance(hc_value, list) and len(hc_value) >= 2:
+        raw["headquarters_latitude"] = str(hc_value[0])
+        raw["headquarters_longitude"] = str(hc_value[1])
+
+    hs_value = _pick_text(overlay, "hs")
+    if hs_value:
+        raw["headquarters_source"] = hs_value
+
+    bs_value = _pick_text(overlay, "bs")
+    if bs_value:
+        raw["branch_locations_source"] = bs_value
+
+    br_value = overlay.get("br")
+    if isinstance(br_value, list):
+        raw["branch_locations_json"] = br_value
+
+    cd_value = _pick_text(overlay, "cd")
+    if cd_value:
+        raw["company_creation_datetime_utc"] = cd_value
+
+    return raw
+
+
+def _load_enrichment_overlay() -> tuple[dict[str, dict[str, Any]], str]:
+    if not ENRICHMENT_OVERLAY_JSON.exists():
+        return {}, "absent"
+
+    try:
+        parsed = json.loads(ENRICHMENT_OVERLAY_JSON.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}, "invalid_json"
+
+    records = parsed.get("records") if isinstance(parsed, dict) else None
+    if not isinstance(records, dict):
+        return {}, "invalid_schema"
+
+    normalized: dict[str, dict[str, Any]] = {}
+    for ticker, overlay in records.items():
+        if not isinstance(ticker, str) or not ticker.strip():
+            continue
+        if not isinstance(overlay, dict):
+            continue
+        row = _overlay_to_raw_row(overlay)
+        if row:
+            normalized[ticker.strip().upper()] = row
+
+    return normalized, "loaded"
 
 
 def _normalize_utc_timestamp(value: str) -> str:
@@ -512,9 +587,25 @@ def main() -> None:
 
     seen_by_id: dict[str, dict[str, object]] = {}
     records: list[dict[str, object]] = []
+    enrichment_overlay, enrichment_status = _load_enrichment_overlay()
+    if enrichment_status == "loaded":
+        print(
+            "Applying enrichment overlay from "
+            f"{ENRICHMENT_OVERLAY_JSON} for {len(enrichment_overlay):,} ticker(s)"
+        )
+    elif enrichment_status != "absent":
+        issues["invalidEnrichmentOverlay"] += 1
 
     for raw_row in raw_rows:
-        record = compact_record(raw_row, issues)
+        merged_row = dict(raw_row)
+        ticker = _pick_text(merged_row, "normalized_ticker", "id")
+        if ticker:
+            overlay = enrichment_overlay.get(ticker.upper())
+            if overlay:
+                merged_row.update(overlay)
+                issues["enrichmentRowsApplied"] += 1
+
+        record = compact_record(merged_row, issues)
         if not record:
             continue
 
@@ -543,6 +634,9 @@ def main() -> None:
         "invalidFilingLocations": int(issues.get("invalidFilingLocations", 0)),
         "duplicateSymbolsSkipped": int(issues.get("duplicateSymbolsSkipped", 0)),
         "inconsistentDuplicates": int(issues.get("inconsistentDuplicates", 0)),
+        "enrichmentOverlayStatus": enrichment_status,
+        "enrichmentRowsApplied": int(issues.get("enrichmentRowsApplied", 0)),
+        "invalidEnrichmentOverlay": int(issues.get("invalidEnrichmentOverlay", 0)),
     }
 
     CATALOG_JSON.write_text(

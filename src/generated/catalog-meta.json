@@ -324,6 +324,9 @@
     "invalidTimestamps": 0,
     "invalidFilingLocations": 0,
     "duplicateSymbolsSkipped": 0,
-    "inconsistentDuplicates": 0
+    "inconsistentDuplicates": 0,
+    "enrichmentOverlayStatus": "absent",
+    "enrichmentRowsApplied": 0,
+    "invalidEnrichmentOverlay": 0
   }
 }

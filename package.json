@@ -7,6 +7,7 @@
   },
   "scripts": {
     "prepare:data": "python3 scripts/build_catalog_data.py && python3 scripts/build_health_shards.py && python3 scripts/build_history_manifest.py",
+    "enrichment:build": "python3 scripts/build_attribution_enrichment.py",
     "history:fetch": "python3 scripts/fetch_us_history.py",
     "history:import": "python3 scripts/import_history_csv.py",
     "history:manifest": "python3 scripts/build_history_manifest.py",
