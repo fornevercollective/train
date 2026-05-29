@@ -1,23 +1,29 @@
 {
-  "totalSymbols": 56322,
+  "totalSymbols": 56307,
   "uniqueCountries": 80,
   "uniqueExchanges": 71,
   "withCompanyCreation": 4555,
-  "withIpoCreation": 21236,
+  "withIpoCreation": 21215,
+  "withLlcOriginalFilingTimestamp": 0,
+  "withLlcOriginalFilingLocation": 0,
+  "withLlcOriginalFilingCoordinates": 0,
+  "withHeadquartersLocation": 0,
+  "withHeadquartersCoordinates": 0,
+  "withBranchLocations": 0,
   "securityTypes": [
     {
       "name": "Stock",
-      "count": 40971
+      "count": 40962
     },
     {
       "name": "ETF",
-      "count": 15351
+      "count": 15345
     }
   ],
   "topCountries": [
     {
       "name": "United States",
-      "count": 16586
+      "count": 16571
     },
     {
       "name": "China",
@@ -71,7 +77,7 @@
     },
     {
       "name": "NASDAQ",
-      "count": 5563
+      "count": 5560
     },
     {
       "name": "LSE",
@@ -87,7 +93,7 @@
     },
     {
       "name": "NYSE",
-      "count": 2986
+      "count": 2985
     },
     {
       "name": "SSE",
@@ -95,7 +101,7 @@
     },
     {
       "name": "NYSEARCA",
-      "count": 2691
+      "count": 2688
     },
     {
       "name": "XETRA",
@@ -117,7 +123,7 @@
   "topSectors": [
     {
       "name": "(none)",
-      "count": 22375
+      "count": 22360
     },
     {
       "name": "Industrials",
@@ -165,30 +171,36 @@
     }
   ],
   "dateCoverage": {
-    "complete": 3028,
-    "partial": 19735,
-    "missing": 33559
+    "complete": 56307,
+    "partial": 0,
+    "missing": 0
+  },
+  "ipoFoundingCoverage": {
+    "complete": 3019,
+    "partial": 19732,
+    "missing": 33556
+  },
+  "llcOriginalFilingCoverage": {
+    "complete": 0,
+    "partial": 0,
+    "missing": 56307
   },
   "featuredListings": [
     {
       "id": "KRX:000240",
       "sy": "000240",
       "ex": "KRX",
-      "nm": "Hankook Tire Worldwide",
+      "nm": "Hankook Tire & Technology",
       "ty": "Stock",
       "dc": "complete",
       "su": "free_ticker_database",
+      "ic": "complete",
+      "fc": "missing",
       "ln": "Hankook Tire & Technology",
       "se": "Consumer Discretionary",
       "co": "South Korea",
       "cc": "KR",
       "is": "KR7000240002",
-      "al": [
-        "hankook tire worldwide",
-        "000240",
-        "hankook tire technology",
-        "krx 000240"
-      ],
       "cd": "1941-01-01T00:00:00Z",
       "ip": "2012-10-04T00:00:00Z",
       "ft": "2012-10-04T00:00:00Z",
@@ -199,22 +211,17 @@
       "id": "SZSE:000078",
       "sy": "000078",
       "ex": "SZSE",
-      "nm": "Shenzhen Neptunus Bioengineering Co Ltd",
+      "nm": "Q11153061",
       "ty": "Stock",
       "dc": "complete",
       "su": "free_ticker_database",
+      "ic": "complete",
+      "fc": "missing",
       "ln": "Q11153061",
       "se": "Health Care",
       "co": "China",
       "cc": "CN",
       "is": "CNE000000X95",
-      "al": [
-        "shenzhen neptunus bioengineering",
-        "shenzhen neptunus bioengineering co ltd",
-        "000078",
-        "q11153061",
-        "szse 000078"
-      ],
       "cd": "1992-12-13T00:00:00Z",
       "ip": "1998-01-01T00:00:00Z",
       "ft": "1998-01-01T00:00:00Z",
@@ -222,141 +229,104 @@
       "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
     },
     {
-      "id": "HKEX:01199",
-      "sy": "01199",
-      "ex": "HKEX",
-      "nm": "COSCO SHIP PORT",
+      "id": ":File Creation Time: 0430202621:31",
+      "sy": "File Creation Time: 0430202621:31",
+      "ex": "",
+      "nm": ":File Creation Time: 0430202621:31",
+      "ty": "Stock",
+      "dc": "complete",
+      "su": "nasdaq_directory",
+      "ic": "missing",
+      "fc": "missing",
+      "co": "United States",
+      "cc": "US"
+    },
+    {
+      "id": "AAA",
+      "sy": "AAA",
+      "ex": "NYSEARCA",
+      "nm": "Alternative Access First Priority CLO Bond ETF",
+      "ty": "ETF",
+      "dc": "complete",
+      "su": "free_ticker_database",
+      "ic": "missing",
+      "fc": "missing",
+      "ln": "Alternative Access First Priority CLO Bond ETF",
+      "co": "Australia",
+      "cc": "AU",
+      "is": "AU000000AAA3"
+    },
+    {
+      "id": "AACB",
+      "sy": "AACB",
+      "ex": "NASDAQ",
+      "nm": "Artius II Acquisition Inc. Class A Ordinary Shares",
       "ty": "Stock",
       "dc": "complete",
       "su": "free_ticker_database",
-      "ln": "COSCO Shipping Ports",
-      "co": "Bermuda",
-      "cc": "BM",
-      "is": "BMG2442N1048",
-      "al": [
-        "cosco ship port",
-        "cosco shipping ports",
-        "01199",
-        "hkex 01199"
-      ],
-      "cd": "1994-01-01T00:00:00Z",
-      "ip": "1994-12-19T00:00:00Z",
-      "ft": "1994-12-19T00:00:00Z",
-      "lx": "Hong Kong Stock Exchange",
-      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
-    },
-    {
-      "id": "HKEX:01208",
-      "sy": "01208",
-      "ex": "HKEX",
-      "nm": "MMG",
-      "ty": "Stock",
-      "dc": "partial",
-      "su": "free_ticker_database",
-      "ln": "Minerals and Metals Group",
-      "co": "Hong Kong",
-      "cc": "HK",
-      "is": "HK1208013172",
-      "al": [
-        "mmg",
-        "01208",
-        "minerals and metals group",
-        "hkex 01208"
-      ],
-      "cd": "2009-01-01T00:00:00Z"
-    },
-    {
-      "id": "HKEX:01364",
-      "sy": "01364",
-      "ex": "HKEX",
-      "nm": "GUMING",
-      "ty": "Stock",
-      "dc": "partial",
-      "su": "free_ticker_database",
-      "ln": "Good me",
+      "ic": "missing",
+      "fc": "missing",
+      "ln": "Artius II Acquisition Inc. Class A Ordinary Shares",
+      "se": "Financials",
       "co": "Cayman Islands",
       "cc": "KY",
-      "is": "KYG4212T1058",
-      "al": [
-        "guming",
-        "guming holdings",
-        "01364",
-        "good me",
-        "hkex 01364"
-      ],
-      "cd": "2010-01-01T00:00:00Z"
+      "is": "KYG0509J1159"
     },
     {
-      "id": "HKEX:01508",
-      "sy": "01508",
-      "ex": "HKEX",
-      "nm": "CHINA RE",
+      "id": "AACBR",
+      "sy": "AACBR",
+      "ex": "NASDAQ",
+      "nm": "Artius II Acquisition Inc. - Rights",
       "ty": "Stock",
-      "dc": "partial",
-      "su": "free_ticker_database",
-      "ln": "China Reinsurance",
-      "co": "China",
-      "cc": "CN",
-      "is": "CNE100002342",
-      "al": [
-        "china re",
-        "china reinsurance group",
-        "01508",
-        "china reinsurance",
-        "hkex 01508"
-      ],
-      "ip": "2015-10-26T00:00:00Z",
-      "ft": "2015-10-26T00:00:00Z",
-      "lx": "Hong Kong Stock Exchange",
-      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
+      "dc": "complete",
+      "su": "nasdaq_directory",
+      "ic": "missing",
+      "fc": "missing",
+      "ln": "Artius II Acquisition Inc. - Rights",
+      "co": "United States",
+      "cc": "US"
     },
     {
-      "id": "HKEX:01578",
-      "sy": "01578",
-      "ex": "HKEX",
-      "nm": "BANK OF TIANJIN",
+      "id": "AACBU",
+      "sy": "AACBU",
+      "ex": "NASDAQ",
+      "nm": "Artius II Acquisition Inc. - Units",
+      "ty": "Stock",
+      "dc": "complete",
+      "su": "nasdaq_directory",
+      "ic": "missing",
+      "fc": "missing",
+      "ln": "Artius II Acquisition Inc. - Units",
+      "co": "United States",
+      "cc": "US"
+    },
+    {
+      "id": "AACG",
+      "sy": "AACG",
+      "ex": "NASDAQ",
+      "nm": "ATA Creativity Global",
       "ty": "Stock",
       "dc": "complete",
       "su": "free_ticker_database",
-      "ln": "Bank of Tianjin",
-      "co": "China",
-      "cc": "CN",
-      "is": "CNE100002623",
-      "al": [
-        "bank of tianjin",
-        "01578",
-        "hkex 01578"
-      ],
-      "cd": "1996-01-01T00:00:00Z",
-      "ip": "2016-03-30T00:00:00Z",
-      "ft": "2016-03-30T00:00:00Z",
-      "lx": "Hong Kong Stock Exchange",
-      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
-    },
-    {
-      "id": "KRX:017800",
-      "sy": "017800",
-      "ex": "KRX",
-      "nm": "Hyundai Elevator",
-      "ty": "Stock",
-      "dc": "complete",
-      "su": "free_ticker_database",
-      "ln": "Hyundai Elevator",
-      "se": "Industrials",
-      "co": "South Korea",
-      "cc": "KR",
-      "is": "KR7017800004",
-      "al": [
-        "hyundai elevator",
-        "017800",
-        "krx 017800"
-      ],
-      "cd": "1984-05-23T00:00:00Z",
-      "ip": "1996-07-03T00:00:00Z",
-      "ft": "1996-07-03T00:00:00Z",
-      "lx": "Korean Stock Exchange",
-      "nt": "First trade uses listing-date proxy when an exact trade timestamp is unavailable."
+      "ic": "missing",
+      "fc": "missing",
+      "ln": "ATA Creativity Global",
+      "se": "Consumer Staples",
+      "co": "United States",
+      "cc": "US",
+      "is": "US00211V1061"
     }
   ],
-  "sourceCsv": "/Volumes/qbitOS/00.dev/cursor/erika/artifacts/ticker_checklist.csv"
+  "sourceCsv": "/tmp/workspace/erika/artifacts/ticker_checklist.csv",
+  "validation": {
+    "sourceMode": "catalog_fallback",
+    "invalidRows": 0,
+    "invalidTimestamps": 0,
+    "invalidFilingLocations": 0,
+    "duplicateSymbolsSkipped": 0,
+    "inconsistentDuplicates": 0,
+    "enrichmentOverlayStatus": "absent",
+    "enrichmentRowsApplied": 0,
+    "invalidEnrichmentOverlay": 0
+  }
 }

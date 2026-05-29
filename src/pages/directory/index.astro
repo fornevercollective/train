@@ -78,6 +78,33 @@ const coverageMeta = {
 					<input id="filter-sector" list="sector-options" placeholder="All sectors" />
 					<datalist id="sector-options"></datalist>
 				</label>
+				<label class="field">
+					<span>IPO/founding completeness</span>
+					<select id="filter-ipo-coverage">
+						<option value="">Any IPO/founding</option>
+						<option value="complete">Complete</option>
+						<option value="partial">Partial</option>
+						<option value="missing">Missing</option>
+					</select>
+				</label>
+				<label class="field">
+					<span>LLC filing completeness</span>
+					<select id="filter-filing-coverage">
+						<option value="">Any filing coverage</option>
+						<option value="complete">Complete</option>
+						<option value="partial">Partial</option>
+						<option value="missing">Missing</option>
+					</select>
+				</label>
+				<label class="field">
+					<span>Sort</span>
+					<select id="filter-sort">
+						<option value="ticker">Ticker (A-Z)</option>
+						<option value="completeness-desc">Completeness (best first)</option>
+						<option value="completeness-asc">Completeness (least first)</option>
+						<option value="ipo-recent">IPO date (newest first)</option>
+					</select>
+				</label>
 			</div>
 
 			<div class="results-toolbar">
@@ -111,6 +138,9 @@ const coverageMeta = {
 			country: document.querySelector('#filter-country'),
 			exchange: document.querySelector('#filter-exchange'),
 			sector: document.querySelector('#filter-sector'),
+			ipoCoverage: document.querySelector('#filter-ipo-coverage'),
+			filingCoverage: document.querySelector('#filter-filing-coverage'),
+			sort: document.querySelector('#filter-sort'),
 		};
 		const headerFilterQuery = document.querySelector('#header-filter-query');
 		const resultsMeta = document.querySelector('#results-meta');
@@ -129,6 +159,9 @@ const coverageMeta = {
 			country: '',
 			exchange: '',
 			sector: '',
+			ipoCoverage: '',
+			filingCoverage: '',
+			sort: 'ticker',
 			page: 1,
 		};
 		let catalog = [];
@@ -167,6 +200,32 @@ const coverageMeta = {
 			return String(value || '').trim().toLowerCase();
 		}
 
+		function completenessScore(value) {
+			if (value === 'complete') return 2;
+			if (value === 'partial') return 1;
+			return 0;
+		}
+
+		function timestampValue(value) {
+			if (!value) return 0;
+			const epoch = Date.parse(value);
+			return Number.isNaN(epoch) ? 0 : epoch;
+		}
+
+		const US_EXCHANGES = new Set(['NYSE', 'NASDAQ', 'OTC', 'NYSEARCA', 'BATS', 'NYSEAMERICAN', 'AMEX']);
+
+		function isUsListing(entry) {
+			return entry.co === 'United States' || US_EXCHANGES.has(entry.ex);
+		}
+
+		function edgarTickerUrl(ticker) {
+			return `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${encodeURIComponent(ticker)}&type=&dateb=&owner=include&count=10`;
+		}
+
+		function edgarCompanyUrl(name) {
+			return `https://www.sec.gov/cgi-bin/browse-edgar?company=${encodeURIComponent(name)}&CIK=&type=&dateb=&owner=include&count=40&action=getcompany`;
+		}
+
 		function applyUrlState() {
 			const params = new URLSearchParams(window.location.search);
 			state.query = params.get('q') || '';
@@ -175,6 +234,9 @@ const coverageMeta = {
 			state.country = params.get('country') || '';
 			state.exchange = params.get('exchange') || '';
 			state.sector = params.get('sector') || '';
+			state.ipoCoverage = params.get('ipo') || '';
+			state.filingCoverage = params.get('filing') || '';
+			state.sort = params.get('sort') || 'ticker';
 			state.page = Math.max(Number(params.get('page') || '1'), 1);
 
 			filterElements.query.value = state.query;
@@ -184,6 +246,9 @@ const coverageMeta = {
 			filterElements.country.value = state.country;
 			filterElements.exchange.value = state.exchange;
 			filterElements.sector.value = state.sector;
+			filterElements.ipoCoverage.value = state.ipoCoverage;
+			filterElements.filingCoverage.value = state.filingCoverage;
+			filterElements.sort.value = state.sort;
 		}
 
 		function syncUrl() {
@@ -194,6 +259,9 @@ const coverageMeta = {
 			if (state.country) params.set('country', state.country);
 			if (state.exchange) params.set('exchange', state.exchange);
 			if (state.sector) params.set('sector', state.sector);
+			if (state.ipoCoverage) params.set('ipo', state.ipoCoverage);
+			if (state.filingCoverage) params.set('filing', state.filingCoverage);
+			if (state.sort && state.sort !== 'ticker') params.set('sort', state.sort);
 			if (state.page > 1) params.set('page', String(state.page));
 			const queryString = params.toString();
 			const nextUrl = `${window.location.pathname}${queryString ? `?${queryString}` : ''}`;
@@ -225,6 +293,8 @@ const coverageMeta = {
 			const country = normalize(state.country);
 			const exchange = normalize(state.exchange);
 			const sector = normalize(state.sector);
+			const ipoCoverage = normalize(state.ipoCoverage);
+			const filingCoverage = normalize(state.filingCoverage);
 
 			filteredCatalog = catalog.filter((entry) => {
 				if (query && !entry._search.includes(query)) return false;
@@ -233,7 +303,33 @@ const coverageMeta = {
 				if (country && normalize(entry.co) !== country) return false;
 				if (exchange && normalize(entry.ex) !== exchange) return false;
 				if (sector && normalize(entry.se) !== sector) return false;
+				if (ipoCoverage && normalize(entry.ic) !== ipoCoverage) return false;
+				if (filingCoverage && normalize(entry.fc) !== filingCoverage) return false;
 				return true;
+			});
+
+			filteredCatalog.sort((left, right) => {
+				if (state.sort === 'completeness-desc' || state.sort === 'completeness-asc') {
+					const leftScore =
+						completenessScore(left.ic) * 10 +
+						completenessScore(left.fc) * 5 +
+						completenessScore(left.dc);
+					const rightScore =
+						completenessScore(right.ic) * 10 +
+						completenessScore(right.fc) * 5 +
+						completenessScore(right.dc);
+					if (leftScore !== rightScore) {
+						return state.sort === 'completeness-desc' ? rightScore - leftScore : leftScore - rightScore;
+					}
+				}
+
+				if (state.sort === 'ipo-recent') {
+					const leftIpo = timestampValue(left.ip);
+					const rightIpo = timestampValue(right.ip);
+					if (leftIpo !== rightIpo) return rightIpo - leftIpo;
+				}
+
+				return String(left.id).localeCompare(String(right.id));
 			});
 
 			const maxPage = Math.max(Math.ceil(filteredCatalog.length / pageSize), 1);
@@ -287,7 +383,18 @@ const coverageMeta = {
 						entry.co,
 						entry.se || entry.ec,
 						entry.dc,
+						`IPO ${entry.ic || 'missing'}`,
+						`Filing ${entry.fc || 'missing'}`,
 					].filter(Boolean);
+					const ticker = entry.sy || entry.id.split(':').pop();
+					const name = entry.ln || entry.nm;
+					const edgarHtml = isUsListing(entry)
+						? `<div class="result-card-edgar">
+								<span class="result-card-edgar-label muted">SEC EDGAR</span>
+								<a class="button-secondary result-edgar-link" href="${escapeHtml(edgarTickerUrl(ticker))}" target="_blank" rel="noopener noreferrer">${escapeHtml(ticker)} filings</a>
+								<a class="button-secondary result-edgar-link" href="${escapeHtml(edgarCompanyUrl(name))}" target="_blank" rel="noopener noreferrer">Company search</a>
+							</div>`
+						: '';
 					return `
 						<article class="result-card card" data-ticker="${escapeHtml(entry.id)}">
 							<div class="result-card-head">
@@ -320,9 +427,12 @@ const coverageMeta = {
 								></div>
 								<p class="result-card-chart-status muted micro" data-chart-status>Loading chart…</p>
 							</div>
+							${edgarHtml}
 							<div class="result-card-footer">
 								<span class="muted">Company: ${escapeHtml(formatDate(entry.cd))}</span>
 								<span class="muted">IPO: ${escapeHtml(formatDate(entry.ip))}</span>
+								<span class="muted">Filing: ${escapeHtml(formatDate(entry.lt))}</span>
+								<span class="muted">Location: ${escapeHtml(entry.ll || 'Unavailable')}</span>
 							</div>
 							<a class="button result-link" href="${baseUrl}listing/?id=${encodeURIComponent(entry.id)}">
 								Open profile
@@ -514,6 +624,9 @@ const coverageMeta = {
 			state.country = filterElements.country.value.trim();
 			state.exchange = filterElements.exchange.value.trim();
 			state.sector = filterElements.sector.value.trim();
+			state.ipoCoverage = filterElements.ipoCoverage.value.trim();
+			state.filingCoverage = filterElements.filingCoverage.value.trim();
+			state.sort = filterElements.sort.value.trim() || 'ticker';
 			state.page = 1;
 			syncUrl();
 			renderResults();
@@ -538,6 +651,8 @@ const coverageMeta = {
 					entry.se,
 					entry.ec,
 					entry.co,
+					entry.ll,
+					entry.lt,
 					...(entry.al || []),
 				]
 					.filter(Boolean)
@@ -566,9 +681,21 @@ const coverageMeta = {
 				country: '',
 				exchange: '',
 				sector: '',
+				ipoCoverage: '',
+				filingCoverage: '',
+				sort: 'ticker',
 				page: 1,
 			});
-			applyUrlState();
+			filterElements.query.value = '';
+			filterElements.type.value = '';
+			filterElements.coverage.value = '';
+			filterElements.country.value = '';
+			filterElements.exchange.value = '';
+			filterElements.sector.value = '';
+			filterElements.ipoCoverage.value = '';
+			filterElements.filingCoverage.value = '';
+			filterElements.sort.value = 'ticker';
+			if (headerFilterQuery) headerFilterQuery.value = '';
 			syncUrl();
 			renderResults();
 		});
@@ -754,5 +881,28 @@ const coverageMeta = {
 
 	.snowflake-meta {
 		font-size: 11px;
+	}
+
+	.result-card-edgar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px;
+		margin-top: 0.75rem;
+		padding-top: 0.75rem;
+		border-top: 1px solid rgba(148, 163, 184, 0.2);
+	}
+
+	.result-card-edgar-label {
+		font-size: 11px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		font-family: var(--font-mono);
+		flex-basis: 100%;
+	}
+
+	.result-edgar-link {
+		font-size: 0.8rem;
+		padding: 4px 10px;
 	}
 </style>
