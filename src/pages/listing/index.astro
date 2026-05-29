@@ -333,6 +333,28 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 			return Number.isNaN(date.getTime()) ? value : dateFormatter.format(date);
 		}
 
+		function formatCoords(value) {
+			if (!Array.isArray(value) || value.length !== 2) return 'Unavailable';
+			const [lat, lon] = value;
+			if (!Number.isFinite(lat) || !Number.isFinite(lon)) return 'Unavailable';
+			return `${lat.toFixed(6)}, ${lon.toFixed(6)}`;
+		}
+
+		function formatBranches(value) {
+			if (!Array.isArray(value) || !value.length) return 'Unavailable';
+			return value
+				.map((entry) => {
+					if (typeof entry === 'string') return entry;
+					if (!entry || typeof entry !== 'object') return '';
+					const label = [entry.name, entry.location, formatCoords(entry.coords)]
+						.filter((part) => part && part !== 'Unavailable')
+						.join(' · ');
+					return label || 'Branch';
+				})
+				.filter(Boolean)
+				.join(' | ');
+		}
+
 		function coverageClass(coverage) {
 			if (coverage === 'complete') return 'success';
 			if (coverage === 'partial') return 'warning';
@@ -710,6 +732,13 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					['LLC filing completeness', record.fc],
 					['LLC filing timestamp', record.lt],
 					['LLC filing location', record.ll],
+					['LLC filing coordinates', formatCoords(record.lc)],
+					['LLC filing source', record.fs],
+					['Headquarters location', record.hq],
+					['Headquarters coordinates', formatCoords(record.hc)],
+					['Headquarters source', record.hs],
+					['Branch locations', formatBranches(record.br)],
+					['Branch source', record.bs],
 				]);
 
 				aliasList.innerHTML =

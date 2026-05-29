@@ -225,6 +225,35 @@ npm run build
 
 The directory currently focuses on listing metadata and coverage signals, not time-series charting.
 
+### Attribution-safe enrichment policy
+
+The catalog builder now passes through optional filing / headquarters / branch metadata when the
+upstream CSV includes it. Supported output fields include:
+
+- `lt` / `ll` / `lc` / `fs` — filing timestamp, filing location, filing coordinates, filing source
+- `hq` / `hc` / `hs` — headquarters location, headquarters coordinates, headquarters source
+- `br` / `bs` — branch locations and branch source
+
+For a public static dataset, keep the enrichment stack on sources that are safe to redistribute:
+
+- **SEC EDGAR** — public domain; use for US filer addresses, state of incorporation, and filing
+  history proxies
+- **GLEIF Golden Copy** — CC0; use for legal / headquarters addresses and LEI-linked entity data
+- **Wikidata** — CC0; use for founding dates and headquarters coordinates when available
+- **National open registries** (for example Companies House / OGL, BRREG / NLOD, INSEE / Etalab,
+  PRH / CC-BY) — allowed with attribution
+
+Avoid feeding the published catalog from sources that would impose share-alike or redistribution
+restrictions unless the repository license and downstream expectations are updated accordingly:
+
+- **OpenCorporates free tier** — ODbL/share-alike
+- **OpenStreetMap hosted Nominatim bulk geocoding** — not allowed for bulk resolution; ODbL applies
+- **Exchange reference feeds without explicit open terms** — redistribution is legally unclear
+
+Practical limit: authoritative branch-office coverage is not realistically available for all ~56k
+tickers from free redistributable sources, so branch data should remain optional and sparse unless a
+licensed commercial source is added.
+
 ## Snowflake coverage profiles (sharded + versioned)
 
 Every catalog listing now also has a 5-axis snowflake coverage profile (Value, Future,

@@ -69,6 +69,80 @@ def _normalize_location(value: str) -> str:
     return normalized.strip(", ")
 
 
+def _normalize_coordinate(value: str, *, minimum: float, maximum: float) -> float | None:
+    if not value:
+        return None
+    try:
+        numeric = float(value.strip())
+    except ValueError:
+        return None
+    if numeric < minimum or numeric > maximum:
+        return None
+    return round(numeric, 6)
+
+
+def _coordinate_pair(lat_value: str, lon_value: str) -> list[float] | None:
+    latitude = _normalize_coordinate(lat_value, minimum=-90, maximum=90)
+    longitude = _normalize_coordinate(lon_value, minimum=-180, maximum=180)
+    if latitude is None or longitude is None:
+        return None
+    return [latitude, longitude]
+
+
+def _normalize_branch_locations(value: object) -> list[object]:
+    if value in (None, "", []):
+        return []
+
+    candidate = value
+    if isinstance(candidate, str):
+        stripped = candidate.strip()
+        if not stripped:
+            return []
+        try:
+            candidate = json.loads(stripped)
+        except json.JSONDecodeError:
+            return [_normalize_location(part) for part in stripped.split("|") if _normalize_location(part)]
+
+    if isinstance(candidate, dict):
+        candidate = [candidate]
+
+    if not isinstance(candidate, list):
+        return []
+
+    normalized: list[object] = []
+    for entry in candidate:
+        if isinstance(entry, str):
+            location = _normalize_location(entry)
+            if location:
+                normalized.append(location)
+            continue
+        if not isinstance(entry, dict):
+            continue
+
+        branch: dict[str, object] = {}
+        for output_key, source_keys in {
+            "name": ("name", "nm"),
+            "location": ("location", "address", "addr", "ll"),
+            "country": ("country", "co"),
+            "countryCode": ("country_code", "cc"),
+        }.items():
+            picked = _pick_text(entry, *source_keys)
+            if picked:
+                branch[output_key] = picked
+
+        coords = _coordinate_pair(
+            _pick_text(entry, "latitude", "lat"),
+            _pick_text(entry, "longitude", "lon", "lng"),
+        )
+        if coords:
+            branch["coords"] = coords
+
+        if branch:
+            normalized.append(branch)
+
+    return normalized
+
+
 def _normalize_utc_timestamp(value: str) -> str:
     if not value:
         return ""
@@ -191,6 +265,59 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
     if filing_location_raw and not filing_location:
         issues["invalidFilingLocations"] += 1
 
+    filing_coords = _coordinate_pair(
+        _pick_text(
+            row,
+            "llc_original_filing_latitude",
+            "original_llc_filing_latitude",
+            "llc_filing_latitude",
+            "filing_latitude",
+            "llt",
+        ),
+        _pick_text(
+            row,
+            "llc_original_filing_longitude",
+            "original_llc_filing_longitude",
+            "llc_filing_longitude",
+            "filing_longitude",
+            "lln",
+            "llg",
+        ),
+    )
+    headquarters_location = _normalize_location(
+        _pick_text(
+            row,
+            "headquarters_location",
+            "headquarters_address",
+            "headquarters",
+            "hq_location",
+            "hq_address",
+            "hq",
+        )
+    )
+    headquarters_coords = _coordinate_pair(
+        _pick_text(
+            row,
+            "headquarters_latitude",
+            "hq_latitude",
+            "hq_lat",
+        ),
+        _pick_text(
+            row,
+            "headquarters_longitude",
+            "hq_longitude",
+            "hq_lon",
+            "hq_lng",
+        ),
+    )
+    branch_locations = _normalize_branch_locations(
+        row.get("branch_locations")
+        or row.get("branch_locations_json")
+        or row.get("branches")
+        or row.get("branches_json")
+        or row.get("branch_offices")
+    )
+
     country = _pick_text(row, "country", "co")
     exchange = _pick_text(row, "exchange", "ex")
     sector = _pick_text(row, "stock_sector", "se")
@@ -230,6 +357,13 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
         "ft": normalized_timestamps.get("ft", ""),
         "lt": normalized_timestamps.get("lt", ""),
         "ll": filing_location,
+        "lc": filing_coords,
+        "hq": headquarters_location,
+        "hc": headquarters_coords,
+        "br": branch_locations,
+        "fs": _pick_text(row, "llc_original_filing_source", "filing_source"),
+        "hs": _pick_text(row, "headquarters_source", "hq_source"),
+        "bs": _pick_text(row, "branch_locations_source", "branches_source", "branch_source"),
         "lx": _pick_text(row, "listing_exchange_label", "lx"),
         "nt": _pick_text(row, "notes", "nt"),
     }
@@ -290,6 +424,10 @@ def summarize(records: list[dict[str, object]]) -> dict[str, object]:
     with_ipo_creation = 0
     with_llc_filing_timestamp = 0
     with_llc_filing_location = 0
+    with_llc_filing_coordinates = 0
+    with_headquarters_location = 0
+    with_headquarters_coordinates = 0
+    with_branch_locations = 0
     ipo_founding_coverage = Counter()
     filing_coverage = Counter()
 
@@ -303,6 +441,10 @@ def summarize(records: list[dict[str, object]]) -> dict[str, object]:
         with_ipo_creation += int(bool(record.get("ip")))
         with_llc_filing_timestamp += int(bool(record.get("lt")))
         with_llc_filing_location += int(bool(record.get("ll")))
+        with_llc_filing_coordinates += int(bool(record.get("lc")))
+        with_headquarters_location += int(bool(record.get("hq")))
+        with_headquarters_coordinates += int(bool(record.get("hc")))
+        with_branch_locations += int(bool(record.get("br")))
         ipo_founding_coverage[str(record.get("ic", "missing"))] += 1
         filing_coverage[str(record.get("fc", "missing"))] += 1
 
@@ -314,6 +456,10 @@ def summarize(records: list[dict[str, object]]) -> dict[str, object]:
         "withIpoCreation": with_ipo_creation,
         "withLlcOriginalFilingTimestamp": with_llc_filing_timestamp,
         "withLlcOriginalFilingLocation": with_llc_filing_location,
+        "withLlcOriginalFilingCoordinates": with_llc_filing_coordinates,
+        "withHeadquartersLocation": with_headquarters_location,
+        "withHeadquartersCoordinates": with_headquarters_coordinates,
+        "withBranchLocations": with_branch_locations,
         "securityTypes": top_items(security_types, limit=8),
         "topCountries": top_items(countries),
         "topExchanges": top_items(exchanges),
