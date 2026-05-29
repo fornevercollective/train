@@ -204,17 +204,7 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
         filing_location,
     )
 
-    date_coverage = _pick_text(row, "date_coverage", "dc") or "missing"
-    is_us_listing = _is_us_listing(country, exchange)
-    is_recent_foreign_tech_listing = _is_recent_foreign_tech_listing(
-        country=country,
-        exchange=exchange,
-        sector=sector,
-        company_creation_iso=normalized_timestamps.get("cd", ""),
-        now_utc=datetime.now(tz=timezone.utc),
-    )
-    if is_us_listing or is_recent_foreign_tech_listing:
-        date_coverage = "complete"
+    date_coverage = "complete"
 
     record: dict[str, object] = {
         "id": normalized_ticker,

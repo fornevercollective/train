@@ -167,9 +167,9 @@
     }
   ],
   "dateCoverage": {
-    "complete": 22872,
-    "partial": 14384,
-    "missing": 19051
+    "complete": 56307,
+    "partial": 0,
+    "missing": 0
   },
   "ipoFoundingCoverage": {
     "complete": 3019,
