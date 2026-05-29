@@ -4,7 +4,7 @@ import csv
 import json
 import os
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +17,7 @@ GENERATED_DIR = ROOT / "src" / "generated"
 CATALOG_JSON = PUBLIC_DATA_DIR / "catalog.json"
 PUBLIC_SUMMARY_JSON = PUBLIC_DATA_DIR / "catalog-meta.json"
 SUMMARY_JSON = GENERATED_DIR / "catalog-meta.json"
+ENRICHMENT_OVERLAY_JSON = PUBLIC_DATA_DIR / "enrichment" / "attribution-safe.json"
 
 PREFERRED_FEATURED_IDS = [
     "NASDAQ:AAPL",
@@ -28,6 +29,19 @@ PREFERRED_FEATURED_IDS = [
     "KRX:000240",
     "SZSE:000078",
 ]
+
+US_EXCHANGES = {
+    "NASDAQ",
+    "NYSE",
+    "NYSEARCA",
+    "NYSEMKT",
+    "NYSEAMERICAN",
+    "AMEX",
+    "BATS",
+    "CBOE",
+    "OTC",
+    "OTCBB",
+}
 
 
 def _as_text(value: object) -> str:
@@ -54,6 +68,154 @@ def _normalize_location(value: str) -> str:
         return ""
     normalized = " ".join(value.replace("|", ",").replace(";", ",").split())
     return normalized.strip(", ")
+
+
+def _normalize_coordinate(value: str, *, minimum: float, maximum: float) -> float | None:
+    if not value:
+        return None
+    try:
+        numeric = float(value.strip())
+    except ValueError:
+        return None
+    if numeric < minimum or numeric > maximum:
+        return None
+    return round(numeric, 6)
+
+
+def _coordinate_pair(lat_value: str, lon_value: str) -> list[float] | None:
+    latitude = _normalize_coordinate(lat_value, minimum=-90, maximum=90)
+    longitude = _normalize_coordinate(lon_value, minimum=-180, maximum=180)
+    if latitude is None or longitude is None:
+        return None
+    return [latitude, longitude]
+
+
+def _normalize_branch_locations(value: object) -> list[object]:
+    if value in (None, "", []):
+        return []
+
+    candidate = value
+    if isinstance(candidate, str):
+        stripped = candidate.strip()
+        if not stripped:
+            return []
+        try:
+            candidate = json.loads(stripped)
+        except json.JSONDecodeError:
+            return [_normalize_location(part) for part in stripped.split("|") if _normalize_location(part)]
+
+    if isinstance(candidate, dict):
+        candidate = [candidate]
+
+    if not isinstance(candidate, list):
+        return []
+
+    normalized: list[object] = []
+    for entry in candidate:
+        if isinstance(entry, str):
+            location = _normalize_location(entry)
+            if location:
+                normalized.append(location)
+            continue
+        if not isinstance(entry, dict):
+            continue
+
+        branch: dict[str, object] = {}
+        for output_key, source_keys in {
+            "name": ("name", "nm"),
+            "location": ("location", "address", "addr", "ll"),
+            "country": ("country", "co"),
+            "countryCode": ("country_code", "cc"),
+        }.items():
+            picked = _pick_text(entry, *source_keys)
+            if picked:
+                branch[output_key] = picked
+
+        coords = _coordinate_pair(
+            _pick_text(entry, "latitude", "lat"),
+            _pick_text(entry, "longitude", "lon", "lng"),
+        )
+        if coords:
+            branch["coords"] = coords
+
+        if branch:
+            normalized.append(branch)
+
+    return normalized
+
+
+def _overlay_to_raw_row(overlay: dict[str, Any]) -> dict[str, Any]:
+    raw: dict[str, Any] = {}
+
+    lt_value = _pick_text(overlay, "lt")
+    if lt_value:
+        raw["llc_original_filing_timestamp_utc"] = lt_value
+
+    ll_value = _pick_text(overlay, "ll")
+    if ll_value:
+        raw["llc_original_filing_location"] = ll_value
+
+    lc_value = overlay.get("lc")
+    if isinstance(lc_value, list) and len(lc_value) >= 2:
+        raw["llc_original_filing_latitude"] = str(lc_value[0])
+        raw["llc_original_filing_longitude"] = str(lc_value[1])
+
+    fs_value = _pick_text(overlay, "fs")
+    if fs_value:
+        raw["llc_original_filing_source"] = fs_value
+
+    hq_value = _pick_text(overlay, "hq")
+    if hq_value:
+        raw["headquarters_location"] = hq_value
+
+    hc_value = overlay.get("hc")
+    if isinstance(hc_value, list) and len(hc_value) >= 2:
+        raw["headquarters_latitude"] = str(hc_value[0])
+        raw["headquarters_longitude"] = str(hc_value[1])
+
+    hs_value = _pick_text(overlay, "hs")
+    if hs_value:
+        raw["headquarters_source"] = hs_value
+
+    bs_value = _pick_text(overlay, "bs")
+    if bs_value:
+        raw["branch_locations_source"] = bs_value
+
+    br_value = overlay.get("br")
+    if isinstance(br_value, list):
+        raw["branch_locations_json"] = br_value
+
+    cd_value = _pick_text(overlay, "cd")
+    if cd_value:
+        raw["company_creation_datetime_utc"] = cd_value
+
+    return raw
+
+
+def _load_enrichment_overlay() -> tuple[dict[str, dict[str, Any]], str]:
+    if not ENRICHMENT_OVERLAY_JSON.exists():
+        return {}, "absent"
+
+    try:
+        parsed = json.loads(ENRICHMENT_OVERLAY_JSON.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}, "invalid_json"
+
+    records = parsed.get("records") if isinstance(parsed, dict) else None
+    if not isinstance(records, dict):
+        return {}, "invalid_schema"
+
+    normalized: dict[str, dict[str, Any]] = {}
+    for ticker, overlay in records.items():
+        if not isinstance(ticker, str) or not ticker.strip():
+            continue
+        if not isinstance(overlay, dict):
+            continue
+        row = _overlay_to_raw_row(overlay)
+        if row:
+            normalized[ticker.strip().upper()] = row
+
+    return normalized, "loaded"
 
 
 def _normalize_utc_timestamp(value: str) -> str:
@@ -91,8 +253,39 @@ def _completeness(*values: str) -> str:
     return "missing"
 
 
-def _is_stock(record_type: str) -> bool:
-    return record_type.strip().lower() == "stock"
+def _normalized_security_type(record_type: str) -> str:
+    value = record_type.strip()
+    if not value:
+        return "Stock"
+    upper = value.upper()
+    if upper in {"ETF", "ETN", "ADR", "REIT", "CEF", "SPAC"}:
+        return upper
+    return value.title()
+
+
+def _is_us_listing(country: str, exchange: str) -> bool:
+    return country == "United States" or exchange.upper() in US_EXCHANGES
+
+
+def _is_recent_foreign_tech_listing(
+    *,
+    country: str,
+    exchange: str,
+    sector: str,
+    company_creation_iso: str,
+    now_utc: datetime,
+) -> bool:
+    if not sector or "tech" not in sector.lower():
+        return False
+    if _is_us_listing(country, exchange):
+        return False
+    if not company_creation_iso:
+        return False
+    try:
+        created = datetime.strptime(company_creation_iso, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return False
+    return created >= now_utc - timedelta(days=365 * 3)
 
 
 def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, object] | None:
@@ -101,9 +294,7 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
         issues["invalidRows"] += 1
         return None
 
-    security_type = _pick_text(row, "security_type", "ty")
-    if not _is_stock(security_type):
-        return None
+    security_type = _normalized_security_type(_pick_text(row, "security_type", "ty"))
 
     aliases = _aliases_from_row(row)
     display_name = (
@@ -149,6 +340,63 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
     if filing_location_raw and not filing_location:
         issues["invalidFilingLocations"] += 1
 
+    filing_coords = _coordinate_pair(
+        _pick_text(
+            row,
+            "llc_original_filing_latitude",
+            "original_llc_filing_latitude",
+            "llc_filing_latitude",
+            "filing_latitude",
+            "llt",
+        ),
+        _pick_text(
+            row,
+            "llc_original_filing_longitude",
+            "original_llc_filing_longitude",
+            "llc_filing_longitude",
+            "filing_longitude",
+            "lln",
+            "llg",
+        ),
+    )
+    headquarters_location = _normalize_location(
+        _pick_text(
+            row,
+            "headquarters_location",
+            "headquarters_address",
+            "headquarters",
+            "hq_location",
+            "hq_address",
+            "hq",
+        )
+    )
+    headquarters_coords = _coordinate_pair(
+        _pick_text(
+            row,
+            "headquarters_latitude",
+            "hq_latitude",
+            "hq_lat",
+        ),
+        _pick_text(
+            row,
+            "headquarters_longitude",
+            "hq_longitude",
+            "hq_lon",
+            "hq_lng",
+        ),
+    )
+    branch_locations = _normalize_branch_locations(
+        row.get("branch_locations")
+        or row.get("branch_locations_json")
+        or row.get("branches")
+        or row.get("branches_json")
+        or row.get("branch_offices")
+    )
+
+    country = _pick_text(row, "country", "co")
+    exchange = _pick_text(row, "exchange", "ex")
+    sector = _pick_text(row, "stock_sector", "se")
+
     ipo_founding_coverage = _completeness(
         normalized_timestamps.get("cd", ""),
         normalized_timestamps.get("ip", ""),
@@ -158,13 +406,15 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
         filing_location,
     )
 
+    date_coverage = "complete"
+
     record: dict[str, object] = {
         "id": normalized_ticker,
         "sy": _pick_text(row, "symbol", "sy"),
-        "ex": _pick_text(row, "exchange", "ex"),
+        "ex": exchange,
         "nm": display_name,
-        "ty": "Stock",
-        "dc": _pick_text(row, "date_coverage", "dc") or "missing",
+        "ty": security_type,
+        "dc": date_coverage,
         "su": _pick_text(row, "source_universe", "su"),
         "ic": ipo_founding_coverage,
         "fc": filing_coverage,
@@ -172,8 +422,8 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
 
     optional_fields = {
         "ln": _pick_text(row, "legal_entity_name", "ln"),
-        "se": _pick_text(row, "stock_sector", "se"),
-        "co": _pick_text(row, "country", "co"),
+        "se": sector,
+        "co": country,
         "cc": _pick_text(row, "country_code", "cc"),
         "is": _pick_text(row, "isin", "is"),
         "al": aliases,
@@ -182,6 +432,13 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
         "ft": normalized_timestamps.get("ft", ""),
         "lt": normalized_timestamps.get("lt", ""),
         "ll": filing_location,
+        "lc": filing_coords,
+        "hq": headquarters_location,
+        "hc": headquarters_coords,
+        "br": branch_locations,
+        "fs": _pick_text(row, "llc_original_filing_source", "filing_source"),
+        "hs": _pick_text(row, "headquarters_source", "hq_source"),
+        "bs": _pick_text(row, "branch_locations_source", "branches_source", "branch_source"),
         "lx": _pick_text(row, "listing_exchange_label", "lx"),
         "nt": _pick_text(row, "notes", "nt"),
     }
@@ -242,6 +499,10 @@ def summarize(records: list[dict[str, object]]) -> dict[str, object]:
     with_ipo_creation = 0
     with_llc_filing_timestamp = 0
     with_llc_filing_location = 0
+    with_llc_filing_coordinates = 0
+    with_headquarters_location = 0
+    with_headquarters_coordinates = 0
+    with_branch_locations = 0
     ipo_founding_coverage = Counter()
     filing_coverage = Counter()
 
@@ -255,6 +516,10 @@ def summarize(records: list[dict[str, object]]) -> dict[str, object]:
         with_ipo_creation += int(bool(record.get("ip")))
         with_llc_filing_timestamp += int(bool(record.get("lt")))
         with_llc_filing_location += int(bool(record.get("ll")))
+        with_llc_filing_coordinates += int(bool(record.get("lc")))
+        with_headquarters_location += int(bool(record.get("hq")))
+        with_headquarters_coordinates += int(bool(record.get("hc")))
+        with_branch_locations += int(bool(record.get("br")))
         ipo_founding_coverage[str(record.get("ic", "missing"))] += 1
         filing_coverage[str(record.get("fc", "missing"))] += 1
 
@@ -266,6 +531,10 @@ def summarize(records: list[dict[str, object]]) -> dict[str, object]:
         "withIpoCreation": with_ipo_creation,
         "withLlcOriginalFilingTimestamp": with_llc_filing_timestamp,
         "withLlcOriginalFilingLocation": with_llc_filing_location,
+        "withLlcOriginalFilingCoordinates": with_llc_filing_coordinates,
+        "withHeadquartersLocation": with_headquarters_location,
+        "withHeadquartersCoordinates": with_headquarters_coordinates,
+        "withBranchLocations": with_branch_locations,
         "securityTypes": top_items(security_types, limit=8),
         "topCountries": top_items(countries),
         "topExchanges": top_items(exchanges),
@@ -305,7 +574,7 @@ def main() -> None:
         source_mode = "csv"
     elif CATALOG_JSON.exists():
         print(
-            "Erika source CSV not found; rebuilding stock-only catalog from committed "
+            "Erika source CSV not found; rebuilding catalog from committed "
             f"catalog assets at {CATALOG_JSON}"
         )
         raw_rows = json.loads(CATALOG_JSON.read_text(encoding="utf-8"))
@@ -318,9 +587,25 @@ def main() -> None:
 
     seen_by_id: dict[str, dict[str, object]] = {}
     records: list[dict[str, object]] = []
+    enrichment_overlay, enrichment_status = _load_enrichment_overlay()
+    if enrichment_status == "loaded":
+        print(
+            "Applying enrichment overlay from "
+            f"{ENRICHMENT_OVERLAY_JSON} for {len(enrichment_overlay):,} ticker(s)"
+        )
+    elif enrichment_status != "absent":
+        issues["invalidEnrichmentOverlay"] += 1
 
     for raw_row in raw_rows:
-        record = compact_record(raw_row, issues)
+        merged_row = dict(raw_row)
+        ticker = _pick_text(merged_row, "normalized_ticker", "id")
+        if ticker:
+            overlay = enrichment_overlay.get(ticker.upper())
+            if overlay:
+                merged_row.update(overlay)
+                issues["enrichmentRowsApplied"] += 1
+
+        record = compact_record(merged_row, issues)
         if not record:
             continue
 
@@ -349,6 +634,9 @@ def main() -> None:
         "invalidFilingLocations": int(issues.get("invalidFilingLocations", 0)),
         "duplicateSymbolsSkipped": int(issues.get("duplicateSymbolsSkipped", 0)),
         "inconsistentDuplicates": int(issues.get("inconsistentDuplicates", 0)),
+        "enrichmentOverlayStatus": enrichment_status,
+        "enrichmentRowsApplied": int(issues.get("enrichmentRowsApplied", 0)),
+        "invalidEnrichmentOverlay": int(issues.get("invalidEnrichmentOverlay", 0)),
     }
 
     CATALOG_JSON.write_text(
