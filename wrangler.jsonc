@@ -1,4 +1,5 @@
 {
+	// Static site: astro.config.mjs disables SESSION KV + Cloudflare Images (ASSETS only).
 	"compatibility_date": "2026-05-07",
 	"compatibility_flags": ["global_fetch_strictly_public"],
 	"name": "train",
