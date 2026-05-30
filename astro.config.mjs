@@ -1,7 +1,7 @@
 /// <reference types="node" />
 
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, sessionDrivers } from 'astro/config';
 
 import cloudflare from '@astrojs/cloudflare';
 
@@ -44,5 +44,12 @@ export default defineConfig({
   integrations: [],
   output: 'static',
   trailingSlash: 'always',
-  adapter: cloudflare()
+  // Static catalog site — no Astro sessions; avoids auto SESSION KV on deploy.
+  session: {
+    driver: sessionDrivers.null()
+  },
+  adapter: cloudflare({
+    // No Cloudflare Images binding required for this static build.
+    imageService: 'passthrough'
+  })
 });
