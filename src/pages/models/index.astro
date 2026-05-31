@@ -6,6 +6,7 @@ import { benchmarkBlocks, llmDeskRows } from '../../lib/models-leaderboard-data'
 
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const modelsPayload = encodeURIComponent(JSON.stringify({ rows: llmDeskRows }));
+const lfm2AudioBlogUrl = 'https://www.liquid.ai/blog/lfm2-audio-an-end-to-end-audio-foundation-model';
 const modelCategories = [
 	{ key: 'all', label: 'All' },
 	{ key: 'chat', label: 'Chat' },
@@ -37,7 +38,9 @@ const modelCategories = [
 				<a href="https://whichllm.together.ai/" target="_blank" rel="noopener noreferrer">Which LLM</a>
 				{' '}cards,{' '}
 				<a href="https://onyx.app/llm-leaderboard" target="_blank" rel="noopener noreferrer">Onyx’s LLM leaderboard</a>.
-				Numbers below are <strong>illustrative placeholders</strong> for UI development; replace with your own dataset or API when wiring a real desk.{' '}
+				Numbers below are <strong>illustrative placeholders</strong> for UI development; replace with your own dataset or API when wiring a real desk. The audio lane includes{' '}
+				<strong>LFM2-Audio-1.5B</strong> (Liquid AI) for cross-model charts — see the{' '}
+				<a href={lfm2AudioBlogUrl} target="_blank" rel="noopener noreferrer">LFM2-Audio overview</a>.{' '}
 				<a href="#model-tester">GitHub-style model tester mock →</a>
 				{' · '}
 				<a href={`${baseUrl}models/liquid-ai/`}>Liquid AI live tuning →</a>
