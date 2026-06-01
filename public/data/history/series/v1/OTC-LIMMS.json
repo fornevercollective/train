@@ -1,0 +1,1 @@
+{"schemaVersion":1,"ticker":"OTC:LIMMS","exchange":"OTC","displayName":"LIMMS","source":"yahoo","sourceSymbol":"LIMMS","interval":"daily","asOfISO":"2026-06-01T05:26:51Z","lookbackYears":0,"lookbackMode":"max","rows":1,"rangeStart":20260309,"rangeEnd":20260309,"d":[20260309],"o":[9.0],"h":[9.0],"l":[9.0],"c":[9.0],"v":[227]}
