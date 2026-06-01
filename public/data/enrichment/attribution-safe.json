@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-01T00:23:30Z",
+  "sources": {
+    "sec": "/Volumes/qbitOS/00.dev/cursor/train/train/public/data/enrichment/sources/sec-edgar.ndjson",
+    "gleif": "",
+    "wikidata": "",
+    "registries": [
+      "/Volumes/qbitOS/00.dev/cursor/train/train/public/data/enrichment/sources/openregistry.ndjson"
+    ],
+    "sourcesDir": "/Volumes/qbitOS/00.dev/cursor/train/train/public/data/enrichment/sources"
+  },
+  "policy": {
+    "branchLocationsOptional": true,
+    "allowedRegistryLicenses": [
+      "CC BY",
+      "CC-BY",
+      "CC0",
+      "CCBY",
+      "ETALAB",
+      "NLOD",
+      "OGL",
+      "PD",
+      "PUBLIC DOMAIN",
+      "PUBLIC-DOMAIN"
+    ]
+  },
+  "summary": {
+    "catalogTickers": 56307,
+    "secRows": 1,
+    "gleifRows": 0,
+    "wikidataRows": 0,
+    "registryRows": 0,
+    "skippedUnknownTicker": 0,
+    "overlayTickers": 1
+  },
+  "records": {
+    "TSLA": {
+      "ln": "Tesla, Inc.",
+      "lt": "2010-01-29T21:16:56Z",
+      "ll": "Austin, TX — Texas Secretary of State · Registered office (SEC): 1 TESLA ROAD, AUSTIN, TX, 78725",
+      "lc": [
+        30.2747,
+        -97.7404
+      ],
+      "hq": "1 TESLA ROAD, AUSTIN, TX, 78725",
+      "hc": [
+        30.2672,
+        -97.7431
+      ],
+      "ls": "sec_edgar",
+      "fs": "sec_edgar",
+      "hs": "sec_edgar",
+      "registry": {
+        "source": "sec_edgar",
+        "jurisdiction": "US",
+        "companyId": "1318605",
+        "license": "PUBLIC-DOMAIN"
+      },
+      "meta": {
+        "fieldSource": {
+          "ln": "sec_edgar",
+          "lt": "sec_edgar",
+          "ll": "sec_edgar",
+          "lc": "sec_edgar",
+          "hq": "sec_edgar",
+          "hc": "sec_edgar"
+        },
+        "fieldUpdatedAt": {
+          "ln": "2026-06-01T00:23:29Z",
+          "lt": "2026-06-01T00:23:29Z",
+          "ll": "2026-06-01T00:23:29Z",
+          "lc": "2026-06-01T00:23:29Z",
+          "hq": "2026-06-01T00:23:29Z",
+          "hc": "2026-06-01T00:23:29Z"
+        }
+      }
+    }
+  }
+}

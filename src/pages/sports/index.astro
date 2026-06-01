@@ -1270,25 +1270,31 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 
 			const natRow = document.createElement('div');
 			natRow.className = 'sports-bracket-national';
-			const ffWrap = document.createElement('div');
-			ffWrap.className = 'sports-bracket-national-ff';
-			const ffLab = document.createElement('div');
-			ffLab.className = 'mono small muted';
-			ffLab.textContent = 'Semifinals';
-			ffWrap.append(ffLab);
-			if (Array.isArray(bracket.finalFour)) {
-				for (const g of bracket.finalFour) ffWrap.append(matchupCard(g));
+
+			function nationalRoundCard(labelText, games, singleGame) {
+				const card = document.createElement('div');
+				card.className = 'sports-bracket-col-card sports-bracket-national-card';
+				const h = document.createElement('div');
+				h.className = 'sports-bracket-col-head mono small';
+				h.textContent = labelText;
+				const stack = document.createElement('div');
+				stack.className = 'sports-bracket-col-stack';
+				if (singleGame && singleGame.id) {
+					stack.append(matchupCard(singleGame));
+				} else if (Array.isArray(games)) {
+					for (const g of games) stack.append(matchupCard(g));
+				}
+				card.append(h, stack);
+				return card;
 			}
-			const chWrap = document.createElement('div');
-			chWrap.className = 'sports-bracket-national-champ';
-			const chLab = document.createElement('div');
-			chLab.className = 'mono small muted';
-			chLab.textContent = 'Title game';
-			chWrap.append(chLab);
+
+			const ffWrap = nationalRoundCard('Semifinals', bracket.finalFour, null);
+			natRow.append(ffWrap);
 			if (bracket.championship && bracket.championship.id) {
-				chWrap.append(matchupCard(bracket.championship));
+				const chWrap = nationalRoundCard('Title game', null, bracket.championship);
+				chWrap.classList.add('sports-bracket-national-card--champ');
+				natRow.append(chWrap);
 			}
-			natRow.append(ffWrap, chWrap);
 			parent.append(natRow);
 		}
 
@@ -1732,7 +1738,11 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 	})();
 </script>
 
-<style>
+<style is:global>
+	/*
+	 * Global scope: bracket + markets rows are built in inline `<script>` (no `data-astro-cid` on
+	 * those nodes). Scoped Astro CSS would not apply, so the UI renders as unstyled text.
+	 */
 	.sports-shell {
 		display: flex;
 		flex-direction: column;
@@ -2893,7 +2903,7 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 	.sports-bracket-line {
 		display: grid;
 		grid-template-columns: 22px 1fr 28px;
-		gap: 6px;
+		gap: 6px 8px;
 		align-items: baseline;
 		font-size: 12px;
 		line-height: 1.35;
@@ -2928,9 +2938,10 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 
 	.sports-bracket-national {
 		display: grid;
-		grid-template-columns: 1fr minmax(200px, 280px);
+		grid-template-columns: 1fr minmax(220px, 300px);
 		gap: 14px;
 		margin-top: 6px;
+		align-items: start;
 	}
 
 	@media (max-width: 720px) {
@@ -2939,23 +2950,15 @@ const marketGenres = genreTabsForClient.filter((g) => g.section === 'markets');
 		}
 	}
 
-	.sports-bracket-national-ff,
-	.sports-bracket-national-champ {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		padding: 12px 12px 14px;
-		border-radius: 12px;
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		background: rgba(0, 0, 0, 0.28);
-		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+	.sports-bracket-national-card {
+		min-width: 0;
 	}
 
-	.sports-bracket-national-ff > .mono:first-child,
-	.sports-bracket-national-champ > .mono:first-child {
-		padding-bottom: 2px;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-		margin-bottom: 2px;
+	.sports-bracket-national-card--champ {
+		border-color: rgba(255, 200, 120, 0.38);
+		box-shadow:
+			0 0 0 1px rgba(255, 200, 120, 0.12),
+			0 4px 22px rgba(0, 0, 0, 0.32);
 	}
 
 	.sports-march-changelog--extra {

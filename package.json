@@ -7,12 +7,23 @@
   },
   "scripts": {
     "prepare:data": "python3 scripts/build_catalog_data.py && python3 scripts/build_health_shards.py && python3 scripts/build_history_manifest.py",
+    "enrichment:fetch": "python3 scripts/fetch_registry_enrichment.py",
     "enrichment:build": "python3 scripts/build_attribution_enrichment.py",
+    "profiles:collect": "python3 scripts/collect_listing_profiles.py",
+    "database:normalize": "python3 scripts/normalize_catalog_completeness.py",
+    "database:history": "python3 scripts/fetch_us_history.py --source yfinance --lookback max --delay 0.25",
+    "database:quotes": "python3 scripts/build_quotes_snapshot.py",
+    "database:report": "python3 scripts/backfill_listing_database.py --phase report",
+    "database:backfill": "python3 scripts/backfill_listing_database.py",
+    "database:batch-all": "python3 scripts/batch_all_listings.py",
     "history:fetch": "python3 scripts/fetch_us_history.py",
     "history:import": "python3 scripts/import_history_csv.py",
     "history:manifest": "python3 scripts/build_history_manifest.py",
-    "dev": "npm run prepare:data && astro dev",
-		"dev:liquid": "bash scripts/run-liquid-ai-live.sh",
+    "smoke:viz": "python3 scripts/smoke_listing_viz.py --apply --verify",
+    "smoke:viz:apply": "python3 scripts/smoke_listing_viz.py --apply",
+    "smoke:viz:cleanup": "python3 scripts/smoke_listing_viz.py --cleanup",
+    "dev": "python3 scripts/ensure_demo_history.py && npm run prepare:data && astro dev",
+    "dev:liquid": "bash scripts/run-liquid-ai-live.sh",
     "build": "node scripts/run-build.mjs",
     "build:local": "npm run prepare:data && astro build",
     "preview": "npm run build && wrangler dev",
@@ -24,7 +35,8 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.5.0",
     "astro": "^6.2.0",
-    "echarts": "^5.6.0"
+    "echarts": "^5.6.0",
+    "echarts-gl": "^2.1.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

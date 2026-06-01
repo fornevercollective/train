@@ -1,0 +1,2 @@
+# Optional venv for database batch scripts (history yahoo works without this; quotes need yfinance).
+yfinance>=0.2.40

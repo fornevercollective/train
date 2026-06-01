@@ -25,13 +25,14 @@ ALLOWED_REGISTRY_LICENSES = {
 }
 
 FIELD_PRIORITIES: dict[str, list[str]] = {
-    "lt": ["sec_edgar"],
-    "ll": ["sec_edgar"],
+    "ln": ["openregistry", "sec_edgar", "gleif"],
+    "lt": ["openregistry", "sec_edgar"],
+    "ll": ["openregistry", "sec_edgar"],
     "lc": ["sec_edgar"],
-    "hq": ["gleif", "wikidata"],
+    "hq": ["openregistry", "gleif", "wikidata", "sec_edgar"],
     "hc": ["gleif", "wikidata"],
-    "cd": ["wikidata", "gleif"],
-    "br": ["registry"],
+    "cd": ["openregistry", "wikidata", "gleif", "sec_edgar"],
+    "br": ["openregistry", "registry"],
 }
 
 
@@ -97,18 +98,16 @@ def _now_utc() -> str:
 
 
 def _normalize_ticker_id(row: dict[str, Any]) -> str:
+    """Canonical overlay key — matches catalog.json `id` (bare ticker, not EX:SYMBOL)."""
+
     direct = _pick_text(row, "id", "normalized_ticker", "ticker")
     if direct:
         if ":" in direct:
             return direct.upper()
-        exchange = _pick_text(row, "exchange", "ex")
-        if exchange:
-            return f"{exchange.upper()}:{direct.upper()}"
         return direct.upper()
     symbol = _pick_text(row, "symbol", "sy")
-    exchange = _pick_text(row, "exchange", "ex")
-    if symbol and exchange:
-        return f"{exchange.upper()}:{symbol.upper()}"
+    if symbol:
+        return symbol.upper()
     return ""
 
 
@@ -157,6 +156,7 @@ def _branch_locations_from_row(row: dict[str, Any]) -> list[object]:
 
 def _extract_sec(row: dict[str, Any]) -> dict[str, Any]:
     record: dict[str, Any] = {}
+    ln = _pick_text(row, "legal_entity_name", "ln", "name", "entity_name")
     lt = _pick_text(
         row,
         "llc_original_filing_timestamp_utc",
@@ -165,10 +165,19 @@ def _extract_sec(row: dict[str, Any]) -> dict[str, Any]:
         "filedAt",
     )
     ll = _normalize_location(_pick_text(row, "llc_original_filing_location", "filing_location", "ll", "address"))
+    hq = _normalize_location(
+        _pick_text(row, "headquarters_location", "headquarters_address", "hq", "business_address")
+    )
     lc = _coordinate_pair(
         row.get("llc_original_filing_latitude") or row.get("filing_latitude") or row.get("lat"),
         row.get("llc_original_filing_longitude") or row.get("filing_longitude") or row.get("lon"),
     )
+    hc = _coordinate_pair(
+        row.get("headquarters_latitude") or row.get("hq_latitude"),
+        row.get("headquarters_longitude") or row.get("hq_longitude") or row.get("hq_lon"),
+    )
+    if ln:
+        record["ln"] = ln
     if lt:
         try:
             record["lt"] = _normalize_timestamp(lt)
@@ -176,8 +185,21 @@ def _extract_sec(row: dict[str, Any]) -> dict[str, Any]:
             pass
     if ll:
         record["ll"] = ll
+    if hq:
+        record["hq"] = hq
     if lc:
         record["lc"] = lc
+    if hc:
+        record["hc"] = hc
+    cik = _pick_text(row, "cik")
+    jurisdiction = _pick_text(row, "registry_jurisdiction") or "US"
+    if cik or _pick_text(row, "registry_source") == "sec_edgar":
+        record["registry"] = {
+            "source": "sec_edgar",
+            "jurisdiction": jurisdiction,
+            "companyId": cik,
+            "license": "PUBLIC-DOMAIN",
+        }
     if record:
         record["source"] = "sec_edgar"
         record["updatedAt"] = _normalize_timestamp(
@@ -245,7 +267,82 @@ def _extract_wikidata(row: dict[str, Any]) -> dict[str, Any]:
     return record
 
 
+def _extract_openregistry(row: dict[str, Any], *, license_name: str = "") -> dict[str, Any]:
+    """Normalize rows from fetch_registry_enrichment.py or raw MCP search/profile payloads."""
+
+    record: dict[str, Any] = {}
+    ln = _pick_text(
+        row,
+        "legal_entity_name",
+        "ln",
+        "company_name",
+        "registered_name",
+        "title",
+    )
+    lt = _pick_text(
+        row,
+        "llc_original_filing_timestamp_utc",
+        "incorporation_date",
+        "incorporation_datetime_utc",
+        "lt",
+    )
+    ll = _normalize_location(
+        _pick_text(
+            row,
+            "llc_original_filing_location",
+            "registered_address",
+            "registered_office",
+            "ll",
+        )
+    )
+    hq = _normalize_location(
+        _pick_text(row, "headquarters_location", "registered_address", "hq", "address")
+    )
+    cd = _pick_text(row, "company_creation_datetime_utc", "incorporation_date", "cd")
+    branches = _branch_locations_from_row(row)
+
+    if ln:
+        record["ln"] = ln
+    if lt:
+        try:
+            record["lt"] = _normalize_timestamp(lt)
+        except ValueError:
+            pass
+    if ll:
+        record["ll"] = ll
+    if hq:
+        record["hq"] = hq
+    if cd:
+        try:
+            record["cd"] = _normalize_timestamp(cd)
+        except ValueError:
+            pass
+    if branches:
+        record["br"] = branches
+
+    registry_id = _pick_text(row, "registry_company_id", "company_id")
+    jurisdiction = _pick_text(row, "registry_jurisdiction", "jurisdiction")
+    if registry_id or jurisdiction:
+        record["registry"] = {
+            "source": "openregistry",
+            "jurisdiction": jurisdiction,
+            "companyId": registry_id,
+            "license": license_name or _pick_text(row, "registry_license", "license") or "CC-BY",
+        }
+
+    if record:
+        record["source"] = "openregistry"
+        record["updatedAt"] = _normalize_timestamp(
+            _pick_text(row, "updated_at", "retrieved_at", "as_of", "timestamp") or _now_utc()
+        )
+    return record
+
+
 def _extract_registry(row: dict[str, Any], *, license_name: str) -> dict[str, Any]:
+    registry_source = _pick_text(row, "registry_source", "source")
+    if registry_source == "openregistry":
+        return _extract_openregistry(row, license_name=license_name)
+
     normalized_license = license_name.upper().strip()
     if normalized_license not in ALLOWED_REGISTRY_LICENSES:
         return {}
@@ -272,7 +369,9 @@ def _priority_rank(field: str, source: str) -> int:
 def _merge_into_state(state: dict[str, Any], payload: dict[str, Any]) -> None:
     source = _pick_text(payload, "source")
     updated_at = _pick_text(payload, "updatedAt") or _now_utc()
-    for field in ("lt", "ll", "lc", "hq", "hc", "cd", "br"):
+    if payload.get("registry"):
+        state["registry"] = payload["registry"]
+    for field in ("ln", "lt", "ll", "lc", "hq", "hc", "cd", "br"):
         value = payload.get(field)
         if value in (None, "", []):
             continue
@@ -331,21 +430,27 @@ def _build_overlay(
     overlay: dict[str, dict[str, Any]] = {}
     for ticker, state in state_by_ticker.items():
         record: dict[str, Any] = {}
-        for key in ("lt", "ll", "lc", "hq", "hc", "cd", "br"):
+        for key in ("ln", "lt", "ll", "lc", "hq", "hc", "cd", "br"):
             value = state.get(key)
             if value not in (None, "", []):
                 record[key] = value
         field_source: dict[str, str] = state.get("fieldSource", {})
+        if "ln" in record:
+            record["ls"] = field_source.get("ln", "")
         if "lt" in record or "ll" in record or "lc" in record:
             if field_source.get("lt") == "sec_edgar" or field_source.get("ll") == "sec_edgar" or field_source.get("lc") == "sec_edgar":
                 record["fs"] = "sec_edgar"
+            elif field_source.get("lt") == "openregistry" or field_source.get("ll") == "openregistry":
+                record["fs"] = "openregistry"
         if "hq" in record or "hc" in record:
             if field_source.get("hq"):
                 record["hs"] = field_source["hq"]
             elif field_source.get("hc"):
                 record["hs"] = field_source["hc"]
         if "br" in record:
-            record["bs"] = "registry"
+            record["bs"] = field_source.get("br", "registry")
+        if state.get("registry"):
+            record["registry"] = state["registry"]
         record["meta"] = {
             "fieldSource": field_source,
             "fieldUpdatedAt": state.get("fieldUpdatedAt", {}),
@@ -368,10 +473,38 @@ def _load_catalog_ids(path: Path) -> set[str]:
     return ids
 
 
+def _discover_source_files(sources_dir: Path) -> tuple[Path | None, list[Path], list[str]]:
+    """Auto-load fetch_registry_enrichment.py outputs from public/data/enrichment/sources/."""
+
+    sec_file: Path | None = None
+    registry_files: list[Path] = []
+    registry_licenses: list[str] = []
+
+    if not sources_dir.exists():
+        return sec_file, registry_files, registry_licenses
+
+    sec_candidate = sources_dir / "sec-edgar.ndjson"
+    if sec_candidate.exists():
+        sec_file = sec_candidate
+
+    or_candidate = sources_dir / "openregistry.ndjson"
+    if or_candidate.exists():
+        registry_files.append(or_candidate)
+        registry_licenses.append("CC-BY")
+
+    return sec_file, registry_files, registry_licenses
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build attribution-safe enrichment overlay for the catalog.")
     parser.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--sources-dir",
+        type=Path,
+        default=ROOT / "public" / "data" / "enrichment" / "sources",
+        help="Auto-merge sec-edgar.ndjson and openregistry.ndjson when present.",
+    )
     parser.add_argument("--sec", type=Path, help="SEC EDGAR normalized rows (json or ndjson)")
     parser.add_argument("--gleif", type=Path, help="GLEIF normalized rows (json or ndjson)")
     parser.add_argument("--wikidata", type=Path, help="Wikidata normalized rows (json or ndjson)")
@@ -393,24 +526,30 @@ def main() -> None:
     if len(args.registry) != len(args.registry_license):
         raise SystemExit("Each --registry input requires a matching --registry-license value.")
 
+    auto_sec, auto_registry_files, auto_registry_licenses = _discover_source_files(args.sources_dir)
+    sec_file = args.sec or auto_sec
+    registry_files = list(args.registry) + auto_registry_files
+    registry_licenses = list(args.registry_license) + auto_registry_licenses
+
     catalog_ids = _load_catalog_ids(args.catalog)
     overlay, counters = _build_overlay(
         catalog_ids=catalog_ids,
-        sec_file=args.sec,
+        sec_file=sec_file,
         gleif_file=args.gleif,
         wikidata_file=args.wikidata,
-        registry_files=args.registry,
-        registry_licenses=args.registry_license,
+        registry_files=registry_files,
+        registry_licenses=registry_licenses,
     )
 
     payload = {
         "schemaVersion": 1,
         "generatedAt": _now_utc(),
         "sources": {
-            "sec": str(args.sec) if args.sec else "",
+            "sec": str(sec_file) if sec_file else "",
             "gleif": str(args.gleif) if args.gleif else "",
             "wikidata": str(args.wikidata) if args.wikidata else "",
-            "registries": [str(path) for path in args.registry],
+            "registries": [str(path) for path in registry_files],
+            "sourcesDir": str(args.sources_dir),
         },
         "policy": {
             "branchLocationsOptional": True,

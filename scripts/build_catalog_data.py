@@ -147,6 +147,18 @@ def _normalize_branch_locations(value: object) -> list[object]:
 def _overlay_to_raw_row(overlay: dict[str, Any]) -> dict[str, Any]:
     raw: dict[str, Any] = {}
 
+    ln_value = _pick_text(overlay, "ln")
+    if ln_value:
+        raw["legal_entity_name"] = ln_value
+
+    ls_value = _pick_text(overlay, "ls")
+    if ls_value:
+        raw["legal_entity_source"] = ls_value
+
+    registry_meta = overlay.get("registry")
+    if isinstance(registry_meta, dict):
+        raw["registry_meta_json"] = registry_meta
+
     lt_value = _pick_text(overlay, "lt")
     if lt_value:
         raw["llc_original_filing_timestamp_utc"] = lt_value
@@ -297,12 +309,13 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
     security_type = _normalized_security_type(_pick_text(row, "security_type", "ty"))
 
     aliases = _aliases_from_row(row)
-    display_name = (
-        _pick_text(row, "company_name")
-        or _pick_text(row, "legal_entity_name", "ln")
-        or _pick_text(row, "nm")
-        or normalized_ticker
-    )
+    legal_entity = _pick_text(row, "legal_entity_name", "ln")
+    if legal_entity:
+        legal_lower = legal_entity.lower()
+        if legal_lower not in {alias.lower() for alias in aliases}:
+            aliases.append(legal_entity)
+    trade_name = _pick_text(row, "company_name", "nm")
+    display_name = trade_name or legal_entity or normalized_ticker
 
     company_creation_raw = _pick_text(row, "company_creation_datetime_utc", "cd")
     ipo_creation_raw = _pick_text(row, "ipo_creation_datetime_utc", "ip")
@@ -421,7 +434,7 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
     }
 
     optional_fields = {
-        "ln": _pick_text(row, "legal_entity_name", "ln"),
+        "ln": legal_entity or trade_name,
         "se": sector,
         "co": country,
         "cc": _pick_text(row, "country_code", "cc"),
@@ -441,7 +454,12 @@ def compact_record(row: dict[str, Any], issues: dict[str, int]) -> dict[str, obj
         "bs": _pick_text(row, "branch_locations_source", "branches_source", "branch_source"),
         "lx": _pick_text(row, "listing_exchange_label", "lx"),
         "nt": _pick_text(row, "notes", "nt"),
+        "ls": _pick_text(row, "legal_entity_source", "ls"),
     }
+
+    registry_meta = row.get("registry_meta_json") or row.get("registry")
+    if isinstance(registry_meta, dict) and registry_meta:
+        optional_fields["registry"] = registry_meta
 
     for key, value in optional_fields.items():
         if value not in ("", [], None):

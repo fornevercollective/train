@@ -47,6 +47,12 @@ import type {
 	dayKeyToISO,
 } from './lib/history-shard-loader';
 import type { mountHistorySparkline } from './lib/history-sparkline';
+import type { mountHistoryCalendar } from './lib/history-calendar-chart';
+import type { mountReturnFlowStack } from './lib/history-period-flow-chart';
+import type { mountSnowflakeRadar } from './lib/snowflake-radar-chart';
+import type { mountHistorySnowflakeRadar } from './lib/history-snowflake-radar';
+import type { mountSnowflakeAxisGrid } from './lib/snowflake-axis-mini-chart';
+import type { loadQuotesLatest, quoteForTicker } from './lib/quotes-latest';
 
 declare global {
 	interface Window {
@@ -70,6 +76,19 @@ declare global {
 		/** Bridge for the ECharts sparkline mounter. */
 		__qbitosSparkline__?: {
 			mountHistorySparkline: typeof mountHistorySparkline;
+		};
+		/** Latest session quote snapshot loader. */
+		__qbitosQuotes__?: {
+			loadQuotesLatest: typeof loadQuotesLatest;
+			quoteForTicker: typeof quoteForTicker;
+		};
+		/** Calendar, flowGL, and snowflake radar chart mounters. */
+		__qbitosCharts__?: {
+			mountHistoryCalendar: typeof mountHistoryCalendar;
+			mountReturnFlowStack: typeof mountReturnFlowStack;
+			mountSnowflakeRadar: typeof mountSnowflakeRadar;
+			mountHistorySnowflakeRadar: typeof mountHistorySnowflakeRadar;
+			mountSnowflakeAxisGrid: typeof mountSnowflakeAxisGrid;
 		};
 		/** Optional override: when set, the loader fetches coverage from `api.qbitos.ai`
 		 * (the versioning API) instead of the static GitHub Pages assets. */

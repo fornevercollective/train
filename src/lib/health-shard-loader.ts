@@ -167,8 +167,11 @@ function indexUrl(manifest: HealthManifest, opts: LoaderOptions): string {
 	return `${base}data/health/${manifest.indexUrl}`;
 }
 
-async function fetchJson<T>(url: string): Promise<T> {
-	const response = await fetch(url, { headers: { Accept: 'application/json' } });
+async function fetchJson<T>(url: string, init?: RequestInit): Promise<T> {
+	const response = await fetch(url, {
+		headers: { Accept: 'application/json' },
+		...init,
+	});
 	if (!response.ok) {
 		throw new Error(`Request failed (${response.status}) for ${url}`);
 	}
@@ -236,22 +239,37 @@ async function loadShard(entry: HealthShardEntry, opts: LoaderOptions): Promise<
 	return pending;
 }
 
+function normalizePatchProfile(
+	payload: SnowflakeProfileV1,
+	ticker: string,
+): SnowflakeProfileV1 {
+	return {
+		...payload,
+		schemaVersion: 1,
+		ticker: payload.ticker || ticker,
+		axes: Array.isArray(payload.axes) ? payload.axes : [],
+	};
+}
+
 async function loadPatch(
 	entry: HealthPatchEntry,
 	opts: LoaderOptions,
 ): Promise<SnowflakeProfileV1> {
 	const cacheKey = `${SESSION_PREFIX}patch:${entry.ticker}:${entry.etag}`;
 	const cached = readCache<SnowflakeProfileV1>(cacheKey);
-	if (cached) return cached;
+	if (cached) return normalizePatchProfile(cached, entry.ticker);
 
-	let pending = patchPromises.get(entry.ticker);
+	let pending = patchPromises.get(`${entry.ticker}:${entry.etag}`);
 	if (!pending) {
 		pending = (async () => {
-			const payload = await fetchJson<SnowflakeProfileV1>(patchUrl(entry, opts));
+			const payload = normalizePatchProfile(
+				await fetchJson<SnowflakeProfileV1>(patchUrl(entry, opts), { cache: 'no-store' }),
+				entry.ticker,
+			);
 			writeCache(cacheKey, payload);
 			return payload;
 		})();
-		patchPromises.set(entry.ticker, pending);
+		patchPromises.set(`${entry.ticker}:${entry.etag}`, pending);
 	}
 	return pending;
 }
@@ -268,8 +286,10 @@ function mergeProfiles(
 
 	return {
 		...base,
-		...overlay,
+		ticker: overlay.ticker || base.ticker,
+		displayName: overlay.displayName || base.displayName,
 		axes,
+		asOfISO: overlay.asOfISO && !overlay.asOfISO.startsWith('1970') ? overlay.asOfISO : base.asOfISO,
 		sourceNotes: overlay.sourceNotes?.length ? overlay.sourceNotes : base.sourceNotes,
 	};
 }
