@@ -284,6 +284,36 @@ npm run profiles:collect -- --exchange NASDAQ --limit 100 --delay 0.25
 npm run profiles:collect -- --tickers TSLA,AAPL --delay 0.2
 ```
 
+### Full-database listing completeness (charts + snowflake + quick view)
+
+Listing pages need **OHLCV history**, **OHLCV-scored snowflake shards**, **quotes**, and
+**catalog/enrichment** fields. Use the batch orchestrator (resumable; run in chunks):
+
+```bash
+# Coverage snapshot (history files, ic/fc, quote count)
+npm run database:report
+
+# Normalize dc/ic/fc from existing catalog dates (fast, all ~56k rows)
+npm run database:normalize && npm run prepare:data
+
+# US history backfill (slow — rate-limit friendly; repeat with --skip)
+npm run database:backfill -- --phase history --exchange NASDAQ,NYSE --limit 500
+npm run database:backfill -- --phase prepare
+
+# Session quotes for quick view (yfinance)
+npm run database:backfill -- --phase quotes --limit 2000
+
+# SEC/OpenRegistry identity fields
+npm run database:backfill -- --phase enrichment --limit 100
+
+# All-in-one chunk (example)
+npm run database:backfill -- --phase all --limit 300
+```
+
+After history exists, `build_health_shards.py` embeds **OHLCV-derived snowflake scores** in every
+shard (no per-ticker patch file required). Manual research overlays still live under
+`public/data/health/patches/v1/<TICKER>.json` and override the shard entry.
+
 Non-US listings can use `--openregistry-only` or mixed mode when the catalog country maps to a
 supported jurisdiction (GB, FR, IE, ES, NO, …). Install the MCP server from
 `https://openregistry.sophymarine.com/mcp` for interactive profile lookups during editing.

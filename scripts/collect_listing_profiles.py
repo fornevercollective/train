@@ -59,8 +59,10 @@ def _select_tickers(
         if not sym or ":" in sym:
             continue
         ex = str(row.get("ex") or "").strip().upper()
-        if exchange and ex != exchange.upper():
-            continue
+        if exchange:
+            allowed = {e.strip().upper() for e in exchange.split(",") if e.strip()}
+            if allowed and ex not in allowed:
+                continue
         if us_only and ex not in US_EXCHANGES and row.get("co") != "United States":
             continue
         if missing_only and not _needs_enrichment(row):
@@ -91,7 +93,10 @@ def _save_state(done: set[str]) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Batch collect listing profile enrichment.")
-    parser.add_argument("--exchange", help="Filter catalog by exchange (e.g. NASDAQ)")
+    parser.add_argument(
+        "--exchange",
+        help="Filter by exchange or comma-separated list (e.g. NASDAQ,NYSE)",
+    )
     parser.add_argument("--tickers", help="Comma-separated tickers")
     parser.add_argument("--limit", type=int, default=50, help="Max tickers this run")
     parser.add_argument("--delay", type=float, default=0.25, help="SEC/OpenRegistry delay seconds")

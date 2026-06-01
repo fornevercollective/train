@@ -30,6 +30,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+import sys
+
+sys.path.insert(0, str(SCRIPT_DIR))
+from health_profile_from_history import profile_for_record  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 PUBLIC_DATA_DIR = ROOT / "public" / "data"
 CATALOG_JSON = PUBLIC_DATA_DIR / "catalog.json"
@@ -116,40 +122,9 @@ def _sha256(data: bytes) -> str:
 
 
 def _default_profile(record: dict[str, object]) -> dict[str, object]:
-    """Skeletal SnowflakeProfileV1 with `na` checks. Real data lands as patches."""
+    """OHLCV-scored profile when history exists; otherwise skeleton. Patches still override."""
 
-    axes = []
-    for name, label, checks in AXES:
-        axes.append(
-            {
-                "name": name,
-                "label": label,
-                "scoreLabel": f"0/{len(checks)}",
-                "passed": 0,
-                "total": len(checks),
-                "checks": [
-                    {
-                        "id": check_id,
-                        "label": check_label,
-                        "detail": "Awaiting research overlay.",
-                        "state": "na",
-                    }
-                    for check_id, check_label in checks
-                ],
-            }
-        )
-
-    return {
-        "schemaVersion": SCHEMA_VERSION,
-        "ticker": record["id"],
-        "displayName": record.get("nm") or record.get("ln") or record["id"],
-        "asOfISO": DEFAULT_AS_OF,
-        "sourceNotes": [
-            "Skeleton scaffold; real fundamentals land via per-ticker patches.",
-            "Source: ritualroi snowflake spec (Value / Future / Past / Health / Dividends).",
-        ],
-        "axes": axes,
-    }
+    return profile_for_record(record)  # type: ignore[arg-type]
 
 
 def _iter_records(catalog_path: Path) -> Iterable[dict[str, object]]:
