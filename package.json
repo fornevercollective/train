@@ -6,7 +6,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "prepare:data": "python3 scripts/build_catalog_data.py && python3 scripts/build_health_shards.py && python3 scripts/build_history_manifest.py",
+    "prepare:data": "python3 scripts/build_catalog_data.py && python3 scripts/build_catalog_shards.py && python3 scripts/build_health_shards.py && python3 scripts/build_history_manifest.py",
     "enrichment:fetch": "python3 scripts/fetch_registry_enrichment.py",
     "enrichment:build": "python3 scripts/build_attribution_enrichment.py",
     "profiles:collect": "python3 scripts/collect_listing_profiles.py",

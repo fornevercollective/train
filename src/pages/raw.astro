@@ -5,9 +5,14 @@ import summary from '../generated/catalog-meta.json';
 const baseUrl = import.meta.env.BASE_URL;
 const resources = [
 	{
+		title: 'Catalog shard manifest',
+		url: `${baseUrl}data/catalog/manifest.json`,
+		note: 'Index of sharded listing records (used on Cloudflare Workers; each shard stays under 25 MiB).',
+	},
+	{
 		title: 'Full catalog JSON',
 		url: `${baseUrl}data/catalog.json`,
-		note: 'All normalized listing records. Best for bulk AI import.',
+		note: 'All normalized listing records in one file (~30 MiB). GitHub Pages / bulk AI import.',
 	},
 	{
 		title: 'Catalog summary JSON',

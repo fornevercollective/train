@@ -1,0 +1,1769 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-01T04:22:38Z",
+  "recordCount": 56307,
+  "shardCount": 220,
+  "shardSize": 256,
+  "shards": [
+    {
+      "id": "0000",
+      "count": 256,
+      "bytes": 114320,
+      "etag": "a3f277e2c88b7a63070ff5df22c3af4e0184abe4ed2bcb38d5cb4fe0ac99e4c1",
+      "first": ":File Creation Time: 0430202621:31",
+      "last": "AFOS"
+    },
+    {
+      "id": "0001",
+      "count": 256,
+      "bytes": 113091,
+      "etag": "67f4dbf0e54f2f12f901aaaa8732b0a0286a9e7cc25ebf912b6d831aed6ebbc1",
+      "first": "AFRI",
+      "last": "AMG"
+    },
+    {
+      "id": "0002",
+      "count": 256,
+      "bytes": 99869,
+      "etag": "04289472f0c17bac7d3e38cb79b180537939fa4ca3bc5ea004ec92b595300805",
+      "first": "AMGN",
+      "last": "AMZU"
+    },
+    {
+      "id": "0003",
+      "count": 256,
+      "bytes": 118536,
+      "etag": "6fa4071a6a35fb05a9986aa4aaad9491b9b22240b22dd9ab0b91627061fa2dec",
+      "first": "AMZW",
+      "last": "ASTL"
+    },
+    {
+      "id": "0004",
+      "count": 256,
+      "bytes": 107134,
+      "etag": "86fc0e9904fe7bf46f89bc6cbd17e544ea8d263b17a801aa34788c7dd833272f",
+      "first": "ASTLW",
+      "last": "ASX:CMD"
+    },
+    {
+      "id": "0005",
+      "count": 256,
+      "bytes": 109673,
+      "etag": "08810d76595d6b1b6659c0f67362b235ef156e26574f2e8dc43cf14d7f4642f7",
+      "first": "ASX:CMM",
+      "last": "ASX:HFY"
+    },
+    {
+      "id": "0006",
+      "count": 256,
+      "bytes": 110020,
+      "etag": "7e451ab892f05e6f0c3f4ff4212ce0a1d72eb76f2ea3fc30016f6569e1b7f72a",
+      "first": "ASX:HGCQ",
+      "last": "ASX:MQEG"
+    },
+    {
+      "id": "0007",
+      "count": 256,
+      "bytes": 110224,
+      "etag": "aafd92fc36ff242aecb912866bbc835f27f6e0f55abbd9cc3de11aa3e7b36234",
+      "first": "ASX:MQG",
+      "last": "ASX:RR1"
+    },
+    {
+      "id": "0008",
+      "count": 256,
+      "bytes": 117161,
+      "etag": "097e298ba7d8535220a9b2c9632ca57e75bcd1f1735eb8ce41f9e9a46c7a7956",
+      "first": "ASX:RRL",
+      "last": "ASX:XRF"
+    },
+    {
+      "id": "0009",
+      "count": 256,
+      "bytes": 104107,
+      "etag": "e3e58dc4705914d7f9049cdc156a00124c614205af3d9d2977b478235f166021",
+      "first": "ASX:XRG",
+      "last": "AVNW"
+    },
+    {
+      "id": "0010",
+      "count": 256,
+      "bytes": 97120,
+      "etag": "030f73b51f99aa0e64a28471456421fa7401532e8ce36a1831b45a734e7575da",
+      "first": "AVO",
+      "last": "B3:BEWG39"
+    },
+    {
+      "id": "0011",
+      "count": 256,
+      "bytes": 92454,
+      "etag": "a11c14bbc208efde5173b9590a005543532dbd7fe62b5f1568c5a39f13e92b98",
+      "first": "B3:BEWH39",
+      "last": "B3:CEAC3"
+    },
+    {
+      "id": "0012",
+      "count": 256,
+      "bytes": 99451,
+      "etag": "9e981bc4143456358a5729ef46416f20d8b1da84235dcd763061bc0423dbe72e",
+      "first": "B3:CEAC4",
+      "last": "B3:FIVN11"
+    },
+    {
+      "id": "0013",
+      "count": 256,
+      "bytes": 98551,
+      "etag": "2004c12eeef335baa6936621f6ef26a329a02300b02463c88e6a9ef94435cdfb",
+      "first": "B3:FIXA11",
+      "last": "B3:LOGS4"
+    },
+    {
+      "id": "0014",
+      "count": 256,
+      "bytes": 96786,
+      "etag": "357f0a8e7bd1498d7fc140c631b1b712795b1977f59cd1798ac4d2a96694fe7f",
+      "first": "B3:LPLP11",
+      "last": "B3:RBHG11"
+    },
+    {
+      "id": "0015",
+      "count": 256,
+      "bytes": 96694,
+      "etag": "a3efd502774746b58cdd6616f6d1937f22370f6dc2ed0b12f98f3dd5efeedffe",
+      "first": "B3:RBHY11",
+      "last": "B3:VECF3"
+    },
+    {
+      "id": "0016",
+      "count": 256,
+      "bytes": 104452,
+      "etag": "33a6fc942e3d91972ef5096dda9c57d1ebe96e9fddab0eb55836e3187c6f7a35",
+      "first": "B3:VGHF11",
+      "last": "BCBA:INAG"
+    },
+    {
+      "id": "0017",
+      "count": 256,
+      "bytes": 109280,
+      "etag": "0076b07896a2bcd6670dc34640c2eb9212ad0e2900dca541e4d0028151b6526e",
+      "first": "BCBA:INVJ",
+      "last": "BIPC"
+    },
+    {
+      "id": "0018",
+      "count": 256,
+      "bytes": 98083,
+      "etag": "0c0d94b15ff8b975e58a9b2e3a81ff84a18f168f947916a3d2d744e327cc9eed",
+      "first": "BIPH",
+      "last": "BME:YHCR"
+    },
+    {
+      "id": "0019",
+      "count": 256,
+      "bytes": 107188,
+      "etag": "a0701c484d621787c0c186ceaf3a66b7ea0cb7332b9c782acc85fcd65b95c1a9",
+      "first": "BME:YHSP",
+      "last": "BOXA"
+    },
+    {
+      "id": "0020",
+      "count": 256,
+      "bytes": 97935,
+      "etag": "afb225b2299d7459723b6166736ce555ea94a5734593a9c0578549efb39213ef",
+      "first": "BOXL",
+      "last": "BULZ"
+    },
+    {
+      "id": "0021",
+      "count": 256,
+      "bytes": 85806,
+      "etag": "aeea7d65b569652e5373e1529f24937d7f53fedacdbf2fd2a7e9c07eb4508c9f",
+      "first": "BUR",
+      "last": "BURSA:0313"
+    },
+    {
+      "id": "0022",
+      "count": 256,
+      "bytes": 87508,
+      "etag": "22ce77bdc5d0284950d2b1fa2dfab7033075751c8c73ce31120a1918d57f86d4",
+      "first": "BURSA:0315",
+      "last": "BURSA:5145"
+    },
+    {
+      "id": "0023",
+      "count": 256,
+      "bytes": 87345,
+      "etag": "e5420ec9d20b4d98f4806fe4df435a20cc46565c3592c578d58ab83b2b862b95",
+      "first": "BURSA:5147",
+      "last": "BURSA:7172"
+    },
+    {
+      "id": "0024",
+      "count": 256,
+      "bytes": 86407,
+      "etag": "ce1c6854590bc8d12313274b5bddce4409741d0ec2dc9a6b033319a730dedc19",
+      "first": "BURSA:7173",
+      "last": "BVB:TVBETETF"
+    },
+    {
+      "id": "0025",
+      "count": 256,
+      "bytes": 110836,
+      "etag": "e0d8f60e7cb68efade596a69d6acad6f413cab2b1dcf432fe2d2f9482cb37f51",
+      "first": "BVB:UARG",
+      "last": "CCU"
+    },
+    {
+      "id": "0026",
+      "count": 256,
+      "bytes": 110297,
+      "etag": "5be511c35f48ba0ddfe4aec84aa317b3c5726faddf80aa05f9ca8ac7e0d139b7",
+      "first": "CCUP",
+      "last": "CLMT"
+    },
+    {
+      "id": "0027",
+      "count": 256,
+      "bytes": 99676,
+      "etag": "19997d179198e08eb91c30026143b3b8dd966e4871f11011e23239ebd6bbec37",
+      "first": "CLNE",
+      "last": "CPH:FLUG-B"
+    },
+    {
+      "id": "0028",
+      "count": 256,
+      "bytes": 93040,
+      "etag": "9cbe6bbb26b72b81e415f8c3257f0f6ba16c855155dfc24ddb37c08ebe327db3",
+      "first": "CPH:FOBANK",
+      "last": "CSE_MA:LABEL-VIE"
+    },
+    {
+      "id": "0029",
+      "count": 256,
+      "bytes": 103347,
+      "etag": "308a7b4671998b1554a7949e034092b83b601ab8e31b9c16949f6cd88d597233",
+      "first": "CSE_MA:LAFARGEHOL",
+      "last": "DBRG$I"
+    },
+    {
+      "id": "0030",
+      "count": 256,
+      "bytes": 109388,
+      "etag": "f2a753a98793d12d8337b4f32d2abbacfc2576ea618bf953bc2edb77228021d6",
+      "first": "DBRG$J",
+      "last": "DMAR"
+    },
+    {
+      "id": "0031",
+      "count": 256,
+      "bytes": 111699,
+      "etag": "a78ef6263e994b80a7e4f19ddb75300176f7843276c3edecbdbade65acb18318",
+      "first": "DMAT",
+      "last": "EASY"
+    },
+    {
+      "id": "0032",
+      "count": 256,
+      "bytes": 99734,
+      "etag": "5d7b65e6f273f841cefb74beff74c26b0186465e8ffab8e938728408fa57973d",
+      "first": "EAT",
+      "last": "EGX:MBSC"
+    },
+    {
+      "id": "0033",
+      "count": 256,
+      "bytes": 103135,
+      "etag": "1b150ea57b9523f83676e80efdf1238e5c28e868087595623d97d711161fb2ee",
+      "first": "EGX:MCQE",
+      "last": "EPC"
+    },
+    {
+      "id": "0034",
+      "count": 256,
+      "bytes": 100128,
+      "etag": "de4d3c95103548f944bdc63fbdb8ac45c064f9336c79a587b696302b4e8118e8",
+      "first": "EPD",
+      "last": "EURONEXT:ALGAE"
+    },
+    {
+      "id": "0035",
+      "count": 256,
+      "bytes": 88658,
+      "etag": "c63c0604fbc8f285213590e3a4ef1d830b0e05d71214393bf9ca433fcd15db5c",
+      "first": "EURONEXT:ALGEC",
+      "last": "EURONEXT:DSD"
+    },
+    {
+      "id": "0036",
+      "count": 256,
+      "bytes": 96260,
+      "etag": "f6bbe6b8eae8cbb645844929aaf9d2617c89c033b2f62e53744fe356223921c6",
+      "first": "EURONEXT:E40",
+      "last": "EURONEXT:PUB"
+    },
+    {
+      "id": "0037",
+      "count": 256,
+      "bytes": 107275,
+      "etag": "c144a04dc144a3e622739acd8bbe74032eed3a7f68536789132eaa093287ca39",
+      "first": "EURONEXT:PUST",
+      "last": "FCAP"
+    },
+    {
+      "id": "0038",
+      "count": 256,
+      "bytes": 112117,
+      "etag": "ff34e5a311a42311d66791adf79babedb422bf8f611592ef1a9049b9bcb829ed",
+      "first": "FCBC",
+      "last": "FLDR"
+    },
+    {
+      "id": "0039",
+      "count": 256,
+      "bytes": 111863,
+      "etag": "1e481c7ff553581afe4bf80bcb37239e8e62e02d246bf4fa7c04324c768491be",
+      "first": "FLDZ",
+      "last": "FTHY"
+    },
+    {
+      "id": "0040",
+      "count": 256,
+      "bytes": 118582,
+      "etag": "91c9b4febf25b604b66b3b303353e0ea02c0c02ccc0a6a3009172a3498ca31e5",
+      "first": "FTI",
+      "last": "GGM"
+    },
+    {
+      "id": "0041",
+      "count": 256,
+      "bytes": 117243,
+      "etag": "d3710dcb27b314999579703698773836c31fd0b05feace28f33f7b2305426183",
+      "first": "GGME",
+      "last": "GREEL"
+    },
+    {
+      "id": "0042",
+      "count": 256,
+      "bytes": 114054,
+      "etag": "29786bc307839b3b851416aedba4c53c507bce59a05c6dd5ace6243af39574b2",
+      "first": "GREK",
+      "last": "HEFA"
+    },
+    {
+      "id": "0043",
+      "count": 256,
+      "bytes": 89887,
+      "etag": "f1e88b300cf0595acafb48c639c01a6e99f7ba22c9b2c6c7c9e38387f0af6693",
+      "first": "HEFT",
+      "last": "HKEX:01105"
+    },
+    {
+      "id": "0044",
+      "count": 256,
+      "bytes": 88130,
+      "etag": "720a7b7b18e0114145412c10c22287bca4ffcb2db461ab4b5a6c55c65d1d653d",
+      "first": "HKEX:01124",
+      "last": "HOSE:HQC"
+    },
+    {
+      "id": "0045",
+      "count": 256,
+      "bytes": 108567,
+      "etag": "e93f7819157f22e574a6e9c6b226a0f5e28cf8e1a6bd5c735968a6b188a0e3f6",
+      "first": "HOSE:HSG",
+      "last": "HYZD"
+    },
+    {
+      "id": "0046",
+      "count": 256,
+      "bytes": 106622,
+      "etag": "1ceb3d4e6564889c25cceabfd3cbfed9c415b81ec078f0c742d0560e1e545f83",
+      "first": "HZO",
+      "last": "IDX:BEBS"
+    },
+    {
+      "id": "0047",
+      "count": 256,
+      "bytes": 89539,
+      "etag": "5df1eedc41a675ef06880c93b4199f3fd2cdc10683816ff1a416e3a5d80c235d",
+      "first": "IDX:BEEF",
+      "last": "IDX:KETR"
+    },
+    {
+      "id": "0048",
+      "count": 256,
+      "bytes": 87472,
+      "etag": "2c4264322122ac242798e43afe0e361667395e296b3e430b1940ae998102a0f3",
+      "first": "IDX:KIAS",
+      "last": "IDX:SMRU"
+    },
+    {
+      "id": "0049",
+      "count": 256,
+      "bytes": 103185,
+      "etag": "cf394471a7ed129592c0feae1ac336c49d501997dbbb327d59e5e985478cb45f",
+      "first": "IDX:SMSM",
+      "last": "INAB"
+    },
+    {
+      "id": "0050",
+      "count": 256,
+      "bytes": 106574,
+      "etag": "270a038e7bf19001325be35b4906891b517f96d0f72aaa3f20f24dca9883ceb0",
+      "first": "INAC",
+      "last": "IVAL"
+    },
+    {
+      "id": "0051",
+      "count": 256,
+      "bytes": 108844,
+      "etag": "7ff040c9f223e8926049e4ae6aaa4b627716d9d41ff7f05da2f1b67cba67dfa6",
+      "first": "IVDA",
+      "last": "JQC"
+    },
+    {
+      "id": "0052",
+      "count": 256,
+      "bytes": 91929,
+      "etag": "9de85948a2c493e2bb5716e2533df3b3195cdce393299010b5a45ae548b1a32a",
+      "first": "JQUA",
+      "last": "KALV"
+    },
+    {
+      "id": "0053",
+      "count": 256,
+      "bytes": 112339,
+      "etag": "c7baa6f47feceed19abd85709bb0e1ba6667d8f3b3128bea4dd182b1361c4775",
+      "first": "KAMO",
+      "last": "KOSDAQ:018620"
+    },
+    {
+      "id": "0054",
+      "count": 256,
+      "bytes": 93844,
+      "etag": "3b6e0f32f28a654ffd580575cda92bd6cc9ef85b6f682344503f84e46842fb94",
+      "first": "KOSDAQ:018680",
+      "last": "KOSDAQ:049550"
+    },
+    {
+      "id": "0055",
+      "count": 256,
+      "bytes": 92389,
+      "etag": "c266234bb8b80c21f3e667998348cef1d1524bfd42d515e39c16e32579253649",
+      "first": "KOSDAQ:049630",
+      "last": "KOSDAQ:086060"
+    },
+    {
+      "id": "0056",
+      "count": 256,
+      "bytes": 92461,
+      "etag": "e281645b7d53c0eaed9b603a344f042c488fd014a59e2569e16eec89e98deb7b",
+      "first": "KOSDAQ:086390",
+      "last": "KOSDAQ:148250"
+    },
+    {
+      "id": "0057",
+      "count": 256,
+      "bytes": 89698,
+      "etag": "3af5a27576caebdba1023e5a2bb95bab4927e2887d51b5799ac05c5e9f0e12bf",
+      "first": "KOSDAQ:148780",
+      "last": "KOSDAQ:263020"
+    },
+    {
+      "id": "0058",
+      "count": 256,
+      "bytes": 91460,
+      "etag": "3832842932aa6456f263ca5c7cad53973ca9c2635b3501c083431253249a91c0",
+      "first": "KOSDAQ:263600",
+      "last": "KOSDAQ:377480"
+    },
+    {
+      "id": "0059",
+      "count": 256,
+      "bytes": 95352,
+      "etag": "5f4105c3e6d40afb6b7ead8e2138cb2645184e549ab7a92aa626e6bcf725d52e",
+      "first": "KOSDAQ:378340",
+      "last": "KRX:000080"
+    },
+    {
+      "id": "0060",
+      "count": 256,
+      "bytes": 85892,
+      "etag": "361e46a72a6ef7533c6b00b25f4fd7d09dbd46514a3d1e643a639ca97f4affda",
+      "first": "KRX:0000D0",
+      "last": "KRX:006260"
+    },
+    {
+      "id": "0061",
+      "count": 256,
+      "bytes": 83330,
+      "etag": "cd6be43776e4d4cf03dc5a73143c343f7bc95d834769ec871e996797d63b816f",
+      "first": "KRX:006280",
+      "last": "KRX:034830"
+    },
+    {
+      "id": "0062",
+      "count": 256,
+      "bytes": 87270,
+      "etag": "9b67cdf439a2e403a6d1b80e6ade1bfff3e216021aa87bf1dc25b3cdd6e77f60",
+      "first": "KRX:035000",
+      "last": "KRX:143860"
+    },
+    {
+      "id": "0063",
+      "count": 256,
+      "bytes": 91935,
+      "etag": "0c1fe3f8f68bcbf969e7af4e470b1f7fe127446d2f1b57b34f5bcbaa1c044e0d",
+      "first": "KRX:144600",
+      "last": "KRX:269530"
+    },
+    {
+      "id": "0064",
+      "count": 256,
+      "bytes": 93266,
+      "etag": "e9854765e116e3e767cab3686c9760905f88d0028e7b0910f22e81c8cb91c5dc",
+      "first": "KRX:269540",
+      "last": "KRX:385510"
+    },
+    {
+      "id": "0065",
+      "count": 256,
+      "bytes": 88404,
+      "etag": "afc413961d4f85bc99ba41440da2f2b3a8101867408c17600dd8b46841b8cc3e",
+      "first": "KRX:385520",
+      "last": "KRX:459560"
+    },
+    {
+      "id": "0066",
+      "count": 256,
+      "bytes": 90884,
+      "etag": "ed9101ee8cb9199a0f600ba277f6c8518c5439b41cd5f811a1433cbdab3abe86",
+      "first": "KRX:459580",
+      "last": "KRX:530023"
+    },
+    {
+      "id": "0067",
+      "count": 256,
+      "bytes": 111185,
+      "etag": "cee46fcd3a062c173698d4f90afbf256d67bf73d84f8ed564df8930cbf99d436",
+      "first": "KRX:900140",
+      "last": "LLDR"
+    },
+    {
+      "id": "0068",
+      "count": 256,
+      "bytes": 107482,
+      "etag": "1676f761fd59b611d261b5e2d3626e643ddaa0cefb9243896de870de6b13ea23",
+      "first": "LLII",
+      "last": "LSE:0G91"
+    },
+    {
+      "id": "0069",
+      "count": 256,
+      "bytes": 118908,
+      "etag": "baa0a6c449cccb60300db85747e0ea69ff34e984fa53e54a1d15d839ea5b005b",
+      "first": "LSE:0G9J",
+      "last": "LSE:0MUN"
+    },
+    {
+      "id": "0070",
+      "count": 256,
+      "bytes": 113470,
+      "etag": "2b091f754682e54ed6c35199abc7f3c5f2afe8a2afa5cb126c6d122150de1e2d",
+      "first": "LSE:0MZX",
+      "last": "LSE:0RKF"
+    },
+    {
+      "id": "0071",
+      "count": 256,
+      "bytes": 126057,
+      "etag": "0651bdabfb584ae3724c5ef0386108cd9beb6179a097a072ba51b859e2a7a718",
+      "first": "LSE:0RKH",
+      "last": "LSE:ABDN"
+    },
+    {
+      "id": "0072",
+      "count": 256,
+      "bytes": 117584,
+      "etag": "9a485e7a6d3fd7cb82225e2c688dd99be7fc936a02a3a83478014033c504c2ac",
+      "first": "LSE:ABDP",
+      "last": "LSE:BUC"
+    },
+    {
+      "id": "0073",
+      "count": 256,
+      "bytes": 114831,
+      "etag": "db447c10d0049a56613729ed13acc09d292a5ed72da36aac191d3e6dfadbbd03",
+      "first": "LSE:BUCE",
+      "last": "LSE:DGIT"
+    },
+    {
+      "id": "0074",
+      "count": 256,
+      "bytes": 125523,
+      "etag": "1e47f43f5d61e3d02e68dee8d6061c5c98932a765e70dcee6ac445f29bb71a0f",
+      "first": "LSE:DGRA",
+      "last": "LSE:FIN"
+    },
+    {
+      "id": "0075",
+      "count": 256,
+      "bytes": 127039,
+      "etag": "7addc1e9db5b579a875ee817c4ac33e314b9b56129ba3b54615b0db52f0ad14d",
+      "first": "LSE:FIND",
+      "last": "LSE:HLPD"
+    },
+    {
+      "id": "0076",
+      "count": 256,
+      "bytes": 121272,
+      "etag": "deb06190b811bf855227985bfb3ed7b2fd82d4e7bf0c918accfa62670b0adbd9",
+      "first": "LSE:HLQD",
+      "last": "LSE:ISFE"
+    },
+    {
+      "id": "0077",
+      "count": 256,
+      "bytes": 129014,
+      "etag": "c3747b1bfef7f4e08a01a1dcacb34d3dc2ce575c782f8b7b1f4c50d038b591bf",
+      "first": "LSE:ISFR",
+      "last": "LSE:LTHP"
+    },
+    {
+      "id": "0078",
+      "count": 256,
+      "bytes": 122167,
+      "etag": "a2dadde0c756a60a05e5cdeaa4e5114e969d2b01781c6aa50db45df35473cdbc",
+      "first": "LSE:LTI",
+      "last": "LSE:PGH"
+    },
+    {
+      "id": "0079",
+      "count": 256,
+      "bytes": 125094,
+      "etag": "6c0c3cd6b7f51ee6f653789d862f7a89608d190e85895271025dc8080d6311b2",
+      "first": "LSE:PGOO",
+      "last": "LSE:SHRS"
+    },
+    {
+      "id": "0080",
+      "count": 256,
+      "bytes": 129076,
+      "etag": "e02d5969ec8bc435d8552a6dcb73ada0e845f08e1a4da4febeaf0a1e10c6fa9d",
+      "first": "LSE:SIGC",
+      "last": "LSE:U10G"
+    },
+    {
+      "id": "0081",
+      "count": 256,
+      "bytes": 129390,
+      "etag": "2a56d037b57e310e02c84bcf30bca93fcf5d134cc3ea118da710d8e43c18fe48",
+      "first": "LSE:U13E",
+      "last": "LSE:WKS"
+    },
+    {
+      "id": "0082",
+      "count": 256,
+      "bytes": 132173,
+      "etag": "8ac7f992b8cd4c1a8fa039ed31e7d0d957a1501e75462465ffdd35328d2e6882",
+      "first": "LSE:WMAT",
+      "last": "LSE:XWBS"
+    },
+    {
+      "id": "0083",
+      "count": 256,
+      "bytes": 113588,
+      "etag": "49d5369c125b1b7034f4d19606aafc421bb5d2703f1d7885bfc9476f21ea62de",
+      "first": "LSE:XWD1",
+      "last": "MCK"
+    },
+    {
+      "id": "0084",
+      "count": 256,
+      "bytes": 111323,
+      "etag": "1578d04f7a5c5dbcc5a3757a6970ac0c7041685dbdc3b9e83c612e83d69959b6",
+      "first": "MCN",
+      "last": "MMTX"
+    },
+    {
+      "id": "0085",
+      "count": 256,
+      "bytes": 117728,
+      "etag": "aa51847b5d0d50bf09f7ccef431fabcbc96f108fd2fc72923b1970f16ddf6698",
+      "first": "MMTXU",
+      "last": "MWG"
+    },
+    {
+      "id": "0086",
+      "count": 256,
+      "bytes": 107323,
+      "etag": "7f2545d269e324d031a1660b8fa057670f467771e6df3ec4a8095d8d99e24d1f",
+      "first": "MWH",
+      "last": "NEO:GBFD"
+    },
+    {
+      "id": "0087",
+      "count": 256,
+      "bytes": 97905,
+      "etag": "87029de276ed15cd49f12ce8d2952880dc5a3ded7a0ec3c8ad16e0af6cce7603",
+      "first": "NEO:GBFE",
+      "last": "NGX:NIDF"
+    },
+    {
+      "id": "0088",
+      "count": 256,
+      "bytes": 102446,
+      "etag": "34c2b8a98b1151993d521b783e6ef529e79e85431a2b61790f1c19bbb3b80ff5",
+      "first": "NGX:NNFM",
+      "last": "NSE_IN:ASHIANA"
+    },
+    {
+      "id": "0089",
+      "count": 256,
+      "bytes": 92471,
+      "etag": "263c80e34b32e36315a2f30deaef2572afb5a7dac860bb26afa87f54767379db",
+      "first": "NSE_IN:ASHOKLEY",
+      "last": "NSE_IN:MCX"
+    },
+    {
+      "id": "0090",
+      "count": 256,
+      "bytes": 90417,
+      "etag": "b980024fae0af03b5ebb72acbf6084aa0721613438297b5ab51acb8b590ce136",
+      "first": "NSE_IN:MEDPLUS",
+      "last": "NTCT"
+    },
+    {
+      "id": "0091",
+      "count": 256,
+      "bytes": 112234,
+      "etag": "5faafca8a43af1593944adacfca56ef9abaecd9b5998a2265c8ab0b9cfd528f3",
+      "first": "NTES",
+      "last": "OIMAW"
+    },
+    {
+      "id": "0092",
+      "count": 256,
+      "bytes": 101322,
+      "etag": "6b3a25f4f90c542f5d0c46e87edfa17104a0a12adf33089f8ad3cd0ac7456374",
+      "first": "OIO",
+      "last": "OSL:LOKOS"
+    },
+    {
+      "id": "0093",
+      "count": 256,
+      "bytes": 89723,
+      "etag": "3ab44cca07827c3bdd939afaec8be24e4367be79e4a3179b41627e70e5b1e871",
+      "first": "OSL:LSG",
+      "last": "OTC:ADYX"
+    },
+    {
+      "id": "0094",
+      "count": 256,
+      "bytes": 86875,
+      "etag": "133ed4b432f94d7fbff2300bcf1e4c78c19eb2dd2e74dab676d4413ea391f547",
+      "first": "OTC:AECFF",
+      "last": "OTC:AMROF"
+    },
+    {
+      "id": "0095",
+      "count": 256,
+      "bytes": 88088,
+      "etag": "ddde13077f382169d4f8c21d68990f7a13f77e30d28d973440030e3a2a79190e",
+      "first": "OTC:AMRRY",
+      "last": "OTC:AUNXF"
+    },
+    {
+      "id": "0096",
+      "count": 256,
+      "bytes": 87929,
+      "etag": "bc2fa770f33bf1fff6d238d289f22d66efbabbcf2c18f15624f98f18f3aaad71",
+      "first": "OTC:AUOTY",
+      "last": "OTC:BIMT"
+    },
+    {
+      "id": "0097",
+      "count": 256,
+      "bytes": 89445,
+      "etag": "4bc93f65df3e898f1189b0a112104a105b89b6ef237872e1b46af784990db458",
+      "first": "OTC:BIOAF",
+      "last": "OTC:BTRYF"
+    },
+    {
+      "id": "0098",
+      "count": 256,
+      "bytes": 91778,
+      "etag": "59ce8065c1cb282b2313761c7a31a9d7d9a90f970e06279bd919f22cd8b2a268",
+      "first": "OTC:BTSDF",
+      "last": "OTC:CFRHF"
+    },
+    {
+      "id": "0099",
+      "count": 256,
+      "bytes": 92769,
+      "etag": "9770562a346784183fbee1e992c16f34c94b7574a4cd8050652908f69270aedf",
+      "first": "OTC:CFRLF",
+      "last": "OTC:CNFHF"
+    },
+    {
+      "id": "0100",
+      "count": 256,
+      "bytes": 91997,
+      "etag": "04dc8ffc0514d5730d57e3ec883d0d268d7254ee32fcc115d8e2979e81c40e83",
+      "first": "OTC:CNGA",
+      "last": "OTC:CUPPF"
+    },
+    {
+      "id": "0101",
+      "count": 256,
+      "bytes": 89591,
+      "etag": "6452f18b2d4b6a9919bdf6a022630b5ecb49c25bb18d9959d13bdf3843473aad",
+      "first": "OTC:CURN",
+      "last": "OTC:DRRSF"
+    },
+    {
+      "id": "0102",
+      "count": 256,
+      "bytes": 87441,
+      "etag": "1673204c894d0bcdb1a3b2814c19219cdbc3868df0a38489ab9177dac167cd62",
+      "first": "OTC:DRWN",
+      "last": "OTC:EOPSF"
+    },
+    {
+      "id": "0103",
+      "count": 256,
+      "bytes": 86983,
+      "etag": "ddf1a105150c13e574f8c4c4bb69223bdc86bf3d84c0330cdd4f803496c785e9",
+      "first": "OTC:EORBF",
+      "last": "OTC:FIDS"
+    },
+    {
+      "id": "0104",
+      "count": 256,
+      "bytes": 88552,
+      "etag": "712100aa48af232ef4fb5d044b63a517c28a2117fa08f7f2ba305416cb0a2e5c",
+      "first": "OTC:FIFG",
+      "last": "OTC:GBBYF"
+    },
+    {
+      "id": "0105",
+      "count": 256,
+      "bytes": 87776,
+      "etag": "06594e8277671048eb93a03b5a96b0c3430ce5adf4829306c6235b8aa551aa01",
+      "first": "OTC:GBCHF",
+      "last": "OTC:GRCGF"
+    },
+    {
+      "id": "0106",
+      "count": 256,
+      "bytes": 90724,
+      "etag": "438f973e448a25af0a5c272f1959077d18d4efd8cfd5514c7d7a088083ea4ca1",
+      "first": "OTC:GRCLF",
+      "last": "OTC:HLAGF"
+    },
+    {
+      "id": "0107",
+      "count": 256,
+      "bytes": 88669,
+      "etag": "444eb7c1e511ef0691779b093590944b702cc66f65a74d145b7b691c1015fb98",
+      "first": "OTC:HLAN",
+      "last": "OTC:IFAN"
+    },
+    {
+      "id": "0108",
+      "count": 256,
+      "bytes": 92384,
+      "etag": "03c4ba021db42692c7e678ad65478a8c18fc320f0c15fb50029cc83aad626726",
+      "first": "OTC:IFBC",
+      "last": "OTC:IWTNF"
+    },
+    {
+      "id": "0109",
+      "count": 256,
+      "bytes": 88327,
+      "etag": "3417a09039e2c1cff04fc2b7b37bacfbc24e786a475b529eaa4cb249fa891e5a",
+      "first": "OTC:IWVTF",
+      "last": "OTC:KTHN"
+    },
+    {
+      "id": "0110",
+      "count": 256,
+      "bytes": 89609,
+      "etag": "05c87b244cf4c135ae3dd488f80451d82df016d8322b87a864ce28a65f376393",
+      "first": "OTC:KTRIF",
+      "last": "OTC:LYPHF"
+    },
+    {
+      "id": "0111",
+      "count": 256,
+      "bytes": 88524,
+      "etag": "5c05f4d99f99bc65fd208678d6817a165a033ade4396ab7ceef0770423366b60",
+      "first": "OTC:LYTHF",
+      "last": "OTC:MLMN"
+    },
+    {
+      "id": "0112",
+      "count": 256,
+      "bytes": 87241,
+      "etag": "4d2b2157918bb3f79feb492211e530e9d9d10ae30954f4e552a23589c9b42083",
+      "first": "OTC:MLORF",
+      "last": "OTC:NCLLF"
+    },
+    {
+      "id": "0113",
+      "count": 256,
+      "bytes": 89695,
+      "etag": "3f1b305d4fb9bb34ef4c9f447d931956e456371637280e4c46dc58297bc6c460",
+      "first": "OTC:NCLTY",
+      "last": "OTC:NWIFF"
+    },
+    {
+      "id": "0114",
+      "count": 256,
+      "bytes": 87355,
+      "etag": "b0c66fd7f125925551843ef2885f3161127eeacc07bb3728f07c52b6aa6cfc69",
+      "first": "OTC:NWINF",
+      "last": "OTC:PCMC"
+    },
+    {
+      "id": "0115",
+      "count": 256,
+      "bytes": 88947,
+      "etag": "836f4386be3bd14b4888646538c5a7aa566562e8e91ff0db17b5d5340fbe9503",
+      "first": "OTC:PCOGF",
+      "last": "OTC:PRSI"
+    },
+    {
+      "id": "0116",
+      "count": 256,
+      "bytes": 87591,
+      "etag": "b9d638f692e14b49ce0cd65c561ab6c0ac855b44282b7c73908879653819979e",
+      "first": "OTC:PRSNF",
+      "last": "OTC:RDGMF"
+    },
+    {
+      "id": "0117",
+      "count": 256,
+      "bytes": 86758,
+      "etag": "3e6d44025b0b6aa2144fe72e275285dbd7b9040271e9a69ce03780258c3dc027",
+      "first": "OTC:RDOIF",
+      "last": "OTC:SAFRY"
+    },
+    {
+      "id": "0118",
+      "count": 256,
+      "bytes": 89846,
+      "etag": "48174b4c28f7a880d61cf9a31b63df76614de0e14c0e92c99d3f28fb60b7df78",
+      "first": "OTC:SAFS",
+      "last": "OTC:SIRC"
+    },
+    {
+      "id": "0119",
+      "count": 256,
+      "bytes": 88471,
+      "etag": "253cea3cbc0d8d8793e60dc5f3b15ffdc58c421cbf29241c3d9943268cda8116",
+      "first": "OTC:SIREF",
+      "last": "OTC:SRBZF"
+    },
+    {
+      "id": "0120",
+      "count": 256,
+      "bytes": 90182,
+      "etag": "207236db9c45e355e6ccf7cf34f59ca77345571d449c868ea7820b885497a476",
+      "first": "OTC:SRCGF",
+      "last": "OTC:TBBC"
+    },
+    {
+      "id": "0121",
+      "count": 256,
+      "bytes": 87242,
+      "etag": "098dcc4dbbbe2c26fd03bbda0ed4df602f5c34fa861d76d4ae824c8fb3438d73",
+      "first": "OTC:TBEV",
+      "last": "OTC:TPLWF"
+    },
+    {
+      "id": "0122",
+      "count": 256,
+      "bytes": 87800,
+      "etag": "c7488980fe38cd89ccdff538cedb9e3417d814960b2b35e0507144d8d1a28dce",
+      "first": "OTC:TPNED",
+      "last": "OTC:USMT"
+    },
+    {
+      "id": "0123",
+      "count": 256,
+      "bytes": 88220,
+      "etag": "9e688cf0c313221e50ab2ebd49650ccf521538a3468740f4ce7e16700dfb6e0c",
+      "first": "OTC:USNL",
+      "last": "OTC:WARFY"
+    },
+    {
+      "id": "0124",
+      "count": 256,
+      "bytes": 89280,
+      "etag": "a5781632cb89ad0d0a7c7bb231fb91bdcc8170b3ef41a821af79453d3205ba2d",
+      "first": "OTC:WARM",
+      "last": "OTC:YBGJ"
+    },
+    {
+      "id": "0125",
+      "count": 256,
+      "bytes": 104055,
+      "etag": "d063d0ccd58e7ce7d95c1cba82cde1c76d8fb2b92228da79dbd2ae8a6bda02c2",
+      "first": "OTC:YECO",
+      "last": "PBFB"
+    },
+    {
+      "id": "0126",
+      "count": 256,
+      "bytes": 117417,
+      "etag": "bb0bbc36efeb99ea1571f1f73052ed03ef6545a2de54f5cdeeb4c174d1622f35",
+      "first": "PBFR",
+      "last": "PKW"
+    },
+    {
+      "id": "0127",
+      "count": 256,
+      "bytes": 119148,
+      "etag": "80547986b24a87f8424dda705acf389a8deb44130198066b8c07b4e05cf95623",
+      "first": "PKX",
+      "last": "PSE:BDO"
+    },
+    {
+      "id": "0128",
+      "count": 256,
+      "bytes": 90359,
+      "etag": "77f8a4bf56f4fbb84ba5da57dc372bef67cfd2e0a4c888d239fa04d5bcb7763b",
+      "first": "PSE:BLOOM",
+      "last": "PSX:FFLM"
+    },
+    {
+      "id": "0129",
+      "count": 256,
+      "bytes": 85833,
+      "etag": "b584179b9102eafabbf0fda8f2ab9e6b5d080a29c11e534118264249282e8c5b",
+      "first": "PSX:FHAM",
+      "last": "PSX:UVIC"
+    },
+    {
+      "id": "0130",
+      "count": 256,
+      "bytes": 117249,
+      "etag": "f92c5a807d0b98a188ceb8bbbbaceaa963cedfd73b0787966519edf29bc414d5",
+      "first": "PSX:WAFI",
+      "last": "QUBX"
+    },
+    {
+      "id": "0131",
+      "count": 256,
+      "bytes": 112535,
+      "etag": "d4e9ff8b4fad5dfac04f926e42bb9bda01c27df3eb57e458c60bcfdd69b15d0e",
+      "first": "QUCY",
+      "last": "RINT"
+    },
+    {
+      "id": "0132",
+      "count": 256,
+      "bytes": 115891,
+      "etag": "0ce27c4b370278ea32b6e782f4357b14f1f7e944aa39dc230471084c0a484cc9",
+      "first": "RIO",
+      "last": "RYSE"
+    },
+    {
+      "id": "0133",
+      "count": 256,
+      "bytes": 113460,
+      "etag": "9490d26d2cfa8a59fffe7fd950f1725212ad0e6e2445929406302a4534cd45a2",
+      "first": "RYTM",
+      "last": "SEM:DELN"
+    },
+    {
+      "id": "0134",
+      "count": 256,
+      "bytes": 122164,
+      "etag": "08068d5db7971fbb1795c1017abdeeac08b42134f50d7b80490987c82d07ac83",
+      "first": "SEM:EATS",
+      "last": "SET:JAS"
+    },
+    {
+      "id": "0135",
+      "count": 256,
+      "bytes": 129415,
+      "etag": "9471dac1233b769e0f980841c995320dfa2e3f05db16937c78eb98f71a8b4134",
+      "first": "SET:JCK",
+      "last": "SET:TISCO"
+    },
+    {
+      "id": "0136",
+      "count": 256,
+      "bytes": 122196,
+      "etag": "b1fadb7c48835cda7c1441da39e9e71aa81ebd72589b21156a49e3fe6efc617e",
+      "first": "SET:TITLE",
+      "last": "SIX:APTB"
+    },
+    {
+      "id": "0137",
+      "count": 256,
+      "bytes": 130651,
+      "etag": "a8864650d681d5eb00b9e9f885706f2c2285060577df36f3d4dbd1327f810f79",
+      "first": "SIX:ARBN",
+      "last": "SIX:NEAG"
+    },
+    {
+      "id": "0138",
+      "count": 256,
+      "bytes": 125289,
+      "etag": "b27ca474d1aa54d6bc91f2e4ca57058a30689ff3807af3ca88497572b461f30d",
+      "first": "SIX:NESN",
+      "last": "SLXN"
+    },
+    {
+      "id": "0139",
+      "count": 256,
+      "bytes": 115557,
+      "etag": "951ae13a1cd22dd175340f446613331587d1a7f37ee5902708760b149eaf6118",
+      "first": "SLXNW",
+      "last": "SPTU"
+    },
+    {
+      "id": "0140",
+      "count": 256,
+      "bytes": 114928,
+      "etag": "90196e3da3ab48420ae42ad7e24c738450ef7e119405959877830b384f726ec4",
+      "first": "SPUC",
+      "last": "SSE:513350"
+    },
+    {
+      "id": "0141",
+      "count": 256,
+      "bytes": 108453,
+      "etag": "6ef4d7113fcc1d1a06a6c77f8ac81a4d5c39892b2372f7d9ed5a25783a5acfad",
+      "first": "SSE:513360",
+      "last": "SSE:561300"
+    },
+    {
+      "id": "0142",
+      "count": 256,
+      "bytes": 120691,
+      "etag": "eb8b11b8222fad6db0a5b4c81920b1101e3f54311356c8fb19a67020eb2f4e52",
+      "first": "SSE:561310",
+      "last": "SSE:600207"
+    },
+    {
+      "id": "0143",
+      "count": 256,
+      "bytes": 136607,
+      "etag": "2bcd398708ff5afcf91fb38ca135445d3898ded901f9d450e025f97a8c44ca7a",
+      "first": "SSE:600208",
+      "last": "SSE:600560"
+    },
+    {
+      "id": "0144",
+      "count": 256,
+      "bytes": 133898,
+      "etag": "4d72c8e4d50fb2a524346e87262150b8f9b8d6d5ce0f89e64b40b63c8a8acb42",
+      "first": "SSE:600561",
+      "last": "SSE:600867"
+    },
+    {
+      "id": "0145",
+      "count": 256,
+      "bytes": 134591,
+      "etag": "b33c4915752b6e8ec8eebc38b327f1a32be605e3cd74f4d04061b39488aa5bb1",
+      "first": "SSE:600868",
+      "last": "SSE:601827"
+    },
+    {
+      "id": "0146",
+      "count": 256,
+      "bytes": 121507,
+      "etag": "e772e386cfbadaff214740e7347ae8624627ab5fa98a521441098584a7179344",
+      "first": "SSE:601828",
+      "last": "SSE:603276"
+    },
+    {
+      "id": "0147",
+      "count": 256,
+      "bytes": 131775,
+      "etag": "5fab48484b6fd81f600891cb0aefec33200facd4555c41e27d132a47c5424b20",
+      "first": "SSE:603277",
+      "last": "SSE:603801"
+    },
+    {
+      "id": "0148",
+      "count": 256,
+      "bytes": 136036,
+      "etag": "0776b5792df28aa76c0312867e8f8dab5e9d447fc74038ea57cadeefee55f76b",
+      "first": "SSE:603803",
+      "last": "SSE:688032"
+    },
+    {
+      "id": "0149",
+      "count": 256,
+      "bytes": 137961,
+      "etag": "959efecb13705a9f77a45fbd3c3f60aecdabcdb4a86b801903cbf1b97c418c37",
+      "first": "SSE:688033",
+      "last": "SSE:688327"
+    },
+    {
+      "id": "0150",
+      "count": 256,
+      "bytes": 139025,
+      "etag": "5bcbb739b211c4ee9b996d2841b35f14ed7ad42703f26f85339768b634bcdcee",
+      "first": "SSE:688328",
+      "last": "SSE:688777"
+    },
+    {
+      "id": "0151",
+      "count": 256,
+      "bytes": 104769,
+      "etag": "4c367d44eafd51fab32cd22c4ffc47c1df20a87df659cb287d781393664490a1",
+      "first": "SSE:688778",
+      "last": "STO:AJA-B"
+    },
+    {
+      "id": "0152",
+      "count": 256,
+      "bytes": 83772,
+      "etag": "f8f7fc9e8f523c7f8388f9540b3a756bba40f1862f9793ac79bda1f463b2d406",
+      "first": "STO:ALBERT",
+      "last": "STO:HAV-B"
+    },
+    {
+      "id": "0153",
+      "count": 256,
+      "bytes": 83404,
+      "etag": "0e1b7edc3ad29ca8fd3ba7c89186868502d5921f010d84493dc510e3ca89835a",
+      "first": "STO:HAYPP",
+      "last": "STO:SANION"
+    },
+    {
+      "id": "0154",
+      "count": 256,
+      "bytes": 95673,
+      "etag": "a38044e99bd0f3664ed7f862a21899eb54f21a81b528f6e8eb5bf7fd3207f0b2",
+      "first": "STO:SARS",
+      "last": "SVIV"
+    },
+    {
+      "id": "0155",
+      "count": 256,
+      "bytes": 117896,
+      "etag": "c8d37310a34bc08be66dcc20e7db6c8d947375b84b80667f03d2a1084a699c34",
+      "first": "SVIVU",
+      "last": "SZSE:000695"
+    },
+    {
+      "id": "0156",
+      "count": 256,
+      "bytes": 131661,
+      "etag": "ed1b5539353f4ca3cfbd45b1670926bb0fb461fd6002ab75d5a3511e6a74ab19",
+      "first": "SZSE:000697",
+      "last": "SZSE:001358"
+    },
+    {
+      "id": "0157",
+      "count": 256,
+      "bytes": 134130,
+      "etag": "75403cf1906764d39b4dc79ac088f2095727e534e6a0187b11d24afe67683d08",
+      "first": "SZSE:001366",
+      "last": "SZSE:002265"
+    },
+    {
+      "id": "0158",
+      "count": 256,
+      "bytes": 137815,
+      "etag": "19aed593d783e962217a71cd3142bb8f2ddb7426928c6e223409811db5a0b3fa",
+      "first": "SZSE:002266",
+      "last": "SZSE:002553"
+    },
+    {
+      "id": "0159",
+      "count": 256,
+      "bytes": 138155,
+      "etag": "849e5bc2cf9633e3b655b95d0754713d244829688d21109de9d279800128c673",
+      "first": "SZSE:002554",
+      "last": "SZSE:002852"
+    },
+    {
+      "id": "0160",
+      "count": 256,
+      "bytes": 122980,
+      "etag": "ce15a19aa62ad5afb3aae07176eb16e71960998aceda54c1a5d578316b546925",
+      "first": "SZSE:002853",
+      "last": "SZSE:159631"
+    },
+    {
+      "id": "0161",
+      "count": 256,
+      "bytes": 108160,
+      "etag": "9b88dc650361c9e58ef76beb3b8c274f036610a393b6e9673c1bd260c851356c",
+      "first": "SZSE:159632",
+      "last": "SZSE:159977"
+    },
+    {
+      "id": "0162",
+      "count": 256,
+      "bytes": 121554,
+      "etag": "8004c540f3edbc0cb300fe8ff8b1d91a0f2ae48c9ee7125dc665b2812ca9a74e",
+      "first": "SZSE:159980",
+      "last": "SZSE:300228"
+    },
+    {
+      "id": "0163",
+      "count": 256,
+      "bytes": 136460,
+      "etag": "4695ebef4e978f97a89a21f618e75c9eeef0ed5bbcd773db6ebfa9bbd749a291",
+      "first": "SZSE:300229",
+      "last": "SZSE:300503"
+    },
+    {
+      "id": "0164",
+      "count": 256,
+      "bytes": 140795,
+      "etag": "3712aa763a0ebf96a0ed83250118ea0ca8b12c9dc6b4fc832762faa90a5d9c80",
+      "first": "SZSE:300504",
+      "last": "SZSE:300776"
+    },
+    {
+      "id": "0165",
+      "count": 256,
+      "bytes": 141962,
+      "etag": "7833bdf1ff1fb89e406ecc9ed30ea94484636ee35020513a857103a2f79f8f75",
+      "first": "SZSE:300777",
+      "last": "SZSE:301047"
+    },
+    {
+      "id": "0166",
+      "count": 256,
+      "bytes": 146678,
+      "etag": "04024ad235069517fb11ae48b5b3476fa11d206123caa5bc864c74d81c03fa26",
+      "first": "SZSE:301048",
+      "last": "SZSE:301368"
+    },
+    {
+      "id": "0167",
+      "count": 256,
+      "bytes": 109297,
+      "etag": "ec9fd2fc1a7db876c59ff902003021c7762f1f46a9c20c98b320709f0ce5d98d",
+      "first": "SZSE:301369",
+      "last": "TASE:HRL-F53"
+    },
+    {
+      "id": "0168",
+      "count": 256,
+      "bytes": 118399,
+      "etag": "3278b1d4182e13358488f556450053dac9d7e3967713465fd4f9a49c5ef1a346",
+      "first": "TASE:HRL-F61",
+      "last": "TASE:MTF-F3"
+    },
+    {
+      "id": "0169",
+      "count": 256,
+      "bytes": 118876,
+      "etag": "0571816c93f26c27f12d3aee8bbfb1031fd7f7dc3e4583506f759817a468e946",
+      "first": "TASE:MTF-F30",
+      "last": "TBG"
+    },
+    {
+      "id": "0170",
+      "count": 256,
+      "bytes": 117988,
+      "etag": "07a49b8b9fe1c2aa9be80c47f7736b7034e8f3bcb281adbff119debab4735a8f",
+      "first": "TBH",
+      "last": "TMDE"
+    },
+    {
+      "id": "0171",
+      "count": 256,
+      "bytes": 109321,
+      "etag": "7048ef4512e47962dec6d54593b1d38037d96cab9dad1e9a5c276340808ee8ed",
+      "first": "TMDV",
+      "last": "TPEX:2729"
+    },
+    {
+      "id": "0172",
+      "count": 256,
+      "bytes": 90562,
+      "etag": "2ed93097c6f3945714bf0e593bebc877c133018189daf68e3a03879879e010ff",
+      "first": "TPEX:2732",
+      "last": "TPEX:4419"
+    },
+    {
+      "id": "0173",
+      "count": 256,
+      "bytes": 92182,
+      "etag": "14a1fdc340dbe0b7d9cca19ee1cde1c26a9a7298ce95668d652e4345540f5635",
+      "first": "TPEX:4420",
+      "last": "TPEX:6240"
+    },
+    {
+      "id": "0174",
+      "count": 256,
+      "bytes": 95226,
+      "etag": "0b79c81be7a72bdfcf8e8f38c86610a45b64ab7a7da1dc26207ae7d2f22ff269",
+      "first": "TPEX:6241",
+      "last": "TPEX:6968"
+    },
+    {
+      "id": "0175",
+      "count": 256,
+      "bytes": 99041,
+      "etag": "426196d5f791f0e02d7d3f64795fe53cc9d5618235aea2a4d7c7fbd2db899f85",
+      "first": "TPEX:6973",
+      "last": "TRUC"
+    },
+    {
+      "id": "0176",
+      "count": 256,
+      "bytes": 126963,
+      "etag": "4346e7ce84a922511d193303f3e4ed741f6eab136037843a64f4d23e76df9043",
+      "first": "TRUD",
+      "last": "TSE:1950"
+    },
+    {
+      "id": "0177",
+      "count": 256,
+      "bytes": 127142,
+      "etag": "504e8f5e03d3784b044ddb38cba1f987431bc8ea5060402013b5710e4b419b50",
+      "first": "TSE:1951",
+      "last": "TSE:2602"
+    },
+    {
+      "id": "0178",
+      "count": 256,
+      "bytes": 122555,
+      "etag": "c2d560dc71a2c93f97ef32b513378da4751f764a8f95a20f193b3a1f93a36508",
+      "first": "TSE:2607",
+      "last": "TSE:3173"
+    },
+    {
+      "id": "0179",
+      "count": 256,
+      "bytes": 121165,
+      "etag": "f0f81a8fc142b2036882d8fa680249161e950fa03d7141b78ed850075a14d8b1",
+      "first": "TSE:3175",
+      "last": "TSE:3800"
+    },
+    {
+      "id": "0180",
+      "count": 256,
+      "bytes": 125802,
+      "etag": "f4edbd28d7f9742f82d3d42f099b2f841b675cd729d710b548f4d179827b6113",
+      "first": "TSE:3802",
+      "last": "TSE:4259"
+    },
+    {
+      "id": "0181",
+      "count": 256,
+      "bytes": 125492,
+      "etag": "59893be14ff354ea55583e47e2f64de7ef8a048703c41938cc341c0ac0ee4d78",
+      "first": "TSE:425A",
+      "last": "TSE:4751"
+    },
+    {
+      "id": "0182",
+      "count": 256,
+      "bytes": 125967,
+      "etag": "c7893375a9622cc1fa8ff5059d98aeb52b2e4126503a7dd20e548b34a895a4ce",
+      "first": "TSE:4752",
+      "last": "TSE:5715"
+    },
+    {
+      "id": "0183",
+      "count": 256,
+      "bytes": 122393,
+      "etag": "6df0618b4b73e435ff42cf38fdb2a43278a9322171e828c859b5c0abbf9c64ab",
+      "first": "TSE:5721",
+      "last": "TSE:6445"
+    },
+    {
+      "id": "0184",
+      "count": 256,
+      "bytes": 125005,
+      "etag": "d1c966b099d6011881d97356e305143f17e7e1ef4293dd320a4c15c65cae78c2",
+      "first": "TSE:6448",
+      "last": "TSE:7453"
+    },
+    {
+      "id": "0185",
+      "count": 256,
+      "bytes": 123664,
+      "etag": "863c7b8cbd792255d77cd86864f8b2809cf784f684b6aa2fae4f704a337b5653",
+      "first": "TSE:7456",
+      "last": "TSE:8006"
+    },
+    {
+      "id": "0186",
+      "count": 256,
+      "bytes": 126205,
+      "etag": "fa3fc7d42341d076602fd4bfe56c973917c93de2730f623404dce99af4a65b62",
+      "first": "TSE:8007",
+      "last": "TSE:9022"
+    },
+    {
+      "id": "0187",
+      "count": 256,
+      "bytes": 115575,
+      "etag": "5bd775469a4525ab834a3ec541607c19e79865487ab85ffda0c9bac07b03dddf",
+      "first": "TSE:9023",
+      "last": "TSE:9622"
+    },
+    {
+      "id": "0188",
+      "count": 256,
+      "bytes": 115155,
+      "etag": "4fb0054261f4edb97df091106f4be0f3ca5ec4616b232a9748ec315955621082",
+      "first": "TSE:9625",
+      "last": "TSX:BLN"
+    },
+    {
+      "id": "0189",
+      "count": 256,
+      "bytes": 103576,
+      "etag": "6a7550e0f36c8d0b34b6950de034655bdb1729d550b986310d9097841b0d63d4",
+      "first": "TSX:BLOV",
+      "last": "TSX:DMQC"
+    },
+    {
+      "id": "0190",
+      "count": 256,
+      "bytes": 111689,
+      "etag": "72bfb76a559f5930a777e9f39568c71f7d1b92932a492c5be6c27f49d687687d",
+      "first": "TSX:DND",
+      "last": "TSX:HAF"
+    },
+    {
+      "id": "0191",
+      "count": 256,
+      "bytes": 107994,
+      "etag": "7d46ba0431a9002aa1a90f04da7847e6d0efa95a4e46b75becdc428dbc15c6b9",
+      "first": "TSX:HAZ",
+      "last": "TSX:MNU.U"
+    },
+    {
+      "id": "0192",
+      "count": 256,
+      "bytes": 107609,
+      "etag": "2f152a6b44a972ec7c64850fc9fd2bce34dc650ba87f6f288e00f982faea650b",
+      "first": "TSX:MNXT",
+      "last": "TSX:RIFI"
+    },
+    {
+      "id": "0193",
+      "count": 256,
+      "bytes": 116806,
+      "etag": "89c407e4f4f47fc27acee716a24f44e060b87ab29f49c524088969f238af5d1d",
+      "first": "TSX:RIGE",
+      "last": "TSX:VIDY"
+    },
+    {
+      "id": "0194",
+      "count": 256,
+      "bytes": 114106,
+      "etag": "cb2fc2b5a47926abb152b21eac25a874fc290a5f4bf30e1abfcdb8b75d74e55f",
+      "first": "TSX:VISA",
+      "last": "TSX:ZST"
+    },
+    {
+      "id": "0195",
+      "count": 256,
+      "bytes": 97924,
+      "etag": "3dff84b123ddf5b07e1f0d899fde7d13cac3170097dae58d798368653b285213",
+      "first": "TSX:ZSU",
+      "last": "TSXV:CTRL"
+    },
+    {
+      "id": "0196",
+      "count": 256,
+      "bytes": 100734,
+      "etag": "016199fc09f639c109b71122582e562dd7aa8099a4b31ecd2285f70ac1a5c969",
+      "first": "TSXV:CTV",
+      "last": "TSXV:JCI-H"
+    },
+    {
+      "id": "0197",
+      "count": 256,
+      "bytes": 99742,
+      "etag": "3183cdcafc9617ba28c3fdd4549900c92bc43d3bf772d9ef7ba02c6e6c393ae6",
+      "first": "TSXV:JDN",
+      "last": "TSXV:PLO-H"
+    },
+    {
+      "id": "0198",
+      "count": 256,
+      "bytes": 109660,
+      "etag": "c4ed899fed33075c4f40eb1fd11c205fb0495b3fcf7809a282be305dbb0c7637",
+      "first": "TSXV:PLXX.P",
+      "last": "TSXV:VPI"
+    },
+    {
+      "id": "0199",
+      "count": 256,
+      "bytes": 105309,
+      "etag": "18ae5fe3794470e80e66a35825bab79d1d492353c20b76583fe9fd70ee19cddc",
+      "first": "TSXV:VPT",
+      "last": "TWSE:00830"
+    },
+    {
+      "id": "0200",
+      "count": 256,
+      "bytes": 97520,
+      "etag": "afe426d6c5e4d9040a913f0e170c85f4625b7e44c4136acc6eeca4ac91f0802e",
+      "first": "TWSE:00850",
+      "last": "TWSE:1590"
+    },
+    {
+      "id": "0201",
+      "count": 256,
+      "bytes": 92135,
+      "etag": "2f95ee955fedb0bca1002acad370278438b8dfc025100042240c1057b04d9ea1",
+      "first": "TWSE:1597",
+      "last": "TWSE:2514"
+    },
+    {
+      "id": "0202",
+      "count": 256,
+      "bytes": 93555,
+      "etag": "37a63a16be27074869a80e5d093d503c75cd8272d144e68c2d7b53f5cc4a4f61",
+      "first": "TWSE:2515",
+      "last": "TWSE:4536"
+    },
+    {
+      "id": "0203",
+      "count": 256,
+      "bytes": 90209,
+      "etag": "f8421fe696b4e8cf87a8362aa436bc7c9dca50bdacdb4dfef24bc1e57ce2c9e7",
+      "first": "TWSE:4540",
+      "last": "TWSE:7711"
+    },
+    {
+      "id": "0204",
+      "count": 256,
+      "bytes": 100303,
+      "etag": "81d5ee86cbf2367e1f757780c1d990051b73ea7ab44ba31ca4a3c7df96bba4af",
+      "first": "TWSE:7721",
+      "last": "UMMA"
+    },
+    {
+      "id": "0205",
+      "count": 256,
+      "bytes": 112691,
+      "etag": "4a2bfb017e547f4b806d14eca565f8f3eb76f693e078b5daef2cebb64e095974",
+      "first": "UNB",
+      "last": "VERI"
+    },
+    {
+      "id": "0206",
+      "count": 256,
+      "bytes": 113356,
+      "etag": "d9846abbfec44e8a656d76911bb5f0f300fac5d9564682cd68f331c85e6d985c",
+      "first": "VERS",
+      "last": "VUSG"
+    },
+    {
+      "id": "0207",
+      "count": 256,
+      "bytes": 114638,
+      "etag": "0ca6a0cb6c0ebdc3f95cf66b8e2afbf920009dbf7a0f04322dae4388f92c873e",
+      "first": "VUSI",
+      "last": "WSE:B24"
+    },
+    {
+      "id": "0208",
+      "count": 256,
+      "bytes": 88157,
+      "etag": "c6e965ad8ffbf37f84265d28f05a12b354cf58d06bdce459fcccfeeee61ffff1",
+      "first": "WSE:BCM",
+      "last": "WSE:STD"
+    },
+    {
+      "id": "0209",
+      "count": 256,
+      "bytes": 112753,
+      "etag": "fd81db108cb23c46ea37a84c5a54228f699f78b03fbcb484e64a849eb6a837b1",
+      "first": "WSE:SVRS",
+      "last": "XETRA:3EDS"
+    },
+    {
+      "id": "0210",
+      "count": 256,
+      "bytes": 131974,
+      "etag": "4287ab69ac8dcdbca95df55ed7819cf41ad058f43b25e77abe6665b15cacc63d",
+      "first": "XETRA:3IND",
+      "last": "XETRA:B72"
+    },
+    {
+      "id": "0211",
+      "count": 256,
+      "bytes": 127630,
+      "etag": "6cff584585889eea58c8497302153d8cb4932e4a994c016c8dd462a0636a4cfb",
+      "first": "XETRA:B7E",
+      "last": "XETRA:CRRE"
+    },
+    {
+      "id": "0212",
+      "count": 256,
+      "bytes": 126212,
+      "etag": "bf9e7783fc3268b25e9705dd0003e1a7b72cbec6057a71a3b6e8f416ec51c971",
+      "first": "XETRA:CRZK",
+      "last": "XETRA:EMIE"
+    },
+    {
+      "id": "0213",
+      "count": 256,
+      "bytes": 142919,
+      "etag": "335ca3498f42ad73fe30924a2d4f844ae0d926966dc4b9bf032da55f56421e06",
+      "first": "XETRA:EMKX",
+      "last": "XETRA:H41H"
+    },
+    {
+      "id": "0214",
+      "count": 256,
+      "bytes": 136511,
+      "etag": "33c013451b3eeef84c126f53815559f07e15c82da856aee0204b4f4c249803c4",
+      "first": "XETRA:H41Q",
+      "last": "XETRA:LM9C"
+    },
+    {
+      "id": "0215",
+      "count": 256,
+      "bytes": 126275,
+      "etag": "91bf31e9e823887602d98a758cea2fa257bea0febde1c232b88f192bcd6cb009",
+      "first": "XETRA:LM9D",
+      "last": "XETRA:RHYE"
+    },
+    {
+      "id": "0216",
+      "count": 256,
+      "bytes": 137483,
+      "etag": "b72816fc26e0b065926c6648adf9d2ec63c94f2c489ae276b119a7436972059c",
+      "first": "XETRA:RHYG",
+      "last": "XETRA:UTDI"
+    },
+    {
+      "id": "0217",
+      "count": 256,
+      "bytes": 132465,
+      "etag": "f006b6b738cdbbf282e033ef11a76cc2f5dc9bfda526bb1173833e1ef92a4ecd",
+      "first": "XETRA:UZU",
+      "last": "XETRA:XNKY"
+    },
+    {
+      "id": "0218",
+      "count": 256,
+      "bytes": 118729,
+      "etag": "f2537dbd1be70fe80a1071d36bd1efd2da1e5e367e8d0a892b63a569cb01cf8b",
+      "first": "XETRA:XOM3",
+      "last": "XXI"
+    },
+    {
+      "id": "0219",
+      "count": 243,
+      "bytes": 101203,
+      "etag": "3fbbd7478da96d9b05da11ee76b696a7c3b56e529ac006f0847b0abcce270f51",
+      "first": "XXII",
+      "last": "ZZZ"
+    }
+  ]
+}

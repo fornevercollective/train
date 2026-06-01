@@ -53,6 +53,7 @@ import type { mountSnowflakeRadar } from './lib/snowflake-radar-chart';
 import type { mountHistorySnowflakeRadar } from './lib/history-snowflake-radar';
 import type { mountSnowflakeAxisGrid } from './lib/snowflake-axis-mini-chart';
 import type { loadQuotesLatest, quoteForTicker } from './lib/quotes-latest';
+import type { loadCatalog } from './lib/catalog-loader';
 
 declare global {
 	interface Window {
@@ -89,6 +90,10 @@ declare global {
 			mountSnowflakeRadar: typeof mountSnowflakeRadar;
 			mountHistorySnowflakeRadar: typeof mountHistorySnowflakeRadar;
 			mountSnowflakeAxisGrid: typeof mountSnowflakeAxisGrid;
+		};
+		/** Bridge for sharded catalog loader (Directory / Featured / Listing). */
+		__qbitosCatalogLoader__?: {
+			loadCatalog: typeof loadCatalog;
 		};
 		/** Optional override: when set, the loader fetches coverage from `api.qbitos.ai`
 		 * (the versioning API) instead of the static GitHub Pages assets. */

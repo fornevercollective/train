@@ -632,13 +632,33 @@ const coverageMeta = {
 			renderResults();
 		}
 
-		async function loadCatalog() {
-			const response = await fetch(`${baseUrl}data/catalog.json`);
-			if (!response.ok) {
-				throw new Error(`Failed to load catalog: ${response.status}`);
-			}
+		function whenCatalogLoaderReady(timeoutMs = 8000) {
+			return new Promise((resolve) => {
+				if (window.__qbitosCatalogLoader__) return resolve(window.__qbitosCatalogLoader__);
+				const start = Date.now();
+				const handler = () => resolve(window.__qbitosCatalogLoader__ ?? null);
+				window.addEventListener('qbitos:catalog-loader-ready', handler, { once: true });
+				const tick = () => {
+					if (window.__qbitosCatalogLoader__) return resolve(window.__qbitosCatalogLoader__);
+					if (Date.now() - start > timeoutMs) return resolve(null);
+					setTimeout(tick, 80);
+				};
+				tick();
+			});
+		}
 
-			const records = await response.json();
+		async function loadCatalog() {
+			const loader = await whenCatalogLoaderReady();
+			let records;
+			if (loader && typeof loader.loadCatalog === 'function') {
+				records = await loader.loadCatalog(baseUrl);
+			} else {
+				const response = await fetch(`${baseUrl}data/catalog.json`);
+				if (!response.ok) {
+					throw new Error(`Failed to load catalog: ${response.status}`);
+				}
+				records = await response.json();
+			}
 			return records.map((entry) => ({
 				...entry,
 				_search: [
@@ -764,6 +784,12 @@ const coverageMeta = {
 			dayKeyToISO,
 		} from '../../lib/history-shard-loader.ts';
 		import { mountHistorySparkline } from '../../lib/history-sparkline.ts';
+		import { loadCatalog as fetchCatalogRecords } from '../../lib/catalog-loader.ts';
+
+		window.__qbitosCatalogLoader__ = {
+			loadCatalog: fetchCatalogRecords,
+		};
+		window.dispatchEvent(new Event('qbitos:catalog-loader-ready'));
 
 		window.__qbitosHealthLoader__ = {
 			getCoverageForTicker,
