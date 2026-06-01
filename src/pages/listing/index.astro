@@ -70,10 +70,21 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				<div class="tileTop">
 					<div>
 						<div class="ticker">Current interval</div>
-						<div class="name">Daily close series from our shim — same chart path as “Price history” on the full profile.</div>
+						<div id="listing-live-interval-subtitle" class="name">
+							Latest session quote plus trailing daily OHLCV from the shim store.
+						</div>
 					</div>
+					<span id="listing-live-quote-badge" class="badge muted">Quote: —</span>
 				</div>
 				<div id="listing-live-stats" class="history-stats listing-live-stats" hidden>
+					<div class="metric-card">
+						<span class="muted">Last close</span>
+						<strong id="listing-live-close">—</strong>
+					</div>
+					<div class="metric-card">
+						<span class="muted">Session change</span>
+						<strong id="listing-live-change">—</strong>
+					</div>
 					<div class="metric-card">
 						<span class="muted">Total return (window)</span>
 						<strong id="listing-live-total-return">—</strong>
@@ -162,6 +173,18 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					</div>
 					<div class="key-metrics">
 						<div class="metric-card">
+							<span class="muted">Session price</span>
+							<strong id="listing-quote-price">—</strong>
+						</div>
+						<div class="metric-card">
+							<span class="muted">Session change</span>
+							<strong id="listing-quote-change">—</strong>
+						</div>
+						<div class="metric-card">
+							<span class="muted">Quote as of</span>
+							<strong id="listing-quote-asof">—</strong>
+						</div>
+						<div class="metric-card">
 							<span class="muted">Company creation</span>
 							<strong id="listing-company-date">Unavailable</strong>
 						</div>
@@ -174,17 +197,61 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 							<strong id="listing-first-trade">Unavailable</strong>
 						</div>
 						<div class="metric-card">
-							<span class="muted">LLC filing timestamp</span>
+							<span class="muted" title="SEC acceptance time of the earliest registration-class filing (S-1, 8-A12B, etc.) — the statutory filing moment law firms submit to the commission.">
+								Statutory filing time
+							</span>
 							<strong id="listing-filing-timestamp">Unavailable</strong>
 						</div>
 						<div class="metric-card">
-							<span class="muted">LLC filing location</span>
+							<span class="muted" title="State secretary-of-state / corporations division venue (courthouse-equivalent), not the issuer's operating HQ.">
+								Filing venue (SOS)
+							</span>
 							<strong id="listing-filing-location">Unavailable</strong>
 						</div>
 					</div>
 					<p id="listing-notes" class="listing-notes muted"></p>
 				</aside>
 			</div>
+
+			<section class="card listing-panel listing-interval-card" id="listing-interval-card" hidden>
+				<div class="tileTop">
+					<div>
+						<div class="ticker">Current interval</div>
+						<div id="interval-subtitle" class="name">
+							Latest session quote plus trailing daily OHLCV from the shim store.
+						</div>
+					</div>
+					<span id="interval-quote-badge" class="badge muted">Quote: —</span>
+				</div>
+				<div id="profile-interval-stats" class="history-stats listing-live-stats" hidden>
+					<div class="metric-card">
+						<span class="muted">Last close</span>
+						<strong id="profile-interval-close">—</strong>
+					</div>
+					<div class="metric-card">
+						<span class="muted">Session change</span>
+						<strong id="profile-interval-change">—</strong>
+					</div>
+					<div class="metric-card">
+						<span class="muted">Total return (window)</span>
+						<strong id="profile-interval-total-return">—</strong>
+					</div>
+					<div class="metric-card">
+						<span class="muted">Annualized</span>
+						<strong id="profile-interval-annualized">—</strong>
+					</div>
+					<div class="metric-card">
+						<span class="muted">Max drawdown</span>
+						<strong id="profile-interval-drawdown">—</strong>
+					</div>
+					<div class="metric-card">
+						<span class="muted">Avg daily volume</span>
+						<strong id="profile-interval-volume">—</strong>
+					</div>
+				</div>
+				<div id="profile-interval-chart" class="history-chart" aria-label="Current interval price chart"></div>
+				<p id="profile-interval-status" class="muted history-status">Loading interval…</p>
+			</section>
 
 			<section class="card listing-panel listing-history-card" data-history-card hidden>
 				<div class="tileTop">
@@ -215,6 +282,60 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					</div>
 				</div>
 				<div id="history-chart" class="history-chart" aria-label="Price history chart"></div>
+				<div class="history-viz-grid">
+					<div class="history-viz-cell">
+						<p class="history-viz-kicker muted">
+							Calendar heatmap ·
+							<a
+								href="https://echarts.apache.org/examples/en/editor.html?c=calendar-simple"
+								target="_blank"
+								rel="noopener noreferrer">calendar-simple</a
+							>
+						</p>
+						<div
+							id="history-calendar-chart"
+							class="history-calendar-chart"
+							aria-label="Daily return calendar heatmap"
+						></div>
+					</div>
+					<div class="history-viz-cell history-viz-cell--flows">
+						<p class="history-viz-kicker muted">
+							Return flows ·
+							<a
+								href="https://echarts.apache.org/examples/en/editor.html?c=flowGL-noise&gl=1&theme=dark"
+								target="_blank"
+								rel="noopener noreferrer">flowGL-noise</a
+							>
+							(bars = period return; particles = flow direction)
+						</p>
+						<div class="flow-panel">
+							<div id="history-flow-month" class="history-flow-chart-sm" aria-label="Monthly return flow"></div>
+							<p id="history-flow-month-data" class="flow-data-strip muted"></p>
+						</div>
+						<div class="flow-panel">
+							<div id="history-flow-week" class="history-flow-chart-sm" aria-label="Weekly return flow"></div>
+							<p id="history-flow-week-data" class="flow-data-strip muted"></p>
+						</div>
+						<div class="flow-panel">
+							<div id="history-flow-day" class="history-flow-chart-sm" aria-label="Daily return flow"></div>
+							<p id="history-flow-day-data" class="flow-data-strip muted"></p>
+						</div>
+					</div>
+					<div class="history-viz-cell history-viz-cell--snowflake">
+						<p class="history-viz-kicker muted">Snowflake coverage · pass rate + axis detail + OHLCV shape</p>
+						<div
+							id="history-snowflake-radar"
+							class="history-snowflake-radar"
+							aria-label="Snowflake coverage radar"
+						></div>
+						<div
+							id="history-snowflake-history"
+							class="history-snowflake-radar history-snowflake-radar--secondary"
+							aria-label="History-derived snowflake"
+						></div>
+						<div id="snowflake-axis-minis" class="snowflake-mini-grid" aria-label="Per-axis snowflake charts"></div>
+					</div>
+				</div>
 				<p id="history-status" class="muted history-status">Loading history…</p>
 			</section>
 
@@ -226,7 +347,7 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					</div>
 					<span id="snowflake-asof" class="badge muted">As of: —</span>
 				</div>
-				<p id="snowflake-summary" class="muted" style="margin-top: 12px;">Loading coverage…</p>
+				<p id="snowflake-summary" class="muted">Loading coverage…</p>
 				<div id="snowflake-axes" class="snowflake-axes-grid"></div>
 			</section>
 
@@ -265,17 +386,67 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 			<section id="listing-edgar-panel" class="card listing-panel" hidden>
 				<div class="tileTop">
 					<div>
-						<div class="ticker">SEC EDGAR</div>
-						<div class="name">Search SEC filings for this US-registered security on EDGAR.</div>
+						<div class="ticker">Registry &amp; filings</div>
+						<div class="name">OpenRegistry statutory profile (non-US) or SEC EDGAR (US filers).</div>
 					</div>
 				</div>
 				<div id="listing-edgar-links" class="listing-edgar-links"></div>
 				<p class="muted listing-edgar-note">
-					Links open SEC EDGAR in a new tab. EDGAR covers US-listed companies and ETFs registered with the SEC. Educational use only.
+					US listings use SEC EDGAR (public domain). Other jurisdictions link to OpenRegistry when an enriched
+					registry match exists. Educational use only.
 				</p>
 			</section>
 		</div>
 	</section>
+
+	<script>
+		import {
+			getCoverageForTicker,
+			getCoverageSummaryForTicker,
+			loadHealthManifest,
+			prefetchShardForTicker,
+			summarizeProfile,
+		} from '../../lib/health-shard-loader.ts';
+		import {
+			getHistoryForTicker,
+			hasHistoryForTicker,
+			loadHistoryManifest,
+			summarizeHistoryWindow,
+			dayKeyToISO,
+		} from '../../lib/history-shard-loader.ts';
+		import { mountHistorySparkline } from '../../lib/history-sparkline.ts';
+		import { mountHistoryCalendar } from '../../lib/history-calendar-chart.ts';
+		import { mountReturnFlowStack } from '../../lib/history-period-flow-chart.ts';
+		import { mountSnowflakeRadar } from '../../lib/snowflake-radar-chart.ts';
+		import { mountHistorySnowflakeRadar } from '../../lib/history-snowflake-radar.ts';
+		import { mountSnowflakeAxisGrid } from '../../lib/snowflake-axis-mini-chart.ts';
+		import { loadQuotesLatest, quoteForTicker } from '../../lib/quotes-latest.ts';
+
+		window.__qbitosCharts__ = {
+			mountHistoryCalendar,
+			mountReturnFlowStack,
+			mountSnowflakeRadar,
+			mountHistorySnowflakeRadar,
+			mountSnowflakeAxisGrid,
+		};
+		window.__qbitosHealthLoader__ = {
+			getCoverageForTicker,
+			getCoverageSummaryForTicker,
+			loadHealthManifest,
+			prefetchShardForTicker,
+			summarizeProfile,
+		};
+		window.__qbitosHistoryLoader__ = {
+			getHistoryForTicker,
+			hasHistoryForTicker,
+			loadHistoryManifest,
+			summarizeHistoryWindow,
+			dayKeyToISO,
+		};
+		window.__qbitosSparkline__ = { mountHistorySparkline };
+		window.__qbitosQuotes__ = { loadQuotesLatest, quoteForTicker };
+		window.dispatchEvent(new CustomEvent('qbitos:listing-bridges-ready'));
+	</script>
 
 	<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
 		const statusElement = document.querySelector('#listing-status');
@@ -284,8 +455,12 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		const liveId = document.querySelector('#listing-live-id');
 		const liveProfile = document.querySelector('#listing-live-profile');
 		const liveStats = document.querySelector('#listing-live-stats');
+		const liveIntervalSubtitle = document.querySelector('#listing-live-interval-subtitle');
+		const liveQuoteBadge = document.querySelector('#listing-live-quote-badge');
 		const liveChart = document.querySelector('#listing-live-chart');
 		const liveChartStatus = document.querySelector('#listing-live-chart-status');
+		const liveClose = document.querySelector('#listing-live-close');
+		const liveChange = document.querySelector('#listing-live-change');
 		const liveTotal = document.querySelector('#listing-live-total-return');
 		const liveAnnualized = document.querySelector('#listing-live-annualized');
 		const liveDrawdown = document.querySelector('#listing-live-drawdown');
@@ -303,7 +478,22 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		const firstTradeElement = document.querySelector('#listing-first-trade');
 		const filingTimestampElement = document.querySelector('#listing-filing-timestamp');
 		const filingLocationElement = document.querySelector('#listing-filing-location');
+		const quotePriceElement = document.querySelector('#listing-quote-price');
+		const quoteChangeElement = document.querySelector('#listing-quote-change');
+		const quoteAsofElement = document.querySelector('#listing-quote-asof');
 		const notesElement = document.querySelector('#listing-notes');
+		const intervalCard = document.querySelector('#listing-interval-card');
+		const intervalSubtitle = document.querySelector('#interval-subtitle');
+		const intervalQuoteBadge = document.querySelector('#interval-quote-badge');
+		const profileIntervalStats = document.querySelector('#profile-interval-stats');
+		const profileIntervalChart = document.querySelector('#profile-interval-chart');
+		const profileIntervalStatus = document.querySelector('#profile-interval-status');
+		const profileIntervalClose = document.querySelector('#profile-interval-close');
+		const profileIntervalChange = document.querySelector('#profile-interval-change');
+		const profileIntervalTotal = document.querySelector('#profile-interval-total-return');
+		const profileIntervalAnnualized = document.querySelector('#profile-interval-annualized');
+		const profileIntervalDrawdown = document.querySelector('#profile-interval-drawdown');
+		const profileIntervalVolume = document.querySelector('#profile-interval-volume');
 		const tagsElement = document.querySelector('#listing-tags');
 		const identityGrid = document.querySelector('#identity-grid');
 		const classificationGrid = document.querySelector('#classification-grid');
@@ -337,7 +527,9 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 			if (!Array.isArray(value) || value.length !== 2) return 'Unavailable';
 			const [lat, lon] = value;
 			if (!Number.isFinite(lat) || !Number.isFinite(lon)) return 'Unavailable';
-			return `${lat.toFixed(6)}, ${lon.toFixed(6)}`;
+			const label = `${lat.toFixed(6)}, ${lon.toFixed(6)}`;
+			const mapUrl = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=14/${lat}/${lon}`;
+			return `<a href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
 		}
 
 		function formatBranches(value) {
@@ -363,18 +555,165 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 
 		function renderPairs(target, entries) {
 			target.innerHTML = entries
-				.map(
-					([label, value]) => `
+				.map(([label, value]) => {
+					const raw = value || 'Unavailable';
+					const isHtml = typeof raw === 'string' && raw.includes('<a ');
+					return `
 						<div>
 							<dt>${escapeHtml(label)}</dt>
-							<dd>${escapeHtml(value || 'Unavailable')}</dd>
+							<dd>${isHtml ? raw : escapeHtml(raw)}</dd>
 						</div>
-					`,
-				)
+					`;
+				})
 				.join('');
 		}
 
 		let liveChartHandle = null;
+		let profileIntervalChartHandle = null;
+		const numFormatter = new Intl.NumberFormat();
+		const pctFormatter = new Intl.NumberFormat(undefined, {
+			style: 'percent',
+			minimumFractionDigits: 1,
+			maximumFractionDigits: 2,
+		});
+
+		function listingTicker(record) {
+			return String(record.sy || record.id || '').trim();
+		}
+
+		function applyQuoteToIntervalTargets(file, quote, sym, targets) {
+			if (!quote) return;
+			if (targets.closeEl) targets.closeEl.textContent = numFormatter.format(quote.price);
+			if (targets.changeEl) {
+				const sign = quote.changePct >= 0 ? '+' : '';
+				targets.changeEl.textContent = `${sign}${quote.changePct.toFixed(2)}%`;
+				targets.changeEl.className = quote.changePct >= 0 ? 'quote-up' : 'quote-down';
+			}
+			if (targets.quoteBadgeEl) {
+				targets.quoteBadgeEl.textContent = `Quote: ${quote.sessionDate || file?.asOf || '—'}`;
+				targets.quoteBadgeEl.className = 'badge success';
+			}
+		}
+
+		/** Shared quote + OHLCV interval panel for profile and ?t= live snapshot. */
+		async function mountIntervalPanel(ticker, targets) {
+			const sym = String(ticker || '').trim();
+			if (!sym) return;
+
+			await whenListingBridgesReady();
+			if (targets.statusEl) targets.statusEl.textContent = 'Loading interval…';
+			if (targets.statsRoot) targets.statsRoot.hidden = true;
+			if (targets.chartHandleRef?.handle) {
+				targets.chartHandleRef.handle.dispose();
+				targets.chartHandleRef.handle = null;
+			}
+			if (targets.chartEl) targets.chartEl.innerHTML = '';
+
+			const quotesApi = window.__qbitosQuotes__;
+			const quotesPromise = quotesApi?.loadQuotesLatest
+				? Promise.race([
+						quotesApi.loadQuotesLatest(),
+						new Promise((resolve) => setTimeout(() => resolve(null), 4000)),
+					])
+				: Promise.resolve(null);
+
+			const helpers = await whenHistoryHelpersReady();
+			if (!helpers) {
+				if (targets.statusEl) targets.statusEl.textContent = 'History loader unavailable; refresh the page.';
+				return;
+			}
+			try {
+				const [file, series] = await Promise.all([
+					quotesPromise,
+					helpers.getHistoryForTicker(sym),
+				]);
+				const quote = quotesApi?.quoteForTicker ? quotesApi.quoteForTicker(file, sym) : null;
+				applyQuoteToIntervalTargets(file, quote, sym, targets);
+				if (!series) {
+					if (targets.statusEl) {
+						targets.statusEl.textContent =
+							`No OHLCV shim for ${sym}. Run npm run history:fetch -- --tickers=${sym} --lookback max`;
+					}
+					return;
+				}
+				const summary = helpers.summarizeHistoryWindow(series);
+				if (targets.statsRoot) targets.statsRoot.hidden = false;
+				if (targets.totalEl) targets.totalEl.textContent = pctFormatter.format(summary.totalReturnPct / 100);
+				if (targets.annualizedEl) targets.annualizedEl.textContent = pctFormatter.format(summary.annualizedReturnPct / 100);
+				if (targets.drawdownEl) targets.drawdownEl.textContent = pctFormatter.format(summary.maxDrawdownPct / 100);
+				if (targets.volumeEl) targets.volumeEl.textContent = numFormatter.format(Math.round(summary.avgVolume));
+				if (!quote?.price && targets.closeEl && series.c.length) {
+					targets.closeEl.textContent = numFormatter.format(series.c[series.c.length - 1]);
+				}
+				if (targets.subtitleEl) {
+					targets.subtitleEl.textContent = `${numFormatter.format(series.rows)} daily bars · ${helpers.dayKeyToISO(series.rangeStart)} → ${helpers.dayKeyToISO(series.rangeEnd)}`;
+				}
+				if (targets.statusEl) {
+					targets.statusEl.textContent = quote
+						? `Live quote ${quote.sessionDate} · history source ${series.source}`
+						: `History source ${series.source} (no quote row for ${sym})`;
+				}
+				if (targets.chartEl) {
+					const handle = await mountSparkline(targets.chartEl, series);
+					if (targets.chartHandleRef) targets.chartHandleRef.handle = handle;
+				}
+			} catch (err) {
+				if (targets.statusEl) {
+					targets.statusEl.textContent = `Interval failed: ${err && err.message ? err.message : err}`;
+				}
+			}
+		}
+
+		async function applyLiveQuote(record) {
+			const ticker = listingTicker(record);
+			const quotesApi = window.__qbitosQuotes__;
+			if (!quotesApi?.loadQuotesLatest) return;
+			const file = await quotesApi.loadQuotesLatest();
+			const quote = quotesApi.quoteForTicker(file, ticker);
+			if (!quote) {
+				if (quotePriceElement) quotePriceElement.textContent = 'No quote in snapshot';
+				if (quoteChangeElement) quoteChangeElement.textContent = '—';
+				if (quoteAsofElement) quoteAsofElement.textContent = file?.asOf || '—';
+				return;
+			}
+			if (quotePriceElement) quotePriceElement.textContent = numFormatter.format(quote.price);
+			if (quoteChangeElement) {
+				const sign = quote.changePct >= 0 ? '+' : '';
+				quoteChangeElement.textContent = `${sign}${quote.changePct.toFixed(2)}%`;
+				quoteChangeElement.className = quote.changePct >= 0 ? 'quote-up' : 'quote-down';
+			}
+			if (quoteAsofElement) quoteAsofElement.textContent = quote.sessionDate || file.asOf || '—';
+			if (intervalQuoteBadge) {
+				intervalQuoteBadge.textContent = `Quote: ${quote.sessionDate || file.asOf}`;
+				intervalQuoteBadge.className = 'badge success';
+			}
+		}
+
+		async function renderProfileInterval(record) {
+			if (!intervalCard || !profileIntervalChart || !profileIntervalStatus) return;
+			intervalCard.hidden = false;
+			await mountIntervalPanel(listingTicker(record), {
+				subtitleEl: intervalSubtitle,
+				quoteBadgeEl: intervalQuoteBadge,
+				statsRoot: profileIntervalStats,
+				closeEl: profileIntervalClose,
+				changeEl: profileIntervalChange,
+				totalEl: profileIntervalTotal,
+				annualizedEl: profileIntervalAnnualized,
+				drawdownEl: profileIntervalDrawdown,
+				volumeEl: profileIntervalVolume,
+				chartEl: profileIntervalChart,
+				statusEl: profileIntervalStatus,
+				chartHandleRef: {
+					get handle() {
+						return profileIntervalChartHandle;
+					},
+					set handle(v) {
+						profileIntervalChartHandle = v;
+					},
+				},
+			});
+		}
 
 		function showLiveSnapshot(ticker, label) {
 			const displayName = label || ticker;
@@ -395,43 +734,29 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				liveChartHandle.dispose();
 				liveChartHandle = null;
 			}
-			void renderLiveSnapshotChart(ticker);
-		}
-
-		async function renderLiveSnapshotChart(ticker) {
-			if (!liveChart || !liveChartStatus) return;
-			const helpers = await whenHistoryHelpersReady();
-			if (!helpers) {
-				liveChartStatus.textContent = 'History loader unavailable; refresh the page.';
-				statusElement.textContent = 'History loader unavailable.';
-				return;
-			}
-			liveChartStatus.textContent = 'Loading history…';
-			try {
-				const series = await helpers.getHistoryForTicker(ticker);
-				if (!series) {
-					if (liveStats) liveStats.hidden = true;
-					liveChartStatus.textContent =
-						'No history series for this ticker. Run `npm run history:fetch -- --tickers=' +
-						ticker +
-						' --lookback max` or import a CSV, then rebuild.';
-					statusElement.textContent = 'No shim history for this ticker.';
-					return;
-				}
-				const summary = helpers.summarizeHistoryWindow(series);
-				if (liveStats) liveStats.hidden = false;
-				if (liveTotal) liveTotal.textContent = pctFormatter.format(summary.totalReturnPct / 100);
-				if (liveAnnualized) liveAnnualized.textContent = pctFormatter.format(summary.annualizedReturnPct / 100);
-				if (liveDrawdown) liveDrawdown.textContent = pctFormatter.format(summary.maxDrawdownPct / 100);
-				if (liveVolume) liveVolume.textContent = numFormatter.format(Math.round(summary.avgVolume));
-				liveChartStatus.textContent = `${numFormatter.format(series.rows)} daily bars · ${helpers.dayKeyToISO(series.rangeStart)} → ${helpers.dayKeyToISO(series.rangeEnd)} · source: ${series.source}`;
-				statusElement.textContent = 'Chart ready (Erika shim).';
-				if (liveChartHandle) liveChartHandle.dispose();
-				liveChartHandle = await mountSparkline(liveChart, series);
-			} catch (err) {
-				liveChartStatus.textContent = `History failed: ${err && err.message ? err.message : err}`;
-				statusElement.textContent = 'History failed to load.';
-			}
+			void mountIntervalPanel(ticker, {
+				subtitleEl: liveIntervalSubtitle,
+				quoteBadgeEl: liveQuoteBadge,
+				statsRoot: liveStats,
+				closeEl: liveClose,
+				changeEl: liveChange,
+				totalEl: liveTotal,
+				annualizedEl: liveAnnualized,
+				drawdownEl: liveDrawdown,
+				volumeEl: liveVolume,
+				chartEl: liveChart,
+				statusEl: liveChartStatus,
+				chartHandleRef: {
+					get handle() {
+						return liveChartHandle;
+					},
+					set handle(v) {
+						liveChartHandle = v;
+					},
+				},
+			}).then(() => {
+				if (statusElement) statusElement.textContent = 'Live interval ready.';
+			});
 		}
 
 		const US_EXCHANGES = new Set(['NYSE', 'NASDAQ', 'OTC', 'NYSEARCA', 'BATS', 'NYSEAMERICAN', 'AMEX']);
@@ -452,19 +777,58 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 			return `https://efts.sec.gov/LATEST/search-index?q=${encodeURIComponent(`"${query}"`)}&forms=10-K,10-Q,8-K`;
 		}
 
+		function legalEntityLabel(record) {
+			const legal = String(record.ln || '').trim();
+			const trade = String(record.nm || '').trim();
+			return legal || trade || String(record.id || record.sy || 'Listing');
+		}
+
+		function openRegistryCompanyUrl(record) {
+			const registry = record.registry;
+			if (!registry || registry.source !== 'openregistry') return null;
+			const jurisdiction = String(registry.jurisdiction || '').trim().toLowerCase();
+			const companyId = String(registry.companyId || '').trim();
+			if (!jurisdiction || !companyId) return null;
+			return `https://openregistry.sophymarine.com/company/${jurisdiction}/${companyId}`;
+		}
+
+		function secEdgarCompanyUrl(record) {
+			const registry = record.registry;
+			if (!registry || registry.source !== 'sec_edgar') return null;
+			const cik = String(registry.companyId || '').trim().replace(/^0+/, '');
+			if (!cik) return null;
+			return `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${encodeURIComponent(cik)}`;
+		}
+
 		function renderEdgarPanel(record) {
 			if (!edgarPanel || !edgarLinks) return;
-			if (!isUsListing(record)) {
+			const links = [];
+			const orUrl = openRegistryCompanyUrl(record);
+			if (orUrl) {
+				links.push(
+					`<a class="button-secondary edgar-link" href="${escapeHtml(orUrl)}" target="_blank" rel="noopener noreferrer">OpenRegistry profile</a>`,
+				);
+			}
+			const secUrl = secEdgarCompanyUrl(record);
+			if (secUrl) {
+				links.push(
+					`<a class="button-secondary edgar-link" href="${escapeHtml(secUrl)}" target="_blank" rel="noopener noreferrer">SEC EDGAR company (CIK)</a>`,
+				);
+			}
+			if (isUsListing(record)) {
+				const ticker = record.sy || record.id.split(':').pop();
+				const name = legalEntityLabel(record);
+				links.push(
+					`<a class="button-secondary edgar-link" href="${escapeHtml(edgarTickerUrl(ticker))}" target="_blank" rel="noopener noreferrer">EDGAR: ${escapeHtml(ticker)} filings</a>`,
+					`<a class="button-secondary edgar-link" href="${escapeHtml(edgarCompanyUrl(name))}" target="_blank" rel="noopener noreferrer">EDGAR: company search</a>`,
+					`<a class="button-secondary edgar-link" href="${escapeHtml(edgarFullTextUrl(ticker))}" target="_blank" rel="noopener noreferrer">EDGAR: full-text search</a>`,
+				);
+			}
+			if (links.length === 0) {
 				edgarPanel.hidden = true;
 				return;
 			}
-			const ticker = record.sy || record.id.split(':').pop();
-			const name = record.ln || record.nm;
-			edgarLinks.innerHTML = [
-				`<a class="button-secondary edgar-link" href="${escapeHtml(edgarTickerUrl(ticker))}" target="_blank" rel="noopener noreferrer">EDGAR: ${escapeHtml(ticker)} filings</a>`,
-				`<a class="button-secondary edgar-link" href="${escapeHtml(edgarCompanyUrl(name))}" target="_blank" rel="noopener noreferrer">EDGAR: company search</a>`,
-				`<a class="button-secondary edgar-link" href="${escapeHtml(edgarFullTextUrl(ticker))}" target="_blank" rel="noopener noreferrer">EDGAR: full-text search</a>`,
-			].join('');
+			edgarLinks.innerHTML = links.join('');
 			edgarPanel.hidden = false;
 		}
 
@@ -482,19 +846,8 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		const snowflakeAxes = document.querySelector('#snowflake-axes');
 		const snowflakeAsOf = document.querySelector('#snowflake-asof');
 
-		function whenCoverageHelpersReady(timeoutMs = 8000) {
-			return new Promise((resolve) => {
-				if (window.__qbitosHealthLoader__) return resolve(window.__qbitosHealthLoader__);
-				const start = Date.now();
-				const handler = () => resolve(window.__qbitosHealthLoader__ ?? null);
-				const tick = () => {
-					if (window.__qbitosHealthLoader__) return resolve(window.__qbitosHealthLoader__);
-					if (Date.now() - start > timeoutMs) return resolve(null);
-					setTimeout(tick, 80);
-				};
-				window.addEventListener('qbitos:health-loader-ready', handler, { once: true });
-				tick();
-			});
+		function whenCoverageHelpersReady() {
+			return Promise.resolve(window.__qbitosHealthLoader__ ?? null);
 		}
 
 		function checkBadge(state) {
@@ -512,27 +865,24 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		const historyAnnualized = document.querySelector('#history-annualized');
 		const historyDrawdown = document.querySelector('#history-drawdown');
 		const historyVolume = document.querySelector('#history-volume');
+		const historyCalendarChart = document.querySelector('#history-calendar-chart');
+		const historyFlowMonth = document.querySelector('#history-flow-month');
+		const historyFlowWeek = document.querySelector('#history-flow-week');
+		const historyFlowDay = document.querySelector('#history-flow-day');
+		const historyFlowMonthData = document.querySelector('#history-flow-month-data');
+		const historyFlowWeekData = document.querySelector('#history-flow-week-data');
+		const historyFlowDayData = document.querySelector('#history-flow-day-data');
+		const historySnowflakeHistory = document.querySelector('#history-snowflake-history');
+		const snowflakeAxisMinis = document.querySelector('#snowflake-axis-minis');
 		let historyChartHandle = null;
-		const numFormatter = new Intl.NumberFormat();
-		const pctFormatter = new Intl.NumberFormat(undefined, {
-			style: 'percent',
-			minimumFractionDigits: 1,
-			maximumFractionDigits: 2,
-		});
+		let historyCalendarHandle = null;
+		let historyFlowHandle = null;
+		let historySnowflakeHistoryHandle = null;
+		let snowflakeRadarHandle = null;
+		let snowflakeAxisGridHandle = null;
 
-		function whenHistoryHelpersReady(timeoutMs = 8000) {
-			return new Promise((resolve) => {
-				if (window.__qbitosHistoryLoader__) return resolve(window.__qbitosHistoryLoader__);
-				const start = Date.now();
-				const handler = () => resolve(window.__qbitosHistoryLoader__ ?? null);
-				const tick = () => {
-					if (window.__qbitosHistoryLoader__) return resolve(window.__qbitosHistoryLoader__);
-					if (Date.now() - start > timeoutMs) return resolve(null);
-					setTimeout(tick, 80);
-				};
-				window.addEventListener('qbitos:history-loader-ready', handler, { once: true });
-				tick();
-			});
+		function whenHistoryHelpersReady() {
+			return Promise.resolve(window.__qbitosHistoryLoader__ ?? null);
 		}
 
 		function spanYears(rangeStart, rangeEnd) {
@@ -578,27 +928,57 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 
 				if (historyChartHandle) historyChartHandle.dispose();
 				historyChartHandle = await mountSparkline(historyChart, series);
+
+				const charts = await whenChartsReady();
+				if (charts && historyCalendarChart) {
+					if (historyCalendarHandle) historyCalendarHandle.dispose();
+					historyCalendarHandle = charts.mountHistoryCalendar(historyCalendarChart, series);
+				}
+				if (
+					charts &&
+					historyFlowMonth &&
+					historyFlowWeek &&
+					historyFlowDay
+				) {
+					if (historyFlowHandle) historyFlowHandle.dispose();
+					try {
+						historyFlowHandle = await charts.mountReturnFlowStack(
+							historyFlowMonth,
+							historyFlowWeek,
+							historyFlowDay,
+							series,
+							{
+								month: historyFlowMonthData,
+								week: historyFlowWeekData,
+								day: historyFlowDayData,
+							},
+						);
+					} catch (flowErr) {
+						const msg =
+							'<p class="muted" style="padding:12px;font-size:11px;">Return flows unavailable in this browser.</p>';
+						historyFlowMonth.innerHTML = msg;
+						console.warn('return flow mount failed', flowErr);
+					}
+				}
+				if (charts && historySnowflakeHistory) {
+					if (historySnowflakeHistoryHandle) historySnowflakeHistoryHandle.dispose();
+					historySnowflakeHistoryHandle = charts.mountHistorySnowflakeRadar(
+						historySnowflakeHistory,
+						series,
+					);
+				}
 			} catch (err) {
 				historyStatus.textContent = `History failed to load: ${err && err.message ? err.message : err}`;
 			}
 		}
 
+		function whenChartsReady() {
+			return Promise.resolve(window.__qbitosCharts__ ?? null);
+		}
+
 		async function mountSparkline(host, series) {
 			const helpers = window.__qbitosSparkline__;
-			if (!helpers || typeof helpers.mountHistorySparkline !== 'function') {
-				return await new Promise((resolve) => {
-					const handler = () => {
-						const ready = window.__qbitosSparkline__;
-						if (ready) resolve(ready.mountHistorySparkline(host, series));
-					};
-					window.addEventListener('qbitos:sparkline-ready', handler, { once: true });
-					setTimeout(() => {
-						const late = window.__qbitosSparkline__;
-						if (late) resolve(late.mountHistorySparkline(host, series));
-						else resolve({ dispose() {} });
-					}, 4000);
-				});
-			}
+			if (!helpers?.mountHistorySparkline) return { dispose() {} };
 			return helpers.mountHistorySparkline(host, series);
 		}
 
@@ -623,6 +1003,17 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					filled === 0
 						? `Skeleton scaffold for ${summary.totalChecks} checks across ${summary.axes.length} axes — awaiting research overlay patch.`
 						: `${summary.passedChecks} of ${summary.totalChecks} checks passed (${filled} scored, ${summary.naChecks} pending).`;
+				const charts = await whenChartsReady();
+				const radarHost = document.querySelector('#history-snowflake-radar');
+				if (snowflakeRadarHandle) snowflakeRadarHandle.dispose();
+				if (charts && radarHost) {
+					snowflakeRadarHandle = charts.mountSnowflakeRadar(radarHost, profile);
+				}
+				if (snowflakeAxisGridHandle) snowflakeAxisGridHandle.dispose();
+				if (charts && snowflakeAxisMinis) {
+					snowflakeAxisGridHandle = charts.mountSnowflakeAxisGrid(snowflakeAxisMinis, profile.axes);
+				}
+
 				snowflakeAxes.innerHTML = profile.axes
 					.map((axis) => {
 						const passed = axis.checks.filter((check) => check.state === 'pass').length;
@@ -656,18 +1047,76 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 			}
 		}
 
+		function whenListingBridgesReady(timeoutMs = 12000) {
+			return new Promise((resolve) => {
+				if (
+					window.__qbitosCharts__ &&
+					window.__qbitosHistoryLoader__ &&
+					window.__qbitosSparkline__ &&
+					window.__qbitosQuotes__
+				) {
+					return resolve(true);
+				}
+				const start = Date.now();
+				const done = () =>
+					resolve(
+						!!(
+							window.__qbitosCharts__ &&
+							window.__qbitosHistoryLoader__ &&
+							window.__qbitosSparkline__ &&
+							window.__qbitosQuotes__
+						),
+					);
+				window.addEventListener('qbitos:listing-bridges-ready', () => done(), { once: true });
+				const tick = () => {
+					if (
+						window.__qbitosCharts__ &&
+						window.__qbitosHistoryLoader__ &&
+						window.__qbitosSparkline__ &&
+						window.__qbitosQuotes__
+					) {
+						return done();
+					}
+					if (Date.now() - start > timeoutMs) return resolve(false);
+					setTimeout(tick, 60);
+				};
+				tick();
+			});
+		}
+
 		(async () => {
+			await whenListingBridgesReady();
 			const params = new URLSearchParams(window.location.search);
 			const liveTicker = params.get('t')?.trim();
 			const liveLabel = params.get('label')?.trim();
 			const recordId = params.get('id')?.trim();
 
 			if (liveTicker && !recordId) {
+				try {
+					const catalog = await loadCatalog();
+					const record = catalog.find(
+						(entry) =>
+							entry.id === liveTicker ||
+							entry.sy === liveTicker ||
+							String(entry.id || '').split(':').pop() === liveTicker,
+					);
+					if (record) {
+						const url = new URL(window.location.href);
+						url.searchParams.delete('t');
+						url.searchParams.delete('label');
+						url.searchParams.set('id', record.id);
+						window.location.replace(url.toString());
+						return;
+					}
+				} catch {
+					/* fall through to lightweight live snapshot */
+				}
 				showLiveSnapshot(liveTicker, liveLabel);
 				return;
 			}
 
 			if (!recordId) {
+				if (liveRoot) liveRoot.hidden = true;
 				statusElement.textContent = 'Choose a listing from the directory to open its profile.';
 				emptyTitleElement.textContent = 'No listing selected';
 				emptyCopyElement.textContent =
@@ -680,16 +1129,22 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				const record = catalog.find((entry) => entry.id === recordId);
 
 				if (!record) {
+					if (liveRoot) liveRoot.hidden = true;
 					statusElement.textContent = 'That listing was not found in the generated catalog.';
 					emptyTitleElement.textContent = 'Listing not found';
 					emptyCopyElement.textContent = `No generated catalog record matched ${recordId}. Try one of the sample profiles below or go back to the directory.`;
 					return;
 				}
 
-				document.title = `${record.nm} | Train Market Data`;
+				const legalName = legalEntityLabel(record);
+				const tradeName = String(record.nm || record.sy || '').trim();
+				document.title = `${legalName} | Train Market Data`;
 				emptyElement.hidden = true;
-				titleElement.textContent = record.nm;
-				subtitleElement.textContent = `${record.id} · ${record.ty} · ${record.ex}`;
+				titleElement.textContent = tradeName || legalName;
+				subtitleElement.textContent =
+					legalName && tradeName && legalName.toLowerCase() !== tradeName.toLowerCase()
+						? `${legalName} · ${record.id} · ${record.ty} · ${record.ex}`
+						: `${record.id} · ${record.ty} · ${record.ex}`;
 				featuredLink.href = `${baseUrl}featured/?exchange=${encodeURIComponent(record.ex || '')}`;
 				idElement.textContent = record.id;
 				coverageElement.textContent = record.dc || 'missing';
@@ -718,7 +1173,8 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					['Country', record.co],
 					['Country code', record.cc],
 					['ISIN', record.is],
-					['Legal entity', record.ln || record.nm],
+					['Legal entity', legalName],
+					['Legal entity source', record.ls || (record.registry?.source === 'openregistry' ? 'openregistry' : '')],
 				]);
 
 				renderPairs(classificationGrid, [
@@ -730,10 +1186,10 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 					['Date coverage', record.dc],
 					['IPO/founding completeness', record.ic],
 					['LLC filing completeness', record.fc],
-					['LLC filing timestamp', record.lt],
-					['LLC filing location', record.ll],
-					['LLC filing coordinates', formatCoords(record.lc)],
-					['LLC filing source', record.fs],
+					['Statutory filing time', record.lt ? formatDate(record.lt) : ''],
+					['Filing venue (SOS / registry)', record.ll],
+					['Filing venue coordinates', formatCoords(record.lc)],
+					['Filing source', record.fs],
 					['Headquarters location', record.hq],
 					['Headquarters coordinates', formatCoords(record.hc)],
 					['Headquarters source', record.hs],
@@ -749,53 +1205,20 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 				renderEdgarPanel(record);
 
 				statusElement.textContent = 'Profile ready.';
+				if (liveRoot) liveRoot.hidden = true;
 				contentElement.hidden = false;
 
-				void renderSnowflakeCoverage(record.id);
-				void renderHistorySparkline(record.id, record.nm);
+				void applyLiveQuote(record);
+				void renderProfileInterval(record);
+				const coverageTicker = listingTicker(record);
+				void renderHistorySparkline(coverageTicker, record.nm);
+				void renderSnowflakeCoverage(coverageTicker);
 			} catch (error) {
 				statusElement.textContent = error.message;
 				titleElement.textContent = 'Failed to load listing';
 				subtitleElement.textContent = 'The static catalog JSON could not be read.';
 			}
 		})();
-	</script>
-
-	<script>
-		import {
-			getCoverageForTicker,
-			getCoverageSummaryForTicker,
-			loadHealthManifest,
-			prefetchShardForTicker,
-			summarizeProfile,
-		} from '../../lib/health-shard-loader.ts';
-		import {
-			getHistoryForTicker,
-			hasHistoryForTicker,
-			loadHistoryManifest,
-			summarizeHistoryWindow,
-			dayKeyToISO,
-		} from '../../lib/history-shard-loader.ts';
-		import { mountHistorySparkline } from '../../lib/history-sparkline.ts';
-
-		window.__qbitosHealthLoader__ = {
-			getCoverageForTicker,
-			getCoverageSummaryForTicker,
-			loadHealthManifest,
-			prefetchShardForTicker,
-			summarizeProfile,
-		};
-		window.__qbitosHistoryLoader__ = {
-			getHistoryForTicker,
-			hasHistoryForTicker,
-			loadHistoryManifest,
-			summarizeHistoryWindow,
-			dayKeyToISO,
-		};
-		window.__qbitosSparkline__ = { mountHistorySparkline };
-		window.dispatchEvent(new CustomEvent('qbitos:health-loader-ready'));
-		window.dispatchEvent(new CustomEvent('qbitos:history-loader-ready'));
-		window.dispatchEvent(new CustomEvent('qbitos:sparkline-ready'));
 	</script>
 </Layout>
 
@@ -821,6 +1244,134 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		background: rgba(0, 0, 0, 0.22);
 		border: 1px solid rgba(255, 255, 255, 0.08);
 	}
+
+	.history-viz-grid {
+		display: grid;
+		grid-template-columns: minmax(260px, 1.1fr) minmax(220px, 1fr) minmax(200px, 0.95fr);
+		gap: 14px;
+		align-items: start;
+	}
+
+	@media (max-width: 1100px) {
+		.history-viz-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.history-viz-cell--flows {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.flow-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.flow-data-strip {
+		font-size: 10px;
+		line-height: 1.45;
+		margin: 0;
+		padding: 0 4px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.history-flow-chart-sm {
+		width: 100%;
+		height: 132px;
+		min-height: 120px;
+		border-radius: 12px;
+		overflow: hidden;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.history-viz-cell--snowflake {
+		min-width: 200px;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.history-snowflake-radar--secondary {
+		height: 160px;
+		min-height: 140px;
+	}
+
+	.snowflake-mini-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+		gap: 6px;
+	}
+
+	.snowflake-mini-cell {
+		border-radius: 10px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		padding: 2px;
+	}
+
+	.snowflake-mini-radar {
+		width: 100%;
+		height: 88px;
+	}
+
+	.history-snowflake-radar {
+		width: 100%;
+		height: 200px;
+		min-height: 180px;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.22);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.history-viz-kicker {
+		font-size: 11px;
+		margin: 0 0 6px;
+	}
+
+	.history-viz-kicker a {
+		color: rgba(120, 200, 255, 0.9);
+	}
+
+	.history-calendar-chart {
+		width: 100%;
+		height: min(520px, 72vh);
+		min-height: 200px;
+		border-radius: 14px;
+		background: rgba(0, 0, 0, 0.18);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.listing-interval-card {
+		padding: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.quote-up {
+		color: rgba(120, 220, 160, 0.95);
+	}
+
+	.quote-down {
+		color: rgba(255, 140, 140, 0.95);
+	}
+
+	.history-flow-chart {
+		width: 100%;
+		height: 240px;
+		min-height: 200px;
+		border-radius: 14px;
+		overflow: hidden;
+		background: rgba(0, 0, 0, 0.28);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
 
 	.history-status {
 		font-size: 12px;
@@ -877,10 +1428,18 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		gap: 16px;
 	}
 
-	.listing-live-root {
+	.listing-live-root[hidden] {
+		display: none !important;
+	}
+
+	.listing-live-root:not([hidden]) {
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
+	}
+
+	#listing-content[hidden] {
+		display: none !important;
 	}
 
 	.listing-live-disclaimer {

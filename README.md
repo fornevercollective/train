@@ -254,10 +254,46 @@ Practical limit: authoritative branch-office coverage is not realistically avail
 tickers from free redistributable sources, so branch data should remain optional and sparse unless a
 licensed commercial source is added.
 
+### OpenRegistry plugin + US listings
+
+The [OpenRegistry Cursor plugin](https://cursor.directory/plugins/openregistry) documents
+statutory registry fields (legal name, registered office, incorporation date, branches). The free
+OpenRegistry **search API does not expose jurisdiction `US`** — US tickers are enriched from
+**SEC EDGAR** (`data.sec.gov/submissions`) instead, which supplies the canonical legal name (for
+example `Tesla, Inc.` for TSLA), business address, and CIK-linked registry metadata.
+
+```bash
+# Fetch SEC rows for specific tickers (writes public/data/enrichment/sources/sec-edgar.ndjson)
+npm run enrichment:fetch -- --tickers TSLA,AAPL,MSFT --delay 0.2
+
+US SEC rows set **statutory filing time** (`lt`) from the earliest registration-class
+SEC acceptance timestamp (S-1 / 8-A12B / etc.), **filing venue** (`ll`) to the state
+secretary-of-state office (not the issuer HQ street), and coordinates (`lc` / `hc`) via
+the US Census geocoder when possible plus SOS/city fallbacks. Pass `--no-geocode` for
+faster bulk runs.
+
+# Or batch US exchange listings (respect SEC rate limits)
+npm run enrichment:fetch -- --exchange NASDAQ --limit 200 --delay 0.25
+
+# Merge sources → overlay → catalog
+npm run enrichment:build
+npm run prepare:data
+
+# Batch listing profiles (identity / classification / quick-view fields) with resume state
+npm run profiles:collect -- --exchange NASDAQ --limit 100 --delay 0.25
+npm run profiles:collect -- --tickers TSLA,AAPL --delay 0.2
+```
+
+Non-US listings can use `--openregistry-only` or mixed mode when the catalog country maps to a
+supported jurisdiction (GB, FR, IE, ES, NO, …). Install the MCP server from
+`https://openregistry.sophymarine.com/mcp` for interactive profile lookups during editing.
+
 ### Build attribution-safe enrichment overlay
 
 Use the enrichment builder to merge SEC EDGAR, GLEIF, Wikidata, and optional per-country registry
-inputs into one deterministic overlay consumed by `build_catalog_data.py`.
+inputs into one deterministic overlay consumed by `build_catalog_data.py`. When
+`public/data/enrichment/sources/sec-edgar.ndjson` or `openregistry.ndjson` exist, they are merged
+automatically (no flags required).
 
 ```bash
 npm run enrichment:build -- \
@@ -268,9 +304,9 @@ npm run enrichment:build -- \
 ```
 
 Output is written to `public/data/enrichment/attribution-safe.json` and contains only
-redistribution-safe fields (`lt`, `ll`, `lc`, `fs`, `hq`, `hc`, `hs`, `cd`, optional `br` / `bs`)
-plus per-field source and update metadata. During `npm run prepare:data`, the catalog builder
-automatically applies this overlay when present.
+redistribution-safe fields (`ln`, `ls`, `lt`, `ll`, `lc`, `fs`, `hq`, `hc`, `hs`, `cd`, optional
+`br` / `bs`, optional `registry`) plus per-field source and update metadata. During
+`npm run prepare:data`, the catalog builder automatically applies this overlay when present.
 
 ## Snowflake coverage profiles (sharded + versioned)
 
@@ -349,9 +385,12 @@ public/data/history/
 
 The format is parallel arrays (`d`, `o`, `h`, `l`, `c`, `v`) with `YYYYMMDD` integer
 dates — gzip-friendly, and ECharts consumes it directly via `lttb` sampling. The
-listing page (`/listing/?id=AAPL`) auto-renders a price chart plus
-total-return / annualized / max-drawdown / avg-volume metrics whenever a series file
-exists for that ticker. The chart adapts to whatever span the file actually covers
+listing page (`/listing/?id=AAPL`) auto-renders a price line chart, a
+[calendar-simple](https://echarts.apache.org/examples/en/editor.html?c=calendar-simple)
+daily-return heatmap, a [flowGL-noise](https://echarts.apache.org/examples/en/editor.html?c=flowGL-noise&gl=1&theme=dark)
+return-driven flow panel, and a snowflake radar plus check grid whenever history /
+coverage data exists for that ticker. Metrics include total return, annualized return,
+max drawdown, and average volume. The chart adapts to whatever span the file actually covers
 (e.g. AAPL's full series goes back to 1980, IBM's to 1962).
 
 Like the snowflake coverage system, only the small manifest is fetched up front; per-
@@ -414,6 +453,20 @@ After any backfill, regenerate the manifest:
 ```bash
 npm run history:manifest      # or just run npm run prepare:data / npm run build
 ```
+
+### Smoke test (charts + snowflake, no synthetic prices shipped)
+
+Seed a ~25-year synthetic AAPL series and a demo snowflake patch with mixed
+pass/fail states, then verify the build:
+
+```bash
+npm run smoke:viz:apply          # seed only (open /listing/?id=AAPL)
+npm run smoke:viz                # seed + npm run check + npm run build
+npm run smoke:viz:cleanup        # remove series + restore NA-only AAPL patch
+```
+
+Cleanup leaves `public/data/history/manifest.json` at 0 entries and does not commit
+fake OHLCV.
 
 ### Filtering options
 

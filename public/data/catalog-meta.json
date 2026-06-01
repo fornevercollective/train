@@ -4,11 +4,11 @@
   "uniqueExchanges": 71,
   "withCompanyCreation": 4555,
   "withIpoCreation": 21215,
-  "withLlcOriginalFilingTimestamp": 0,
-  "withLlcOriginalFilingLocation": 0,
-  "withLlcOriginalFilingCoordinates": 0,
-  "withHeadquartersLocation": 0,
-  "withHeadquartersCoordinates": 0,
+  "withLlcOriginalFilingTimestamp": 1,
+  "withLlcOriginalFilingLocation": 1,
+  "withLlcOriginalFilingCoordinates": 1,
+  "withHeadquartersLocation": 1,
+  "withHeadquartersCoordinates": 1,
   "withBranchLocations": 0,
   "securityTypes": [
     {
@@ -181,16 +181,16 @@
     "missing": 33556
   },
   "llcOriginalFilingCoverage": {
-    "complete": 0,
+    "complete": 1,
     "partial": 0,
-    "missing": 56307
+    "missing": 56306
   },
   "featuredListings": [
     {
       "id": "KRX:000240",
       "sy": "000240",
       "ex": "KRX",
-      "nm": "Hankook Tire & Technology",
+      "nm": "Hankook Tire Worldwide",
       "ty": "Stock",
       "dc": "complete",
       "su": "free_ticker_database",
@@ -201,6 +201,13 @@
       "co": "South Korea",
       "cc": "KR",
       "is": "KR7000240002",
+      "al": [
+        "hankook tire worldwide",
+        "000240",
+        "hankook tire technology",
+        "krx 000240",
+        "Hankook Tire & Technology"
+      ],
       "cd": "1941-01-01T00:00:00Z",
       "ip": "2012-10-04T00:00:00Z",
       "ft": "2012-10-04T00:00:00Z",
@@ -211,7 +218,7 @@
       "id": "SZSE:000078",
       "sy": "000078",
       "ex": "SZSE",
-      "nm": "Q11153061",
+      "nm": "Shenzhen Neptunus Bioengineering Co Ltd",
       "ty": "Stock",
       "dc": "complete",
       "su": "free_ticker_database",
@@ -222,6 +229,13 @@
       "co": "China",
       "cc": "CN",
       "is": "CNE000000X95",
+      "al": [
+        "shenzhen neptunus bioengineering",
+        "shenzhen neptunus bioengineering co ltd",
+        "000078",
+        "q11153061",
+        "szse 000078"
+      ],
       "cd": "1992-12-13T00:00:00Z",
       "ip": "1998-01-01T00:00:00Z",
       "ft": "1998-01-01T00:00:00Z",
@@ -239,7 +253,10 @@
       "ic": "missing",
       "fc": "missing",
       "co": "United States",
-      "cc": "US"
+      "cc": "US",
+      "al": [
+        "file creation time 0430202621 31"
+      ]
     },
     {
       "id": "AAA",
@@ -254,7 +271,12 @@
       "ln": "Alternative Access First Priority CLO Bond ETF",
       "co": "Australia",
       "cc": "AU",
-      "is": "AU000000AAA3"
+      "is": "AU000000AAA3",
+      "al": [
+        "alternative access first priority clo bond",
+        "alternative access first priority clo bond etf",
+        "aaa"
+      ]
     },
     {
       "id": "AACB",
@@ -270,7 +292,13 @@
       "se": "Financials",
       "co": "Cayman Islands",
       "cc": "KY",
-      "is": "KYG0509J1159"
+      "is": "KYG0509J1159",
+      "al": [
+        "artius ii acquisition",
+        "artius ii acquisition inc class a ordinary shares",
+        "aacb",
+        "Artius II Acquisition Inc. Class A Ordinary Shares"
+      ]
     },
     {
       "id": "AACBR",
@@ -284,7 +312,12 @@
       "fc": "missing",
       "ln": "Artius II Acquisition Inc. - Rights",
       "co": "United States",
-      "cc": "US"
+      "cc": "US",
+      "al": [
+        "artius ii acquisition inc rights",
+        "aacbr",
+        "Artius II Acquisition Inc. - Rights"
+      ]
     },
     {
       "id": "AACBU",
@@ -298,7 +331,12 @@
       "fc": "missing",
       "ln": "Artius II Acquisition Inc. - Units",
       "co": "United States",
-      "cc": "US"
+      "cc": "US",
+      "al": [
+        "artius ii acquisition inc units",
+        "aacbu",
+        "Artius II Acquisition Inc. - Units"
+      ]
     },
     {
       "id": "AACG",
@@ -314,19 +352,23 @@
       "se": "Consumer Staples",
       "co": "United States",
       "cc": "US",
-      "is": "US00211V1061"
+      "is": "US00211V1061",
+      "al": [
+        "ata creativity global",
+        "aacg"
+      ]
     }
   ],
-  "sourceCsv": "/tmp/workspace/erika/artifacts/ticker_checklist.csv",
+  "sourceCsv": "/Volumes/qbitOS/00.dev/cursor/erika/artifacts/ticker_checklist.csv",
   "validation": {
-    "sourceMode": "catalog_fallback",
+    "sourceMode": "csv",
     "invalidRows": 0,
-    "invalidTimestamps": 0,
+    "invalidTimestamps": 22,
     "invalidFilingLocations": 0,
-    "duplicateSymbolsSkipped": 0,
-    "inconsistentDuplicates": 0,
-    "enrichmentOverlayStatus": "absent",
-    "enrichmentRowsApplied": 0,
+    "duplicateSymbolsSkipped": 15,
+    "inconsistentDuplicates": 15,
+    "enrichmentOverlayStatus": "loaded",
+    "enrichmentRowsApplied": 1,
     "invalidEnrichmentOverlay": 0
   }
 }
