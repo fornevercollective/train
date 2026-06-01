@@ -32,47 +32,90 @@ $100 → payout framing, reference-only demo), the merged **`/live`** route with
 and Bloomberg side-chat iframes, and env-driven embed URLs (`NEXT_PUBLIC_UGRAD_SPORTS_URL`,
 `NEXT_PUBLIC_UGRAD_TOOLS_DECK_URL`, `NEXT_PUBLIC_BLOOMBERG_CHAT_URL`).
 
-Train ships dedicated routes for each top tab: **`/directory/`** (full catalog explorer with filters
-and pagination), **`/predictions/`** (Game-style card grid), **`/sports/`** (streaming-style layout shell
-for live tiles and rails — static on Pages), **`/broadcast/`** (placeholder roadmap for encoder / pipeline /
-collab surfaces; optional `PUBLIC_BROADCAST_PIPELINE_URL` for your live workpad origin), plus Featured,
-Listing, and Raw. The
-site header uses pill navigation with the **Directory search** field first, then the eyebrow and
-title, then the educational row, then the tab row (Home, Featured, Predictions, Sports, Broadcast, Models, Directory, Listing,
-Raw, Captions, Ledger) plus optional Game / Live when `PUBLIC_GAME_CONSOLE_URL` is set. From any non-directory page,
-pressing **Enter** in the header search jumps to `/directory/?q=…`.
+### Train site map
 
-Train’s homepage links out when you set at **build** time:
+| Route | Purpose |
+| --- | --- |
+| `/` | Landing: catalog stats, latency topology, predictions demo, live-analysis wiring |
+| `/directory/` | Full catalog explorer (filters, pagination, header search sync) |
+| `/listing/?id=TICKER` | Per-listing profile: charts, snowflake, quotes when data exists |
+| `/featured/` | Timezone-aware regional market focus |
+| `/predictions/` | Game-style prediction card grid (static on Pages) |
+| `/sports/` | Sports shell: μgrad field, YouTube pipeline, optional Rerun embed |
+| `/broadcast/` | Encoder / pipeline roadmap; optional pipeline iframe |
+| `/podcast/` | Podcast desk; optional RSS/Atom feed button |
+| `/models/` | Models leaderboard + compare UI |
+| `/models/liquid-ai/` | Liquid AI tuning desk (alias: `/liquid-ai/`) |
+| `/live-captions/` | Caption-aware research desk + Bloomberg relay notes |
+| `/ledger/` | Session ledger over `public/data/ledger/sessions.json` |
+| `/raw/` | Raw research exports |
 
-- **`PUBLIC_GAME_CONSOLE_URL`** — Game origin with no trailing slash (for example `http://localhost:3000` or your deployed base).
-- **`PUBLIC_BROADCAST_PIPELINE_URL`** (optional) — Origin with no trailing slash for a separate live pipeline / encoder workpad; the **Broadcast** tab shows an “Open pipeline workpad” button when set.
-- **`PUBLIC_BROADCAST_EMBED_HOSTS`** (optional) — Comma-separated hostnames (e.g. `127.0.0.1,localhost,pipeline.example.com`). When set, the Broadcast **iframe** loads only if the pipeline URL’s host matches one entry. When unset, any `http`/`https` pipeline URL from the variable may embed (still no user/password in the URL).
+Most pages use the **Train console sidebar** (`TrainConsoleSidebar.astro`): fixed left rail with
+primary nav, “Shell mix” notes (Predictions / Live / Sports / Markets), and optional **Game console**
+/ **Game /live** links when `PUBLIC_GAME_CONSOLE_URL` is set. Collapse state persists in
+`localStorage` (`train-sidebar-collapsed`).
 
-Example:
+The site header uses pill navigation with the **Directory search** field first, then the eyebrow and
+title, then the educational row, then the tab row (Home, Featured, Predictions, Sports, Broadcast,
+**Podcast**, Models, Directory, Listing, Raw, Captions, Ledger) plus optional **Game** / **Live**
+when `PUBLIC_GAME_CONSOLE_URL` is set. From any non-directory page, pressing **Enter** in the header
+search jumps to `/directory/?q=…`.
+
+### Build-time environment variables
+
+All `PUBLIC_*` values are baked in at `npm run build` (and `astro dev`). Optional iframe hosts use
+comma-separated hostnames (lowercase, no port in the list).
+
+| Variable | Used on | Purpose |
+| --- | --- | --- |
+| `PUBLIC_GAME_CONSOLE_URL` | Header, sidebar, Predictions, Sports, Broadcast, home | Game origin (no trailing slash) |
+| `PUBLIC_BROADCAST_PIPELINE_URL` | Broadcast | Pipeline / encoder workpad origin |
+| `PUBLIC_BROADCAST_EMBED_HOSTS` | Broadcast | Allowlist for pipeline iframe host |
+| `PUBLIC_PODCAST_FEED_URL` | Podcast | RSS or Atom feed URL for “open feed” |
+| `PUBLIC_RERUN_VIEWER_URL` | Sports | Rerun viewer embed + outbound link |
+| `PUBLIC_RERUN_EMBED_HOSTS` | Sports | Allowlist for Rerun iframe host |
+| `PUBLIC_UVSPEED_SPORTS_FIELD_URL` | Sports | μgrad sports-field HTML (default local uvspeed path) |
+| `PUBLIC_YOUTUBE_PIPELINE_VIEWER_URL` | Sports | YouTube / pipeline viewer origin |
+| `PUBLIC_OVERVIEW_URL` | Sports | Overview workspace (default `http://127.0.0.1:5173/`) |
+| `PUBLIC_LIQUID_OLLAMA_URL` | Liquid AI | Ollama `POST /api/generate` endpoint |
+| `LIQUID_OLLAMA_MODEL` | Liquid AI | Model tag (default `liquidai-lfm2-transcript:q4km`) |
+| `PUBLIC_BASE_PATH` | Astro | Override GitHub Pages base path |
+
+Example (Game + broadcast):
 
 ```bash
 PUBLIC_GAME_CONSOLE_URL=http://localhost:3000 npm run build
 ```
 
-Pipeline workpad (optional):
+Pipeline + sports embeds (optional):
 
 ```bash
-PUBLIC_BROADCAST_PIPELINE_URL=http://127.0.0.1:8787 PUBLIC_GAME_CONSOLE_URL=http://localhost:3000 npm run build
+PUBLIC_BROADCAST_PIPELINE_URL=http://127.0.0.1:8787 \
+PUBLIC_RERUN_VIEWER_URL=http://127.0.0.1:PORT/ \
+PUBLIC_GAME_CONSOLE_URL=http://localhost:3000 \
+npm run build
 ```
 
-If unset, the new homepage sections still show demo cards and wiring notes; the site header omits
-the “Game console” / “Live desk” shortcuts until the variable is provided.
+If unset, homepage sections still show demo cards and wiring notes; the header omits Game / Live
+shortcuts until `PUBLIC_GAME_CONSOLE_URL` is provided.
 
-For **GitHub Actions** deploys, define a repository variable `PUBLIC_GAME_CONSOLE_URL` (Settings →
-Secrets and variables → Actions → Variables) so Pages builds pick up the same origin. Add
-`PUBLIC_BROADCAST_PIPELINE_URL` when your pipeline workpad has a stable URL, and optional
-`PUBLIC_BROADCAST_EMBED_HOSTS` to allowlist which hosts may load in the Broadcast iframe.
+For **GitHub Actions** deploys, set repository **Variables** (Settings → Secrets and variables →
+Actions → Variables). `.github/workflows/deploy.yml` passes through Game and Broadcast vars today;
+add Podcast, Rerun, and sports URLs the same way when you need them on Pages.
+
+### Dataset coverage snapshot
+
+See [`docs/DATA-COVERAGE-SNAPSHOT.md`](docs/DATA-COVERAGE-SNAPSHOT.md) for the monthly catalog /
+history / quotes / enrichment counts (`npm run database:report`). As of **2026-06-01**: **56,307**
+catalog listings, **19,942** with daily history, **19,812** with session quotes, **227** attribution-safe
+enrichment rows applied, **2** manual snowflake patches.
 
 ## Liquid AI live tuning
 
-Train includes `/models/liquid-ai/`, a local-only tuning desk under the Models section for the mirrored LiquidAI LFM2 transcript
-GGUF. It calls an Ollama-compatible `POST /api/generate` endpoint from the browser, then lets you
-score the result and export JSONL tuning pairs.
+Train includes `/models/liquid-ai/` (and the alias `/liquid-ai/`), a local-only tuning desk under
+Models for the mirrored LiquidAI LFM2 transcript GGUF. It calls an Ollama-compatible
+`POST /api/generate` endpoint from the browser (override with `PUBLIC_LIQUID_OLLAMA_URL`), then lets
+you score the result and export JSONL tuning pairs.
 
 ```bash
 npm run dev:liquid
@@ -208,6 +251,19 @@ The Astro config auto-detects the correct base path during GitHub Actions builds
 If you need to override it manually, set `PUBLIC_BASE_PATH`.
 
 The deployment workflow is in `.github/workflows/deploy.yml`.
+
+## Documentation
+
+| Doc | Contents |
+| --- | --- |
+| [`docs/DATA-COVERAGE-SNAPSHOT.md`](docs/DATA-COVERAGE-SNAPSHOT.md) | Monthly catalog / history / quotes / enrichment counts |
+| [`docs/FUTURES-SYMBOL-MANIFEST.md`](docs/FUTURES-SYMBOL-MANIFEST.md) | Yahoo `*=F` → CME outright genesis workflow |
+
+## Session ledger
+
+`/ledger/` loads `public/data/ledger/sessions.json` — a searchable, collapsible log of AI session
+outputs (Zed / Cursor / Copilot), todos, and tags. Use it to review desk work without leaving the
+static site. The sidebar labels this route **Session ledger**.
 
 ## Data refresh
 

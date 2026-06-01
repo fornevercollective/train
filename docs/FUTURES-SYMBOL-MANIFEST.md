@@ -53,6 +53,9 @@ Evening open is **6:00 PM US Eastern** (Globex week open; Friday prints when a c
 
 TradingView often has **no 1m history** back to the first daily bar on micro outrights. Use **Daily** (or Weekly), scroll to the leftmost candle, and take that date. If “Go to date” on 1m jumps to a recent month (e.g. Apr 2026 @ 22:00), that is the **start of the 1m feed**, not genesis — ignore it for birth dating.
 
+**Snapshot (2026-06-01):** 11 manifest rows · 10 `verified` · 1 `skipped` (HO). See also
+[`DATA-COVERAGE-SNAPSHOT.md`](DATA-COVERAGE-SNAPSHOT.md).
+
 ## Already verified (in train JSON)
 
 **COMEX (Chicago):** GCM26, MGCM26, SIN26, SILN26, PLN26, HGN26, PAM26

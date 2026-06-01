@@ -26,6 +26,16 @@ interface ImportMetaEnv {
 	 * When set, the embed loads only if the URL hostname is listed.
 	 */
 	readonly PUBLIC_RERUN_EMBED_HOSTS?: string;
+	/** μgrad sports-field HTML URL (Sports tab). */
+	readonly PUBLIC_UVSPEED_SPORTS_FIELD_URL?: string;
+	/** YouTube / pipeline viewer origin (Sports tab). */
+	readonly PUBLIC_YOUTUBE_PIPELINE_VIEWER_URL?: string;
+	/** Overview workspace origin (Sports tab). */
+	readonly PUBLIC_OVERVIEW_URL?: string;
+	/** Ollama generate endpoint for Liquid AI desk (browser calls from Train). */
+	readonly PUBLIC_LIQUID_OLLAMA_URL?: string;
+	/** Ollama model tag for Liquid AI (server/build only; not exposed to client by default). */
+	readonly LIQUID_OLLAMA_MODEL?: string;
 }
 
 interface ImportMeta {
