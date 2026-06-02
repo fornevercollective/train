@@ -1,15 +1,15 @@
 {
-  "updated": "2026-05-24",
+  "updated": "2026-06-02",
   "source": "train_catalog_ec",
   "countryFilter": [
     "United States"
   ],
   "categories": [
     {
-      "categoryId": "equity",
-      "categoryLabel": "Equity",
-      "file": "equity.json",
-      "count": 36
+      "categoryId": "featured",
+      "categoryLabel": "Featured",
+      "file": "featured.json",
+      "count": 4
     },
     {
       "categoryId": "other",
@@ -18,40 +18,10 @@
       "count": 36
     },
     {
-      "categoryId": "fixed-income",
-      "categoryLabel": "Fixed Income",
-      "file": "fixed-income.json",
-      "count": 36
-    },
-    {
-      "categoryId": "alternative",
-      "categoryLabel": "Alternative",
-      "file": "alternative.json",
-      "count": 36
-    },
-    {
-      "categoryId": "commodity",
-      "categoryLabel": "Commodity",
-      "file": "commodity.json",
-      "count": 36
-    },
-    {
-      "categoryId": "real-estate",
-      "categoryLabel": "Real Estate",
-      "file": "real-estate.json",
-      "count": 36
-    },
-    {
-      "categoryId": "money-market",
-      "categoryLabel": "Money Market",
-      "file": "money-market.json",
-      "count": 28
-    },
-    {
-      "categoryId": "currency",
-      "categoryLabel": "Currency",
-      "file": "currency.json",
-      "count": 7
+      "categoryId": "equity",
+      "categoryLabel": "Equity",
+      "file": "equity.json",
+      "count": 3
     }
   ]
 }
