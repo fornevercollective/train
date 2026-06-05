@@ -7,1215 +7,1816 @@
   "tickers": [
     {
       "sy": "AMZN",
-      "name": "Amazon.com, Inc."
+      "name": "Amazon.com, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "TSLA",
-      "name": "Tesla, Inc."
+      "name": "Tesla, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers"
     },
     {
       "sy": "HD",
-      "name": "The Home Depot, Inc."
+      "name": "The Home Depot, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Home Improvement Retail"
     },
     {
       "sy": "MCD",
-      "name": "McDonald's Corporation"
+      "name": "McDonald's Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "TJX",
-      "name": "The TJX Companies, Inc."
+      "name": "The TJX Companies, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "LOW",
-      "name": "Lowe's Companies, Inc."
+      "name": "Lowe's Companies, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Home Improvement Retail"
     },
     {
       "sy": "SBUX",
-      "name": "Starbucks Corporation"
+      "name": "Starbucks Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "BKNG",
-      "name": "Booking Holdings Inc."
+      "name": "Booking Holdings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "MAR",
-      "name": "Marriott International, Inc."
+      "name": "Marriott International, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Lodging"
     },
     {
       "sy": "ABNB",
-      "name": "Airbnb, Inc."
+      "name": "Airbnb, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "MELI",
-      "name": "MercadoLibre, Inc."
+      "name": "MercadoLibre, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "ORLY",
-      "name": "O'Reilly Automotive, Inc."
+      "name": "O'Reilly Automotive, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "HLT",
-      "name": "Hilton Worldwide Holdings Inc."
+      "name": "Hilton Worldwide Holdings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Lodging"
     },
     {
       "sy": "RCL",
-      "name": "Royal Caribbean Cruises Ltd."
+      "name": "Royal Caribbean Cruises Ltd.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "DASH",
-      "name": "DoorDash, Inc."
+      "name": "DoorDash, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "ROST",
-      "name": "Ross Stores, Inc."
+      "name": "Ross Stores, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "GM",
-      "name": "General Motors Company"
+      "name": "General Motors Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers"
     },
     {
       "sy": "NKE",
-      "name": "NIKE, Inc."
+      "name": "NIKE, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "AZO",
-      "name": "AutoZone, Inc."
+      "name": "AutoZone, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "F",
-      "name": "Ford Motor Company"
+      "name": "Ford Motor Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers"
     },
     {
       "sy": "EBAY",
-      "name": "eBay Inc."
+      "name": "eBay Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "CVNA",
-      "name": "Carvana Co."
+      "name": "Carvana Co.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "CMG",
-      "name": "Chipotle Mexican Grill, Inc."
+      "name": "Chipotle Mexican Grill, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "YUM",
-      "name": "Yum! Brands, Inc."
+      "name": "Yum! Brands, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "DHI",
-      "name": "D.R. Horton, Inc."
+      "name": "D.R. Horton, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "VIK",
-      "name": "Viking Holdings Ltd"
+      "name": "Viking Holdings Ltd",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "CCL",
-      "name": "Carnival Corporation Ltd."
+      "name": "Carnival Corporation Ltd.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "LVS",
-      "name": "Las Vegas Sands Corp."
+      "name": "Las Vegas Sands Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "CASY",
-      "name": "Casey's General Stores, Inc."
+      "name": "Casey's General Stores, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "CPNG",
-      "name": "Coupang, Inc."
+      "name": "Coupang, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "EXPE",
-      "name": "Expedia Group, Inc."
+      "name": "Expedia Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "TPR",
-      "name": "Tapestry, Inc."
+      "name": "Tapestry, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Luxury Goods"
     },
     {
       "sy": "ROL",
-      "name": "Rollins, Inc."
+      "name": "Rollins, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Personal Services"
     },
     {
       "sy": "DRI",
-      "name": "Darden Restaurants, Inc."
+      "name": "Darden Restaurants, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "ULTA",
-      "name": "Ulta Beauty, Inc."
+      "name": "Ulta Beauty, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "PHM",
-      "name": "PulteGroup, Inc."
+      "name": "PulteGroup, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "LEN",
-      "name": "Lennar Corporation"
+      "name": "Lennar Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "WSM",
-      "name": "Williams-Sonoma, Inc."
+      "name": "Williams-Sonoma, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "RL",
-      "name": "Ralph Lauren Corporation"
+      "name": "Ralph Lauren Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "SW",
-      "name": "Smurfit Westrock Plc"
+      "name": "Smurfit Westrock Plc",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "DKS",
-      "name": "DICK'S Sporting Goods, Inc."
+      "name": "DICK'S Sporting Goods, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "AS",
-      "name": "Amer Sports, Inc."
+      "name": "Amer Sports, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "PKG",
-      "name": "Packaging Corporation of America"
+      "name": "Packaging Corporation of America",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "RIVN",
-      "name": "Rivian Automotive, Inc."
+      "name": "Rivian Automotive, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers"
     },
     {
       "sy": "BURL",
-      "name": "Burlington Stores, Inc."
+      "name": "Burlington Stores, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "AMCR",
-      "name": "Amcor plc"
+      "name": "Amcor plc",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "TSCO",
-      "name": "Tractor Supply Company"
+      "name": "Tractor Supply Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "IP",
-      "name": "International Paper Company"
+      "name": "International Paper Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "FLUT",
-      "name": "Flutter Entertainment plc"
+      "name": "Flutter Entertainment plc",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "YUMC",
-      "name": "Yum China Holdings, Inc."
+      "name": "Yum China Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "H",
-      "name": "Hyatt Hotels Corporation"
+      "name": "Hyatt Hotels Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Lodging"
     },
     {
       "sy": "AUR",
-      "name": "Aurora Innovation, Inc."
+      "name": "Aurora Innovation, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "NVR",
-      "name": "NVR, Inc."
+      "name": "NVR, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "SN",
-      "name": "SharkNinja, Inc."
+      "name": "SharkNinja, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "BALL",
-      "name": "Ball Corporation"
+      "name": "Ball Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "MOD",
-      "name": "Modine Manufacturing Company"
+      "name": "Modine Manufacturing Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "LULU",
-      "name": "lululemon athletica inc."
+      "name": "lululemon athletica inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "HAS",
-      "name": "Hasbro, Inc."
+      "name": "Hasbro, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "DECK",
-      "name": "Deckers Outdoor Corporation"
+      "name": "Deckers Outdoor Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "SGI",
-      "name": "Somnigroup International Inc."
+      "name": "Somnigroup International Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "BWA",
-      "name": "BorgWarner Inc."
+      "name": "BorgWarner Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "GPC",
-      "name": "Genuine Parts Company"
+      "name": "Genuine Parts Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "ONON",
-      "name": "On Holding AG"
+      "name": "On Holding AG",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "DKNG",
-      "name": "DraftKings Inc."
+      "name": "DraftKings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "TOL",
-      "name": "Toll Brothers, Inc."
+      "name": "Toll Brothers, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "AVY",
-      "name": "Avery Dennison Corporation"
+      "name": "Avery Dennison Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "BBY",
-      "name": "Best Buy Co., Inc."
+      "name": "Best Buy Co., Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "FIVE",
-      "name": "Five Below, Inc."
+      "name": "Five Below, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "TXRH",
-      "name": "Texas Roadhouse, Inc."
+      "name": "Texas Roadhouse, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "APTV",
-      "name": "Aptiv PLC"
+      "name": "Aptiv PLC",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "CCK",
-      "name": "Crown Holdings, Inc."
+      "name": "Crown Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "SCI",
-      "name": "Service Corporation International"
+      "name": "Service Corporation International",
+      "sector": "Consumer Cyclical",
+      "industry": "Personal Services"
     },
     {
       "sy": "PAG",
-      "name": "Penske Automotive Group, Inc."
+      "name": "Penske Automotive Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "MUSA",
-      "name": "Murphy USA Inc."
+      "name": "Murphy USA Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "DPZ",
-      "name": "Domino's Pizza, Inc."
+      "name": "Domino's Pizza, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "ALTB",
-      "name": "Alpine Auto Brokers Inc."
+      "name": "Alpine Auto Brokers Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "WYNN",
-      "name": "Wynn Resorts, Limited"
+      "name": "Wynn Resorts, Limited",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "ALSN",
-      "name": "Allison Transmission Holdings, Inc."
+      "name": "Allison Transmission Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "GME",
-      "name": "GameStop Corp."
+      "name": "GameStop Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "MGM",
-      "name": "MGM Resorts International"
+      "name": "MGM Resorts International",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "CART",
-      "name": "Maplebear Inc."
+      "name": "Maplebear Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "CAVA",
-      "name": "CAVA Group, Inc."
+      "name": "CAVA Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "CHWY",
-      "name": "Chewy, Inc."
+      "name": "Chewy, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "ALV",
-      "name": "Autoliv, Inc."
+      "name": "Autoliv, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "MBLY",
-      "name": "Mobileye Global Inc."
+      "name": "Mobileye Global Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "DDS",
-      "name": "Dillard's, Inc."
+      "name": "Dillard's, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Department Stores"
     },
     {
       "sy": "LEVI",
-      "name": "Levi Strauss & Co."
+      "name": "Levi Strauss & Co.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "GAP",
-      "name": "The Gap, Inc."
+      "name": "The Gap, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "W",
-      "name": "Wayfair Inc."
+      "name": "Wayfair Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "LTH",
-      "name": "Life Time Group Holdings, Inc."
+      "name": "Life Time Group Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "NCLH",
-      "name": "Norwegian Cruise Line Holdings Ltd."
+      "name": "Norwegian Cruise Line Holdings Ltd.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "BROS",
-      "name": "Dutch Bros Inc."
+      "name": "Dutch Bros Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "SGHC",
-      "name": "Super Group (SGHC) Limited"
+      "name": "Super Group (SGHC) Limited",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "LEA",
-      "name": "Lear Corporation"
+      "name": "Lear Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "VFC",
-      "name": "V.F. Corporation"
+      "name": "V.F. Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "LKQ",
-      "name": "LKQ Corporation"
+      "name": "LKQ Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "AN",
-      "name": "AutoNation, Inc."
+      "name": "AutoNation, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "CHDN",
-      "name": "Churchill Downs Incorporated"
+      "name": "Churchill Downs Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "SIG",
-      "name": "Signet Jewelers Limited"
+      "name": "Signet Jewelers Limited",
+      "sector": "Consumer Cyclical",
+      "industry": "Luxury Goods"
     },
     {
       "sy": "LAD",
-      "name": "Lithia Motors, Inc."
+      "name": "Lithia Motors, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "WH",
-      "name": "Wyndham Hotels & Resorts, Inc."
+      "name": "Wyndham Hotels & Resorts, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Lodging"
     },
     {
       "sy": "URBN",
-      "name": "Urban Outfitters, Inc."
+      "name": "Urban Outfitters, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "MHK",
-      "name": "Mohawk Industries, Inc."
+      "name": "Mohawk Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "EAT",
-      "name": "Brinker International, Inc."
+      "name": "Brinker International, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "BYD",
-      "name": "Boyd Gaming Corporation"
+      "name": "Boyd Gaming Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "GTX",
-      "name": "Garrett Motion Inc."
+      "name": "Garrett Motion Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "BIRK",
-      "name": "Birkenstock Holding plc"
+      "name": "Birkenstock Holding plc",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "CZR",
-      "name": "Caesars Entertainment, Inc."
+      "name": "Caesars Entertainment, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "IBP",
-      "name": "Installed Building Products, Inc."
+      "name": "Installed Building Products, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "ETSY",
-      "name": "Etsy, Inc."
+      "name": "Etsy, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "RUSHA",
-      "name": "Rush Enterprises, Inc."
+      "name": "Rush Enterprises, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "KMX",
-      "name": "CarMax, Inc."
+      "name": "CarMax, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "TMHC",
-      "name": "Taylor Morrison Home Corporation"
+      "name": "Taylor Morrison Home Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "BC",
-      "name": "Brunswick Corporation"
+      "name": "Brunswick Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     },
     {
       "sy": "GOLF",
-      "name": "Acushnet Holdings Corp."
+      "name": "Acushnet Holdings Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "QS",
-      "name": "QuantumScape Corporation"
+      "name": "QuantumScape Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "GBTG",
-      "name": "Global Business Travel Group, Inc."
+      "name": "Global Business Travel Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "GNTX",
-      "name": "Gentex Corporation"
+      "name": "Gentex Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "CHH",
-      "name": "Choice Hotels International, Inc."
+      "name": "Choice Hotels International, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Lodging"
     },
     {
       "sy": "M",
-      "name": "Macy's, Inc."
+      "name": "Macy's, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Department Stores"
     },
     {
       "sy": "ALH",
-      "name": "Alliance Laundry Holdings Inc."
+      "name": "Alliance Laundry Holdings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "HRB",
-      "name": "H&R Block, Inc."
+      "name": "H&R Block, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Personal Services"
     },
     {
       "sy": "CROX",
-      "name": "Crocs, Inc."
+      "name": "Crocs, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "FND",
-      "name": "Floor & Decor Holdings, Inc."
+      "name": "Floor & Decor Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Home Improvement Retail"
     },
     {
       "sy": "GLBE",
-      "name": "Global-E Online Ltd."
+      "name": "Global-E Online Ltd.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "SON",
-      "name": "Sonoco Products Company"
+      "name": "Sonoco Products Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "REYN",
-      "name": "Reynolds Consumer Products Inc."
+      "name": "Reynolds Consumer Products Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "MAT",
-      "name": "Mattel, Inc."
+      "name": "Mattel, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "BOOT",
-      "name": "Boot Barn Holdings, Inc."
+      "name": "Boot Barn Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "MTN",
-      "name": "Vail Resorts, Inc."
+      "name": "Vail Resorts, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "FTDR",
-      "name": "Frontdoor, Inc."
+      "name": "Frontdoor, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Personal Services"
     },
     {
       "sy": "ATMU",
-      "name": "Atmus Filtration Technologies Inc."
+      "name": "Atmus Filtration Technologies Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "PLNT",
-      "name": "Planet Fitness, Inc."
+      "name": "Planet Fitness, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "VVV",
-      "name": "Valvoline Inc."
+      "name": "Valvoline Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "MMYT",
-      "name": "MakeMyTrip Limited"
+      "name": "MakeMyTrip Limited",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "TPH",
-      "name": "Tri Pointe Homes, Inc."
+      "name": "Tri Pointe Homes, Inc.",
+      "sector": "Industrials"
     },
     {
       "sy": "ANDG",
-      "name": "Andersen Group Inc."
+      "name": "Andersen Group Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Personal Services"
     },
     {
       "sy": "MTH",
-      "name": "Meritage Homes Corporation"
+      "name": "Meritage Homes Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "TNL",
-      "name": "Travel + Leisure Co."
+      "name": "Travel + Leisure Co.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "THO",
-      "name": "THOR Industries, Inc."
+      "name": "THOR Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     },
     {
       "sy": "SLGN",
-      "name": "Silgan Holdings Inc."
+      "name": "Silgan Holdings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "GPI",
-      "name": "Group 1 Automotive, Inc."
+      "name": "Group 1 Automotive, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "OPLN",
-      "name": "OPENLANE, Inc."
+      "name": "OPENLANE, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "PII",
-      "name": "Polaris Inc."
+      "name": "Polaris Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     },
     {
       "sy": "SKY",
-      "name": "Champion Homes, Inc."
+      "name": "Champion Homes, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "PVH",
-      "name": "PVH Corp."
+      "name": "PVH Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "VSCO",
-      "name": "Victoria's Secret & Co."
+      "name": "Victoria's Secret & Co.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "DAN",
-      "name": "Dana Incorporated"
+      "name": "Dana Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "BFAM",
-      "name": "Bright Horizons Family Solutions Inc."
+      "name": "Bright Horizons Family Solutions Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Personal Services"
     },
     {
       "sy": "HGV",
-      "name": "Hilton Grand Vacations Inc."
+      "name": "Hilton Grand Vacations Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "GEF",
-      "name": "Greif, Inc."
+      "name": "Greif, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "CVCO",
-      "name": "Cavco Industries, Inc."
+      "name": "Cavco Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "WING",
-      "name": "Wingstop Inc."
+      "name": "Wingstop Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "DORM",
-      "name": "Dorman Products, Inc."
+      "name": "Dorman Products, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "BBWI",
-      "name": "Bath & Body Works, Inc."
+      "name": "Bath & Body Works, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "KTB",
-      "name": "Kontoor Brands, Inc."
+      "name": "Kontoor Brands, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "ZGN",
-      "name": "Ermenegildo Zegna N.V."
+      "name": "Ermenegildo Zegna N.V.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "ABG",
-      "name": "Asbury Automotive Group, Inc."
+      "name": "Asbury Automotive Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "ASO",
-      "name": "Academy Sports and Outdoors, Inc."
+      "name": "Academy Sports and Outdoors, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "YETI",
-      "name": "YETI Holdings, Inc."
+      "name": "YETI Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "ANF",
-      "name": "Abercrombie & Fitch Co."
+      "name": "Abercrombie & Fitch Co.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "MHO",
-      "name": "M/I Homes, Inc."
+      "name": "M/I Homes, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "VGNT",
-      "name": "Versigent PLC"
+      "name": "Versigent PLC",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "RRR",
-      "name": "Red Rock Resorts, Inc."
+      "name": "Red Rock Resorts, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "PATK",
-      "name": "Patrick Industries, Inc."
+      "name": "Patrick Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     },
     {
       "sy": "CAKE",
-      "name": "The Cheesecake Factory Incorporated"
+      "name": "The Cheesecake Factory Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "COLM",
-      "name": "Columbia Sportswear Company"
+      "name": "Columbia Sportswear Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "VC",
-      "name": "Visteon Corporation"
+      "name": "Visteon Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "GPK",
-      "name": "Graphic Packaging Holding Company"
+      "name": "Graphic Packaging Holding Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "AAP",
-      "name": "Advance Auto Parts, Inc."
+      "name": "Advance Auto Parts, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "SHOO",
-      "name": "Steven Madden, Ltd."
+      "name": "Steven Madden, Ltd.",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "KBH",
-      "name": "KB Home"
+      "name": "KB Home",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "PHIN",
-      "name": "PHINIA Inc."
+      "name": "PHINIA Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "RSI",
-      "name": "Rush Street Interactive, Inc."
+      "name": "Rush Street Interactive, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "CALY",
-      "name": "Callaway Golf Company"
+      "name": "Callaway Golf Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "LCII",
-      "name": "LCI Industries"
+      "name": "LCI Industries",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     },
     {
       "sy": "GRBK",
-      "name": "Green Brick Partners, Inc."
+      "name": "Green Brick Partners, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "HOG",
-      "name": "Harley-Davidson, Inc."
+      "name": "Harley-Davidson, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     },
     {
       "sy": "WHR",
-      "name": "Whirlpool Corporation"
+      "name": "Whirlpool Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "CARG",
-      "name": "CarGurus, Inc."
+      "name": "CarGurus, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "AEO",
-      "name": "American Eagle Outfitters, Inc."
+      "name": "American Eagle Outfitters, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "PLBL",
-      "name": "Polibeli Group Ltd"
+      "name": "Polibeli Group Ltd",
+      "sector": "Consumer Cyclical",
+      "industry": "Department Stores"
     },
     {
       "sy": "BKE",
-      "name": "The Buckle, Inc."
+      "name": "The Buckle, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "SHAK",
-      "name": "Shake Shack Inc."
+      "name": "Shake Shack Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "VAC",
-      "name": "Marriott Vacations Worldwide Corporation"
+      "name": "Marriott Vacations Worldwide Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "OSW",
-      "name": "OneSpaWorld Holdings Limited"
+      "name": "OneSpaWorld Holdings Limited",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "LCID",
-      "name": "Lucid Group, Inc."
+      "name": "Lucid Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers"
     },
     {
       "sy": "SAH",
-      "name": "Sonic Automotive, Inc."
+      "name": "Sonic Automotive, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "MCW",
-      "name": "Mister Car Wash, Inc."
+      "name": "Mister Car Wash, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "RH",
-      "name": "RH"
+      "name": "RH",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "PTON",
-      "name": "Peloton Interactive, Inc."
+      "name": "Peloton Interactive, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "UAA",
-      "name": "Under Armour, Inc."
+      "name": "Under Armour, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "FUN",
-      "name": "Six Flags Entertainment Corporation"
+      "name": "Six Flags Entertainment Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "PENN",
-      "name": "PENN Entertainment, Inc."
+      "name": "PENN Entertainment, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "HNI",
-      "name": "HNI Corporation"
+      "name": "HNI Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "DRVN",
-      "name": "Driven Brands Holdings Inc."
+      "name": "Driven Brands Holdings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "MCRI",
-      "name": "Monarch Casino & Resort, Inc."
+      "name": "Monarch Casino & Resort, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "CPRI",
-      "name": "Capri Holdings Limited"
+      "name": "Capri Holdings Limited",
+      "sector": "Consumer Cyclical",
+      "industry": "Luxury Goods"
     },
     {
       "sy": "BRSL",
-      "name": "Brightstar Lottery PLC"
+      "name": "Brightstar Lottery PLC",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "FIGS",
-      "name": "FIGS, Inc."
+      "name": "FIGS, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "CYD",
-      "name": "China Yuchai International Limited"
+      "name": "China Yuchai International Limited",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers"
     },
     {
       "sy": "AIN",
-      "name": "Albany International Corp."
+      "name": "Albany International Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Textile Manufacturing"
     },
     {
       "sy": "ARCO",
-      "name": "Arcos Dorados Holdings Inc."
+      "name": "Arcos Dorados Holdings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "PRKS",
-      "name": "United Parks & Resorts Inc."
+      "name": "United Parks & Resorts Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "ADNT",
-      "name": "Adient plc"
+      "name": "Adient plc",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "TILE",
-      "name": "Interface, Inc."
+      "name": "Interface, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "GT",
-      "name": "The Goodyear Tire & Rubber Company"
+      "name": "The Goodyear Tire & Rubber Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "BOBS",
-      "name": "Bob's Discount Furniture, Inc."
+      "name": "Bob's Discount Furniture, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "WEN",
-      "name": "The Wendy's Company"
+      "name": "The Wendy's Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "DCH",
-      "name": "Dauch Corporation"
+      "name": "Dauch Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "LZB",
-      "name": "La-Z-Boy Incorporated"
+      "name": "La-Z-Boy Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "EYE",
-      "name": "National Vision Holdings, Inc."
+      "name": "National Vision Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "TRS",
-      "name": "TriMas Corporation"
+      "name": "TriMas Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "RVLV",
-      "name": "Revolve Group, Inc."
+      "name": "Revolve Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "KSS",
-      "name": "Kohl's Corporation"
+      "name": "Kohl's Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Department Stores"
     },
     {
       "sy": "OI",
-      "name": "O-I Glass, Inc."
+      "name": "O-I Glass, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "WWW",
-      "name": "Wolverine World Wide, Inc."
+      "name": "Wolverine World Wide, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "WINA",
-      "name": "Winmark Corporation"
+      "name": "Winmark Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "LEG",
-      "name": "Leggett & Platt, Incorporated"
+      "name": "Leggett & Platt, Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "CRI",
-      "name": "Carter's, Inc."
+      "name": "Carter's, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "LIND",
-      "name": "Lindblad Expeditions Holdings, Inc."
+      "name": "Lindblad Expeditions Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "GIII",
-      "name": "G-III Apparel Group, Ltd."
+      "name": "G-III Apparel Group, Ltd.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "DFH",
-      "name": "Dream Finders Homes, Inc."
+      "name": "Dream Finders Homes, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "XPEL",
-      "name": "XPEL, Inc."
+      "name": "XPEL, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "PZZA",
-      "name": "Papa John's International, Inc."
+      "name": "Papa John's International, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "PRSU",
-      "name": "Pursuit Attractions and Hospitality, Inc."
+      "name": "Pursuit Attractions and Hospitality, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "SBH",
-      "name": "Sally Beauty Holdings, Inc."
+      "name": "Sally Beauty Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "LUCK",
-      "name": "Lucky Strike Entertainment Corporation"
+      "name": "Lucky Strike Entertainment Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "TRIP",
-      "name": "Tripadvisor, Inc."
+      "name": "Tripadvisor, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "SVV",
-      "name": "Savers Value Village, Inc."
+      "name": "Savers Value Village, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "REAL",
-      "name": "The RealReal, Inc."
+      "name": "The RealReal, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Luxury Goods"
     },
     {
       "sy": "ACVA",
-      "name": "ACV Auctions Inc."
+      "name": "ACV Auctions Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "LQDT",
-      "name": "Liquidity Services, Inc."
+      "name": "Liquidity Services, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "PLOW",
-      "name": "Douglas Dynamics, Inc."
+      "name": "Douglas Dynamics, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "MLKN",
-      "name": "MillerKnoll, Inc."
+      "name": "MillerKnoll, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "SG",
-      "name": "Sweetgreen, Inc."
+      "name": "Sweetgreen, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "ACEL",
-      "name": "Accel Entertainment, Inc."
+      "name": "Accel Entertainment, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "LGIH",
-      "name": "LGI Homes, Inc."
+      "name": "LGI Homes, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "THRM",
-      "name": "Gentherm Incorporated"
+      "name": "Gentherm Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "MBC",
-      "name": "MasterBrand, Inc."
+      "name": "MasterBrand, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "BJRI",
-      "name": "BJ's Restaurants, Inc."
+      "name": "BJ's Restaurants, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "BH",
-      "name": "Biglari Holdings Inc."
+      "name": "Biglari Holdings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "MYE",
-      "name": "Myers Industries, Inc."
+      "name": "Myers Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "SMP",
-      "name": "Standard Motor Products, Inc."
+      "name": "Standard Motor Products, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "WGO",
-      "name": "Winnebago Industries, Inc."
+      "name": "Winnebago Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     },
     {
       "sy": "ARHS",
-      "name": "Arhaus, Inc."
+      "name": "Arhaus, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "ARKO",
-      "name": "Arko Corp."
+      "name": "Arko Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "HZO",
-      "name": "MarineMax, Inc."
+      "name": "MarineMax, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "FWRG",
-      "name": "First Watch Restaurant Group, Inc."
+      "name": "First Watch Restaurant Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "BLMN",
-      "name": "Bloomin' Brands, Inc."
+      "name": "Bloomin' Brands, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "CBRL",
-      "name": "Cracker Barrel Old Country Store, Inc."
+      "name": "Cracker Barrel Old Country Store, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "CSV",
-      "name": "Carriage Services, Inc."
+      "name": "Carriage Services, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Personal Services"
     },
     {
       "sy": "FOXF",
-      "name": "Fox Factory Holding Corp."
+      "name": "Fox Factory Holding Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "ELA",
-      "name": "Envela Corporation"
+      "name": "Envela Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Luxury Goods"
     },
     {
       "sy": "KRUS",
-      "name": "Kura Sushi USA, Inc."
+      "name": "Kura Sushi USA, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "BZH",
-      "name": "Beazer Homes USA, Inc."
+      "name": "Beazer Homes USA, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "MOV",
-      "name": "Movado Group, Inc."
+      "name": "Movado Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Luxury Goods"
     },
     {
       "sy": "BWMX",
-      "name": "Betterware de México, S.A.P.I. de C.V."
+      "name": "Betterware de México, S.A.P.I. de C.V.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "OXM",
-      "name": "Oxford Industries, Inc."
+      "name": "Oxford Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "CNNE",
-      "name": "Cannae Holdings, Inc."
+      "name": "Cannae Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "HOV",
-      "name": "Hovnanian Enterprises, Inc."
+      "name": "Hovnanian Enterprises, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "BALY",
-      "name": "Bally's Corporation"
+      "name": "Bally's Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "KRT",
-      "name": "Karat Packaging Inc."
+      "name": "Karat Packaging Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "MLR",
-      "name": "Miller Industries, Inc."
+      "name": "Miller Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "WCHS",
-      "name": "Digital Energy Reserve Inc"
+      "name": "Digital Energy Reserve Inc",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers"
     },
     {
       "sy": "LEGH",
-      "name": "Legacy Housing Corporation"
+      "name": "Legacy Housing Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "XWIN",
-      "name": "XMax Inc."
+      "name": "XMax Inc.",
+      "sector": "Consumer Discretionary"
     },
     {
       "sy": "MBUU",
-      "name": "Malibu Boats, Inc."
+      "name": "Malibu Boats, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     },
     {
       "sy": "AMWD",
-      "name": "American Woodmark Corporation"
+      "name": "American Woodmark Corporation",
+      "sector": "Consumer Discretionary"
     },
     {
       "sy": "PACK",
-      "name": "Ranpak Holdings Corp."
+      "name": "Ranpak Holdings Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "ETD",
-      "name": "Ethan Allen Interiors Inc."
+      "name": "Ethan Allen Interiors Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "CPS",
-      "name": "Cooper-Standard Holdings Inc."
+      "name": "Cooper-Standard Holdings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "MNRO",
-      "name": "Monro, Inc."
+      "name": "Monro, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "BBW",
-      "name": "Build-A-Bear Workshop, Inc."
+      "name": "Build-A-Bear Workshop, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "SCVL",
-      "name": "Shoe Carnival, Inc."
+      "name": "Shoe Carnival, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "JOUT",
-      "name": "Johnson Outdoors Inc."
+      "name": "Johnson Outdoors Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "NEGG",
-      "name": "Newegg Commerce, Inc."
+      "name": "Newegg Commerce, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "CDRO",
-      "name": "Codere Online Luxembourg, S.A."
+      "name": "Codere Online Luxembourg, S.A.",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "CWH",
-      "name": "Camping World Holdings, Inc."
+      "name": "Camping World Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "NATH",
-      "name": "Nathan's Famous, Inc."
+      "name": "Nathan's Famous, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "LOCO",
-      "name": "El Pollo Loco Holdings, Inc."
+      "name": "El Pollo Loco Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "LOGC",
-      "name": "ContextLogic Holdings Inc."
+      "name": "ContextLogic Holdings Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail"
     },
     {
       "sy": "ZUMZ",
-      "name": "Zumiez Inc."
+      "name": "Zumiez Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "MCFT",
-      "name": "MasterCraft Boat Holdings, Inc."
+      "name": "MasterCraft Boat Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     },
     {
       "sy": "DIN",
-      "name": "Dine Brands Global, Inc."
+      "name": "Dine Brands Global, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "CAL",
-      "name": "Caleres, Inc."
+      "name": "Caleres, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "CVEO",
-      "name": "Civeo Corporation"
+      "name": "Civeo Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Lodging"
     },
     {
       "sy": "GCO",
-      "name": "Genesco Inc."
+      "name": "Genesco Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "CTRN",
-      "name": "Citi Trends, Inc."
+      "name": "Citi Trends, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "LE",
-      "name": "Lands' End, Inc."
+      "name": "Lands' End, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "HVT",
-      "name": "Haverty Furniture Companies, Inc."
+      "name": "Haverty Furniture Companies, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Home Improvement Retail"
     },
     {
       "sy": "WEYS",
-      "name": "Weyco Group, Inc."
+      "name": "Weyco Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "DBI",
-      "name": "Designer Brands Inc."
+      "name": "Designer Brands Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "KFS",
-      "name": "Kingsway Financial Services Inc."
+      "name": "Kingsway Financial Services Inc.",
+      "sector": "Consumer Discretionary"
     },
     {
       "sy": "BNED",
-      "name": "Barnes & Noble Education, Inc."
+      "name": "Barnes & Noble Education, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "RDNW",
-      "name": "RideNow Group, Inc."
+      "name": "RideNow Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "FNKO",
-      "name": "Funko, Inc."
+      "name": "Funko, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "MPX",
-      "name": "Marine Products Corporation"
+      "name": "Marine Products Corporation",
+      "sector": "Information Technology"
     },
     {
       "sy": "STRT",
-      "name": "Strattec Security Corporation"
+      "name": "Strattec Security Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "RCKY",
-      "name": "Rocky Brands, Inc."
+      "name": "Rocky Brands, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "ESCA",
-      "name": "Escalade, Incorporated"
+      "name": "Escalade, Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "HBB",
-      "name": "Hamilton Beach Brands Holding Company"
+      "name": "Hamilton Beach Brands Holding Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "JAKK",
-      "name": "JAKKS Pacific, Inc."
+      "name": "JAKKS Pacific, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "JPO",
@@ -1223,207 +1824,311 @@
     },
     {
       "sy": "LOVE",
-      "name": "The Lovesac Company"
+      "name": "The Lovesac Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "FLXS",
-      "name": "Flexsteel Industries, Inc."
+      "name": "Flexsteel Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "MPAA",
-      "name": "Motorcar Parts of America, Inc."
+      "name": "Motorcar Parts of America, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "JACK",
-      "name": "Jack in the Box Inc."
+      "name": "Jack in the Box Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "INSE",
-      "name": "Inspired Entertainment, Inc."
+      "name": "Inspired Entertainment, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "SRI",
-      "name": "Stoneridge, Inc."
+      "name": "Stoneridge, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "RICK",
-      "name": "RCI Hospitality Holdings, Inc."
+      "name": "RCI Hospitality Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "JILL",
-      "name": "J.Jill, Inc."
+      "name": "J.Jill, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "SGC",
-      "name": "Superior Group of Companies, Inc."
+      "name": "Superior Group of Companies, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "ONEW",
-      "name": "OneWater Marine Inc."
+      "name": "OneWater Marine Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "NUTR",
-      "name": "NusaTrip Incorporated"
+      "name": "NusaTrip Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services"
     },
     {
       "sy": "CVGI",
-      "name": "Commercial Vehicle Group, Inc."
+      "name": "Commercial Vehicle Group, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "LCUT",
-      "name": "Lifetime Brands, Inc."
+      "name": "Lifetime Brands, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "CHPT",
-      "name": "ChargePoint Holdings, Inc."
+      "name": "ChargePoint Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "BRCB",
-      "name": "Black Rock Coffee Bar, Inc."
+      "name": "Black Rock Coffee Bar, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "EMPD",
-      "name": "Empery Digital Inc."
+      "name": "Empery Digital Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers"
     },
     {
       "sy": "MED",
-      "name": "Medifast, Inc."
+      "name": "Medifast, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Personal Services"
     },
     {
       "sy": "HOFT",
-      "name": "Hooker Furnishings Corporation"
+      "name": "Hooker Furnishings Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "BSET",
-      "name": "Bassett Furniture Industries, Incorporated"
+      "name": "Bassett Furniture Industries, Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "COOK",
-      "name": "Traeger, Inc."
+      "name": "Traeger, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "KEQU",
-      "name": "Kewaunee Scientific Corporation"
+      "name": "Kewaunee Scientific Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "MB",
-      "name": "MasterBeef Group"
+      "name": "MasterBeef Group",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "AOUT",
-      "name": "American Outdoor Brands, Inc."
+      "name": "American Outdoor Brands, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "AKA",
-      "name": "a.k.a. Brands Holding Corp."
+      "name": "a.k.a. Brands Holding Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "MCRAA",
-      "name": "McRae Industries, Inc."
+      "name": "McRae Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Footwear & Accessories"
     },
     {
       "sy": "VIRC",
-      "name": "Virco Mfg. Corporation"
+      "name": "Virco Mfg. Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Furnishings, Fixtures & Appliances"
     },
     {
       "sy": "LAKE",
-      "name": "Lakeland Industries, Inc."
+      "name": "Lakeland Industries, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "CRMT",
-      "name": "America's Car-Mart, Inc."
+      "name": "America's Car-Mart, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "NOBH",
-      "name": "Nobility Homes, Inc."
+      "name": "Nobility Homes, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Residential Construction"
     },
     {
       "sy": "GFLT",
-      "name": "GenFlat Holdings, Inc."
+      "name": "GenFlat Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "CPHC",
-      "name": "Canterbury Park Holding Corporation"
+      "name": "Canterbury Park Holding Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "INTG",
-      "name": "The InterGroup Corporation"
+      "name": "The InterGroup Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Lodging"
     },
     {
       "sy": "LEAT",
-      "name": "Leatt Corporation"
+      "name": "Leatt Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "BARK",
-      "name": "BARK, Inc."
+      "name": "BARK, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "NDLS",
-      "name": "Noodles & Company"
+      "name": "Noodles & Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "RGS",
-      "name": "Regis Corporation"
+      "name": "Regis Corporation",
+      "sector": "Consumer Cyclical",
+      "industry": "Personal Services"
     },
     {
       "sy": "JXG",
-      "name": "JX Luxventure Group Inc."
+      "name": "JX Luxventure Group Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "ROLR",
-      "name": "High Roller Technologies, Inc."
+      "name": "High Roller Technologies, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Gambling"
     },
     {
       "sy": "BDL",
-      "name": "Flanigan's Enterprises, Inc."
+      "name": "Flanigan's Enterprises, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "PTLE",
-      "name": "PTL Limited"
+      "name": "PTL Limited",
+      "sector": "Consumer Cyclical",
+      "industry": "Specialty Retail"
     },
     {
       "sy": "LIVE",
-      "name": "Live Ventures Incorporated"
+      "name": "Live Ventures Incorporated",
+      "sector": "Consumer Cyclical",
+      "industry": "Home Improvement Retail"
     },
     {
       "sy": "PRKA",
-      "name": "Parks! America, Inc."
+      "name": "Parks! America, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "MKDW",
-      "name": "MKDWELL Tech Inc."
+      "name": "MKDWELL Tech Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Parts"
     },
     {
       "sy": "LVLU",
-      "name": "Lulu's Fashion Lounge Holdings, Inc."
+      "name": "Lulu's Fashion Lounge Holdings, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Retail"
     },
     {
       "sy": "JL",
-      "name": "J-Long Group Limited"
+      "name": "J-Long Group Limited",
+      "sector": "Consumer Cyclical",
+      "industry": "Apparel Manufacturing"
     },
     {
       "sy": "ARKR",
-      "name": "Ark Restaurants Corp."
+      "name": "Ark Restaurants Corp.",
+      "sector": "Consumer Cyclical",
+      "industry": "Restaurants"
     },
     {
       "sy": "BRRE",
-      "name": "Blue Ridge Real Estate Company"
+      "name": "Blue Ridge Real Estate Company",
+      "sector": "Consumer Cyclical",
+      "industry": "Resorts & Casinos"
     },
     {
       "sy": "GLFE",
-      "name": "Golf Entertainment Group Inc."
+      "name": "Golf Entertainment Group Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Leisure"
     },
     {
       "sy": "KXIN",
-      "name": "Kaixin Holdings"
+      "name": "Kaixin Holdings",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships"
     },
     {
       "sy": "ENZN",
-      "name": "Viskase Companies, Inc."
+      "name": "Viskase Companies, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Packaging & Containers"
     },
     {
       "sy": "VEEE",
-      "name": "Twin Vee Powercats Co."
+      "name": "Twin Vee Powercats Co.",
+      "sector": "Consumer Cyclical",
+      "industry": "Recreational Vehicles"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }

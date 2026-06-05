@@ -7,551 +7,827 @@
   "tickers": [
     {
       "sy": "LIN",
-      "name": "Linde plc"
+      "name": "Linde plc",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "SCCO",
-      "name": "Southern Copper Corporation"
+      "name": "Southern Copper Corporation",
+      "sector": "Basic Materials",
+      "industry": "Copper"
     },
     {
       "sy": "NEM",
-      "name": "Newmont Corporation"
+      "name": "Newmont Corporation",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "FCX",
-      "name": "Freeport-McMoRan Inc."
+      "name": "Freeport-McMoRan Inc.",
+      "sector": "Basic Materials",
+      "industry": "Copper"
     },
     {
       "sy": "SHW",
-      "name": "The Sherwin-Williams Company"
+      "name": "The Sherwin-Williams Company",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "ECL",
-      "name": "Ecolab Inc."
+      "name": "Ecolab Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "CRH",
-      "name": "CRH plc"
+      "name": "CRH plc",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "APD",
-      "name": "Air Products and Chemicals, Inc."
+      "name": "Air Products and Chemicals, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "CTVA",
-      "name": "Corteva, Inc."
+      "name": "Corteva, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Agricultural Inputs"
     },
     {
       "sy": "NUE",
-      "name": "Nucor Corporation"
+      "name": "Nucor Corporation",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "AU",
-      "name": "AngloGold Ashanti plc"
+      "name": "AngloGold Ashanti plc",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "VMC",
-      "name": "Vulcan Materials Company"
+      "name": "Vulcan Materials Company",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "MLM",
-      "name": "Martin Marietta Materials, Inc."
+      "name": "Martin Marietta Materials, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "STLD",
-      "name": "Steel Dynamics, Inc."
+      "name": "Steel Dynamics, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "DOW",
-      "name": "Dow Inc."
+      "name": "Dow Inc.",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "LYB",
-      "name": "LyondellBasell Industries N.V."
+      "name": "LyondellBasell Industries N.V.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "PPG",
-      "name": "PPG Industries, Inc."
+      "name": "PPG Industries, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "ALB",
-      "name": "Albemarle Corporation"
+      "name": "Albemarle Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "DD",
-      "name": "DuPont de Nemours, Inc."
+      "name": "DuPont de Nemours, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "RGLD",
-      "name": "Royal Gold, Inc."
+      "name": "Royal Gold, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "CF",
-      "name": "CF Industries Holdings, Inc."
+      "name": "CF Industries Holdings, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Agricultural Inputs"
     },
     {
       "sy": "IFF",
-      "name": "International Flavors & Fragrances Inc."
+      "name": "International Flavors & Fragrances Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "RS",
-      "name": "Reliance, Inc."
+      "name": "Reliance, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "CDE",
-      "name": "Coeur Mining, Inc."
+      "name": "Coeur Mining, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "AA",
-      "name": "Alcoa Corporation"
+      "name": "Alcoa Corporation",
+      "sector": "Basic Materials",
+      "industry": "Aluminum"
     },
     {
       "sy": "SOLS",
-      "name": "Solstice Advanced Materials, Inc."
+      "name": "Solstice Advanced Materials, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "RPM",
-      "name": "RPM International Inc."
+      "name": "RPM International Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "HL",
-      "name": "Hecla Mining Company"
+      "name": "Hecla Mining Company",
+      "sector": "Basic Materials",
+      "industry": "Other Precious Metals & Mining"
     },
     {
       "sy": "WLK",
-      "name": "Westlake Corporation"
+      "name": "Westlake Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "JHX",
-      "name": "James Hardie Industries plc"
+      "name": "James Hardie Industries plc",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "MP",
-      "name": "MP Materials Corp."
+      "name": "MP Materials Corp.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "ESI",
-      "name": "Element Solutions Inc"
+      "name": "Element Solutions Inc",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "EMN",
-      "name": "Eastman Chemical Company"
+      "name": "Eastman Chemical Company",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "SSD",
-      "name": "Simpson Manufacturing Co., Inc."
+      "name": "Simpson Manufacturing Co., Inc.",
+      "sector": "Basic Materials",
+      "industry": "Lumber & Wood Production"
     },
     {
       "sy": "MOS",
-      "name": "The Mosaic Company"
+      "name": "The Mosaic Company",
+      "sector": "Basic Materials",
+      "industry": "Agricultural Inputs"
     },
     {
       "sy": "AUGO",
-      "name": "Aura Minerals Inc."
+      "name": "Aura Minerals Inc.",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "NEU",
-      "name": "NewMarket Corporation"
+      "name": "NewMarket Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "CE",
-      "name": "Celanese Corporation"
+      "name": "Celanese Corporation",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "EXP",
-      "name": "Eagle Materials Inc."
+      "name": "Eagle Materials Inc.",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "CLF",
-      "name": "Cleveland-Cliffs Inc."
+      "name": "Cleveland-Cliffs Inc.",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "AXTA",
-      "name": "Axalta Coating Systems Ltd."
+      "name": "Axalta Coating Systems Ltd.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "CENX",
-      "name": "Century Aluminum Company"
+      "name": "Century Aluminum Company",
+      "sector": "Basic Materials",
+      "industry": "Aluminum"
     },
     {
       "sy": "USAR",
-      "name": "USA Rare Earth, Inc."
+      "name": "USA Rare Earth, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "PRM",
-      "name": "Perimeter Solutions, Inc."
+      "name": "Perimeter Solutions, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "BCPC",
-      "name": "Balchem Corporation"
+      "name": "Balchem Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "OICT",
-      "name": "Oicintra, Inc."
+      "name": "Oicintra, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Precious Metals & Mining"
     },
     {
       "sy": "SXT",
-      "name": "Sensient Technologies Corporation"
+      "name": "Sensient Technologies Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "EMAT",
-      "name": "Evolution Metals & Technologies Corp."
+      "name": "Evolution Metals & Technologies Corp.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "UFPI",
-      "name": "UFP Industries, Inc."
+      "name": "UFP Industries, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Lumber & Wood Production"
     },
     {
       "sy": "HCC",
-      "name": "Warrior Met Coal, Inc."
+      "name": "Warrior Met Coal, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Coking Coal"
     },
     {
       "sy": "CSTM",
-      "name": "Constellium SE"
+      "name": "Constellium SE",
+      "sector": "Basic Materials",
+      "industry": "Aluminum"
     },
     {
       "sy": "KNF",
-      "name": "Knife River Corporation"
+      "name": "Knife River Corporation",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "MTRN",
-      "name": "Materion Corporation"
+      "name": "Materion Corporation",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "CBT",
-      "name": "Cabot Corporation"
+      "name": "Cabot Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "CC",
-      "name": "The Chemours Company"
+      "name": "The Chemours Company",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "HWKN",
-      "name": "Hawkins, Inc."
+      "name": "Hawkins, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "HYMC",
-      "name": "Hycroft Mining Holding Corporation"
+      "name": "Hycroft Mining Holding Corporation",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "SMG",
-      "name": "The Scotts Miracle-Gro Company"
+      "name": "The Scotts Miracle-Gro Company",
+      "sector": "Basic Materials",
+      "industry": "Agricultural Inputs"
     },
     {
       "sy": "SA",
-      "name": "Seabridge Gold Inc."
+      "name": "Seabridge Gold Inc.",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "FUL",
-      "name": "H.B. Fuller Company"
+      "name": "H.B. Fuller Company",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "AVNT",
-      "name": "Avient Corporation"
+      "name": "Avient Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "OLN",
-      "name": "Olin Corporation"
+      "name": "Olin Corporation",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "USLM",
-      "name": "United States Lime & Minerals, Inc."
+      "name": "United States Lime & Minerals, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "EXK",
-      "name": "Endeavour Silver Corp."
+      "name": "Endeavour Silver Corp.",
+      "sector": "Basic Materials",
+      "industry": "Silver"
     },
     {
       "sy": "TTAM",
-      "name": "Titan America SA"
+      "name": "Titan America SA",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "KALU",
-      "name": "Kaiser Aluminum Corporation"
+      "name": "Kaiser Aluminum Corporation",
+      "sector": "Basic Materials",
+      "industry": "Aluminum"
     },
     {
       "sy": "CLMT",
-      "name": "Calumet, Inc."
+      "name": "Calumet, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "WDFC",
-      "name": "WD-40 Company"
+      "name": "WD-40 Company",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "ASH",
-      "name": "Ashland Inc."
+      "name": "Ashland Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "HUN",
-      "name": "Huntsman Corporation"
+      "name": "Huntsman Corporation",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "KWR",
-      "name": "Quaker Chemical Corporation"
+      "name": "Quaker Chemical Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "MTX",
-      "name": "Minerals Technologies Inc."
+      "name": "Minerals Technologies Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "NGVT",
-      "name": "Ingevity Corporation"
+      "name": "Ingevity Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "TMC",
-      "name": "TMC the metals company Inc."
+      "name": "TMC the metals company Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "BCC",
-      "name": "Boise Cascade Company"
+      "name": "Boise Cascade Company",
+      "sector": "Basic Materials",
+      "industry": "Lumber & Wood Production"
     },
     {
       "sy": "AMR",
-      "name": "Alpha Metallurgical Resources, Inc."
+      "name": "Alpha Metallurgical Resources, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Coking Coal"
     },
     {
       "sy": "LWLG",
-      "name": "Lightwave Logic, Inc."
+      "name": "Lightwave Logic, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "IE",
-      "name": "Ivanhoe Electric Inc."
+      "name": "Ivanhoe Electric Inc.",
+      "sector": "Basic Materials",
+      "industry": "Copper"
     },
     {
       "sy": "WS",
-      "name": "Worthington Steel, Inc."
+      "name": "Worthington Steel, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "NEXA",
-      "name": "Nexa Resources S.A."
+      "name": "Nexa Resources S.A.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "IOSP",
-      "name": "Innospec Inc."
+      "name": "Innospec Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "FMC",
-      "name": "FMC Corporation"
+      "name": "FMC Corporation",
+      "sector": "Basic Materials",
+      "industry": "Agricultural Inputs"
     },
     {
       "sy": "TGLS",
-      "name": "Tecnoglass Inc."
+      "name": "Tecnoglass Inc.",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "REX",
-      "name": "REX American Resources Corporation"
+      "name": "REX American Resources Corporation",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "CRML",
-      "name": "Critical Metals Corp."
+      "name": "Critical Metals Corp.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "ECVT",
-      "name": "Ecovyst Inc."
+      "name": "Ecovyst Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "SLVM",
-      "name": "Sylvamo Corporation"
+      "name": "Sylvamo Corporation",
+      "sector": "Basic Materials",
+      "industry": "Paper & Paper Products"
     },
     {
       "sy": "UAN",
-      "name": "CVR Partners, LP"
+      "name": "CVR Partners, LP",
+      "sector": "Basic Materials",
+      "industry": "Agricultural Inputs"
     },
     {
       "sy": "MUX",
-      "name": "McEwen Inc."
+      "name": "McEwen Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Precious Metals & Mining"
     },
     {
       "sy": "UAMY",
-      "name": "United States Antimony Corporation"
+      "name": "United States Antimony Corporation",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "TROX",
-      "name": "Tronox Holdings plc"
+      "name": "Tronox Holdings plc",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "CMP",
-      "name": "Compass Minerals International, Inc."
+      "name": "Compass Minerals International, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "GPRE",
-      "name": "Green Plains Inc."
+      "name": "Green Plains Inc.",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "SCL",
-      "name": "Stepan Company"
+      "name": "Stepan Company",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "ODC",
-      "name": "Oil-Dri Corporation of America"
+      "name": "Oil-Dri Corporation of America",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "MCEM",
-      "name": "The Monarch Cement Company"
+      "name": "The Monarch Cement Company",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "NWPX",
-      "name": "NWPX Infrastructure, Inc."
+      "name": "NWPX Infrastructure, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "LXU",
-      "name": "LSB Industries, Inc."
+      "name": "LSB Industries, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "METC",
-      "name": "Ramaco Resources, Inc."
+      "name": "Ramaco Resources, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Coking Coal"
     },
     {
       "sy": "WLKP",
-      "name": "Westlake Chemical Partners LP"
+      "name": "Westlake Chemical Partners LP",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "KOP",
-      "name": "Koppers Holdings Inc."
+      "name": "Koppers Holdings Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "NB",
-      "name": "NioCorp Developments Ltd."
+      "name": "NioCorp Developments Ltd.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "KRO",
-      "name": "Kronos Worldwide, Inc."
+      "name": "Kronos Worldwide, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "TMCR",
-      "name": "The Metals Royalty Company Inc."
+      "name": "The Metals Royalty Company Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "DC",
-      "name": "Dakota Gold Corp."
+      "name": "Dakota Gold Corp.",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "MTUS",
-      "name": "Metallus Inc."
+      "name": "Metallus Inc.",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "ASPI",
-      "name": "ASP Isotopes Inc."
+      "name": "ASP Isotopes Inc.",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "CTGO",
-      "name": "Contango Silver & Gold Inc."
+      "name": "Contango Silver & Gold Inc.",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "SXC",
-      "name": "SunCoke Energy, Inc."
+      "name": "SunCoke Energy, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Coking Coal"
     },
     {
       "sy": "IDR",
-      "name": "Idaho Strategic Resources, Inc."
+      "name": "Idaho Strategic Resources, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "RYAM",
-      "name": "Rayonier Advanced Materials Inc."
+      "name": "Rayonier Advanced Materials Inc.",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "ASIX",
-      "name": "AdvanSix Inc."
+      "name": "AdvanSix Inc.",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "IPI",
-      "name": "Intrepid Potash, Inc."
+      "name": "Intrepid Potash, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Agricultural Inputs"
     },
     {
       "sy": "ALOY",
-      "name": "REalloys Inc."
+      "name": "REalloys Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "MATV",
-      "name": "Mativ Holdings, Inc."
+      "name": "Mativ Holdings, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "CMCL",
-      "name": "Caledonia Mining Corporation Plc"
+      "name": "Caledonia Mining Corporation Plc",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "OEC",
-      "name": "Orion S.A."
+      "name": "Orion S.A.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "VHI",
-      "name": "Valhi, Inc."
+      "name": "Valhi, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "MSB",
-      "name": "Mesabi Trust"
+      "name": "Mesabi Trust",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "USAU",
-      "name": "U.S. Gold Corp."
+      "name": "U.S. Gold Corp.",
+      "sector": "Basic Materials",
+      "industry": "Gold"
     },
     {
       "sy": "CLW",
-      "name": "Clearwater Paper Corporation"
+      "name": "Clearwater Paper Corporation",
+      "sector": "Basic Materials",
+      "industry": "Paper & Paper Products"
     },
     {
       "sy": "CMT",
-      "name": "Core Molding Technologies, Inc."
+      "name": "Core Molding Technologies, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "SINC",
-      "name": "Sincerity Applied Materials Holdings Corp."
+      "name": "Sincerity Applied Materials Holdings Corp.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "USGO",
-      "name": "U.S. GoldMining Inc."
+      "name": "U.S. GoldMining Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "SMID",
-      "name": "Smith-Midland Corporation"
+      "name": "Smith-Midland Corporation",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "FRD",
-      "name": "Friedman Industries, Incorporated"
+      "name": "Friedman Industries, Incorporated",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "LUD",
-      "name": "Luda Technology Group Limited"
+      "name": "Luda Technology Group Limited",
+      "sector": "Basic Materials",
+      "industry": "Steel"
     },
     {
       "sy": "ACNT",
-      "name": "Ascent Industries Co."
+      "name": "Ascent Industries Co.",
+      "sector": "Basic Materials",
+      "industry": "Chemicals"
     },
     {
       "sy": "ACRG",
-      "name": "American Clean Resources Group, Inc."
+      "name": "American Clean Resources Group, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Precious Metals & Mining"
     },
     {
       "sy": "FSI",
-      "name": "Flexible Solutions International, Inc."
+      "name": "Flexible Solutions International, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "NTIC",
-      "name": "Northern Technologies International Corporation"
+      "name": "Northern Technologies International Corporation",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "ATCX",
-      "name": "Atlas Critical Minerals Corporation"
+      "name": "Atlas Critical Minerals Corporation",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "BLTH",
-      "name": "American Battery Materials, Inc."
+      "name": "American Battery Materials, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "AVOA",
-      "name": "Avoca LLC"
+      "name": "Avoca LLC",
+      "sector": "Basic Materials",
+      "industry": "Specialty Chemicals"
     },
     {
       "sy": "REA",
-      "name": "Rare Earths Americas, Inc."
+      "name": "Rare Earths Americas, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     },
     {
       "sy": "RMIX",
-      "name": "Suncrete, Inc."
+      "name": "Suncrete, Inc.",
+      "sector": "Basic Materials",
+      "industry": "Building Materials"
     },
     {
       "sy": "SBMT",
-      "name": "Silver Bow Mining Corp."
+      "name": "Silver Bow Mining Corp.",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }

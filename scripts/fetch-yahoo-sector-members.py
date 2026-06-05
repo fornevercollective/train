@@ -126,6 +126,11 @@ def main() -> int:
         action="store_true",
         help="Print per-page fetch progress",
     )
+    parser.add_argument(
+        "--enrich-industry",
+        action="store_true",
+        help="After fetch, run enrich-sector-members-industry.py on updated sector files",
+    )
     args = parser.parse_args()
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
@@ -170,6 +175,16 @@ def main() -> int:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     index_path.write_text(json.dumps(index, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Wrote {index_path} ({len(index_sectors)} sectors)")
+
+    if args.enrich_industry and index_sectors:
+        import subprocess
+        enrich = Path(__file__).resolve().parent / "enrich-sector-members-industry.py"
+        cmd = ["python3", str(enrich)]
+        if args.sector:
+            cmd.extend(["--sector", args.sector])
+        print("Enriching industry labels…", flush=True)
+        subprocess.run(cmd, check=True, cwd=ROOT)
+
     return 0
 
 

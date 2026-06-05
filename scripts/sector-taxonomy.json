@@ -1,0 +1,36 @@
+{
+  "note": "Maps Yahoo Finance sector/industry labels to train sector-members sectorId and Ritual ROI browse tile labels.",
+  "yahooSectorToSectorId": {
+    "Technology": "technology",
+    "Financial Services": "financials",
+    "Communication Services": "communication",
+    "Consumer Cyclical": "consumer_cyclical",
+    "Consumer Defensive": "consumer_defensive",
+    "Healthcare": "healthcare",
+    "Health Care": "healthcare",
+    "Industrials": "industrials",
+    "Energy": "war_tape",
+    "Basic Materials": "basic_materials",
+    "Real Estate": "real_estate",
+    "Utilities": "utilities"
+  },
+  "catalogSectorToSectorId": {
+    "Information Technology": "technology",
+    "Financials": "financials",
+    "Communication Services": "communication",
+    "Consumer Discretionary": "consumer_cyclical",
+    "Consumer Staples": "consumer_defensive",
+    "Health Care": "healthcare",
+    "Industrials": "industrials",
+    "Energy": "war_tape",
+    "Materials": "basic_materials",
+    "Real Estate": "real_estate",
+    "Utilities": "utilities"
+  },
+  "industryLabelNormalize": {
+    "Banks—Diversified": "Banks - Diversified",
+    "Banks—Regional": "Banks - Regional",
+    "Banks - Diversified": "Banks - Diversified",
+    "Banks - Regional": "Banks - Regional"
+  }
+}

@@ -7,2163 +7,3242 @@
   "tickers": [
     {
       "sy": "LLY",
-      "name": "Eli Lilly and Company"
+      "name": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "JNJ",
-      "name": "Johnson & Johnson"
+      "name": "Johnson & Johnson",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "ABBV",
-      "name": "AbbVie Inc."
+      "name": "AbbVie Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "UNH",
-      "name": "UnitedHealth Group Incorporated"
+      "name": "UnitedHealth Group Incorporated",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "MRK",
-      "name": "Merck & Co., Inc."
+      "name": "Merck & Co., Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "AMGN",
-      "name": "Amgen Inc."
+      "name": "Amgen Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "TMO",
-      "name": "Thermo Fisher Scientific Inc."
+      "name": "Thermo Fisher Scientific Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "GILD",
-      "name": "Gilead Sciences, Inc."
+      "name": "Gilead Sciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "ISRG",
-      "name": "Intuitive Surgical, Inc."
+      "name": "Intuitive Surgical, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "ABT",
-      "name": "Abbott Laboratories"
+      "name": "Abbott Laboratories",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "PFE",
-      "name": "Pfizer Inc."
+      "name": "Pfizer Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "CVS",
-      "name": "CVS Health Corporation"
+      "name": "CVS Health Corporation",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "SYK",
-      "name": "Stryker Corporation"
+      "name": "Stryker Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "BMY",
-      "name": "Bristol-Myers Squibb Company"
+      "name": "Bristol-Myers Squibb Company",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "DHR",
-      "name": "Danaher Corporation"
+      "name": "Danaher Corporation",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "VRTX",
-      "name": "Vertex Pharmaceuticals Incorporated"
+      "name": "Vertex Pharmaceuticals Incorporated",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MDT",
-      "name": "Medtronic plc"
+      "name": "Medtronic plc",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "HCA",
-      "name": "HCA Healthcare, Inc."
+      "name": "HCA Healthcare, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "MCK",
-      "name": "McKesson Corporation"
+      "name": "McKesson Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Distribution"
     },
     {
       "sy": "ELV",
-      "name": "Elevance Health, Inc."
+      "name": "Elevance Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "BSX",
-      "name": "Boston Scientific Corporation"
+      "name": "Boston Scientific Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "CI",
-      "name": "The Cigna Group"
+      "name": "The Cigna Group",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "REGN",
-      "name": "Regeneron Pharmaceuticals, Inc."
+      "name": "Regeneron Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "COR",
-      "name": "Cencora, Inc."
+      "name": "Cencora, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Distribution"
     },
     {
       "sy": "EW",
-      "name": "Edwards Lifesciences Corporation"
+      "name": "Edwards Lifesciences Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "CAH",
-      "name": "Cardinal Health, Inc."
+      "name": "Cardinal Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Distribution"
     },
     {
       "sy": "IDXX",
-      "name": "IDEXX Laboratories, Inc."
+      "name": "IDEXX Laboratories, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "BDX",
-      "name": "Becton, Dickinson and Company"
+      "name": "Becton, Dickinson and Company",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "ALNY",
-      "name": "Alnylam Pharmaceuticals, Inc."
+      "name": "Alnylam Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "HUM",
-      "name": "Humana Inc."
+      "name": "Humana Inc.",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "WAT",
-      "name": "Waters Corporation"
+      "name": "Waters Corporation",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "A",
-      "name": "Agilent Technologies, Inc."
+      "name": "Agilent Technologies, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "ZTS",
-      "name": "Zoetis Inc."
+      "name": "Zoetis Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "RVMD",
-      "name": "Revolution Medicines, Inc."
+      "name": "Revolution Medicines, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MDLN",
-      "name": "Medline Inc."
+      "name": "Medline Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "RMD",
-      "name": "ResMed Inc."
+      "name": "ResMed Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "CNC",
-      "name": "Centene Corporation"
+      "name": "Centene Corporation",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "BIIB",
-      "name": "Biogen Inc."
+      "name": "Biogen Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "IQV",
-      "name": "IQVIA Holdings Inc."
+      "name": "IQVIA Holdings Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "GEHC",
-      "name": "GE HealthCare Technologies Inc."
+      "name": "GE HealthCare Technologies Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "NTRA",
-      "name": "Natera, Inc."
+      "name": "Natera, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "VEEV",
-      "name": "Veeva Systems Inc."
+      "name": "Veeva Systems Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "UTHR",
-      "name": "United Therapeutics Corporation"
+      "name": "United Therapeutics Corporation",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "DXCM",
-      "name": "DexCom, Inc."
+      "name": "DexCom, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "INSM",
-      "name": "Insmed Incorporated"
+      "name": "Insmed Incorporated",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RPRX",
-      "name": "Royalty Pharma plc"
+      "name": "Royalty Pharma plc",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ILMN",
-      "name": "Illumina, Inc."
+      "name": "Illumina, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "WST",
-      "name": "West Pharmaceutical Services, Inc."
+      "name": "West Pharmaceutical Services, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "ROIV",
-      "name": "Roivant Sciences Ltd."
+      "name": "Roivant Sciences Ltd.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MTD",
-      "name": "Mettler-Toledo International Inc."
+      "name": "Mettler-Toledo International Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "STE",
-      "name": "STERIS plc"
+      "name": "STERIS plc",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "DGX",
-      "name": "Quest Diagnostics Incorporated"
+      "name": "Quest Diagnostics Incorporated",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "LH",
-      "name": "Labcorp Holdings Inc."
+      "name": "Labcorp Holdings Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "MRNA",
-      "name": "Moderna, Inc."
+      "name": "Moderna, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "VTRS",
-      "name": "Viatris Inc."
+      "name": "Viatris Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "INCY",
-      "name": "Incyte Corporation"
+      "name": "Incyte Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "THC",
-      "name": "Tenet Healthcare Corporation"
+      "name": "Tenet Healthcare Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "ZBH",
-      "name": "Zimmer Biomet Holdings, Inc."
+      "name": "Zimmer Biomet Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "NBIX",
-      "name": "Neurocrine Biosciences, Inc."
+      "name": "Neurocrine Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "ASND",
-      "name": "Ascendis Pharma A/S"
+      "name": "Ascendis Pharma A/S",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "JAZZ",
-      "name": "Jazz Pharmaceuticals plc"
+      "name": "Jazz Pharmaceuticals plc",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RGC",
-      "name": "Regencell Bioscience Holdings Limited"
+      "name": "Regencell Bioscience Holdings Limited",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "SMMT",
-      "name": "Summit Therapeutics Inc."
+      "name": "Summit Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BBIO",
-      "name": "BridgeBio Pharma, Inc."
+      "name": "BridgeBio Pharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SOLV",
-      "name": "Solventum Corporation"
+      "name": "Solventum Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "DVA",
-      "name": "DaVita Inc."
+      "name": "DaVita Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "PEN",
-      "name": "Penumbra, Inc."
+      "name": "Penumbra, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "EXEL",
-      "name": "Exelixis, Inc."
+      "name": "Exelixis, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "GH",
-      "name": "Guardant Health, Inc."
+      "name": "Guardant Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "IONS",
-      "name": "Ionis Pharmaceuticals, Inc."
+      "name": "Ionis Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MDGL",
-      "name": "Madrigal Pharmaceuticals, Inc."
+      "name": "Madrigal Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MEDP",
-      "name": "Medpace Holdings, Inc."
+      "name": "Medpace Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "AXSM",
-      "name": "Axsome Therapeutics, Inc."
+      "name": "Axsome Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "COO",
-      "name": "The Cooper Companies, Inc."
+      "name": "The Cooper Companies, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "ALGN",
-      "name": "Align Technology, Inc."
+      "name": "Align Technology, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "BTSG",
-      "name": "BrightSpring Health Services, Inc."
+      "name": "BrightSpring Health Services, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "ARWR",
-      "name": "Arrowhead Pharmaceuticals, Inc."
+      "name": "Arrowhead Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "EHC",
-      "name": "Encompass Health Corporation"
+      "name": "Encompass Health Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "RVTY",
-      "name": "Revvity, Inc."
+      "name": "Revvity, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "GMED",
-      "name": "Globus Medical, Inc."
+      "name": "Globus Medical, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "ENSG",
-      "name": "The Ensign Group, Inc."
+      "name": "The Ensign Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "CYTK",
-      "name": "Cytokinetics, Incorporated"
+      "name": "Cytokinetics, Incorporated",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PODD",
-      "name": "Insulet Corporation"
+      "name": "Insulet Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "UHS",
-      "name": "Universal Health Services, Inc."
+      "name": "Universal Health Services, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "BMRN",
-      "name": "BioMarin Pharmaceutical Inc."
+      "name": "BioMarin Pharmaceutical Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ELAN",
-      "name": "Elanco Animal Health Incorporated"
+      "name": "Elanco Animal Health Incorporated",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "MOH",
-      "name": "Molina Healthcare, Inc."
+      "name": "Molina Healthcare, Inc.",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "PRAX",
-      "name": "Praxis Precision Medicines, Inc."
+      "name": "Praxis Precision Medicines, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MASI",
-      "name": "Masimo Corporation"
+      "name": "Masimo Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "KRYS",
-      "name": "Krystal Biotech, Inc."
+      "name": "Krystal Biotech, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BAX",
-      "name": "Baxter International Inc."
+      "name": "Baxter International Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "ICLR",
-      "name": "ICON Public Limited Company"
+      "name": "ICON Public Limited Company",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "GKOS",
-      "name": "Glaukos Corporation"
+      "name": "Glaukos Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "IBRX",
-      "name": "ImmunityBio, Inc."
+      "name": "ImmunityBio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "HSIC",
-      "name": "Henry Schein, Inc."
+      "name": "Henry Schein, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Distribution"
     },
     {
       "sy": "NUVL",
-      "name": "Nuvalent, Inc."
+      "name": "Nuvalent, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "HALO",
-      "name": "Halozyme Therapeutics, Inc."
+      "name": "Halozyme Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TEM",
-      "name": "Tempus AI, Inc."
+      "name": "Tempus AI, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "PCVX",
-      "name": "Vaxcyte, Inc."
+      "name": "Vaxcyte, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ATR",
-      "name": "AptarGroup, Inc."
+      "name": "AptarGroup, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "CRL",
-      "name": "Charles River Laboratories International, Inc."
+      "name": "Charles River Laboratories International, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "OSCR",
-      "name": "Oscar Health, Inc."
+      "name": "Oscar Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "HQY",
-      "name": "HealthEquity, Inc."
+      "name": "HealthEquity, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "QGEN",
-      "name": "Qiagen N.V."
+      "name": "Qiagen N.V.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "TECH",
-      "name": "Bio-Techne Corporation"
+      "name": "Bio-Techne Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "KYMR",
-      "name": "Kymera Therapeutics, Inc."
+      "name": "Kymera Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CELC",
-      "name": "Celcuity Inc."
+      "name": "Celcuity Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BIO",
-      "name": "Bio-Rad Laboratories, Inc."
+      "name": "Bio-Rad Laboratories, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "PTGX",
-      "name": "Protagonist Therapeutics, Inc."
+      "name": "Protagonist Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BRKR",
-      "name": "Bruker Corporation"
+      "name": "Bruker Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "SYRE",
-      "name": "Spyre Therapeutics, Inc."
+      "name": "Spyre Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ALKS",
-      "name": "Alkermes plc"
+      "name": "Alkermes plc",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "MIRM",
-      "name": "Mirum Pharmaceuticals, Inc."
+      "name": "Mirum Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RYTM",
-      "name": "Rhythm Pharmaceuticals, Inc."
+      "name": "Rhythm Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "APGE",
-      "name": "Apogee Therapeutics, Inc."
+      "name": "Apogee Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "LNTH",
-      "name": "Lantheus Holdings, Inc."
+      "name": "Lantheus Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "CORT",
-      "name": "Corcept Therapeutics Incorporated"
+      "name": "Corcept Therapeutics Incorporated",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TGTX",
-      "name": "TG Therapeutics, Inc."
+      "name": "TG Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PACS",
-      "name": "PACS Group, Inc."
+      "name": "PACS Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "PTCT",
-      "name": "PTC Therapeutics, Inc."
+      "name": "PTC Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SRRK",
-      "name": "Scholar Rock Holding Corporation"
+      "name": "Scholar Rock Holding Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CGON",
-      "name": "CG Oncology, Inc."
+      "name": "CG Oncology, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RGEN",
-      "name": "Repligen Corporation"
+      "name": "Repligen Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "HIMS",
-      "name": "Hims & Hers Health, Inc."
+      "name": "Hims & Hers Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "CHE",
-      "name": "Chemed Corporation"
+      "name": "Chemed Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "TFX",
-      "name": "Teleflex Incorporated"
+      "name": "Teleflex Incorporated",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "IMVT",
-      "name": "Immunovant, Inc."
+      "name": "Immunovant, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "COGT",
-      "name": "Cogent Biosciences, Inc."
+      "name": "Cogent Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "XENE",
-      "name": "Xenon Pharmaceuticals Inc."
+      "name": "Xenon Pharmaceuticals Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "APLS",
-      "name": "Apellis Pharmaceuticals, Inc."
+      "name": "Apellis Pharmaceuticals, Inc.",
+      "sector": "Financials"
     },
     {
       "sy": "AVTR",
-      "name": "Avantor, Inc."
+      "name": "Avantor, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "LQDA",
-      "name": "Liquidia Corporation"
+      "name": "Liquidia Corporation",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "STVN",
-      "name": "Stevanato Group S.p.A."
+      "name": "Stevanato Group S.p.A.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "DNTH",
-      "name": "Dianthus Therapeutics, Inc."
+      "name": "Dianthus Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CRSP",
-      "name": "CRISPR Therapeutics AG"
+      "name": "CRISPR Therapeutics AG",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SHC",
-      "name": "Sotera Health Company"
+      "name": "Sotera Health Company",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "KNSA",
-      "name": "Kiniksa Pharmaceuticals International, plc"
+      "name": "Kiniksa Pharmaceuticals International, plc",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "INDV",
-      "name": "Indivior Pharmaceuticals, Inc."
+      "name": "Indivior Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "LGND",
-      "name": "Ligand Pharmaceuticals Incorporated"
+      "name": "Ligand Pharmaceuticals Incorporated",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "HNGE",
-      "name": "Hinge Health, Inc."
+      "name": "Hinge Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "NAMS",
-      "name": "NewAmsterdam Pharma Company N.V."
+      "name": "NewAmsterdam Pharma Company N.V.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MANE",
-      "name": "Veradermics, Incorporated"
+      "name": "Veradermics, Incorporated",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RDNT",
-      "name": "RadNet, Inc."
+      "name": "RadNet, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "CAI",
-      "name": "Caris Life Sciences, Inc."
+      "name": "Caris Life Sciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TVTX",
-      "name": "Travere Therapeutics, Inc."
+      "name": "Travere Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CRNX",
-      "name": "Crinetics Pharmaceuticals, Inc."
+      "name": "Crinetics Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "LIVN",
-      "name": "LivaNova PLC"
+      "name": "LivaNova PLC",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "CPRX",
-      "name": "Catalyst Pharmaceuticals, Inc."
+      "name": "Catalyst Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AMRX",
-      "name": "Amneal Pharmaceuticals, Inc."
+      "name": "Amneal Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "BLLN",
-      "name": "BillionToOne, Inc."
+      "name": "BillionToOne, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "NVST",
-      "name": "Envista Holdings Corporation"
+      "name": "Envista Holdings Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "IRTC",
-      "name": "iRhythm Holdings, Inc."
+      "name": "iRhythm Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "ORKA",
-      "name": "Oruka Therapeutics, Inc."
+      "name": "Oruka Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ACAD",
-      "name": "ACADIA Pharmaceuticals Inc."
+      "name": "ACADIA Pharmaceuticals Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MMSI",
-      "name": "Merit Medical Systems, Inc."
+      "name": "Merit Medical Systems, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "EWTX",
-      "name": "Edgewise Therapeutics, Inc."
+      "name": "Edgewise Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "WRBY",
-      "name": "Warby Parker Inc."
+      "name": "Warby Parker Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "OGN",
-      "name": "Organon & Co."
+      "name": "Organon & Co.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "VKTX",
-      "name": "Viking Therapeutics, Inc."
+      "name": "Viking Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "DOCS",
-      "name": "Doximity, Inc."
+      "name": "Doximity, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "WAY",
-      "name": "Waystar Holding Corp."
+      "name": "Waystar Holding Corp.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "CON",
-      "name": "Concentra Group Holdings Parent, Inc."
+      "name": "Concentra Group Holdings Parent, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "ALHC",
-      "name": "Alignment Healthcare, Inc."
+      "name": "Alignment Healthcare, Inc.",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "ERAS",
-      "name": "Erasca, Inc."
+      "name": "Erasca, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BKD",
-      "name": "Brookdale Senior Living Inc."
+      "name": "Brookdale Senior Living Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "VCYT",
-      "name": "Veracyte, Inc."
+      "name": "Veracyte, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "OPCH",
-      "name": "Option Care Health, Inc."
+      "name": "Option Care Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "TWST",
-      "name": "Twist Bioscience Corporation"
+      "name": "Twist Bioscience Corporation",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "MMED",
-      "name": "MiniMed Group, Inc."
+      "name": "MiniMed Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "NHC",
-      "name": "National HealthCare Corporation"
+      "name": "National HealthCare Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "ITGR",
-      "name": "Integer Holdings Corporation"
+      "name": "Integer Holdings Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "RCUS",
-      "name": "Arcus Biosciences, Inc."
+      "name": "Arcus Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TNGX",
-      "name": "Tango Therapeutics, Inc."
+      "name": "Tango Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ICUI",
-      "name": "ICU Medical, Inc."
+      "name": "ICU Medical, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "DNLI",
-      "name": "Denali Therapeutics Inc."
+      "name": "Denali Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "LFST",
-      "name": "LifeStance Health Group, Inc."
+      "name": "LifeStance Health Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "ALMS",
-      "name": "Alumis Inc."
+      "name": "Alumis Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PRVA",
-      "name": "Privia Health Group, Inc."
+      "name": "Privia Health Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "BEAM",
-      "name": "Beam Therapeutics Inc."
+      "name": "Beam Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SUPN",
-      "name": "Supernus Pharmaceuticals, Inc."
+      "name": "Supernus Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "DYN",
-      "name": "Dyne Therapeutics, Inc."
+      "name": "Dyne Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SLNO",
-      "name": "Soleno Therapeutics, Inc."
+      "name": "Soleno Therapeutics, Inc.",
+      "sector": "Health Care"
     },
     {
       "sy": "TXG",
-      "name": "10x Genomics, Inc."
+      "name": "10x Genomics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "TARS",
-      "name": "Tarsus Pharmaceuticals, Inc."
+      "name": "Tarsus Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "VERA",
-      "name": "Vera Therapeutics, Inc."
+      "name": "Vera Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ARQT",
-      "name": "Arcutis Biotherapeutics, Inc."
+      "name": "Arcutis Biotherapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "HAE",
-      "name": "Haemonetics Corporation"
+      "name": "Haemonetics Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "GRAL",
-      "name": "GRAIL, Inc."
+      "name": "GRAIL, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "IRON",
-      "name": "Disc Medicine, Inc."
+      "name": "Disc Medicine, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ELVN",
-      "name": "Enliven Therapeutics, Inc."
+      "name": "Enliven Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "IDYA",
-      "name": "IDEAYA Biosciences, Inc."
+      "name": "IDEAYA Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RARE",
-      "name": "Ultragenyx Pharmaceutical Inc."
+      "name": "Ultragenyx Pharmaceutical Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CLDX",
-      "name": "Celldex Therapeutics, Inc."
+      "name": "Celldex Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "HTFL",
-      "name": "Heartflow, Inc."
+      "name": "Heartflow, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "NKTR",
-      "name": "Nektar Therapeutics"
+      "name": "Nektar Therapeutics",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ACHC",
-      "name": "Acadia Healthcare Company, Inc."
+      "name": "Acadia Healthcare Company, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "IMNM",
-      "name": "Immunome, Inc."
+      "name": "Immunome, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RLAY",
-      "name": "Relay Therapeutics, Inc."
+      "name": "Relay Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "GRDN",
-      "name": "Guardian Pharmacy Services, Inc."
+      "name": "Guardian Pharmacy Services, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "KOD",
-      "name": "Kodiak Sciences Inc."
+      "name": "Kodiak Sciences Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BCRX",
-      "name": "BioCryst Pharmaceuticals, Inc."
+      "name": "BioCryst Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "DFTX",
-      "name": "Definium Therapeutics, Inc."
+      "name": "Definium Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MLYS",
-      "name": "Mineralys Therapeutics, Inc."
+      "name": "Mineralys Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "LMAT",
-      "name": "LeMaitre Vascular, Inc."
+      "name": "LeMaitre Vascular, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "PBH",
-      "name": "Prestige Consumer Healthcare Inc."
+      "name": "Prestige Consumer Healthcare Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "TYRA",
-      "name": "Tyra Biosciences, Inc."
+      "name": "Tyra Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TMDX",
-      "name": "TransMedics Group, Inc."
+      "name": "TransMedics Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "AXGN",
-      "name": "Axogen, Inc."
+      "name": "Axogen, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "PHVS",
-      "name": "Pharvaris N.V."
+      "name": "Pharvaris N.V.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ADPT",
-      "name": "Adaptive Biotechnologies Corporation"
+      "name": "Adaptive Biotechnologies Corporation",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "GENB",
-      "name": "Generate Biomedicines, Inc."
+      "name": "Generate Biomedicines, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SEM",
-      "name": "Select Medical Holdings Corporation"
+      "name": "Select Medical Holdings Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "NVCR",
-      "name": "NovoCure Limited"
+      "name": "NovoCure Limited",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "XRAY",
-      "name": "DENTSPLY SIRONA Inc."
+      "name": "DENTSPLY SIRONA Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "TRVI",
-      "name": "Trevi Therapeutics, Inc."
+      "name": "Trevi Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "OCUL",
-      "name": "Ocular Therapeutix, Inc."
+      "name": "Ocular Therapeutix, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AUPH",
-      "name": "Aurinia Pharmaceuticals Inc."
+      "name": "Aurinia Pharmaceuticals Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "OMCL",
-      "name": "Omnicell, Inc."
+      "name": "Omnicell, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "ESTA",
-      "name": "Establishment Labs Holdings Inc."
+      "name": "Establishment Labs Holdings Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "RTEZ",
-      "name": "REST EZ INC"
+      "name": "REST EZ INC",
+      "sector": "Healthcare",
+      "industry": "Pharmaceutical Retailers"
     },
     {
       "sy": "ADMA",
-      "name": "ADMA Biologics, Inc."
+      "name": "ADMA Biologics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NTLA",
-      "name": "Intellia Therapeutics, Inc."
+      "name": "Intellia Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ASTH",
-      "name": "Astrana Health, Inc."
+      "name": "Astrana Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "STOK",
-      "name": "Stoke Therapeutics, Inc."
+      "name": "Stoke Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SRPT",
-      "name": "Sarepta Therapeutics, Inc."
+      "name": "Sarepta Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MD",
-      "name": "Pediatrix Medical Group, Inc."
+      "name": "Pediatrix Medical Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "ANAB",
-      "name": "AnaptysBio, Inc."
+      "name": "AnaptysBio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "OCS",
-      "name": "Oculis Holding AG"
+      "name": "Oculis Holding AG",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SGRY",
-      "name": "Surgery Partners, Inc."
+      "name": "Surgery Partners, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "PGNY",
-      "name": "Progyny, Inc."
+      "name": "Progyny, Inc.",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans"
     },
     {
       "sy": "SION",
-      "name": "Sionna Therapeutics, Inc."
+      "name": "Sionna Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SNDX",
-      "name": "Syndax Pharmaceuticals, Inc."
+      "name": "Syndax Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SNDA",
-      "name": "Sonida Senior Living, Inc."
+      "name": "Sonida Senior Living, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "NEOG",
-      "name": "Neogen Corporation"
+      "name": "Neogen Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "ANIP",
-      "name": "ANI Pharmaceuticals, Inc."
+      "name": "ANI Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "RAPP",
-      "name": "Rapport Therapeutics, Inc."
+      "name": "Rapport Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ZYME",
-      "name": "Zymeworks Inc."
+      "name": "Zymeworks Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "HRMY",
-      "name": "Harmony Biosciences Holdings, Inc."
+      "name": "Harmony Biosciences Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "VRDN",
-      "name": "Viridian Therapeutics, Inc."
+      "name": "Viridian Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TSHA",
-      "name": "Taysha Gene Therapies, Inc."
+      "name": "Taysha Gene Therapies, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "QURE",
-      "name": "uniQure N.V."
+      "name": "uniQure N.V.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PLSE",
-      "name": "Pulse Biosciences, Inc."
+      "name": "Pulse Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "ADUS",
-      "name": "Addus HomeCare Corporation"
+      "name": "Addus HomeCare Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "VCEL",
-      "name": "Vericel Corporation"
+      "name": "Vericel Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AVAH",
-      "name": "Aveanna Healthcare Holdings Inc."
+      "name": "Aveanna Healthcare Holdings Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "AGIO",
-      "name": "Agios Pharmaceuticals, Inc."
+      "name": "Agios Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CAPR",
-      "name": "Capricor Therapeutics, Inc."
+      "name": "Capricor Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "UFPT",
-      "name": "UFP Technologies, Inc."
+      "name": "UFP Technologies, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "NRIX",
-      "name": "Nurix Therapeutics, Inc."
+      "name": "Nurix Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PVLA",
-      "name": "Palvella Therapeutics, Inc."
+      "name": "Palvella Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "INVA",
-      "name": "Innoviva, Inc."
+      "name": "Innoviva, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "STAA",
-      "name": "STAAR Surgical Company"
+      "name": "STAAR Surgical Company",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "INBX",
-      "name": "Inhibrx Biosciences, Inc."
+      "name": "Inhibrx Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MBX",
-      "name": "MBX Biosciences, Inc."
+      "name": "MBX Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ARDX",
-      "name": "Ardelyx, Inc."
+      "name": "Ardelyx, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "GLUE",
-      "name": "Monte Rosa Therapeutics, Inc."
+      "name": "Monte Rosa Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NVAX",
-      "name": "Novavax, Inc."
+      "name": "Novavax, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PRCT",
-      "name": "PROCEPT BioRobotics Corporation"
+      "name": "PROCEPT BioRobotics Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "IMTX",
-      "name": "Immatics N.V."
+      "name": "Immatics N.V.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "DMRA",
-      "name": "Damora Therapeutics, Inc."
+      "name": "Damora Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "VIR",
-      "name": "Vir Biotechnology, Inc."
+      "name": "Vir Biotechnology, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AMLX",
-      "name": "Amylyx Pharmaceuticals, Inc."
+      "name": "Amylyx Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "PRGO",
-      "name": "Perrigo Company plc"
+      "name": "Perrigo Company plc",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "GHRS",
-      "name": "GH Research PLC"
+      "name": "GH Research PLC",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "HCSG",
-      "name": "Healthcare Services Group, Inc."
+      "name": "Healthcare Services Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "AHCO",
-      "name": "AdaptHealth Corp."
+      "name": "AdaptHealth Corp.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "ARDT",
-      "name": "Ardent Health, Inc."
+      "name": "Ardent Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "ATRC",
-      "name": "AtriCure, Inc."
+      "name": "AtriCure, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "KALV",
-      "name": "KalVista Pharmaceuticals, Inc."
+      "name": "KalVista Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MAZE",
-      "name": "Maze Therapeutics, Inc."
+      "name": "Maze Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "URGN",
-      "name": "UroGen Pharma Ltd."
+      "name": "UroGen Pharma Ltd.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ENOV",
-      "name": "Enovis Corporation"
+      "name": "Enovis Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "PAHC",
-      "name": "Phibro Animal Health Corporation"
+      "name": "Phibro Animal Health Corporation",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "AGL",
-      "name": "agilon health, inc."
+      "name": "agilon health, inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "BCAX",
-      "name": "Bicara Therapeutics Inc."
+      "name": "Bicara Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BHVN",
-      "name": "Biohaven Ltd."
+      "name": "Biohaven Ltd.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SLS",
-      "name": "SELLAS Life Sciences Group, Inc."
+      "name": "SELLAS Life Sciences Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MPLT",
-      "name": "MapLight Therapeutics, Inc."
+      "name": "MapLight Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "WVE",
-      "name": "Wave Life Sciences Ltd."
+      "name": "Wave Life Sciences Ltd.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AVBP",
-      "name": "ArriVent BioPharma, Inc."
+      "name": "ArriVent BioPharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "FTRE",
-      "name": "Fortrea Holdings Inc."
+      "name": "Fortrea Holdings Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MLTX",
-      "name": "MoonLake Immunotherapeutics"
+      "name": "MoonLake Immunotherapeutics",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PNTG",
-      "name": "The Pennant Group, Inc."
+      "name": "The Pennant Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "SEPN",
-      "name": "Septerna, Inc."
+      "name": "Septerna, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "WGS",
-      "name": "GeneDx Holdings Corp."
+      "name": "GeneDx Holdings Corp.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "OLMA",
-      "name": "Olema Pharmaceuticals, Inc."
+      "name": "Olema Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NNNN",
-      "name": "Anbio Biotechnology"
+      "name": "Anbio Biotechnology",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "ATEC",
-      "name": "Alphatec Holdings, Inc."
+      "name": "Alphatec Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "HROW",
-      "name": "Harrow, Inc."
+      "name": "Harrow, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "ZBIO",
-      "name": "Zenas BioPharma, Inc."
+      "name": "Zenas BioPharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AVNS",
-      "name": "Avanos Medical, Inc."
+      "name": "Avanos Medical, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "KMTS",
-      "name": "Kestra Medical Technologies, Ltd."
+      "name": "Kestra Medical Technologies, Ltd.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "INSP",
-      "name": "Inspire Medical Systems, Inc."
+      "name": "Inspire Medical Systems, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "JBIO",
-      "name": "Jade Biosciences, Inc."
+      "name": "Jade Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TDOC",
-      "name": "Teladoc Health, Inc."
+      "name": "Teladoc Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "AMN",
-      "name": "AMN Healthcare Services, Inc."
+      "name": "AMN Healthcare Services, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "AORT",
-      "name": "Artivion, Inc."
+      "name": "Artivion, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "IRMD",
-      "name": "IRADIMED CORPORATION"
+      "name": "IRADIMED CORPORATION",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "IART",
-      "name": "Integra LifeSciences Holdings Corporation"
+      "name": "Integra LifeSciences Holdings Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "COLL",
-      "name": "Collegium Pharmaceutical, Inc."
+      "name": "Collegium Pharmaceutical, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "AKTS",
-      "name": "Aktis Oncology, Inc."
+      "name": "Aktis Oncology, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "XERS",
-      "name": "Xeris Biopharma Holdings, Inc."
+      "name": "Xeris Biopharma Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "NEO",
-      "name": "NeoGenomics, Inc."
+      "name": "NeoGenomics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "CNMD",
-      "name": "CONMED Corporation"
+      "name": "CONMED Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "EYPT",
-      "name": "EyePoint, Inc."
+      "name": "EyePoint, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CRVS",
-      "name": "Corvus Pharmaceuticals, Inc."
+      "name": "Corvus Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CDNA",
-      "name": "CareDx, Inc."
+      "name": "CareDx, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "SVRA",
-      "name": "Savara Inc."
+      "name": "Savara Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BLFS",
-      "name": "BioLife Solutions, Inc."
+      "name": "BioLife Solutions, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "OMDA",
-      "name": "Omada Health, Inc."
+      "name": "Omada Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "CGEM",
-      "name": "Cullinan Therapeutics, Inc."
+      "name": "Cullinan Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "INNV",
-      "name": "InnovAge Holding Corp."
+      "name": "InnovAge Holding Corp.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "USPH",
-      "name": "U.S. Physical Therapy, Inc."
+      "name": "U.S. Physical Therapy, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "PHAT",
-      "name": "Phathom Pharmaceuticals, Inc."
+      "name": "Phathom Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AVTX",
-      "name": "Avalo Therapeutics, Inc."
+      "name": "Avalo Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "DRTS",
-      "name": "Alpha Tau Medical Ltd."
+      "name": "Alpha Tau Medical Ltd.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "DSGN",
-      "name": "Design Therapeutics, Inc."
+      "name": "Design Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SDGR",
-      "name": "Schrödinger, Inc."
+      "name": "Schrödinger, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "PCRX",
-      "name": "Pacira BioSciences, Inc."
+      "name": "Pacira BioSciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "OMER",
-      "name": "Omeros Corporation"
+      "name": "Omeros Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TNDM",
-      "name": "Tandem Diabetes Care, Inc."
+      "name": "Tandem Diabetes Care, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "TALK",
-      "name": "Talkspace, Inc."
+      "name": "Talkspace, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "MGTX",
-      "name": "MeiraGTx Holdings plc"
+      "name": "MeiraGTx Holdings plc",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NUTX",
-      "name": "Nutex Health Inc."
+      "name": "Nutex Health Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "AURA",
-      "name": "Aura Biosciences, Inc."
+      "name": "Aura Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ANNX",
-      "name": "Annexon, Inc."
+      "name": "Annexon, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "LBRX",
-      "name": "LB Pharmaceuticals Inc"
+      "name": "LB Pharmaceuticals Inc",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "JANX",
-      "name": "Janux Therapeutics, Inc."
+      "name": "Janux Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "INMD",
-      "name": "InMode Ltd."
+      "name": "InMode Ltd.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "ORIC",
-      "name": "ORIC Pharmaceuticals, Inc."
+      "name": "ORIC Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TBPH",
-      "name": "Theravance Biopharma, Inc."
+      "name": "Theravance Biopharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "XNCR",
-      "name": "Xencor, Inc."
+      "name": "Xencor, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ETON",
-      "name": "Eton Pharmaceuticals, Inc."
+      "name": "Eton Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "EVMN",
-      "name": "Evommune, Inc."
+      "name": "Evommune, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "KURA",
-      "name": "Kura Oncology, Inc."
+      "name": "Kura Oncology, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ANRO",
-      "name": "Alto Neuroscience, Inc."
+      "name": "Alto Neuroscience, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ABSI",
-      "name": "Absci Corporation"
+      "name": "Absci Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "VOR",
-      "name": "Vor Biopharma Inc."
+      "name": "Vor Biopharma Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BIOA",
-      "name": "BioAge Labs, Inc."
+      "name": "BioAge Labs, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "SGP",
-      "name": "SpyGlass Pharma, Inc."
+      "name": "SpyGlass Pharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AMPH",
-      "name": "Amphastar Pharmaceuticals, Inc."
+      "name": "Amphastar Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "AZTA",
-      "name": "Azenta, Inc."
+      "name": "Azenta, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "SPRY",
-      "name": "ARS Pharmaceuticals, Inc."
+      "name": "ARS Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RLMD",
-      "name": "Relmada Therapeutics, Inc."
+      "name": "Relmada Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "EIKN",
-      "name": "Eikon Therapeutics, Inc."
+      "name": "Eikon Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BVS",
-      "name": "Bioventus Inc."
+      "name": "Bioventus Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "EHAB",
-      "name": "Enhabit, Inc."
+      "name": "Enhabit, Inc.",
+      "sector": "Health Care"
     },
     {
       "sy": "AVR",
-      "name": "Anteris Technologies Global Corp."
+      "name": "Anteris Technologies Global Corp.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "QDEL",
-      "name": "QuidelOrtho Corporation"
+      "name": "QuidelOrtho Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "BBOT",
-      "name": "BridgeBio Oncology Therapeutics, Inc."
+      "name": "BridgeBio Oncology Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SLDB",
-      "name": "Solid Biosciences Inc."
+      "name": "Solid Biosciences Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "LMRI",
-      "name": "Lumexa Imaging Holdings, Inc."
+      "name": "Lumexa Imaging Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "PSNL",
-      "name": "Personalis, Inc."
+      "name": "Personalis, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "HSTM",
-      "name": "HealthStream, Inc."
+      "name": "HealthStream, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "ZVRA",
-      "name": "Zevra Therapeutics, Inc."
+      "name": "Zevra Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "STRO",
-      "name": "Sutro Biopharma, Inc."
+      "name": "Sutro Biopharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CADL",
-      "name": "Candel Therapeutics, Inc."
+      "name": "Candel Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SVA",
-      "name": "Sinovac Biotech Ltd."
+      "name": "Sinovac Biotech Ltd.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TLRY",
-      "name": "Tilray Brands, Inc."
+      "name": "Tilray Brands, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "GYRE",
-      "name": "Gyre Therapeutics, Inc."
+      "name": "Gyre Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SIBN",
-      "name": "SI-BONE, Inc."
+      "name": "SI-BONE, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "CBLL",
-      "name": "CeriBell, Inc."
+      "name": "CeriBell, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "CLYM",
-      "name": "Climb Bio Inc"
+      "name": "Climb Bio Inc",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CRMD",
-      "name": "CorMedix Inc."
+      "name": "CorMedix Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ARVN",
-      "name": "Arvinas, Inc."
+      "name": "Arvinas, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CSTL",
-      "name": "Castle Biosciences, Inc."
+      "name": "Castle Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "KYTX",
-      "name": "Kyverna Therapeutics, Inc."
+      "name": "Kyverna Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CBIO",
-      "name": "Crescent Biopharma, Inc."
+      "name": "Crescent Biopharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ACHV",
-      "name": "Achieve Life Sciences, Inc."
+      "name": "Achieve Life Sciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PHR",
-      "name": "Phreesia, Inc."
+      "name": "Phreesia, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "IMMX",
-      "name": "Immix Biopharma, Inc."
+      "name": "Immix Biopharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RIGL",
-      "name": "Rigel Pharmaceuticals, Inc."
+      "name": "Rigel Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TECX",
-      "name": "Tectonic Therapeutic, Inc."
+      "name": "Tectonic Therapeutic, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NPCE",
-      "name": "NeuroPace, Inc."
+      "name": "NeuroPace, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "XOMA",
-      "name": "XOMA Royalty Corporation"
+      "name": "XOMA Royalty Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AGMB",
-      "name": "AgomAb Therapeutics NV"
+      "name": "AgomAb Therapeutics NV",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CTNM",
-      "name": "Contineum Therapeutics, Inc."
+      "name": "Contineum Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TCMD",
-      "name": "Tactile Systems Technology, Inc."
+      "name": "Tactile Systems Technology, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "PRTA",
-      "name": "Prothena Corporation plc"
+      "name": "Prothena Corporation plc",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MCTA",
-      "name": "Charming Medical Limited"
+      "name": "Charming Medical Limited",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "DNA",
-      "name": "Ginkgo Bioworks Holdings, Inc."
+      "name": "Ginkgo Bioworks Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "UPB",
-      "name": "Upstream Bio, Inc."
+      "name": "Upstream Bio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "OFIX",
-      "name": "Orthofix Medical Inc."
+      "name": "Orthofix Medical Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "STTK",
-      "name": "Shattuck Labs, Inc."
+      "name": "Shattuck Labs, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "FDMT",
-      "name": "4D Molecular Therapeutics, Inc."
+      "name": "4D Molecular Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ARTV",
-      "name": "Artiva Biotherapeutics, Inc."
+      "name": "Artiva Biotherapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "FBRX",
-      "name": "Forte Biosciences, Inc."
+      "name": "Forte Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NGNE",
-      "name": "Neurogene Inc."
+      "name": "Neurogene Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ASMB",
-      "name": "Assembly Biosciences, Inc."
+      "name": "Assembly Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "KIDS",
-      "name": "OrthoPediatrics Corp."
+      "name": "OrthoPediatrics Corp.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "SRTA",
-      "name": "Strata Critical Medical, Inc."
+      "name": "Strata Critical Medical, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "FLGT",
-      "name": "Fulgent Genetics, Inc."
+      "name": "Fulgent Genetics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "FULC",
-      "name": "Fulcrum Therapeutics, Inc."
+      "name": "Fulcrum Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ANGO",
-      "name": "AngioDynamics, Inc."
+      "name": "AngioDynamics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "REPL",
-      "name": "Replimune Group, Inc."
+      "name": "Replimune Group, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "EOLS",
-      "name": "Evolus, Inc."
+      "name": "Evolus, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "SGMT",
-      "name": "Sagimet Biosciences Inc."
+      "name": "Sagimet Biosciences Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BBNX",
-      "name": "Beta Bionics, Inc."
+      "name": "Beta Bionics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "WEAV",
-      "name": "Weave Communications, Inc."
+      "name": "Weave Communications, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "NRC",
-      "name": "NRC Health"
+      "name": "NRC Health",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "LYEL",
-      "name": "Lyell Immunopharma, Inc."
+      "name": "Lyell Immunopharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "EBS",
-      "name": "Emergent BioSolutions Inc."
+      "name": "Emergent BioSolutions Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "CCRN",
-      "name": "Cross Country Healthcare, Inc."
+      "name": "Cross Country Healthcare, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "VREX",
-      "name": "Varex Imaging Corporation"
+      "name": "Varex Imaging Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "LXEO",
-      "name": "Lexeo Therapeutics, Inc."
+      "name": "Lexeo Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MNPR",
-      "name": "Monopar Therapeutics Inc."
+      "name": "Monopar Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BNTC",
-      "name": "Benitec Biopharma Inc."
+      "name": "Benitec Biopharma Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ENTA",
-      "name": "Enanta Pharmaceuticals, Inc."
+      "name": "Enanta Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TBRG",
-      "name": "TruBridge, Inc."
+      "name": "TruBridge, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "DCTH",
-      "name": "Delcath Systems, Inc."
+      "name": "Delcath Systems, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "VNDA",
-      "name": "Vanda Pharmaceuticals Inc."
+      "name": "Vanda Pharmaceuticals Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "GLSI",
-      "name": "Greenwich LifeSciences, Inc."
+      "name": "Greenwich LifeSciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "YDES",
-      "name": "YD Bio Ltd"
+      "name": "YD Bio Ltd",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "VMD",
-      "name": "Viemed Healthcare, Inc."
+      "name": "Viemed Healthcare, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "PBYI",
-      "name": "Puma Biotechnology, Inc."
+      "name": "Puma Biotechnology, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CLPT",
-      "name": "ClearPoint Neuro, Inc."
+      "name": "ClearPoint Neuro, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "IMRX",
-      "name": "Immuneering Corporation"
+      "name": "Immuneering Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SRZN",
-      "name": "Surrozen, Inc."
+      "name": "Surrozen, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "DMAC",
-      "name": "DiaMedica Therapeutics Inc."
+      "name": "DiaMedica Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SI",
-      "name": "Shoulder Innovations, Inc."
+      "name": "Shoulder Innovations, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "CV",
-      "name": "CapsoVision, Inc."
+      "name": "CapsoVision, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "TENX",
-      "name": "Tenax Therapeutics, Inc."
+      "name": "Tenax Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ABEO",
-      "name": "Abeona Therapeutics Inc."
+      "name": "Abeona Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SENS",
-      "name": "Senseonics Holdings, Inc."
+      "name": "Senseonics Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "CARL",
-      "name": "Carlsmed, Inc."
+      "name": "Carlsmed, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "RGNX",
-      "name": "REGENXBIO Inc."
+      "name": "REGENXBIO Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ARMP",
-      "name": "Armata Pharmaceuticals, Inc."
+      "name": "Armata Pharmaceuticals, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ELMD",
-      "name": "Electromed, Inc."
+      "name": "Electromed, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "NVCT",
-      "name": "Nuvectis Pharma, Inc."
+      "name": "Nuvectis Pharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TARA",
-      "name": "Protara Therapeutics, Inc."
+      "name": "Protara Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SLP",
-      "name": "Simulations Plus, Inc."
+      "name": "Simulations Plus, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "PRE",
-      "name": "Prenetics Global Limited"
+      "name": "Prenetics Global Limited",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "MASS",
-      "name": "908 Devices Inc."
+      "name": "908 Devices Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "TNXP",
-      "name": "Tonix Pharmaceuticals Holding Corp."
+      "name": "Tonix Pharmaceuticals Holding Corp.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TRDA",
-      "name": "Entrada Therapeutics, Inc."
+      "name": "Entrada Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NERV",
-      "name": "Minerva Neurosciences, Inc."
+      "name": "Minerva Neurosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CTEV",
-      "name": "Claritev Corporation"
+      "name": "Claritev Corporation",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "SLGL",
-      "name": "Sol-Gel Technologies Ltd."
+      "name": "Sol-Gel Technologies Ltd.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RXST",
-      "name": "RxSight, Inc."
+      "name": "RxSight, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "LENZ",
-      "name": "LENZ Therapeutics, Inc."
+      "name": "LENZ Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SPOK",
-      "name": "Spok Holdings, Inc."
+      "name": "Spok Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "RNA",
-      "name": "Atrium Therapeutics, Inc."
+      "name": "Atrium Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "UNCY",
-      "name": "Unicycive Therapeutics, Inc."
+      "name": "Unicycive Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RNAC",
-      "name": "Cartesian Therapeutics, Inc."
+      "name": "Cartesian Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ARCT",
-      "name": "Arcturus Therapeutics Holdings Inc."
+      "name": "Arcturus Therapeutics Holdings Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MDWD",
-      "name": "MediWound Ltd."
+      "name": "MediWound Ltd.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "KROS",
-      "name": "Keros Therapeutics, Inc."
+      "name": "Keros Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "IMDX",
-      "name": "Insight Molecular Diagnostics Inc."
+      "name": "Insight Molecular Diagnostics Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "CRBP",
-      "name": "Corbus Pharmaceuticals Holdings, Inc."
+      "name": "Corbus Pharmaceuticals Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ELTX",
-      "name": "Elicio Therapeutics, Inc."
+      "name": "Elicio Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "UTMD",
-      "name": "Utah Medical Products, Inc."
+      "name": "Utah Medical Products, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "ANIK",
-      "name": "Anika Therapeutics, Inc."
+      "name": "Anika Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "SMTI",
-      "name": "Sanara MedTech Inc."
+      "name": "Sanara MedTech Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "PDEX",
-      "name": "Pro-Dex, Inc."
+      "name": "Pro-Dex, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "DTIL",
-      "name": "Precision BioSciences, Inc."
+      "name": "Precision BioSciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "INFU",
-      "name": "InfuSystem Holdings, Inc."
+      "name": "InfuSystem Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "DERM",
-      "name": "Journey Medical Corporation"
+      "name": "Journey Medical Corporation",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "KPTI",
-      "name": "Karyopharm Therapeutics Inc."
+      "name": "Karyopharm Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "INGN",
-      "name": "Inogen, Inc."
+      "name": "Inogen, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "IMUX",
-      "name": "Immunic, Inc."
+      "name": "Immunic, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "OWLT",
-      "name": "Owlet, Inc."
+      "name": "Owlet, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "CVRX",
-      "name": "CVRx, Inc."
+      "name": "CVRx, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "ASRT",
-      "name": "Assertio Holdings, Inc."
+      "name": "Assertio Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "KRRO",
-      "name": "Korro Bio, Inc."
+      "name": "Korro Bio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SPRB",
-      "name": "Spruce Biosciences, Inc."
+      "name": "Spruce Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SNWV",
-      "name": "SANUWAVE Health, Inc."
+      "name": "SANUWAVE Health, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "BDSX",
-      "name": "Biodesix, Inc."
+      "name": "Biodesix, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "EMPG",
-      "name": "Empro Group Inc."
+      "name": "Empro Group Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Distribution"
     },
     {
       "sy": "VTVT",
-      "name": "vTv Therapeutics Inc."
+      "name": "vTv Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NTHI",
-      "name": "NeOnc Technologies Holdings, Inc."
+      "name": "NeOnc Technologies Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ACOG",
-      "name": "Alpha Cognition Inc."
+      "name": "Alpha Cognition Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AMWL",
-      "name": "American Well Corporation"
+      "name": "American Well Corporation",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "FONR",
-      "name": "FONAR Corporation"
+      "name": "FONAR Corporation",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "JYNT",
-      "name": "The Joint Corp."
+      "name": "The Joint Corp.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "EDSA",
-      "name": "Edesa Biotech, Inc."
+      "name": "Edesa Biotech, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "VRCA",
-      "name": "Verrica Pharmaceuticals Inc."
+      "name": "Verrica Pharmaceuticals Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "QTTB",
-      "name": "Q32 Bio Inc."
+      "name": "Q32 Bio Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "WW",
-      "name": "WW International, Inc."
+      "name": "WW International, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "LONA",
-      "name": "LeonaBio, Inc."
+      "name": "LeonaBio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "OPRX",
-      "name": "OptimizeRx Corporation"
+      "name": "OptimizeRx Corporation",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "NRXS",
-      "name": "NeurAxis, Inc."
+      "name": "NeurAxis, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PMN",
-      "name": "ProMIS Neurosciences, Inc."
+      "name": "ProMIS Neurosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CUE",
-      "name": "Cue Biopharma, Inc."
+      "name": "Cue Biopharma, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PTHS",
-      "name": "Pelthos Therapeutics Inc."
+      "name": "Pelthos Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CSBR",
-      "name": "Champions Oncology, Inc."
+      "name": "Champions Oncology, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PARK",
-      "name": "Park Dental Partners, Inc."
+      "name": "Park Dental Partners, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "EXOZ",
-      "name": "eXoZymes, Inc."
+      "name": "eXoZymes, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CPIX",
-      "name": "Cumberland Pharmaceuticals Inc."
+      "name": "Cumberland Pharmaceuticals Inc.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "ATRA",
-      "name": "Atara Biotherapeutics, Inc."
+      "name": "Atara Biotherapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ICCC",
-      "name": "ImmuCell Corporation"
+      "name": "ImmuCell Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "RLYB",
-      "name": "Rallybio Corporation"
+      "name": "Rallybio Corporation",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MCRB",
-      "name": "Seres Therapeutics, Inc."
+      "name": "Seres Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ACET",
-      "name": "Adicet Bio, Inc."
+      "name": "Adicet Bio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "LNSR",
-      "name": "LENSAR, Inc."
+      "name": "LENSAR, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "QTI",
-      "name": "QT Imaging Holdings, Inc."
+      "name": "QT Imaging Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "IMA",
-      "name": "ImageneBio, Inc."
+      "name": "ImageneBio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "DXR",
-      "name": "Daxor Corporation"
+      "name": "Daxor Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "DRIO",
-      "name": "DarioHealth Corp."
+      "name": "DarioHealth Corp.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "LIXT",
-      "name": "Lixte Biotechnology Holdings, Inc."
+      "name": "Lixte Biotechnology Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MDNC",
-      "name": "Medinotec Inc."
+      "name": "Medinotec Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "TIL",
-      "name": "Instil Bio, Inc."
+      "name": "Instil Bio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "INKT",
-      "name": "MiNK Therapeutics, Inc."
+      "name": "MiNK Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ECOR",
-      "name": "electroCore, Inc."
+      "name": "electroCore, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "XLO",
-      "name": "Xilio Therapeutics, Inc."
+      "name": "Xilio Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PRPO",
-      "name": "Precipio, Inc."
+      "name": "Precipio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "PAVM",
-      "name": "PAVmed Inc."
+      "name": "PAVmed Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "SCLX",
-      "name": "Scilex Holding Company"
+      "name": "Scilex Holding Company",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General"
     },
     {
       "sy": "PIII",
-      "name": "P3 Health Partners Inc."
+      "name": "P3 Health Partners Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "PSTV",
-      "name": "Plus Therapeutics, Inc."
+      "name": "Plus Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ALGS",
-      "name": "Aligos Therapeutics, Inc."
+      "name": "Aligos Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NXTC",
-      "name": "NextCure, Inc."
+      "name": "NextCure, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NSYS",
-      "name": "Nortech Systems Incorporated"
+      "name": "Nortech Systems Incorporated",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "TVGN",
-      "name": "Tevogen Bio Holdings Inc."
+      "name": "Tevogen Bio Holdings Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "APLM",
-      "name": "Apollomics, Inc."
+      "name": "Apollomics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "BIOQ",
-      "name": "Bioqual, Inc."
+      "name": "Bioqual, Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "PLRZ",
-      "name": "Polyrizon Ltd."
+      "name": "Polyrizon Ltd.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "KYNB",
-      "name": "Kyntra Bio, Inc."
+      "name": "Kyntra Bio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SNSE",
-      "name": "Sensei Biotherapeutics, Inc."
+      "name": "Sensei Biotherapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "PTN",
-      "name": "Palatin Technologies, Inc."
+      "name": "Palatin Technologies, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "HBIO",
-      "name": "Harvard Bioscience, Inc."
+      "name": "Harvard Bioscience, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Instruments & Supplies"
     },
     {
       "sy": "LFWD",
-      "name": "Lifeward Ltd."
+      "name": "Lifeward Ltd.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "PASG",
-      "name": "Passage Bio, Inc."
+      "name": "Passage Bio, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ERNA",
-      "name": "Ernexa Therapeutics Inc."
+      "name": "Ernexa Therapeutics Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "CVKD",
-      "name": "Cadrenal Therapeutics, Inc."
+      "name": "Cadrenal Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "AKAN",
-      "name": "Akanda Corp."
+      "name": "Akanda Corp.",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - Specialty & Generic"
     },
     {
       "sy": "CMPD",
-      "name": "CompuMed, Inc."
+      "name": "CompuMed, Inc.",
+      "sector": "Healthcare",
+      "industry": "Health Information Services"
     },
     {
       "sy": "ASBP",
-      "name": "Aspire Biopharma Holdings, Inc."
+      "name": "Aspire Biopharma Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NVNO",
-      "name": "enVVeno Medical Corporation"
+      "name": "enVVeno Medical Corporation",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "MLEC",
-      "name": "Moolec Science SA"
+      "name": "Moolec Science SA",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "NDRA",
-      "name": "ENDRA Life Sciences Inc."
+      "name": "ENDRA Life Sciences Inc.",
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research"
     },
     {
       "sy": "RNAZ",
-      "name": "TransCode Therapeutics, Inc."
+      "name": "TransCode Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "ALMR",
-      "name": "Alamar Biosciences, Inc."
+      "name": "Alamar Biosciences, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "AVLN",
-      "name": "Avalyn Pharma Inc."
+      "name": "Avalyn Pharma Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "COAG",
-      "name": "Hemab Therapeutics Holdings, Inc."
+      "name": "Hemab Therapeutics Holdings, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "GMRS",
-      "name": "GMR Solutions Inc."
+      "name": "GMR Solutions Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Care Facilities"
     },
     {
       "sy": "KLRA",
-      "name": "Kailera Therapeutics, Inc."
+      "name": "Kailera Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "MOBI",
-      "name": "Mobia Medical, Inc."
+      "name": "Mobia Medical, Inc.",
+      "sector": "Healthcare",
+      "industry": "Medical Devices"
     },
     {
       "sy": "ODTX",
-      "name": "Odyssey Therapeutics, Inc."
+      "name": "Odyssey Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "SPTX",
-      "name": "Seaport Therapeutics, Inc."
+      "name": "Seaport Therapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     },
     {
       "sy": "TRAX",
-      "name": "First Tracks Biotherapeutics, Inc."
+      "name": "First Tracks Biotherapeutics, Inc.",
+      "sector": "Healthcare",
+      "industry": "Biotechnology"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }

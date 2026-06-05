@@ -7,1935 +7,2902 @@
   "tickers": [
     {
       "sy": "CAT",
-      "name": "Caterpillar Inc."
+      "name": "Caterpillar Inc.",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "GE",
-      "name": "GE Aerospace"
+      "name": "GE Aerospace",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "GEV",
-      "name": "GE Vernova Inc."
+      "name": "GE Vernova Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "RTX",
-      "name": "RTX Corporation"
+      "name": "RTX Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "BA",
-      "name": "The Boeing Company"
+      "name": "The Boeing Company",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "UNP",
-      "name": "Union Pacific Corporation"
+      "name": "Union Pacific Corporation",
+      "sector": "Industrials",
+      "industry": "Railroads"
     },
     {
       "sy": "ETN",
-      "name": "Eaton Corporation plc"
+      "name": "Eaton Corporation plc",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "DE",
-      "name": "Deere & Company"
+      "name": "Deere & Company",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "VRT",
-      "name": "Vertiv Holdings Co"
+      "name": "Vertiv Holdings Co",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "HON",
-      "name": "Honeywell International Inc."
+      "name": "Honeywell International Inc.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "LMT",
-      "name": "Lockheed Martin Corporation"
+      "name": "Lockheed Martin Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "PWR",
-      "name": "Quanta Services, Inc."
+      "name": "Quanta Services, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "PH",
-      "name": "Parker-Hannifin Corporation"
+      "name": "Parker-Hannifin Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "HWM",
-      "name": "Howmet Aerospace Inc."
+      "name": "Howmet Aerospace Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "TT",
-      "name": "Trane Technologies plc"
+      "name": "Trane Technologies plc",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "CMI",
-      "name": "Cummins Inc."
+      "name": "Cummins Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "GD",
-      "name": "General Dynamics Corporation"
+      "name": "General Dynamics Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "FDX",
-      "name": "FedEx Corporation"
+      "name": "FedEx Corporation",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "WM",
-      "name": "Waste Management, Inc."
+      "name": "Waste Management, Inc.",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "JCI",
-      "name": "Johnson Controls International plc"
+      "name": "Johnson Controls International plc",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "CSX",
-      "name": "CSX Corporation"
+      "name": "CSX Corporation",
+      "sector": "Industrials",
+      "industry": "Railroads"
     },
     {
       "sy": "UPS",
-      "name": "United Parcel Service, Inc."
+      "name": "United Parcel Service, Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "BE",
-      "name": "Bloom Energy Corporation"
+      "name": "Bloom Energy Corporation",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "NOC",
-      "name": "Northrop Grumman Corporation"
+      "name": "Northrop Grumman Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "MMM",
-      "name": "3M Company"
+      "name": "3M Company",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "EMR",
-      "name": "Emerson Electric Co."
+      "name": "Emerson Electric Co.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "RKLB",
-      "name": "Rocket Lab Corporation"
+      "name": "Rocket Lab Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "ITW",
-      "name": "Illinois Tool Works Inc."
+      "name": "Illinois Tool Works Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "NSC",
-      "name": "Norfolk Southern Corporation"
+      "name": "Norfolk Southern Corporation",
+      "sector": "Industrials",
+      "industry": "Railroads"
     },
     {
       "sy": "FIX",
-      "name": "Comfort Systems USA, Inc."
+      "name": "Comfort Systems USA, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "CTAS",
-      "name": "Cintas Corporation"
+      "name": "Cintas Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "TDG",
-      "name": "TransDigm Group Incorporated"
+      "name": "TransDigm Group Incorporated",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "RSG",
-      "name": "Republic Services, Inc."
+      "name": "Republic Services, Inc.",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "URI",
-      "name": "United Rentals, Inc."
+      "name": "United Rentals, Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "GWW",
-      "name": "W.W. Grainger, Inc."
+      "name": "W.W. Grainger, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "PCAR",
-      "name": "PACCAR Inc"
+      "name": "PACCAR Inc",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "LHX",
-      "name": "L3Harris Technologies, Inc."
+      "name": "L3Harris Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "CARR",
-      "name": "Carrier Global Corporation"
+      "name": "Carrier Global Corporation",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "AME",
-      "name": "AMETEK, Inc."
+      "name": "AMETEK, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "ROK",
-      "name": "Rockwell Automation, Inc."
+      "name": "Rockwell Automation, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "FAST",
-      "name": "Fastenal Company"
+      "name": "Fastenal Company",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "DAL",
-      "name": "Delta Air Lines, Inc."
+      "name": "Delta Air Lines, Inc.",
+      "sector": "Industrials",
+      "industry": "Airlines"
     },
     {
       "sy": "WAB",
-      "name": "Westinghouse Air Brake Technologies Corporation"
+      "name": "Westinghouse Air Brake Technologies Corporation",
+      "sector": "Industrials",
+      "industry": "Railroads"
     },
     {
       "sy": "FERG",
-      "name": "Ferguson Enterprises Inc."
+      "name": "Ferguson Enterprises Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "ODFL",
-      "name": "Old Dominion Freight Line, Inc."
+      "name": "Old Dominion Freight Line, Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "EME",
-      "name": "EMCOR Group, Inc."
+      "name": "EMCOR Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "WCN",
-      "name": "Waste Connections, Inc."
+      "name": "Waste Connections, Inc.",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "MTZ",
-      "name": "MasTec, Inc."
+      "name": "MasTec, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "AXON",
-      "name": "Axon Enterprise, Inc."
+      "name": "Axon Enterprise, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "SUNB",
-      "name": "Sunbelt Rentals Holdings, Inc."
+      "name": "Sunbelt Rentals Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "CPRT",
-      "name": "Copart, Inc."
+      "name": "Copart, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "HEI-A",
-      "name": "HEICO Corporation"
+      "name": "HEICO Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "UAL",
-      "name": "United Airlines Holdings, Inc."
+      "name": "United Airlines Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Airlines"
     },
     {
       "sy": "DOV",
-      "name": "Dover Corporation"
+      "name": "Dover Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "IR",
-      "name": "Ingersoll Rand Inc."
+      "name": "Ingersoll Rand Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "NVT",
-      "name": "nVent Electric plc"
+      "name": "nVent Electric plc",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "OTIS",
-      "name": "Otis Worldwide Corporation"
+      "name": "Otis Worldwide Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "CW",
-      "name": "Curtiss-Wright Corporation"
+      "name": "Curtiss-Wright Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "STRL",
-      "name": "Sterling Infrastructure, Inc."
+      "name": "Sterling Infrastructure, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "XYL",
-      "name": "Xylem Inc."
+      "name": "Xylem Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "HUBB",
-      "name": "Hubbell Incorporated"
+      "name": "Hubbell Incorporated",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "JBHT",
-      "name": "J.B. Hunt Transport Services, Inc."
+      "name": "J.B. Hunt Transport Services, Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "FTAI",
-      "name": "FTAI Aviation Ltd."
+      "name": "FTAI Aviation Ltd.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "XPO",
-      "name": "XPO, Inc."
+      "name": "XPO, Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "AER",
-      "name": "AerCap Holdings N.V."
+      "name": "AerCap Holdings N.V.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "VRSK",
-      "name": "Verisk Analytics, Inc."
+      "name": "Verisk Analytics, Inc.",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "ATI",
-      "name": "ATI Inc."
+      "name": "ATI Inc.",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "VLTO",
-      "name": "Veralto Corporation"
+      "name": "Veralto Corporation",
+      "sector": "Industrials",
+      "industry": "Pollution & Treatment Controls"
     },
     {
       "sy": "WWD",
-      "name": "Woodward, Inc."
+      "name": "Woodward, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "EXPD",
-      "name": "Expeditors International of Washington, Inc."
+      "name": "Expeditors International of Washington, Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "CRS",
-      "name": "Carpenter Technology Corporation"
+      "name": "Carpenter Technology Corporation",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "ULS",
-      "name": "UL Solutions Inc."
+      "name": "UL Solutions Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "CHRW",
-      "name": "C.H. Robinson Worldwide, Inc."
+      "name": "C.H. Robinson Worldwide, Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "EFX",
-      "name": "Equifax Inc."
+      "name": "Equifax Inc.",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "LUV",
-      "name": "Southwest Airlines Co."
+      "name": "Southwest Airlines Co.",
+      "sector": "Industrials",
+      "industry": "Airlines"
     },
     {
       "sy": "BWXT",
-      "name": "BWX Technologies, Inc."
+      "name": "BWX Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "APG",
-      "name": "APi Group Corporation"
+      "name": "APi Group Corporation",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "SNA",
-      "name": "Snap-on Incorporated"
+      "name": "Snap-on Incorporated",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "GPN",
-      "name": "Global Payments Inc."
+      "name": "Global Payments Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "RBC",
-      "name": "RBC Bearings Incorporated"
+      "name": "RBC Bearings Incorporated",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "WCC",
-      "name": "WESCO International, Inc."
+      "name": "WESCO International, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "LII",
-      "name": "Lennox International Inc."
+      "name": "Lennox International Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "ITT",
-      "name": "ITT Inc."
+      "name": "ITT Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "WSO",
-      "name": "Watsco, Inc."
+      "name": "Watsco, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "CLH",
-      "name": "Clean Harbors, Inc."
+      "name": "Clean Harbors, Inc.",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "GNRC",
-      "name": "Generac Holdings Inc."
+      "name": "Generac Holdings Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "TXT",
-      "name": "Textron Inc."
+      "name": "Textron Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "IEX",
-      "name": "IDEX Corporation"
+      "name": "IDEX Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "NDSN",
-      "name": "Nordson Corporation"
+      "name": "Nordson Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "MLI",
-      "name": "Mueller Industries, Inc."
+      "name": "Mueller Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "PL",
-      "name": "Planet Labs PBC"
+      "name": "Planet Labs PBC",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "LECO",
-      "name": "Lincoln Electric Holdings, Inc."
+      "name": "Lincoln Electric Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "ARMK",
-      "name": "Aramark"
+      "name": "Aramark",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "IESC",
-      "name": "IES Holdings, Inc."
+      "name": "IES Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "GFL",
-      "name": "GFL Environmental Inc."
+      "name": "GFL Environmental Inc.",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "CSL",
-      "name": "Carlisle Companies Incorporated"
+      "name": "Carlisle Companies Incorporated",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "MAS",
-      "name": "Masco Corporation"
+      "name": "Masco Corporation",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "DY",
-      "name": "Dycom Industries, Inc."
+      "name": "Dycom Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "RRX",
-      "name": "Regal Rexnord Corporation"
+      "name": "Regal Rexnord Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "J",
-      "name": "Jacobs Solutions Inc."
+      "name": "Jacobs Solutions Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "CNH",
-      "name": "CNH Industrial N.V."
+      "name": "CNH Industrial N.V.",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "HII",
-      "name": "Huntington Ingalls Industries, Inc."
+      "name": "Huntington Ingalls Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "GGG",
-      "name": "Graco Inc."
+      "name": "Graco Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "AEIS",
-      "name": "Advanced Energy Industries, Inc."
+      "name": "Advanced Energy Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "SAIA",
-      "name": "Saia, Inc."
+      "name": "Saia, Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "QXO",
-      "name": "QXO, Inc."
+      "name": "QXO, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "PNR",
-      "name": "Pentair plc"
+      "name": "Pentair plc",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "SWK",
-      "name": "Stanley Black & Decker, Inc."
+      "name": "Stanley Black & Decker, Inc.",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "AIT",
-      "name": "Applied Industrial Technologies, Inc."
+      "name": "Applied Industrial Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "BLD",
-      "name": "TopBuild Corp."
+      "name": "TopBuild Corp.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "KNX",
-      "name": "Knight-Swift Transportation Holdings Inc."
+      "name": "Knight-Swift Transportation Holdings Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "AAON",
-      "name": "AAON, Inc."
+      "name": "AAON, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "DRS",
-      "name": "Leonardo DRS, Inc."
+      "name": "Leonardo DRS, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "FPS",
-      "name": "Forgent Power Solutions, Inc."
+      "name": "Forgent Power Solutions, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "ALLE",
-      "name": "Allegion plc"
+      "name": "Allegion plc",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "POWL",
-      "name": "Powell Industries, Inc."
+      "name": "Powell Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "WMS",
-      "name": "Advanced Drainage Systems, Inc."
+      "name": "Advanced Drainage Systems, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "JOBY",
-      "name": "Joby Aviation, Inc."
+      "name": "Joby Aviation, Inc.",
+      "sector": "Industrials",
+      "industry": "Airports & Air Services"
     },
     {
       "sy": "AGX",
-      "name": "Argan, Inc."
+      "name": "Argan, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "SPXC",
-      "name": "SPX Technologies, Inc."
+      "name": "SPX Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "CR",
-      "name": "Crane Company"
+      "name": "Crane Company",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "GTLS",
-      "name": "Chart Industries, Inc."
+      "name": "Chart Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "WTS",
-      "name": "Watts Water Technologies, Inc."
+      "name": "Watts Water Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "VMI",
-      "name": "Valmont Industries, Inc."
+      "name": "Valmont Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "KTOS",
-      "name": "Kratos Defense & Security Solutions, Inc."
+      "name": "Kratos Defense & Security Solutions, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "MOG-A",
-      "name": "Moog Inc."
+      "name": "Moog Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "DCI",
-      "name": "Donaldson Company, Inc."
+      "name": "Donaldson Company, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "UHAL",
-      "name": "U-Haul Holding Company"
+      "name": "U-Haul Holding Company",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "OC",
-      "name": "Owens Corning"
+      "name": "Owens Corning",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "ACM",
-      "name": "AECOM"
+      "name": "AECOM",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "R",
-      "name": "Ryder System, Inc."
+      "name": "Ryder System, Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "CNM",
-      "name": "Core & Main, Inc."
+      "name": "Core & Main, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "BAH",
-      "name": "Booz Allen Hamilton Holding Corporation"
+      "name": "Booz Allen Hamilton Holding Corporation",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "ENS",
-      "name": "EnerSys"
+      "name": "EnerSys",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "TTC",
-      "name": "The Toro Company"
+      "name": "The Toro Company",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "AYI",
-      "name": "Acuity Inc."
+      "name": "Acuity Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "SARO",
-      "name": "StandardAero, Inc."
+      "name": "StandardAero, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "KRMN",
-      "name": "Karman Holdings Inc."
+      "name": "Karman Holdings Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "FLS",
-      "name": "Flowserve Corporation"
+      "name": "Flowserve Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "AGCO",
-      "name": "AGCO Corporation"
+      "name": "AGCO Corporation",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "AAL",
-      "name": "American Airlines Group Inc."
+      "name": "American Airlines Group Inc.",
+      "sector": "Industrials",
+      "industry": "Airlines"
     },
     {
       "sy": "ZWS",
-      "name": "Zurn Elkay Water Solutions Corporation"
+      "name": "Zurn Elkay Water Solutions Corporation",
+      "sector": "Industrials",
+      "industry": "Pollution & Treatment Controls"
     },
     {
       "sy": "ECG",
-      "name": "Everus Construction Group, Inc."
+      "name": "Everus Construction Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "AVAV",
-      "name": "AeroVironment, Inc."
+      "name": "AeroVironment, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "TKR",
-      "name": "The Timken Company"
+      "name": "The Timken Company",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "CMC",
-      "name": "Commercial Metals Company"
+      "name": "Commercial Metals Company",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "KEX",
-      "name": "Kirby Corporation"
+      "name": "Kirby Corporation",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "AOS",
-      "name": "A. O. Smith Corporation"
+      "name": "A. O. Smith Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "BLDR",
-      "name": "Builders FirstSource, Inc."
+      "name": "Builders FirstSource, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "OSK",
-      "name": "Oshkosh Corporation"
+      "name": "Oshkosh Corporation",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "MYRG",
-      "name": "MYR Group Inc."
+      "name": "MYR Group Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "TEX",
-      "name": "Terex Corporation"
+      "name": "Terex Corporation",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "TTEK",
-      "name": "Tetra Tech, Inc."
+      "name": "Tetra Tech, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "FSS",
-      "name": "Federal Signal Corporation"
+      "name": "Federal Signal Corporation",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "HXL",
-      "name": "Hexcel Corporation"
+      "name": "Hexcel Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "ROAD",
-      "name": "Construction Partners, Inc."
+      "name": "Construction Partners, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "AWI",
-      "name": "Armstrong World Industries, Inc."
+      "name": "Armstrong World Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "MSA",
-      "name": "MSA Safety Incorporated"
+      "name": "MSA Safety Incorporated",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "NPO",
-      "name": "Enpro Inc."
+      "name": "Enpro Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "JBTM",
-      "name": "JBT Marel Corporation"
+      "name": "JBT Marel Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "MIDD",
-      "name": "The Middleby Corporation"
+      "name": "The Middleby Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "LGN",
-      "name": "Legence Corp."
+      "name": "Legence Corp.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "FLY",
-      "name": "Firefly Aerospace Inc."
+      "name": "Firefly Aerospace Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "POOL",
-      "name": "Pool Corporation"
+      "name": "Pool Corporation",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "FLR",
-      "name": "Fluor Corporation"
+      "name": "Fluor Corporation",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "GTES",
-      "name": "Gates Industrial Corporation plc"
+      "name": "Gates Industrial Corporation plc",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "PRIM",
-      "name": "Primoris Services Corporation"
+      "name": "Primoris Services Corporation",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "GATX",
-      "name": "GATX Corporation"
+      "name": "GATX Corporation",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "EQPT",
-      "name": "EquipmentShare.com Inc."
+      "name": "EquipmentShare.com Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "ACA",
-      "name": "Arcosa, Inc."
+      "name": "Arcosa, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "GVA",
-      "name": "Granite Construction Incorporated"
+      "name": "Granite Construction Incorporated",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "SYM",
-      "name": "Symbotic Inc."
+      "name": "Symbotic Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "LSTR",
-      "name": "Landstar System, Inc."
+      "name": "Landstar System, Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "MSM",
-      "name": "MSC Industrial Direct Co., Inc."
+      "name": "MSC Industrial Direct Co., Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "AMTM",
-      "name": "Amentum Holdings, Inc."
+      "name": "Amentum Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "SNDR",
-      "name": "Schneider National, Inc."
+      "name": "Schneider National, Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "GXO",
-      "name": "GXO Logistics, Inc."
+      "name": "GXO Logistics, Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "MRCY",
-      "name": "Mercury Systems, Inc."
+      "name": "Mercury Systems, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "MATX",
-      "name": "Matson, Inc."
+      "name": "Matson, Inc.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "LUNR",
-      "name": "Intuitive Machines, Inc."
+      "name": "Intuitive Machines, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "CWST",
-      "name": "Casella Waste Systems, Inc."
+      "name": "Casella Waste Systems, Inc.",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "ESAB",
-      "name": "ESAB Corporation"
+      "name": "ESAB Corporation",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "CPA",
-      "name": "Copa Holdings, S.A."
+      "name": "Copa Holdings, S.A.",
+      "sector": "Industrials",
+      "industry": "Airlines"
     },
     {
       "sy": "LOAR",
-      "name": "Loar Holdings Inc."
+      "name": "Loar Holdings Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "CAR",
-      "name": "Avis Budget Group, Inc."
+      "name": "Avis Budget Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "SITE",
-      "name": "SiteOne Landscape Supply, Inc."
+      "name": "SiteOne Landscape Supply, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "ADT",
-      "name": "ADT Inc."
+      "name": "ADT Inc.",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "DLB",
-      "name": "Dolby Laboratories, Inc."
+      "name": "Dolby Laboratories, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "LPX",
-      "name": "Louisiana-Pacific Corporation"
+      "name": "Louisiana-Pacific Corporation",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "VSEC",
-      "name": "VSE Corporation"
+      "name": "VSE Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "UNF",
-      "name": "UniFirst Corporation"
+      "name": "UniFirst Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "HRI",
-      "name": "Herc Holdings Inc."
+      "name": "Herc Holdings Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "ACHR",
-      "name": "Archer Aviation Inc."
+      "name": "Archer Aviation Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "XMTR",
-      "name": "Xometry, Inc."
+      "name": "Xometry, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "SEB",
-      "name": "Seaboard Corporation"
+      "name": "Seaboard Corporation",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "MIR",
-      "name": "Mirion Technologies, Inc."
+      "name": "Mirion Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "WSC",
-      "name": "WillScot Holdings Corporation"
+      "name": "WillScot Holdings Corporation",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "FCN",
-      "name": "FTI Consulting, Inc."
+      "name": "FTI Consulting, Inc.",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "REZI",
-      "name": "Resideo Technologies, Inc."
+      "name": "Resideo Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "BCO",
-      "name": "The Brink's Company"
+      "name": "The Brink's Company",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "FELE",
-      "name": "Franklin Electric Co., Inc."
+      "name": "Franklin Electric Co., Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "AZZ",
-      "name": "AZZ Inc."
+      "name": "AZZ Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "CSW",
-      "name": "CSW Industrials, Inc."
+      "name": "CSW Industrials, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "TPC",
-      "name": "Tutor Perini Corporation"
+      "name": "Tutor Perini Corporation",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "AIR",
-      "name": "AAR Corp."
+      "name": "AAR Corp.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "ALK",
-      "name": "Alaska Air Group, Inc."
+      "name": "Alaska Air Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Airlines"
     },
     {
       "sy": "FBIN",
-      "name": "Fortune Brands Innovations, Inc."
+      "name": "Fortune Brands Innovations, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "MWA",
-      "name": "Mueller Water Products, Inc."
+      "name": "Mueller Water Products, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "CAAP",
-      "name": "Corporación América Airports S.A."
+      "name": "Corporación América Airports S.A.",
+      "sector": "Industrials",
+      "industry": "Airports & Air Services"
     },
     {
       "sy": "TREX",
-      "name": "Trex Company, Inc."
+      "name": "Trex Company, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "SMR",
-      "name": "NuScale Power Corporation"
+      "name": "NuScale Power Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "KBR",
-      "name": "KBR, Inc."
+      "name": "KBR, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "GFF",
-      "name": "Griffon Corporation"
+      "name": "Griffon Corporation",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "KAI",
-      "name": "Kadant Inc."
+      "name": "Kadant Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "OTTR",
-      "name": "Otter Tail Corporation"
+      "name": "Otter Tail Corporation",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "BETA",
-      "name": "BETA Technologies, Inc."
+      "name": "BETA Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "GPGI",
-      "name": "GPGI, Inc."
+      "name": "GPGI, Inc.",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "BRC",
-      "name": "Brady Corporation"
+      "name": "Brady Corporation",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "KFY",
-      "name": "Korn Ferry"
+      "name": "Korn Ferry",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "SKYW",
-      "name": "SkyWest, Inc."
+      "name": "SkyWest, Inc.",
+      "sector": "Industrials",
+      "industry": "Airlines"
     },
     {
       "sy": "MMS",
-      "name": "Maximus, Inc."
+      "name": "Maximus, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "RXO",
-      "name": "RXO, Inc."
+      "name": "RXO, Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "ZIM",
-      "name": "ZIM Integrated Shipping Services Ltd."
+      "name": "ZIM Integrated Shipping Services Ltd.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "YSS",
-      "name": "York Space Systems, Inc."
+      "name": "York Space Systems, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "GEO",
-      "name": "The GEO Group, Inc."
+      "name": "The GEO Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "SXI",
-      "name": "Standex International Corporation"
+      "name": "Standex International Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "BW",
-      "name": "Babcock & Wilcox Enterprises, Inc."
+      "name": "Babcock & Wilcox Enterprises, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "HAYW",
-      "name": "Hayward Holdings, Inc."
+      "name": "Hayward Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "SBLK",
-      "name": "Star Bulk Carriers Corp."
+      "name": "Star Bulk Carriers Corp.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "CECO",
-      "name": "CECO Environmental Corp."
+      "name": "CECO Environmental Corp.",
+      "sector": "Industrials",
+      "industry": "Pollution & Treatment Controls"
     },
     {
       "sy": "ATRO",
-      "name": "Astronics Corporation"
+      "name": "Astronics Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "RDW",
-      "name": "Redwire Corporation"
+      "name": "Redwire Corporation",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "MGRC",
-      "name": "McGrath RentCorp"
+      "name": "McGrath RentCorp",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "ARCB",
-      "name": "ArcBest Corporation"
+      "name": "ArcBest Corporation",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "TRN",
-      "name": "Trinity Industries, Inc."
+      "name": "Trinity Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Railroads"
     },
     {
       "sy": "EOSE",
-      "name": "Eos Energy Enterprises, Inc."
+      "name": "Eos Energy Enterprises, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "KMT",
-      "name": "Kennametal Inc."
+      "name": "Kennametal Inc.",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "WOR",
-      "name": "Worthington Enterprises, Inc."
+      "name": "Worthington Enterprises, Inc.",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "AMSC",
-      "name": "American Superconductor Corporation"
+      "name": "American Superconductor Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "EXPO",
-      "name": "Exponent, Inc."
+      "name": "Exponent, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "RHI",
-      "name": "Robert Half Inc."
+      "name": "Robert Half Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "FA",
-      "name": "First Advantage Corporation"
+      "name": "First Advantage Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "HLIO",
-      "name": "Helios Technologies, Inc."
+      "name": "Helios Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "ATKR",
-      "name": "Atkore Inc."
+      "name": "Atkore Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "DNOW",
-      "name": "DNOW Inc."
+      "name": "DNOW Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "AMPX",
-      "name": "Amprius Technologies, Inc."
+      "name": "Amprius Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "DAC",
-      "name": "Danaos Corporation"
+      "name": "Danaos Corporation",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "ABM",
-      "name": "ABM Industries Incorporated"
+      "name": "ABM Industries Incorporated",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "HUBG",
-      "name": "Hub Group, Inc."
+      "name": "Hub Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "CMPR",
-      "name": "Cimpress plc"
+      "name": "Cimpress plc",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "PCT",
-      "name": "PureCycle Technologies, Inc."
+      "name": "PureCycle Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Pollution & Treatment Controls"
     },
     {
       "sy": "DXPE",
-      "name": "DXP Enterprises, Inc."
+      "name": "DXP Enterprises, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "BLBD",
-      "name": "Blue Bird Corporation"
+      "name": "Blue Bird Corporation",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "CTOS",
-      "name": "Custom Truck One Source, Inc."
+      "name": "Custom Truck One Source, Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "WERN",
-      "name": "Werner Enterprises, Inc."
+      "name": "Werner Enterprises, Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "CXT",
-      "name": "Crane NXT, Co."
+      "name": "Crane NXT, Co.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "VVX",
-      "name": "V2X, Inc."
+      "name": "V2X, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "DCO",
-      "name": "Ducommun Incorporated"
+      "name": "Ducommun Incorporated",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "THR",
-      "name": "Thermon Group Holdings, Inc."
+      "name": "Thermon Group Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "PBI",
-      "name": "Pitney Bowes Inc."
+      "name": "Pitney Bowes Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "CMRE",
-      "name": "Costamare Inc."
+      "name": "Costamare Inc.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "CXW",
-      "name": "CoreCivic, Inc."
+      "name": "CoreCivic, Inc.",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "NMM",
-      "name": "Navios Maritime Partners L.P."
+      "name": "Navios Maritime Partners L.P.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "VOYG",
-      "name": "Voyager Technologies, Inc."
+      "name": "Voyager Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "ALGT",
-      "name": "Allegiant Travel Company"
+      "name": "Allegiant Travel Company",
+      "sector": "Industrials",
+      "industry": "Airlines"
     },
     {
       "sy": "TIC",
-      "name": "TIC Solutions, Inc."
+      "name": "TIC Solutions, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "GRC",
-      "name": "The Gorman-Rupp Company"
+      "name": "The Gorman-Rupp Company",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "TH",
-      "name": "Target Hospitality Corp."
+      "name": "Target Hospitality Corp.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "TNET",
-      "name": "TriNet Group, Inc."
+      "name": "TriNet Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "ALG",
-      "name": "Alamo Group Inc."
+      "name": "Alamo Group Inc.",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "AMRC",
-      "name": "Ameresco, Inc."
+      "name": "Ameresco, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "HTZ",
-      "name": "Hertz Global Holdings, Inc."
+      "name": "Hertz Global Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "EPAC",
-      "name": "Enerpac Tool Group Corp."
+      "name": "Enerpac Tool Group Corp.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "PRLB",
-      "name": "Proto Labs, Inc."
+      "name": "Proto Labs, Inc.",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "HURN",
-      "name": "Huron Consulting Group Inc."
+      "name": "Huron Consulting Group Inc.",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "PLPC",
-      "name": "Preformed Line Products Company"
+      "name": "Preformed Line Products Company",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "SFL",
-      "name": "SFL Corporation Ltd."
+      "name": "SFL Corporation Ltd.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "VSTS",
-      "name": "Vestis Corporation"
+      "name": "Vestis Corporation",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "NVRI",
-      "name": "Enviri Corporation"
+      "name": "Enviri Corporation",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "TE",
-      "name": "T1 Energy Inc."
+      "name": "T1 Energy Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "CBZ",
-      "name": "CBIZ, Inc."
+      "name": "CBIZ, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "GBX",
-      "name": "The Greenbrier Companies, Inc."
+      "name": "The Greenbrier Companies, Inc.",
+      "sector": "Industrials",
+      "industry": "Railroads"
     },
     {
       "sy": "GSL",
-      "name": "Global Ship Lease, Inc."
+      "name": "Global Ship Lease, Inc.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "SATL",
-      "name": "Satellogic Inc."
+      "name": "Satellogic Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "BKSY",
-      "name": "BlackSky Technology Inc."
+      "name": "BlackSky Technology Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "WLFC",
-      "name": "Willis Lease Finance Corporation"
+      "name": "Willis Lease Finance Corporation",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "TTI",
-      "name": "TETRA Technologies, Inc."
+      "name": "TETRA Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "HLMN",
-      "name": "Hillman Solutions Corp."
+      "name": "Hillman Solutions Corp.",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "WLDN",
-      "name": "Willdan Group, Inc."
+      "name": "Willdan Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "RCAT",
-      "name": "Red Cat Holdings, Inc."
+      "name": "Red Cat Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "TNC",
-      "name": "Tennant Company"
+      "name": "Tennant Company",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "ARLO",
-      "name": "Arlo Technologies, Inc."
+      "name": "Arlo Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "ENVX",
-      "name": "Enovix Corporation"
+      "name": "Enovix Corporation",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "PRG",
-      "name": "PROG Holdings, Inc."
+      "name": "PROG Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "RYZ",
-      "name": "Ryerson Holding Corporation"
+      "name": "Ryerson Holding Corporation",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "NNE",
-      "name": "NANO Nuclear Energy Inc."
+      "name": "NANO Nuclear Energy Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "NSSC",
-      "name": "Napco Security Technologies, Inc."
+      "name": "Napco Security Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "CDRE",
-      "name": "Cadre Holdings, Inc."
+      "name": "Cadre Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "MRTN",
-      "name": "Marten Transport, Ltd."
+      "name": "Marten Transport, Ltd.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "CCEC",
-      "name": "Capital Clean Energy Carriers Corp."
+      "name": "Capital Clean Energy Carriers Corp.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "DSGR",
-      "name": "Distribution Solutions Group, Inc."
+      "name": "Distribution Solutions Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "MAN",
-      "name": "ManpowerGroup Inc."
+      "name": "ManpowerGroup Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "BV",
-      "name": "BrightView Holdings, Inc."
+      "name": "BrightView Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "NSP",
-      "name": "Insperity, Inc."
+      "name": "Insperity, Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "ENR",
-      "name": "Energizer Holdings, Inc."
+      "name": "Energizer Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "FCEL",
-      "name": "FuelCell Energy, Inc."
+      "name": "FuelCell Energy, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "GIC",
-      "name": "Global Industrial Company"
+      "name": "Global Industrial Company",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "ICFI",
-      "name": "ICF International, Inc."
+      "name": "ICF International, Inc.",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "LNN",
-      "name": "Lindsay Corporation"
+      "name": "Lindsay Corporation",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "GHM",
-      "name": "Graham Corporation"
+      "name": "Graham Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "ASTE",
-      "name": "Astec Industries, Inc."
+      "name": "Astec Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "GNK",
-      "name": "Genco Shipping & Trading Limited"
+      "name": "Genco Shipping & Trading Limited",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "DLX",
-      "name": "Deluxe Corporation"
+      "name": "Deluxe Corporation",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "ROCK",
-      "name": "Gibraltar Industries, Inc."
+      "name": "Gibraltar Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "HTLD",
-      "name": "Heartland Express, Inc."
+      "name": "Heartland Express, Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "LZ",
-      "name": "LegalZoom.com, Inc."
+      "name": "LegalZoom.com, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "EVLV",
-      "name": "Evolv Technologies Holdings, Inc."
+      "name": "Evolv Technologies Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "NPK",
-      "name": "National Presto Industries, Inc."
+      "name": "National Presto Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "RJET",
-      "name": "Republic Airways Holdings Inc."
+      "name": "Republic Airways Holdings Inc.",
+      "sector": "Industrials",
+      "industry": "Airlines"
     },
     {
       "sy": "KODK",
-      "name": "Eastman Kodak Company"
+      "name": "Eastman Kodak Company",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "AEBI",
-      "name": "Aebi Schmidt Holding AG"
+      "name": "Aebi Schmidt Holding AG",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "CODI",
-      "name": "Compass Diversified"
+      "name": "Compass Diversified",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "PSIX",
-      "name": "Power Solutions International, Inc."
+      "name": "Power Solutions International, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "CRAI",
-      "name": "CRA International, Inc."
+      "name": "CRA International, Inc.",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "SNCY",
-      "name": "Sun Country Airlines Holdings, Inc."
+      "name": "Sun Country Airlines Holdings, Inc.",
+      "sector": "Industrials"
     },
     {
       "sy": "LMB",
-      "name": "Limbach Holdings, Inc."
+      "name": "Limbach Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "CVLG",
-      "name": "Covenant Logistics Group, Inc."
+      "name": "Covenant Logistics Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "RHLD",
-      "name": "Resolute Holdings Management, Inc."
+      "name": "Resolute Holdings Management, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "MATW",
-      "name": "Matthews International Corporation"
+      "name": "Matthews International Corporation",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "CDNL",
-      "name": "Cardinal Infrastructure Group Inc."
+      "name": "Cardinal Infrastructure Group Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "SPIR",
-      "name": "Spire Global, Inc."
+      "name": "Spire Global, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "ASC",
-      "name": "Ardmore Shipping Corporation"
+      "name": "Ardmore Shipping Corporation",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "NX",
-      "name": "Quanex Building Products Corporation"
+      "name": "Quanex Building Products Corporation",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "BBSI",
-      "name": "Barrett Business Services, Inc."
+      "name": "Barrett Business Services, Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "APOG",
-      "name": "Apogee Enterprises, Inc."
+      "name": "Apogee Enterprises, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "SB",
-      "name": "Safe Bulkers, Inc."
+      "name": "Safe Bulkers, Inc.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "KFRC",
-      "name": "Kforce Inc."
+      "name": "Kforce Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "TRNS",
-      "name": "Transcat, Inc."
+      "name": "Transcat, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "SERV",
-      "name": "Serve Robotics Inc."
+      "name": "Serve Robotics Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "KRNT",
-      "name": "Kornit Digital Ltd."
+      "name": "Kornit Digital Ltd.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "ADSE",
-      "name": "ADS-TEC Energy PLC"
+      "name": "ADS-TEC Energy PLC",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "SWBI",
-      "name": "Smith & Wesson Brands, Inc."
+      "name": "Smith & Wesson Brands, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "PKE",
-      "name": "Park Aerospace Corp."
+      "name": "Park Aerospace Corp.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "CYRX",
-      "name": "Cryoport, Inc."
+      "name": "Cryoport, Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "HY",
-      "name": "Hyster-Yale, Inc."
+      "name": "Hyster-Yale, Inc.",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "RGR",
-      "name": "Sturm, Ruger & Company, Inc."
+      "name": "Sturm, Ruger & Company, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "MRLN",
-      "name": "Merlin, Inc."
+      "name": "Merlin, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "ORN",
-      "name": "Orion Group Holdings, Inc."
+      "name": "Orion Group Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "KE",
-      "name": "Kimball Electronics, Inc."
+      "name": "Kimball Electronics, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "CASS",
-      "name": "Cass Information Systems, Inc."
+      "name": "Cass Information Systems, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "MCCK",
-      "name": "Mestek, Inc."
+      "name": "Mestek, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "BWMN",
-      "name": "Bowman Consulting Group Ltd."
+      "name": "Bowman Consulting Group Ltd.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "MG",
-      "name": "Mistras Group, Inc."
+      "name": "Mistras Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "PANL",
-      "name": "Pangaea Logistics Solutions Ltd."
+      "name": "Pangaea Logistics Solutions Ltd.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "MEC",
-      "name": "Mayville Engineering Company, Inc."
+      "name": "Mayville Engineering Company, Inc.",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "FBYD",
-      "name": "Falcon's Beyond Global, Inc."
+      "name": "Falcon's Beyond Global, Inc.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "TRC",
-      "name": "Tejon Ranch Co."
+      "name": "Tejon Ranch Co.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "EBF",
-      "name": "Ennis, Inc."
+      "name": "Ennis, Inc.",
+      "sector": "Industrials",
+      "industry": "Business Equipment & Supplies"
     },
     {
       "sy": "IIIN",
-      "name": "Insteel Industries Inc."
+      "name": "Insteel Industries Inc.",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "JLHL",
-      "name": "Julong Holding Limited"
+      "name": "Julong Holding Limited",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "ESEA",
-      "name": "Euroseas Ltd."
+      "name": "Euroseas Ltd.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "TWI",
-      "name": "Titan International, Inc."
+      "name": "Titan International, Inc.",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "ROMA",
-      "name": "Roma Green Finance Limited"
+      "name": "Roma Green Finance Limited",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "ASPN",
-      "name": "Aspen Aerogels, Inc."
+      "name": "Aspen Aerogels, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "TITN",
-      "name": "Titan Machinery Inc."
+      "name": "Titan Machinery Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "CMDB",
-      "name": "Costamare Bulkers Holdings Limited"
+      "name": "Costamare Bulkers Holdings Limited",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "PKOH",
-      "name": "Park-Ohio Holdings Corp."
+      "name": "Park-Ohio Holdings Corp.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "MTW",
-      "name": "The Manitowoc Company, Inc."
+      "name": "The Manitowoc Company, Inc.",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "ERII",
-      "name": "Energy Recovery, Inc."
+      "name": "Energy Recovery, Inc.",
+      "sector": "Industrials",
+      "industry": "Pollution & Treatment Controls"
     },
     {
       "sy": "LXFR",
-      "name": "Luxfer Holdings PLC"
+      "name": "Luxfer Holdings PLC",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "CMCO",
-      "name": "Columbus McKinnon Corporation"
+      "name": "Columbus McKinnon Corporation",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "FSTR",
-      "name": "L.B. Foster Company"
+      "name": "L.B. Foster Company",
+      "sector": "Industrials",
+      "industry": "Railroads"
     },
     {
       "sy": "MUEL",
-      "name": "Paul Mueller Company"
+      "name": "Paul Mueller Company",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "SHMD",
-      "name": "SCHMID Group N.V."
+      "name": "SCHMID Group N.V.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "BXC",
-      "name": "BlueLinx Holdings Inc."
+      "name": "BlueLinx Holdings Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "RLGT",
-      "name": "Radiant Logistics, Inc."
+      "name": "Radiant Logistics, Inc.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "LTBR",
-      "name": "Lightbridge Corporation"
+      "name": "Lightbridge Corporation",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "GASS",
-      "name": "StealthGas Inc."
+      "name": "StealthGas Inc.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "NL",
-      "name": "NL Industries, Inc."
+      "name": "NL Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "QUAD",
-      "name": "Quad/Graphics, Inc."
+      "name": "Quad/Graphics, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "BBCP",
-      "name": "Concrete Pumping Holdings, Inc."
+      "name": "Concrete Pumping Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "ULH",
-      "name": "Universal Logistics Holdings, Inc."
+      "name": "Universal Logistics Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "BUUU",
-      "name": "BUUU Group Limited"
+      "name": "BUUU Group Limited",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "ESOA",
-      "name": "Energy Services of America Corporation"
+      "name": "Energy Services of America Corporation",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "SHIP",
-      "name": "Seanergy Maritime Holdings Corp"
+      "name": "Seanergy Maritime Holdings Corp",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "BOC",
-      "name": "Boston Omaha Corporation"
+      "name": "Boston Omaha Corporation",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "MTRX",
-      "name": "Matrix Service Company"
+      "name": "Matrix Service Company",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "KELYA",
-      "name": "Kelly Services, Inc."
+      "name": "Kelly Services, Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "ASLE",
-      "name": "AerSale Corporation"
+      "name": "AerSale Corporation",
+      "sector": "Industrials",
+      "industry": "Airports & Air Services"
     },
     {
       "sy": "EFTY",
-      "name": "Etoiles Capital Group Co., Ltd"
+      "name": "Etoiles Capital Group Co., Ltd",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "CGEH",
-      "name": "Capstone Energy+, Inc."
+      "name": "Capstone Energy+, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "ISSC",
-      "name": "Innovative Aerosystems, Inc."
+      "name": "Innovative Aerosystems, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "PHOE",
-      "name": "Phoenix Asia Holdings Limited"
+      "name": "Phoenix Asia Holdings Limited",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "WNC",
-      "name": "Wabash National Corporation"
+      "name": "Wabash National Corporation",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "TG",
-      "name": "Tredegar Corporation"
+      "name": "Tredegar Corporation",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "CIX",
-      "name": "CompX International Inc."
+      "name": "CompX International Inc.",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "FWRD",
-      "name": "Forward Air Corporation"
+      "name": "Forward Air Corporation",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "OFLX",
-      "name": "Omega Flex, Inc."
+      "name": "Omega Flex, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "PPIH",
-      "name": "Perma-Pipe International Holdings, Inc."
+      "name": "Perma-Pipe International Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "HUHU",
-      "name": "HUHUTECH International Group Inc."
+      "name": "HUHUTECH International Group Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "TWIN",
-      "name": "Twin Disc, Incorporated"
+      "name": "Twin Disc, Incorporated",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "FJET",
-      "name": "Starfighters Space, Inc."
+      "name": "Starfighters Space, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "EAF",
-      "name": "GrafTech International Ltd."
+      "name": "GrafTech International Ltd.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "MAGH",
-      "name": "Magnitude International Ltd"
+      "name": "Magnitude International Ltd",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "AP",
-      "name": "Ampco-Pittsburgh Corporation"
+      "name": "Ampco-Pittsburgh Corporation",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "EVI",
-      "name": "EVI Industries, Inc."
+      "name": "EVI Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Industrial Distribution"
     },
     {
       "sy": "MAMK",
-      "name": "MaxsMaking Inc."
+      "name": "MaxsMaking Inc.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "PAMT",
-      "name": "PAMT CORP"
+      "name": "PAMT CORP",
+      "sector": "Industrials",
+      "industry": "Trucking"
     },
     {
       "sy": "GENC",
-      "name": "Gencor Industries, Inc."
+      "name": "Gencor Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "EGG",
-      "name": "Enigmatig Limited"
+      "name": "Enigmatig Limited",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "ALTG",
-      "name": "Alta Equipment Group Inc."
+      "name": "Alta Equipment Group Inc.",
+      "sector": "Industrials",
+      "industry": "Rental & Leasing Services"
     },
     {
       "sy": "ICTSF",
-      "name": "ICTS International N.V."
+      "name": "ICTS International N.V.",
+      "sector": "Industrials",
+      "industry": "Airports & Air Services"
     },
     {
       "sy": "ESP",
-      "name": "Espey Mfg. & Electronics Corp."
+      "name": "Espey Mfg. & Electronics Corp.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "AIRO",
-      "name": "AIRO Group Holdings, Inc."
+      "name": "AIRO Group Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "TGEN",
-      "name": "Tecogen Inc."
+      "name": "Tecogen Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "SMHI",
-      "name": "SEACOR Marine Holdings Inc."
+      "name": "SEACOR Marine Holdings Inc.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "RFIL",
-      "name": "RF Industries, Ltd."
+      "name": "RF Industries, Ltd.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "UP",
-      "name": "Wheels Up Experience Inc."
+      "name": "Wheels Up Experience Inc.",
+      "sector": "Industrials",
+      "industry": "Airports & Air Services"
     },
     {
       "sy": "PESI",
-      "name": "Perma-Fix Environmental Services, Inc."
+      "name": "Perma-Fix Environmental Services, Inc.",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "HQI",
-      "name": "HireQuest, Inc."
+      "name": "HireQuest, Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "TBI",
-      "name": "TrueBlue, Inc."
+      "name": "TrueBlue, Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "TAYD",
-      "name": "Taylor Devices, Inc."
+      "name": "Taylor Devices, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "RCMT",
-      "name": "RCM Technologies, Inc."
+      "name": "RCM Technologies, Inc.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "QEPC",
-      "name": "Q.E.P. Co., Inc."
+      "name": "Q.E.P. Co., Inc.",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "RAIL",
-      "name": "FreightCar America, Inc."
+      "name": "FreightCar America, Inc.",
+      "sector": "Industrials",
+      "industry": "Railroads"
     },
     {
       "sy": "VATE",
-      "name": "INNOVATE Corp."
+      "name": "INNOVATE Corp.",
+      "sector": "Industrials",
+      "industry": "Engineering & Construction"
     },
     {
       "sy": "BOOM",
-      "name": "DMC Global Inc."
+      "name": "DMC Global Inc.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "CNRD",
-      "name": "Conrad Industries, Inc."
+      "name": "Conrad Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "VWAV",
-      "name": "VisionWave Holdings, Inc."
+      "name": "VisionWave Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "CODA",
-      "name": "Coda Octopus Group, Inc."
+      "name": "Coda Octopus Group, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "FORR",
-      "name": "Forrester Research, Inc."
+      "name": "Forrester Research, Inc.",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "BURCA",
-      "name": "Burnham Holdings, Inc."
+      "name": "Burnham Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "EML",
-      "name": "The Eastern Company"
+      "name": "The Eastern Company",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "LICN",
-      "name": "Lichen International Limited"
+      "name": "Lichen International Limited",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "SIF",
-      "name": "SIFCO Industries, Inc."
+      "name": "SIFCO Industries, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "PSIG",
-      "name": "PS International Group Ltd."
+      "name": "PS International Group Ltd.",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "HURC",
-      "name": "Hurco Companies, Inc."
+      "name": "Hurco Companies, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "ULBI",
-      "name": "Ultralife Corporation"
+      "name": "Ultralife Corporation",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "LNZA",
-      "name": "LanzaTech Global, Inc."
+      "name": "LanzaTech Global, Inc.",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "ANPA",
-      "name": "Rich Sparkle Holdings Limited"
+      "name": "Rich Sparkle Holdings Limited",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "MHH",
-      "name": "Mastech Digital, Inc."
+      "name": "Mastech Digital, Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "DLHC",
-      "name": "DLH Holdings Corp."
+      "name": "DLH Holdings Corp.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "OPXS",
-      "name": "Optex Systems Holdings, Inc"
+      "name": "Optex Systems Holdings, Inc",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "TISI",
-      "name": "Team, Inc."
+      "name": "Team, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "MOB",
-      "name": "Mobilicom Limited"
+      "name": "Mobilicom Limited",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "APTL",
-      "name": "Alaska Power & Telephone Company"
+      "name": "Alaska Power & Telephone Company",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "EDRY",
-      "name": "EuroDry Ltd."
+      "name": "EuroDry Ltd.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "SPCB",
-      "name": "SuperCom Ltd."
+      "name": "SuperCom Ltd.",
+      "sector": "Industrials",
+      "industry": "Security & Protection Services"
     },
     {
       "sy": "AIRT",
-      "name": "Air T, Inc."
+      "name": "Air T, Inc.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "JANL",
-      "name": "Janel Corporation"
+      "name": "Janel Corporation",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "APT",
-      "name": "Alpha Pro Tech, Ltd."
+      "name": "Alpha Pro Tech, Ltd.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "BGSF",
-      "name": "BGSF, Inc."
+      "name": "BGSF, Inc.",
+      "sector": "Industrials",
+      "industry": "Staffing & Employment Services"
     },
     {
       "sy": "NCEW",
-      "name": "New Century Logistics (BVI) Limited"
+      "name": "New Century Logistics (BVI) Limited",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "WFCF",
-      "name": "Where Food Comes From, Inc."
+      "name": "Where Food Comes From, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "HTCO",
-      "name": "High-Trend International Group"
+      "name": "High-Trend International Group",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "STI",
-      "name": "Solidion Technology, Inc."
+      "name": "Solidion Technology, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "JYD",
-      "name": "Jayud Global Logistics Limited"
+      "name": "Jayud Global Logistics Limited",
+      "sector": "Industrials",
+      "industry": "Integrated Freight & Logistics"
     },
     {
       "sy": "OESX",
-      "name": "Orion Energy Systems, Inc."
+      "name": "Orion Energy Systems, Inc.",
+      "sector": "Industrials",
+      "industry": "Electrical Equipment & Parts"
     },
     {
       "sy": "CVV",
-      "name": "CVD Equipment Corporation"
+      "name": "CVD Equipment Corporation",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     },
     {
       "sy": "STRR",
-      "name": "Star Equity Holdings, Inc."
+      "name": "Star Equity Holdings, Inc.",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "MNTS",
-      "name": "Momentus Inc."
+      "name": "Momentus Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "PC",
-      "name": "Premium Catering (Holdings) Limited"
+      "name": "Premium Catering (Holdings) Limited",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "EHLD",
-      "name": "Euroholdings Ltd."
+      "name": "Euroholdings Ltd.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "NSYC",
-      "name": "National Stock Yards Company"
+      "name": "National Stock Yards Company",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "UUU",
-      "name": "Universal Safety Products, Inc"
+      "name": "Universal Safety Products, Inc",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "DUKR",
-      "name": "DUKE Robotics Corp. Common Stock"
+      "name": "DUKE Robotics Corp. Common Stock",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "INTJ",
-      "name": "Intelligent Group Limited"
+      "name": "Intelligent Group Limited",
+      "sector": "Industrials",
+      "industry": "Consulting Services"
     },
     {
       "sy": "RVSN",
-      "name": "Rail Vision Ltd."
+      "name": "Rail Vision Ltd.",
+      "sector": "Industrials",
+      "industry": "Railroads"
     },
     {
       "sy": "FSCR",
-      "name": "Federal Screw Works"
+      "name": "Federal Screw Works",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "SVRN",
-      "name": "OceanPal Inc."
+      "name": "OceanPal Inc.",
+      "sector": "Industrials",
+      "industry": "Marine Shipping"
     },
     {
       "sy": "CVR",
-      "name": "Chicago Rivet & Machine Co."
+      "name": "Chicago Rivet & Machine Co.",
+      "sector": "Industrials",
+      "industry": "Tools & Accessories"
     },
     {
       "sy": "SKAS",
-      "name": "Saker Aviation Services, Inc."
+      "name": "Saker Aviation Services, Inc.",
+      "sector": "Industrials",
+      "industry": "Airports & Air Services"
     },
     {
       "sy": "OLOX",
-      "name": "Olenox Industries Inc."
+      "name": "Olenox Industries Inc.",
+      "sector": "Industrials",
+      "industry": "Metal Fabrication"
     },
     {
       "sy": "HCAI",
-      "name": "Huachen AI Parking Management Technology Holding Co., Ltd"
+      "name": "Huachen AI Parking Management Technology Holding Co., Ltd",
+      "sector": "Industrials",
+      "industry": "Farm & Heavy Construction Machinery"
     },
     {
       "sy": "SMX",
-      "name": "SMX (Security Matters) Public Limited Company"
+      "name": "SMX (Security Matters) Public Limited Company",
+      "sector": "Industrials",
+      "industry": "Specialty Business Services"
     },
     {
       "sy": "AIAI",
-      "name": "AIAI Holdings Corporation Class A Common Stock"
+      "name": "AIAI Holdings Corporation Class A Common Stock",
+      "sector": "Industrials",
+      "industry": "Conglomerates"
     },
     {
       "sy": "ARXS",
-      "name": "Arxis, Inc."
+      "name": "Arxis, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "AVEX",
-      "name": "AEVEX Corp."
+      "name": "AEVEX Corp.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "ELMT",
-      "name": "The Elmet Group Co."
+      "name": "The Elmet Group Co.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "HAWK",
-      "name": "HawkEye 360, Inc."
+      "name": "HawkEye 360, Inc.",
+      "sector": "Industrials",
+      "industry": "Aerospace & Defense"
     },
     {
       "sy": "MAIR",
-      "name": "Madison Air Solutions Corporation"
+      "name": "Madison Air Solutions Corporation",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "ONT",
-      "name": "Onterris, Inc."
+      "name": "Onterris, Inc.",
+      "sector": "Industrials",
+      "industry": "Waste Management"
     },
     {
       "sy": "XE",
-      "name": "X-Energy, Inc."
+      "name": "X-Energy, Inc.",
+      "sector": "Industrials",
+      "industry": "Specialty Industrial Machinery"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }

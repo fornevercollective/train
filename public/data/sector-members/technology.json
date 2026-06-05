@@ -7,1927 +7,2887 @@
   "tickers": [
     {
       "sy": "NVDA",
-      "name": "NVIDIA Corporation"
+      "name": "NVIDIA Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "AAPL",
-      "name": "Apple Inc."
+      "name": "Apple Inc.",
+      "sector": "Technology",
+      "industry": "Consumer Electronics"
     },
     {
       "sy": "MSFT",
-      "name": "Microsoft Corporation"
+      "name": "Microsoft Corporation",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "AVGO",
-      "name": "Broadcom Inc."
+      "name": "Broadcom Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "MU",
-      "name": "Micron Technology, Inc."
+      "name": "Micron Technology, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "AMD",
-      "name": "Advanced Micro Devices, Inc."
+      "name": "Advanced Micro Devices, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "ORCL",
-      "name": "Oracle Corporation"
+      "name": "Oracle Corporation",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "INTC",
-      "name": "Intel Corporation"
+      "name": "Intel Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "CSCO",
-      "name": "Cisco Systems, Inc."
+      "name": "Cisco Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "LRCX",
-      "name": "Lam Research Corporation"
+      "name": "Lam Research Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "AMAT",
-      "name": "Applied Materials, Inc."
+      "name": "Applied Materials, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "PLTR",
-      "name": "Palantir Technologies Inc."
+      "name": "Palantir Technologies Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "TXN",
-      "name": "Texas Instruments Incorporated"
+      "name": "Texas Instruments Incorporated",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "KLAC",
-      "name": "KLA Corporation"
+      "name": "KLA Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "QCOM",
-      "name": "QUALCOMM Incorporated"
+      "name": "QUALCOMM Incorporated",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "SNDK",
-      "name": "Sandisk Corporation"
+      "name": "Sandisk Corporation",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "IBM",
-      "name": "International Business Machines Corporation"
+      "name": "International Business Machines Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "ADI",
-      "name": "Analog Devices, Inc."
+      "name": "Analog Devices, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "PANW",
-      "name": "Palo Alto Networks, Inc."
+      "name": "Palo Alto Networks, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ANET",
-      "name": "Arista Networks, Inc."
+      "name": "Arista Networks, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "STX",
-      "name": "Seagate Technology Holdings plc"
+      "name": "Seagate Technology Holdings plc",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "WDC",
-      "name": "Western Digital Corporation"
+      "name": "Western Digital Corporation",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "GLW",
-      "name": "Corning Incorporated"
+      "name": "Corning Incorporated",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "DELL",
-      "name": "Dell Technologies Inc."
+      "name": "Dell Technologies Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "MRVL",
-      "name": "Marvell Technology, Inc."
+      "name": "Marvell Technology, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "APH",
-      "name": "Amphenol Corporation"
+      "name": "Amphenol Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "UBER",
-      "name": "Uber Technologies, Inc."
+      "name": "Uber Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CRWD",
-      "name": "CrowdStrike Holdings, Inc."
+      "name": "CrowdStrike Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CRM",
-      "name": "Salesforce, Inc."
+      "name": "Salesforce, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SHOP",
-      "name": "Shopify Inc."
+      "name": "Shopify Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "INTU",
-      "name": "Intuit Inc."
+      "name": "Intuit Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ACN",
-      "name": "Accenture plc"
+      "name": "Accenture plc",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "ADBE",
-      "name": "Adobe Inc."
+      "name": "Adobe Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "NOW",
-      "name": "ServiceNow, Inc."
+      "name": "ServiceNow, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SNPS",
-      "name": "Synopsys, Inc."
+      "name": "Synopsys, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CDNS",
-      "name": "Cadence Design Systems, Inc."
+      "name": "Cadence Design Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "FTNT",
-      "name": "Fortinet, Inc."
+      "name": "Fortinet, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ADP",
-      "name": "Automatic Data Processing, Inc."
+      "name": "Automatic Data Processing, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CIEN",
-      "name": "Ciena Corporation"
+      "name": "Ciena Corporation",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "MPWR",
-      "name": "Monolithic Power Systems, Inc."
+      "name": "Monolithic Power Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "LITE",
-      "name": "Lumentum Holdings Inc."
+      "name": "Lumentum Holdings Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "COHR",
-      "name": "Coherent Corp."
+      "name": "Coherent Corp.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "DDOG",
-      "name": "Datadog, Inc."
+      "name": "Datadog, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "NXPI",
-      "name": "NXP Semiconductors N.V."
+      "name": "NXP Semiconductors N.V.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "NET",
-      "name": "Cloudflare, Inc."
+      "name": "Cloudflare, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "MSI",
-      "name": "Motorola Solutions, Inc."
+      "name": "Motorola Solutions, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "MSTR",
-      "name": "Strategy Inc"
+      "name": "Strategy Inc",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TEL",
-      "name": "TE Connectivity plc"
+      "name": "TE Connectivity plc",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "KEYS",
-      "name": "Keysight Technologies, Inc."
+      "name": "Keysight Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "CRWV",
-      "name": "CoreWeave, Inc."
+      "name": "CoreWeave, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "SNOW",
-      "name": "Snowflake Inc."
+      "name": "Snowflake Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TER",
-      "name": "Teradyne, Inc."
+      "name": "Teradyne, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "MCHP",
-      "name": "Microchip Technology Incorporated"
+      "name": "Microchip Technology Incorporated",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "FLEX",
-      "name": "Flex Ltd."
+      "name": "Flex Ltd.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "ADSK",
-      "name": "Autodesk, Inc."
+      "name": "Autodesk, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ON",
-      "name": "ON Semiconductor Corporation"
+      "name": "ON Semiconductor Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "HPE",
-      "name": "Hewlett Packard Enterprise Company"
+      "name": "Hewlett Packard Enterprise Company",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "GRMN",
-      "name": "Garmin Ltd."
+      "name": "Garmin Ltd.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "XYZ",
-      "name": "Block, Inc."
+      "name": "Block, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ALAB",
-      "name": "Astera Labs, Inc."
+      "name": "Astera Labs, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "GFS",
-      "name": "GLOBALFOUNDRIES Inc."
+      "name": "GLOBALFOUNDRIES Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "UI",
-      "name": "Ubiquiti Inc."
+      "name": "Ubiquiti Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "JBL",
-      "name": "Jabil Inc."
+      "name": "Jabil Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "Q",
-      "name": "Qnity Electronics, Inc."
+      "name": "Qnity Electronics, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "PAYX",
-      "name": "Paychex, Inc."
+      "name": "Paychex, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ROP",
-      "name": "Roper Technologies, Inc."
+      "name": "Roper Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CRDO",
-      "name": "Credo Technology Group Holding Ltd"
+      "name": "Credo Technology Group Holding Ltd",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "WDAY",
-      "name": "Workday, Inc."
+      "name": "Workday, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TWLO",
-      "name": "Twilio Inc."
+      "name": "Twilio Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ZM",
-      "name": "Zoom Communications, Inc."
+      "name": "Zoom Communications, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "FISV",
-      "name": "Fiserv, Inc."
+      "name": "Fiserv, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "MTSI",
-      "name": "MACOM Technology Solutions Holdings, Inc."
+      "name": "MACOM Technology Solutions Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "TDY",
-      "name": "Teledyne Technologies Incorporated"
+      "name": "Teledyne Technologies Incorporated",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "VRSN",
-      "name": "VeriSign, Inc."
+      "name": "VeriSign, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ZS",
-      "name": "Zscaler, Inc."
+      "name": "Zscaler, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "FN",
-      "name": "Fabrinet"
+      "name": "Fabrinet",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "FICO",
-      "name": "Fair Isaac Corporation"
+      "name": "Fair Isaac Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "MDB",
-      "name": "MongoDB, Inc."
+      "name": "MongoDB, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "FSLR",
-      "name": "First Solar, Inc."
+      "name": "First Solar, Inc.",
+      "sector": "Technology",
+      "industry": "Solar"
     },
     {
       "sy": "ASTS",
-      "name": "AST SpaceMobile, Inc."
+      "name": "AST SpaceMobile, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "NTAP",
-      "name": "NetApp, Inc."
+      "name": "NetApp, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CTSH",
-      "name": "Cognizant Technology Solutions Corporation"
+      "name": "Cognizant Technology Solutions Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "TEAM",
-      "name": "Atlassian Corporation"
+      "name": "Atlassian Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "AKAM",
-      "name": "Akamai Technologies, Inc."
+      "name": "Akamai Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "FIS",
-      "name": "Fidelity National Information Services, Inc."
+      "name": "Fidelity National Information Services, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "CPAY",
-      "name": "Corpay, Inc."
+      "name": "Corpay, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "NXT",
-      "name": "Nextpower Inc."
+      "name": "Nextpower Inc.",
+      "sector": "Technology",
+      "industry": "Solar"
     },
     {
       "sy": "MKSI",
-      "name": "MKS Inc."
+      "name": "MKS Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "FFIV",
-      "name": "F5, Inc."
+      "name": "F5, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "SITM",
-      "name": "SiTime Corporation"
+      "name": "SiTime Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "ENTG",
-      "name": "Entegris, Inc."
+      "name": "Entegris, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "IONQ",
-      "name": "IonQ, Inc."
+      "name": "IonQ, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "HPQ",
-      "name": "HP Inc."
+      "name": "HP Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "SMCI",
-      "name": "Super Micro Computer, Inc."
+      "name": "Super Micro Computer, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "SNX",
-      "name": "TD SYNNEX Corporation"
+      "name": "TD SYNNEX Corporation",
+      "sector": "Technology",
+      "industry": "Electronics & Computer Distribution"
     },
     {
       "sy": "FTV",
-      "name": "Fortive Corporation"
+      "name": "Fortive Corporation",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "AMKR",
-      "name": "Amkor Technology, Inc."
+      "name": "Amkor Technology, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "TTMI",
-      "name": "TTM Technologies, Inc."
+      "name": "TTM Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "IOT",
-      "name": "Samsara Inc."
+      "name": "Samsara Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "BR",
-      "name": "Broadridge Financial Solutions, Inc."
+      "name": "Broadridge Financial Solutions, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "LSCC",
-      "name": "Lattice Semiconductor Corporation"
+      "name": "Lattice Semiconductor Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "PTC",
-      "name": "PTC Inc."
+      "name": "PTC Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "NVMI",
-      "name": "Nova Ltd."
+      "name": "Nova Ltd.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "DOCN",
-      "name": "DigitalOcean Holdings, Inc."
+      "name": "DigitalOcean Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "LDOS",
-      "name": "Leidos Holdings, Inc."
+      "name": "Leidos Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "SSNC",
-      "name": "SS&C Technologies Holdings, Inc."
+      "name": "SS&C Technologies Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "AAOI",
-      "name": "Applied Optoelectronics, Inc."
+      "name": "Applied Optoelectronics, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "OKTA",
-      "name": "Okta, Inc."
+      "name": "Okta, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "GEN",
-      "name": "Gen Digital Inc."
+      "name": "Gen Digital Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "RMBS",
-      "name": "Rambus Inc."
+      "name": "Rambus Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "ONTO",
-      "name": "Onto Innovation Inc."
+      "name": "Onto Innovation Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "TOST",
-      "name": "Toast, Inc."
+      "name": "Toast, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "RBRK",
-      "name": "Rubrik, Inc."
+      "name": "Rubrik, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CDW",
-      "name": "CDW Corporation"
+      "name": "CDW Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "CHKP",
-      "name": "Check Point Software Technologies Ltd."
+      "name": "Check Point Software Technologies Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "TRMB",
-      "name": "Trimble Inc."
+      "name": "Trimble Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "TYL",
-      "name": "Tyler Technologies, Inc."
+      "name": "Tyler Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SMTC",
-      "name": "Semtech Corporation"
+      "name": "Semtech Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "SANM",
-      "name": "Sanmina Corporation"
+      "name": "Sanmina Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "NTNX",
-      "name": "Nutanix, Inc."
+      "name": "Nutanix, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "VICR",
-      "name": "Vicor Corporation"
+      "name": "Vicor Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "ZBRA",
-      "name": "Zebra Technologies Corporation"
+      "name": "Zebra Technologies Corporation",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "APLD",
-      "name": "Applied Digital Corporation"
+      "name": "Applied Digital Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "FIG",
-      "name": "Figma, Inc."
+      "name": "Figma, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "VIAV",
-      "name": "Viavi Solutions Inc."
+      "name": "Viavi Solutions Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "U",
-      "name": "Unity Software Inc."
+      "name": "Unity Software Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "GDDY",
-      "name": "GoDaddy Inc."
+      "name": "GoDaddy Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "DT",
-      "name": "Dynatrace, Inc."
+      "name": "Dynatrace, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "LFUS",
-      "name": "Littelfuse, Inc."
+      "name": "Littelfuse, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "GWRE",
-      "name": "Guidewire Software, Inc."
+      "name": "Guidewire Software, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CACI",
-      "name": "CACI International Inc"
+      "name": "CACI International Inc",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "CGNX",
-      "name": "Cognex Corporation"
+      "name": "Cognex Corporation",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "ARW",
-      "name": "Arrow Electronics, Inc."
+      "name": "Arrow Electronics, Inc.",
+      "sector": "Technology",
+      "industry": "Electronics & Computer Distribution"
     },
     {
       "sy": "SWKS",
-      "name": "Skyworks Solutions, Inc."
+      "name": "Skyworks Solutions, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "HUBS",
-      "name": "HubSpot, Inc."
+      "name": "HubSpot, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "FORM",
-      "name": "FormFactor, Inc."
+      "name": "FormFactor, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "IT",
-      "name": "Gartner, Inc."
+      "name": "Gartner, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "BSY",
-      "name": "Bentley Systems, Incorporated"
+      "name": "Bentley Systems, Incorporated",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "JKHY",
-      "name": "Jack Henry & Associates, Inc."
+      "name": "Jack Henry & Associates, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "VSAT",
-      "name": "Viasat, Inc."
+      "name": "Viasat, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "DOCU",
-      "name": "DocuSign, Inc."
+      "name": "DocuSign, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CIFR",
-      "name": "Cipher Digital Inc."
+      "name": "Cipher Digital Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "MXL",
-      "name": "MaxLinear, Inc."
+      "name": "MaxLinear, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "CRUS",
-      "name": "Cirrus Logic, Inc."
+      "name": "Cirrus Logic, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "QRVO",
-      "name": "Qorvo, Inc."
+      "name": "Qorvo, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "AXTI",
-      "name": "AXT, Inc."
+      "name": "AXT, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "FROG",
-      "name": "JFrog Ltd."
+      "name": "JFrog Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ALGM",
-      "name": "Allegro MicroSystems, Inc."
+      "name": "Allegro MicroSystems, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "CAMT",
-      "name": "Camtek Ltd."
+      "name": "Camtek Ltd.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "MANH",
-      "name": "Manhattan Associates, Inc."
+      "name": "Manhattan Associates, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CORZ",
-      "name": "Core Scientific, Inc."
+      "name": "Core Scientific, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "SAIL",
-      "name": "SailPoint, Inc."
+      "name": "SailPoint, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "QBTS",
-      "name": "D-Wave Quantum Inc."
+      "name": "D-Wave Quantum Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "ESE",
-      "name": "ESCO Technologies Inc."
+      "name": "ESCO Technologies Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "CWAN",
-      "name": "Clearwater Analytics Holdings, Inc."
+      "name": "Clearwater Analytics Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SLAB",
-      "name": "Silicon Laboratories Inc."
+      "name": "Silicon Laboratories Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "ST",
-      "name": "Sensata Technologies Holding plc"
+      "name": "Sensata Technologies Holding plc",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "PCOR",
-      "name": "Procore Technologies, Inc."
+      "name": "Procore Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ENPH",
-      "name": "Enphase Energy, Inc."
+      "name": "Enphase Energy, Inc.",
+      "sector": "Technology",
+      "industry": "Solar"
     },
     {
       "sy": "PLXS",
-      "name": "Plexus Corp."
+      "name": "Plexus Corp.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "AVT",
-      "name": "Avnet, Inc."
+      "name": "Avnet, Inc.",
+      "sector": "Technology",
+      "industry": "Electronics & Computer Distribution"
     },
     {
       "sy": "CHYM",
-      "name": "Chime Financial, Inc."
+      "name": "Chime Financial, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "IDCC",
-      "name": "InterDigital, Inc."
+      "name": "InterDigital, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "RAL",
-      "name": "Ralliant Corporation"
+      "name": "Ralliant Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "DOX",
-      "name": "Amdocs Limited"
+      "name": "Amdocs Limited",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "PAYC",
-      "name": "Paycom Software, Inc."
+      "name": "Paycom Software, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "DBX",
-      "name": "Dropbox, Inc."
+      "name": "Dropbox, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "YOU",
-      "name": "Clear Secure, Inc."
+      "name": "Clear Secure, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "RGTI",
-      "name": "Rigetti Computing, Inc."
+      "name": "Rigetti Computing, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "INGM",
-      "name": "Ingram Micro Holding Corporation"
+      "name": "Ingram Micro Holding Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "S",
-      "name": "SentinelOne, Inc."
+      "name": "SentinelOne, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "KLAR",
-      "name": "Klarna Group plc"
+      "name": "Klarna Group plc",
+      "sector": "Financial Services",
+      "industry": "Credit Services"
     },
     {
       "sy": "PCTY",
-      "name": "Paylocity Holding Corporation"
+      "name": "Paylocity Holding Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "PEGA",
-      "name": "Pegasystems Inc."
+      "name": "Pegasystems Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TTAN",
-      "name": "ServiceTitan, Inc."
+      "name": "ServiceTitan, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "NOVT",
-      "name": "Novanta Inc."
+      "name": "Novanta Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "BLSH",
-      "name": "Bullish"
+      "name": "Bullish",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "PSN",
-      "name": "Parsons Corporation"
+      "name": "Parsons Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "APPF",
-      "name": "AppFolio, Inc."
+      "name": "AppFolio, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "PATH",
-      "name": "UiPath, Inc."
+      "name": "UiPath, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "KLIC",
-      "name": "Kulicke and Soffa Industries, Inc."
+      "name": "Kulicke and Soffa Industries, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "ONDS",
-      "name": "Ondas Inc."
+      "name": "Ondas Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "ESTC",
-      "name": "Elastic N.V."
+      "name": "Elastic N.V.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "DUOL",
-      "name": "Duolingo, Inc."
+      "name": "Duolingo, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "VSH",
-      "name": "Vishay Intertechnology, Inc."
+      "name": "Vishay Intertechnology, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "NVTS",
-      "name": "Navitas Semiconductor Corporation"
+      "name": "Navitas Semiconductor Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "SYNA",
-      "name": "Synaptics Incorporated"
+      "name": "Synaptics Incorporated",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "LYFT",
-      "name": "Lyft, Inc."
+      "name": "Lyft, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "G",
-      "name": "Genpact Limited"
+      "name": "Genpact Limited",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "WEX",
-      "name": "WEX Inc."
+      "name": "WEX Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "EPAM",
-      "name": "EPAM Systems, Inc."
+      "name": "EPAM Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "ACLS",
-      "name": "Axcelis Technologies, Inc."
+      "name": "Axcelis Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "RELY",
-      "name": "Remitly Global, Inc."
+      "name": "Remitly Global, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "NAVN",
-      "name": "Navan, Inc."
+      "name": "Navan, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "DIOD",
-      "name": "Diodes Incorporated"
+      "name": "Diodes Incorporated",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "NTSK",
-      "name": "Netskope, Inc."
+      "name": "Netskope, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "IPGP",
-      "name": "IPG Photonics Corporation"
+      "name": "IPG Photonics Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "OLED",
-      "name": "Universal Display Corporation"
+      "name": "Universal Display Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "KVYO",
-      "name": "Klaviyo, Inc."
+      "name": "Klaviyo, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CVLT",
-      "name": "Commvault Systems, Inc."
+      "name": "Commvault Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ZETA",
-      "name": "Zeta Global Holdings Corp."
+      "name": "Zeta Global Holdings Corp.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "LASR",
-      "name": "nLIGHT, Inc."
+      "name": "nLIGHT, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "ACIW",
-      "name": "ACI Worldwide, Inc."
+      "name": "ACI Worldwide, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "PI",
-      "name": "Impinj, Inc."
+      "name": "Impinj, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "ACMR",
-      "name": "ACM Research, Inc."
+      "name": "ACM Research, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "EXLS",
-      "name": "ExlService Holdings, Inc."
+      "name": "ExlService Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "BDC",
-      "name": "Belden Inc."
+      "name": "Belden Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "POWI",
-      "name": "Power Integrations, Inc."
+      "name": "Power Integrations, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "SAIC",
-      "name": "Science Applications International Corporation"
+      "name": "Science Applications International Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "GTLB",
-      "name": "GitLab Inc."
+      "name": "GitLab Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "BILL",
-      "name": "BILL Holdings, Inc."
+      "name": "BILL Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "VNT",
-      "name": "Vontier Corporation"
+      "name": "Vontier Corporation",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "UCTT",
-      "name": "Ultra Clean Holdings, Inc."
+      "name": "Ultra Clean Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "SEDG",
-      "name": "SolarEdge Technologies, Inc."
+      "name": "SolarEdge Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Solar"
     },
     {
       "sy": "BULL",
-      "name": "Webull Corporation"
+      "name": "Webull Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SRAD",
-      "name": "Sportradar Group AG"
+      "name": "Sportradar Group AG",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "MNDY",
-      "name": "monday.com Ltd."
+      "name": "monday.com Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "IPEU",
-      "name": "IPE Universal Inc."
+      "name": "IPE Universal Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SOUN",
-      "name": "SoundHound AI, Inc."
+      "name": "SoundHound AI, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "VECO",
-      "name": "Veeco Instruments Inc."
+      "name": "Veeco Instruments Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "AMBA",
-      "name": "Ambarella, Inc."
+      "name": "Ambarella, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "ITRI",
-      "name": "Itron, Inc."
+      "name": "Itron, Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "RNG",
-      "name": "RingCentral, Inc."
+      "name": "RingCentral, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "BOX",
-      "name": "Box, Inc."
+      "name": "Box, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "OSIS",
-      "name": "OSI Systems, Inc."
+      "name": "OSI Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "RUN",
-      "name": "Sunrun Inc."
+      "name": "Sunrun Inc.",
+      "sector": "Technology",
+      "industry": "Solar"
     },
     {
       "sy": "BMI",
-      "name": "Badger Meter, Inc."
+      "name": "Badger Meter, Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "FOUR",
-      "name": "Shift4 Payments, Inc."
+      "name": "Shift4 Payments, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ADEA",
-      "name": "Adeia Inc."
+      "name": "Adeia Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "NATL",
-      "name": "NCR Atleos Corporation"
+      "name": "NCR Atleos Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "BELFB",
-      "name": "Bel Fuse Inc."
+      "name": "Bel Fuse Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "BTDR",
-      "name": "Bitdeer Technologies Group"
+      "name": "Bitdeer Technologies Group",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "DLO",
-      "name": "DLocal Limited"
+      "name": "DLocal Limited",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CLBT",
-      "name": "Cellebrite DI Ltd."
+      "name": "Cellebrite DI Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "VRNS",
-      "name": "Varonis Systems, Inc."
+      "name": "Varonis Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "EXTR",
-      "name": "Extreme Networks, Inc."
+      "name": "Extreme Networks, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "TDC",
-      "name": "Teradata Corporation"
+      "name": "Teradata Corporation",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "QLYS",
-      "name": "Qualys, Inc."
+      "name": "Qualys, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "INOD",
-      "name": "Innodata Inc."
+      "name": "Innodata Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "AEHR",
-      "name": "Aehr Test Systems, Inc."
+      "name": "Aehr Test Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "LIF",
-      "name": "Life360, Inc."
+      "name": "Life360, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "PAY",
-      "name": "Paymentus Holdings, Inc."
+      "name": "Paymentus Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "BHE",
-      "name": "Benchmark Electronics, Inc."
+      "name": "Benchmark Electronics, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "KN",
-      "name": "Knowles Corporation"
+      "name": "Knowles Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "WOLF",
-      "name": "Wolfspeed, Inc."
+      "name": "Wolfspeed, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "DAVE",
-      "name": "Dave Inc."
+      "name": "Dave Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "PLAB",
-      "name": "Photronics, Inc."
+      "name": "Photronics, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "NN",
-      "name": "NextNav Inc."
+      "name": "NextNav Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "PTRN",
-      "name": "Pattern Group Inc."
+      "name": "Pattern Group Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "QTWO",
-      "name": "Q2 Holdings, Inc."
+      "name": "Q2 Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "NTCT",
-      "name": "NetScout Systems, Inc."
+      "name": "NetScout Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "INFQ",
-      "name": "Infleqtion, Inc."
+      "name": "Infleqtion, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "NSIT",
-      "name": "Insight Enterprises, Inc."
+      "name": "Insight Enterprises, Inc.",
+      "sector": "Technology",
+      "industry": "Electronics & Computer Distribution"
     },
     {
       "sy": "FSLY",
-      "name": "Fastly, Inc."
+      "name": "Fastly, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "WK",
-      "name": "Workiva Inc."
+      "name": "Workiva Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "VISN",
-      "name": "Vistance Networks, Inc."
+      "name": "Vistance Networks, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "KD",
-      "name": "Kyndryl Holdings, Inc."
+      "name": "Kyndryl Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "ICHR",
-      "name": "Ichor Holdings, Ltd."
+      "name": "Ichor Holdings, Ltd.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "CALX",
-      "name": "Calix, Inc."
+      "name": "Calix, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "EEFT",
-      "name": "Euronet Worldwide, Inc."
+      "name": "Euronet Worldwide, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ROG",
-      "name": "Rogers Corporation"
+      "name": "Rogers Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "FRSH",
-      "name": "Freshworks Inc."
+      "name": "Freshworks Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "PAGS",
-      "name": "PagSeguro Digital Ltd."
+      "name": "PagSeguro Digital Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "POET",
-      "name": "POET Technologies Inc."
+      "name": "POET Technologies Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "NIQ",
-      "name": "NIQ Global Intelligence plc"
+      "name": "NIQ Global Intelligence plc",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "DBD",
-      "name": "Diebold Nixdorf, Incorporated"
+      "name": "Diebold Nixdorf, Incorporated",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "GRND",
-      "name": "Grindr Inc."
+      "name": "Grindr Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "PENG",
-      "name": "Penguin Solutions, Inc."
+      "name": "Penguin Solutions, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "TENB",
-      "name": "Tenable Holdings, Inc."
+      "name": "Tenable Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "QUBT",
-      "name": "Quantum Computing Inc."
+      "name": "Quantum Computing Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "BRZE",
-      "name": "Braze, Inc."
+      "name": "Braze, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "DGII",
-      "name": "Digi International Inc."
+      "name": "Digi International Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "STNE",
-      "name": "StoneCo Ltd."
+      "name": "StoneCo Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CSGS",
-      "name": "CSG Systems International, Inc."
+      "name": "CSG Systems International, Inc.",
+      "sector": "Information Technology"
     },
     {
       "sy": "WIX",
-      "name": "Wix.com Ltd."
+      "name": "Wix.com Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "COHU",
-      "name": "Cohu, Inc."
+      "name": "Cohu, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "OUST",
-      "name": "Ouster, Inc."
+      "name": "Ouster, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "PLUS",
-      "name": "ePlus inc."
+      "name": "ePlus inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "AVPT",
-      "name": "AvePoint, Inc."
+      "name": "AvePoint, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ALRM",
-      "name": "Alarm.com Holdings, Inc."
+      "name": "Alarm.com Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "VERX",
-      "name": "Vertex, Inc."
+      "name": "Vertex, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ATEN",
-      "name": "A10 Networks, Inc."
+      "name": "A10 Networks, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "VRRM",
-      "name": "Verra Mobility Corporation"
+      "name": "Verra Mobility Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "FLYW",
-      "name": "Flywire Corporation"
+      "name": "Flywire Corporation",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "AGYS",
-      "name": "Agilysys, Inc."
+      "name": "Agilysys, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SPSC",
-      "name": "SPS Commerce, Inc."
+      "name": "SPS Commerce, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "RAMP",
-      "name": "LiveRamp Holdings, Inc."
+      "name": "LiveRamp Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "PDFS",
-      "name": "PDF Solutions, Inc."
+      "name": "PDF Solutions, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "MGRT",
-      "name": "Mega Fortune Company Limited"
+      "name": "Mega Fortune Company Limited",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "ALKT",
-      "name": "Alkami Technology, Inc."
+      "name": "Alkami Technology, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SONO",
-      "name": "Sonos, Inc."
+      "name": "Sonos, Inc.",
+      "sector": "Technology",
+      "industry": "Consumer Electronics"
     },
     {
       "sy": "SHLS",
-      "name": "Shoals Technologies Group, Inc."
+      "name": "Shoals Technologies Group, Inc.",
+      "sector": "Technology",
+      "industry": "Solar"
     },
     {
       "sy": "BAND",
-      "name": "Bandwidth Inc."
+      "name": "Bandwidth Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "SKYT",
-      "name": "SkyWater Technology, Inc."
+      "name": "SkyWater Technology, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "BVC",
-      "name": "BitVentures Limited"
+      "name": "BitVentures Limited",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "WLTH",
-      "name": "Wealthfront Corporation"
+      "name": "Wealthfront Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "GLOB",
-      "name": "Globant S.A."
+      "name": "Globant S.A.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "EVCM",
-      "name": "EverCommerce Inc."
+      "name": "EverCommerce Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CTS",
-      "name": "CTS Corporation"
+      "name": "CTS Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "FIVN",
-      "name": "Five9, Inc."
+      "name": "Five9, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "NCNO",
-      "name": "nCino, Inc."
+      "name": "nCino, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CNXN",
-      "name": "PC Connection, Inc."
+      "name": "PC Connection, Inc.",
+      "sector": "Technology",
+      "industry": "Electronics & Computer Distribution"
     },
     {
       "sy": "INTA",
-      "name": "Intapp, Inc."
+      "name": "Intapp, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "BL",
-      "name": "BlackLine, Inc."
+      "name": "BlackLine, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "AIP",
-      "name": "Arteris, Inc."
+      "name": "Arteris, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "AMBQ",
-      "name": "Ambiq Micro, Inc."
+      "name": "Ambiq Micro, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "BRAI",
-      "name": "Braiin Limited"
+      "name": "Braiin Limited",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "ASAN",
-      "name": "Asana, Inc."
+      "name": "Asana, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CNXC",
-      "name": "Concentrix Corporation"
+      "name": "Concentrix Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "DXC",
-      "name": "DXC Technology Company"
+      "name": "DXC Technology Company",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "EVTC",
-      "name": "EVERTEC, Inc."
+      "name": "EVERTEC, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "RXT",
-      "name": "Rackspace Technology, Inc."
+      "name": "Rackspace Technology, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "KDK",
-      "name": "Kodiak AI, Inc."
+      "name": "Kodiak AI, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "APPN",
-      "name": "Appian Corporation"
+      "name": "Appian Corporation",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "KARO",
-      "name": "Karooooo Ltd."
+      "name": "Karooooo Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "BLKB",
-      "name": "Blackbaud, Inc."
+      "name": "Blackbaud, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ARRY",
-      "name": "Array Technologies, Inc."
+      "name": "Array Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Solar"
     },
     {
       "sy": "PICS",
-      "name": "PicS N.V."
+      "name": "PicS N.V.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "HLIT",
-      "name": "Harmonic Inc."
+      "name": "Harmonic Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "MOVE",
-      "name": "Corvex Inc."
+      "name": "Corvex Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "GCT",
-      "name": "GigaCloud Technology Inc."
+      "name": "GigaCloud Technology Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "VPG",
-      "name": "Vishay Precision Group, Inc."
+      "name": "Vishay Precision Group, Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "AEVA",
-      "name": "Aeva Technologies, Inc."
+      "name": "Aeva Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CXM",
-      "name": "Sprinklr, Inc."
+      "name": "Sprinklr, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "AI",
-      "name": "C3.ai, Inc."
+      "name": "C3.ai, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CSIQ",
-      "name": "Canadian Solar Inc."
+      "name": "Canadian Solar Inc.",
+      "sector": "Technology",
+      "industry": "Solar"
     },
     {
       "sy": "ADTN",
-      "name": "ADTRAN Holdings, Inc."
+      "name": "ADTRAN Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "VIA",
-      "name": "Via Transportation, Inc."
+      "name": "Via Transportation, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "RDWR",
-      "name": "Radware Ltd."
+      "name": "Radware Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "PRGS",
-      "name": "Progress Software Corporation"
+      "name": "Progress Software Corporation",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "AOSL",
-      "name": "Alpha and Omega Semiconductor Limited"
+      "name": "Alpha and Omega Semiconductor Limited",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "GILT",
-      "name": "Gilat Satellite Networks Ltd."
+      "name": "Gilat Satellite Networks Ltd.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "ITRN",
-      "name": "Ituran Location and Control Ltd."
+      "name": "Ituran Location and Control Ltd.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "PGY",
-      "name": "Pagaya Technologies Ltd."
+      "name": "Pagaya Technologies Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ALNT",
-      "name": "Allient Inc."
+      "name": "Allient Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "CEVA",
-      "name": "CEVA, Inc."
+      "name": "CEVA, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "UPBD",
-      "name": "Upbound Group, Inc."
+      "name": "Upbound Group, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "DFIN",
-      "name": "Donnelley Financial Solutions, Inc."
+      "name": "Donnelley Financial Solutions, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "WYFI",
-      "name": "WhiteFiber, Inc."
+      "name": "WhiteFiber, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "KOPN",
-      "name": "Kopin Corporation"
+      "name": "Kopin Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "DAKT",
-      "name": "Daktronics, Inc."
+      "name": "Daktronics, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "VYX",
-      "name": "NCR Voyix Corporation"
+      "name": "NCR Voyix Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "MRAM",
-      "name": "Everspin Technologies, Inc."
+      "name": "Everspin Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "SHAZ",
-      "name": "SharonAI Holdings Inc."
+      "name": "SharonAI Holdings Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "LYTS",
-      "name": "LSI Industries Inc."
+      "name": "LSI Industries Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "SCSC",
-      "name": "ScanSource, Inc."
+      "name": "ScanSource, Inc.",
+      "sector": "Technology",
+      "industry": "Electronics & Computer Distribution"
     },
     {
       "sy": "AMPL",
-      "name": "Amplitude, Inc."
+      "name": "Amplitude, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "UMAC",
-      "name": "Unusual Machines, Inc."
+      "name": "Unusual Machines, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "ACAT",
-      "name": "Acasia Technology, Inc."
+      "name": "Acasia Technology, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "SSYS",
-      "name": "Stratasys Ltd."
+      "name": "Stratasys Ltd.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "LPTH",
-      "name": "LightPath Technologies, Inc."
+      "name": "LightPath Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "CRSR",
-      "name": "Corsair Gaming, Inc."
+      "name": "Corsair Gaming, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "IBTA",
-      "name": "Ibotta, Inc."
+      "name": "Ibotta, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CGNT",
-      "name": "Cognyte Software Ltd."
+      "name": "Cognyte Software Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "NTGR",
-      "name": "NETGEAR, Inc."
+      "name": "NETGEAR, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "RDVT",
-      "name": "Red Violet, Inc."
+      "name": "Red Violet, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "MITK",
-      "name": "Mitek Systems, Inc."
+      "name": "Mitek Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "DJCO",
-      "name": "Daily Journal Corporation"
+      "name": "Daily Journal Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "HQ",
-      "name": "Horizon Quantum Holdings Ltd."
+      "name": "Horizon Quantum Holdings Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "FFPP",
-      "name": "Fast Finance Pay Corp."
+      "name": "Fast Finance Pay Corp.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "PAR",
-      "name": "PAR Technology Corporation"
+      "name": "PAR Technology Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CLFD",
-      "name": "Clearfield, Inc."
+      "name": "Clearfield, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "MNTN",
-      "name": "MNTN, Inc."
+      "name": "MNTN, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "FEIM",
-      "name": "Frequency Electronics, Inc."
+      "name": "Frequency Electronics, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "GDYN",
-      "name": "Grid Dynamics Holdings, Inc."
+      "name": "Grid Dynamics Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "VELO",
-      "name": "Velo3D, Inc."
+      "name": "Velo3D, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "MLAB",
-      "name": "Mesa Laboratories, Inc."
+      "name": "Mesa Laboratories, Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "CCSI",
-      "name": "Consensus Cloud Solutions, Inc."
+      "name": "Consensus Cloud Solutions, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "EACO",
-      "name": "EACO Corporation"
+      "name": "EACO Corporation",
+      "sector": "Technology",
+      "industry": "Electronics & Computer Distribution"
     },
     {
       "sy": "PD",
-      "name": "PagerDuty, Inc."
+      "name": "PagerDuty, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "OOMA",
-      "name": "Ooma, Inc."
+      "name": "Ooma, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "OWLS",
-      "name": "Obook Holdings Inc."
+      "name": "Obook Holdings Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "MFI",
-      "name": "mF International Limited"
+      "name": "mF International Limited",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TASK",
-      "name": "TaskUs, Inc."
+      "name": "TaskUs, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "GLOO",
-      "name": "Gloo Holdings, Inc."
+      "name": "Gloo Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "PRTH",
-      "name": "Priority Technology Holdings, Inc."
+      "name": "Priority Technology Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "TOYO",
-      "name": "TOYO Co., Ltd."
+      "name": "TOYO Co., Ltd.",
+      "sector": "Technology",
+      "industry": "Solar"
     },
     {
       "sy": "IMXI",
-      "name": "International Money Express, Inc."
+      "name": "International Money Express, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "SUPX",
-      "name": "SuperX AI Technology Limited"
+      "name": "SuperX AI Technology Limited",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ALMU",
-      "name": "Aeluma, Inc."
+      "name": "Aeluma, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "OSPN",
-      "name": "OneSpan Inc."
+      "name": "OneSpan Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "PUBM",
-      "name": "PubMatic, Inc."
+      "name": "PubMatic, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CRNC",
-      "name": "Cerence Inc."
+      "name": "Cerence Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "RPD",
-      "name": "Rapid7, Inc."
+      "name": "Rapid7, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "NVEC",
-      "name": "NVE Corporation"
+      "name": "NVE Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "BLZE",
-      "name": "Backblaze, Inc."
+      "name": "Backblaze, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "IBEX",
-      "name": "IBEX Limited"
+      "name": "IBEX Limited",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "OSS",
-      "name": "One Stop Systems, Inc."
+      "name": "One Stop Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "PSFE",
-      "name": "Paysafe Limited"
+      "name": "Paysafe Limited",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "GRIQ",
-      "name": "GrocerIQ Holdings, Inc."
+      "name": "GrocerIQ Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SPT",
-      "name": "Sprout Social, Inc."
+      "name": "Sprout Social, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TTGT",
-      "name": "TechTarget, Inc."
+      "name": "TechTarget, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "MEI",
-      "name": "Methode Electronics, Inc."
+      "name": "Methode Electronics, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "XPER",
-      "name": "Xperi Inc."
+      "name": "Xperi Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "BKKT",
-      "name": "Bakkt, Inc."
+      "name": "Bakkt, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "IIIV",
-      "name": "i3 Verticals, Inc."
+      "name": "i3 Verticals, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "SWMR",
-      "name": "Swarmer, Inc"
+      "name": "Swarmer, Inc",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CLMB",
-      "name": "Climb Global Solutions, Inc."
+      "name": "Climb Global Solutions, Inc.",
+      "sector": "Technology",
+      "industry": "Electronics & Computer Distribution"
     },
     {
       "sy": "GRRR",
-      "name": "Gorilla Technology Group Inc."
+      "name": "Gorilla Technology Group Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ALLT",
-      "name": "Allot Ltd."
+      "name": "Allot Ltd.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "GSIT",
-      "name": "GSI Technology, Inc."
+      "name": "GSI Technology, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "MPTI",
-      "name": "M-tron Industries, Inc."
+      "name": "M-tron Industries, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "ATOM",
-      "name": "Atomera Incorporated"
+      "name": "Atomera Incorporated",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "QUIK",
-      "name": "QuickLogic Corporation"
+      "name": "QuickLogic Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "SVCO",
-      "name": "Silvaco Group, Inc."
+      "name": "Silvaco Group, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "PLTS",
-      "name": "Platinum Analytics Cayman Limited"
+      "name": "Platinum Analytics Cayman Limited",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "PAYS",
-      "name": "Paysign, Inc."
+      "name": "Paysign, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "BKTI",
-      "name": "BK Technologies Corporation"
+      "name": "BK Technologies Corporation",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "TSSI",
-      "name": "TSS, Inc."
+      "name": "TSS, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "ASYS",
-      "name": "Amtech Systems, Inc."
+      "name": "Amtech Systems, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "PDYN",
-      "name": "Palladyne AI Corp."
+      "name": "Palladyne AI Corp.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "OPTX",
-      "name": "Syntec Optics Holdings, Inc."
+      "name": "Syntec Optics Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "SILC",
-      "name": "Silicom Ltd."
+      "name": "Silicom Ltd.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "ATGL",
-      "name": "Alpha Technology Group Limited"
+      "name": "Alpha Technology Group Limited",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "DUOT",
-      "name": "Duos Technologies Group, Inc."
+      "name": "Duos Technologies Group, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "AZ",
-      "name": "A2Z Cust2Mate Solutions Corp."
+      "name": "A2Z Cust2Mate Solutions Corp.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "LTRX",
-      "name": "Lantronix, Inc."
+      "name": "Lantronix, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "RELL",
-      "name": "Richardson Electronics, Ltd."
+      "name": "Richardson Electronics, Ltd.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "ASUR",
-      "name": "Asure Software, Inc."
+      "name": "Asure Software, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "HCKT",
-      "name": "The Hackett Group, Inc."
+      "name": "The Hackett Group, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "INTT",
-      "name": "InTest Corporation"
+      "name": "InTest Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "INSG",
-      "name": "Inseego Corp."
+      "name": "Inseego Corp.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "DMRC",
-      "name": "Digimarc Corporation"
+      "name": "Digimarc Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TBCH",
-      "name": "Turtle Beach Corporation"
+      "name": "Turtle Beach Corporation",
+      "sector": "Technology",
+      "industry": "Consumer Electronics"
     },
     {
       "sy": "DSP",
-      "name": "Viant Technology Inc."
+      "name": "Viant Technology Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ARQQ",
-      "name": "Arqit Quantum Inc."
+      "name": "Arqit Quantum Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "AVNW",
-      "name": "Aviat Networks, Inc."
+      "name": "Aviat Networks, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "IMMR",
-      "name": "Immersion Corporation"
+      "name": "Immersion Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TRT",
-      "name": "Trio-Tech International"
+      "name": "Trio-Tech International",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "EXOD",
-      "name": "Exodus Movement, Inc."
+      "name": "Exodus Movement, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "MCAP",
-      "name": "MCAP Inc."
+      "name": "MCAP Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "EGAN",
-      "name": "eGain Corporation"
+      "name": "eGain Corporation",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TRAK",
-      "name": "ReposiTrak, Inc."
+      "name": "ReposiTrak, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "TCX",
-      "name": "Tucows Inc."
+      "name": "Tucows Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "BNAI",
-      "name": "Brand Engagement Network, Inc."
+      "name": "Brand Engagement Network, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "WATT",
-      "name": "Energous Corporation"
+      "name": "Energous Corporation",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "QMCO",
-      "name": "Quantum Corporation"
+      "name": "Quantum Corporation",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "AMCI",
-      "name": "AMC Robotics Corporation"
+      "name": "AMC Robotics Corporation",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "ROC",
-      "name": "Rank One Computing Corporation"
+      "name": "Rank One Computing Corporation",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ALOT",
-      "name": "AstroNova, Inc."
+      "name": "AstroNova, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "OCC",
-      "name": "Optical Cable Corporation"
+      "name": "Optical Cable Corporation",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "WYY",
-      "name": "WidePoint Corporation"
+      "name": "WidePoint Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "BCRD",
-      "name": "BlueOne Technologies, Inc."
+      "name": "BlueOne Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "SCOR",
-      "name": "comScore, Inc."
+      "name": "comScore, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "CSPI",
-      "name": "CSP Inc."
+      "name": "CSP Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "AIRG",
-      "name": "Airgain, Inc."
+      "name": "Airgain, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "AEYE",
-      "name": "AudioEye, Inc."
+      "name": "AudioEye, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SSTI",
-      "name": "SoundThinking, Inc."
+      "name": "SoundThinking, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "SOTK",
-      "name": "Sono-Tek Corporation"
+      "name": "Sono-Tek Corporation",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "WSTL",
-      "name": "Westell Technologies, Inc."
+      "name": "Westell Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "IPWR",
-      "name": "Ideal Power Inc."
+      "name": "Ideal Power Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "MIND",
-      "name": "MIND Technology, Inc."
+      "name": "MIND Technology, Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "VHC",
-      "name": "VirnetX Holding Corporation"
+      "name": "VirnetX Holding Corporation",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ELTK",
-      "name": "Eltek Ltd."
+      "name": "Eltek Ltd.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "BKFG",
-      "name": "BKF Capital Group, Inc."
+      "name": "BKF Capital Group, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "FIEE",
-      "name": "FiEE, Inc."
+      "name": "FiEE, Inc.",
+      "sector": "Technology",
+      "industry": "Communication Equipment"
     },
     {
       "sy": "AIOS",
-      "name": "AIOS Tech Inc."
+      "name": "AIOS Tech Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "AXIL",
-      "name": "AXIL Brands, Inc."
+      "name": "AXIL Brands, Inc.",
+      "sector": "Technology",
+      "industry": "Consumer Electronics"
     },
     {
       "sy": "LGL",
-      "name": "The LGL Group, Inc."
+      "name": "The LGL Group, Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "IEHC",
-      "name": "IEH Corporation"
+      "name": "IEH Corporation",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "PXLW",
-      "name": "Pixelworks, Inc."
+      "name": "Pixelworks, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "ACFN",
-      "name": "Acorn Energy, Inc."
+      "name": "Acorn Energy, Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "TAOX",
-      "name": "TAO Synergies Inc."
+      "name": "TAO Synergies Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "SCIA",
-      "name": "SCI Engineered Materials, Inc."
+      "name": "SCI Engineered Materials, Inc.",
+      "sector": "Technology",
+      "industry": "Semiconductor Equipment & Materials"
     },
     {
       "sy": "AGPU",
-      "name": "Axe Compute Inc."
+      "name": "Axe Compute Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "KPLT",
-      "name": "Katapult Holdings, Inc."
+      "name": "Katapult Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "INLX",
-      "name": "Intellinetics, Inc."
+      "name": "Intellinetics, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "AATC",
-      "name": "Autoscope Technologies Corporation"
+      "name": "Autoscope Technologies Corporation",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "ANKM",
-      "name": "ANKAM INC."
+      "name": "ANKAM INC.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "ELSE",
-      "name": "Electro-Sensors, Inc."
+      "name": "Electro-Sensors, Inc.",
+      "sector": "Technology",
+      "industry": "Scientific & Technical Instruments"
     },
     {
       "sy": "SAIH",
-      "name": "SAIHEAT Limited"
+      "name": "SAIHEAT Limited",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "NXPL",
-      "name": "NextPlat Corp"
+      "name": "NextPlat Corp",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "HMELF",
-      "name": "Hold Me Ltd"
+      "name": "Hold Me Ltd",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "MSAI",
-      "name": "MultiSensor AI Holdings, Inc."
+      "name": "MultiSensor AI Holdings, Inc.",
+      "sector": "Technology",
+      "industry": "Electronic Components"
     },
     {
       "sy": "RVYL",
-      "name": "Ryvyl Inc."
+      "name": "Ryvyl Inc.",
+      "sector": "Information Technology"
     },
     {
       "sy": "PGNT",
-      "name": "Paragon Technologies, Inc."
+      "name": "Paragon Technologies, Inc.",
+      "sector": "Technology",
+      "industry": "Electronics & Computer Distribution"
     },
     {
       "sy": "JTAI",
-      "name": "Jet.AI Inc."
+      "name": "Jet.AI Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "BNZI",
-      "name": "Banzai International, Inc."
+      "name": "Banzai International, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "BRUN",
-      "name": "Boost Run, Inc."
+      "name": "Boost Run, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "CBRS",
-      "name": "Cerebras Systems Inc. Class A Common Stock"
+      "name": "Cerebras Systems Inc. Class A Common Stock",
+      "sector": "Technology",
+      "industry": "Semiconductors"
     },
     {
       "sy": "CHRN",
-      "name": "ChronoScale Corporation"
+      "name": "ChronoScale Corporation",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "CNTMD",
@@ -1935,27 +2895,41 @@
     },
     {
       "sy": "EFOR",
-      "name": "Everforth, Inc."
+      "name": "Everforth, Inc.",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "EXYN",
-      "name": "Exyn Technologies, Inc. Common Stock"
+      "name": "Exyn Technologies, Inc. Common Stock",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "P",
-      "name": "Everpure, Inc."
+      "name": "Everpure, Inc.",
+      "sector": "Technology",
+      "industry": "Computer Hardware"
     },
     {
       "sy": "RTB",
-      "name": "RTB Digital, Inc."
+      "name": "RTB Digital, Inc.",
+      "sector": "Technology",
+      "industry": "Software - Application"
     },
     {
       "sy": "WSE",
-      "name": "Wise Group plc"
+      "name": "Wise Group plc",
+      "sector": "Technology",
+      "industry": "Information Technology Services"
     },
     {
       "sy": "ZSQR",
-      "name": "Z Squared Inc."
+      "name": "Z Squared Inc.",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }
