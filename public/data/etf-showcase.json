@@ -1,0 +1,50 @@
+{
+  "updated": "2026-05-29",
+  "note": "Pinned flagship US ETFs — search, browse tape, catalog genesis, and history backfill.",
+  "tickers": [
+    {
+      "sy": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "id": "SPY",
+      "ex": "NYSEARCA",
+      "ec": "Equity",
+      "ip": "1993-01-29T00:00:00Z",
+      "ft": "1993-01-29T00:00:00Z",
+      "ic": "partial",
+      "nt": "ETF inception (NYSE Arca); default NY listing clock on chart."
+    },
+    {
+      "sy": "QQQ",
+      "name": "Invesco QQQ Trust",
+      "id": "QQQ",
+      "ex": "NASDAQ",
+      "ec": "Equity",
+      "ip": "1999-03-10T00:00:00Z",
+      "ft": "1999-03-10T00:00:00Z",
+      "ic": "partial",
+      "nt": "ETF inception (NASDAQ); default NY listing clock on chart."
+    },
+    {
+      "sy": "GLD",
+      "name": "SPDR Gold Shares",
+      "id": "GLD",
+      "ex": "NYSEARCA",
+      "ec": "Commodity",
+      "ip": "2004-11-18T00:00:00Z",
+      "ft": "2004-11-18T00:00:00Z",
+      "ic": "partial",
+      "nt": "ETF inception (NYSE Arca); default NY listing clock on chart."
+    },
+    {
+      "sy": "DIA",
+      "name": "SPDR Dow Jones Industrial Average ETF Trust",
+      "id": "DIA",
+      "ex": "NYSEARCA",
+      "ec": "Equity",
+      "ip": "1998-01-20T00:00:00Z",
+      "ft": "1998-01-20T00:00:00Z",
+      "ic": "partial",
+      "nt": "ETF inception (NYSE Arca); default NY listing clock on chart."
+    }
+  ]
+}

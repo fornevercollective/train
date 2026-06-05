@@ -1,0 +1,4 @@
+_worker.js
+_routes.json
+# Monolithic catalog exceeds Cloudflare Workers 25 MiB/asset cap; clients load sharded catalog/.
+data/catalog.json

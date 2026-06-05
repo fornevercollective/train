@@ -421,6 +421,7 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		import { mountHistorySnowflakeRadar } from '../../lib/history-snowflake-radar.ts';
 		import { mountSnowflakeAxisGrid } from '../../lib/snowflake-axis-mini-chart.ts';
 		import { loadQuotesLatest, quoteForTicker } from '../../lib/quotes-latest.ts';
+		import { loadCatalog as fetchCatalogRecords } from '../../lib/catalog-loader.ts';
 
 		window.__qbitosCharts__ = {
 			mountHistoryCalendar,
@@ -833,12 +834,7 @@ const featuredListings = summary.featuredListings.slice(0, 6);
 		}
 
 		async function loadCatalog() {
-			const response = await fetch(`${baseUrl}data/catalog.json`);
-			if (!response.ok) {
-				throw new Error(`Failed to load catalog: ${response.status}`);
-			}
-
-			return response.json();
+			return fetchCatalogRecords(baseUrl);
 		}
 
 		const snowflakeCard = document.querySelector('[data-snowflake-card]');

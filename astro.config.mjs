@@ -3,6 +3,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import cloudflare from '@astrojs/cloudflare';
+
 /**
  * @param {string} base
  */
@@ -42,4 +44,14 @@ export default defineConfig({
   integrations: [],
   output: 'static',
   trailingSlash: 'always',
+  // Static catalog site — no Astro sessions; avoids auto SESSION KV on deploy.
+  session: {
+    driver: {
+      entrypoint: 'unstorage/drivers/null'
+    }
+  },
+  adapter: cloudflare({
+    // No Cloudflare Images binding required for this static build.
+    imageService: 'passthrough'
+  })
 });

@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "updated": "2026-05-24",
+  "convention": "Natal = genesis / first-trade instant in UTC. Location = symbolic creation city (geocode anchor), not mining node.",
+  "instruments": [
+    {
+      "tickers": ["BTC", "BTC-USD", "XBT"],
+      "cgIds": ["bitcoin"],
+      "name": "Bitcoin",
+      "genesisUtc": "2009-01-03T18:15:05Z",
+      "birthLocation": "London, UK",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "note": "Genesis block timestamp (UTC). Symbolic anchor: London."
+    },
+    {
+      "tickers": ["ETH", "ETH-USD"],
+      "cgIds": ["ethereum"],
+      "name": "Ethereum",
+      "genesisUtc": "2015-07-30T15:26:13Z",
+      "birthLocation": "Berlin, Germany",
+      "lat": 52.52,
+      "lon": 13.405,
+      "note": "Frontier genesis block (UTC). Symbolic anchor: Berlin."
+    },
+    {
+      "tickers": ["LTC", "LTC-USD"],
+      "cgIds": ["litecoin"],
+      "name": "Litecoin",
+      "genesisUtc": "2011-10-07T03:05:00Z",
+      "birthLocation": "San Francisco, CA, USA",
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "note": "Genesis block (UTC). Symbolic anchor: SF (Charlie Lee / BTC fork lineage)."
+    },
+    {
+      "tickers": ["XRP", "XRP-USD"],
+      "cgIds": ["ripple"],
+      "name": "XRP Ledger",
+      "genesisUtc": "2012-06-01T00:00:00Z",
+      "birthLocation": "San Francisco, CA, USA",
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "note": "Ledger genesis era (UTC). Symbolic anchor: Ripple founding city."
+    },
+    {
+      "tickers": ["SOL", "SOL-USD"],
+      "cgIds": ["solana"],
+      "name": "Solana",
+      "genesisUtc": "2020-03-16T00:00:00Z",
+      "birthLocation": "San Francisco, CA, USA",
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "note": "Mainnet genesis era (UTC). Symbolic anchor: SF."
+    },
+    {
+      "tickers": ["ADA", "ADA-USD"],
+      "cgIds": ["cardano"],
+      "name": "Cardano",
+      "genesisUtc": "2017-09-23T21:44:51Z",
+      "birthLocation": "Zug, Switzerland",
+      "lat": 47.166,
+      "lon": 8.515,
+      "note": "Byron mainnet start (UTC). Symbolic anchor: Cardano foundation hub."
+    },
+    {
+      "tickers": ["DOGE", "DOGE-USD"],
+      "cgIds": ["dogecoin"],
+      "name": "Dogecoin",
+      "genesisUtc": "2013-12-06T10:25:00Z",
+      "birthLocation": "San Francisco, CA, USA",
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "note": "Genesis block (UTC)."
+    },
+    {
+      "tickers": ["DOT", "DOT-USD"],
+      "cgIds": ["polkadot"],
+      "name": "Polkadot",
+      "genesisUtc": "2020-05-26T15:36:18Z",
+      "birthLocation": "Zug, Switzerland",
+      "lat": 47.166,
+      "lon": 8.515,
+      "note": "Genesis block (UTC). Symbolic anchor: Web3 Foundation."
+    },
+    {
+      "tickers": ["AVAX", "AVAX-USD"],
+      "cgIds": ["avalanche-2"],
+      "name": "Avalanche",
+      "genesisUtc": "2020-09-21T00:00:00Z",
+      "birthLocation": "New York, NY, USA",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "note": "Mainnet launch era (UTC). Symbolic anchor: Ava Labs / NYC."
+    },
+    {
+      "tickers": ["LINK", "LINK-USD"],
+      "cgIds": ["chainlink"],
+      "name": "Chainlink",
+      "genesisUtc": "2017-09-19T00:00:00Z",
+      "birthLocation": "San Francisco, CA, USA",
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "note": "Token genesis era (UTC)."
+    },
+    {
+      "tickers": ["BNB", "BNB-USD"],
+      "cgIds": ["binancecoin"],
+      "name": "BNB",
+      "genesisUtc": "2017-07-25T04:00:00Z",
+      "birthLocation": "Shanghai, China",
+      "lat": 31.2304,
+      "lon": 121.4737,
+      "note": "Binance chain genesis era (UTC)."
+    },
+    {
+      "tickers": ["TRX", "TRX-USD"],
+      "cgIds": ["tron"],
+      "name": "TRON",
+      "genesisUtc": "2018-06-25T00:00:00Z",
+      "birthLocation": "Singapore",
+      "lat": 1.3521,
+      "lon": 103.8198,
+      "note": "Mainnet genesis era (UTC)."
+    }
+  ]
+}

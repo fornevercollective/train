@@ -1,0 +1,28 @@
+{
+  "categoryId": "featured",
+  "categoryLabel": "Featured",
+  "updated": "2026-06-02",
+  "count": 4,
+  "tickers": [
+    {
+      "sy": "SPY",
+      "name": "SPDR S&P 500 ETF Trust",
+      "id": "SPY"
+    },
+    {
+      "sy": "QQQ",
+      "name": "Invesco QQQ Trust",
+      "id": "QQQ"
+    },
+    {
+      "sy": "GLD",
+      "name": "SPDR Gold Shares",
+      "id": "GLD"
+    },
+    {
+      "sy": "DIA",
+      "name": "SPDR Dow Jones Industrial Average ETF Trust",
+      "id": "DIA"
+    }
+  ]
+}
