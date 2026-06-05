@@ -4,11 +4,11 @@
   "uniqueExchanges": 71,
   "withCompanyCreation": 4555,
   "withIpoCreation": 21215,
-  "withLlcOriginalFilingTimestamp": 1,
-  "withLlcOriginalFilingLocation": 1,
-  "withLlcOriginalFilingCoordinates": 1,
-  "withHeadquartersLocation": 1,
-  "withHeadquartersCoordinates": 1,
+  "withLlcOriginalFilingTimestamp": 224,
+  "withLlcOriginalFilingLocation": 227,
+  "withLlcOriginalFilingCoordinates": 147,
+  "withHeadquartersLocation": 226,
+  "withHeadquartersCoordinates": 75,
   "withBranchLocations": 0,
   "securityTypes": [
     {
@@ -181,9 +181,9 @@
     "missing": 33556
   },
   "llcOriginalFilingCoverage": {
-    "complete": 1,
-    "partial": 0,
-    "missing": 56306
+    "complete": 224,
+    "partial": 3,
+    "missing": 56080
   },
   "featuredListings": [
     {
@@ -368,7 +368,7 @@
     "duplicateSymbolsSkipped": 15,
     "inconsistentDuplicates": 15,
     "enrichmentOverlayStatus": "loaded",
-    "enrichmentRowsApplied": 1,
+    "enrichmentRowsApplied": 227,
     "invalidEnrichmentOverlay": 0
   }
 }

@@ -1,7 +1,7 @@
 {
   "categoryId": "other",
   "categoryLabel": "Other",
-  "updated": "2026-06-02",
+  "updated": "2026-05-24",
   "count": 36,
   "tickers": [
     {
@@ -13,21 +13,6 @@
       "sy": "AAAC",
       "name": "Columbia AAA CLO ETF",
       "id": "AAAC"
-    },
-    {
-      "sy": "AAAU",
-      "name": "Goldman Sachs Physical Gold ETF",
-      "id": "AAAU"
-    },
-    {
-      "sy": "AADR",
-      "name": "AdvisorShares Dorsey Wright ADR ETF",
-      "id": "AADR"
-    },
-    {
-      "sy": "AAEQ",
-      "name": "Alpha Architect US Equity 2 ETF",
-      "id": "AAEQ"
     },
     {
       "sy": "AALG",
@@ -48,11 +33,6 @@
       "sy": "AAPD",
       "name": "Direxion Daily AAPL Bear 1X ETF",
       "id": "AAPD"
-    },
-    {
-      "sy": "AAPR",
-      "name": "Innovator Equity Defined Protection ETF - 2 Yr To April 2026",
-      "id": "AAPR"
     },
     {
       "sy": "AAPU",
@@ -85,49 +65,14 @@
       "id": "AAUM"
     },
     {
-      "sy": "AAUS",
-      "name": "Alpha Architect US Equity ETF",
-      "id": "AAUS"
-    },
-    {
-      "sy": "AAVM",
-      "name": "Alpha Architect Global Factor Equity ETF",
-      "id": "AAVM"
-    },
-    {
-      "sy": "AAXJ",
-      "name": "iShares MSCI All Country Asia ex Japan ETF",
-      "id": "AAXJ"
-    },
-    {
-      "sy": "ABCS",
-      "name": "Alpha Blue Capital US Small-Mid Cap Dynamic ETF",
-      "id": "ABCS"
-    },
-    {
-      "sy": "ABEQ",
-      "name": "Absolute Core Strategy ETF",
-      "id": "ABEQ"
-    },
-    {
       "sy": "ABFL",
       "name": "Abacus FCF Leaders ETF",
       "id": "ABFL"
     },
     {
-      "sy": "ABI",
-      "name": "VictoryShares Pioneer Asset-Based Income ETF",
-      "id": "ABI"
-    },
-    {
       "sy": "ABLG",
       "name": "Abacus FCF International Leaders ETF",
       "id": "ABLG"
-    },
-    {
-      "sy": "ABLS",
-      "name": "Abacus FCF Small Cap Leaders ETF",
-      "id": "ABLS"
     },
     {
       "sy": "ABNG",
@@ -150,39 +95,94 @@
       "id": "ABUF"
     },
     {
-      "sy": "ABXB",
-      "name": "Abacus Flexible Bond Leaders ETF",
-      "id": "ABXB"
-    },
-    {
-      "sy": "ACEI",
-      "name": "Innovator Equity Autocallable Income Strategy ETF",
-      "id": "ACEI"
-    },
-    {
-      "sy": "ACEP",
-      "name": "ARS Core Equity Portfolio ETF",
-      "id": "ACEP"
-    },
-    {
-      "sy": "ACES",
-      "name": "ALPS Clean Energy",
-      "id": "ACES"
-    },
-    {
-      "sy": "ACGR",
-      "name": "American Century Large Cap Growth ETF",
-      "id": "ACGR"
-    },
-    {
-      "sy": "ACII",
-      "name": "Innovator Index Autocallable Income Strategy ETF",
-      "id": "ACII"
-    },
-    {
       "sy": "ACIO",
       "name": "Aptus Collared Income Opportunity ETF",
       "id": "ACIO"
+    },
+    {
+      "sy": "ACKY",
+      "name": "VistaShares Target 15 ACKtivist Select Income ETF",
+      "id": "ACKY"
+    },
+    {
+      "sy": "ACLO",
+      "name": "TCW AAA CLO ETF",
+      "id": "ACLO"
+    },
+    {
+      "sy": "ACTS",
+      "name": "FIS Tactical Equity ETF",
+      "id": "ACTS"
+    },
+    {
+      "sy": "ACVU",
+      "name": "Hartford Alpha Capture Value ETF",
+      "id": "ACVU"
+    },
+    {
+      "sy": "ACWEF",
+      "name": "SSgA SPDR ETFs Europe I Public Limited Company - SPDR MSCI ACWI UCITS ETF",
+      "id": "OTC:ACWEF"
+    },
+    {
+      "sy": "ACYN",
+      "name": "FT Vest Laddered Autocallable Barrier & Income ETF",
+      "id": "ACYN"
+    },
+    {
+      "sy": "ACYS",
+      "name": "FT Vest Laddered Autocallable Barrier & Resilient Income ETF",
+      "id": "ACYS"
+    },
+    {
+      "sy": "ADBG",
+      "name": "Leverage Shares 2X Long ADBE Daily ETF",
+      "id": "ADBG"
+    },
+    {
+      "sy": "ADBU",
+      "name": "Direxion Daily Adbe Bull 2X ETF",
+      "id": "ADBU"
+    },
+    {
+      "sy": "ADPV",
+      "name": "Series Portfolios Trust - Adaptive Select ETF",
+      "id": "ADPV"
+    },
+    {
+      "sy": "AEMS",
+      "name": "Anfield Enhanced Market ETF",
+      "id": "AEMS"
+    },
+    {
+      "sy": "AFOS",
+      "name": "ARS Focused Opportunity Strategy ETF",
+      "id": "AFOS"
+    },
+    {
+      "sy": "AFRU",
+      "name": "T-REX 2X Long AFRM Daily Target ETF",
+      "id": "AFRU"
+    },
+    {
+      "sy": "AGFXF",
+      "name": "DB Agriculture Long ETN",
+      "id": "OTC:AGFXF"
+    },
+    {
+      "sy": "AGOX",
+      "name": "Adaptive Alpha Opportunities ETF",
+      "id": "AGOX"
+    },
+    {
+      "sy": "AGQ",
+      "name": "ProShares Ultra Silver",
+      "id": "AGQ"
+    },
+    {
+      "sy": "AHLT",
+      "name": "AHL Trend ETF",
+      "id": "AHLT"
     }
   ]
 }

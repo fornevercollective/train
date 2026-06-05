@@ -1,23 +1,188 @@
 {
   "categoryId": "equity",
   "categoryLabel": "Equity",
-  "updated": "2026-06-02",
-  "count": 3,
+  "updated": "2026-05-24",
+  "count": 36,
   "tickers": [
     {
-      "sy": "DIA",
-      "name": "SPDR Dow Jones Industrial Average ETF Trust",
-      "id": "DIA"
+      "sy": "AADR",
+      "name": "AdvisorShares Dorsey Wright ADR ETF",
+      "id": "AADR"
     },
     {
-      "sy": "QQQ",
-      "name": "Invesco QQQ Trust",
-      "id": "QQQ"
+      "sy": "AAEQ",
+      "name": "Alpha Architect US Equity 2 ETF",
+      "id": "AAEQ"
     },
     {
-      "sy": "SPY",
-      "name": "SPDR S&P 500 ETF Trust",
-      "id": "SPY"
+      "sy": "AAPR",
+      "name": "Innovator Equity Defined Protection ETF - 2 Yr To April 2026",
+      "id": "AAPR"
+    },
+    {
+      "sy": "AAUS",
+      "name": "Alpha Architect US Equity ETF",
+      "id": "AAUS"
+    },
+    {
+      "sy": "AAVM",
+      "name": "Alpha Architect Global Factor Equity ETF",
+      "id": "AAVM"
+    },
+    {
+      "sy": "AAXJ",
+      "name": "iShares MSCI All Country Asia ex Japan ETF",
+      "id": "AAXJ"
+    },
+    {
+      "sy": "ABCS",
+      "name": "Alpha Blue Capital US Small-Mid Cap Dynamic ETF",
+      "id": "ABCS"
+    },
+    {
+      "sy": "ABEQ",
+      "name": "Absolute Core Strategy ETF",
+      "id": "ABEQ"
+    },
+    {
+      "sy": "ABI",
+      "name": "VictoryShares Pioneer Asset-Based Income ETF",
+      "id": "ABI"
+    },
+    {
+      "sy": "ABLS",
+      "name": "Abacus FCF Small Cap Leaders ETF",
+      "id": "ABLS"
+    },
+    {
+      "sy": "ACEI",
+      "name": "Innovator Equity Autocallable Income Strategy ETF",
+      "id": "ACEI"
+    },
+    {
+      "sy": "ACEP",
+      "name": "ARS Core Equity Portfolio ETF",
+      "id": "ACEP"
+    },
+    {
+      "sy": "ACES",
+      "name": "ALPS Clean Energy",
+      "id": "ACES"
+    },
+    {
+      "sy": "ACGR",
+      "name": "American Century Large Cap Growth ETF",
+      "id": "ACGR"
+    },
+    {
+      "sy": "ACII",
+      "name": "Innovator Index Autocallable Income Strategy ETF",
+      "id": "ACII"
+    },
+    {
+      "sy": "ACLC",
+      "name": "American Century Large Cap Equity ETF",
+      "id": "ACLC"
+    },
+    {
+      "sy": "ACSG",
+      "name": "American Century Small Cap Growth Insights ETF",
+      "id": "ACSG"
+    },
+    {
+      "sy": "ACSI",
+      "name": "American Customer Satisfaction ETF",
+      "id": "ACSI"
+    },
+    {
+      "sy": "ACSV",
+      "name": "American Century Small Cap Value Insights ETF",
+      "id": "ACSV"
+    },
+    {
+      "sy": "ACVF",
+      "name": "ETF Opportunities Trust - American Conservative Values ETF",
+      "id": "ACVF"
+    },
+    {
+      "sy": "ACWV",
+      "name": "iShares MSCI Global Min Vol Factor ETF",
+      "id": "ACWV"
+    },
+    {
+      "sy": "ACWX",
+      "name": "iShares MSCI ACWI ex U.S. ETF",
+      "id": "ACWX"
+    },
+    {
+      "sy": "ADIV",
+      "name": "SmartETFs Asia Pacific Dividend Builder ETF",
+      "id": "ADIV"
+    },
+    {
+      "sy": "ADME",
+      "name": "Aptus Drawdown Managed Equity ETF",
+      "id": "ADME"
+    },
+    {
+      "sy": "ADVE",
+      "name": "Matthews Asia Dividend Active ETF",
+      "id": "ADVE"
+    },
+    {
+      "sy": "AESR",
+      "name": "Anfield U.S. Equity Sector Rotation ETF",
+      "id": "AESR"
+    },
+    {
+      "sy": "AFK",
+      "name": "VanEck Africa Index ETF",
+      "id": "AFK"
+    },
+    {
+      "sy": "AFLG",
+      "name": "First Trust Active Factor Large Cap ETF",
+      "id": "AFLG"
+    },
+    {
+      "sy": "AFMC",
+      "name": "First Trust Active Factor Mid Cap ETF",
+      "id": "AFMC"
+    },
+    {
+      "sy": "AFSC",
+      "name": "abrdn Focused U.S. Small Cap Active ETF",
+      "id": "AFSC"
+    },
+    {
+      "sy": "AFSM",
+      "name": "First Trust Active Factor Small Cap ETF",
+      "id": "AFSM"
+    },
+    {
+      "sy": "AGEM",
+      "name": "abrdn Emerging Markets Dividend Active ETF",
+      "id": "AGEM"
+    },
+    {
+      "sy": "AGIQ",
+      "name": "SoFi Agentic AI ETF",
+      "id": "AGIQ"
+    },
+    {
+      "sy": "AGIX",
+      "name": "KraneShares Artificial Intelligence & Technology ETF",
+      "id": "AGIX"
+    },
+    {
+      "sy": "AGNG",
+      "name": "Global X Aging Population ETF",
+      "id": "AGNG"
+    },
+    {
+      "sy": "AGQI",
+      "name": "First Trust Active Global Quality Income ETF",
+      "id": "AGQI"
     }
   ]
 }

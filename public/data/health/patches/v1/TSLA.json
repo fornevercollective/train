@@ -1,1 +1,140 @@
-{"asOfISO":"2026-06-01T00:39:07Z","axes":[{"checks":[{"detail":"Demo pass","id":"price-vs-fair","label":"Trading below estimated fair value","state":"pass"},{"detail":"Demo fail","id":"price-vs-peers","label":"Price-to-earnings vs peers","state":"fail"}],"label":"Value","name":"value","passed":1,"scoreLabel":"1/2","total":2},{"checks":[{"detail":"Demo pass","id":"eps-growth-fwd","label":"Forecast EPS growth above market","state":"pass"},{"detail":"Demo pass","id":"revenue-growth-fwd","label":"Forecast revenue growth above market","state":"pass"},{"detail":"Demo na","id":"roe-forecast","label":"Forecast return on equity","state":"na"}],"label":"Future","name":"future","passed":2,"scoreLabel":"2/3","total":3},{"checks":[{"detail":"Demo pass","id":"eps-growth-5y","label":"EPS growth over the past 5 years","state":"pass"},{"detail":"Demo fail","id":"revenue-growth-5y","label":"Revenue growth over the past 5 years","state":"fail"},{"detail":"Demo pass","id":"eps-acceleration-1y","label":"EPS growth accelerating last 12 months","state":"pass"}],"label":"Past","name":"past","passed":2,"scoreLabel":"2/3","total":3},{"checks":[{"detail":"Demo pass","id":"debt-to-equity","label":"Debt-to-equity ratio in safe range","state":"pass"},{"detail":"Demo pass","id":"operating-cashflow","label":"Operating cashflow covers debt","state":"pass"},{"detail":"Demo fail","id":"interest-coverage","label":"Interest coverage ratio healthy","state":"fail"}],"label":"Health","name":"health","passed":2,"scoreLabel":"2/3","total":3},{"checks":[{"detail":"Demo fail","id":"dividend-yield","label":"Dividend yield is above market average","state":"fail"},{"detail":"Demo na","id":"payout-ratio","label":"Payout ratio is sustainable","state":"na"},{"detail":"Demo pass","id":"dividend-growth","label":"Dividend growth is positive","state":"pass"}],"label":"Dividends","name":"dividends","passed":1,"scoreLabel":"1/3","total":3}],"displayName":"Tesla, Inc.","schemaVersion":1,"sourceNotes":["Demo overlay for local dev (ensure_demo_history.py)"],"ticker":"TSLA"}
+{
+  "schemaVersion": 1,
+  "ticker": "TSLA",
+  "displayName": "Tesla, Inc.",
+  "asOfISO": "2026-06-01T15:45:07Z",
+  "sourceNotes": [
+    "Demo overlay for local dev (ensure_demo_history.py)"
+  ],
+  "axes": [
+    {
+      "name": "value",
+      "label": "Value",
+      "passed": 1,
+      "total": 2,
+      "scoreLabel": "1/2",
+      "checks": [
+        {
+          "id": "price-vs-fair",
+          "label": "Trading below estimated fair value",
+          "detail": "Demo pass",
+          "state": "pass"
+        },
+        {
+          "id": "price-vs-peers",
+          "label": "Price-to-earnings vs peers",
+          "detail": "Demo fail",
+          "state": "fail"
+        }
+      ]
+    },
+    {
+      "name": "future",
+      "label": "Future",
+      "passed": 2,
+      "total": 3,
+      "scoreLabel": "2/3",
+      "checks": [
+        {
+          "id": "eps-growth-fwd",
+          "label": "Forecast EPS growth above market",
+          "detail": "Demo pass",
+          "state": "pass"
+        },
+        {
+          "id": "revenue-growth-fwd",
+          "label": "Forecast revenue growth above market",
+          "detail": "Demo pass",
+          "state": "pass"
+        },
+        {
+          "id": "roe-forecast",
+          "label": "Forecast return on equity",
+          "detail": "Demo na",
+          "state": "na"
+        }
+      ]
+    },
+    {
+      "name": "past",
+      "label": "Past",
+      "passed": 2,
+      "total": 3,
+      "scoreLabel": "2/3",
+      "checks": [
+        {
+          "id": "eps-growth-5y",
+          "label": "EPS growth over the past 5 years",
+          "detail": "Demo pass",
+          "state": "pass"
+        },
+        {
+          "id": "revenue-growth-5y",
+          "label": "Revenue growth over the past 5 years",
+          "detail": "Demo fail",
+          "state": "fail"
+        },
+        {
+          "id": "eps-acceleration-1y",
+          "label": "EPS growth accelerating last 12 months",
+          "detail": "Demo pass",
+          "state": "pass"
+        }
+      ]
+    },
+    {
+      "name": "health",
+      "label": "Health",
+      "passed": 2,
+      "total": 3,
+      "scoreLabel": "2/3",
+      "checks": [
+        {
+          "id": "debt-to-equity",
+          "label": "Debt-to-equity ratio in safe range",
+          "detail": "Demo pass",
+          "state": "pass"
+        },
+        {
+          "id": "operating-cashflow",
+          "label": "Operating cashflow covers debt",
+          "detail": "Demo pass",
+          "state": "pass"
+        },
+        {
+          "id": "interest-coverage",
+          "label": "Interest coverage ratio healthy",
+          "detail": "Demo fail",
+          "state": "fail"
+        }
+      ]
+    },
+    {
+      "name": "dividends",
+      "label": "Dividends",
+      "passed": 1,
+      "total": 3,
+      "scoreLabel": "1/3",
+      "checks": [
+        {
+          "id": "dividend-yield",
+          "label": "Dividend yield is above market average",
+          "detail": "Demo fail",
+          "state": "fail"
+        },
+        {
+          "id": "payout-ratio",
+          "label": "Payout ratio is sustainable",
+          "detail": "Demo na",
+          "state": "na"
+        },
+        {
+          "id": "dividend-growth",
+          "label": "Dividend growth is positive",
+          "detail": "Demo pass",
+          "state": "pass"
+        }
+      ]
+    }
+  ]
+}
