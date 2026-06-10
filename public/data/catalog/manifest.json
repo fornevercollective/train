@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-05T18:50:13Z",
+  "generatedAt": "2026-06-10T20:11:40Z",
   "recordCount": 56307,
   "shardCount": 220,
   "shardSize": 256,
@@ -248,8 +248,8 @@
     {
       "id": "0030",
       "count": 256,
-      "bytes": 105856,
-      "etag": "0881865bf5a40ce873d899249607d5fea41d8d59fdd179d07609ad96cdf409a7",
+      "bytes": 105717,
+      "etag": "78ff25d00a77c240ed1169ccfdea8cc9ddf44446c5bcd2829b155497d1b3945f",
       "first": "DBRG$J",
       "last": "DMAR"
     },
@@ -336,8 +336,8 @@
     {
       "id": "0041",
       "count": 256,
-      "bytes": 113682,
-      "etag": "ab150c8eb255a9019e3a706b3a105986cd64413e408b592e79b8e657b41bbaf0",
+      "bytes": 113540,
+      "etag": "c7378a584f2bce19ee61bb537838ce14b9fbffcc85660780c5e37872c997d084",
       "first": "GGME",
       "last": "GREEL"
     },
@@ -1048,8 +1048,8 @@
     {
       "id": "0130",
       "count": 256,
-      "bytes": 113506,
-      "etag": "725133f50afcd26f3e3483e93687eb5b302de45252d913b5747061a6ce679f8d",
+      "bytes": 113507,
+      "etag": "a7c9ffcc7f77d94d60b8b1b91dd333292bf96a4f5d34bd2e04ff3668313c5767",
       "first": "PSX:WAFI",
       "last": "QUBX"
     },
@@ -1128,8 +1128,8 @@
     {
       "id": "0140",
       "count": 256,
-      "bytes": 111267,
-      "etag": "8585000d4dc5fbba24476838f46abbff92e4a17b36ba87ce0f984343b2026d54",
+      "bytes": 111128,
+      "etag": "000e903a73c030a6833af0a984755e4c45a106d5d09dbb5c203d52873e75b0d4",
       "first": "SPUC",
       "last": "SSE:513350"
     },
