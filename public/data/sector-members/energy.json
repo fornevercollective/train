@@ -7,699 +7,1047 @@
   "tickers": [
     {
       "sy": "XOM",
-      "name": "Exxon Mobil Corporation"
+      "name": "Exxon Mobil Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Integrated"
     },
     {
       "sy": "CVX",
-      "name": "Chevron Corporation"
+      "name": "Chevron Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Integrated"
     },
     {
       "sy": "COP",
-      "name": "ConocoPhillips"
+      "name": "ConocoPhillips",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "WMB",
-      "name": "The Williams Companies, Inc."
+      "name": "The Williams Companies, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "EPD",
-      "name": "Enterprise Products Partners L.P."
+      "name": "Enterprise Products Partners L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "SLB",
-      "name": "SLB N.V."
+      "name": "SLB N.V.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "KMI",
-      "name": "Kinder Morgan, Inc."
+      "name": "Kinder Morgan, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "EOG",
-      "name": "EOG Resources, Inc."
+      "name": "EOG Resources, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "VLO",
-      "name": "Valero Energy Corporation"
+      "name": "Valero Energy Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "MPC",
-      "name": "Marathon Petroleum Corporation"
+      "name": "Marathon Petroleum Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "PSX",
-      "name": "Phillips 66"
+      "name": "Phillips 66",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "ET",
-      "name": "Energy Transfer LP"
+      "name": "Energy Transfer LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "BKR",
-      "name": "Baker Hughes Company"
+      "name": "Baker Hughes Company",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "OXY",
-      "name": "Occidental Petroleum Corporation"
+      "name": "Occidental Petroleum Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "TRGP",
-      "name": "Targa Resources Corp."
+      "name": "Targa Resources Corp.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "OKE",
-      "name": "ONEOK, Inc."
+      "name": "ONEOK, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "FANG",
-      "name": "Diamondback Energy, Inc."
+      "name": "Diamondback Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "DVN",
-      "name": "Devon Energy Corporation"
+      "name": "Devon Energy Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "MPLX",
-      "name": "MPLX LP"
+      "name": "MPLX LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "LNG",
-      "name": "Cheniere Energy, Inc."
+      "name": "Cheniere Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "VG",
-      "name": "Venture Global, Inc."
+      "name": "Venture Global, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "EQT",
-      "name": "EQT Corporation"
+      "name": "EQT Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "HAL",
-      "name": "Halliburton Company"
+      "name": "Halliburton Company",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "CQP",
-      "name": "Cheniere Energy Partners, L.P."
+      "name": "Cheniere Energy Partners, L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "FTI",
-      "name": "TechnipFMC plc"
+      "name": "TechnipFMC plc",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "TPL",
-      "name": "Texas Pacific Land Corporation"
+      "name": "Texas Pacific Land Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "EXE",
-      "name": "Expand Energy Corporation"
+      "name": "Expand Energy Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "WES",
-      "name": "Western Midstream Partners, LP"
+      "name": "Western Midstream Partners, LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "PR",
-      "name": "Permian Resources Corporation"
+      "name": "Permian Resources Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "OVV",
-      "name": "Ovintiv Inc."
+      "name": "Ovintiv Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "PAA",
-      "name": "Plains All American Pipeline, L.P."
+      "name": "Plains All American Pipeline, L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "DTM",
-      "name": "DT Midstream, Inc."
+      "name": "DT Midstream, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "APA",
-      "name": "APA Corporation"
+      "name": "APA Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "SUN",
-      "name": "Sunoco LP"
+      "name": "Sunoco LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "DINO",
-      "name": "HF Sinclair Corporation"
+      "name": "HF Sinclair Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "AR",
-      "name": "Antero Resources Corporation"
+      "name": "Antero Resources Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "AM",
-      "name": "Antero Midstream Corporation"
+      "name": "Antero Midstream Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "RRC",
-      "name": "Range Resources Corporation"
+      "name": "Range Resources Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "VNOM",
-      "name": "Viper Energy, Inc."
+      "name": "Viper Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "NE",
-      "name": "Noble Corporation plc"
+      "name": "Noble Corporation plc",
+      "sector": "Energy",
+      "industry": "Oil & Gas Drilling"
     },
     {
       "sy": "CHRD",
-      "name": "Chord Energy Corporation"
+      "name": "Chord Energy Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "FRO",
-      "name": "Frontline plc"
+      "name": "Frontline plc",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "RIG",
-      "name": "Transocean Ltd."
+      "name": "Transocean Ltd.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Drilling"
     },
     {
       "sy": "WFRD",
-      "name": "Weatherford International plc"
+      "name": "Weatherford International plc",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "SM",
-      "name": "SM Energy Company"
+      "name": "SM Energy Company",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "NFG",
-      "name": "National Fuel Gas Company"
+      "name": "National Fuel Gas Company",
+      "sector": "Energy",
+      "industry": "Oil & Gas Integrated"
     },
     {
       "sy": "MTDR",
-      "name": "Matador Resources Company"
+      "name": "Matador Resources Company",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "NOV",
-      "name": "NOV Inc."
+      "name": "NOV Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "VAL",
-      "name": "Valaris Limited"
+      "name": "Valaris Limited",
+      "sector": "Energy",
+      "industry": "Oil & Gas Drilling"
     },
     {
       "sy": "UEC",
-      "name": "Uranium Energy Corp."
+      "name": "Uranium Energy Corp.",
+      "sector": "Energy",
+      "industry": "Uranium"
     },
     {
       "sy": "AROC",
-      "name": "Archrock, Inc."
+      "name": "Archrock, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "KGS",
-      "name": "Kodiak Gas Services, Inc."
+      "name": "Kodiak Gas Services, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "MUR",
-      "name": "Murphy Oil Corporation"
+      "name": "Murphy Oil Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "GLNG",
-      "name": "Golar LNG Limited"
+      "name": "Golar LNG Limited",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "IEP",
-      "name": "Icahn Enterprises L.P."
+      "name": "Icahn Enterprises L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "MGY",
-      "name": "Magnolia Oil & Gas Corporation"
+      "name": "Magnolia Oil & Gas Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "CRC",
-      "name": "California Resources Corporation"
+      "name": "California Resources Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "LBRT",
-      "name": "Liberty Energy Inc."
+      "name": "Liberty Energy Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "HESM",
-      "name": "Hess Midstream LP"
+      "name": "Hess Midstream LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "CNX",
-      "name": "CNX Resources Corporation"
+      "name": "CNX Resources Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "PBF",
-      "name": "PBF Energy Inc."
+      "name": "PBF Energy Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "PAGP",
-      "name": "Plains GP Holdings, L.P."
+      "name": "Plains GP Holdings, L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "PTEN",
-      "name": "Patterson-UTI Energy, Inc."
+      "name": "Patterson-UTI Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Drilling"
     },
     {
       "sy": "SEI",
-      "name": "Solaris Energy Infrastructure, Inc."
+      "name": "Solaris Energy Infrastructure, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "CRK",
-      "name": "Comstock Resources, Inc."
+      "name": "Comstock Resources, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "CRGY",
-      "name": "Crescent Energy Company"
+      "name": "Crescent Energy Company",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "USAC",
-      "name": "USA Compression Partners, LP"
+      "name": "USA Compression Partners, LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "INSW",
-      "name": "International Seaways, Inc."
+      "name": "International Seaways, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "CNR",
-      "name": "Core Natural Resources, Inc."
+      "name": "Core Natural Resources, Inc.",
+      "sector": "Energy",
+      "industry": "Thermal Coal"
     },
     {
       "sy": "TDW",
-      "name": "Tidewater Inc."
+      "name": "Tidewater Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "STNG",
-      "name": "Scorpio Tankers Inc."
+      "name": "Scorpio Tankers Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "WHD",
-      "name": "Cactus, Inc."
+      "name": "Cactus, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "HP",
-      "name": "Helmerich & Payne, Inc."
+      "name": "Helmerich & Payne, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Drilling"
     },
     {
       "sy": "OII",
-      "name": "Oceaneering International, Inc."
+      "name": "Oceaneering International, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "KNTK",
-      "name": "Kinetik Holdings Inc."
+      "name": "Kinetik Holdings Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "SUNC",
-      "name": "SunocoCorp LLC"
+      "name": "SunocoCorp LLC",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "LEU",
-      "name": "Centrus Energy Corp."
+      "name": "Centrus Energy Corp.",
+      "sector": "Energy",
+      "industry": "Uranium"
     },
     {
       "sy": "CVI",
-      "name": "CVR Energy, Inc."
+      "name": "CVR Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "SDRL",
-      "name": "Seadrill Limited"
+      "name": "Seadrill Limited",
+      "sector": "Energy",
+      "industry": "Oil & Gas Drilling"
     },
     {
       "sy": "GPOR",
-      "name": "Gulfport Energy Corporation"
+      "name": "Gulfport Energy Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "ARLP",
-      "name": "Alliance Resource Partners, L.P."
+      "name": "Alliance Resource Partners, L.P.",
+      "sector": "Energy",
+      "industry": "Thermal Coal"
     },
     {
       "sy": "BKV",
-      "name": "BKV Corporation"
+      "name": "BKV Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "BSM",
-      "name": "Black Stone Minerals, L.P."
+      "name": "Black Stone Minerals, L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "PARR",
-      "name": "Par Pacific Holdings, Inc."
+      "name": "Par Pacific Holdings, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "BTU",
-      "name": "Peabody Energy Corporation"
+      "name": "Peabody Energy Corporation",
+      "sector": "Energy",
+      "industry": "Thermal Coal"
     },
     {
       "sy": "DHT",
-      "name": "DHT Holdings, Inc."
+      "name": "DHT Holdings, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "DKL",
-      "name": "Delek Logistics Partners, LP"
+      "name": "Delek Logistics Partners, LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "DK",
-      "name": "Delek US Holdings, Inc."
+      "name": "Delek US Holdings, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "TALO",
-      "name": "Talos Energy Inc."
+      "name": "Talos Energy Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "TNK",
-      "name": "Teekay Tankers Ltd."
+      "name": "Teekay Tankers Ltd.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "NOG",
-      "name": "Northern Oil and Gas, Inc."
+      "name": "Northern Oil and Gas, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "NESR",
-      "name": "National Energy Services Reunited Corp."
+      "name": "National Energy Services Reunited Corp.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "MNR",
-      "name": "Mach Natural Resources LP"
+      "name": "Mach Natural Resources LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "NEXT",
-      "name": "NextDecade Corporation"
+      "name": "NextDecade Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "WTTR",
-      "name": "Select Water Solutions, Inc."
+      "name": "Select Water Solutions, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "AESI",
-      "name": "Atlas Energy Solutions Inc."
+      "name": "Atlas Energy Solutions Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "SOC",
-      "name": "Sable Offshore Corp."
+      "name": "Sable Offshore Corp.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Drilling"
     },
     {
       "sy": "NGL",
-      "name": "NGL Energy Partners LP"
+      "name": "NGL Energy Partners LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "PUMP",
-      "name": "ProPetro Holding Corp."
+      "name": "ProPetro Holding Corp.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "GEL",
-      "name": "Genesis Energy, L.P."
+      "name": "Genesis Energy, L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "LB",
-      "name": "LandBridge Company LLC"
+      "name": "LandBridge Company LLC",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "BORR",
-      "name": "Borr Drilling Limited"
+      "name": "Borr Drilling Limited",
+      "sector": "Energy",
+      "industry": "Oil & Gas Drilling"
     },
     {
       "sy": "INVX",
-      "name": "Innovex International, Inc."
+      "name": "Innovex International, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "XPRO",
-      "name": "Expro Group Holdings N.V."
+      "name": "Expro Group Holdings N.V.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "LPG",
-      "name": "Dorian LPG Ltd."
+      "name": "Dorian LPG Ltd.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "FLNG",
-      "name": "FLEX LNG Ltd."
+      "name": "FLEX LNG Ltd.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "GLP",
-      "name": "Global Partners LP"
+      "name": "Global Partners LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "NBR",
-      "name": "Nabors Industries Ltd."
+      "name": "Nabors Industries Ltd.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Drilling"
     },
     {
       "sy": "RES",
-      "name": "RPC, Inc."
+      "name": "RPC, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "KRP",
-      "name": "Kimbell Royalty Partners, LP"
+      "name": "Kimbell Royalty Partners, LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "HLX",
-      "name": "Helix Energy Solutions Group, Inc."
+      "name": "Helix Energy Solutions Group, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "NVGS",
-      "name": "Navigator Holdings Ltd."
+      "name": "Navigator Holdings Ltd.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "WKC",
-      "name": "World Kinect Corporation"
+      "name": "World Kinect Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "WBI",
-      "name": "WaterBridge Infrastructure LLC"
+      "name": "WaterBridge Infrastructure LLC",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "NRP",
-      "name": "Natural Resource Partners L.P."
+      "name": "Natural Resource Partners L.P.",
+      "sector": "Energy",
+      "industry": "Thermal Coal"
     },
     {
       "sy": "PBT",
-      "name": "Permian Basin Royalty Trust"
+      "name": "Permian Basin Royalty Trust",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "DMLP",
-      "name": "Dorchester Minerals, L.P."
+      "name": "Dorchester Minerals, L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "ACDC",
-      "name": "ProFrac Holding Corp."
+      "name": "ProFrac Holding Corp.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "NPKI",
-      "name": "NPK International Inc."
+      "name": "NPK International Inc.",
+      "sector": "Industrials",
+      "industry": "Building Products & Equipment"
     },
     {
       "sy": "TEN",
-      "name": "Tsakos Energy Navigation Limited"
+      "name": "Tsakos Energy Navigation Limited",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "VTOL",
-      "name": "Bristow Group Inc."
+      "name": "Bristow Group Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "DEC",
-      "name": "Diversified Energy Company"
+      "name": "Diversified Energy Company",
+      "sector": "Energy",
+      "industry": "Oil & Gas Integrated"
     },
     {
       "sy": "NAT",
-      "name": "Nordic American Tankers Limited"
+      "name": "Nordic American Tankers Limited",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "TK",
-      "name": "Teekay Corporation Ltd."
+      "name": "Teekay Corporation Ltd.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "FLOC",
-      "name": "Flowco Holdings Inc."
+      "name": "Flowco Holdings Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "EE",
-      "name": "Excelerate Energy, Inc."
+      "name": "Excelerate Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "SBR",
-      "name": "Sabine Royalty Trust"
+      "name": "Sabine Royalty Trust",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "TBN",
-      "name": "Tamboran Resources Corporation"
+      "name": "Tamboran Resources Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "APC",
-      "name": "ARKO Petroleum Corp."
+      "name": "ARKO Petroleum Corp.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "HMH",
-      "name": "HMH Holding Inc."
+      "name": "HMH Holding Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "HPK",
-      "name": "HighPeak Energy, Inc."
+      "name": "HighPeak Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "CAPL",
-      "name": "CrossAmerica Partners LP"
+      "name": "CrossAmerica Partners LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "HNRG",
-      "name": "Hallador Energy Company"
+      "name": "Hallador Energy Company",
+      "sector": "Energy",
+      "industry": "Thermal Coal"
     },
     {
       "sy": "REPX",
-      "name": "Riley Exploration Permian, Inc."
+      "name": "Riley Exploration Permian, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "GFR",
-      "name": "Greenfire Resources Ltd."
+      "name": "Greenfire Resources Ltd.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "VTS",
-      "name": "Vitesse Energy, Inc."
+      "name": "Vitesse Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "GRNT",
-      "name": "Granite Ridge Resources, Inc."
+      "name": "Granite Ridge Resources, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "TXO",
-      "name": "TXO Partners, L.P."
+      "name": "TXO Partners, L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "FTK",
-      "name": "Flotek Industries, Inc."
+      "name": "Flotek Industries, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "EGY",
-      "name": "VAALCO Energy, Inc."
+      "name": "VAALCO Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "FET",
-      "name": "Forum Energy Technologies, Inc."
+      "name": "Forum Energy Technologies, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "GPRK",
-      "name": "GeoPark Limited"
+      "name": "GeoPark Limited",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "CLB",
-      "name": "Core Laboratories Inc."
+      "name": "Core Laboratories Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "SD",
-      "name": "SandRidge Energy, Inc."
+      "name": "SandRidge Energy, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "OIS",
-      "name": "Oil States International, Inc."
+      "name": "Oil States International, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "NGS",
-      "name": "Natural Gas Services Group, Inc."
+      "name": "Natural Gas Services Group, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "FTW",
-      "name": "Presidio Production Company"
+      "name": "Presidio Production Company",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "SMC",
-      "name": "Summit Midstream Corporation"
+      "name": "Summit Midstream Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "PNRG",
-      "name": "PrimeEnergy Resources Corporation"
+      "name": "PrimeEnergy Resources Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "SGU",
-      "name": "Star Group, L.P."
+      "name": "Star Group, L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "RNGR",
-      "name": "Ranger Energy Services, Inc."
+      "name": "Ranger Energy Services, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "NC",
-      "name": "NACCO Industries, Inc."
+      "name": "NACCO Industries, Inc.",
+      "sector": "Energy",
+      "industry": "Thermal Coal"
     },
     {
       "sy": "KNOP",
-      "name": "KNOT Offshore Partners LP"
+      "name": "KNOT Offshore Partners LP",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "UNTC",
-      "name": "Unit Corporation"
+      "name": "Unit Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Integrated"
     },
     {
       "sy": "GTE",
-      "name": "Gran Tierra Energy Inc."
+      "name": "Gran Tierra Energy Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "NUCL",
-      "name": "Eagle Nuclear Energy Corp."
+      "name": "Eagle Nuclear Energy Corp.",
+      "sector": "Energy",
+      "industry": "Uranium"
     },
     {
       "sy": "INR",
-      "name": "Infinity Natural Resources, Inc."
+      "name": "Infinity Natural Resources, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "AMPY",
-      "name": "Amplify Energy Corp."
+      "name": "Amplify Energy Corp.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "PED",
-      "name": "PEDEVCO Corp."
+      "name": "PEDEVCO Corp.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "EPSN",
-      "name": "Epsilon Energy Ltd."
+      "name": "Epsilon Energy Ltd.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "TORO",
-      "name": "Toro Corp."
+      "name": "Toro Corp.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "FGPR",
-      "name": "Ferrellgas Partners, L.P."
+      "name": "Ferrellgas Partners, L.P.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Refining & Marketing"
     },
     {
       "sy": "NINE",
-      "name": "Nine Energy Service, Inc."
+      "name": "Nine Energy Service, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "NCSM",
-      "name": "NCS Multistage Holdings, Inc."
+      "name": "NCS Multistage Holdings, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "GEOS",
-      "name": "Geospace Technologies Corporation"
+      "name": "Geospace Technologies Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "NRT",
-      "name": "North European Oil Royalty Trust"
+      "name": "North European Oil Royalty Trust",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "CRT",
-      "name": "Cross Timbers Royalty Trust"
+      "name": "Cross Timbers Royalty Trust",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "RSRV",
-      "name": "The Reserve Petroleum Company"
+      "name": "The Reserve Petroleum Company",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "AMEN",
-      "name": "AMEN Properties, Inc."
+      "name": "AMEN Properties, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "CKX",
-      "name": "CKX Lands, Inc."
+      "name": "CKX Lands, Inc.",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "MXC",
-      "name": "Mexco Energy Corporation"
+      "name": "Mexco Energy Corporation",
+      "sector": "Energy",
+      "industry": "Oil & Gas E&P"
     },
     {
       "sy": "MARPS",
-      "name": "Marine Petroleum Trust"
+      "name": "Marine Petroleum Trust",
+      "sector": "Energy",
+      "industry": "Oil & Gas Midstream"
     },
     {
       "sy": "EROK",
-      "name": "EagleRock Land, LLC"
+      "name": "EagleRock Land, LLC",
+      "sector": "Energy",
+      "industry": "Oil & Gas Equipment & Services"
     },
     {
       "sy": "RISE",
       "name": "Pictet Emerging Markets Rising Economies ETF"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }

@@ -7,503 +7,755 @@
   "tickers": [
     {
       "sy": "GOOG",
-      "name": "Alphabet Inc."
+      "name": "Alphabet Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "META",
-      "name": "Meta Platforms, Inc."
+      "name": "Meta Platforms, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "NFLX",
-      "name": "Netflix, Inc."
+      "name": "Netflix, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "TMUS",
-      "name": "T-Mobile US, Inc."
+      "name": "T-Mobile US, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "VZ",
-      "name": "Verizon Communications Inc."
+      "name": "Verizon Communications Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "DIS",
-      "name": "The Walt Disney Company"
+      "name": "The Walt Disney Company",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "APP",
-      "name": "AppLovin Corporation"
+      "name": "AppLovin Corporation",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "T",
-      "name": "AT&T Inc."
+      "name": "AT&T Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "SPOT",
-      "name": "Spotify Technology S.A."
+      "name": "Spotify Technology S.A.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "CMCSA",
-      "name": "Comcast Corporation"
+      "name": "Comcast Corporation",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "WBD",
-      "name": "Warner Bros. Discovery, Inc."
+      "name": "Warner Bros. Discovery, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "NBIS",
-      "name": "Nebius Group N.V."
+      "name": "Nebius Group N.V.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "EA",
-      "name": "Electronic Arts Inc."
+      "name": "Electronic Arts Inc.",
+      "sector": "Communication Services",
+      "industry": "Electronic Gaming & Multimedia"
     },
     {
       "sy": "TTWO",
-      "name": "Take-Two Interactive Software, Inc."
+      "name": "Take-Two Interactive Software, Inc.",
+      "sector": "Communication Services",
+      "industry": "Electronic Gaming & Multimedia"
     },
     {
       "sy": "SATS",
-      "name": "EchoStar Corporation"
+      "name": "EchoStar Corporation",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "LYV",
-      "name": "Live Nation Entertainment, Inc."
+      "name": "Live Nation Entertainment, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "RBLX",
-      "name": "Roblox Corporation"
+      "name": "Roblox Corporation",
+      "sector": "Communication Services",
+      "industry": "Electronic Gaming & Multimedia"
     },
     {
       "sy": "RDDT",
-      "name": "Reddit, Inc."
+      "name": "Reddit, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "FOXA",
-      "name": "Fox Corporation"
+      "name": "Fox Corporation",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "FWONA",
-      "name": "Formula One Group"
+      "name": "Formula One Group",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "OMC",
-      "name": "Omnicom Group Inc."
+      "name": "Omnicom Group Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "CHTR",
-      "name": "Charter Communications, Inc."
+      "name": "Charter Communications, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "ROKU",
-      "name": "Roku, Inc."
+      "name": "Roku, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "WMG",
-      "name": "Warner Music Group Corp."
+      "name": "Warner Music Group Corp.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "TKO",
-      "name": "TKO Group Holdings, Inc."
+      "name": "TKO Group Holdings, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "NWSA",
-      "name": "News Corporation"
+      "name": "News Corporation",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "TIGO",
-      "name": "Millicom International Cellular S.A."
+      "name": "Millicom International Cellular S.A.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "NYT",
-      "name": "The New York Times Company"
+      "name": "The New York Times Company",
+      "sector": "Communication Services",
+      "industry": "Publishing"
     },
     {
       "sy": "PSKY",
-      "name": "Paramount Skydance Corporation"
+      "name": "Paramount Skydance Corporation",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "PINS",
-      "name": "Pinterest, Inc."
+      "name": "Pinterest, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "GSAT",
-      "name": "Globalstar, Inc."
+      "name": "Globalstar, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "LUMN",
-      "name": "Lumen Technologies, Inc."
+      "name": "Lumen Technologies, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "TTD",
-      "name": "The Trade Desk, Inc."
+      "name": "The Trade Desk, Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "SNAP",
-      "name": "Snap Inc."
+      "name": "Snap Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "LLYVA",
-      "name": "Liberty Live Holdings, Inc."
+      "name": "Liberty Live Holdings, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "ZG",
-      "name": "Zillow Group, Inc."
+      "name": "Zillow Group, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "SIRI",
-      "name": "Sirius XM Holdings Inc."
+      "name": "Sirius XM Holdings Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "MSGS",
-      "name": "Madison Square Garden Sports Corp."
+      "name": "Madison Square Garden Sports Corp.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "MTCH",
-      "name": "Match Group, Inc."
+      "name": "Match Group, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "QMMM",
-      "name": "QMMM Holdings Limited"
+      "name": "QMMM Holdings Limited",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "VSNT",
-      "name": "Versant Media Group, Inc."
+      "name": "Versant Media Group, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "NXST",
-      "name": "Nexstar Media Group, Inc."
+      "name": "Nexstar Media Group, Inc.",
+      "sector": "Communication Services",
+      "industry": "Broadcasting"
     },
     {
       "sy": "SPHR",
-      "name": "Sphere Entertainment Co."
+      "name": "Sphere Entertainment Co.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "LBRDA",
-      "name": "Liberty Broadband Corporation"
+      "name": "Liberty Broadband Corporation",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "TDS",
-      "name": "Telephone and Data Systems, Inc."
+      "name": "Telephone and Data Systems, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "IRDM",
-      "name": "Iridium Communications Inc."
+      "name": "Iridium Communications Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "AD",
-      "name": "Array Digital Infrastructure, Inc."
+      "name": "Array Digital Infrastructure, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "LBTYA",
-      "name": "Liberty Global Ltd."
+      "name": "Liberty Global Ltd.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "LION",
-      "name": "Lionsgate Studios Corp."
+      "name": "Lionsgate Studios Corp.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "BATRA",
-      "name": "Atlanta Braves Holdings, Inc."
+      "name": "Atlanta Braves Holdings, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "MANU",
-      "name": "Manchester United plc"
+      "name": "Manchester United plc",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "STUB",
-      "name": "StubHub Holdings, Inc."
+      "name": "StubHub Holdings, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "MSGE",
-      "name": "Madison Square Garden Entertainment Corp."
+      "name": "Madison Square Garden Entertainment Corp.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "KYIV",
-      "name": "Kyivstar Group Ltd."
+      "name": "Kyivstar Group Ltd.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "CNK",
-      "name": "Cinemark Holdings, Inc."
+      "name": "Cinemark Holdings, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "IAC",
-      "name": "IAC Inc."
+      "name": "IAC Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "DJT",
-      "name": "Trump Media & Technology Group Corp."
+      "name": "Trump Media & Technology Group Corp.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "WLY",
-      "name": "John Wiley & Sons, Inc."
+      "name": "John Wiley & Sons, Inc.",
+      "sector": "Communication Services",
+      "industry": "Publishing"
     },
     {
       "sy": "IMAX",
-      "name": "IMAX Corporation"
+      "name": "IMAX Corporation",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "MGNI",
-      "name": "Magnite, Inc."
+      "name": "Magnite, Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "WBTN",
-      "name": "WEBTOON Entertainment Inc."
+      "name": "WEBTOON Entertainment Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "RUM",
-      "name": "Rumble Inc."
+      "name": "Rumble Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "STGW",
-      "name": "Stagwell Inc."
+      "name": "Stagwell Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "ZD",
-      "name": "Ziff Davis, Inc."
+      "name": "Ziff Davis, Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "LILA",
-      "name": "Liberty Latin America Ltd."
+      "name": "Liberty Latin America Ltd.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "DV",
-      "name": "DoubleVerify Holdings, Inc."
+      "name": "DoubleVerify Holdings, Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "IDT",
-      "name": "IDT Corporation"
+      "name": "IDT Corporation",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "YELP",
-      "name": "Yelp Inc."
+      "name": "Yelp Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "TDAY",
-      "name": "USA TODAY Co., Inc."
+      "name": "USA TODAY Co., Inc.",
+      "sector": "Communication Services",
+      "industry": "Publishing"
     },
     {
       "sy": "GTN-A",
-      "name": "Gray Media, Inc."
+      "name": "Gray Media, Inc.",
+      "sector": "Communication Services",
+      "industry": "Broadcasting"
     },
     {
       "sy": "ATEX",
-      "name": "Anterix Inc."
+      "name": "Anterix Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "GLIBA",
-      "name": "GCI Liberty, Inc. - Series A GC"
+      "name": "GCI Liberty, Inc. - Series A GC",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "SBGI",
-      "name": "Sinclair, Inc."
+      "name": "Sinclair, Inc.",
+      "sector": "Communication Services",
+      "industry": "Broadcasting"
     },
     {
       "sy": "UPWK",
-      "name": "Upwork Inc."
+      "name": "Upwork Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "NMAX",
-      "name": "Newsmax, Inc."
+      "name": "Newsmax, Inc.",
+      "sector": "Communication Services",
+      "industry": "Broadcasting"
     },
     {
       "sy": "SHEN",
-      "name": "Shenandoah Telecommunications Company"
+      "name": "Shenandoah Telecommunications Company",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "CCOI",
-      "name": "Cogent Communications Holdings, Inc."
+      "name": "Cogent Communications Holdings, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "SCHL",
-      "name": "Scholastic Corporation"
+      "name": "Scholastic Corporation",
+      "sector": "Communication Services",
+      "industry": "Publishing"
     },
     {
       "sy": "EVC",
-      "name": "Entravision Communications Corporation"
+      "name": "Entravision Communications Corporation",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "RSVR",
-      "name": "Reservoir Media, Inc."
+      "name": "Reservoir Media, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "GRPN",
-      "name": "Groupon, Inc."
+      "name": "Groupon, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "QNST",
-      "name": "QuinStreet, Inc."
+      "name": "QuinStreet, Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "EVER",
-      "name": "EverQuote, Inc."
+      "name": "EverQuote, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "SSTK",
-      "name": "Shutterstock, Inc."
+      "name": "Shutterstock, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "CARS",
-      "name": "Cars.com Inc."
+      "name": "Cars.com Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "MCS",
-      "name": "The Marcus Corporation"
+      "name": "The Marcus Corporation",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "NRDS",
-      "name": "NerdWallet, Inc."
+      "name": "NerdWallet, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "ADV",
-      "name": "Advantage Solutions Inc."
+      "name": "Advantage Solutions Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "MAX",
-      "name": "MediaAlpha, Inc."
+      "name": "MediaAlpha, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "NEXN",
-      "name": "Nexxen International Ltd."
+      "name": "Nexxen International Ltd.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "ATNI",
-      "name": "ATN International, Inc."
+      "name": "ATN International, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "STRZ",
-      "name": "Starz Entertainment Corp."
+      "name": "Starz Entertainment Corp.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "FVRR",
-      "name": "Fiverr International Ltd."
+      "name": "Fiverr International Ltd.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "AMCX",
-      "name": "AMC Global Media Inc."
+      "name": "AMC Global Media Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "PLAY",
-      "name": "Dave & Buster's Entertainment, Inc."
+      "name": "Dave & Buster's Entertainment, Inc.",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "AENT",
-      "name": "Alliance Entertainment Holding Corporation"
+      "name": "Alliance Entertainment Holding Corporation",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     },
     {
       "sy": "CXDO",
-      "name": "Crexendo, Inc."
+      "name": "Crexendo, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "GDEV",
-      "name": "GDEV Inc."
+      "name": "GDEV Inc.",
+      "sector": "Communication Services",
+      "industry": "Electronic Gaming & Multimedia"
     },
     {
       "sy": "FUBO",
-      "name": "FuboTV Inc."
+      "name": "FuboTV Inc.",
+      "sector": "Communication Services",
+      "industry": "Broadcasting"
     },
     {
       "sy": "CABO",
-      "name": "Cable One, Inc."
+      "name": "Cable One, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "RDCM",
-      "name": "RADCOM Ltd."
+      "name": "RADCOM Ltd.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "KVHI",
-      "name": "KVH Industries, Inc."
+      "name": "KVH Industries, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "LEE",
-      "name": "Lee Enterprises, Incorporated"
+      "name": "Lee Enterprises, Incorporated",
+      "sector": "Communication Services",
+      "industry": "Publishing"
     },
     {
       "sy": "KORE",
-      "name": "KORE Group Holdings, Inc."
+      "name": "KORE Group Holdings, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "MRDN",
-      "name": "Meridian Holdings Inc."
+      "name": "Meridian Holdings Inc.",
+      "sector": "Communication Services",
+      "industry": "Electronic Gaming & Multimedia"
     },
     {
       "sy": "SEAT",
-      "name": "Vivid Seats Inc."
+      "name": "Vivid Seats Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "TSQ",
-      "name": "Townsquare Media, Inc."
+      "name": "Townsquare Media, Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "SKLZ",
-      "name": "Skillz Inc."
+      "name": "Skillz Inc.",
+      "sector": "Communication Services",
+      "industry": "Electronic Gaming & Multimedia"
     },
     {
       "sy": "TZOO",
-      "name": "Travelzoo"
+      "name": "Travelzoo",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "NUVR",
-      "name": "Nuvera Communications, Inc."
+      "name": "Nuvera Communications, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "BODI",
-      "name": "The Beachbody Company, Inc."
+      "name": "The Beachbody Company, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "WSHP",
-      "name": "WeShop Holdings Limited"
+      "name": "WeShop Holdings Limited",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "LVO",
-      "name": "LiveOne, Inc."
+      "name": "LiveOne, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "SGA",
-      "name": "Saga Communications, Inc."
+      "name": "Saga Communications, Inc.",
+      "sector": "Communication Services",
+      "industry": "Broadcasting"
     },
     {
       "sy": "ELWT",
-      "name": "Elauwit Connection, Inc."
+      "name": "Elauwit Connection, Inc.",
+      "sector": "Communication Services",
+      "industry": "Telecom Services"
     },
     {
       "sy": "SLMT",
-      "name": "Brera Holdings PLC"
+      "name": "Brera Holdings PLC",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure"
     },
     {
       "sy": "ACCS",
-      "name": "ACCESS Newswire Inc."
+      "name": "ACCESS Newswire Inc.",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "UONE",
-      "name": "Urban One, Inc."
+      "name": "Urban One, Inc.",
+      "sector": "Communication Services",
+      "industry": "Broadcasting"
     },
     {
       "sy": "BBGI",
-      "name": "Beasley Broadcast Group, Inc."
+      "name": "Beasley Broadcast Group, Inc.",
+      "sector": "Communication Services",
+      "industry": "Broadcasting"
     },
     {
       "sy": "STFS",
-      "name": "Star Fashion Culture Holdings Limited"
+      "name": "Star Fashion Culture Holdings Limited",
+      "sector": "Communication Services",
+      "industry": "Advertising Agencies"
     },
     {
       "sy": "IDWM",
-      "name": "IDW Media Holdings, Inc."
+      "name": "IDW Media Holdings, Inc.",
+      "sector": "Communication Services",
+      "industry": "Publishing"
     },
     {
       "sy": "SLE",
-      "name": "Super League Enterprise, Inc."
+      "name": "Super League Enterprise, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "DKI",
-      "name": "Darkiris Inc."
+      "name": "Darkiris Inc.",
+      "sector": "Communication Services",
+      "industry": "Electronic Gaming & Multimedia"
     },
     {
       "sy": "CRTD",
-      "name": "Creatd, Inc."
+      "name": "Creatd, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information"
     },
     {
       "sy": "LYXX",
-      "name": "LYXX"
+      "name": "LYXX",
+      "sector": "Communication Services",
+      "industry": "Entertainment"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }

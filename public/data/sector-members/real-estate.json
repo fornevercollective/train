@@ -7,835 +7,1252 @@
   "tickers": [
     {
       "sy": "WELL",
-      "name": "Welltower Inc."
+      "name": "Welltower Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "PLD",
-      "name": "Prologis, Inc."
+      "name": "Prologis, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "EQIX",
-      "name": "Equinix, Inc."
+      "name": "Equinix, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "AMT",
-      "name": "American Tower Corporation"
+      "name": "American Tower Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "DLR",
-      "name": "Digital Realty Trust, Inc."
+      "name": "Digital Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "SPG",
-      "name": "Simon Property Group, Inc."
+      "name": "Simon Property Group, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "O",
-      "name": "Realty Income Corporation"
+      "name": "Realty Income Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "PSA",
-      "name": "Public Storage"
+      "name": "Public Storage",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "VTR",
-      "name": "Ventas, Inc."
+      "name": "Ventas, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "CBRE",
-      "name": "CBRE Group, Inc."
+      "name": "CBRE Group, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "CCI",
-      "name": "Crown Castle Inc."
+      "name": "Crown Castle Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "IRM",
-      "name": "Iron Mountain Incorporated"
+      "name": "Iron Mountain Incorporated",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "VICI",
-      "name": "VICI Properties Inc."
+      "name": "VICI Properties Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "EXR",
-      "name": "Extra Space Storage Inc."
+      "name": "Extra Space Storage Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "AVB",
-      "name": "AvalonBay Communities, Inc."
+      "name": "AvalonBay Communities, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "EQR",
-      "name": "Equity Residential"
+      "name": "Equity Residential",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "SBAC",
-      "name": "SBA Communications Corporation"
+      "name": "SBA Communications Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "ESS",
-      "name": "Essex Property Trust, Inc."
+      "name": "Essex Property Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "INVH",
-      "name": "Invitation Homes Inc."
+      "name": "Invitation Homes Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "WY",
-      "name": "Weyerhaeuser Company"
+      "name": "Weyerhaeuser Company",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "WPC",
-      "name": "W. P. Carey Inc."
+      "name": "W. P. Carey Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "NLY",
-      "name": "Annaly Capital Management, Inc."
+      "name": "Annaly Capital Management, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "KIM",
-      "name": "Kimco Realty Corporation"
+      "name": "Kimco Realty Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "SUI",
-      "name": "Sun Communities, Inc."
+      "name": "Sun Communities, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "LAMR",
-      "name": "Lamar Advertising Company"
+      "name": "Lamar Advertising Company",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "HST",
-      "name": "Host Hotels & Resorts, Inc."
+      "name": "Host Hotels & Resorts, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "MAA",
-      "name": "Mid-America Apartment Communities, Inc."
+      "name": "Mid-America Apartment Communities, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "OHI",
-      "name": "Omega Healthcare Investors, Inc."
+      "name": "Omega Healthcare Investors, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "REG",
-      "name": "Regency Centers Corporation"
+      "name": "Regency Centers Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "JLL",
-      "name": "Jones Lang LaSalle Incorporated"
+      "name": "Jones Lang LaSalle Incorporated",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "DOC",
-      "name": "Healthpeak Properties, Inc."
+      "name": "Healthpeak Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "CSGP",
-      "name": "CoStar Group, Inc."
+      "name": "CoStar Group, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "GLPI",
-      "name": "Gaming and Leisure Properties, Inc."
+      "name": "Gaming and Leisure Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "UDR",
-      "name": "UDR, Inc."
+      "name": "UDR, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "AGNC",
-      "name": "AGNC Investment Corp."
+      "name": "AGNC Investment Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "ELS",
-      "name": "Equity LifeStyle Properties, Inc."
+      "name": "Equity LifeStyle Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "AMH",
-      "name": "American Homes 4 Rent"
+      "name": "American Homes 4 Rent",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "EGP",
-      "name": "EastGroup Properties, Inc."
+      "name": "EastGroup Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "CPT",
-      "name": "Camden Property Trust"
+      "name": "Camden Property Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "FRT",
-      "name": "Federal Realty Investment Trust"
+      "name": "Federal Realty Investment Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "CTRE",
-      "name": "CareTrust REIT, Inc."
+      "name": "CareTrust REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "AHR",
-      "name": "American Healthcare REIT, Inc."
+      "name": "American Healthcare REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "BXP",
-      "name": "BXP, Inc."
+      "name": "BXP, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "BRX",
-      "name": "Brixmor Property Group Inc."
+      "name": "Brixmor Property Group Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "ADC",
-      "name": "Agree Realty Corporation"
+      "name": "Agree Realty Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "LINE",
-      "name": "Lineage, Inc."
+      "name": "Lineage, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "CUBE",
-      "name": "CubeSmart"
+      "name": "CubeSmart",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "NNN",
-      "name": "NNN REIT, Inc."
+      "name": "NNN REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "FR",
-      "name": "First Industrial Realty Trust, Inc."
+      "name": "First Industrial Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "REXR",
-      "name": "Rexford Industrial Realty, Inc."
+      "name": "Rexford Industrial Realty, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "ARE",
-      "name": "Alexandria Real Estate Equities, Inc."
+      "name": "Alexandria Real Estate Equities, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "STAG",
-      "name": "STAG Industrial, Inc."
+      "name": "STAG Industrial, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "HR",
-      "name": "Healthcare Realty Trust Incorporated"
+      "name": "Healthcare Realty Trust Incorporated",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "TRNO",
-      "name": "Terreno Realty Corporation"
+      "name": "Terreno Realty Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "RHP",
-      "name": "Ryman Hospitality Properties, Inc."
+      "name": "Ryman Hospitality Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "EPRT",
-      "name": "Essential Properties Realty Trust, Inc."
+      "name": "Essential Properties Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "STWD",
-      "name": "Starwood Property Trust, Inc."
+      "name": "Starwood Property Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "RYN",
-      "name": "Rayonier Inc."
+      "name": "Rayonier Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "COMP",
-      "name": "Compass, Inc."
+      "name": "Compass, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "VNO",
-      "name": "Vornado Realty Trust"
+      "name": "Vornado Realty Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "MAC",
-      "name": "The Macerich Company"
+      "name": "The Macerich Company",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "OUT",
-      "name": "OUTFRONT Media Inc."
+      "name": "OUTFRONT Media Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "KRG",
-      "name": "Kite Realty Group Trust"
+      "name": "Kite Realty Group Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "SBRA",
-      "name": "Sabra Health Care REIT, Inc."
+      "name": "Sabra Health Care REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "RITM",
-      "name": "Rithm Capital Corp."
+      "name": "Rithm Capital Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "JAN",
-      "name": "Janus Living, Inc."
+      "name": "Janus Living, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "PECO",
-      "name": "Phillips Edison & Company, Inc."
+      "name": "Phillips Edison & Company, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "MRP",
-      "name": "Millrose Properties, Inc."
+      "name": "Millrose Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "EPR",
-      "name": "EPR Properties"
+      "name": "EPR Properties",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "CUZ",
-      "name": "Cousins Properties Incorporated"
+      "name": "Cousins Properties Incorporated",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "FRMI",
-      "name": "Fermi Inc."
+      "name": "Fermi Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "COLD",
-      "name": "Americold Realty Trust, Inc."
+      "name": "Americold Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "SKT",
-      "name": "Tanger Inc."
+      "name": "Tanger Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "KRC",
-      "name": "Kilroy Realty Corporation"
+      "name": "Kilroy Realty Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "BNL",
-      "name": "Broadstone Net Lease, Inc."
+      "name": "Broadstone Net Lease, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "HHH",
-      "name": "Howard Hughes Holdings Inc."
+      "name": "Howard Hughes Holdings Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Development"
     },
     {
       "sy": "IRT",
-      "name": "Independence Realty Trust, Inc."
+      "name": "Independence Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "JOE",
-      "name": "The St. Joe Company"
+      "name": "The St. Joe Company",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Diversified"
     },
     {
       "sy": "NHI",
-      "name": "National Health Investors, Inc."
+      "name": "National Health Investors, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "CDP",
-      "name": "COPT Defense Properties"
+      "name": "COPT Defense Properties",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "APLE",
-      "name": "Apple Hospitality REIT, Inc."
+      "name": "Apple Hospitality REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "NSA",
-      "name": "National Storage Affiliates Trust"
+      "name": "National Storage Affiliates Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "BXMT",
-      "name": "Blackstone Mortgage Trust, Inc."
+      "name": "Blackstone Mortgage Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "MPT",
-      "name": "Medical Properties Trust, Inc."
+      "name": "Medical Properties Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "SLG",
-      "name": "SL Green Realty Corp."
+      "name": "SL Green Realty Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "LXP",
-      "name": "LXP Industrial Trust"
+      "name": "LXP Industrial Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "CWK",
-      "name": "Cushman & Wakefield Limited"
+      "name": "Cushman & Wakefield Limited",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "CURB",
-      "name": "Curbline Properties Corp."
+      "name": "Curbline Properties Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "HIW",
-      "name": "Highwoods Properties, Inc."
+      "name": "Highwoods Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "AKR",
-      "name": "Acadia Realty Trust"
+      "name": "Acadia Realty Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "DX",
-      "name": "Dynex Capital, Inc."
+      "name": "Dynex Capital, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "IHS",
-      "name": "IHS Holding Limited"
+      "name": "IHS Holding Limited",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "FCPT",
-      "name": "Four Corners Property Trust, Inc."
+      "name": "Four Corners Property Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "UE",
-      "name": "Urban Edge Properties"
+      "name": "Urban Edge Properties",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "UNIT",
-      "name": "Uniti Group Inc."
+      "name": "Uniti Group Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "NMRK",
-      "name": "Newmark Group, Inc."
+      "name": "Newmark Group, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "IVT",
-      "name": "InvenTrust Properties Corp."
+      "name": "InvenTrust Properties Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "PK",
-      "name": "Park Hotels & Resorts Inc."
+      "name": "Park Hotels & Resorts Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "ARR",
-      "name": "ARMOUR Residential REIT, Inc."
+      "name": "ARMOUR Residential REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "DRH",
-      "name": "DiamondRock Hospitality Company"
+      "name": "DiamondRock Hospitality Company",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "DHC",
-      "name": "Diversified Healthcare Trust"
+      "name": "Diversified Healthcare Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "NTST",
-      "name": "NETSTREIT Corp."
+      "name": "NETSTREIT Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "GTY",
-      "name": "Getty Realty Corp."
+      "name": "Getty Realty Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "DEI",
-      "name": "Douglas Emmett, Inc."
+      "name": "Douglas Emmett, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "GNL",
-      "name": "Global Net Lease, Inc."
+      "name": "Global Net Lease, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "LTC",
-      "name": "LTC Properties, Inc."
+      "name": "LTC Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "SHO",
-      "name": "Sunstone Hotel Investors, Inc."
+      "name": "Sunstone Hotel Investors, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "VRE",
-      "name": "Veris Residential, Inc."
+      "name": "Veris Residential, Inc.",
+      "sector": "Real Estate"
     },
     {
       "sy": "SILA",
-      "name": "Sila Realty Trust, Inc."
+      "name": "Sila Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "EFC",
-      "name": "Ellington Financial Inc."
+      "name": "Ellington Financial Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "SMA",
-      "name": "SmartStop Self Storage REIT, Inc."
+      "name": "SmartStop Self Storage REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "PEB",
-      "name": "Pebblebrook Hotel Trust"
+      "name": "Pebblebrook Hotel Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "IIPR",
-      "name": "Innovative Industrial Properties, Inc."
+      "name": "Innovative Industrial Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "KW",
-      "name": "Kennedy-Wilson Holdings, Inc."
+      "name": "Kennedy-Wilson Holdings, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "ESBA",
-      "name": "Empire State Realty OP, L.P."
+      "name": "Empire State Realty OP, L.P.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "XHR",
-      "name": "Xenia Hotels & Resorts, Inc."
+      "name": "Xenia Hotels & Resorts, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "CBL",
-      "name": "CBL & Associates Properties, Inc."
+      "name": "CBL & Associates Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "ARI",
-      "name": "Apollo Commercial Real Estate Finance, Inc."
+      "name": "Apollo Commercial Real Estate Finance, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "HBNB",
-      "name": "Hotel101 Global Holdings Corp."
+      "name": "Hotel101 Global Holdings Corp.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "CCS",
-      "name": "Century Communities, Inc."
+      "name": "Century Communities, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Development"
     },
     {
       "sy": "ORC",
-      "name": "Orchid Island Capital, Inc."
+      "name": "Orchid Island Capital, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "RLJ",
-      "name": "RLJ Lodging Trust"
+      "name": "RLJ Lodging Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "TWO",
-      "name": "Two Harbors Investment Corp."
+      "name": "Two Harbors Investment Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "FOR",
-      "name": "Forestar Group Inc."
+      "name": "Forestar Group Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Development"
     },
     {
       "sy": "AAT",
-      "name": "American Assets Trust, Inc."
+      "name": "American Assets Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "UMH",
-      "name": "UMH Properties, Inc."
+      "name": "UMH Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "LADR",
-      "name": "Ladder Capital Corp"
+      "name": "Ladder Capital Corp",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "ALX",
-      "name": "Alexander's, Inc."
+      "name": "Alexander's, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "CSR",
-      "name": "Centerspace"
+      "name": "Centerspace",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "ABR",
-      "name": "Arbor Realty Trust, Inc."
+      "name": "Arbor Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "CIM",
-      "name": "Chimera Investment Corporation"
+      "name": "Chimera Investment Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "DEA",
-      "name": "Easterly Government Properties, Inc."
+      "name": "Easterly Government Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "MMI",
-      "name": "Marcus & Millichap, Inc."
+      "name": "Marcus & Millichap, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "SAFE",
-      "name": "Safehold Inc."
+      "name": "Safehold Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "WSR",
-      "name": "Whitestone REIT"
+      "name": "Whitestone REIT",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "PDM",
-      "name": "Piedmont Realty Trust, Inc."
+      "name": "Piedmont Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "MFA",
-      "name": "MFA Financial, Inc."
+      "name": "MFA Financial, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "ESRT",
-      "name": "Empire State Realty Trust, Inc."
+      "name": "Empire State Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "PMT",
-      "name": "PennyMac Mortgage Investment Trust"
+      "name": "PennyMac Mortgage Investment Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "JBGS",
-      "name": "JBG SMITH Properties"
+      "name": "JBG SMITH Properties",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "BFS",
-      "name": "Saul Centers, Inc."
+      "name": "Saul Centers, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "ADAM",
-      "name": "Adamas Trust, Inc."
+      "name": "Adamas Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "BRSP",
-      "name": "BrightSpire Capital, Inc."
+      "name": "BrightSpire Capital, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "IVR",
-      "name": "Invesco Mortgage Capital Inc."
+      "name": "Invesco Mortgage Capital Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "NXRT",
-      "name": "NexPoint Residential Trust, Inc."
+      "name": "NexPoint Residential Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "FBRT",
-      "name": "Franklin BSP Realty Trust, Inc."
+      "name": "Franklin BSP Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "CTO",
-      "name": "CTO Realty Growth, Inc."
+      "name": "CTO Realty Growth, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "RWT",
-      "name": "Redwood Trust, Inc."
+      "name": "Redwood Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "PSTL",
-      "name": "Postal Realty Trust, Inc."
+      "name": "Postal Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "TRTX",
-      "name": "TPG RE Finance Trust, Inc."
+      "name": "TPG RE Finance Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "HPP",
-      "name": "Hudson Pacific Properties, Inc."
+      "name": "Hudson Pacific Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "GOOD",
-      "name": "Gladstone Commercial Corporation"
+      "name": "Gladstone Commercial Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "INN",
-      "name": "Summit Hotel Properties, Inc."
+      "name": "Summit Hotel Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "UHT",
-      "name": "Universal Health Realty Income Trust"
+      "name": "Universal Health Realty Income Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "ILPT",
-      "name": "Industrial Logistics Properties Trust"
+      "name": "Industrial Logistics Properties Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "AHRT",
-      "name": "AH REALTY TRUST INC"
+      "name": "AH REALTY TRUST INC",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "OLP",
-      "name": "One Liberty Properties, Inc."
+      "name": "One Liberty Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "CHCT",
-      "name": "Community Healthcare Trust Incorporated"
+      "name": "Community Healthcare Trust Incorporated",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "CLDT",
-      "name": "Chatham Lodging Trust"
+      "name": "Chatham Lodging Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Hotel & Motel"
     },
     {
       "sy": "XRN",
-      "name": "Chiron Real Estate Inc."
+      "name": "Chiron Real Estate Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "FPI",
-      "name": "Farmland Partners Inc."
+      "name": "Farmland Partners Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "FRPH",
-      "name": "FRP Holdings, Inc."
+      "name": "FRP Holdings, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "KREF",
-      "name": "KKR Real Estate Finance Trust Inc."
+      "name": "KKR Real Estate Finance Trust Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "LAND",
-      "name": "Gladstone Land Corporation"
+      "name": "Gladstone Land Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "FVR",
-      "name": "FrontView REIT, Inc."
+      "name": "FrontView REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Diversified"
     },
     {
       "sy": "RMR",
-      "name": "The RMR Group Inc."
+      "name": "The RMR Group Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "PINE",
-      "name": "Alpine Income Property Trust, Inc."
+      "name": "Alpine Income Property Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "TCI",
-      "name": "Transcontinental Realty Investors, Inc."
+      "name": "Transcontinental Realty Investors, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "SKYH",
-      "name": "Sky Harbour Group Corporation"
+      "name": "Sky Harbour Group Corporation",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Development"
     },
     {
       "sy": "MLP",
-      "name": "Maui Land & Pineapple Company, Inc."
+      "name": "Maui Land & Pineapple Company, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "NLCP",
-      "name": "NewLake Capital Partners, Inc."
+      "name": "NewLake Capital Partners, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "SEG",
-      "name": "Seaport Entertainment Group Inc."
+      "name": "Seaport Entertainment Group Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "SITC",
-      "name": "SITE Centers Corp."
+      "name": "SITE Centers Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Retail"
     },
     {
       "sy": "NREF",
-      "name": "NexPoint Real Estate Finance, Inc."
+      "name": "NexPoint Real Estate Finance, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "BRT",
-      "name": "BRT Apartments Corp."
+      "name": "BRT Apartments Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "REFI",
-      "name": "Chicago Atlantic Real Estate Finance, Inc."
+      "name": "Chicago Atlantic Real Estate Finance, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "MITT",
-      "name": "TPG Mortgage Investment Trust, Inc."
+      "name": "TPG Mortgage Investment Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "STRS",
-      "name": "Stratus Properties Inc."
+      "name": "Stratus Properties Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Diversified"
     },
     {
       "sy": "ARL",
-      "name": "American Realty Investors, Inc."
+      "name": "American Realty Investors, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "AOMR",
-      "name": "Angel Oak Mortgage REIT, Inc."
+      "name": "Angel Oak Mortgage REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "MNPP",
-      "name": "Merchants' National Properties, Inc."
+      "name": "Merchants' National Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Diversified"
     },
     {
       "sy": "OZ",
-      "name": "Belpointe PREP, LLC"
+      "name": "Belpointe PREP, LLC",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Development"
     },
     {
       "sy": "RMAX",
-      "name": "RE/MAX Holdings, Inc."
+      "name": "RE/MAX Holdings, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "MDV",
-      "name": "Modiv Industrial, Inc."
+      "name": "Modiv Industrial, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Industrial"
     },
     {
       "sy": "SEVN",
-      "name": "Seven Hills Realty Trust"
+      "name": "Seven Hills Realty Trust",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "STRW",
-      "name": "Strawberry Fields REIT, Inc."
+      "name": "Strawberry Fields REIT, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     },
     {
       "sy": "NLOP",
-      "name": "Net Lease Office Properties"
+      "name": "Net Lease Office Properties",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "CHCI",
-      "name": "Comstock Holding Companies, Inc."
+      "name": "Comstock Holding Companies, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "ACR",
-      "name": "ACRES Commercial Realty Corp."
+      "name": "ACRES Commercial Realty Corp.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "AXR",
-      "name": "AMREP Corporation"
+      "name": "AMREP Corporation",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Development"
     },
     {
       "sy": "RPT",
-      "name": "Rithm Property Trust Inc."
+      "name": "Rithm Property Trust Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "SUNS",
-      "name": "Sunrise Realty Trust, Inc."
+      "name": "Sunrise Realty Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Mortgage"
     },
     {
       "sy": "STHO",
-      "name": "Star Holdings"
+      "name": "Star Holdings",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "SDHC",
-      "name": "Smith Douglas Homes Corp."
+      "name": "Smith Douglas Homes Corp.",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Development"
     },
     {
       "sy": "CPTP",
-      "name": "Capital Properties, Inc."
+      "name": "Capital Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "JFB",
-      "name": "JFB Construction Holdings"
+      "name": "JFB Construction Holdings",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Development"
     },
     {
       "sy": "ASPS",
-      "name": "Altisource Portfolio Solutions S.A."
+      "name": "Altisource Portfolio Solutions S.A.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "FHRT",
-      "name": "First Hartford Corporation"
+      "name": "First Hartford Corporation",
+      "sector": "Real Estate",
+      "industry": "Real Estate - Development"
     },
     {
       "sy": "SELF",
-      "name": "Global Self Storage, Inc."
+      "name": "Global Self Storage, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "BHM",
-      "name": "Bluerock Homes Trust, Inc."
+      "name": "Bluerock Homes Trust, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Residential"
     },
     {
       "sy": "EUDA",
-      "name": "EUDA Health Holdings Limited"
+      "name": "EUDA Health Holdings Limited",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "NYC",
-      "name": "American Strategic Investment Co."
+      "name": "American Strategic Investment Co.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "MDRR",
-      "name": "Medalist Diversified, Inc."
+      "name": "Medalist Diversified, Inc.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "GYRO",
-      "name": "Gyrodyne, LLC"
+      "name": "Gyrodyne, LLC",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "CMCT",
-      "name": "Creative Media & Community Trust Corporation"
+      "name": "Creative Media & Community Trust Corporation",
+      "sector": "Real Estate",
+      "industry": "REIT - Office"
     },
     {
       "sy": "MGAG",
-      "name": "Mortgage Oil Corp."
+      "name": "Mortgage Oil Corp.",
+      "sector": "Real Estate",
+      "industry": "Real Estate Services"
     },
     {
       "sy": "BXDC",
-      "name": "Blackstone Digital Infrastructure Trust Inc."
+      "name": "Blackstone Digital Infrastructure Trust Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Specialty"
     },
     {
       "sy": "NHP",
-      "name": "National Healthcare Properties, Inc."
+      "name": "National Healthcare Properties, Inc.",
+      "sector": "Real Estate",
+      "industry": "REIT - Healthcare Facilities"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }

@@ -7,311 +7,467 @@
   "tickers": [
     {
       "sy": "NEE",
-      "name": "NextEra Energy, Inc."
+      "name": "NextEra Energy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "SO",
-      "name": "The Southern Company"
+      "name": "The Southern Company",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "CEG",
-      "name": "Constellation Energy Corporation"
+      "name": "Constellation Energy Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Independent Power Producers"
     },
     {
       "sy": "DUK",
-      "name": "Duke Energy Corporation"
+      "name": "Duke Energy Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "AEP",
-      "name": "American Electric Power Company, Inc."
+      "name": "American Electric Power Company, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "SRE",
-      "name": "Sempra"
+      "name": "Sempra",
+      "sector": "Utilities",
+      "industry": "Utilities - Diversified"
     },
     {
       "sy": "D",
-      "name": "Dominion Energy, Inc."
+      "name": "Dominion Energy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "ETR",
-      "name": "Entergy Corporation"
+      "name": "Entergy Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "XEL",
-      "name": "Xcel Energy Inc."
+      "name": "Xcel Energy Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "VST",
-      "name": "Vistra Corp."
+      "name": "Vistra Corp.",
+      "sector": "Utilities",
+      "industry": "Utilities - Independent Power Producers"
     },
     {
       "sy": "EXC",
-      "name": "Exelon Corporation"
+      "name": "Exelon Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "ED",
-      "name": "Consolidated Edison, Inc."
+      "name": "Consolidated Edison, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "PEG",
-      "name": "Public Service Enterprise Group Incorporated"
+      "name": "Public Service Enterprise Group Incorporated",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "WEC",
-      "name": "WEC Energy Group, Inc."
+      "name": "WEC Energy Group, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "PCG",
-      "name": "PG&E Corporation"
+      "name": "PG&E Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "ATO",
-      "name": "Atmos Energy Corporation"
+      "name": "Atmos Energy Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "AEE",
-      "name": "Ameren Corporation"
+      "name": "Ameren Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "DTE",
-      "name": "DTE Energy Company"
+      "name": "DTE Energy Company",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "CNP",
-      "name": "CenterPoint Energy, Inc."
+      "name": "CenterPoint Energy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "NRG",
-      "name": "NRG Energy, Inc."
+      "name": "NRG Energy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Independent Power Producers"
     },
     {
       "sy": "EIX",
-      "name": "Edison International"
+      "name": "Edison International",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "PPL",
-      "name": "PPL Corporation"
+      "name": "PPL Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "FE",
-      "name": "FirstEnergy Corp."
+      "name": "FirstEnergy Corp.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "ES",
-      "name": "Eversource Energy"
+      "name": "Eversource Energy",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "AWK",
-      "name": "American Water Works Company, Inc."
+      "name": "American Water Works Company, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "NI",
-      "name": "NiSource Inc."
+      "name": "NiSource Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "CMS",
-      "name": "CMS Energy Corporation"
+      "name": "CMS Energy Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "EVRG",
-      "name": "Evergy, Inc."
+      "name": "Evergy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "LNT",
-      "name": "Alliant Energy Corporation"
+      "name": "Alliant Energy Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "TLN",
-      "name": "Talen Energy Corporation"
+      "name": "Talen Energy Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Independent Power Producers"
     },
     {
       "sy": "PNW",
-      "name": "Pinnacle West Capital Corporation"
+      "name": "Pinnacle West Capital Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "OKLO",
-      "name": "Oklo Inc."
+      "name": "Oklo Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Independent Power Producers"
     },
     {
       "sy": "WTRG",
-      "name": "Essential Utilities, Inc."
+      "name": "Essential Utilities, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "AES",
-      "name": "The AES Corporation"
+      "name": "The AES Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Diversified"
     },
     {
       "sy": "OGE",
-      "name": "OGE Energy Corp."
+      "name": "OGE Energy Corp.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "MWH",
-      "name": "SOLV Energy, Inc."
+      "name": "SOLV Energy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Renewable"
     },
     {
       "sy": "ORA",
-      "name": "Ormat Technologies, Inc."
+      "name": "Ormat Technologies, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Renewable"
     },
     {
       "sy": "IDA",
-      "name": "IDACORP, Inc."
+      "name": "IDACORP, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "UGI",
-      "name": "UGI Corporation"
+      "name": "UGI Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "TXNM",
-      "name": "TXNM Energy, Inc."
+      "name": "TXNM Energy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "SWX",
-      "name": "Southwest Gas Holdings, Inc."
+      "name": "Southwest Gas Holdings, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "NJR",
-      "name": "New Jersey Resources Corporation"
+      "name": "New Jersey Resources Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "CWEN",
-      "name": "Clearway Energy, Inc."
+      "name": "Clearway Energy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Renewable"
     },
     {
       "sy": "BKH",
-      "name": "Black Hills Corporation"
+      "name": "Black Hills Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "POR",
-      "name": "Portland General Electric Company"
+      "name": "Portland General Electric Company",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "OGS",
-      "name": "ONE Gas, Inc."
+      "name": "ONE Gas, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "SR",
-      "name": "Spire Inc."
+      "name": "Spire Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "MDU",
-      "name": "MDU Resources Group, Inc."
+      "name": "MDU Resources Group, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "KEN",
-      "name": "Kenon Holdings Ltd."
+      "name": "Kenon Holdings Ltd.",
+      "sector": "Utilities",
+      "industry": "Utilities - Independent Power Producers"
     },
     {
       "sy": "NWE",
-      "name": "NorthWestern Energy Group, Inc."
+      "name": "NorthWestern Energy Group, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "AVA",
-      "name": "Avista Corporation"
+      "name": "Avista Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Diversified"
     },
     {
       "sy": "CTRI",
-      "name": "Centuri Holdings, Inc."
+      "name": "Centuri Holdings, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "CPK",
-      "name": "Chesapeake Utilities Corporation"
+      "name": "Chesapeake Utilities Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "AWR",
-      "name": "American States Water Company"
+      "name": "American States Water Company",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "MGEE",
-      "name": "MGE Energy, Inc."
+      "name": "MGE Energy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "FLNC",
-      "name": "Fluence Energy, Inc."
+      "name": "Fluence Energy, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Renewable"
     },
     {
       "sy": "CWT",
-      "name": "California Water Service Group"
+      "name": "California Water Service Group",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "HTO",
-      "name": "H2O America"
+      "name": "H2O America",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "HE",
-      "name": "Hawaiian Electric Industries, Inc."
+      "name": "Hawaiian Electric Industries, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "NWN",
-      "name": "Northwest Natural Holding Company"
+      "name": "Northwest Natural Holding Company",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "RNW",
-      "name": "ReNew Energy Global Plc"
+      "name": "ReNew Energy Global Plc",
+      "sector": "Utilities",
+      "industry": "Utilities - Renewable"
     },
     {
       "sy": "SPH",
-      "name": "Suburban Propane Partners, L.P."
+      "name": "Suburban Propane Partners, L.P.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "XIFR",
-      "name": "XPLR Infrastructure, LP"
+      "name": "XPLR Infrastructure, LP",
+      "sector": "Utilities",
+      "industry": "Utilities - Renewable"
     },
     {
       "sy": "NRGV",
-      "name": "Energy Vault Holdings, Inc."
+      "name": "Energy Vault Holdings, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Renewable"
     },
     {
       "sy": "MSEX",
-      "name": "Middlesex Water Company"
+      "name": "Middlesex Water Company",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "UTL",
-      "name": "Unitil Corporation"
+      "name": "Unitil Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Diversified"
     },
     {
       "sy": "IMSR",
-      "name": "Terrestrial Energy Inc."
+      "name": "Terrestrial Energy Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "YORW",
-      "name": "The York Water Company"
+      "name": "The York Water Company",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "CWCO",
-      "name": "Consolidated Water Co. Ltd."
+      "name": "Consolidated Water Co. Ltd.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "NKLR",
-      "name": "Terra Innovatum Global N.V."
+      "name": "Terra Innovatum Global N.V.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "GNE",
-      "name": "Genie Energy Ltd."
+      "name": "Genie Energy Ltd.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Electric"
     },
     {
       "sy": "ARTNA",
-      "name": "Artesian Resources Corporation"
+      "name": "Artesian Resources Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "ELLO",
-      "name": "Ellomay Capital Ltd."
+      "name": "Ellomay Capital Ltd.",
+      "sector": "Utilities",
+      "industry": "Utilities - Renewable"
     },
     {
       "sy": "PCYO",
-      "name": "Pure Cycle Corporation"
+      "name": "Pure Cycle Corporation",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "RGCO",
-      "name": "RGC Resources, Inc."
+      "name": "RGC Resources, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Gas"
     },
     {
       "sy": "GWRS",
-      "name": "Global Water Resources, Inc."
+      "name": "Global Water Resources, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Regulated Water"
     },
     {
       "sy": "STEM",
-      "name": "Stem, Inc."
+      "name": "Stem, Inc.",
+      "sector": "Utilities",
+      "industry": "Utilities - Renewable"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }

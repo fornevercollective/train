@@ -7,551 +7,826 @@
   "tickers": [
     {
       "sy": "WMT",
-      "name": "Walmart Inc."
+      "name": "Walmart Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores"
     },
     {
       "sy": "COST",
-      "name": "Costco Wholesale Corporation"
+      "name": "Costco Wholesale Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores"
     },
     {
       "sy": "KO",
-      "name": "The Coca-Cola Company"
+      "name": "The Coca-Cola Company",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "PG",
-      "name": "The Procter & Gamble Company"
+      "name": "The Procter & Gamble Company",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "PM",
-      "name": "Philip Morris International Inc."
+      "name": "Philip Morris International Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Tobacco"
     },
     {
       "sy": "PEP",
-      "name": "PepsiCo, Inc."
+      "name": "PepsiCo, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "MO",
-      "name": "Altria Group, Inc."
+      "name": "Altria Group, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Tobacco"
     },
     {
       "sy": "MNST",
-      "name": "Monster Beverage Corporation"
+      "name": "Monster Beverage Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "MDLZ",
-      "name": "Mondelez International, Inc."
+      "name": "Mondelez International, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Confectioners"
     },
     {
       "sy": "CL",
-      "name": "Colgate-Palmolive Company"
+      "name": "Colgate-Palmolive Company",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "TGT",
-      "name": "Target Corporation"
+      "name": "Target Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores"
     },
     {
       "sy": "KR",
-      "name": "The Kroger Co."
+      "name": "The Kroger Co.",
+      "sector": "Consumer Defensive",
+      "industry": "Grocery Stores"
     },
     {
       "sy": "KDP",
-      "name": "Keurig Dr Pepper Inc."
+      "name": "Keurig Dr Pepper Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "ADM",
-      "name": "Archer-Daniels-Midland Company"
+      "name": "Archer-Daniels-Midland Company",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "HSY",
-      "name": "The Hershey Company"
+      "name": "The Hershey Company",
+      "sector": "Consumer Defensive",
+      "industry": "Confectioners"
     },
     {
       "sy": "SYY",
-      "name": "Sysco Corporation"
+      "name": "Sysco Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Food Distribution"
     },
     {
       "sy": "KVUE",
-      "name": "Kenvue Inc."
+      "name": "Kenvue Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "KMB",
-      "name": "Kimberly-Clark Corporation"
+      "name": "Kimberly-Clark Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "EL",
-      "name": "The Estée Lauder Companies Inc."
+      "name": "The Estée Lauder Companies Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "KHC",
-      "name": "The Kraft Heinz Company"
+      "name": "The Kraft Heinz Company",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "STZ",
-      "name": "Constellation Brands, Inc."
+      "name": "Constellation Brands, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Brewers"
     },
     {
       "sy": "BG",
-      "name": "Bunge Global SA"
+      "name": "Bunge Global SA",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "TSN",
-      "name": "Tyson Foods, Inc."
+      "name": "Tyson Foods, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "DG",
-      "name": "Dollar General Corporation"
+      "name": "Dollar General Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores"
     },
     {
       "sy": "CHD",
-      "name": "Church & Dwight Co., Inc."
+      "name": "Church & Dwight Co., Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "USFD",
-      "name": "US Foods Holding Corp."
+      "name": "US Foods Holding Corp.",
+      "sector": "Consumer Defensive",
+      "industry": "Food Distribution"
     },
     {
       "sy": "GIS",
-      "name": "General Mills, Inc."
+      "name": "General Mills, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "DLTR",
-      "name": "Dollar Tree, Inc."
+      "name": "Dollar Tree, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores"
     },
     {
       "sy": "PFGC",
-      "name": "Performance Food Group Company"
+      "name": "Performance Food Group Company",
+      "sector": "Consumer Defensive",
+      "industry": "Food Distribution"
     },
     {
       "sy": "JBS",
-      "name": "JBS N.V."
+      "name": "JBS N.V.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "MKC",
-      "name": "McCormick & Company, Incorporated"
+      "name": "McCormick & Company, Incorporated",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "BJ",
-      "name": "BJ's Wholesale Club Holdings, Inc."
+      "name": "BJ's Wholesale Club Holdings, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores"
     },
     {
       "sy": "BF-B",
-      "name": "Brown-Forman Corporation"
+      "name": "Brown-Forman Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Wineries & Distilleries"
     },
     {
       "sy": "COKE",
-      "name": "Coca-Cola Consolidated, Inc."
+      "name": "Coca-Cola Consolidated, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "CLX",
-      "name": "The Clorox Company"
+      "name": "The Clorox Company",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "HRL",
-      "name": "Hormel Foods Corporation"
+      "name": "Hormel Foods Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "SJM",
-      "name": "The J. M. Smucker Company"
+      "name": "The J. M. Smucker Company",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "DAR",
-      "name": "Darling Ingredients Inc."
+      "name": "Darling Ingredients Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "SFD",
-      "name": "Smithfield Foods, Inc."
+      "name": "Smithfield Foods, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "PRMB",
-      "name": "Primo Brands Corporation"
+      "name": "Primo Brands Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "ACI",
-      "name": "Albertsons Companies, Inc."
+      "name": "Albertsons Companies, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Grocery Stores"
     },
     {
       "sy": "SFM",
-      "name": "Sprouts Farmers Market, Inc."
+      "name": "Sprouts Farmers Market, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Grocery Stores"
     },
     {
       "sy": "CELH",
-      "name": "Celsius Holdings, Inc."
+      "name": "Celsius Holdings, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "TAP",
-      "name": "Molson Coors Beverage Company"
+      "name": "Molson Coors Beverage Company",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Brewers"
     },
     {
       "sy": "PPC",
-      "name": "Pilgrim's Pride Corporation"
+      "name": "Pilgrim's Pride Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "INGR",
-      "name": "Ingredion Incorporated"
+      "name": "Ingredion Incorporated",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "CAG",
-      "name": "Conagra Brands, Inc."
+      "name": "Conagra Brands, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "LW",
-      "name": "Lamb Weston Holdings, Inc."
+      "name": "Lamb Weston Holdings, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "CPB",
-      "name": "The Campbell's Company"
+      "name": "The Campbell's Company",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "PSMT",
-      "name": "PriceSmart, Inc."
+      "name": "PriceSmart, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores"
     },
     {
       "sy": "OLLI",
-      "name": "Ollie's Bargain Outlet Holdings, Inc."
+      "name": "Ollie's Bargain Outlet Holdings, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores"
     },
     {
       "sy": "GHC",
-      "name": "Graham Holdings Company"
+      "name": "Graham Holdings Company",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "POST",
-      "name": "Post Holdings, Inc."
+      "name": "Post Holdings, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "LAUR",
-      "name": "Laureate Education, Inc."
+      "name": "Laureate Education, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "COCO",
-      "name": "The Vita Coco Company, Inc."
+      "name": "The Vita Coco Company, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "TBBB",
-      "name": "BBB Foods Inc."
+      "name": "BBB Foods Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Discount Stores"
     },
     {
       "sy": "LOPE",
-      "name": "Grand Canyon Education, Inc."
+      "name": "Grand Canyon Education, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "CVSA",
-      "name": "Covista Inc."
+      "name": "Covista Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "LRN",
-      "name": "Stride, Inc."
+      "name": "Stride, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "CALM",
-      "name": "Cal-Maine Foods, Inc."
+      "name": "Cal-Maine Foods, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "ELF",
-      "name": "e.l.f. Beauty, Inc."
+      "name": "e.l.f. Beauty, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "CHEF",
-      "name": "The Chefs' Warehouse, Inc."
+      "name": "The Chefs' Warehouse, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Food Distribution"
     },
     {
       "sy": "FIZZ",
-      "name": "National Beverage Corp."
+      "name": "National Beverage Corp.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "MZTI",
-      "name": "The Marzetti Company"
+      "name": "The Marzetti Company",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "UNFI",
-      "name": "United Natural Foods, Inc."
+      "name": "United Natural Foods, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Food Distribution"
     },
     {
       "sy": "TR",
-      "name": "Tootsie Roll Industries, Inc."
+      "name": "Tootsie Roll Industries, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Confectioners"
     },
     {
       "sy": "IPAR",
-      "name": "Interparfums, Inc."
+      "name": "Interparfums, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "ANDE",
-      "name": "The Andersons, Inc."
+      "name": "The Andersons, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Food Distribution"
     },
     {
       "sy": "FRPT",
-      "name": "Freshpet, Inc."
+      "name": "Freshpet, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "CENT",
-      "name": "Central Garden & Pet Company"
+      "name": "Central Garden & Pet Company",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "MH",
-      "name": "McGraw Hill, Inc."
+      "name": "McGraw Hill, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "UTI",
-      "name": "Universal Technical Institute, Inc."
+      "name": "Universal Technical Institute, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "PRDO",
-      "name": "Perdoceo Education Corporation"
+      "name": "Perdoceo Education Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "AGRO",
-      "name": "Adecoagro S.A."
+      "name": "Adecoagro S.A.",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "SAM",
-      "name": "The Boston Beer Company, Inc."
+      "name": "The Boston Beer Company, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Brewers"
     },
     {
       "sy": "SPB",
-      "name": "Spectrum Brands Holdings, Inc."
+      "name": "Spectrum Brands Holdings, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "STRA",
-      "name": "Strategic Education, Inc."
+      "name": "Strategic Education, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "WMK",
-      "name": "Weis Markets, Inc."
+      "name": "Weis Markets, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Grocery Stores"
     },
     {
       "sy": "TPB",
-      "name": "Turning Point Brands, Inc."
+      "name": "Turning Point Brands, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Tobacco"
     },
     {
       "sy": "IMKTA",
-      "name": "Ingles Markets, Incorporated"
+      "name": "Ingles Markets, Incorporated",
+      "sector": "Consumer Defensive",
+      "industry": "Grocery Stores"
     },
     {
       "sy": "LINC",
-      "name": "Lincoln Educational Services Corporation"
+      "name": "Lincoln Educational Services Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "FDP",
-      "name": "Fresh Del Monte Produce Inc."
+      "name": "Fresh Del Monte Produce Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "FLO",
-      "name": "Flowers Foods, Inc."
+      "name": "Flowers Foods, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "COUR",
-      "name": "Coursera, Inc."
+      "name": "Coursera, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "NOMD",
-      "name": "Nomad Foods Limited"
+      "name": "Nomad Foods Limited",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "DOLE",
-      "name": "Dole plc"
+      "name": "Dole plc",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "JJSF",
-      "name": "J&J Snack Foods Corp."
+      "name": "J&J Snack Foods Corp.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "UVV",
-      "name": "Universal Corporation"
+      "name": "Universal Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Tobacco"
     },
     {
       "sy": "HLF",
-      "name": "Herbalife Ltd."
+      "name": "Herbalife Ltd.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "AFYA",
-      "name": "Afya Limited"
+      "name": "Afya Limited",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "BRBR",
-      "name": "BellRing Brands, Inc."
+      "name": "BellRing Brands, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "PXED",
-      "name": "Phoenix Education Partners, Inc."
+      "name": "Phoenix Education Partners, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "SMPL",
-      "name": "The Simply Good Foods Company"
+      "name": "The Simply Good Foods Company",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "RAJAF",
-      "name": "CORDYCEPS SUNSHINE BIOTECH HOLD"
+      "name": "CORDYCEPS SUNSHINE BIOTECH HOLD",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "APEI",
-      "name": "American Public Education, Inc."
+      "name": "American Public Education, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "SENEA",
-      "name": "Seneca Foods Corporation"
+      "name": "Seneca Foods Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "JBSS",
-      "name": "John B. Sanfilippo & Son, Inc."
+      "name": "John B. Sanfilippo & Son, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "AVO",
-      "name": "Mission Produce, Inc."
+      "name": "Mission Produce, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Food Distribution"
     },
     {
       "sy": "WEST",
-      "name": "Westrock Coffee Company"
+      "name": "Westrock Coffee Company",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "EPC",
-      "name": "Edgewell Personal Care Company"
+      "name": "Edgewell Personal Care Company",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "GO",
-      "name": "Grocery Outlet Holding Corp."
+      "name": "Grocery Outlet Holding Corp.",
+      "sector": "Consumer Defensive",
+      "industry": "Grocery Stores"
     },
     {
       "sy": "ODD",
-      "name": "Oddity Tech Ltd."
+      "name": "Oddity Tech Ltd.",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "OFRM",
-      "name": "Once Upon A Farm, PBC"
+      "name": "Once Upon A Farm, PBC",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "VLGEA",
-      "name": "Village Super Market, Inc."
+      "name": "Village Super Market, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Grocery Stores"
     },
     {
       "sy": "NGVC",
-      "name": "Natural Grocers by Vitamin Cottage, Inc."
+      "name": "Natural Grocers by Vitamin Cottage, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Grocery Stores"
     },
     {
       "sy": "UTZ",
-      "name": "Utz Brands, Inc."
+      "name": "Utz Brands, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "MAMA",
-      "name": "Mama's Creations, Inc."
+      "name": "Mama's Creations, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "HELE",
-      "name": "Helen of Troy Limited"
+      "name": "Helen of Troy Limited",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "WILC",
-      "name": "G. Willi-Food International Ltd."
+      "name": "G. Willi-Food International Ltd.",
+      "sector": "Consumer Defensive",
+      "industry": "Food Distribution"
     },
     {
       "sy": "CVGW",
-      "name": "Calavo Growers, Inc."
+      "name": "Calavo Growers, Inc.",
+      "sector": "Consumer Staples"
     },
     {
       "sy": "AGCC",
-      "name": "Agencia Comercial Spirits Ltd"
+      "name": "Agencia Comercial Spirits Ltd",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Wineries & Distilleries"
     },
     {
       "sy": "NATR",
-      "name": "Nature's Sunshine Products, Inc."
+      "name": "Nature's Sunshine Products, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "MGPI",
-      "name": "MGP Ingredients, Inc."
+      "name": "MGP Ingredients, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Wineries & Distilleries"
     },
     {
       "sy": "LWAY",
-      "name": "Lifeway Foods, Inc."
+      "name": "Lifeway Foods, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "VITL",
-      "name": "Vital Farms, Inc."
+      "name": "Vital Farms, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "MAGN",
-      "name": "Magnera Corporation"
+      "name": "Magnera Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "USNA",
-      "name": "USANA Health Sciences, Inc."
+      "name": "USANA Health Sciences, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "AMNF",
-      "name": "Armanino Foods of Distinction, Inc."
+      "name": "Armanino Foods of Distinction, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "ALCO",
-      "name": "Alico, Inc."
+      "name": "Alico, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "NUS",
-      "name": "Nu Skin Enterprises, Inc."
+      "name": "Nu Skin Enterprises, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "AFRI",
-      "name": "Forafric Global PLC"
+      "name": "Forafric Global PLC",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "PTNM",
-      "name": "Pitanium Limited"
+      "name": "Pitanium Limited",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "LMNR",
-      "name": "Limoneira Company"
+      "name": "Limoneira Company",
+      "sector": "Consumer Defensive",
+      "industry": "Farm Products"
     },
     {
       "sy": "FC",
-      "name": "Franklin Covey Co."
+      "name": "Franklin Covey Co.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "ACU",
-      "name": "Acme United Corporation"
+      "name": "Acme United Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "LGCY",
-      "name": "Legacy Education Inc."
+      "name": "Legacy Education Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "BUDA",
-      "name": "Buda Juice, Inc."
+      "name": "Buda Juice, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "FTLF",
-      "name": "FitLife Brands, Inc."
+      "name": "FitLife Brands, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "CLNN",
-      "name": "Clene Inc."
+      "name": "Clene Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "DIT",
-      "name": "AMCON Distributing Company"
+      "name": "AMCON Distributing Company",
+      "sector": "Consumer Defensive",
+      "industry": "Food Distribution"
     },
     {
       "sy": "BRID",
-      "name": "Bridgford Foods Corporation"
+      "name": "Bridgford Foods Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "LFVN",
-      "name": "LifeVantage Corporation"
+      "name": "LifeVantage Corporation",
+      "sector": "Consumer Defensive",
+      "industry": "Packaged Foods"
     },
     {
       "sy": "RYM",
-      "name": "RYTHM, Inc."
+      "name": "RYTHM, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Tobacco"
     },
     {
       "sy": "SKIL",
-      "name": "Skillsoft Corp."
+      "name": "Skillsoft Corp.",
+      "sector": "Consumer Defensive",
+      "industry": "Education & Training Services"
     },
     {
       "sy": "UG",
-      "name": "United-Guardian, Inc."
+      "name": "United-Guardian, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products"
     },
     {
       "sy": "SUJA",
-      "name": "Suja Life, Inc."
+      "name": "Suja Life, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Beverages - Non - Alcoholic"
     },
     {
       "sy": "YSWY",
-      "name": "Yesway, Inc."
+      "name": "Yesway, Inc.",
+      "sector": "Consumer Defensive",
+      "industry": "Grocery Stores"
     }
-  ]
+  ],
+  "industryEnriched": "2026-06-05",
+  "industrySource": "yahoo_finance_search"
 }
